@@ -1,9 +1,0 @@
-package com.ap.configuration;
-/**
- *
- * @author andrew
- */
-public class Config {
-        public static  String classificationXMLPath="D:\\questioner\\data\\classification.xml";
-        public static  String questionsPath="D:\\questioner\\data\\questions\\";
-}
