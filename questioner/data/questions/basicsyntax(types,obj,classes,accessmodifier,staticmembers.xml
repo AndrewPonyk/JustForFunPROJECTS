@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="1_0_0_0" name="Basic Syntax(types,obj,classes,accessmodifier,staticmembers" nofquestions="4" nofsubcategories="0" filename="basicsyntax(types,obj,classes,accessmodifier,staticmembers.xml">
+  <question id="1_0_0_0:0" type="0">
+    <questiontext>What keyword is used to prevent an object from being serialized?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$private$v0end$&lt;br&gt;
+$v1$volatile$v1end$&lt;br&gt;
+$v2$protected$v2end$&lt;br&gt;
+$v3$transient$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_0_0_0:1" type="1">
+    <questiontext>An abstract class can contain methods with declared bodies.</questiontext>
+    <questionanswer>yes</questionanswer>
+  </question>
+  <question id="1_0_0_0:2" type="0">
+    <questiontext>Select the order of access modifiers from least restrictive to most 
+    restrictive.&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ public,  private ,  protected , 
+    default $v0end$&lt;br&gt;
+$v1$ default, protected ,  private ,  
+    public $v1end$&lt;br&gt;
+$v2$ public, default, protected ,  private 
+    $v2end$&lt;br&gt;
+$v3$ public,  protected , default, private 
+    $v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_0_0_0:3" type="0">
+    <questiontext>Which access modifier allows you to access method calls in libraries not 
+    created in Java?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ public $v0end$&lt;br&gt;
+$v1$ 
+    static $v1end$&lt;br&gt;
+$v2$ native  $v2end$&lt;br&gt;
+$v3$ 
+    transient $v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>2
+The native modifier is an indicator to the Java Virtual Machine that the method actually 
+lives in a library outside of Java. The System.loadLibrary()  method is required to indicate 
+which library contains the method. See Chapter 3 for more information.</questionanswer>
+  </question>
+</questions>

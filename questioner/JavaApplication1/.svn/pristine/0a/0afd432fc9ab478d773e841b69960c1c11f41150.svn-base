@@ -1,0 +1,7 @@
+compile.on.save=false
+do.depend=false
+do.jar=true
+javac.debug=true
+javadoc.preview=true
+jaxbwiz.endorsed.dirs=D:\\Program Files\\NetBeans 6.8\\ide12\\modules\\ext\\jaxb\\api
+user.properties.file=C:\\Users\\andrew\\AppData\\Roaming\\NetBeans\\7.2.1\\build.properties

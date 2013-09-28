@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="0_0_0" name="HTML5" nofquestions="5" nofsubcategories="0" filename="html5.xml">
+  <question id="0_0_0:0" type="0">
+    <questiontext>What does HTML stand for?
+$v$&lt;br&gt;
+$v0$Hyperlinks and Text 
+    Markup Language$v0end$&lt;br&gt;
+$v1$Home Tool Markup Language$v1end$
+$v2$Hyper Text Markup Language$v2end$&lt;br&gt;
+
+$vend$</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="0_0_0:1" type="0">
+    <questiontext>Choose the correct HTML tag for the largest heading&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ 
+    &lt;h1&gt; $v0end$&lt;br&gt;
+$v1$ &lt;h6&gt; $v1end$
+$v2$ &lt;head&gt; $v2end$
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="0_0_0:2" type="0">
+    <questiontext>What is the correct HTML tag for inserting a line break?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ 
+    &lt;lb&gt; $v0end$&lt;br&gt;
+$v1$ &lt;br&gt;
+ $v1end$
+$v2$ &lt;break&gt; $v2end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="0_0_0:3" type="0">
+    <questiontext>What tags (beginning and end) indicate table rows?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&lt;td&gt; 
+    &lt;/td&gt;$v0end$&lt;br&gt;
+$v1$&lt;tr&gt; &lt;/tr&gt;$v1end$
+$v2$&lt;/tr&gt; &lt;tr&gt;$v2end$
+$v3$&lt;t&gt; &lt;/t&gt;$v3end$
+$vend$</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="0_0_0:4" type="0">
+    <questiontext>What tag is used to create an unordered list?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&lt;ul&gt;$v0end$&lt;br&gt;
+$v1$&lt;ol&gt;$v1end$&lt;br&gt;
+$v2$&lt;il&gt;$v2end$&lt;br&gt;
+$v3$&lt;li&gt;$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+</questions>

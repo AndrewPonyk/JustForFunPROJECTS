@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classification>
+  <class id="0" name="Programming Foundation" nofquestions="8" nofsubcategories="4">
+    <category id="0_0" name="Web Design and XML" nofquestions="8" nofsubcategories="3">
+      <category id="0_0_0" name="HTML5" nofquestions="5" nofsubcategories="0" filename="html5.xml" />
+      <category id="0_0_1" name="CSS and Frameworks" nofquestions="0" nofsubcategories="0" />
+      <category id="0_0_2" name="XML technologies" nofquestions="3" nofsubcategories="9">
+        <category id="0_0_2_0" name="XML Core" nofquestions="3" nofsubcategories="0" filename="xmlcore.xml" />
+        <category id="0_0_2_1" name="XML DTD" nofquestions="0" nofsubcategories="0" filename="xmldtd.xml" />
+        <category id="0_0_2_2" name="XML DOM" nofquestions="0" nofsubcategories="0" filename="xmldom.xml" />
+        <category id="0_0_2_3" name="XML XSLT" nofquestions="0" nofsubcategories="0" filename="xmlxslt.xml" />
+        <category id="0_0_2_4" name="XML XPATH" nofquestions="0" nofsubcategories="0" filename="xmlxpath.xml" />
+        <category id="0_0_2_5" name="XML XQUERY" nofquestions="0" nofsubcategories="0" filename="xmlxquery.xml" />
+        <category id="0_0_2_6" name="XML XLINK" nofquestions="0" nofsubcategories="0" filename="xmlxlink.xml" />
+        <category id="0_0_2_7" name="XML XPOINTER" nofquestions="0" nofsubcategories="0" filename="xmlxpointer.xml" />
+        <category id="0_0_2_8" name="XML SCHEMA" nofquestions="0" nofsubcategories="0" filename="xmlschema.xml" />
+      </category>
+    </category>
+    <category id="0_1" name="DataBases" nofquestions="0" nofsubcategories="4">
+      <category id="0_1_0" name="Oracle" nofquestions="0" nofsubcategories="0" />
+      <category id="0_1_1" name="SQL Server" nofquestions="0" nofsubcategories="0" />
+      <category id="0_1_2" name="MySQL" nofquestions="0" nofsubcategories="0" />
+      <category id="0_1_3" name="NoSQL" nofquestions="0" nofsubcategories="1">
+        <category id="0_1_3_0" name="MongoDB" nofquestions="0" nofsubcategories="0" />
+      </category>
+    </category>
+    <category id="0_2" name="Javascript" nofquestions="0" nofsubcategories="0" />
+    <category id="0_3" name="Algorithms(huge)" nofquestions="0" nofsubcategories="0" />
+  </class>
+  <class id="1" name="Programming" nofquestions="4" nofsubcategories="3">
+    <category id="1_0" name="Java" nofquestions="4" nofsubcategories="3">
+      <category id="1_0_0" name="Java CORE" nofquestions="4" nofsubcategories="4">
+        <category id="1_0_0_0" name="Basic Syntax(types,obj,classes,accessmodifier,staticmembers" nofquestions="4" nofsubcategories="0" filename="basicsyntax(types,obj,classes,accessmodifier,staticmembers.xml" />
+        <category id="1_0_0_1" name="Collections" nofquestions="0" nofsubcategories="0" filename="collections.xml" />
+        <category id="1_0_0_2" name="Generics" nofquestions="0" nofsubcategories="0" filename="generics.xml" />
+        <category id="1_0_0_3" name="Multithreading" nofquestions="0" nofsubcategories="0" filename="multithreading.xml" />
+      </category>
+      <category id="1_0_1" name="Java EE" nofquestions="0" nofsubcategories="6">
+        <category id="1_0_1_0" name="Java EE JNDI" nofquestions="0" nofsubcategories="0" filename="javaeejndi.xml" />
+        <category id="1_0_1_1" name="And+MAVEN" nofquestions="0" nofsubcategories="2">
+          <category id="1_0_1_1_0" name="Ant" nofquestions="0" nofsubcategories="0" filename="ant.xml" />
+          <category id="1_0_1_1_1" name="Maven" nofquestions="0" nofsubcategories="0" filename="maven.xml" />
+        </category>
+        <category id="1_0_1_2" name="Java Databases" nofquestions="0" nofsubcategories="2">
+          <category id="1_0_1_2_0" name="JDBC" nofquestions="0" nofsubcategories="0" filename="jdbc.xml" />
+          <category id="1_0_1_2_1" name="Hibernate" nofquestions="0" nofsubcategories="0" filename="hibernate.xml" />
+        </category>
+        <category id="1_0_1_3" name="Tomcat+JSP+Servlets+JSTL" nofquestions="0" nofsubcategories="4">
+          <category id="1_0_1_3_0" name="Tomcat" nofquestions="0" nofsubcategories="0" filename="tomcat.xml" />
+          <category id="1_0_1_3_1" name="Servlets" nofquestions="0" nofsubcategories="0" filename="servlets.xml" />
+          <category id="1_0_1_3_2" name="JSP" nofquestions="0" nofsubcategories="0" filename="jsp.xml" />
+          <category id="1_0_1_3_3" name="JSTL" nofquestions="0" nofsubcategories="0" filename="jstl.xml" />
+        </category>
+        <category id="1_0_1_4" name="Web FRAMEWORKS" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_1_5" name="Application Servers" nofquestions="0" nofsubcategories="2">
+          <category id="1_0_1_5_0" name="JBoss" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_1_5_1" name="WebLogic" nofquestions="0" nofsubcategories="0" filename="weblogic.xml" />
+        </category>
+      </category>
+      <category id="1_0_2" name="Android" nofquestions="0" nofsubcategories="0" />
+    </category>
+    <category id="1_1" name=".Net" nofquestions="0" nofsubcategories="2">
+      <category id="1_1_0" name="C# CORE" nofquestions="0" nofsubcategories="0" />
+      <category id="1_1_1" name=".NET EE" nofquestions="0" nofsubcategories="0" />
+    </category>
+    <category id="1_2" name="PHP" nofquestions="0" nofsubcategories="2">
+      <category id="1_2_0" name="PHP CORE" nofquestions="0" nofsubcategories="0" />
+      <category id="1_2_1" name="PHP EE" nofquestions="0" nofsubcategories="0" />
+    </category>
+  </class>
+  <class id="2" name="Programming Other" nofquestions="0" nofsubcategories="5">
+    <category id="2_0" name="Patterns" nofquestions="0" nofsubcategories="0" />
+    <category id="2_1" name="Version Control" nofquestions="0" nofsubcategories="0" />
+    <category id="2_2" name="Bug Tracking Systems" nofquestions="0" nofsubcategories="0" />
+    <category id="2_3" name="SDFSDF" nofquestions="0" nofsubcategories="0" />
+    <category id="2_4" name="SFAAAAAAAAA" nofquestions="0" nofsubcategories="0" />
+  </class>
+</classification>

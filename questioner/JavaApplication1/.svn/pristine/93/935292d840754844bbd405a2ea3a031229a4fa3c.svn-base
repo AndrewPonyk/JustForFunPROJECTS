@@ -1,0 +1,89 @@
+/**
+ *
+ * @author olia
+ */
+
+package com.ap.logic.QuizClasses;
+
+import com.ap.logic.Classification.Category;
+import com.ap.logic.Classification.ClassificationItem;
+import java.util.LinkedHashMap;
+
+
+
+
+public class Quiz {
+    // default values for fields
+    private int nofquestions=10;
+    private int minutes=20;
+    private Boolean includeDetailedAnswersQuestions =true;
+    private Boolean includeTips = false;
+
+    // here will be categories with files , so if we add class we get all categories with file from class
+    // if we add category without file , we will add all subcategories with files
+    private LinkedHashMap<String,Category> categories=new LinkedHashMap<String, Category>();
+
+
+    /**
+     * @return the nofquestions
+     */
+    public int getNofquestions() {
+        return nofquestions;
+    }
+
+    /**
+     * @param nofquestions the nofquestions to set
+     */
+    public void setNofquestions(int nofquestions) {
+        this.nofquestions = nofquestions;
+    }
+
+    /**
+     * @return the minutes
+     */
+    public int getMinutes() {
+        return minutes;
+    }
+
+    /**
+     * @param minutes the minutes to set
+     */
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
+    }
+
+    /**
+     * @return the includeDetailedAnswersQuestions
+     */
+    public Boolean getIncludeDetailedAnswersQuestions() {
+        return includeDetailedAnswersQuestions;
+    }
+
+    /**
+     * @param includeDetailedAnswersQuestions the includeDetailedAnswersQuestions to set
+     */
+    public void setIncludeDetailedAnswersQuestions(Boolean includeDetailedAnswersQuestions) {
+        this.includeDetailedAnswersQuestions = includeDetailedAnswersQuestions;
+    }
+
+    /**
+     * @return the includeTips
+     */
+    public Boolean getIncludeTips() {
+        return includeTips;
+    }
+
+    /**
+     * @param includeTips the includeTips to set
+     */
+    public void setIncludeTips(Boolean includeTips) {
+        this.includeTips = includeTips;
+    }
+
+    /**
+     * @return the categories
+     */
+    public LinkedHashMap<String, Category> getCategories() {
+        return categories;
+    }
+}

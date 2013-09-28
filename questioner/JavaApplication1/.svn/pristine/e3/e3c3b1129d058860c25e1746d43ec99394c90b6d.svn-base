@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classification>
+        <class id="0" name="Programming Foundation" nofquestions="0" nofsubcategories="4">
+                <category id="0_0" name="Web Desing and XML" nofquestions="0" nofsubcategories="2">
+                        <category id="0_0_0" name="Css and frameworks"  nofquestions="0" nofsubcategories="2">
+                                <category id="0_0_0_0" name ="Css core" nofquestions="0" nofsubcategories="0" filename="csscore.xml">
+                                </category>
+                                <category id="0_0_0_1" name ="Css Frameworks" nofquestions="0" nofsubcategories="2">
+									<category id="0_0_0_1_0" name ="960gs" nofquestions="0" nofsubcategories="0" filename="960gs.xml">
+									</category>
+									<category id="0_0_0_1_1" name ="Blueprint" nofquestions="0" nofsubcategories="0" filename="Blueprint.xml">
+									</category>
+                                </category>
+                        </category>
+                        <category id="0_0_1" name="HTML"  nofquestions="0" nofsubcategories="0" filename="html.xml">
+                        </category>
+						<category id="0_0_2" name="XML" nofquestions="0" nofsubcategories="9">
+							<category id="0_0_2_0" name="XML Core" nofquestions="0" nofsubcategories="0" filename="xmlcore.xml">
+							</category>
+							<category id="0_0_2_1" name="XML DTD" nofquestions="0" nofsubcategories="0" filename="xmldtd.xml">
+							</category>
+							<category id="0_0_2_2" name="XML DOM" nofquestions="0" nofsubcategories="0" filename="xmldom.xml">
+							</category>
+							<category id="0_0_2_3" name="XML XSLT" nofquestions="0" nofsubcategories="0" filename="xmlxslt.xml">
+							</category>							
+							<category id="0_0_2_4" name="XML XPATH" nofquestions="0" nofsubcategories="0" filename="xmlxpath.xml">
+							</category>
+							<category id="0_0_2_5" name="XML XQUERY" nofquestions="0" nofsubcategories="0" filename="xmlxquery.xml">
+							</category>
+							<category id="0_0_2_6" name="XML XLINK" nofquestions="0" nofsubcategories="0" filename="xmlxlink.xml">
+							</category>
+							<category id="0_0_2_7" name="XML XPOINTER" nofquestions="0" nofsubcategories="0" filename="xmlxpointer.xml">
+							</category>
+							<category id="0_0_2_8" name="XML SCHEMA" nofquestions="0" nofsubcategories="0" filename="xmlschema.xml">
+							</category>
+						</category>
+                </category>
+                <category id="0_1" name="DataBases" nofquestions="0" nofsubcategories="0">
+                </category>
+                <category id="0_2" name="Javascript" nofquestions="0" nofsubcategories="0" >
+                </category>
+                <category id="0_3" name="Algorithms(huge topic)" nofquestions="0" nofsubcategories="0">
+                </category>
+        </class>
+        <class id="1" name="Programming" nofquestions="0" nofsubcategories="1">
+                <category id="1_0" name="Java" nofquestions="0" nofsubcategories="2">
+                        <category id="1_0_0" name="Java Core" nofquestions="0" nofsubcategories="2">
+                        </category>
+						<category id="1_0_1" name="Java EE" nofquestions="0" nofsubcategories="2">
+							<category id="1_0_1_0" name="JNDI" nofquestions="0" nofsubcategories="0" filename="jndi.xml">
+							</category>
+							<category id="1_0_1_1" name="Ant+Maven" nofquestions="0" nofsubcategories="2">
+								<category id="1_0_1_1_0" name="Ant" nofquestions="0" nofsubcategories="0" filename="ant.xml">
+								</category>
+								<category id="1_0_1_1_1" name="Maven" nofquestions="0" nofsubcategories="0" filename="maven.xml">
+								</category>								
+							</category>
+						</category>
+                </category>
+				<category id="1_1" name=".Net"  nofquestions="0" nofsubcategories="0">
+				</category>
+				<category id="1_2" name="PHP" nofquestions="0" nofsubcategories="0">
+				</category>
+				<category id="1_3" name="Python " nofquestions="0" nofsubcategories="0">
+				</category>
+        </class>
+</classification>

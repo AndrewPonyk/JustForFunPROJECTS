@@ -1,0 +1,10 @@
+package com.app.configuration;
+
+/**
+ *
+ * @author andrew
+ */
+public class Config {
+        public static  String classificationXMLPath="D:\\questioner\\data\\classification.xml";
+        public static  String dataPath="D:\\questioner\\data\\questions\\";
+}

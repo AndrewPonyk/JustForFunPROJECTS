@@ -1,0 +1,9 @@
+package com.ap.logic.QuizClasses;
+
+/**
+ *
+ * @author andrew
+ */
+public class QuizResult {
+
+}
