@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_6_2" name="Spanish" nofquestions="0" nofsubcategories="0" filename="spanish.xml" />
+<questions id="2_6_2" name="Spanish" nofquestions="1" nofsubcategories="0" filename="spanish.xml">
+  <question id="2_6_2:0" type="1">
+    <questiontext>Spanish is nice language ?</questiontext>
+    <questionanswer>yes</questionanswer>
+  </question>
+</questions>

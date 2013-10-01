@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_6_0_1" name="Grammar" nofquestions="0" nofsubcategories="0" filename="grammar.xml" />
+<questions id="2_6_0_1" name="Grammar" nofquestions="2" nofsubcategories="0" filename="grammar.xml">
+  <question id="2_6_0_1:0" type="0">
+    <questiontext>I come ___________ England.&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ to $v0end$&lt;br&gt;
+$v1$ from $v1end$&lt;br&gt;
+$v2$ 
+    at $v2end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="2_6_0_1:1" type="0">
+    <questiontext>There aren't ___________ people here.&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ much $v0end$&lt;br&gt;
+$v1$ 
+    some $v1end$&lt;br&gt;
+$v2$ many $v2end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+</questions>
