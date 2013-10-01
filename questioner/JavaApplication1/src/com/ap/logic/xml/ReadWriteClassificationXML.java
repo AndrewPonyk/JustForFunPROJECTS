@@ -117,9 +117,16 @@ public class ReadWriteClassificationXML {
     public void removeFilesWithQuestions(Category categoryToRemove){
         
         if(categoryToRemove.getFileName()!=null){
-            System.out.println("removing " + categoryToRemove.getFileName());
+            System.out.println("removing " +Config.questionsPath + categoryToRemove.getFileName());
             
+           /* if(file.delete()){
+    			System.out.println(file.getName() + " is deleted!");
+    		}else{
+    			System.out.println("Delete operation is failed.");
+    		}*/
         }
+        
+        
         if(categoryToRemove.getCategories().size()>0){
             for(Map.Entry<String,Category> item : categoryToRemove.getCategories().entrySet()){
                 removeFilesWithQuestions(item.getValue());
