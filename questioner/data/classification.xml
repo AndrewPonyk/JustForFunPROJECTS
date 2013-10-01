@@ -68,12 +68,20 @@
       <category id="1_2_1" name="PHP EE" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="2" name="Programming Other" nofquestions="0" nofsubcategories="6">
+  <class id="2" name="Programming Other" nofquestions="2" nofsubcategories="7">
     <category id="2_0" name="Patterns" nofquestions="0" nofsubcategories="0" />
     <category id="2_1" name="Version Control" nofquestions="0" nofsubcategories="0" />
     <category id="2_2" name="Bug Tracking Systems" nofquestions="0" nofsubcategories="0" />
     <category id="2_3" name="SDFSDF" nofquestions="0" nofsubcategories="0" />
     <category id="2_4" name="SFAAAAAAAAA" nofquestions="0" nofsubcategories="0" />
     <category id="2_5" name="123" nofquestions="0" nofsubcategories="0" filename="123.xml" />
+    <category id="2_6" name="Languages" nofquestions="2" nofsubcategories="3">
+      <category id="2_6_0" name="English" nofquestions="0" nofsubcategories="2">
+        <category id="2_6_0_0" name="Speaking" nofquestions="0" nofsubcategories="0" filename="speaking.xml" />
+        <category id="2_6_0_1" name="Grammar" nofquestions="0" nofsubcategories="0" filename="grammar.xml" />
+      </category>
+      <category id="2_6_1" name="German" nofquestions="2" nofsubcategories="0" filename="german.xml" />
+      <category id="2_6_2" name="Spanish" nofquestions="0" nofsubcategories="0" filename="spanish.xml" />
+    </category>
   </class>
 </classification>
