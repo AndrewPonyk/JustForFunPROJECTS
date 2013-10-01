@@ -11,8 +11,7 @@ public class Config {
         
         
         //Linux
-        public static String questionerPath="/media/88D4CBF1D4CBDF94/questioner/";
+        public static String questionerPath="/home/andrew/GitRepositories/JustForFunPROJECTS/questioner/";
         public static  String classificationXMLPath=questionerPath+"data/classification.xml";
-        public static  String questionsPath=questionerPath+"data/questions/";
-        
+        public static  String questionsPath=questionerPath+"data/questions/";       
 }

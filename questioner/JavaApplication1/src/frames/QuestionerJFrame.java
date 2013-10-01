@@ -781,7 +781,12 @@ public class QuestionerJFrame extends JFrame {
         DefaultMutableTreeNode  currCategoryNode = (DefaultMutableTreeNode) tp.getLastPathComponent();
         Category categoryToRemove =(Category) currCategoryNode.getUserObject();
 
-                //removing category from file
+
+        
+        
+        // we need to remove category from file and remove all files from this category 
+        // and subcategories
+        this.reader.removeFilesWithQuestions(categoryToRemove);
         this.reader.removeCategoryFromXML(categoryToRemove, Config.classificationXMLPath, null);// removing category
 
 

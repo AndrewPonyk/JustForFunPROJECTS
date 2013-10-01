@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -100,7 +101,7 @@ public class ReadWriteClassificationXML {
     public void removeCategoryFromXML(Category category, String xmlFilePath,String parentID){
 
             try {
-            System.out.println("removing category FROM XML !!!!!!!!!!!! ");
+            System.out.println("removing category FROM XML !! and remove files with questions ");
             SAXBuilder builder = new SAXBuilder();
             File xmlFile = new File(xmlFilePath);
             Document document = (Document) builder.build(xmlFile);
@@ -111,6 +112,19 @@ public class ReadWriteClassificationXML {
         }
             
         return ;
+    }
+    
+    public void removeFilesWithQuestions(Category categoryToRemove){
+        
+        if(categoryToRemove.getFileName()!=null)
+            System.out.println("removing " + categoryToRemove.getFileName());
+        
+        if(categoryToRemove.getCategories().size()>0){
+            for(Map.Entry<String,Category> item : categoryToRemove.getCategories().entrySet()){
+                removeFilesWithQuestions(item.getValue());
+            }
+        }
+        return;
     }
     
     public void addCategoryToXML(Category category, String xmlFilePath, String parentID) {

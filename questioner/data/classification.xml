@@ -68,11 +68,12 @@
       <category id="1_2_1" name="PHP EE" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="2" name="Programming Other" nofquestions="0" nofsubcategories="5">
+  <class id="2" name="Programming Other" nofquestions="0" nofsubcategories="6">
     <category id="2_0" name="Patterns" nofquestions="0" nofsubcategories="0" />
     <category id="2_1" name="Version Control" nofquestions="0" nofsubcategories="0" />
     <category id="2_2" name="Bug Tracking Systems" nofquestions="0" nofsubcategories="0" />
     <category id="2_3" name="SDFSDF" nofquestions="0" nofsubcategories="0" />
     <category id="2_4" name="SFAAAAAAAAA" nofquestions="0" nofsubcategories="0" />
+    <category id="2_5" name="123" nofquestions="0" nofsubcategories="0" filename="123.xml" />
   </class>
 </classification>
