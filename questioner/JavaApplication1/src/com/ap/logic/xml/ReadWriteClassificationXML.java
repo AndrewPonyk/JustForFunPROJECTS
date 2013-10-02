@@ -101,10 +101,36 @@ public class ReadWriteClassificationXML {
     public void removeCategoryFromXML(Category category, String xmlFilePath,String parentID){
 
             try {
-            System.out.println("removing category FROM XML !! and remove files with questions ");
+            System.out.println("removing category FROM XML  ");
+            //update count of questions in parent nodes
+            this.updateQuestionsCountInXML(category, category.getnOfQuestions()*-1 );
+            
+            
             SAXBuilder builder = new SAXBuilder();
             File xmlFile = new File(xmlFilePath);
             Document document = (Document) builder.build(xmlFile);
+            
+             Element rootNode = document.getRootElement();
+
+            //Build the xpath expression
+            XPath xpathExpression = XPath.newInstance("//*[@id=$categoryID]");
+
+            xpathExpression.setVariable("categoryID", category.getId());
+
+           
+            ArrayList<Element> categoryToRemove = (ArrayList<Element>) xpathExpression.selectNodes(document);
+             
+            categoryToRemove.get(0).getParentElement().setAttribute(
+                    "nofsubcategories",
+                    Integer.parseInt(categoryToRemove.get(0).getParentElement().getAttributeValue("nofsubcategories") )-1+"");
+            
+            System.out.println( "-------deleting"+ categoryToRemove.get(0).detach());
+           
+            
+            XMLOutputter xmlOutput = new XMLOutputter();
+            xmlOutput.setFormat(Format.getPrettyFormat());
+            xmlOutput.output(document, new FileWriter(xmlFilePath));
+            
             }catch (JDOMException ex) {
             Logger.getLogger(ReadWriteClassificationXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -118,12 +144,12 @@ public class ReadWriteClassificationXML {
         
         if(categoryToRemove.getFileName()!=null){
             System.out.println("removing " +Config.questionsPath + categoryToRemove.getFileName());
-            
-           /* if(file.delete()){
-    			System.out.println(file.getName() + " is deleted!");
+            File file=new File(Config.questionsPath+ categoryToRemove.getFileName());
+            if(file.delete()){
+    			System.err.println(file.getName() + " is deleted!");
     		}else{
-    			System.out.println("Delete operation is failed.");
-    		}*/
+    			System.err.println(file.getName()+ " Delete operation is failed.");
+    		}
         }
         
         
@@ -208,7 +234,7 @@ public class ReadWriteClassificationXML {
 
             System.out.println("adddding question");
             SAXBuilder builder = new SAXBuilder();
-//            File xmlFile = new File("D:\\questioner\\data\\questions\\"+category.getFileName());
+
             File xmlFile = new File(Config.questionsPath+category.getFileName());
             Document document = (Document) builder.build(xmlFile);
 

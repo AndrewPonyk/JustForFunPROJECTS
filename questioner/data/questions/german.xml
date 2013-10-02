@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_6_1" name="German" nofquestions="2" nofsubcategories="0" filename="german.xml">
+<questions id="2_6_1" name="German" nofquestions="3" nofsubcategories="0" filename="german.xml">
   <question id="2_6_1:0" type="0">
     <questiontext>Es war eimal ______ M&amp;#252;ller.&lt;br&gt;
 $v$&lt;br&gt;
@@ -20,5 +20,9 @@ $v2$ Ein $v2end$&lt;br&gt;
 $v3$ $v3end$&lt;br&gt;
 $vend$</questiontext>
     <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_6_1:2" type="1">
+    <questiontext>German is easy ?</questiontext>
+    <questionanswer>no</questionanswer>
   </question>
 </questions>

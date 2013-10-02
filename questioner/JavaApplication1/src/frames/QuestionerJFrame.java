@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Random;
@@ -674,7 +675,26 @@ public class QuestionerJFrame extends JFrame {
         if(newCategoryName==null || newCategoryName.length()==0 ) return ;
 
         Category newCategory=new Category();
-        newCategory.setId(((ClassificationItem)currCategoryNode.getUserObject()).getId()+"_"+currCategoryNode.getChildCount() );
+        
+        // get id after last element, for example if last element have id=2_1_4 , next id will be 2_1_5
+        String nextId="";
+        if(currCategoryNode.getChildCount()>0){
+        String lastId= ((ClassificationItem) ((DefaultMutableTreeNode)currCategoryNode.getLastChild()).getUserObject()).getId();
+        String[] lastIdSpilited=lastId.split("_");
+        lastIdSpilited[lastIdSpilited.length-1]=Integer.parseInt( lastIdSpilited[lastIdSpilited.length-1])+1+"";
+        
+        //java core hasnt join method =)
+         nextId = Arrays.toString(lastIdSpilited).replace(", ", "_").replaceAll("[\\[\\]]", "");
+        }else{
+            nextId=((ClassificationItem)currCategoryNode.getUserObject()).getId()+"_"+"0";
+        }
+        
+        newCategory.setId(nextId);
+        
+        //old version of generation id
+         // newCategory.setId(((ClassificationItem)currCategoryNode.getUserObject()).getId()+"_"+currCategoryNode.getChildCount() );
+        
+        
         newCategory.setName(newCategoryName);
         newCategory.setnOfQuestions(0);
         newCategory.setnOfSubcategories(0);
@@ -781,18 +801,27 @@ public class QuestionerJFrame extends JFrame {
         DefaultMutableTreeNode  currCategoryNode = (DefaultMutableTreeNode) tp.getLastPathComponent();
         Category categoryToRemove =(Category) currCategoryNode.getUserObject();
 
-
-        
         
         // we need to remove category from file and remove all files from this category 
         // and subcategories
         this.reader.removeFilesWithQuestions(categoryToRemove);
         this.reader.removeCategoryFromXML(categoryToRemove, Config.classificationXMLPath, null);// removing category
-
-
-        // and we need to remove it from tree
+        
+        //updating count of questions in tree
+        DefaultMutableTreeNode iteratorNode =(DefaultMutableTreeNode) currCategoryNode.getParent();
+        while( !iteratorNode.getUserObject().equals("root") ) {
+            //     System.out.println("..."+ currCategoryNode.getUserObject().toString() );
+            //     System.out.println("..." +currCategoryNode.getUserObject().getClass());
+              ClassificationItem parentItem= ((ClassificationItem)iteratorNode.getUserObject());
+              parentItem.setnOfQuestions(parentItem.getnOfQuestions()-categoryToRemove.getnOfQuestions());
+              iteratorNode =(DefaultMutableTreeNode) iteratorNode.getParent();
+        }
+        categoryToRemove.setnOfQuestions(0);
+        
+        // remove  category from tree
         DefaultTreeModel model = (DefaultTreeModel) classificationTree.getModel();
         model.removeNodeFromParent(currCategoryNode);
+       
     }//GEN-LAST:event_removeCategoryItemActionPerformed
 
     private void nextQuestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextQuestionButtonActionPerformed

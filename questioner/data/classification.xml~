@@ -68,15 +68,17 @@
       <category id="1_2_1" name="PHP EE" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="2" name="Programming Other" nofquestions="4" nofsubcategories="5">
+  <class id="2" name="Programming Other" nofquestions="3" nofsubcategories="5">
     <category id="2_0" name="Patterns" nofquestions="0" nofsubcategories="0" />
     <category id="2_1" name="Version Control" nofquestions="0" nofsubcategories="0" />
     <category id="2_2" name="Bug Tracking Systems" nofquestions="0" nofsubcategories="0" />
     <category id="2_3" name="SDFSDF" nofquestions="0" nofsubcategories="0" />
-    <category id="2_6" name="Languages" nofquestions="4" nofsubcategories="2">
+    <category id="2_6" name="Languages" nofquestions="3" nofsubcategories="3">
       <category id="2_6_1" name="German" nofquestions="3" nofsubcategories="0" filename="german.xml" />
-      <category id="2_6_3" name="fffff" nofquestions="1" nofsubcategories="1">
-        <category id="2_6_3_0" name="b" nofquestions="1" nofsubcategories="0" />
+      <category id="2_6_2" name="uuu" nofquestions="0" nofsubcategories="0" />
+      <category id="2_6_3" name="fffff" nofquestions="0" nofsubcategories="3">
+        <category id="2_6_3_0" name="b" nofquestions="0" nofsubcategories="0" />
+        <category id="2_6_3_1" name="dfdf" nofquestions="0" nofsubcategories="0" />
       </category>
     </category>
   </class>
