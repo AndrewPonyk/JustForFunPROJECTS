@@ -893,21 +893,20 @@ public class QuestionerJFrame extends JFrame {
     private void readConfigFile(){
         //read config.ini file
         //...
-        java.io.File config=new File(Config.getQuestionerPath()+"data/config1.ini");
-        System.out.println("CONFIG "+config.exists());
+
+        
+        
         
         //if data if not valid , provide dialog to change questioner dir
         //...
-        if(config.exists()){
-            // we already have good path to questioner app
-        }else{
+
             //open dialog
-            JFileChooser selectQuestionerPath = new JFileChooser();
-            selectQuestionerPath.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-            Integer opt = selectQuestionerPath.showSaveDialog(this);
+            //JFileChooser selectQuestionerPath = new JFileChooser();
+            //selectQuestionerPath.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            
             System.err.println(new  File(QuestionerJFrame.class.getProtectionDomain().getCodeSource().getLocation().getPath())); 
             
-            System.err.println(selectQuestionerPath.getSelectedFile());
+            //System.err.println(selectQuestionerPath.getSelectedFile());
 
             // get location of questioner app , it can be jar - when i will build it
             //it cat be .class - when i develop it
@@ -921,8 +920,7 @@ public class QuestionerJFrame extends JFrame {
             Config.setQuestionerPath(jarLocation);
             JOptionPane.showMessageDialog(this, Config.getQuestionerPath());
             JOptionPane.showMessageDialog(this, Config.classificationXMLPath);
-            
-        }
+
         
         //read data from new destination
         //..
