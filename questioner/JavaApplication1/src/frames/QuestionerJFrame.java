@@ -886,6 +886,23 @@ public class QuestionerJFrame extends JFrame {
         });
     }
 
+    private void readConfigFile(){
+        //read config.ini file
+        //...
+        
+        //validate data from config.ini file 
+        //...
+        
+        //if data if not valid , provide dialog to change questioner dir
+        //...
+
+        //read data from new destination
+        //..
+        
+        //Config.questionerPath="value"
+        return;
+    }
+    
     private void createCategoriesTree() {
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("root");
 

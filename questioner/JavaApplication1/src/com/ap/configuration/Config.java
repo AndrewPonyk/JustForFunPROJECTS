@@ -11,13 +11,13 @@ public class Config {
         
         
         //Linux
-        public static String questionerPath="/home/andrew/GitRepositories/JustForFunPROJECTS/questioner/";
-        public static  String classificationXMLPath=questionerPath+"data/classification.xml";
-        public static  String questionsPath=questionerPath+"data/questions/";       
+      //  public static String questionerPath="/home/andrew/GitRepositories/JustForFunPROJECTS/questioner/";
+        //public static  String classificationXMLPath=questionerPath+"data/classification.xml";
+        //public static  String questionsPath=questionerPath+"data/questions/";       
 
         //Linux , nout on GlobalLogic
-       // public static String questionerPath="/home/andrew/git/JustForFunPROJECTS/questioner/";
-       // public static  String classificationXMLPath=questionerPath+"data/classification.xml";
-       // public static  String questionsPath=questionerPath+"data/questions/";       
+        public static String questionerPath="/home/andrew/git/JustForFunPROJECTS/questioner/";
+        public static  String classificationXMLPath=questionerPath+"data/classification.xml";
+       public static  String questionsPath=questionerPath+"data/questions/";       
 
 }
