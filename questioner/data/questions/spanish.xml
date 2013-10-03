@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_6_2" name="Spanish" nofquestions="1" nofsubcategories="0" filename="spanish.xml">
-  <question id="2_6_2:0" type="1">
-    <questiontext>Spanish is nice language ?</questiontext>
+<questions id="2_3_2" name="Spanish" nofquestions="3" nofsubcategories="0" filename="spanish.xml">
+  <question id="2_3_2:0" type="0">
+    <questiontext>Spanish question with correct 0 variant&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ r $v0end$&lt;br&gt;
+$v1$ 
+    d$v1end$&lt;br&gt;
+$v2$ b$v2end$&lt;br&gt;
+$v3$ a$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_3_2:1" type="0">
+    <questiontext>question with 2 correct variant&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ adf$v0end$&lt;br&gt;
+$v1$asdf 
+    $v1end$&lt;br&gt;
+$v2$asdfasdf $v2end$&lt;br&gt;
+$v3$ asdfffffffdsf$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="2_3_2:2" type="1">
+    <questiontext>Spanish is nice ?</questiontext>
     <questionanswer>yes</questionanswer>
   </question>
 </questions>

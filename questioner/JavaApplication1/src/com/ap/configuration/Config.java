@@ -17,8 +17,8 @@ public class Config {
 
         //Linux , nout on GlobalLogic
         private static String questionerPath="";//="/home/andrew/git/JustForFunPROJECTS/questioner/";
-        public static  String classificationXMLPath=questionerPath+"data/classification.xml";
-        public static  String questionsPath=questionerPath+"data/questions/";    
+        public static  String classificationXMLPath ="";//questionerPath+"data/classification.xml";
+        public static  String questionsPath="";//questionerPath+"data/questions/";    
        
        public static void setQuestionerPath(String val){
              questionerPath=val;

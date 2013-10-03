@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="2_3_1" name="German" nofquestions="1" nofsubcategories="0" filename="german.xml">
+  <question id="2_3_1:0" type="1">
+    <questiontext>German is easy</questiontext>
+    <questionanswer>no</questionanswer>
+  </question>
+</questions>

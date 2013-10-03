@@ -43,7 +43,7 @@ public class Quiz {
     private int nofquestions=10;
     private int minutes=20;
     private Boolean includeDetailedAnswersQuestions =true;
-    private Boolean includeTips = false;
+   // private Boolean includeTips = false; // tip and detailed answer are almost the same
 
     // here will be categories with files , so if we add class we get all categories with file from class
     // if we add category without file , we will add all subcategories with files
@@ -98,7 +98,7 @@ public class Quiz {
             Integer requiredCountQuestions=questionsCountByCategory.get(item);
 
             while( randoms.size()!=requiredCountQuestions ){
-                Integer randomInt=random.nextInt(category.getnOfQuestions());
+                Integer randomInt=random.nextInt(category.getnOfQuestions()); //
                 
                 if(!randoms.contains(randomInt))
                 randoms.add(randomInt);
@@ -115,7 +115,7 @@ public class Quiz {
 
         // shuffle questions
         final List<Question> vs = new ArrayList<Question>(this.questions.values());        
-        Collections.shuffle(  vs);
+        Collections.shuffle(vs);
         this.questions.clear();
 
             final Iterator<Question> vIter = vs.iterator();
@@ -129,7 +129,7 @@ public class Quiz {
     }
 
     public LinkedHashMap<String,Question>  getCategoryRandomizedQuestionsFromXML(Category category, Set<Integer> randoms) {
-        System.out.println("getting questions from xml");
+        System.out.println("getting questions from xml file");
         LinkedHashMap<String,Question> result=new LinkedHashMap<String, Question>();
         Question question=new Question();
 
@@ -218,7 +218,6 @@ public class Quiz {
         return result;
     }
 
-
     ////////////////////////////////////////////////////////////
 
     /**
@@ -261,20 +260,6 @@ public class Quiz {
      */
     public void setIncludeDetailedAnswersQuestions(Boolean includeDetailedAnswersQuestions) {
         this.includeDetailedAnswersQuestions = includeDetailedAnswersQuestions;
-    }
-
-    /**
-     * @return the includeTips
-     */
-    public Boolean getIncludeTips() {
-        return includeTips;
-    }
-
-    /**
-     * @param includeTips the includeTips to set
-     */
-    public void setIncludeTips(Boolean includeTips) {
-        this.includeTips = includeTips;
     }
 
     /**
