@@ -104,13 +104,40 @@ public class Quiz {
                 randoms.add(randomInt);
             }
             
-            this.questions.putAll( this.getCategoryRandomizedQuestionsFromXML(categories.get(item), randoms));
-
-            System.out.println("getting  "+questionsCountByCategory.get(item) +" from "+categories.get(item).getFileName());
+             System.out.println("getting  "+questionsCountByCategory.get(item) +" from "+categories.get(item).getFileName());
                 for(Integer i:randoms){
                     System.out.print(i+" ");
                 }
-            System.out.println("----------------------");
+            System.out.println("<- randoms----------------------");
+            
+            LinkedHashMap<String,Question> generatedItems= this.getCategoryRandomizedQuestionsFromXML(categories.get(item), randoms);
+            JOptionPane.showMessageDialog(null, generatedItems.size());
+            
+            //if equals zero , we will try to regenerate , is is stupid , but ...
+            if(generatedItems.size()<questionsCountByCategory.get(item))
+            {
+                randoms=new LinkedHashSet<Integer>();
+                requiredCountQuestions=questionsCountByCategory.get(item);
+
+            while( randoms.size()!=requiredCountQuestions ){
+                Integer randomInt=random.nextInt(category.getnOfQuestions()); //
+                
+                if(!randoms.contains(randomInt))
+                randoms.add(randomInt);
+                }
+            
+                 System.out.println("getting  "+questionsCountByCategory.get(item) +" from "+categories.get(item).getFileName());
+                for(Integer i:randoms){
+                    System.out.print(i+" ");
+                }
+                System.out.println("<- randoms----------------------");
+                
+                generatedItems= this.getCategoryRandomizedQuestionsFromXML(categories.get(item), randoms);
+                JOptionPane.showMessageDialog(null, generatedItems.size());
+            }
+            this.questions.putAll( generatedItems);
+            
+
         }
 
         // shuffle questions
@@ -152,11 +179,24 @@ public class Quiz {
 
 				if(  startElement.getName().getLocalPart().equals("question")  ){
                                         if( randoms.contains(counter)){
+                                            
+                                            System.err.println("type: "+startElement.getAttributeByName(new QName("type")).getValue());
+                                            
+                                            if(!startElement.getAttributeByName(new QName("type")).getValue().equals("2")||
+                                                    this.includeDetailedAnswersQuestions)
+                                            {
                                             question.setId(startElement.getAttributeByName(new QName("id")).getValue());
                                             question.setType(startElement.getAttributeByName(new QName("type")).getValue());
                                             currentQuestion=true;
+                                            }
                                         }
-                                        counter++;
+
+                                        if(startElement.getAttributeByName(new QName("type")).getValue().equals("2") &&
+                                        !this.includeDetailedAnswersQuestions){
+                                        counter=counter;
+                                        }else{
+                                            counter++;
+                                        }
 				}
 
                                 if(  startElement.getName().getLocalPart().equals("questiontext")  &&  currentQuestion ){

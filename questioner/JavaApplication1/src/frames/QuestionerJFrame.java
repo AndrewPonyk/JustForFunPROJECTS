@@ -913,8 +913,8 @@ public class QuestionerJFrame extends JFrame {
                     "JavaApplication1/dist/JavaApplication1.jar", "");
 
             Config.setQuestionerPath(jarLocation);
-            JOptionPane.showMessageDialog(this, Config.getQuestionerPath());
-            JOptionPane.showMessageDialog(this, Config.classificationXMLPath);
+            //JOptionPane.showMessageDialog(this, Config.getQuestionerPath());
+            //JOptionPane.showMessageDialog(this, Config.classificationXMLPath);
 
         
         //Config.questionerPath="value"

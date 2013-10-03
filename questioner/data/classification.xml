@@ -68,14 +68,14 @@
       <category id="1_2_1" name="PHP EE" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="2" name="Programming Other" nofquestions="6" nofsubcategories="4">
+  <class id="2" name="Programming Other" nofquestions="7" nofsubcategories="4">
     <category id="2_0" name="Patterns" nofquestions="0" nofsubcategories="0" />
     <category id="2_1" name="Version Control" nofquestions="0" nofsubcategories="0" />
     <category id="2_2" name="Bug Tracking Systems" nofquestions="0" nofsubcategories="0" />
-    <category id="2_3" name="Languages" nofquestions="6" nofsubcategories="3">
+    <category id="2_3" name="Languages" nofquestions="7" nofsubcategories="3">
       <category id="2_3_1" name="German" nofquestions="1" nofsubcategories="0" filename="german.xml" />
       <category id="2_3_2" name="Spanish" nofquestions="3" nofsubcategories="0" filename="spanish.xml" />
-      <category id="2_3_3" name="English" nofquestions="2" nofsubcategories="0" filename="english.xml" />
+      <category id="2_3_3" name="English" nofquestions="3" nofsubcategories="0" filename="english.xml" />
     </category>
   </class>
 </classification>
