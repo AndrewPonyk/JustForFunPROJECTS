@@ -12,6 +12,8 @@ import com.ap.configuration.Config;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -21,6 +23,7 @@ import java.util.Random;
 import java.util.Set;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -55,7 +58,8 @@ public class QuestionerJFrame extends JFrame {
         // read configuration , and set static variables in Config class
         //Config.classificationXMLPath=...
         //Config.questionsPath=....
-
+        readConfigFile();
+        
         
         //now create tree with all available categories
         createCategoriesTree();
@@ -889,13 +893,24 @@ public class QuestionerJFrame extends JFrame {
     private void readConfigFile(){
         //read config.ini file
         //...
+        java.io.File config=new File(Config.questionerPath+"data/config1.ini");
+        System.out.println("CONFIG "+config.exists());
         
-        //validate data from config.ini file 
-        //...
+        
         
         //if data if not valid , provide dialog to change questioner dir
         //...
-
+        if(config.exists()){
+            // we already have good path to questioner app
+        }else{
+            //open dialog
+            JFileChooser selectQuestionerPath = new JFileChooser();
+            selectQuestionerPath.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            Integer opt = selectQuestionerPath.showSaveDialog(this);
+            System.err.println(new  File(QuestionerJFrame.class.getProtectionDomain().getCodeSource().getLocation().getPath())); 
+            System.err.println(selectQuestionerPath.getSelectedFile());
+        }
+        
         //read data from new destination
         //..
         
