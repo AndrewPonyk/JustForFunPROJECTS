@@ -768,7 +768,7 @@ public class QuestionerJFrame extends JFrame {
         this.quizQuestionsCountTextField.setText(this.quiz.getNofquestions()+"");
         this.quizTopicsTextPane.setText("");
         this.quizIncludeDetailedAnswersCheckBox.setSelected(this.quiz.getIncludeDetailedAnswersQuestions());
-        this.quizIncludeTipsCheckBox.setSelected(this.quiz.getIncludeTips());
+        //this.quizIncludeTipsCheckBox.setSelected(this.quiz.getIncludeTips());
         
         this.quizSetupPanel.setVisible(true);
         this.quizPanel.setVisible(false);
@@ -788,7 +788,7 @@ public class QuestionerJFrame extends JFrame {
                 this.quiz.setMinutes(  Integer.parseInt(this.quizMinutesTextField.getText())  );
                 this.quiz.setNofquestions(  Integer.parseInt( this.quizQuestionsCountTextField.getText()) );
                 this.quiz.setIncludeDetailedAnswersQuestions(this.quizIncludeDetailedAnswersCheckBox.isSelected());
-                this.quiz.setIncludeTips(this.quizIncludeTipsCheckBox.isSelected());
+                //this.quiz.setIncludeTips(this.quizIncludeTipsCheckBox.isSelected());
                 this.quiz.generateQuestions();
                 this.quiz.getAnswers().clear();
 
