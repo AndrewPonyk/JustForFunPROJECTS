@@ -705,7 +705,7 @@ public class QuestionerJFrame extends JFrame {
         if(newCategoryFile  ){
             newCategory.setFileName(newCategoryName.replace(" ", "").toLowerCase() +".xml");
             // create new file for category if needed
-            this.reader.addQuestionsFile(this.dataPath+newCategory.getFileName(), newCategory);
+            this.reader.addQuestionsFile(Config.questionsPath+newCategory.getFileName(), newCategory);
         }else{
             newCategory.setFileName(null);
         }
@@ -714,7 +714,7 @@ public class QuestionerJFrame extends JFrame {
         model.insertNodeInto(new DefaultMutableTreeNode(newCategory), currCategoryNode, currCategoryNode.getChildCount());
 
         // add to classification.xml  file
-        this.reader.addCategoryToXML(newCategory,this.classificationXMLPath,
+        this.reader.addCategoryToXML(newCategory,Config.classificationXMLPath,
                 ((ClassificationItem)currCategoryNode.getUserObject()).getId());
 
     }//GEN-LAST:event_addCategoryItemActionPerformed
@@ -893,10 +893,8 @@ public class QuestionerJFrame extends JFrame {
     private void readConfigFile(){
         //read config.ini file
         //...
-        java.io.File config=new File(Config.questionerPath+"data/config1.ini");
+        java.io.File config=new File(Config.getQuestionerPath()+"data/config1.ini");
         System.out.println("CONFIG "+config.exists());
-        
-        
         
         //if data if not valid , provide dialog to change questioner dir
         //...
@@ -908,7 +906,22 @@ public class QuestionerJFrame extends JFrame {
             selectQuestionerPath.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             Integer opt = selectQuestionerPath.showSaveDialog(this);
             System.err.println(new  File(QuestionerJFrame.class.getProtectionDomain().getCodeSource().getLocation().getPath())); 
+            
             System.err.println(selectQuestionerPath.getSelectedFile());
+
+            // get location of questioner app , it can be jar - when i will build it
+            //it cat be .class - when i develop it
+            // change it before first release =) 
+            String jarLocation=(new  File(QuestionerJFrame.class.getProtectionDomain().getCodeSource().getLocation().getPath())).toString();
+            jarLocation=  jarLocation.replace(
+                    "JavaApplication1/build/classes", "");
+            jarLocation=  jarLocation.replace(
+                    "JavaApplication1/dist/JavaApplication1.jar", "");
+
+            Config.setQuestionerPath(jarLocation);
+            JOptionPane.showMessageDialog(this, Config.getQuestionerPath());
+            JOptionPane.showMessageDialog(this, Config.classificationXMLPath);
+            
         }
         
         //read data from new destination
@@ -921,7 +934,7 @@ public class QuestionerJFrame extends JFrame {
     private void createCategoriesTree() {
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("root");
 
-        this.classification = this.reader.getClassification(this.classificationXMLPath);
+        this.classification = this.reader.getClassification(Config.classificationXMLPath);
 
         Set<String> classesNames = this.classification.getClasses().keySet();
 
@@ -1027,8 +1040,8 @@ public class QuestionerJFrame extends JFrame {
     private Classification classification = null;
 //    public String classificationXMLPath="D:\\questioner\\data\\classification.xml";
 //    public String questionsPath="D:\\questioner\\data\\questions\\";
-    public String classificationXMLPath=Config.classificationXMLPath;
-    public String dataPath=Config.questionsPath;
+   // public String classificationXMLPath=Config.classificationXMLPath;
+   // public String dataPath=Config.questionsPath;
     private Random questionerRandom=new Random(new Date().getTime());
     
     private Quiz quiz=null;

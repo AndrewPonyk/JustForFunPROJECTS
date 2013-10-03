@@ -16,8 +16,18 @@ public class Config {
         //public static  String questionsPath=questionerPath+"data/questions/";       
 
         //Linux , nout on GlobalLogic
-        public static String questionerPath="/home/andrew/git/JustForFunPROJECTS/questioner/";
+        private static String questionerPath="";//="/home/andrew/git/JustForFunPROJECTS/questioner/";
         public static  String classificationXMLPath=questionerPath+"data/classification.xml";
-       public static  String questionsPath=questionerPath+"data/questions/";       
+        public static  String questionsPath=questionerPath+"data/questions/";    
+       
+       public static void setQuestionerPath(String val){
+             questionerPath=val;
+             classificationXMLPath=questionerPath+"data/classification.xml";
+             questionsPath=questionerPath+"data/questions/";    
+       }
+       
+        public static String getQuestionerPath(){
+            return Config.questionerPath;
+        }
 
 }
