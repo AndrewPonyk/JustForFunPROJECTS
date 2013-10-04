@@ -116,10 +116,11 @@ public class Quiz {
             //if not enouth , we will try to regenerate , is is stupid , but ...
             if(generatedItems.size()<questionsCountByCategory.get(item))
             {
+                for(int j=0;j<5;j++){
                 randoms=new LinkedHashSet<Integer>();
                 requiredCountQuestions=questionsCountByCategory.get(item);
 
-            while( randoms.size()!=requiredCountQuestions ){
+                while( randoms.size()!=requiredCountQuestions ){
                 Integer randomInt=random.nextInt(category.getnOfQuestions()); //
                 
                 if(!randoms.contains(randomInt))
@@ -134,6 +135,14 @@ public class Quiz {
                 
                 generatedItems= this.getCategoryRandomizedQuestionsFromXML(categories.get(item), randoms);
                 JOptionPane.showMessageDialog(null, generatedItems.size());
+                   if(generatedItems.size()==questionsCountByCategory.get(item))
+                       break;
+                    try {
+                        Thread.sleep(random.nextInt(4));
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Quiz.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
             }
             this.questions.putAll( generatedItems);
             
