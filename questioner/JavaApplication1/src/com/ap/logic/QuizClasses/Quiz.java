@@ -113,7 +113,7 @@ public class Quiz {
             LinkedHashMap<String,Question> generatedItems= this.getCategoryRandomizedQuestionsFromXML(categories.get(item), randoms);
             JOptionPane.showMessageDialog(null, generatedItems.size());
             
-            //if equals zero , we will try to regenerate , is is stupid , but ...
+            //if not enouth , we will try to regenerate , is is stupid , but ...
             if(generatedItems.size()<questionsCountByCategory.get(item))
             {
                 randoms=new LinkedHashSet<Integer>();

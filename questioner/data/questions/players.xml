@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="2_4_1_0" name="Players" nofquestions="2" nofsubcategories="0" filename="players.xml">
+  <question id="2_4_1_0:0" type="0">
+    <questiontext>Who is the best player in football history?
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ Messi $v0end$&lt;br&gt;
+$v1$ Pele $v1end$&lt;br&gt;
+$v2$ Zidan $v2end$&lt;br&gt;
+$v3$ 
+    Ronaldo $v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="2_4_1_0:1" type="0">
+    <questiontext>Who is the best player now ?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ Messi $v0end$&lt;br&gt;
+$v1$ Ronaldo 
+    $v1end$&lt;br&gt;
+$v2$ $v2end$&lt;br&gt;
+$v3$ $v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+</questions>
