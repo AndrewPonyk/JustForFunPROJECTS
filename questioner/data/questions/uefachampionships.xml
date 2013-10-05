@@ -1,2 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_4_1_1" name="Uefa Championships" nofquestions="0" nofsubcategories="0" filename="uefachampionships.xml" />
+<questions id="2_4_1_1" name="Uefa Championships" nofquestions="4" nofsubcategories="0" filename="uefachampionships.xml">
+  <question id="2_4_1_1:0" type="0">
+    <questiontext>1)Who won EURO-2012&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ Italy $v0end$&lt;br&gt;
+$v1$ Germany $v1end$&lt;br&gt;
+$v2$     Spain$v2end$&lt;br&gt;
+$v3$ France$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="2_4_1_1:1" type="0">
+    <questiontext>2) Who won World Cup in 2010&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ Spain $v0end$&lt;br&gt;
+$v1$ France     $v1end$&lt;br&gt;
+$v2$ Argentina$v2end$&lt;br&gt;
+$v3$ $v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_4_1_1:2" type="0">
+    <questiontext>3)Where was  EURO -2012 ?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ France $v0end$&lt;br&gt;
+$v1$Sweden     $v1end$&lt;br&gt;
+$v2$ Ukraine and Poland $v2end$&lt;br&gt;
+$v3$ $v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="2_4_1_1:3" type="2">
+    <questiontext>4)Tell something about Balotelli in match agains Germany ?</questiontext>
+    <questionanswer>Funyy =)</questionanswer>
+  </question>
+</questions>
