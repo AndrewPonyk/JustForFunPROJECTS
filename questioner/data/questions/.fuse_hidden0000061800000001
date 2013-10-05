@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="2_4_1_0" name="Players" nofquestions="7" nofsubcategories="0" filename="players.xml">
+  <question id="2_4_1_0:0" type="0">
+    <questiontext>Who is the best player in football history?
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ Messi $v0end$&lt;br&gt;
+$v1$ Pele $v1end$&lt;br&gt;
+$v2$ Zidan $v2end$&lt;br&gt;
+$v3$ 
+    Ronaldo $v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="2_4_1_0:1" type="0">
+    <questiontext>Who is the best player now ?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ Messi $v0end$&lt;br&gt;
+$v1$ Ronaldo$v1end$&lt;br&gt;
+$v2$ $v2end$&lt;br&gt;
+$v3$ $v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_4_1_0:2" type="2">
+    <questiontext>Which countries has best players</questiontext>
+    <questionanswer>Spain , Brazilia , Argentina ...</questionanswer>
+  </question>
+  <question id="2_4_1_0:3" type="0">
+    <questiontext>Who is the richest footbal player ?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ Messi $v0end$&lt;br&gt;
+$v1$ 
+    Beckham $v1end$&lt;br&gt;
+$v2$ Ronaldo $v2end$&lt;br&gt;
+$v3$ C.Ronaldo $v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="2_4_1_0:4" type="0">
+    <questiontext>Fake question with answer variant1&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ variant1 $v0end$&lt;br&gt;
+$v1$ 
+     variant2 $v1end$&lt;br&gt;
+$v2$  variant3$v2end$&lt;br&gt;
+$v3$ variant4$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_4_1_0:5" type="0">
+    <questiontext>The best Ukrainian player ?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ Shevchenko $v0end$&lt;br&gt;
+$v1$     Rebrov $v1end$&lt;br&gt;
+$v2$ Blokhin $v2end$&lt;br&gt;
+$v3$ Luznyj $v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="2_4_1_0:6" type="0">
+    <questiontext>ddd&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ variant0. $v0end$&lt;br&gt;
+$v1$ Reb $v1end$&lt;br&gt;
+$v2$ variant2     $v2end$&lt;br&gt;
+$v3$ varuiant3 $v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+</questions>

@@ -13,6 +13,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <Events>
     <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
@@ -32,15 +33,8 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="questionTypeLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="questionTypeComboBox" min="-2" pref="122" max="-2" attributes="0"/>
-              <EmptySpace pref="408" max="32767" attributes="0"/>
-          </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="176" max="32767" attributes="0"/>
+              <EmptySpace pref="206" max="32767" attributes="0"/>
               <Component id="previewButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
               <Component id="saveQuestionButton" min="-2" max="-2" attributes="0"/>
@@ -50,17 +44,24 @@
               <Component id="cancelButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="questionTextLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="572" max="32767" attributes="0"/>
-          </Group>
           <Component id="jScrollPane2" alignment="0" pref="650" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <Component id="questionAnswerLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Component id="jScrollPane1" alignment="0" pref="650" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="questionTypeLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="questionTypeComboBox" min="-2" pref="122" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="questionTextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">

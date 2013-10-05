@@ -260,7 +260,9 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     private void saveQuestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveQuestionButtonActionPerformed
         this.resultQuestion=new Question();
 
-        String questionText=this.questionTextTextPane.getText().replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n")  ;
+        String questionText=this.questionTextTextPane.getText().replaceAll("\n", ""); // remove all \n , we will add new lines with replacing <br>
+        questionText=questionText.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n")  ;
+
         String questionAnswer=this.questionAnswerTextPane.getText().replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n")  ;
 
          String selectedQuestionType=this.questionTypeComboBox.getSelectedItem().toString();
@@ -283,19 +285,19 @@ public class NewQuestionDialog extends javax.swing.JDialog {
 
 
         if(selectedQuestionType.equals("With Variants")){
-                this.resultQuestion.setType(0+"");
+                this.resultQuestion.setType("0");
         }
 
         if(selectedQuestionType.equals("Yes/No Question")){
-            this.resultQuestion.setType(1+"");
+            this.resultQuestion.setType("1");
         }
 
         if(selectedQuestionType.equals("Detailed Answer Question")){
-            this.resultQuestion.setType(2+"");
+            this.resultQuestion.setType("2");
         }
 
        if(selectedQuestionType.equals("TIP")){
-           this.resultQuestion.setType(9+"");
+           this.resultQuestion.setType("9");
        }
          
         this.readerwriterQuestion.addQuestionToXML(this.resultQuestion, this.newQuestionCategory);
