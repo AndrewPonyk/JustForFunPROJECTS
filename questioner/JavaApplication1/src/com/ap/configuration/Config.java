@@ -22,8 +22,8 @@ public class Config {
        
        public static void setQuestionerPath(String val){
              questionerPath=val;
-             classificationXMLPath=questionerPath+"data/classification.xml";
-             questionsPath=questionerPath+"data/questions/";    
+             classificationXMLPath=questionerPath+"/data/classification.xml";
+             questionsPath=questionerPath+"/data/questions/";
        }
        
         public static String getQuestionerPath(){

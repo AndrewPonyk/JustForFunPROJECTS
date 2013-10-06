@@ -595,6 +595,11 @@ public class QuestionerJFrame extends JFrame {
         helpMenu.setText("Help");
 
         helpMenuItem.setText("About");
+        helpMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpMenuItemActionPerformed(evt);
+            }
+        });
         helpMenu.add(helpMenuItem);
 
         questionerMenuBar.add(helpMenu);
@@ -915,6 +920,11 @@ public class QuestionerJFrame extends JFrame {
         JOptionPane.showMessageDialog(this, "printing");
     }//GEN-LAST:event_printQuizButtonActionPerformed
 
+    private void helpMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpMenuItemActionPerformed
+        AboutDialog about=new AboutDialog(this, true);
+        about.setVisible(true);        
+    }//GEN-LAST:event_helpMenuItemActionPerformed
+
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -963,20 +973,24 @@ public class QuestionerJFrame extends JFrame {
 
             //linux
             jarLocation=  jarLocation.replace(
-                    "JavaApplication1/build/classes", "");
+                    "/JavaApplication1/build/classes", "");
             jarLocation=  jarLocation.replace(
-                    "JavaApplication1/dist/JavaApplication1.jar", "");
+                    "/JavaApplication1/dist/JavaApplication1.jar", "");
 
             //windows 
             jarLocation=  jarLocation.replace(
-                    "JavaApplication1\\build\\classes", "");
+                    "\\JavaApplication1\\build\\classes", "");
             jarLocation=  jarLocation.replace(
-                    "JavaApplication1\\dist\\JavaApplication1.jar", "");
+                    "\\JavaApplication1\\dist\\JavaApplication1.jar", "");
+
+            // Production =)
+            jarLocation=  jarLocation.replace(
+                    "JavaApplication1.jar", "");
 
 
             System.out.println(jarLocation);
             Config.setQuestionerPath(jarLocation);
-            //JOptionPane.showMessageDialog(this, Config.getQuestionerPath());
+           // JOptionPane.showMessageDialog(this, Config.getQuestionerPath());
             //JOptionPane.showMessageDialog(this, Config.classificationXMLPath);
 
         
