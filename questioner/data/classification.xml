@@ -35,7 +35,7 @@
         <category id="1_0_0_2" name="Generics" nofquestions="0" nofsubcategories="0" filename="generics.xml" />
         <category id="1_0_0_3" name="Multithreading" nofquestions="0" nofsubcategories="0" filename="multithreading.xml" />
       </category>
-      <category id="1_0_1" name="Java EE" nofquestions="0" nofsubcategories="6">
+      <category id="1_0_1" name="Java EE" nofquestions="0" nofsubcategories="10">
         <category id="1_0_1_0" name="Java EE JNDI" nofquestions="0" nofsubcategories="0" filename="javaeejndi.xml" />
         <category id="1_0_1_1" name="And+MAVEN" nofquestions="0" nofsubcategories="2">
           <category id="1_0_1_1_0" name="Ant" nofquestions="0" nofsubcategories="0" filename="ant.xml" />
@@ -56,19 +56,28 @@
           <category id="1_0_1_5_0" name="JBoss" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_1_5_1" name="WebLogic" nofquestions="0" nofsubcategories="0" filename="weblogic.xml" />
         </category>
+        <category id="1_0_1_6" name="WebServices" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_1_7" name="SPRING" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_1_8" name="Testing" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_1_9" name="Eclipse" nofquestions="0" nofsubcategories="0" />
       </category>
       <category id="1_0_2" name="Android" nofquestions="0" nofsubcategories="0" />
     </category>
     <category id="1_1" name=".Net" nofquestions="0" nofsubcategories="2">
       <category id="1_1_0" name="C# CORE" nofquestions="0" nofsubcategories="0" />
-      <category id="1_1_1" name=".NET EE" nofquestions="0" nofsubcategories="0" />
+      <category id="1_1_1" name=".NET EE" nofquestions="0" nofsubcategories="4">
+        <category id="1_1_1_0" name="ASP.NET_MVC" nofquestions="0" nofsubcategories="0" />
+        <category id="1_1_1_1" name="Entity" nofquestions="0" nofsubcategories="0" />
+        <category id="1_1_1_2" name="LINQ" nofquestions="0" nofsubcategories="0" />
+        <category id="1_1_1_3" name="WPF" nofquestions="0" nofsubcategories="0" />
+      </category>
     </category>
     <category id="1_2" name="PHP" nofquestions="0" nofsubcategories="2">
       <category id="1_2_0" name="PHP CORE" nofquestions="0" nofsubcategories="0" />
       <category id="1_2_1" name="PHP EE" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="2" name="Programming Other" nofquestions="14" nofsubcategories="5">
+  <class id="2" name="Programming Other" nofquestions="13" nofsubcategories="5">
     <category id="2_0" name="Patterns" nofquestions="0" nofsubcategories="0" />
     <category id="2_1" name="Version Control" nofquestions="0" nofsubcategories="0" />
     <category id="2_2" name="Bug Tracking Systems" nofquestions="0" nofsubcategories="0" />
@@ -77,11 +86,10 @@
       <category id="2_3_2" name="Spanish" nofquestions="3" nofsubcategories="0" filename="spanish.xml" />
       <category id="2_3_3" name="English" nofquestions="3" nofsubcategories="0" filename="english.xml" />
     </category>
-    <category id="2_4" name="Sport" nofquestions="7" nofsubcategories="2">
+    <category id="2_4" name="Sport" nofquestions="6" nofsubcategories="2">
       <category id="2_4_0" name="Basketball" nofquestions="2" nofsubcategories="0" filename="basketball.xml" />
-      <category id="2_4_1" name="Football" nofquestions="5" nofsubcategories="2">
+      <category id="2_4_1" name="Football" nofquestions="4" nofsubcategories="1">
         <category id="2_4_1_1" name="Uefa Championships" nofquestions="4" nofsubcategories="0" filename="uefachampionships.xml" />
-        <category id="2_4_1_2" name="Players" nofquestions="1" nofsubcategories="0" filename="players.xml" />
       </category>
     </category>
   </class>

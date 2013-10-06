@@ -10,11 +10,12 @@ import java.util.Set;
 public class QuizResult {
     private Quiz quiz;
     private int totalQuestions=0;
+    private int detailedAnswerQuestions=0;
     private int correctAnswers=0;
     private int correctAnswersPercent=0;
     private LinkedHashMap<String,Question> correctQuestions=new LinkedHashMap<String, Question>();
     private LinkedHashMap<String,Question> wrongQuestions=new LinkedHashMap<String, Question>();
-
+    private LinkedHashMap<String,Question> detailedAnserQuestions=new LinkedHashMap<String, Question>();// these questions cant be cheched automatically
 
 
     ///log
@@ -43,6 +44,12 @@ public class QuizResult {
                             }
                     }
                     
+                    if(questions.get(item).getType().equals("2")   ){
+                            this.detailedAnswerQuestions++;
+                            this.detailedAnserQuestions.put(questions.get(item).getId(),questions.get(item));
+                    }
+
+
             }
 
             
@@ -139,6 +146,34 @@ public class QuizResult {
      */
     public void setWrongQuestions(LinkedHashMap<String, Question> wrongQuestions) {
         this.wrongQuestions = wrongQuestions;
+    }
+
+    /**
+     * @return the detailedAnswerQuestions
+     */
+    public int getDetailedAnswerQuestions() {
+        return detailedAnswerQuestions;
+    }
+
+    /**
+     * @param detailedAnswerQuestions the detailedAnswerQuestions to set
+     */
+    public void setDetailedAnswerQuestions(int detailedAnswerQuestions) {
+        this.detailedAnswerQuestions = detailedAnswerQuestions;
+    }
+
+    /**
+     * @return the detailedAnserQuestions
+     */
+    public LinkedHashMap<String, Question> getDetailedAnserQuestions() {
+        return detailedAnserQuestions;
+    }
+
+    /**
+     * @param detailedAnserQuestions the detailedAnserQuestions to set
+     */
+    public void setDetailedAnserQuestions(LinkedHashMap<String, Question> detailedAnserQuestions) {
+        this.detailedAnserQuestions = detailedAnserQuestions;
     }
 
 }
