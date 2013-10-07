@@ -27,13 +27,12 @@
     <category id="0_2" name="Javascript" nofquestions="0" nofsubcategories="0" />
     <category id="0_3" name="Algorithms(huge)" nofquestions="0" nofsubcategories="0" />
   </class>
-  <class id="1" name="Programming" nofquestions="4" nofsubcategories="4">
-    <category id="1_0" name="Java" nofquestions="4" nofsubcategories="3">
-      <category id="1_0_0" name="Java CORE" nofquestions="4" nofsubcategories="4">
-        <category id="1_0_0_0" name="Basic Syntax(types,obj,classes,accessmodifier,staticmembers" nofquestions="4" nofsubcategories="0" filename="basicsyntax(types,obj,classes,accessmodifier,staticmembers.xml" />
-        <category id="1_0_0_1" name="Collections" nofquestions="0" nofsubcategories="0" filename="collections.xml" />
-        <category id="1_0_0_2" name="Generics" nofquestions="0" nofsubcategories="0" filename="generics.xml" />
-        <category id="1_0_0_3" name="Multithreading" nofquestions="0" nofsubcategories="0" filename="multithreading.xml" />
+  <class id="1" name="Programming" nofquestions="2" nofsubcategories="4">
+    <category id="1_0" name="Java" nofquestions="2" nofsubcategories="3">
+      <category id="1_0_0" name="Java CORE" nofquestions="2" nofsubcategories="3">
+        <category id="1_0_0_0" name="BasicSyntax(types,classes,static,access,inner)" nofquestions="0" nofsubcategories="0" filename="basicsyntax(types,classes,static,access,inner)1_0_0_0.xml" />
+        <category id="1_0_0_1" name="Collections" nofquestions="0" nofsubcategories="0" filename="collections1_0_0_1.xml" />
+        <category id="1_0_0_2" name="s" nofquestions="2" nofsubcategories="0" filename="s1_0_0_2.xml" />
       </category>
       <category id="1_0_1" name="Java EE" nofquestions="0" nofsubcategories="10">
         <category id="1_0_1_0" name="Java EE JNDI" nofquestions="0" nofsubcategories="0" filename="javaeejndi.xml" />

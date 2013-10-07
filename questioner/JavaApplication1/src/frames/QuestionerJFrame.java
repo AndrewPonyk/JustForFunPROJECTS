@@ -748,7 +748,7 @@ public class QuestionerJFrame extends JFrame {
         newCategory.setnOfQuestions(0);
         newCategory.setnOfSubcategories(0);
         if(newCategoryFile  ){
-            newCategory.setFileName(newCategoryName.replace(" ", "").toLowerCase() +".xml");
+            newCategory.setFileName(newCategoryName.replace(" ", "").toLowerCase() +newCategory.getId()+".xml");
             // create new file for category if needed
             this.reader.addQuestionsFile(Config.questionsPath+newCategory.getFileName(), newCategory);
         }else{
@@ -778,7 +778,7 @@ public class QuestionerJFrame extends JFrame {
 
         NewQuestionDialog dialog=new NewQuestionDialog(this, true);
         dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        dialog.setNewQuestionCategory(   categoryForNewQuestion  );
+        dialog.setNewQuestionCategory(categoryForNewQuestion  );
         dialog.setVisible(true);
 
         if(dialog.getDialogResult()){
