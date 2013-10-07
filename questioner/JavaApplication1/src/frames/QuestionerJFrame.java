@@ -754,7 +754,7 @@ public class QuestionerJFrame extends JFrame {
         }else{
             newCategory.setFileName(null);
         }
-
+        
         // add to classification tree
         model.insertNodeInto(new DefaultMutableTreeNode(newCategory), currCategoryNode, currCategoryNode.getChildCount());
 
