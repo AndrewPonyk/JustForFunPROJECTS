@@ -204,7 +204,7 @@ public class QuestionerJFrame extends JFrame {
         categoryTreePopupMenu.add(addQuestion);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Questioner 0.0"); // NOI18N
+        setTitle("Questioner 0.1"); // NOI18N
         setBackground(new java.awt.Color(204, 0, 0));
         setMinimumSize(new java.awt.Dimension(650, 500));
         addWindowListener(new java.awt.event.WindowAdapter() {
