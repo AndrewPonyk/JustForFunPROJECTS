@@ -73,7 +73,21 @@
       <category id="1_0_2" name="Android" nofquestions="0" nofsubcategories="0" />
     </category>
     <category id="1_1" name=".Net" nofquestions="0" nofsubcategories="2">
-      <category id="1_1_0" name="C# CORE" nofquestions="0" nofsubcategories="0" />
+      <category id="1_1_0" name="C# CORE" nofquestions="0" nofsubcategories="9">
+        <category id="1_1_0_0" name="BasicSyntax(types,classes,inner,static,modifiers,delegates" nofquestions="0" nofsubcategories="0" filename="basicsyntax(types,classes,inner,static,modifiers,delegates1_1_0_0.xml" />
+        <category id="1_1_0_1" name="Collections" nofquestions="0" nofsubcategories="0" filename="collections1_1_0_1.xml" />
+        <category id="1_1_0_2" name="Generics" nofquestions="0" nofsubcategories="0" filename="generics1_1_0_2.xml" />
+        <category id="1_1_0_3" name="Multithreading" nofquestions="0" nofsubcategories="0" filename="multithreading1_1_0_3.xml" />
+        <category id="1_1_0_4" name="IO_and_Serialization" nofquestions="0" nofsubcategories="0" filename="io_and_serialization1_1_0_4.xml" />
+        <category id="1_1_0_5" name="XML" nofquestions="0" nofsubcategories="0" filename="xml1_1_0_5.xml" />
+        <category id="1_1_0_6" name="Exceptions" nofquestions="0" nofsubcategories="0" filename="exceptions1_1_0_6.xml" />
+        <category id="1_1_0_7" name="Net" nofquestions="0" nofsubcategories="0" filename="net1_1_0_7.xml" />
+        <category id="1_1_0_8" name="RegExp.GC.Reflection" nofquestions="0" nofsubcategories="3">
+          <category id="1_1_0_8_0" name="RegExp" nofquestions="0" nofsubcategories="0" filename="regexp1_1_0_8_0.xml" />
+          <category id="1_1_0_8_1" name="GC" nofquestions="0" nofsubcategories="0" filename="gc1_1_0_8_1.xml" />
+          <category id="1_1_0_8_2" name="Reflection" nofquestions="0" nofsubcategories="0" filename="reflection1_1_0_8_2.xml" />
+        </category>
+      </category>
       <category id="1_1_1" name=".NET EE" nofquestions="0" nofsubcategories="4">
         <category id="1_1_1_0" name="ASP.NET_MVC" nofquestions="0" nofsubcategories="0" />
         <category id="1_1_1_1" name="Entity" nofquestions="0" nofsubcategories="0" />
@@ -92,8 +106,13 @@
   </class>
   <class id="2" name="Programming Other" nofquestions="14" nofsubcategories="5">
     <category id="2_0" name="Patterns" nofquestions="0" nofsubcategories="0" />
-    <category id="2_1" name="Version Control" nofquestions="0" nofsubcategories="0" />
-    <category id="2_2" name="Bug Tracking Systems" nofquestions="0" nofsubcategories="0" />
+    <category id="2_1" name="Version Control" nofquestions="0" nofsubcategories="2">
+      <category id="2_1_0" name="Svn" nofquestions="0" nofsubcategories="0" filename="svn2_1_0.xml" />
+      <category id="2_1_1" name="Git" nofquestions="0" nofsubcategories="0" filename="git2_1_1.xml" />
+    </category>
+    <category id="2_2" name="Bug Tracking Systems" nofquestions="0" nofsubcategories="1">
+      <category id="2_2_0" name="Jira" nofquestions="0" nofsubcategories="0" filename="jira2_2_0.xml" />
+    </category>
     <category id="2_3" name="Languages" nofquestions="7" nofsubcategories="3">
       <category id="2_3_1" name="German" nofquestions="1" nofsubcategories="0" filename="german.xml" />
       <category id="2_3_2" name="Spanish" nofquestions="3" nofsubcategories="0" filename="spanish.xml" />
