@@ -111,12 +111,12 @@ public class Quiz {
             System.out.println("<- randoms----------------------");
             
             LinkedHashMap<String,Question> generatedItems= this.getCategoryRandomizedQuestionsFromXML(categories.get(item), randoms);
-            JOptionPane.showMessageDialog(null, generatedItems.size());
+            //JOptionPane.showMessageDialog(null, generatedItems.size());
             
             //if not enouth , we will try to regenerate , is is stupid , but ...
             if(generatedItems.size()<questionsCountByCategory.get(item))
             {
-                for(int j=0;j<5;j++){
+                for(int j=0;j<6;j++){
                 randoms=new LinkedHashSet<Integer>();
                 requiredCountQuestions=questionsCountByCategory.get(item);
 
@@ -134,7 +134,7 @@ public class Quiz {
                 System.out.println("<- randoms----------------------");
                 
                 generatedItems= this.getCategoryRandomizedQuestionsFromXML(categories.get(item), randoms);
-                JOptionPane.showMessageDialog(null, generatedItems.size());
+                //JOptionPane.showMessageDialog(null, generatedItems.size());
                    if(generatedItems.size()==questionsCountByCategory.get(item))
                        break;
                     try {

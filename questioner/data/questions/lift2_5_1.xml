@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="2_5_1" name="lift" nofquestions="2" nofsubcategories="0" filename="lift2_5_1.xml">
+  <question id="2_5_1:0" type="0">
+    <questiontext>Which version of Lift is Last ?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ 2.4 $v0end$&lt;br&gt;
+$v1$     2.2$v1end$&lt;br&gt;
+$v2$ 2.0 $v2end$&lt;br&gt;
+$v3$ $v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_5_1:1" type="1">
+    <questiontext>Lift is good framework ?</questiontext>
+    <questionanswer>yes</questionanswer>
+  </question>
+</questions>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="2_5_0" name="play" nofquestions="2" nofsubcategories="0" filename="play2_5_0.xml">
+  <question id="2_5_0:0" type="0">
+    <questiontext>Who was a prototype of play&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ Ror $v0end$&lt;br&gt;
+$v1$ Struts     $v1end$&lt;br&gt;
+$v2$ Jsf $v2end$&lt;br&gt;
+$v3$ $v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_5_0:1" type="0">
+    <questiontext>Which version of Play is using on WDS project?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ 2.2 $v0end$&lt;br&gt;
+$v1$     1.2.4 $v1end$&lt;br&gt;
+$v2$ 1.2.7 $v2end$&lt;br&gt;
+$v3$ $v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+</questions>

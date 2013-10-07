@@ -104,7 +104,7 @@
       <category id="1_3_1" name="Python EE" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="2" name="Programming Other" nofquestions="14" nofsubcategories="5">
+  <class id="2" name="Programming Other" nofquestions="22" nofsubcategories="6">
     <category id="2_0" name="Patterns" nofquestions="0" nofsubcategories="0" />
     <category id="2_1" name="Version Control" nofquestions="0" nofsubcategories="2">
       <category id="2_1_0" name="Svn" nofquestions="0" nofsubcategories="0" filename="svn2_1_0.xml" />
@@ -124,6 +124,10 @@
         <category id="2_4_1_1" name="Uefa Championships" nofquestions="4" nofsubcategories="0" filename="uefachampionships.xml" />
         <category id="2_4_1_2" name="Players" nofquestions="1" nofsubcategories="0" filename="players.xml" />
       </category>
+    </category>
+    <category id="2_5" name="scala" nofquestions="8" nofsubcategories="2" filename="scala2_5.xml">
+      <category id="2_5_0" name="play" nofquestions="2" nofsubcategories="0" filename="play2_5_0.xml" />
+      <category id="2_5_1" name="lift" nofquestions="2" nofsubcategories="0" filename="lift2_5_1.xml" />
     </category>
   </class>
 </classification>

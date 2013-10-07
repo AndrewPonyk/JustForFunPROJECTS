@@ -13,6 +13,7 @@ import com.ap.configuration.Config;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
+import java.awt.print.PrinterException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ import java.util.LinkedHashMap;
 import java.util.Random;
 
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
@@ -139,6 +142,8 @@ public class QuestionerJFrame extends JFrame {
         printQuizCheckbox = new javax.swing.JCheckBox();
         printQuizCountTextField = new javax.swing.JTextField();
         printQuizButton = new javax.swing.JButton();
+        quizNameLabel = new javax.swing.JLabel();
+        quizNameText = new javax.swing.JTextField();
         leftPanel = new javax.swing.JPanel();
         paneWithTree = new javax.swing.JScrollPane();
         classificationTree = new javax.swing.JTree();
@@ -330,7 +335,7 @@ public class QuestionerJFrame extends JFrame {
         quizPanelLayout.setVerticalGroup(
             quizPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quizPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                 .addGap(78, 78, 78)
                 .addComponent(quizVariantsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
@@ -364,7 +369,7 @@ public class QuestionerJFrame extends JFrame {
 
         quizTopicsLabel.setText("Quiz Topics");
 
-        quizTopicsTextPane.setFont(new java.awt.Font("Tahoma", 0, 10));
+        quizTopicsTextPane.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jScrollPane1.setViewportView(quizTopicsTextPane);
 
         includeTipsLabel.setText("Include TIPS");
@@ -383,6 +388,8 @@ public class QuestionerJFrame extends JFrame {
             }
         });
 
+        quizNameLabel.setText("Quiz name");
+
         javax.swing.GroupLayout quizSetupPanelLayout = new javax.swing.GroupLayout(quizSetupPanel);
         quizSetupPanel.setLayout(quizSetupPanelLayout);
         quizSetupPanelLayout.setHorizontalGroup(
@@ -392,12 +399,17 @@ public class QuestionerJFrame extends JFrame {
                     .addGroup(quizSetupPanelLayout.createSequentialGroup()
                         .addGap(104, 104, 104)
                         .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(timeLabel)
                             .addComponent(quizTopicsLabel)
-                            .addComponent(questionsCountLabel)))
+                            .addComponent(questionsCountLabel)
+                            .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(quizNameLabel)
+                                .addComponent(timeLabel))))
                     .addGroup(quizSetupPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(printQuizCheckbox))
+                    .addGroup(quizSetupPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(printQuizCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(quizSetupPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(printQuizButton)))
@@ -405,32 +417,36 @@ public class QuestionerJFrame extends JFrame {
                 .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(quizSetupPanelLayout.createSequentialGroup()
                         .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, quizSetupPanelLayout.createSequentialGroup()
-                                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(startQuizButton, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(quizQuestionsCountTextField)
-                                        .addComponent(quizMinutesTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)))
-                                .addGap(0, 199, Short.MAX_VALUE)))
+                                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(quizQuestionsCountTextField)
+                                    .addComponent(quizMinutesTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
+                                .addGap(0, 291, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                        .addComponent(includeDetailedAnwersLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                        .addComponent(includeDetailedAnwersLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(quizIncludeDetailedAnswersCheckBox)
                         .addGap(18, 18, 18)
                         .addComponent(includeTipsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)
                         .addComponent(quizIncludeTipsCheckBox)
-                        .addGap(23, 23, 23))))
-            .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(printQuizCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(362, Short.MAX_VALUE))
+                        .addGap(23, 23, 23))
+                    .addGroup(quizSetupPanelLayout.createSequentialGroup()
+                        .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(quizNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(startQuizButton))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         quizSetupPanelLayout.setVerticalGroup(
             quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(quizSetupPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(quizNameLabel)
+                    .addComponent(quizNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(timeLabel)
                     .addComponent(quizMinutesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -438,29 +454,32 @@ public class QuestionerJFrame extends JFrame {
                 .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(questionsCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(quizQuestionsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(quizTopicsLabel)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(quizIncludeDetailedAnswersCheckBox)
-                        .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(includeTipsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                            .addComponent(quizIncludeTipsCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(printQuizCheckbox)
-                            .addComponent(includeDetailedAnwersLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(printQuizCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
+                            .addComponent(quizTopicsLabel)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(quizIncludeDetailedAnswersCheckBox)
+                                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(includeTipsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(quizIncludeTipsCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)))
+                            .addGroup(quizSetupPanelLayout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(includeDetailedAnwersLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quizSetupPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(printQuizCheckbox)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(printQuizCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10)
                 .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(startQuizButton)
                     .addComponent(printQuizButton))
-                .addGap(3, 3, 3))
+                .addGap(28, 28, 28))
         );
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
@@ -475,7 +494,7 @@ public class QuestionerJFrame extends JFrame {
 
         statisticPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Info"));
 
-        ClassificationItemInfoLabel.setFont(new java.awt.Font("Tahoma", 1, 12));
+        ClassificationItemInfoLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         classificationItemInfoTextArea.setBackground(new java.awt.Color(212, 208, 200));
         classificationItemInfoTextArea.setColumns(20);
@@ -504,7 +523,7 @@ public class QuestionerJFrame extends JFrame {
                 .addComponent(ClassificationItemInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
@@ -522,7 +541,7 @@ public class QuestionerJFrame extends JFrame {
         leftPanelLayout.setVerticalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftPanelLayout.createSequentialGroup()
-                .addComponent(paneWithTree, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                .addComponent(paneWithTree, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statisticPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -543,7 +562,7 @@ public class QuestionerJFrame extends JFrame {
         );
         quizReviewPanelLayout.setVerticalGroup(
             quizReviewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
         );
 
         fileMenu.setText("File");
@@ -918,6 +937,46 @@ public class QuestionerJFrame extends JFrame {
     private void printQuizButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printQuizButtonActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "printing");
+        JTextPane printQuizPane=new JTextPane();
+        printQuizPane.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        printQuizPane.getAccessibleContext().setAccessibleDescription("text/html");
+        printQuizPane.setContentType("text/html");
+        
+                if(this.quiz.getCategories().size()>0){
+                    // configure quiz , set time , number of questions , and generate questions
+                    this.quiz.setMinutes(  Integer.parseInt(this.quizMinutesTextField.getText())  );
+                    this.quiz.setNofquestions(  Integer.parseInt( this.quizQuestionsCountTextField.getText()) );
+                    this.quiz.setIncludeDetailedAnswersQuestions(this.quizIncludeDetailedAnswersCheckBox.isSelected());
+                    this.quiz.generateQuestions();
+                }
+        
+        String quizString="<b>Quiz : </b>"+this.quizNameText.getText()+"<br><br>";
+        
+        Set<String> questionsIds=this.quiz.getQuestions().keySet();
+        int counter=1;
+        for(String item : questionsIds){
+            
+            Question currentQuestion=this.quiz.getQuestions().get(item);
+            String currentQuestionText=currentQuestion.getQuestionText();
+            currentQuestionText=currentQuestionText.replace("$v$", "").replace("$vend$", "");
+            for(int i=0;i<5;i++){
+                currentQuestionText=currentQuestionText.replace("$v"+i+"$", "   "+i+"]");
+                currentQuestionText=currentQuestionText.replace("$v"+i+"end$", "");
+            }
+            
+            
+            quizString+="<b>"+counter+ " ) </b>"+currentQuestionText;
+            quizString+="<br><hr><br>";
+            counter++;
+        }
+        
+        
+        printQuizPane.setText(quizString);
+        try {
+            printQuizPane.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(QuestionerJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_printQuizButtonActionPerformed
 
     private void helpMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpMenuItemActionPerformed
@@ -1082,6 +1141,8 @@ public class QuestionerJFrame extends JFrame {
     private javax.swing.JCheckBox quizIncludeTipsCheckBox;
     private javax.swing.JMenu quizMenu;
     private javax.swing.JTextField quizMinutesTextField;
+    private javax.swing.JLabel quizNameLabel;
+    private javax.swing.JTextField quizNameText;
     private javax.swing.JRadioButton quizNoRadioButton;
     private javax.swing.JPanel quizPanel;
     private javax.swing.JTextPane quizQuestionTextTextPane;
