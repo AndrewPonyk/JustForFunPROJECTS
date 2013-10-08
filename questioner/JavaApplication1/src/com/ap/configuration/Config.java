@@ -19,11 +19,13 @@ public class Config {
         private static String questionerPath="";//="/home/andrew/git/JustForFunPROJECTS/questioner/";
         public static  String classificationXMLPath ="";//questionerPath+"data/classification.xml";
         public static  String questionsPath="";//questionerPath+"data/questions/";    
-       
+       public static String imagesPath="";
+
        public static void setQuestionerPath(String val){
              questionerPath=val;
              classificationXMLPath=questionerPath+"/data/classification.xml";
              questionsPath=questionerPath+"/data/questions/";
+             imagesPath=questionerPath+"/data/images/";
        }
        
         public static String getQuestionerPath(){

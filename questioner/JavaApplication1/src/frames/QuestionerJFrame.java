@@ -1253,6 +1253,7 @@ public class QuestionerJFrame extends JFrame {
         }
 
         public void ShowQuestionAndshowVariants(Question question){
+            this.quizQuestionTextTextPane.setContentType("text/html"); // to display images
             String questionText="";
             String variants = "" ; //if question type == 0
             if(this.quiz.getCurrentQuestion().getType().equals("0")){
@@ -1265,7 +1266,7 @@ public class QuestionerJFrame extends JFrame {
                     questionText=questionText.substring(0,questionText.indexOf("$v"));
                     for(int i=0;i<10;i++){
                         if(tempVarians.contains("$v"+i+"$")){
-                            variants+="\nVariant "+ (i+1) +" :"+tempVarians.substring(
+                            variants+="<br>\nVariant "+ (i+1) +" :"+tempVarians.substring(
                                tempVarians.indexOf("$v"+i+"$")+4,
                                 tempVarians.indexOf("$v"+i+"end$")
                              );
