@@ -14,8 +14,12 @@ package frames;
 import com.ap.logic.Classification.Category;
 import com.ap.logic.QuizClasses.Question;
 import com.ap.logic.xml.ReadWriteClassificationXML;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.StyledDocument;
 
 /**
  *
@@ -52,6 +56,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         previewButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         questionAnswerTextPane = new javax.swing.JTextPane();
+        addImageButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("New Question");
@@ -121,18 +126,19 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         jScrollPane1.setViewportView(questionAnswerTextPane);
         questionAnswerTextPane.getAccessibleContext().setAccessibleDescription("text/html");
 
+        addImageButton.setText("Add Image");
+        addImageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addImageButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(questionTypeLabel)
-                .addGap(40, 40, 40)
-                .addComponent(questionTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(408, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(176, Short.MAX_VALUE)
+                .addContainerGap(206, Short.MAX_VALUE)
                 .addComponent(previewButton)
                 .addGap(90, 90, 90)
                 .addComponent(saveQuestionButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -141,15 +147,22 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                 .addGap(10, 10, 10)
                 .addComponent(cancelButton)
                 .addGap(32, 32, 32))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(questionTextLabel)
-                .addContainerGap(572, Short.MAX_VALUE))
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(questionAnswerLabel)
-                .addContainerGap())
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(questionAnswerLabel)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(questionTypeLabel)
+                                .addGap(40, 40, 40)
+                                .addComponent(questionTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(69, 69, 69)
+                                .addComponent(addImageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(questionTextLabel))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,11 +170,12 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(questionTypeLabel)
-                    .addComponent(questionTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
+                    .addComponent(questionTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addImageButton))
+                .addGap(11, 11, 11)
                 .addComponent(questionTextLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(questionAnswerLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -306,6 +320,17 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         this.setVisible(false);
     }//GEN-LAST:event_saveQuestionButtonActionPerformed
 
+    private void addImageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addImageButtonActionPerformed
+        JOptionPane.showMessageDialog(this, this.questionTextTextPane.getCaret().getDot());
+        StyledDocument doc = this.questionTextTextPane.getStyledDocument();
+        try {
+            doc.insertString(this.questionTextTextPane.getCaret().getDot(), "[Image]",null);
+        } catch (BadLocationException ex) {
+            Logger.getLogger(NewQuestionDialog.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_addImageButtonActionPerformed
+
 
 
 
@@ -327,6 +352,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addImageButton;
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton clearFormButton;
     private javax.swing.JComboBox jComboBox1;

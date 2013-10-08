@@ -56,6 +56,8 @@
                               <Component id="questionTypeLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               <Component id="questionTypeComboBox" min="-2" pref="122" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                              <Component id="addImageButton" min="-2" pref="176" max="-2" attributes="0"/>
                           </Group>
                           <Component id="questionTextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -72,11 +74,12 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="questionTypeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="questionTypeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="addImageButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Component id="questionTextLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-              <Component id="jScrollPane2" pref="220" max="32767" attributes="0"/>
+              <Component id="jScrollPane2" pref="219" max="32767" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="questionAnswerLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -213,5 +216,13 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="addImageButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add Image"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addImageButtonActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>
