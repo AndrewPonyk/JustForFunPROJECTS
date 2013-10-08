@@ -960,13 +960,15 @@ public class QuestionerJFrame extends JFrame {
             String currentQuestionText=currentQuestion.getQuestionText();
             currentQuestionText=currentQuestionText.replace("$v$", "").replace("$vend$", "");
             for(int i=0;i<5;i++){
-                currentQuestionText=currentQuestionText.replace("$v"+i+"$", "   "+i+"]");
+                currentQuestionText=currentQuestionText.replace("$v"+i+"$", "\t"+i+"]");
                 currentQuestionText=currentQuestionText.replace("$v"+i+"end$", "");
             }
             
-            
-            quizString+="<b>"+counter+ " ) </b>"+currentQuestionText;
-            quizString+="<br><hr><br>";
+            quizString+="<b>"+counter+ " )</b>"+currentQuestionText;
+            if(currentQuestion.getType().equals("2")){
+                quizString+="<br><br><br>";
+            }
+            quizString+="<hr style='margin:2px 0'>";
             counter++;
         }
         

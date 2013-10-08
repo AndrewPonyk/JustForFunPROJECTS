@@ -207,9 +207,9 @@ public class NewQuestionDialog extends javax.swing.JDialog {
             this.questionTextTextPane.setText("");
             String variants="<br>$v$<br>"+
                                                         "$v0$ text of variant... $v0end$<br>"+
-                                                        "$v1$  $v1end$<br>"+
-                                                        "$v2$  $v2end$<br>"+
-                                                        "$v3$  $v3end$<br>"+
+                                                        "$v1$$v1end$<br>"+
+                                                        "$v2$$v2end$<br>"+
+                                                        "$v3$$v3end$<br>"+
                                                     "$vend$";
             this.questionTextTextPane.setText(variants);
              this.questionAnswerTextPane.setText("put here  number of variant (numeration from zero)");
@@ -229,7 +229,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
             this.questionTextTextPane.setContentType("text/html");
             this.questionTextTextPane.setText("");
 
-            this.questionAnswerTextPane.setText("put here  detailed answer");
+            this.questionAnswerTextPane.setText("put here detailed answer");
         }
 
        if(selectedQuestionType.equals("TIP")){
