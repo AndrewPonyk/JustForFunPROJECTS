@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_4_1_2" name="Players" nofquestions="1" nofsubcategories="0" filename="players2_4_1_2.xml">
+<questions id="2_4_1_2" name="Players" nofquestions="2" nofsubcategories="0" filename="players2_4_1_2.xml">
   <question id="2_4_1_2:0" type="0">
     <questiontext>Who is this ?&lt;br&gt;
 &lt;img width='300' height='300' alt='image' src='/data/images/36008.jpg'/&gt;&lt;br&gt;
@@ -10,5 +10,10 @@ $v2$$v2end$&lt;br&gt;
 $v3$$v3end$&lt;br&gt;
 $vend$</questiontext>
     <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_4_1_2:1" type="1">
+    <questiontext>Is this Madrid ?&lt;br&gt;
+&lt;img width='300' height='300' alt='image'     src='/data/images/xl_5034_TP-barcelona.jpg'/&gt;</questiontext>
+    <questionanswer>no</questionanswer>
   </question>
 </questions>

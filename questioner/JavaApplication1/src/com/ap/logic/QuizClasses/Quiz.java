@@ -13,28 +13,23 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Random;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.text.StyledEditorKit.BoldAction;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
-import javax.xml.stream.events.Attribute;
-
 
 
 public class Quiz {
@@ -150,9 +145,11 @@ public class Quiz {
             Set<String> questionsIds=this.questions.keySet();
             for(String q :questionsIds){
                     Question currQuestion=this.questions.get(q);
-                    if(currQuestion.getQuestionText().contains("alt='image' src='")){
+                    if(currQuestion.getQuestionText().contains("src='") &&
+                       currQuestion.getQuestionText().contains("alt='image'") // because we will have manu questions with src , and only images have 'alt'     
+                            ){
                             String  tempText=currQuestion.getQuestionText();
-                            tempText=tempText.replace("alt='image' src='", 
+                            tempText=tempText.replace("src='", 
                                     "src='file://localhost/"+Config.getQuestionerPath());
 
                             // in windows work =)
@@ -162,7 +159,6 @@ public class Quiz {
                     }
             }
             
-
         }
 
         // shuffle questions
@@ -189,7 +185,6 @@ public class Quiz {
         Boolean currentQuestion=false;
         
         InputStream in =null;
-        
         try{
 		XMLInputFactory inputFactory=XMLInputFactory.newInstance();
 		in =new FileInputStream(Config.questionsPath+category.getFileName());

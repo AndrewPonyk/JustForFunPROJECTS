@@ -13,7 +13,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +42,6 @@ public class ReadWriteClassificationXML {
 
         Classification classification = new Classification();
 
-
         SAXBuilder builder = new SAXBuilder();
         try {
             File xmlFile = new File(xmlFileName);
@@ -61,11 +59,7 @@ public class ReadWriteClassificationXML {
                 curClass.setnOfQuestions(Integer.parseInt(elem.getAttributeValue("nofquestions")));
                 curClass.setnOfSubcategories(Integer.parseInt(elem.getAttributeValue("nofsubcategories")));
 
-
-
                 //Main part get categories tree , with recursion
-                        /*            
-                 */
                 LinkedHashMap<String, Category> categories = new LinkedHashMap<String, Category>();
                 List<Element> subcategories = elem.getChildren();
                 for (Element item : subcategories) {
@@ -79,7 +73,6 @@ public class ReadWriteClassificationXML {
                     fillCategory(item, currCategory);
 
                     //add category
-
                     categories.put(currCategory.getId(), currCategory);
                 }
                 curClass.setCategories(categories);
@@ -92,12 +85,9 @@ public class ReadWriteClassificationXML {
 
         }
 
-
         return classification;
     }
 
-    
-    
     public void removeCategoryFromXML(Category category, String xmlFilePath,String parentID){
 
             try {
@@ -105,18 +95,15 @@ public class ReadWriteClassificationXML {
             //update count of questions in parent nodes
             this.updateQuestionsCountInXML(category, category.getnOfQuestions()*-1 );
             
-            
             SAXBuilder builder = new SAXBuilder();
             File xmlFile = new File(xmlFilePath);
             Document document = (Document) builder.build(xmlFile);
             
-             Element rootNode = document.getRootElement();
+            Element rootNode = document.getRootElement();
 
             //Build the xpath expression
             XPath xpathExpression = XPath.newInstance("//*[@id=$categoryID]");
-
             xpathExpression.setVariable("categoryID", category.getId());
-
            
             ArrayList<Element> categoryToRemove = (ArrayList<Element>) xpathExpression.selectNodes(document);
              
@@ -125,8 +112,7 @@ public class ReadWriteClassificationXML {
                     Integer.parseInt(categoryToRemove.get(0).getParentElement().getAttributeValue("nofsubcategories") )-1+"");
             
             System.out.println( "-------deleting"+ categoryToRemove.get(0).detach());
-           
-            
+               
             XMLOutputter xmlOutput = new XMLOutputter();
             xmlOutput.setFormat(Format.getPrettyFormat());
             xmlOutput.output(document, new FileWriter(xmlFilePath));
@@ -151,8 +137,7 @@ public class ReadWriteClassificationXML {
     			System.err.println(file.getName()+ " Delete operation is failed.");
     		}
         }
-        
-        
+                
         if(categoryToRemove.getCategories().size()>0){
             for(Map.Entry<String,Category> item : categoryToRemove.getCategories().entrySet()){
                 removeFilesWithQuestions(item.getValue());
@@ -178,12 +163,10 @@ public class ReadWriteClassificationXML {
             File xmlFile = new File(xmlFilePath);
             Document document = (Document) builder.build(xmlFile);
 
-
             Element rootNode = document.getRootElement();
 
             //Build the xpath expression
             XPath xpathExpression = XPath.newInstance("//*[@id=$parentID]");
-
             xpathExpression.setVariable("parentID", parentID);
 
             ArrayList<Element> userIds = (ArrayList<Element>) xpathExpression.selectNodes(document);
@@ -238,7 +221,6 @@ public class ReadWriteClassificationXML {
             File xmlFile = new File(Config.questionsPath+category.getFileName());
             Document document = (Document) builder.build(xmlFile);
 
-
             Element rootNode = document.getRootElement();
 
             question.setId(category.getId()+":"+rootNode.getChildren().size()); // generate id , as  categoryid:indexofquestion
@@ -252,7 +234,6 @@ public class ReadWriteClassificationXML {
             rootNode.addContent(questionElement);
             rootNode.setAttribute("nofquestions",  Integer.parseInt( rootNode.getAttributeValue("nofquestions") )+1+"");
 
-
             XMLOutputter xmlOutput = new XMLOutputter();
             xmlOutput.setFormat(Format.getPrettyFormat());
             xmlOutput.output(document, new FileWriter(Config.questionsPath+category.getFileName()));
@@ -264,19 +245,15 @@ public class ReadWriteClassificationXML {
         }
     }
 
-
     public void updateQuestionsCountInXML(Category category , int addedQuestionsCount){
                SAXBuilder builder = new SAXBuilder();
-
 
         try {
             File xmlFile = new File(   Config.classificationXMLPath );
             Document document = (Document) builder.build(xmlFile);
-            Element rootNode = document.getRootElement();
             
              //Build the xpath expression
             XPath xpathExpression = XPath.newInstance("//*[@id=$categoryID]");
-
             xpathExpression.setVariable("categoryID", category.getId());
 
             ArrayList<Element> curCategoryNode= (ArrayList<Element>) xpathExpression.selectNodes(document);
@@ -305,13 +282,10 @@ public class ReadWriteClassificationXML {
               Logger.getLogger(ReadWriteClassificationXML.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
         return ;
     }
 
-
     public static void main(String[] args) throws InterruptedException {
-
         System.out.println("Reading classification.xml");
         String xmlFileName = ReadWriteClassificationXML.class.getResource("classification.xml").getPath();
 
@@ -320,7 +294,6 @@ public class ReadWriteClassificationXML {
         Classification classification = new Classification();
 
         SAXBuilder builder = new SAXBuilder();
-
         try {
             File xmlFile = new File(xmlFileName);
             Document document = (Document) builder.build(xmlFile);
@@ -337,11 +310,8 @@ public class ReadWriteClassificationXML {
                 curClass.setnOfQuestions(Integer.parseInt(elem.getAttributeValue("nofquestions")));
                 curClass.setnOfSubcategories(Integer.parseInt(elem.getAttributeValue("nofsubcategories")));
 
-
-
                 //Main part get categories tree , with recursion
-                        /*
-                 */
+
                 LinkedHashMap<String, Category> categories = new LinkedHashMap<String, Category>();
                 List<Element> subcategories = elem.getChildren();
                 for (Element item : subcategories) {
@@ -352,18 +322,16 @@ public class ReadWriteClassificationXML {
                     currCategory.setnOfSubcategories(Integer.parseInt(item.getAttributeValue("nofsubcategories")));
 
                     //and here a piece of recursion
-                    //currCategory.setCategories(null);
-
+                    //currCategory.setCategories(null)
                     fillCategory(item, currCategory);
 
                     //add category
-
                     categories.put(currCategory.getId(), currCategory);
                 }
                 curClass.setCategories(categories);
                 classification.getClasses().put(curClass.getId(), curClass);
 
-//                        System.out.println("id "+elem.getAttributeValue("id") +" "+elem.getAttributeValue("name"));
+               //System.out.println("id "+elem.getAttributeValue("id") +" "+elem.getAttributeValue("name"));
                 System.out.println("Class " + elem.getAttributeValue("name") + " : has  " + elem.getChildren().size() + " children");
 
             }
@@ -397,6 +365,5 @@ public class ReadWriteClassificationXML {
             category.getCategories().put(child.getId(), child);
             fillCategory(children.get(i), child);
         }
-
     }
 }

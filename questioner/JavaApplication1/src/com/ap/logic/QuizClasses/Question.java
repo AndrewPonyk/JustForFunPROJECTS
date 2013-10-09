@@ -16,7 +16,6 @@ public class Question {
     private ArrayList<String> resources = new ArrayList<String>();
     private  TreeSet<String> tags;
 
-    
     public Question() {
     }
 

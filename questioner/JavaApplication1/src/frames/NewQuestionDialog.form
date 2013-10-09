@@ -58,12 +58,14 @@
                               <Component id="questionTypeComboBox" min="-2" pref="122" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                               <Component id="addImageButton" min="-2" pref="176" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="addSourceButton" min="-2" pref="115" max="-2" attributes="0"/>
                           </Group>
                           <Component id="questionTextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,6 +77,7 @@
                   <Component id="questionTypeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="questionTypeComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="addImageButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="addSourceButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Component id="questionTextLabel" min="-2" max="-2" attributes="0"/>
@@ -222,6 +225,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addImageButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="addSourceButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add Source"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addSourceButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

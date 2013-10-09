@@ -64,6 +64,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         questionAnswerTextPane = new javax.swing.JTextPane();
         addImageButton = new javax.swing.JButton();
+        addSourceButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("New Question");
@@ -140,6 +141,13 @@ public class NewQuestionDialog extends javax.swing.JDialog {
             }
         });
 
+        addSourceButton.setText("Add Source");
+        addSourceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addSourceButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -167,9 +175,11 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                                 .addGap(40, 40, 40)
                                 .addComponent(questionTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(69, 69, 69)
-                                .addComponent(addImageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(addImageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(addSourceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(questionTextLabel))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,7 +188,8 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(questionTypeLabel)
                     .addComponent(questionTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addImageButton))
+                    .addComponent(addImageButton)
+                    .addComponent(addSourceButton))
                 .addGap(11, 11, 11)
                 .addComponent(questionTextLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -365,8 +376,6 @@ public class NewQuestionDialog extends javax.swing.JDialog {
             e.printStackTrace();
         }
         
-     
-        
         try {
             doc.insertString(this.questionTextTextPane.getCaret().getDot(),
                     "<br><img width='300' height='300' alt='image' src='/data/images/"+
@@ -378,6 +387,23 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_addImageButtonActionPerformed
+
+    private void addSourceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSourceButtonActionPerformed
+       
+        //adding .rar or zip or smth like this , to question 
+        // one question - can have only one file with sources (it generally will be archive)
+        JOptionPane.showMessageDialog(this, "Add souce");
+  
+        
+        StyledDocument doc = this.questionTextTextPane.getStyledDocument();
+        try {
+            doc.insertString(doc.getLength(),
+                    "\n$source$ ../data/source/file.rar $endsource$"
+                    ,null);
+        } catch (BadLocationException ex) {
+            Logger.getLogger(NewQuestionDialog.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_addSourceButtonActionPerformed
 
 
 
@@ -401,6 +427,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addImageButton;
+    private javax.swing.JButton addSourceButton;
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton clearFormButton;
     private javax.swing.JComboBox jComboBox1;

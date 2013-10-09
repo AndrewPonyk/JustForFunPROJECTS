@@ -17,7 +17,6 @@ public class QuizResult {
     private LinkedHashMap<String,Question> wrongQuestions=new LinkedHashMap<String, Question>();
     private LinkedHashMap<String,Question> detailedAnserQuestions=new LinkedHashMap<String, Question>();// these questions cant be cheched automatically
 
-
     ///log
     public void checkQuiz(){
             LinkedHashMap<String,Question> questions=quiz.getQuestions();
@@ -48,20 +47,9 @@ public class QuizResult {
                             this.detailedAnswerQuestions++;
                             this.detailedAnserQuestions.put(questions.get(item).getId(),questions.get(item));
                     }
-
-
             }
-
-            
-
-        
+   
     }
-
-    ///
-
-
-
-
 
     /**
      * @return the quiz
