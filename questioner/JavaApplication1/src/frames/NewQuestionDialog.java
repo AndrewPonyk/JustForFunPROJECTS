@@ -11,12 +11,19 @@
 
 package frames;
 
+import com.ap.configuration.Config;
 import com.ap.logic.Classification.Category;
 import com.ap.logic.QuizClasses.Question;
 import com.ap.logic.xml.ReadWriteClassificationXML;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.StyledDocument;
@@ -321,10 +328,51 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_saveQuestionButtonActionPerformed
 
     private void addImageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addImageButtonActionPerformed
-        JOptionPane.showMessageDialog(this, this.questionTextTextPane.getCaret().getDot());
+
         StyledDocument doc = this.questionTextTextPane.getStyledDocument();
+        
+        // can be url and can be from file system
+        JFileChooser chooser=new JFileChooser();
+        chooser.showOpenDialog(this);
+       // chooser.setCurrentDirectory(new File("/"));
+        String imageURL=chooser.getSelectedFile().getAbsolutePath();
+        
+        if(imageURL==null || imageURL.length()<3){ 
+           
+           return;
+        }
+        
+        if(imageURL.contains("http")){
+       
+           imageURL = imageURL.substring( imageURL.indexOf("http") );
+           if(imageURL.charAt(imageURL.indexOf("http")+2)!='/' )
+              imageURL= imageURL.replace(":/", "://");
+       //    JOptionPane.showMessageDialog(this, imageURL);
+        }
+        //put image to images dir
+         BufferedImage image =null;
+        try{
+ 
+ 
+            // read the url
+           image = ImageIO.read(new URL(imageURL) );
+           
+            // for jpg
+            ImageIO.write(image, "jpg",new File(Config.imagesPath+
+                    imageURL.substring( imageURL.lastIndexOf('/')+1, imageURL.length() )));
+ 
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        
+     
+        
         try {
-            doc.insertString(this.questionTextTextPane.getCaret().getDot(), "[Image]",null);
+            doc.insertString(this.questionTextTextPane.getCaret().getDot(),
+                    "<br><img width='300' height='300' alt='image' src='/data/images/"+
+                    imageURL.substring( imageURL.lastIndexOf('/')+1, imageURL.length() )+
+                    "'/>"
+                    ,null);
         } catch (BadLocationException ex) {
             Logger.getLogger(NewQuestionDialog.class.getName()).log(Level.SEVERE, null, ex);
         }

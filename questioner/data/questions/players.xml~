@@ -1,30 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_4_1_0" name="Players" nofquestions="3" nofsubcategories="0" filename="players.xml">
-  <question id="2_4_1_0:0" type="0">
-    <questiontext>Who is the best player in football history?
-&lt;br&gt;
+<questions id="2_4_1_2" name="Players" nofquestions="5" nofsubcategories="0" filename="players.xml">
+  <question id="2_4_1_2:0" type="0">
+    <questiontext>Who is the best now ?&lt;br&gt;
 $v$&lt;br&gt;
 $v0$ Messi $v0end$&lt;br&gt;
-$v1$ Pele $v1end$&lt;br&gt;
-$v2$ Zidan $v2end$&lt;br&gt;
-$v3$ 
-    Ronaldo $v3end$&lt;br&gt;
-$vend$</questiontext>
-    <questionanswer>1</questionanswer>
-  </question>
-  <question id="2_4_1_0:1" type="0">
-    <questiontext>Who is the best player now ?&lt;br&gt;
-$v$&lt;br&gt;
-$v0$ Messi $v0end$&lt;br&gt;
-$v1$ Ronaldo 
-    $v1end$&lt;br&gt;
-$v2$ $v2end$&lt;br&gt;
-$v3$ $v3end$&lt;br&gt;
+$v1$ Ronaldo $v1end$&lt;br&gt;
+$v2$     Beckham $v2end$&lt;br&gt;
+$v3$ osdifjoias $v3end$&lt;br&gt;
 $vend$</questiontext>
     <questionanswer>0</questionanswer>
   </question>
-  <question id="2_4_1_0:2" type="2">
-    <questiontext>Which countries has best players</questiontext>
-    <questionanswer>Spain , Brazilia , Argentina ...</questionanswer>
+  <question id="2_4_1_2:1" type="0">
+    <questiontext>Who is on the picture &lt;br&gt; &lt;img  width=200 height=200    alt='image' src='/data/images/shevchenko.jpg'/&gt;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ Shevchenko $v0end$&lt;br&gt;
+$v1$ Rebrov$v1end$&lt;br&gt;
+$v2$     Tymoshchyk$v2end$&lt;br&gt;
+$v3$ Milevskyi$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_4_1_2:2" type="0">
+    <questiontext>Who is this ?&lt;img width='300' height='300' alt='image' src='/data/images/messi.jpg'/&gt;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ B $v0end$&lt;br&gt;
+$v1$ Messi$v1end$&lt;br&gt;
+$v2$ sdfasdf$v2end$&lt;br&gt;
+$v3$asdfasdfasdf$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="2_4_1_2:3" type="0">
+    <questiontext>Which number has messi ?&lt;img width='300' height='300' alt='image' src='/data/images/messi.jpg'/&gt;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ text of variant... $v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$10$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="2_4_1_2:4" type="0">
+    <questiontext>In which club plays Messi ?&lt;br&gt;
+&lt;img width='300' height='300' alt='image' src='/data/images/messi.jpg'/&gt;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$     REAL $v0end$&lt;br&gt;
+$v1$ BARCELONA$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>1</questionanswer>
   </question>
 </questions>
