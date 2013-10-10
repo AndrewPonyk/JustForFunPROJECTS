@@ -438,7 +438,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                 StyledDocument doc = this.questionTextTextPane.getStyledDocument();
             
                 doc.insertString(doc.getLength(),
-                        "\n$source$ ../data/source/"+newFileName+" $endsource$"
+                        "<br>$source$ /data/source/"+newFileName+" $endsource$"
                         ,null);
             
                 System.out.println("File is copied successful!");
