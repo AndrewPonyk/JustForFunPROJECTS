@@ -153,7 +153,7 @@ public class Quiz {
                                     "src='file://localhost/"+Config.getQuestionerPath());
 
                             // in windows work =)
-                            JOptionPane.showMessageDialog(null, tempText);
+                           // JOptionPane.showMessageDialog(null, tempText);
 
                             currQuestion.setQuestionText(tempText);
                     }

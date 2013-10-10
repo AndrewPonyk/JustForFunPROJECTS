@@ -344,7 +344,6 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_saveQuestionButtonActionPerformed
 
     private void addImageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addImageButtonActionPerformed
-
         StyledDocument doc = this.questionTextTextPane.getStyledDocument();
         
         // can be url and can be from file system
@@ -354,7 +353,6 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         String imageURL=chooser.getSelectedFile().getAbsolutePath();
         
         if(imageURL==null || imageURL.length()<3){ 
-           
            return;
         }
         
@@ -368,7 +366,6 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         //put image to images dir
          BufferedImage image =null;
         try{
- 
             // read the url
             image = ImageIO.read(new URL(imageURL) );
            
