@@ -19,12 +19,14 @@ public class Config {
         public static  String classificationXMLPath ="";//questionerPath+"data/classification.xml";
         public static  String questionsPath="";//questionerPath+"data/questions/";    
         public static String imagesPath="";
+        public static String sourcesPath="";
 
        public static void setQuestionerPath(String val){
              questionerPath=val;
              classificationXMLPath=questionerPath+"/data/classification.xml";
              questionsPath=questionerPath+"/data/questions/";
              imagesPath=questionerPath+"/data/images/";
+             sourcesPath=questionerPath+"/data/sources/";
        }
        
         public static String getQuestionerPath(){

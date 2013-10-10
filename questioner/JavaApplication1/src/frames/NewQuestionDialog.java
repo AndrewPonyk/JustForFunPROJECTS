@@ -17,8 +17,13 @@ import com.ap.logic.QuizClasses.Question;
 import com.ap.logic.xml.ReadWriteClassificationXML;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -364,9 +369,8 @@ public class NewQuestionDialog extends javax.swing.JDialog {
          BufferedImage image =null;
         try{
  
- 
             // read the url
-           image = ImageIO.read(new URL(imageURL) );
+            image = ImageIO.read(new URL(imageURL) );
            
             // for jpg
             ImageIO.write(image, "jpg",new File(Config.imagesPath+
@@ -389,24 +393,65 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_addImageButtonActionPerformed
 
     private void addSourceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSourceButtonActionPerformed
-       
         //adding .rar or zip or smth like this , to question 
         // one question - can have only one file with sources (it generally will be archive)
-        JOptionPane.showMessageDialog(this, "Add souce");
-  
         
-        StyledDocument doc = this.questionTextTextPane.getStyledDocument();
-        try {
-            doc.insertString(doc.getLength(),
-                    "\n$source$ ../data/source/file.rar $endsource$"
-                    ,null);
-        } catch (BadLocationException ex) {
-            Logger.getLogger(NewQuestionDialog.class.getName()).log(Level.SEVERE, null, ex);
+        JFileChooser fileChooser=new JFileChooser();
+        fileChooser.showOpenDialog(this);
+        
+        // add some random number to file , to prefend duplicates
+        Random r=new Random();
+        
+        if(fileChooser.getSelectedFile()!=null){                        
+            // copy file to /questioner/data/sources - folder
+            InputStream inStream = null;
+            OutputStream outStream = null;
+            try{
+                File selectedFile=fileChooser.getSelectedFile();
+               
+                 String newFileName=JOptionPane.showInputDialog(this, "Input name for source file",
+                 selectedFile.getAbsolutePath().substring(  
+                         selectedFile.getAbsolutePath().lastIndexOf('/')+1, 
+                         selectedFile.getAbsolutePath().length()));
+                 
+                if(newFileName==null || newFileName.length()==0) return; 
+
+                newFileName= new StringBuilder(newFileName).insert(
+                        newFileName.lastIndexOf("."),"."+r.nextInt(21))
+                        .toString();
+                File bfile =new File(Config.sourcesPath+newFileName);
+                
+                inStream = new FileInputStream(selectedFile);
+                outStream = new FileOutputStream(bfile);
+ 
+                byte[] buffer = new byte[1024];
+ 
+                int length;
+                //copy the file content in bytes 
+                while ((length = inStream.read(buffer)) > 0){
+                    outStream.write(buffer, 0, length);
+                }
+ 
+                inStream.close();
+                outStream.close();
+ 
+                StyledDocument doc = this.questionTextTextPane.getStyledDocument();
+            
+                doc.insertString(doc.getLength(),
+                        "\n$source$ ../data/source/"+newFileName+" $endsource$"
+                        ,null);
+            
+                System.out.println("File is copied successful!");
+            }   catch(IOException e){
+    		e.printStackTrace();
+            }
+                catch (BadLocationException ex) {
+                Logger.getLogger(NewQuestionDialog.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+            
         }
+       
     }//GEN-LAST:event_addSourceButtonActionPerformed
-
-
-
 
     /**
     * @param args the command line arguments

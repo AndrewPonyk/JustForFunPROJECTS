@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_4_1_2" name="Players" nofquestions="2" nofsubcategories="0" filename="players2_4_1_2.xml">
+<questions id="2_4_1_2" name="Players" nofquestions="4" nofsubcategories="0" filename="players2_4_1_2.xml">
   <question id="2_4_1_2:0" type="0">
     <questiontext>Who is this ?&lt;br&gt;
 &lt;img width='300' height='300' alt='image' src='/data/images/36008.jpg'/&gt;&lt;br&gt;
@@ -15,5 +15,15 @@ $vend$</questiontext>
     <questiontext>Is this Madrid ?&lt;br&gt;
 &lt;img width='300' height='300' alt='image'     src='/data/images/xl_5034_TP-barcelona.jpg'/&gt;</questiontext>
     <questionanswer>no</questionanswer>
+  </question>
+  <question id="2_4_1_2:2" type="1">
+    <questiontext>Is this Cantona ?&lt;br&gt;
+&lt;img width='300' height='200' alt='image'     src='/data/images/eric-cantona_1389972c.jpg'/&gt;</questiontext>
+    <questionanswer>yes</questionanswer>
+  </question>
+  <question id="2_4_1_2:3" type="1">
+    <questiontext>Does A.Shevchenko played on this stadium ?&lt;br&gt;
+&lt;img width='300' height='200' alt='image'     src='/data/images/san-siro-300x225.jpg'/&gt;$source$ ../data/source/san-siro.3.pdf $endsource$</questiontext>
+    <questionanswer>yes</questionanswer>
   </question>
 </questions>
