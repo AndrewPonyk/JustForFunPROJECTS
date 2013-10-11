@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="2_4_1_3" name="temporary" nofquestions="1" nofsubcategories="0" filename="temporary2_4_1_3.xml">
+  <question id="2_4_1_3:0" type="0">
+    <questiontext>&lt;br&gt;
+    What is this ?&lt;br&gt;
+&lt;img width='300' height='200' alt='image'    src='/data/images/jdt-main-3_2M3-xp.gif'/&gt;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ text of &lt;br&gt;
+    variant... $v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$Eclipse$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+</questions>

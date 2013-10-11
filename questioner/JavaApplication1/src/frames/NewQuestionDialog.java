@@ -414,7 +414,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
 
         try {
             doc.insertString(this.questionTextTextPane.getCaret().getDot(),
-                    "<br><img width='300' height='300' alt='image' src='/data/images/"+
+                    "\n<img width='300' height='300' alt='image' src='/data/images/"+
                     imageURL.substring( imageURL.lastIndexOf('/')+1, imageURL.length() )+
                     "'/>"
                     ,null);
