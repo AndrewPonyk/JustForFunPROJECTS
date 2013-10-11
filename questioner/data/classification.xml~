@@ -27,16 +27,16 @@
     <category id="0_2" name="Javascript" nofquestions="0" nofsubcategories="0" />
     <category id="0_3" name="Algorithms(huge)" nofquestions="0" nofsubcategories="0" />
   </class>
-  <class id="1" name="Programming" nofquestions="2" nofsubcategories="4">
-    <category id="1_0" name="Java" nofquestions="2" nofsubcategories="3">
-      <category id="1_0_0" name="Java CORE" nofquestions="2" nofsubcategories="9">
+  <class id="1" name="Programming" nofquestions="1" nofsubcategories="4">
+    <category id="1_0" name="Java" nofquestions="1" nofsubcategories="3">
+      <category id="1_0_0" name="Java CORE" nofquestions="0" nofsubcategories="9">
         <category id="1_0_0_0" name="BasicSyntax(types,classes,static,access,inner)" nofquestions="0" nofsubcategories="0" filename="basicsyntax(types,classes,static,access,inner)1_0_0_0.xml" />
         <category id="1_0_0_1" name="Collections" nofquestions="0" nofsubcategories="0" filename="collections1_0_0_1.xml" />
         <category id="1_0_0_2" name="Generics" nofquestions="0" nofsubcategories="0" filename="generics1_0_0_2.xml" />
         <category id="1_0_0_3" name="Multithreading" nofquestions="0" nofsubcategories="0" filename="multithreading1_0_0_3.xml" />
         <category id="1_0_0_4" name="IO_and_Serialization" nofquestions="0" nofsubcategories="0" filename="io_and_serialization1_0_0_4.xml" />
         <category id="1_0_0_5" name="XML" nofquestions="0" nofsubcategories="0" filename="xml1_0_0_5.xml" />
-        <category id="1_0_0_6" name="Exceptions" nofquestions="2" nofsubcategories="0" filename="exceptions1_0_0_6.xml" />
+        <category id="1_0_0_6" name="Exceptions" nofquestions="0" nofsubcategories="0" filename="exceptions1_0_0_6.xml" />
         <category id="1_0_0_7" name="Net" nofquestions="0" nofsubcategories="0" filename="net1_0_0_7.xml" />
         <category id="1_0_0_8" name="RegExp.GC.Reflection" nofquestions="0" nofsubcategories="3">
           <category id="1_0_0_8_0" name="RegExp" nofquestions="0" nofsubcategories="0" filename="regexp1_0_0_8_0.xml" />
@@ -104,7 +104,7 @@
       <category id="1_3_1" name="Python EE" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="2" name="Programming Other" nofquestions="30" nofsubcategories="6">
+  <class id="2" name="Programming Other" nofquestions="25" nofsubcategories="6">
     <category id="2_0" name="Patterns" nofquestions="0" nofsubcategories="0" />
     <category id="2_1" name="Version Control" nofquestions="0" nofsubcategories="2">
       <category id="2_1_0" name="Svn" nofquestions="0" nofsubcategories="0" filename="svn2_1_0.xml" />
@@ -118,14 +118,14 @@
       <category id="2_3_2" name="Spanish" nofquestions="3" nofsubcategories="0" filename="spanish.xml" />
       <category id="2_3_3" name="English" nofquestions="3" nofsubcategories="0" filename="english.xml" />
     </category>
-    <category id="2_4" name="Sport" nofquestions="14" nofsubcategories="2">
+    <category id="2_4" name="Sport" nofquestions="10" nofsubcategories="2">
       <category id="2_4_0" name="Basketball" nofquestions="2" nofsubcategories="0" filename="basketball.xml" />
-      <category id="2_4_1" name="Football" nofquestions="12" nofsubcategories="2">
+      <category id="2_4_1" name="Football" nofquestions="8" nofsubcategories="2">
         <category id="2_4_1_1" name="Uefa Championships" nofquestions="4" nofsubcategories="0" filename="uefachampionships.xml" />
-        <category id="2_4_1_2" name="Players" nofquestions="8" nofsubcategories="0" filename="players2_4_1_2.xml" />
+        <category id="2_4_1_2" name="Players" nofquestions="4" nofsubcategories="0" filename="players2_4_1_2.xml" />
       </category>
     </category>
-    <category id="2_5" name="scala" nofquestions="9" nofsubcategories="2" filename="scala2_5.xml">
+    <category id="2_5" name="scala" nofquestions="8" nofsubcategories="2" filename="scala2_5.xml">
       <category id="2_5_0" name="play" nofquestions="2" nofsubcategories="0" filename="play2_5_0.xml" />
       <category id="2_5_1" name="lift" nofquestions="2" nofsubcategories="0" filename="lift2_5_1.xml" />
     </category>

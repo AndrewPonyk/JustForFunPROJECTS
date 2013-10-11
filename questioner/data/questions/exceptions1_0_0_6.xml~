@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_6" name="Exceptions" nofquestions="2" nofsubcategories="0" filename="exceptions1_0_0_6.xml">
+<questions id="1_0_0_6" name="Exceptions" nofquestions="1" nofsubcategories="0" filename="exceptions1_0_0_6.xml">
   <question id="1_0_0_6:0" type="0">
     <questiontext>&lt;br&gt;
     Consider the following class hierarchy and code fragment:&lt;br&gt;
 &lt;br&gt;
-&lt;img width='350' height='140' alt='image' 
+&lt;img width='250' height='140' alt='image' 
     src='/data/images/hierarchy_exception.png'/&gt;&lt;br&gt;
 &lt;br&gt;
 1. try {&lt;br&gt;
@@ -39,18 +39,5 @@ $v3$  Bad URL, Bad file contents, Doing finally part, &lt;br&gt;
     Carrying on$v3end$&lt;br&gt;
 $vend$&lt;br&gt;</questiontext>
     <questionanswer>2</questionanswer>
-  </question>
-  <question id="1_0_0_6:1" type="0">
-    <questiontext>&lt;br&gt;
-    Which of the following should always be caught?&lt;br&gt;
-$v$&lt;br&gt;
-$v0$ Runtime &lt;br&gt;
-    exceptions $v0end$&lt;br&gt;
-$v1$ Checked exceptions$v1end$&lt;br&gt;
-$v2$ Assertion &lt;br&gt;
-    errors$v2end$&lt;br&gt;
-$v3$ Errors other than assertion errors$v3end$&lt;br&gt;
-$vend$&lt;br&gt;</questiontext>
-    <questionanswer>1</questionanswer>
   </question>
 </questions>

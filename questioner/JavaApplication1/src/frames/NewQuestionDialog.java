@@ -70,6 +70,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         questionAnswerTextPane = new javax.swing.JTextPane();
         addImageButton = new javax.swing.JButton();
         addSourceButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("New Question");
@@ -153,6 +154,13 @@ public class NewQuestionDialog extends javax.swing.JDialog {
             }
         });
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -183,7 +191,10 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                                 .addComponent(addImageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(addSourceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(questionTextLabel))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(questionTextLabel)
+                                .addGap(165, 165, 165)
+                                .addComponent(jButton1)))))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -195,14 +206,16 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                     .addComponent(questionTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addImageButton)
                     .addComponent(addSourceButton))
-                .addGap(11, 11, 11)
-                .addComponent(questionTextLabel)
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(questionTextLabel)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(questionAnswerLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelButton)
@@ -297,7 +310,12 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     private void saveQuestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveQuestionButtonActionPerformed
         this.resultQuestion=new Question();
 
-        String questionText=this.questionTextTextPane.getText().replaceAll("\n", ""); // remove all \n , we will add new lines with replacing <br>
+        String questionText=this.questionTextTextPane.getText().replaceAll("\n", "<br>"); // remove all \n , we will add new lines with replacing <br>
+        
+        // it is fucking something bad , so temporary solution
+        questionText=questionText.replaceAll("alt='image' <br>", "alt='image'");
+        
+        
         questionText=questionText.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n")  ;
 
         String questionAnswer=this.questionAnswerTextPane.getText().replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n")  ;
@@ -305,6 +323,19 @@ public class NewQuestionDialog extends javax.swing.JDialog {
          String selectedQuestionType=this.questionTypeComboBox.getSelectedItem().toString();
          //   System.err.println(questionAnswer);
 
+         
+         // my solution is stupid , dont forget to change it =)
+         //need to fix bug , dont insert <br> into img tag
+         if(questionText.contains("&lt;img")){
+             int imgBegin=questionText.indexOf("&lt;img");
+             int imgEnd=questionText.indexOf("'/&gt;");
+             StringBuilder img=new StringBuilder(questionText.substring(imgBegin, imgEnd+1)); 
+             if(img.indexOf("&lt;br&gt;")>=0){
+                ///.....
+             }
+         }
+         
+         
 
          if(questionText.indexOf("<body>")>0){
             this.resultQuestion.setQuestionText(questionText.substring(questionText.indexOf("<body>")+6,questionText.indexOf("</body>")));
@@ -356,19 +387,23 @@ public class NewQuestionDialog extends javax.swing.JDialog {
            return;
         }
         
-        if(imageURL.contains("http")){
-       
-           imageURL = imageURL.substring( imageURL.indexOf("http") );
-           if(imageURL.charAt(imageURL.indexOf("http")+2)!='/' )
-              imageURL= imageURL.replace(":/", "://");
-       //    JOptionPane.showMessageDialog(this, imageURL);
-        }
-        //put image to images dir
-         BufferedImage image =null;
+        
+        //put image to images dir 
         try{
-            // read the url
-            image = ImageIO.read(new URL(imageURL) );
-           
+            
+            BufferedImage image =null;
+        
+            if(imageURL.contains("http")){
+
+               imageURL = imageURL.substring( imageURL.indexOf("http") );
+               if(imageURL.charAt(imageURL.indexOf("http")+2)!='/' )
+                  imageURL= imageURL.replace(":/", "://");
+            //    JOptionPane.showMessageDialog(this, imageURL);
+               image=ImageIO.read(new URL(imageURL));
+            }else{
+            image = ImageIO.read(new File(imageURL) );
+            }
+
             // for jpg
             ImageIO.write(image, "jpg",new File(Config.imagesPath+
                     imageURL.substring( imageURL.lastIndexOf('/')+1, imageURL.length() )));
@@ -376,7 +411,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         }catch(IOException e){
             e.printStackTrace();
         }
-        
+
         try {
             doc.insertString(this.questionTextTextPane.getCaret().getDot(),
                     "<br><img width='300' height='300' alt='image' src='/data/images/"+
@@ -386,7 +421,6 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         } catch (BadLocationException ex) {
             Logger.getLogger(NewQuestionDialog.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_addImageButtonActionPerformed
 
     private void addSourceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSourceButtonActionPerformed
@@ -450,6 +484,14 @@ public class NewQuestionDialog extends javax.swing.JDialog {
        
     }//GEN-LAST:event_addSourceButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String temp=this.questionTextTextPane.getText();
+        temp=temp.replace("br", "*");
+        
+        JOptionPane.showMessageDialog(this, temp);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -472,6 +514,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     private javax.swing.JButton addSourceButton;
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton clearFormButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

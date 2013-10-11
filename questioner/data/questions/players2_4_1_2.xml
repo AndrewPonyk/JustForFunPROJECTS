@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_4_1_2" name="Players" nofquestions="4" nofsubcategories="0" filename="players2_4_1_2.xml">
+<questions id="2_4_1_2" name="Players" nofquestions="8" nofsubcategories="0" filename="players2_4_1_2.xml">
   <question id="2_4_1_2:0" type="0">
     <questiontext>Who is this ?&lt;br&gt;
 &lt;img width='300' height='300' alt='image' src='/data/images/36008.jpg'/&gt;&lt;br&gt;
@@ -25,5 +25,49 @@ $vend$</questiontext>
     <questiontext>Does A.Shevchenko played on this stadium ?&lt;br&gt;
 &lt;img width='300' height='200' alt='image'     src='/data/images/san-siro-300x225.jpg'/&gt;$source$ ../data/source/san-siro.3.pdf $endsource$</questiontext>
     <questionanswer>yes</questionanswer>
+  </question>
+  <question id="2_4_1_2:4" type="0">
+    <questiontext>sdfsdfa&lt;br&gt;
+&lt;img width='300' height='150' alt='image'     src='/data/images/hierarchy_exception.png'/&gt;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ text of     variant... $v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="2_4_1_2:5" type="0">
+    <questiontext>dummy =====0&lt;br&gt;
+&lt;img width='300' height='300' alt='image'     src='/data/images/hierarchy_exception.png'/&gt;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ text of     variant... $v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_4_1_2:6" type="0">
+    <questiontext>any ============= &lt;br&gt;
+&lt;img width='300' height='180' alt='image'     src='/data/images/hierarchy_exception.png'/&gt;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ text of     variant... $v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_4_1_2:7" type="0">
+    <questiontext>&lt;br&gt;
+&lt;img width='400' height='200' alt='image'     src='/data/images/hierarchy_exception.png'/&gt;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ text of variant... $v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
   </question>
 </questions>

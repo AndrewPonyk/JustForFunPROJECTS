@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="2_4_2" name="temp" nofquestions="5" nofsubcategories="0" filename="temp2_4_2.xml">
+  <question id="2_4_2:0" type="0">
+    <questiontext>Consider the following class hierarchy and code fragment:&lt;br&gt;
+&lt;img width='350' height='180' alt='image'     src='/data/images/hierarchy_exception.png'/&gt;1. try {2. // assume s is previously defined3. URL u = new URL(s);4. // in is an ObjectInputStream5. Object o = in.readObject();6. System.out.println(&amp;quot;Success&amp;quot;);7. }8. catch (MalformedURLException e) {9. System.out.println(&amp;quot;Bad URL&amp;quot;);10. }11. catch (StreamCorruptedException e) {12. System.out.println(&amp;quot;Bad file contents&amp;quot;);13. }14. catch (Exception e) {15. System.out.println(&amp;quot;General exception&amp;quot;);16. }17. finally {18. System.out.println(&amp;quot;Doing finally part&amp;quot;);19. }20. System.out.println(&amp;quot;Carrying on&amp;quot;);What lines are output if the constructor at line 3 throws a     MalformedURLException?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ Bad URL $v0end$&lt;br&gt;
+$v1$ Bad URL     ,Carrying on$v1end$&lt;br&gt;
+$v2$Bad URL ,Doing finally part ,Carrying on$v2end$&lt;br&gt;
+$v3$Bad     URL ,Doing finally part$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="2_4_2:1" type="0">
+    <questiontext>sdfsdf
+6. System.out.println(&amp;quot;Success&amp;quot;);
+7. }
+8. catch (MalformedURLException e) {
+9. System.out.println(&amp;quot;Bad URL&amp;quot;);
+10. }
+11. catch (StreamCorruptedException e) {
+12. System.out.println(&amp;quot;Bad file contents&amp;quot;);
+13. }
+14. catch (Exception e) {
+15. System.out.println(&amp;quot;General exception&amp;quot;);&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ text of 
+    variant... $v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_4_2:2" type="0">
+    <questiontext>&lt;br&gt;
+    will do it =)&lt;br&gt;
+6. System.out.println(&amp;quot;Success&amp;quot;);&lt;br&gt;
+7. }&lt;br&gt;
+8. catch (MalformedURLException e) {&lt;br&gt;
+9. System.out.println(&amp;quot;Bad URL&amp;quot;);&lt;br&gt;
+10. }&lt;br&gt;
+11. catch (StreamCorruptedException e) {&lt;br&gt;
+12. System.out.println(&amp;quot;Bad file contents&amp;quot;);&lt;br&gt;
+13. }&lt;br&gt;
+14. catch (Exception e) {&lt;br&gt;
+15. System.out.println(&amp;quot;General exception&amp;quot;);&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ text of &lt;br&gt;
+    variant... $v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_4_2:3" type="0">
+    <questiontext>&lt;br&gt;
+    ...........................&lt;br&gt;
+aasdf&lt;br&gt;
+asdf&lt;br&gt;
+asdf&lt;br&gt;
+asdf&lt;br&gt;
+&lt;br&gt;
+asdgfasdfgasdf&lt;br&gt;
+&lt;br&gt;
+&lt;img width='200' height='150' alt='image' &lt;br&gt;
+    src='/data/images/hierarchy_exception.png'/&gt;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ text of &lt;br&gt;
+    variant... $v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_4_2:4" type="0">
+    <questiontext>&lt;br&gt;
+    adg asdogj asjdglkj aosjdg jalskdjgoahsdo kasljd ogaso;d oasdo akls aSDF ?&lt;br&gt;
+&lt;br&gt;
+&lt;img width='300' height='300' alt='image' &lt;br&gt;
+    src='/data/images/hierarchy_exception.png'/&gt;&lt;br&gt;
+1. try {&lt;br&gt;
+2. // assume s is previously defined&lt;br&gt;
+3. URL u = new URL(s);&lt;br&gt;
+4. // in is an ObjectInputStream&lt;br&gt;
+5. Object o = in.readObject();&lt;br&gt;
+6. System.out.println(&amp;quot;Success&amp;quot;);&lt;br&gt;
+7. }&lt;br&gt;
+8. catch (MalformedURLException e) {&lt;br&gt;
+9. System.out.println(&amp;quot;Bad URL&amp;quot;);&lt;br&gt;
+10. }&lt;br&gt;
+11. catch (StreamCorruptedException e) {&lt;br&gt;
+12. System.out.println(&amp;quot;Bad file contents&amp;quot;);&lt;br&gt;
+13. }&lt;br&gt;
+14. catch (Exception e) {&lt;br&gt;
+15. System.out.println(&amp;quot;General exception&amp;quot;);&lt;br&gt;
+16. }&lt;br&gt;
+17. finally {&lt;br&gt;
+18. System.out.println(&amp;quot;Doing finally part&amp;quot;);&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ text of &lt;br&gt;
+    variant... $v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+</questions>
