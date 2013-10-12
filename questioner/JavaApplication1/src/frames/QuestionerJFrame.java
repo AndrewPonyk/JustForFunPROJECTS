@@ -848,6 +848,15 @@ public class QuestionerJFrame extends JFrame {
                 this.quiz.setIncludeDetailedAnswersQuestions(this.quizIncludeDetailedAnswersCheckBox.isSelected());
                 //this.quiz.setIncludeTips(this.quizIncludeTipsCheckBox.isSelected());
                 this.quiz.generateQuestions();
+                
+                
+                Set<String> bla=this.quiz.getQuestions().keySet();
+                for(String item: bla){   
+                    //temporary solution
+                    this.quiz.getQuestions().get(item)
+                    .setQuestionText(this.quiz.getQuestions().get(item).getQuestionText()
+                            .replace("\n", "<br>"));
+                }
                 this.quiz.getAnswers().clear();
 
 

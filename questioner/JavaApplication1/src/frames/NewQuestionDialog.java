@@ -229,11 +229,12 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void previewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previewButtonActionPerformed
-        //<img src='file://localhost/D:/career2.0.jpg'  style='width:100px;heigth:100px' />
-    
+
         String questionText=this.questionTextTextPane.getText();
         this.questionTextTextPane.setContentType("text/html");
-        this.questionTextTextPane.setText(questionText.replaceAll("\n", "&lt;br&gt;").replaceAll("&lt;", "<").replaceAll("&gt;", ">") );
+        this.questionTextTextPane.setText(questionText//.replaceAll("\n", "&lt;br&gt;")
+                .replaceAll("&lt;", "<")
+                .replaceAll("&gt;", ">") );
 
         JOptionPane.showMessageDialog(this, questionText);
 
@@ -304,13 +305,14 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_clearFormButtonActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        questionTypeComboBoxActionPerformed(null    );
+        questionTypeComboBoxActionPerformed(null);
     }//GEN-LAST:event_formWindowOpened
 
     private void saveQuestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveQuestionButtonActionPerformed
         this.resultQuestion=new Question();
 
-        String questionText=this.questionTextTextPane.getText().replaceAll("\n", "<br>"); // remove all \n , we will add new lines with replacing <br>
+        String questionText=this.questionTextTextPane.getText();
+                //.replaceAll("\n", "<br>"); // remove all \n , we will add new lines with replacing <br>
         
         // it is fucking something bad , so temporary solution
         questionText=questionText.replaceAll("alt='image' <br>", "alt='image'");
@@ -321,7 +323,6 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         String questionAnswer=this.questionAnswerTextPane.getText().replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n")  ;
 
          String selectedQuestionType=this.questionTypeComboBox.getSelectedItem().toString();
-         //   System.err.println(questionAnswer);
 
          
          // my solution is stupid , dont forget to change it =)
@@ -368,6 +369,9 @@ public class NewQuestionDialog extends javax.swing.JDialog {
            this.resultQuestion.setType("9");
        }
          
+       
+       //resultQuestion.setQuestionText(resultQuestion.getQuestionText().replace("\n", "<br>"));
+       
         this.readerwriterQuestion.addQuestionToXML(this.resultQuestion, this.newQuestionCategory);
         this.dialogResult=true;
         this.dispose();
@@ -487,9 +491,21 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String temp=this.questionTextTextPane.getText();
-        temp=temp.replace("br", "*");
         
-        JOptionPane.showMessageDialog(this, temp);
+        temp=temp.substring(
+                temp.indexOf("<body>")+6,
+                temp.indexOf("</body>")
+                );
+        
+        temp=temp.trim();
+        
+        temp=temp.replaceAll("\n", "*");
+        this.questionTextTextPane.setText(temp);
+        
+      //  JOptionPane.showMessageDialog(this, temp);
+       // JOptionPane.showMessageDialog(this, 
+         //       temp.substring(0, temp.indexOf("\n")));
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

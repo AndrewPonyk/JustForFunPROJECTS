@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="2_4_1_2" name="fi" nofquestions="3" nofsubcategories="0" filename="fi2_4_1_2.xml">
+  <question id="2_4_1_2:0" type="0">
+    <questiontext>&lt;br&gt;    1111111111111111 22222222222222222222 333333333333333 44444444444444444444 &lt;br&gt;    55555555555555555555555 666666&lt;br&gt;&lt;br&gt;$v$&lt;br&gt;&lt;br&gt;$v0$ text of variant... $v0end$&lt;br&gt;&lt;br&gt;$v1$$v1end$&lt;br&gt;&lt;br&gt;$v2$$v2end$&lt;br&gt;&lt;br&gt;$v3$$v3end$&lt;br&gt;&lt;br&gt;$vend$&lt;br&gt;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_4_1_2:1" type="0">
+    <questiontext>aaaaaaaaaaaa bbbbbbbbbbbbbb ccccccccccccccccc dddddddddddd  a9999 a99999 a99999 a99999 a9999 85856 58565 85658 5
+    eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee fffff ggggggggggggggggggg
+    hhhhhhhhhhhhhhhhhhhhh&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ text of variant... $v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_4_1_2:2" type="0">
+    <questiontext>aaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbb ccccccccccccccccccc 
+    dddddddddddddddddddddddddddddd eeeeeeeeeee fffffffffffffff&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ 
+    text of variant... $v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+</questions>
+
