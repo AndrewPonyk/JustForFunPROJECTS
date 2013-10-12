@@ -78,6 +78,21 @@ public class Quiz {
         }
         
         fillQuestions();
+        
+        // to correct dislpay tags in questions , because question can contain something tags
+                Set<String> bla=this.getQuestions().keySet();
+                for(String item: bla){   
+                    //temporary solution
+                    this.getQuestions().get(item)
+                    .setQuestionText(this.getQuestions().get(item).getQuestionText()
+                            .replace("\n", "<br>"));
+                    this.getQuestions().get(item).setQuestionText(
+                            this.getQuestions().get(item).getQuestionText().replace("<", "&lt;")
+                            .replace(">", "&gt;")
+                            .replace("&lt;br&gt;", "<br>")
+                            .replace("&lt;/br&gt;", "</br>")
+                            );   
+                }
     }
 
     public void  fillQuestions(){

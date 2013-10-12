@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_4_1_3" name="Global" nofquestions="1" nofsubcategories="0" filename="global2_4_1_3.xml">
+<questions id="2_4_1_3" name="Global" nofquestions="2" nofsubcategories="0" filename="global2_4_1_3.xml">
   <question id="2_4_1_3:0" type="0">
     <questiontext>You need to write a code segment that transfers the contents of a byte 
     array named dataToSend by using a          
@@ -22,6 +22,39 @@ $v2end$&lt;br&gt;
 $v3$
 BufferedStream bufStream = new BufferedStream(netStream, 8192);
 bufStream.Write(dataToSend, 0, dataToSend.Length);
+$v3end$&lt;br&gt;
+$vend$</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="2_4_1_3:1" type="0">
+    <questiontext>2)You are using the Microsoft Visual Studio 2005 IDE to examine the output 
+    of a method that returns a string. 
+You assign the output of the method to a string variable named fName. 
+You need to write a code segment that prints the following on a single line.
+The message: &amp;quot;Test Failed: &amp;quot;. The value of fName if the value of fName does 
+    not equal &amp;quot;Company&amp;quot;. 
+You also need to ensure that the code segment simultaneously facilitates 
+    uninterrupted execution of the application. 
+
+Which code segment should you use?
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ Debug.Assert(fName == &amp;#8220;Company&amp;#8221;, &amp;#8220;Test Failed: &amp;#8221;, fName); 
+    $v0end$&lt;br&gt;
+$v1$ 
+if (fName != &amp;quot;Company&amp;quot;) {
+Debug.Print(&amp;#8220;Test Failed: &amp;#8221;);
+Debug.Print(fName);
+}
+ $v1end$&lt;br&gt;
+$v2$
+if (fName != &amp;quot;Company&amp;quot;) {
+Debug.WriteLine(&amp;#8220;Test Failed: &amp;#8221;);
+Debug.WriteLine(fName);
+}
+$v2end$&lt;br&gt;
+$v3$
+Debug.WriteLineIf(fName != &amp;#8220;Company&amp;#8221;, fName, &amp;#8220;Test Failed&amp;#8221;);
 $v3end$&lt;br&gt;
 $vend$</questiontext>
     <questionanswer>0</questionanswer>

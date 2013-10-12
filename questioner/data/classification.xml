@@ -104,11 +104,7 @@
       <category id="1_3_1" name="Python EE" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-<<<<<<< HEAD
-  <class id="2" name="Programming Other" nofquestions="15" nofsubcategories="5">
-=======
-  <class id="2" name="Programming Other" nofquestions="31" nofsubcategories="6">
->>>>>>> 3a4506b998ea22d5ae1d261558a6acd47be50a32
+  <class id="2" name="Programming Other" nofquestions="17" nofsubcategories="5">
     <category id="2_0" name="Patterns" nofquestions="0" nofsubcategories="0" />
     <category id="2_1" name="Version Control" nofquestions="0" nofsubcategories="2">
       <category id="2_1_0" name="Svn" nofquestions="0" nofsubcategories="0" filename="svn2_1_0.xml" />
@@ -122,20 +118,12 @@
       <category id="2_3_2" name="Spanish" nofquestions="3" nofsubcategories="0" filename="spanish.xml" />
       <category id="2_3_3" name="English" nofquestions="3" nofsubcategories="0" filename="english.xml" />
     </category>
-<<<<<<< HEAD
-    <category id="2_4" name="Sport" nofquestions="8" nofsubcategories="1">
-      <category id="2_4_1" name="Football" nofquestions="8" nofsubcategories="3">
+    <category id="2_4" name="Sport" nofquestions="11" nofsubcategories="1">
+      <category id="2_4_1" name="Football" nofquestions="11" nofsubcategories="4">
         <category id="2_4_1_1" name="Uefa Championships" nofquestions="4" nofsubcategories="0" filename="uefachampionships.xml" />
-        <category id="2_4_1_2" name="fi" nofquestions="3" nofsubcategories="0" filename="fi2_4_1_2.xml" />
-        <category id="2_4_1_3" name="Global" nofquestions="1" nofsubcategories="0" filename="global2_4_1_3.xml" />
-=======
-    <category id="2_4" name="Sport" nofquestions="15" nofsubcategories="2">
-      <category id="2_4_0" name="Basketball" nofquestions="2" nofsubcategories="0" filename="basketball.xml" />
-      <category id="2_4_1" name="Football" nofquestions="13" nofsubcategories="3">
-        <category id="2_4_1_1" name="Uefa Championships" nofquestions="4" nofsubcategories="0" filename="uefachampionships.xml" />
-        <category id="2_4_1_2" name="Players" nofquestions="8" nofsubcategories="0" filename="players2_4_1_2.xml" />
-        <category id="2_4_1_3" name="temporary" nofquestions="1" nofsubcategories="0" filename="temporary2_4_1_3.xml" />
->>>>>>> 3a4506b998ea22d5ae1d261558a6acd47be50a32
+        <category id="2_4_1_2" name="fi" nofquestions="4" nofsubcategories="0" filename="fi2_4_1_2.xml" />
+        <category id="2_4_1_3" name="Global" nofquestions="2" nofsubcategories="0" filename="global2_4_1_3.xml" />
+        <category id="2_4_1_4" name="web" nofquestions="1" nofsubcategories="0" filename="web2_4_1_4.xml" />
       </category>
     </category>
   </class>

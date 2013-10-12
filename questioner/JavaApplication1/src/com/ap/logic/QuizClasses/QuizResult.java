@@ -16,7 +16,9 @@ public class QuizResult {
     private LinkedHashMap<String,Question> correctQuestions=new LinkedHashMap<String, Question>();
     private LinkedHashMap<String,Question> wrongQuestions=new LinkedHashMap<String, Question>();
     private LinkedHashMap<String,Question> detailedAnserQuestions=new LinkedHashMap<String, Question>();// these questions cant be cheched automatically
-
+    private LinkedHashMap<String, Question> unasweredQuestions=new LinkedHashMap<String, Question>();
+    
+    
     ///log
     public void checkQuiz(){
             LinkedHashMap<String,Question> questions=quiz.getQuestions();
@@ -41,6 +43,12 @@ public class QuizResult {
                             }else{
                                 this.wrongQuestions.put(questions.get(item).getId(), questions.get(item));
                             }
+                    }
+                    
+                    if( (questions.get(item).getType().equals("0") || questions.get(item).getType().equals("1") )
+                            && (!answers.containsKey(item) ) ){
+                        this.getUnasweredQuestions().put(questions.get(item).getId(), questions.get(item));
+ 
                     }
                     
                     if(questions.get(item).getType().equals("2")   ){
@@ -162,6 +170,20 @@ public class QuizResult {
      */
     public void setDetailedAnserQuestions(LinkedHashMap<String, Question> detailedAnserQuestions) {
         this.detailedAnserQuestions = detailedAnserQuestions;
+    }
+
+    /**
+     * @return the unasweredQuestions
+     */
+    public LinkedHashMap<String, Question> getUnasweredQuestions() {
+        return unasweredQuestions;
+    }
+
+    /**
+     * @param unasweredQuestions the unasweredQuestions to set
+     */
+    public void setUnasweredQuestions(LinkedHashMap<String, Question> unasweredQuestions) {
+        this.unasweredQuestions = unasweredQuestions;
     }
 
 }
