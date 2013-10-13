@@ -15,6 +15,8 @@ import com.ap.configuration.Config;
 import com.ap.logic.Classification.Category;
 import com.ap.logic.QuizClasses.Question;
 import com.ap.logic.xml.ReadWriteClassificationXML;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,6 +32,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.StyledDocument;
 
@@ -125,7 +128,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
             }
         });
 
-        questionTextTextPane.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        questionTextTextPane.setFont(new java.awt.Font("Times New Roman", 0, 14));
         jScrollPane2.setViewportView(questionTextTextPane);
         questionTextTextPane.getAccessibleContext().setAccessibleDescription("text/html");
 
@@ -136,7 +139,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
             }
         });
 
-        questionAnswerTextPane.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        questionAnswerTextPane.setFont(new java.awt.Font("Tahoma", 0, 12));
         jScrollPane1.setViewportView(questionAnswerTextPane);
         questionAnswerTextPane.getAccessibleContext().setAccessibleDescription("text/html");
 
@@ -166,7 +169,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(206, Short.MAX_VALUE)
+                .addContainerGap(310, Short.MAX_VALUE)
                 .addComponent(previewButton)
                 .addGap(90, 90, 90)
                 .addComponent(saveQuestionButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,8 +178,8 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                 .addGap(10, 10, 10)
                 .addComponent(cancelButton)
                 .addGap(32, 32, 32))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(questionAnswerLabel)
@@ -195,7 +198,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                                 .addComponent(questionTextLabel)
                                 .addGap(165, 165, 165)
                                 .addComponent(jButton1)))))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,11 +214,11 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                     .addComponent(questionTextLabel)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(questionAnswerLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelButton)
@@ -229,19 +232,33 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void previewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previewButtonActionPerformed
-
         String questionText=this.questionTextTextPane.getText();
+        //we will show preview for 4 seconds  
+        final  String questionTextOrigin=this.questionTextTextPane.getText();
+
+        if(questionText.contains("alt='image'")){
+                                     questionText =questionText.replace("src='",
+                                    "src='file://localhost/"+Config.getQuestionerPath());
+         }
+
         this.questionTextTextPane.setContentType("text/html");
         this.questionTextTextPane.setText(questionText//.replaceAll("\n", "&lt;br&gt;")
                 .replaceAll("&lt;", "<")
-                .replaceAll("&gt;", ">") );
+                .replaceAll("&gt;", ">"));
 
-        JOptionPane.showMessageDialog(this, questionText);
 
         String questionAnswer=this.questionAnswerTextPane.getText();
         this.questionAnswerTextPane.setContentType("text/html");
         this.questionAnswerTextPane.setText(questionAnswer.replaceAll("\n", "&lt;br&gt;").replaceAll("&lt;", "<").replaceAll("&gt;", ">") );
-
+        
+        // display preview for 5 seconds
+        Timer  t = new Timer(5000, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                        questionTextTextPane.setText(questionTextOrigin);
+            }
+        });
+        t.setRepeats(false);
+        t.start();
     }//GEN-LAST:event_previewButtonActionPerformed
 
     private void questionTypeComboBoxPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_questionTypeComboBoxPropertyChange
@@ -393,8 +410,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         
         
         //put image to images dir 
-        try{
-            
+        try{    
             BufferedImage image =null;
         
             if(imageURL.contains("http")){
@@ -410,7 +426,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
 
             // for jpg
             ImageIO.write(image, "jpg",new File(Config.imagesPath+
-                    imageURL.substring( imageURL.lastIndexOf('/')+1, imageURL.length() )));
+                    imageURL.substring( imageURL.lastIndexOf( Config.fileSeparator )+1, imageURL.length() )));
  
         }catch(IOException e){
             e.printStackTrace();
@@ -418,8 +434,8 @@ public class NewQuestionDialog extends javax.swing.JDialog {
 
         try {
             doc.insertString(this.questionTextTextPane.getCaret().getDot(),
-                    "\n<img width='300' height='300' alt='image' src='/data/images/"+
-                    imageURL.substring( imageURL.lastIndexOf('/')+1, imageURL.length() )+
+                    "<br><img width='300' height='300' alt='image' src='/data/images/"+
+                    imageURL.substring( imageURL.lastIndexOf( Config.fileSeparator  )+1, imageURL.length() )+
                     "'/>"
                     ,null);
         } catch (BadLocationException ex) {
@@ -491,21 +507,10 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String temp=this.questionTextTextPane.getText();
+
         
-        temp=temp.substring(
-                temp.indexOf("<body>")+6,
-                temp.indexOf("</body>")
-                );
-        
-        temp=temp.trim();
-        
-        temp=temp.replaceAll("\n", "*");
-        this.questionTextTextPane.setText(temp);
-        
-      //  JOptionPane.showMessageDialog(this, temp);
-       // JOptionPane.showMessageDialog(this, 
-         //       temp.substring(0, temp.indexOf("\n")));
-        
+        JOptionPane.showMessageDialog(this, temp);
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

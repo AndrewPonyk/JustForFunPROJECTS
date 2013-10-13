@@ -23,6 +23,8 @@ import java.util.Random;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
@@ -80,19 +82,38 @@ public class Quiz {
         fillQuestions();
         
         // to correct dislpay tags in questions , because question can contain something tags
-                Set<String> bla=this.getQuestions().keySet();
-                for(String item: bla){   
-                    //temporary solution
-                    this.getQuestions().get(item)
-                    .setQuestionText(this.getQuestions().get(item).getQuestionText()
-                            .replace("\n", "<br>"));
+        Set<String> bla=this.getQuestions().keySet();
+        for(String item: bla){   
+            //temporary solution
+            this.getQuestions().get(item)
+            .setQuestionText(this.getQuestions().get(item).getQuestionText()
+            );
+            
+            this.getQuestions().get(item).setQuestionText(
+                this.getQuestions().get(item).getQuestionText().replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace("&lt;br&gt;", "<br>")
+                .replace("&lt;/br&gt;", "</br>").trim()
+                );
+            
+            // to display image we need to replace '&lt;img..' to '<img..'
+            if(this.getQuestions().get(item).getQuestionText().contains("alt='image'")){
+                
+                //Pattern.DOTALL - because by default '.' is any symbol , byt not \n
+                Pattern p = Pattern.compile("&lt;img.*alt='image'.*/&gt;",Pattern.DOTALL);
+                Matcher m = p.matcher( this.getQuestions().get(item).getQuestionText());
+
+                if (m.find()) {
+                    String img=m.group(0);
+                    
                     this.getQuestions().get(item).setQuestionText(
-                            this.getQuestions().get(item).getQuestionText().replace("<", "&lt;")
-                            .replace(">", "&gt;")
-                            .replace("&lt;br&gt;", "<br>")
-                            .replace("&lt;/br&gt;", "</br>")
-                            );   
+                    this.getQuestions().get(item).getQuestionText().replace(img, img.replace("&lt;","<")
+                    .replace("&gt;",">"))
+                    );
                 }
+            }
+            
+        }
     }
 
     public void  fillQuestions(){

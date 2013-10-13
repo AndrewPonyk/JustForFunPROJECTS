@@ -20,6 +20,7 @@ public class Config {
         public static  String questionsPath="";//questionerPath+"data/questions/";    
         public static String imagesPath="";
         public static String sourcesPath="";
+        public static String fileSeparator=System.getProperty("file.separator");
 
        public static void setQuestionerPath(String val){
              questionerPath=val;
