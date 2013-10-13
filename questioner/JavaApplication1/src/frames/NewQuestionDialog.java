@@ -328,8 +328,8 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     private void saveQuestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveQuestionButtonActionPerformed
         this.resultQuestion=new Question();
 
-        String questionText=this.questionTextTextPane.getText();
-                //.replaceAll("\n", "<br>"); // remove all \n , we will add new lines with replacing <br>
+        String questionText=this.questionTextTextPane.getText()
+                .replaceAll("\n", "<br>"); // remove all \n , we will add new lines with replacing <br>
         
         // it is fucking something bad , so temporary solution
         questionText=questionText.replaceAll("alt='image' <br>", "alt='image'");
