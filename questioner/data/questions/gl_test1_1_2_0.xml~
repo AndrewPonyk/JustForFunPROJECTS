@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_1_2_0" name="Gl_test" nofquestions="16" nofsubcategories="0" filename="gl_test1_1_2_0.xml">
+<questions id="1_1_2_0" name="Gl_test" nofquestions="32" nofsubcategories="0" filename="gl_test1_1_2_0.xml">
   <question id="1_1_2_0:0" type="0">
     <questiontext>1)You need to write a code segment that transfers the contents of a byte 
     array named dataToSend by using a NetworkStream object named netStream. 
@@ -449,7 +449,7 @@ Dim objPolicy As PolicyLevel = PolicyLevel.CreateAppDomainLevelDim&lt;br&gt;
 noTrustStatement As New PolicyStatement( &lt;br&gt;
     _objPolicy.GetNamedPermissionSet(&amp;quot;Nothing&amp;quot;))&lt;br&gt;
 Dim fullTrustStatement As New PolicyStatement( &lt;br&gt;
-    _objPolicy.GetNamedPermissionSet(&amp;quot;FullTrust&amp;quot;))&lt;br&gt;
+    _objPolicy.GetNamedPermissionSet(&amp;quot;FullTrust&amp;quot;))&lt;br&gt; &lt;br&gt;
 
 You need to arrange code groups for the policy so that loaded assemblies &lt;br&gt;
     default to the Nothing permission set.&lt;br&gt;
@@ -479,6 +479,561 @@ Dim objGroup As CodeGroup = New UnionCodeGroup( _New &lt;br&gt;
     ZoneMembershipCondition(SecurityZone.Trusted), _fullTrustStatement)&lt;br&gt;
 $v3end$&lt;br&gt;
 $vend$</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_1_2_0:16" type="0">
+    <questiontext>&lt;br&gt;
+    You create an application to send a message by e-mail.&lt;br&gt;
+An SMTP server is available on the local subnet.&lt;br&gt;
+The SMTP server is named smtp.Company.com&lt;br&gt;
+To test the application, you use a source address, me@Company.com, and a &lt;br&gt;
+    target address, you@Company.com.&lt;br&gt;
+You need to transmit the e-mail message.&lt;br&gt;
+&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+MailAddress addrFrom = new MailAddress(&amp;#8220;me@Company.com&amp;#8221;, &amp;#8220;Me&amp;#8221;);&lt;br&gt;
+&lt;br&gt;
+MailAddress addrTo = new MailAddress(&amp;#8220;you@Company.com&amp;#8221;, &amp;#8220;You&amp;#8221;);&lt;br&gt;
+&lt;br&gt;
+MailMessage message = new MailMessage(addrFrom, addrTo);&lt;br&gt;
+&lt;br&gt;
+    message.Subject = &amp;#8220;Greetings!&amp;#8221;;&lt;br&gt;
+&lt;br&gt;
+    message.Body =&amp;#8220;Test&amp;#8221;;&lt;br&gt;
+&lt;br&gt;
+    message.Dispose();&lt;br&gt;
+$v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+MailAddress addrFrom = new MailAddress(&amp;#8220;me@Company.com&amp;#8221;, &amp;#8220;Me&amp;#8221;);&lt;br&gt;
+&lt;br&gt;
+MailAddress addrTo = new MailAddress(&amp;#8220;you@Company.com&amp;#8221;, &amp;#8220;You&amp;#8221;);&lt;br&gt;
+&lt;br&gt;
+MailMessage message = new MailMessage(addrFrom, addrTo);&lt;br&gt;
+&lt;br&gt;
+message.Subject = &amp;#8220;Greetings!&amp;#8221;;&lt;br&gt;
+&lt;br&gt;
+message.Body = &amp;#8220;Test&amp;#8221;;&lt;br&gt;
+&lt;br&gt;
+SocketInformation info = new SocketInformation();&lt;br&gt;
+&lt;br&gt;
+Socket client = new Socket(info);&lt;br&gt;
+&lt;br&gt;
+System.Text.ASCIIEncoding enc = new System.Text.ASCIIEncoding();&lt;br&gt;
+&lt;br&gt;
+byte[] msgBytes = enc.GetBytes(message.ToString());&lt;br&gt;
+&lt;br&gt;
+client.Send(msgBytes);&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+MailAddress addrFrom = new MailAddress(&amp;#8220;me@Company.com&amp;#8221;);&lt;br&gt;
+&lt;br&gt;
+MailAddress addrTo = new MailAddress(&amp;#8220;you@Company.com&amp;#8221;);&lt;br&gt;
+&lt;br&gt;
+MailMessage message = new MailMessage(addrFrom,addrTo);&lt;br&gt;
+&lt;br&gt;
+message.Subject = &amp;#8220;Greetings!&amp;#8221;;&lt;br&gt;
+&lt;br&gt;
+message.Body = &amp;#8220;Test&amp;#8221;;&lt;br&gt;
+&lt;br&gt;
+SmtpClient client = new SmtpClient(&amp;#8220;smtp.Company.com&amp;#8221;);&lt;br&gt;
+&lt;br&gt;
+client.Send(message);&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_1_2_0:17" type="0">
+    <questiontext>&lt;br&gt;
+    You need to create a dynamic assembly named MyAssembly.&lt;br&gt;
+You also need to save the assembly to disk.&lt;br&gt;
+&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+AssemblyName myAssemblyName = new AssemblyName();&lt;br&gt;
+&lt;br&gt;
+AssemblyBuilder myAssemblyBuilder = &lt;br&gt;
+    AppDomain.CurrentDomain.DefineDynamicAssembly(myAssemblyName,AssemblyBuilderAccess.RunAndSave);&lt;br&gt;
+&lt;br&gt;
+myAssemblyBuilder.Save(&amp;#8220;MyAssembly.dll&amp;#8221;);&lt;br&gt;
+$v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+AssemblyName myAssemblyName = new AssemblyName();&lt;br&gt;
+&lt;br&gt;
+myAssemblyName.Name = &amp;#8220;MyAssembly&amp;#8221;;&lt;br&gt;
+AssemblyBuilder myAssemblyBuilder = &lt;br&gt;
+    AppDomain.CurrentDomain.DefineDynamicAssembly(myAssemblyName,AssemblyBulderAccess.Save);&lt;br&gt;
+myAssemblyBuilder.Save(&amp;#8220;MyAssembly.dll&amp;#8221;);&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+AssemblyName myAssemblyName = new AssemblyName();&lt;br&gt;
+&lt;br&gt;
+myAssemblyName.Name = &amp;#8220;MyAssembly&amp;#8221;;&lt;br&gt;
+AssemblyBuilder myAssemblyBuilder = &lt;br&gt;
+    AppDomain.CurrentDomain.DefineDynamicAssembly(myAssemblyName,AssemblyBuilderAccess.Run);&lt;br&gt;
+myAssemblyBuilder.Save(&amp;#8220;MyAssembly.dll&amp;#8221;);&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_1_2_0:18" type="0">
+    <questiontext>&lt;br&gt;
+    You are creating a class that performs complex financial calculations.&lt;br&gt;
+The class contains a method named GetCurrentRate that retrieves the current &lt;br&gt;
+    interest rate and a variable named currRate that stores the current &lt;br&gt;
+    interest rate.You write serialized representations of the class. You need &lt;br&gt;
+    to write a code segment that updates the currRate variable with the &lt;br&gt;
+    current interest rate&lt;br&gt;
+when an instance of the class is deserialized.&lt;br&gt;
+&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+[OnDeserializing]internal void UpdateValue(SerializationInfo info) {&lt;br&gt;
+info.AddValue(&amp;#8220;currentRate&amp;#8221;, GetCurrentRate());}&lt;br&gt;
+ $v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+[OnSerializing]internal void UpdateValue(SerializationInfo info) { &lt;br&gt;
+info.AddValue(&amp;#8220;currentRate&amp;#8221;, GetCurrentRate());}&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+[OnDeserialized]internal void UpdateValue(StreamingContext context) {&lt;br&gt;
+currRate = GetCurrentRate();}&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+[OnSerializing]internal void UpdateValue (StreamingContext context) {&lt;br&gt;
+currRate = GetCurrentRate();}&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_1_2_0:19" type="0">
+    <questiontext>&lt;br&gt;
+    You need to write a code segment that will create a common language &lt;br&gt;
+    runtime (CLR) unit of isolation within an application.&lt;br&gt;
+&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+System.ComponentModel.Component myComponent;&lt;br&gt;
+&lt;br&gt;
+myComponent = new System.ComponentModel.Component();&lt;br&gt;
+$v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+System.Diagnostics.Process myProcess;&lt;br&gt;
+&lt;br&gt;
+myProcess = new System.Diagnostics.Process();&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+AppDomainSetup mySetup =AppDomain.CurrentDomain.SetupInformation;&lt;br&gt;
+&lt;br&gt;
+mySetup.ShadowCopyFiles = &amp;#8220;true&amp;#8221;;&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+AppDomain domain;&lt;br&gt;
+&lt;br&gt;
+domain = AppDomain.CreateDomain(&amp;#8220;CompanyDomain&amp;#8221;):&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_1_2_0:20" type="0">
+    <questiontext>&lt;br&gt;
+    You need to generate a report that lists language codes and region codes.&lt;br&gt;
+&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+ foreach (CultureInfo culture in &lt;br&gt;
+    CultureInfo.GetCultures(CultureTypes.SpecificCultures)) { &lt;br&gt;
+    // Output the culture information...} &lt;br&gt;
+$v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+CultureInfo culture = new CultureInfo(&amp;#8220;&amp;#8221;); CultureTypes types = &lt;br&gt;
+    culture.CultureTypes; &lt;br&gt;
+    // Output the culture information... &lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+ foreach (CultureInfo culture in &lt;br&gt;
+    CultureInfo.GetCultures(CultureTypes.NeutralCultures)) { &lt;br&gt;
+    // Output the culture information...} &lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+foreach (CultureInfo culture in &lt;br&gt;
+    CultureInfo.GetCultures(CultureTypes.ReplacementCultures)) { &lt;br&gt;
+    // Output the culture information...} &lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="1_1_2_0:21" type="0">
+    <questiontext>&lt;br&gt;
+    You are writing a custom dictionary. The custom-dictionary class is named &lt;br&gt;
+    MyDictionary. You&lt;br&gt;
+need to ensure that the dictionary is type safe.&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+class MyDictionary : HashTable&lt;br&gt;
+$v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+class MyDictionary : Dictionary&lt;string, string&gt;&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+class MyDictionary : IDictionary&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+class MyDictionary { ... }&lt;br&gt;
+Dictionary&lt;string, string&gt; t =&lt;br&gt;
+&lt;br&gt;
+   new Dictionary&lt;string, string&gt;();&lt;br&gt;
+&lt;br&gt;
+MyDictionary dictionary = (MyDictionary)t;&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_1_2_0:22" type="0">
+    <questiontext>&lt;br&gt;
+    You are changing the security settings of a file named MyData.xml.&lt;br&gt;
+You need to preserve the existing inherited access rules. &lt;br&gt;
+You also need to prevent the access rules from inheriting changes in the &lt;br&gt;
+    future.&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+FileSecurity security = &lt;br&gt;
+   new FileSecurity(&amp;quot;mydata.xml&amp;quot;,AccessControlSections.All);&lt;br&gt;
+security.SetAccessRuleProtection(true,true);&lt;br&gt;
+File.SetAccessControl(&amp;#8220;mydata.xml&amp;#8221;, security);&lt;br&gt;
+$v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+FileSecurity security = File.GetAccessControl(&amp;#8220;mydata.xml&amp;#8221;);&lt;br&gt;
+security.SetAuditRuleProtection(true,true);&lt;br&gt;
+File.SetAccessControl(&amp;#8220;mydata.xml&amp;#8221;, security);&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+FileSecurity security = new FileSecurity();&lt;br&gt;
+security.SetAccessRuleProtection(true,true);&lt;br&gt;
+File.SetAccessControl(&amp;#8220;mydata.xml&amp;#8221;, security);&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+FileSecurity security = File.GetAccessControl(&amp;#8220;mydata.xml&amp;#8221;);&lt;br&gt;
+security.SetAccessRuleProtection(true, true);&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="1_1_2_0:23" type="0">
+    <questiontext>&lt;br&gt;
+    You write a class named Employee that includes the following code segment. &lt;br&gt;
+&lt;br&gt;
+public class&lt;br&gt;
+Employee {&lt;br&gt;
+string employeeId, employeeName, jobTitleName;&lt;br&gt;
+public string GetName() { return employeeName; }&lt;br&gt;
+public string GetTitle() { return jobTitleName; } &lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+You need to expose this class to COM in a type library. &lt;br&gt;
+The COM interface must also facilitate forward-compatibility across new &lt;br&gt;
+    versions of the Employee class. &lt;br&gt;
+You need to choose a method for generating the COM interface.&lt;br&gt;
+&lt;br&gt;
+What should you do?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+Add the following attribute to the class definition.&lt;br&gt;
+[ClassInterface(ClassInterfaceType.None)]&lt;br&gt;
+public class Employee {}&lt;br&gt;
+$v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+Define an interface for the class and add the following attribute to the class &lt;br&gt;
+    definition.&lt;br&gt;
+[ClassInterface(ClassInterfaceType.None)]&lt;br&gt;
+public class Employee : IEmployee&lt;br&gt;
+{}&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+Add the following attribute to the class definition.&lt;br&gt;
+[ComVisible(true)]&lt;br&gt;
+public class Employee {}&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+Add the following attribute to the class definition.&lt;br&gt;
+[ClassInterface(ClassInterfaceType.AutoDual)]&lt;br&gt;
+public class Employee {}&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_1_2_0:24" type="0">
+    <questiontext>&lt;br&gt;
+    You are developing an application to assist the user in conducting &lt;br&gt;
+    electronic surveys. &lt;br&gt;
+The survey consists of 25 true-or-false questions. &lt;br&gt;
+You need to perform the following tasks: Initialize each answer to true.&lt;br&gt;
+Minimize the amount of memory used by each survey. &lt;br&gt;
+&lt;br&gt;
+Which storage option should you choose?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ BitArray answers = new &lt;br&gt;
+    BitArray(1); $v0end$&lt;br&gt;
+$v1$ BitArray answers = new BitArray(-1); $v1end$&lt;br&gt;
+$v2$ &lt;br&gt;
+    BitVector32 answers = new BitVector32(-1); $v2end$&lt;br&gt;
+$v3$ BitVector32 &lt;br&gt;
+    answers = new BitVector32(1); $v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_1_2_0:25" type="0">
+    <questiontext>&lt;br&gt;
+    Your company uses an application named Application1 that was compiled by &lt;br&gt;
+    using the .NET Framework version 1.0. &lt;br&gt;
+The application currently runs on a shared computer on which the .NET &lt;br&gt;
+    Framework versions 1.0 and 1.1 are installed.&lt;br&gt;
+You need to move the application to a new computer on which the .NET Framework &lt;br&gt;
+    versions 1.1 and 2.0 are installed. &lt;br&gt;
+The application is compatible with the .NET Framework 1.1, but it is &lt;br&gt;
+    incompatible with the .NET Framework 2.0. &lt;br&gt;
+You need to ensure that the application will use the .NET Framework version &lt;br&gt;
+    1.1 on the new computer. &lt;br&gt;
+&lt;br&gt;
+What should you do?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+Add the following XML element to the application configuration file.&lt;br&gt;
+&lt;configuration&gt;&lt;br&gt;
+&lt;runtime&gt;&lt;br&gt;
+&lt;assemblyBinding&lt;br&gt;
+xmlns=&amp;quot;urn:schemas-microsoft-com:asm.v1&amp;quot;&gt;&lt;br&gt;
+&lt;dependentAssembly&gt;&lt;br&gt;
+&lt;assemblyIdentity name=&amp;quot;Application1&amp;quot;&lt;br&gt;
+publicKeyToken=&amp;quot;32ab4ba45e0a69a1&amp;quot;&lt;br&gt;
+culture=&amp;quot;neutral&amp;quot; /&gt;&lt;br&gt;
+&lt;bindingRedirect oldVersion=&amp;quot;1.0.3075.0&amp;quot;&lt;br&gt;
+newVersion=&amp;quot;1.1.4322.0&amp;quot;/&gt;&lt;br&gt;
+&lt;/dependentAssembly&gt;&lt;br&gt;
+&lt;/assemblyBinding&gt;&lt;br&gt;
+&lt;/runtime&gt;&lt;br&gt;
+&lt;/configuration&gt;&lt;br&gt;
+ $v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+Add the following XML element to the application configuration file.&lt;br&gt;
+&lt;configuration&gt;&lt;br&gt;
+&lt;startup&gt;&lt;br&gt;
+&lt;supportedRuntime version=&amp;quot;1.1.4322&amp;quot; /&gt;&lt;br&gt;
+&lt;startup&gt;&lt;br&gt;
+&lt;/configuration&gt;&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$ &lt;br&gt;
+Add the following XML element to the machine configuration file.&lt;br&gt;
+&lt;configuration&gt;&lt;br&gt;
+&lt;startup&gt;&lt;br&gt;
+&lt;requiredRuntime version=&amp;quot;1.1.4322&amp;quot; /&gt;&lt;br&gt;
+&lt;startup&gt;&lt;br&gt;
+&lt;/configuration&gt;&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_1_2_0:26" type="0">
+    <questiontext>&lt;br&gt;
+    You work as a developer at Company.com. You are creating an assembly named &lt;br&gt;
+    Company1.&lt;br&gt;
+Company1 contains a public method. The global cache contains a second assembly &lt;br&gt;
+    named&lt;br&gt;
+Company2.&lt;br&gt;
+You must ensure that the public method is only called from Company2.&lt;br&gt;
+Which permission class should you use?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$PublisherIdentityPermission$v0end$&lt;br&gt;
+$v1$GacIdentityPermission$v1end$&lt;br&gt;
+$v2$StrongNameIdentityPermission &lt;br&gt;
+    $v2end$&lt;br&gt;
+$v3$DataProtectionPermission$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_1_2_0:27" type="0">
+    <questiontext>&lt;br&gt;
+    You are writing a method that accepts a string parameter named message.&lt;br&gt;
+Your method must break the message parameter into individual lines of text &lt;br&gt;
+and pass each line to a second method named Process.&lt;br&gt;
+&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+StringReader reader = new StringReader(message);&lt;br&gt;
+while (reader.Peek() != -1) {&lt;br&gt;
+ string line = reader.Read().ToString();&lt;br&gt;
+ Process(line);&lt;br&gt;
+}&lt;br&gt;
+reader.Close();&lt;br&gt;
+$v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+StringReader reader = new StringReader(message);&lt;br&gt;
+Process(reader.ToString());&lt;br&gt;
+reader.Close();&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+StringReader reader = new StringReader(message);&lt;br&gt;
+while (reader.Peek() != -1) {&lt;br&gt;
+Process(reader.ReadLine());&lt;br&gt;
+}&lt;br&gt;
+reader.Close();&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+StringReader reader = new StringReader(message);&lt;br&gt;
+Process(reader.ReadToEnd());&lt;br&gt;
+reader.Close();&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_1_2_0:28" type="0">
+    <questiontext>&lt;br&gt;
+    You develop a service application named PollingService that periodically &lt;br&gt;
+    calls long-running procedures. &lt;br&gt;
+These procedures are called from the DoWork method.&lt;br&gt;
+&lt;br&gt;
+You use the following service application code: &lt;br&gt;
+&lt;br&gt;
+partial class PollingService :&lt;br&gt;
+    ServiceBase {&lt;br&gt;
+        bool blnExit = false; public PollingService() {}&lt;br&gt;
+        protected override void OnStart(string[] args) {&lt;br&gt;
+            do &lt;br&gt;
+            {&lt;br&gt;
+                DoWork();&lt;br&gt;
+            } &lt;br&gt;
+                while (!blnExit);&lt;br&gt;
+        }&lt;br&gt;
+    protected override void OnStop() {&lt;br&gt;
+    blnExit = true;&lt;br&gt;
+}&lt;br&gt;
+private void DoWork() {&lt;br&gt;
+...&lt;br&gt;
+} &lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+When you attempt to start the service, you receive the following error &lt;br&gt;
+    message: Could not start the PollingService service on the local computer. &lt;br&gt;
+Error 1053: The service did not respond to the start or control request in a &lt;br&gt;
+    timely fashion. &lt;br&gt;
+You need to modify the service application code so that the service starts &lt;br&gt;
+    properly. &lt;br&gt;
+&lt;br&gt;
+What should you do?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+Add a class-level System.Timers.&lt;br&gt;
+Timer variable to the service class code. &lt;br&gt;
+Move the call to the DoWork method into the Elapsed event procedure of the &lt;br&gt;
+    timer, &lt;br&gt;
+set the Enabled property of the timer to True, and call the Start method of &lt;br&gt;
+    the timer in the OnStart method.&lt;br&gt;
+$v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+Drag a timer component onto the design surface of the service. Move the calls &lt;br&gt;
+    to the longrunning procedure from the OnStart method into the Tick event &lt;br&gt;
+    procedure of the timer, set the Enabled property of the timer to True, and &lt;br&gt;
+    call the Start method of the timer in the OnStart method.&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+Move the loop code from the OnStart method into the DoWork method.&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+Move the loop code into the constructor of the service class from the OnStart &lt;br&gt;
+    method.&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="1_1_2_0:29" type="0">
+    <questiontext>&lt;br&gt;
+    You develop a service application named FileService. &lt;br&gt;
+You deploy the service application to multiple servers on your network. &lt;br&gt;
+You implement the following code segment. &lt;br&gt;
+(Line numbers are included for reference only.)&lt;br&gt;
+01 public void StartService(string serverName){&lt;br&gt;
+02     ServiceController crtl = new&lt;br&gt;
+03     ServiceController(&amp;#8220;FileService&amp;#8221;);&lt;br&gt;
+04         if (crtl.Status == ServiceControllerStatus.Stopped){&lt;br&gt;
+05     }&lt;br&gt;
+06 }&lt;br&gt;
+You need to develop a routine that will start FileService if it stops. &lt;br&gt;
+The routine must start FileService on the server identified by the serverName &lt;br&gt;
+    input parameter.&lt;br&gt;
+&lt;br&gt;
+Which two lines of code should you add to the code segment? &lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&lt;br&gt;
+Insert the following line of code between lines 04 and 05:&lt;br&gt;
+crtl.ExecuteCommand(0);&lt;br&gt;
+Insert the following line of code between lines 03 and 04:&lt;br&gt;
+crtl.MachineName = serverName;&lt;br&gt;
+$v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+Insert the following line of code between lines 04 and 05:&lt;br&gt;
+crtl.Continue();&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+Insert the following line of code between lines 03 and 04:&lt;br&gt;
+crtl.MachineName = serverName;&lt;br&gt;
+Insert the following line of code between lines 04 and 05:&lt;br&gt;
+crtl.Start();&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_1_2_0:30" type="0">
+    <questiontext>&lt;br&gt;
+    You need to call an unmanaged function from your managed code by using &lt;br&gt;
+    platform invoke services. &lt;br&gt;
+&lt;br&gt;
+What should you do?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$Register your assembly by using COM and then &lt;br&gt;
+    reference your managed code from COM.$v0end$&lt;br&gt;
+$v1$Export a type library &lt;br&gt;
+    for your managed code.$v1end$&lt;br&gt;
+$v2$Import a type library as an assembly &lt;br&gt;
+    and then create instances of COM object.$v2end$&lt;br&gt;
+$v3$Create a class to &lt;br&gt;
+    hold DLL functions and then create prototype methods by using managed &lt;br&gt;
+    code.$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_1_2_0:31" type="0">
+    <questiontext>&lt;br&gt;
+    You use Reflection to obtain information about a method named MyMethod.&lt;br&gt;
+You need to ascertain whether MyMethod is accessible to a derived class. &lt;br&gt;
+&lt;br&gt;
+What should you do?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ Call the IsStatic property of the &lt;br&gt;
+    MethodInfo class.$v0end$&lt;br&gt;
+$v1$ Call the IsFamily property of the &lt;br&gt;
+    MethodInfo class.$v1end$&lt;br&gt;
+$v2$ Call the IsAssembly property of the &lt;br&gt;
+    MethodInfo class$v2end$&lt;br&gt;
+$v3$ Call the IsVirtual property of the &lt;br&gt;
+    MethodInfo class.$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
     <questionanswer>1</questionanswer>
   </question>
 </questions>
