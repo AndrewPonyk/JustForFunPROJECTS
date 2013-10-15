@@ -27,7 +27,7 @@
     <category id="0_2" name="Javascript" nofquestions="0" nofsubcategories="0" />
     <category id="0_3" name="Algorithms(huge)" nofquestions="0" nofsubcategories="0" />
   </class>
-  <class id="1" name="Programming" nofquestions="17" nofsubcategories="4">
+  <class id="1" name="Programming" nofquestions="24" nofsubcategories="4">
     <category id="1_0" name="Java" nofquestions="2" nofsubcategories="4">
       <category id="1_0_0" name="Java CORE" nofquestions="2" nofsubcategories="9">
         <category id="1_0_0_0" name="BasicSyntax(types,classes,static,access,inner)" nofquestions="0" nofsubcategories="0" filename="basicsyntax(types,classes,static,access,inner)1_0_0_0.xml" />
@@ -73,7 +73,7 @@
       <category id="1_0_2" name="Android" nofquestions="0" nofsubcategories="0" />
       <category id="1_0_3" name="Other_Resources" nofquestions="0" nofsubcategories="0" />
     </category>
-    <category id="1_1" name=".Net" nofquestions="15" nofsubcategories="3">
+    <category id="1_1" name=".Net" nofquestions="22" nofsubcategories="3">
       <category id="1_1_0" name="C# CORE" nofquestions="0" nofsubcategories="9">
         <category id="1_1_0_0" name="BasicSyntax(types,classes,inner,static,modifiers,delegates" nofquestions="0" nofsubcategories="0" filename="basicsyntax(types,classes,inner,static,modifiers,delegates1_1_0_0.xml" />
         <category id="1_1_0_1" name="Collections" nofquestions="0" nofsubcategories="0" filename="collections1_1_0_1.xml" />
@@ -95,8 +95,8 @@
         <category id="1_1_1_2" name="LINQ" nofquestions="0" nofsubcategories="0" />
         <category id="1_1_1_3" name="WPF" nofquestions="0" nofsubcategories="0" />
       </category>
-      <category id="1_1_2" name="Other_Resources" nofquestions="15" nofsubcategories="1">
-        <category id="1_1_2_0" name="Gl_test" nofquestions="15" nofsubcategories="0" filename="gl_test1_1_2_0.xml" />
+      <category id="1_1_2" name="Other_Resources" nofquestions="22" nofsubcategories="1">
+        <category id="1_1_2_0" name="Gl_test" nofquestions="22" nofsubcategories="0" filename="gl_test1_1_2_0.xml" />
       </category>
     </category>
     <category id="1_2" name="PHP" nofquestions="0" nofsubcategories="2">
