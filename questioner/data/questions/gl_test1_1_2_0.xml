@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_1_2_0" name="Gl_test" nofquestions="4" nofsubcategories="0" filename="gl_test1_1_2_0.xml">
+<questions id="1_1_2_0" name="Gl_test" nofquestions="15" nofsubcategories="0" filename="gl_test1_1_2_0.xml">
   <question id="1_1_2_0:0" type="0">
     <questiontext>1)You need to write a code segment that transfers the contents of a byte 
     array named dataToSend by using a NetworkStream object named netStream. 
@@ -109,5 +109,336 @@ WindowsImpersonationContext ctx =WindowsIdentity.Impersonate(token);&lt;br&gt;
 $v2end$&lt;br&gt;
 $vend$&lt;br&gt;</questiontext>
     <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_1_2_0:4" type="0">
+    <questiontext>&lt;br&gt;
+    You write the following code to call a function from the Win32 Application &lt;br&gt;
+    Programming Interface (API) by using platform invoke.&lt;br&gt;
+&lt;br&gt;
+int rc = MessageBox(hWnd, text, caption, type); &lt;br&gt;
+&lt;br&gt;
+You need to define a methon prototype.&lt;br&gt;
+&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ [DllImport(&amp;quot;user32&amp;quot;)]public static extern int MessageBoxA(int &lt;br&gt;
+    hWnd, String text,String caption, uint type); $v0end$&lt;br&gt;
+$v1$ &lt;br&gt;
+    [DllImport(&amp;quot;user32&amp;quot;)]public static extern int &lt;br&gt;
+    Win32API_User32_MessageBox(int hWnd, String text, String caption, uint &lt;br&gt;
+    type);&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$ &lt;br&gt;
+[DllImport(@&amp;quot;C:\WINDOWS\system32\user32.dll&amp;quot;)]public static extern &lt;br&gt;
+    intMessageBox(int hWnd, String text,String caption, uint type); $v2end$&lt;br&gt;
+$v3$ &lt;br&gt;
+    [DllImport(&amp;quot;user32&amp;quot;)]public static extern int MessageBox(int hWnd, String &lt;br&gt;
+    text,String caption, uint type); $v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_1_2_0:5" type="0">
+    <questiontext>&lt;br&gt;
+    You need to identify a type that meets the following criteria: &lt;br&gt;
+&lt;br&gt;
+- Is always a number.&lt;br&gt;
+- Is not greater than 65,535. &lt;br&gt;
+&lt;br&gt;
+Which type should you choose?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ int $v0end$&lt;br&gt;
+$v1$ &lt;br&gt;
+    System.IntPtr$v1end$&lt;br&gt;
+$v2$ System.UInt16$v2end$&lt;br&gt;
+$v3$ &lt;br&gt;
+    System.String$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_1_2_0:6" type="0">
+    <questiontext>&lt;br&gt;
+    You are developing a class library. Portions of your code need to access &lt;br&gt;
+    system environment&lt;br&gt;
+variables.&lt;br&gt;
+You need to force a runtime SecurityException only when callers that are &lt;br&gt;
+    higher in the call stack&lt;br&gt;
+do not have the necessary permissions.&lt;br&gt;
+Which call method should you use?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ Assert()$v0end$&lt;br&gt;
+$v1$ &lt;br&gt;
+    Demand()$v1end$&lt;br&gt;
+$v2$ Deny()$v2end$&lt;br&gt;
+$v3$ PermitOnly()$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_1_2_0:7" type="0">
+    <questiontext>&lt;br&gt;
+    You need to write a code segment that transfers the first 80 bytes from a &lt;br&gt;
+    stream variable named stream1 into a new byte array named byteArray. &lt;br&gt;
+You also need to ensure that the code segment assigns the number of bytes that &lt;br&gt;
+    are transferred to an integer variable named bytesTransferred.&lt;br&gt;
+&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ bytesTransferred = stream1.Read(byteArray, 0, 80); $v0end$&lt;br&gt;
+$v1$ &lt;br&gt;
+    &lt;br&gt;
+while (bytesTransferred &lt; 80) {&lt;br&gt;
+stream1.Seek(1, SeekOrigin.Current);&lt;br&gt;
+byteArray[bytesTransferred++] =&lt;br&gt;
+Convert.ToByte(stream1.ReadByte());}&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+stream1.Write(byteArray, 0, 80);&lt;br&gt;
+bytesTransferred = byteArray.Length;&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+for (int i = 0; i &lt; 80; i++) {&lt;br&gt;
+stream1.WriteByte(byteArray[i]);&lt;br&gt;
+bytesTransferred = i;&lt;br&gt;
+if (!stream1.CanWrite) {&lt;br&gt;
+break;&lt;br&gt;
+}}&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="1_1_2_0:8" type="0">
+    <questiontext>&lt;br&gt;
+    You are writing an application that uses SOAP to exchange data with other &lt;br&gt;
+    applications. &lt;br&gt;
+You use a Department class that inherits from ArrayList to send objects to &lt;br&gt;
+    another application.&lt;br&gt;
+The Department object is named dept. &lt;br&gt;
+You need to ensure that the application serializes the Department object for &lt;br&gt;
+    transport by using SOAP. &lt;br&gt;
+&lt;br&gt;
+Which code should you use?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+SoapFormatter formatter = new SoapFormatter();&lt;br&gt;
+byte[] buffer = new byte[dept.Capacity];&lt;br&gt;
+MemoryStream stream = new MemoryStream(buffer);&lt;br&gt;
+foreach (object o in dept) {&lt;br&gt;
+  formatter.Serialize(stream, o);&lt;br&gt;
+}&lt;br&gt;
+ $v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+SoapFormatter formatter = new SoapFormatter();&lt;br&gt;
+byte[] buffer = new byte[dept.Capacity];&lt;br&gt;
+MemoryStream stream = new MemoryStream(buffer);&lt;br&gt;
+formatter.Serialize(stream, dept);&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+SoapFormatter formatter = new SoapFormatter();&lt;br&gt;
+MemoryStream stream = new MemoryStream();&lt;br&gt;
+foreach (object o in dept) {&lt;br&gt;
+  Formatter.Serialize(stream, o);&lt;br&gt;
+}&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+SoapFormatter formatter = new SoapFormatter();&lt;br&gt;
+MemoryStream stream = new MemoryStream();&lt;br&gt;
+formatter.Serialize(stream, dept);&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_1_2_0:9" type="0">
+    <questiontext>&lt;br&gt;
+    You are writing a method to compress an array of bytes.&lt;br&gt;
+The bytes to be compressed are passed to the method in a parameter named &lt;br&gt;
+    document.&lt;br&gt;
+You need to compress the contents of the incoming parameter.&lt;br&gt;
+&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+MemoryStream inStream = new MemoryStream(document);&lt;br&gt;
+GZipStream zipStream = new GZipStream(inStream,CompressionMode.Compress); &lt;br&gt;
+MemoryStream outStream = new MemoryStream();&lt;br&gt;
+       int b;&lt;br&gt;
+           while((b = zipStream.ReadByte()) != -1) {&lt;br&gt;
+           outStream.WriteByte((byte)b);&lt;br&gt;
+       } &lt;br&gt;
+return outStream.ToArray();&lt;br&gt;
+$v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+MemoryStream Stream = new MemoryStream(document);&lt;br&gt;
+    GZipStream zipStream = new GZipStream(stream,CompressionMode.Compress);&lt;br&gt;
+    zipStream.Write(document, 0,document.Length);&lt;br&gt;
+    zipStream.Close();&lt;br&gt;
+return stream.ToArray();&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+MemoryStream outStream = new MemoryStream();&lt;br&gt;
+   GZipStream zipStream = new GZipStream(outStream,CompressionMode.Compress);&lt;br&gt;
+   zipStream.Write(document, 0,document.Length);&lt;br&gt;
+   zipStream.Close();&lt;br&gt;
+return outStream.ToArray();&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+MemoryStream inStream = new MemoryStream(document);&lt;br&gt;
+    GZipStream zipStream = new GZipStream(inStream,CompressionMode.Compress);&lt;br&gt;
+    byte[] result = new Byte[document.Length];&lt;br&gt;
+    zipStream.Write(result, 0, result.Length);&lt;br&gt;
+return result;&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_1_2_0:10" type="0">
+    <questiontext>&lt;br&gt;
+    You are developing an application for a client residing in Hong Kong.&lt;br&gt;
+You need to display negative currency values by using a minus sign. &lt;br&gt;
+&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+CultureInfo culture = new CultureInfo(&amp;#8220;zh-HK&amp;#8221;);&lt;br&gt;
+    return numberToPrint.ToString(&amp;#8220;-(0)&amp;#8221;, culture);&lt;br&gt;
+ $v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+CultureInfo culture = new CultureInfo(&amp;#8220;zh-HK&amp;#8221;);&lt;br&gt;
+    return numberToPrint.ToString(&amp;#8220;()&amp;#8221;, culture);&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+NumberFormatInfo culture = new CultureInfo(&amp;#8220;zh-HK&amp;#8221;).NumberFormat;&lt;br&gt;
+    culture.NumberNegativePattern = 1;&lt;br&gt;
+    return numberToPrint.ToString(&amp;#8220;C&amp;#8221;, culture);&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+NumberFormatInfo culture = new CultureInfo(&amp;#8220;zh-HK&amp;#8221;).NumberFormat;&lt;br&gt;
+    culture.CurrencyNegativePattern = 1;&lt;br&gt;
+    return numberToPrint.ToString(&amp;#8220;C&amp;#8221;, culture);&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_1_2_0:11" type="0">
+    <questiontext>&lt;br&gt;
+    You are creating a new security policy for an application domain. You &lt;br&gt;
+    write the following lines of code. &lt;br&gt;
+PolicyLevel policy = PolicyLevel.CreateAppDomainLevel();&lt;br&gt;
+PolicyStatement noTrustStatement = new &lt;br&gt;
+    PolicyStatement(policy.GetNamedPermissionSet(&amp;#8220;Nothing&amp;#8221;));&lt;br&gt;
+PolicyStatement fullTrustStatement = new &lt;br&gt;
+    PolicyStatement(policy.GetNamedPermissionSet(&amp;#8220;FullTrust&amp;#8221;));&lt;br&gt;
+You need to arrange code groups for the policy so that loaded assemblies &lt;br&gt;
+    default to the Nothing permission set. If the assembly originates from a &lt;br&gt;
+    trusted zone, the security policy must grant the assembly the FullTrust &lt;br&gt;
+    permission set. &lt;br&gt;
+&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&lt;br&gt;
+CodeGroup ^group = new FirstMatchCodeGroup(gcnew &lt;br&gt;
+    AllMembershipCondition(),noTrustStatement);&lt;br&gt;
+ $v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+CodeGroup ^group = new UnionCodeGroup(gcnew &lt;br&gt;
+    ZoneMembershipCondition(SecurityZone::Trusted),fullTrustStatement);&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+CodeGroup ^group1 = new FirstMatchCodeGroup(gcnew &lt;br&gt;
+    AllMembershipCondition(),noTrustStatement); &lt;br&gt;
+CodeGroup ^group2 = gcnew UnionCodeGroup(gcnew &lt;br&gt;
+    ZoneMembershipCondition(SecurityZone::Trusted),fullTrustStatement); &lt;br&gt;
+group1-&gt;AddChild(group2);&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_1_2_0:12" type="0">
+    <questiontext>&lt;br&gt;
+    You create a method that runs by using the credentials of the end user. &lt;br&gt;
+You need to use Microsoft Windows groups to authorize the user. &lt;br&gt;
+You must add a code segment that identifies whether a user is in the local &lt;br&gt;
+    group named Clerk. &lt;br&gt;
+&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$  &lt;br&gt;
+WindowsIdentity currentUser = WindowsIdentity.GetCurrent();&lt;br&gt;
+foreach(IdentityReference grp in currentUser.Groups) {&lt;br&gt;
+  NTAccount grpAccount =((NTAccount)grp.Translate(typeof(NTAccount)));&lt;br&gt;
+  isAuthorized = grpAccount.Value.Equals(Environment.MachineName + @&amp;#8221;\Clerk&amp;#8221;);&lt;br&gt;
+  if(isAuthorized)&lt;br&gt;
+  break;&lt;br&gt;
+}&lt;br&gt;
+$v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+WindowsPrincipal currentUser =(WindowsPrincipal)Thread.CurrentPrincipal;&lt;br&gt;
+isAuthorized = currentUser.IsInRole(&amp;#8220;Clerk&amp;#8221;);&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+WindowsPrincipal currentUser =(WindowsPrincipal)Thread.CurrentPrincipal;&lt;br&gt;
+isAuthorized =currentUser.IsInRole(Environment.MachineName);&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+GenericPrincipal currentUser =(GenericPrincipal)Thread.CurrentPrincipal;&lt;br&gt;
+isAuthorized = currentUser.IsInRole(&amp;#8220;Clerk&amp;#8221;);&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_1_2_0:13" type="0">
+    <questiontext>&lt;br&gt;
+    You create an application that stores information about your customers who &lt;br&gt;
+    reside in various regions. &lt;br&gt;
+You are developing internal utilities for this application.&lt;br&gt;
+You need to gather regional information about your customers in Canada.&lt;br&gt;
+&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ CultureInfo cultureInfo = &lt;br&gt;
+    new CultureInfo(&amp;#8220;CA&amp;#8221;); // Output the region information&amp;#8230; $v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+foreach (CultureInfo culture in &lt;br&gt;
+    CultureInfo.GetCultures(CultureTypes.SpecificCultures)) { &lt;br&gt;
+//Output the region information...&lt;br&gt;
+}&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+RegionInfo regionInfo = new RegionInfo(&amp;#8220;&amp;#8221;);if(regionInfo.Name == &amp;#8220;CA&amp;#8221;) {&lt;br&gt;
+// Output the region information...}&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+RegionInfo regionInfo = new RegionInfo(&amp;#8220;CA&amp;#8221;); // Output the region information&amp;#8230;&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_1_2_0:14" type="0">
+    <questiontext>&lt;br&gt;
+    You are loading a new assembly into an application. &lt;br&gt;
+You need to override the default evidence for the assembly. &lt;br&gt;
+You require the common language runtime (CLR) to grant the assembly a&lt;br&gt;
+permission set, as if the assembly were loaded from the local intranet zone.&lt;br&gt;
+You need to build the evidence collection. &lt;br&gt;
+&lt;br&gt;
+Which code segment should you use?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$ &lt;br&gt;
+Evidence evidence = new Evidence(Assembly.GetExecutingAssembly().Evidence);&lt;br&gt;
+$v0end$&lt;br&gt;
+$v1$&lt;br&gt;
+Evidence evidence = new Evidence(AppDomain.CurrentDomain.Evidence);&lt;br&gt;
+$v1end$&lt;br&gt;
+$v2$&lt;br&gt;
+Evidence evidence = new Evidence();&lt;br&gt;
+evidence.AddAssembly(new Zone(SecurityZone.Intranet));&lt;br&gt;
+$v2end$&lt;br&gt;
+$v3$&lt;br&gt;
+Evidence evidence = new Evidence();&lt;br&gt;
+evidence.AddHost(new Zone(SecurityZone.Intranet));&lt;br&gt;
+$v3end$&lt;br&gt;
+$vend$&lt;br&gt;</questiontext>
+    <questionanswer>3</questionanswer>
   </question>
 </questions>
