@@ -177,7 +177,12 @@ public class Quiz {
             }
             this.questions.putAll( generatedItems);
 
-            // make images path , if some questions has images
+
+            
+        }
+        
+        
+                    // make images path , if some questions has images
             Set<String> questionsIds=this.questions.keySet();
             for(String q :questionsIds){
                     Question currQuestion=this.questions.get(q);
@@ -194,8 +199,6 @@ public class Quiz {
                             currQuestion.setQuestionText(tempText);
                     }
             }
-            
-        }
 
         // shuffle questions
         final List<Question> vs = new ArrayList<Question>(this.questions.values());        
