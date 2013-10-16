@@ -14,7 +14,7 @@ public class Question {
     private String questionAnswer;
     private ArrayList<String> images = new ArrayList<String>();
     private ArrayList<String> resources = new ArrayList<String>();
-    private  TreeSet<String> tags;
+    private TreeSet<String> tags; // will be in 1.0 version
 
     public Question() {
     }

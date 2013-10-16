@@ -26,15 +26,6 @@ public class Category  extends  ClassificationItem{
             return this.getName()+"("+this.id+")"+"[questions :"+this.nOfQuestions+"]";
     }
 
-
-
-
-
-
-
-
-
-
     /**
      * @return the fileName
      */

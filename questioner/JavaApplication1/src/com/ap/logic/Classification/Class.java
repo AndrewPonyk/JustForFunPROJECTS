@@ -10,8 +10,6 @@ public class Class  extends  ClassificationItem{
 
     public Class() {
     }
-     
-
 
     @Override
     public String toString() {

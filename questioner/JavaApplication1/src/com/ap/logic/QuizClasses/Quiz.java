@@ -33,7 +33,6 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
-
 public class Quiz {
 
     // default values for fields
@@ -47,7 +46,6 @@ public class Quiz {
     private LinkedHashMap<String,Category> categories=new LinkedHashMap<String, Category>();
     private LinkedHashMap<String,Integer>   questionsCountByCategory=new LinkedHashMap<String, Integer>();
 
-
     // ready questions for quiz
     private LinkedHashMap<String,Question> questions=new LinkedHashMap<String, Question>();
     private LinkedHashMap<String,String> answers=new LinkedHashMap<String, String>();
@@ -55,9 +53,7 @@ public class Quiz {
     private Integer currentQuestionIndex=0;
 
     private Random random=new Random(new Date().getTime());
-
-
-    ///log
+    ///
 
     public void generateQuestions(){
 
@@ -79,6 +75,7 @@ public class Quiz {
             System.out.println( item+" "+ questionsCountByCategory.get(item) +" "+categories.get(item) );
         }
         
+        //get questions 
         fillQuestions();
         
         // to correct dislpay tags in questions , because question can contain something tags
@@ -117,7 +114,6 @@ public class Quiz {
     }
 
     public void  fillQuestions(){
-        
         this.random=new Random();
         
         Set<String> categoriesKeys=this.categories.keySet();
@@ -177,10 +173,7 @@ public class Quiz {
             }
             this.questions.putAll( generatedItems);
 
-
-            
         }
-        
         
                     // make images path , if some questions has images
             Set<String> questionsIds=this.questions.keySet();
@@ -192,9 +185,6 @@ public class Quiz {
                             String  tempText=currQuestion.getQuestionText();
                             tempText=tempText.replace("src='", 
                                     "src='file://localhost/"+Config.getQuestionerPath());
-
-                            // in windows work =)
-                           // JOptionPane.showMessageDialog(null, tempText);
 
                             currQuestion.setQuestionText(tempText);
                     }
@@ -210,7 +200,6 @@ public class Quiz {
                 Question next=vIter.next();
                 this.questions.put(next.getId(), next);
             }
-
         //set current and next questions
         this.setCurrentQuestionIndex((Integer) 0);
     }
@@ -297,7 +286,7 @@ public class Quiz {
                                         currentQuestion=false;
                                 }
 			}
-            }
+                }
                 
         }
         catch(FileNotFoundException e){
@@ -410,7 +399,6 @@ public class Quiz {
         this.currentQuestionIndex = currentQuestionIndex;
     }
 
-
     public Boolean hasPreviousQuestion(){
            return this.getCurrentQuestionIndex()>0;
 
@@ -424,8 +412,7 @@ public class Quiz {
 
         if(this.hasNextQuestion()){
                 this.setCurrentQuestionIndex((Integer) (this.getCurrentQuestionIndex() + 1));
-                return this.getNthQuestion(this.getCurrentQuestionIndex());
-                
+                return this.getNthQuestion(this.getCurrentQuestionIndex());           
         }
         return null;
     }
@@ -437,12 +424,9 @@ public class Quiz {
             this.setCurrentQuestionIndex((Integer) (this.getCurrentQuestionIndex() - 1));
             return this.getNthQuestion(this.getCurrentQuestionIndex());
         }
-
         
             return null;
     }
-
-    
 
     public Question getCurrentQuestion(){
         return this.getNthQuestion(this.getCurrentQuestionIndex());
