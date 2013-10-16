@@ -27,8 +27,8 @@
     <category id="0_2" name="Javascript" nofquestions="0" nofsubcategories="0" />
     <category id="0_3" name="Algorithms(huge)" nofquestions="0" nofsubcategories="0" />
   </class>
-  <class id="1" name="Programming" nofquestions="2" nofsubcategories="4">
-    <category id="1_0" name="Java" nofquestions="2" nofsubcategories="3">
+  <class id="1" name="Programming" nofquestions="37" nofsubcategories="4">
+    <category id="1_0" name="Java" nofquestions="2" nofsubcategories="4">
       <category id="1_0_0" name="Java CORE" nofquestions="2" nofsubcategories="9">
         <category id="1_0_0_0" name="BasicSyntax(types,classes,static,access,inner)" nofquestions="0" nofsubcategories="0" filename="basicsyntax(types,classes,static,access,inner)1_0_0_0.xml" />
         <category id="1_0_0_1" name="Collections" nofquestions="0" nofsubcategories="0" filename="collections1_0_0_1.xml" />
@@ -44,7 +44,7 @@
           <category id="1_0_0_8_2" name="Reflection" nofquestions="0" nofsubcategories="0" filename="reflection1_0_0_8_2.xml" />
         </category>
       </category>
-      <category id="1_0_1" name="Java EE" nofquestions="0" nofsubcategories="10">
+      <category id="1_0_1" name="Java EE" nofquestions="0" nofsubcategories="12">
         <category id="1_0_1_0" name="Java EE JNDI" nofquestions="0" nofsubcategories="0" filename="javaeejndi.xml" />
         <category id="1_0_1_1" name="And+MAVEN" nofquestions="0" nofsubcategories="2">
           <category id="1_0_1_1_0" name="Ant" nofquestions="0" nofsubcategories="0" filename="ant.xml" />
@@ -69,10 +69,16 @@
         <category id="1_0_1_7" name="SPRING" nofquestions="0" nofsubcategories="0" />
         <category id="1_0_1_8" name="Testing" nofquestions="0" nofsubcategories="0" />
         <category id="1_0_1_9" name="Eclipse" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_1_10" name="CI_jenkins_and_hudson___" nofquestions="0" nofsubcategories="0" filename="ci_jenkins_and_hudson___1_0_1_10.xml" />
+        <category id="1_0_1_11" name="Groovy" nofquestions="0" nofsubcategories="2">
+          <category id="1_0_1_11_0" name="Groovy_core" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_1_11_1" name="Grails_framework" nofquestions="0" nofsubcategories="0" filename="grails_framework1_0_1_11_1.xml" />
+        </category>
       </category>
       <category id="1_0_2" name="Android" nofquestions="0" nofsubcategories="0" />
+      <category id="1_0_3" name="Other_Resources" nofquestions="0" nofsubcategories="0" />
     </category>
-    <category id="1_1" name=".Net" nofquestions="0" nofsubcategories="2">
+    <category id="1_1" name=".Net" nofquestions="35" nofsubcategories="3">
       <category id="1_1_0" name="C# CORE" nofquestions="0" nofsubcategories="9">
         <category id="1_1_0_0" name="BasicSyntax(types,classes,inner,static,modifiers,delegates" nofquestions="0" nofsubcategories="0" filename="basicsyntax(types,classes,inner,static,modifiers,delegates1_1_0_0.xml" />
         <category id="1_1_0_1" name="Collections" nofquestions="0" nofsubcategories="0" filename="collections1_1_0_1.xml" />
@@ -94,6 +100,9 @@
         <category id="1_1_1_2" name="LINQ" nofquestions="0" nofsubcategories="0" />
         <category id="1_1_1_3" name="WPF" nofquestions="0" nofsubcategories="0" />
       </category>
+      <category id="1_1_2" name="Other_Resources" nofquestions="35" nofsubcategories="1">
+        <category id="1_1_2_0" name="Gl_test" nofquestions="35" nofsubcategories="0" filename="gl_test1_1_2_0.xml" />
+      </category>
     </category>
     <category id="1_2" name="PHP" nofquestions="0" nofsubcategories="2">
       <category id="1_2_0" name="PHP CORE" nofquestions="0" nofsubcategories="0" />
@@ -104,14 +113,25 @@
       <category id="1_3_1" name="Python EE" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="2" name="Programming Other" nofquestions="-1" nofsubcategories="3">
+  <class id="2" name="Programming Other" nofquestions="0" nofsubcategories="4">
     <category id="2_0" name="Patterns" nofquestions="0" nofsubcategories="0" />
     <category id="2_1" name="Version Control" nofquestions="0" nofsubcategories="2">
       <category id="2_1_0" name="Svn" nofquestions="0" nofsubcategories="0" filename="svn2_1_0.xml" />
       <category id="2_1_1" name="Git" nofquestions="0" nofsubcategories="0" filename="git2_1_1.xml" />
     </category>
     <category id="2_2" name="Bug Tracking Systems" nofquestions="0" nofsubcategories="1">
-      <category id="2_2_0" name="Jira" nofquestions="0" nofsubcategories="0" filename="jira2_2_0.xml" />
+      <category id="2_2_0" name="JIRA" nofquestions="0" nofsubcategories="2">
+        <category id="2_2_0_0" name="Administration" nofquestions="0" nofsubcategories="0" filename="administration2_2_0_0.xml" />
+        <category id="2_2_0_1" name="Development" nofquestions="0" nofsubcategories="0" filename="development2_2_0_1.xml" />
+      </category>
     </category>
+    <category id="2_3" name="ThirdPartApi" nofquestions="0" nofsubcategories="4">
+      <category id="2_3_0" name="Facebook" nofquestions="0" nofsubcategories="0" filename="facebook2_3_0.xml" />
+      <category id="2_3_1" name="Salesforce" nofquestions="0" nofsubcategories="0" filename="salesforce2_3_1.xml" />
+      <category id="2_3_2" name="AWS" nofquestions="0" nofsubcategories="0" filename="aws2_3_2.xml" />
+      <category id="2_3_3" name="GoogleMaps" nofquestions="0" nofsubcategories="0" filename="googlemaps2_3_3.xml" />
+    </category>
+  </class>
+  <class id="3" name="Programming Other" nofquestions="0" nofsubcategories="4">
   </class>
 </classification>
