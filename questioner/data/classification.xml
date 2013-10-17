@@ -139,8 +139,9 @@
       <category id="2_3_3" name="GoogleMaps" nofquestions="0" nofsubcategories="0" filename="googlemaps2_3_3.xml" />
     </category>
   </class>
-  <class id="3" name="Operating.Systems" nofquestions="0" nofsubcategories="2">
+  <class id="3" name="Operating.Systems" nofquestions="1" nofsubcategories="3">
     <category id="3_0" name="Windows" nofquestions="0" nofsubcategories="0" />
     <category id="3_1" name="Linux" nofquestions="0" nofsubcategories="0" />
+    <category id="3_2" name="ttt" nofquestions="1" nofsubcategories="0" filename="ttt3_2.xml" />
   </class>
 </classification>

@@ -116,7 +116,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        questionTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "With Variants", "Yes/No Question", "Detailed Answer Question", "TIP" }));
+        questionTypeComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "With Variants", "Yes/No Question", "Detailed Answer Question" }));
         questionTypeComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 questionTypeComboBoxActionPerformed(evt);
@@ -128,7 +128,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
             }
         });
 
-        questionTextTextPane.setFont(new java.awt.Font("Times New Roman", 0, 14));
+        questionTextTextPane.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jScrollPane2.setViewportView(questionTextTextPane);
         questionTextTextPane.getAccessibleContext().setAccessibleDescription("text/html");
 
@@ -139,7 +139,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
             }
         });
 
-        questionAnswerTextPane.setFont(new java.awt.Font("Tahoma", 0, 12));
+        questionAnswerTextPane.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jScrollPane1.setViewportView(questionAnswerTextPane);
         questionAnswerTextPane.getAccessibleContext().setAccessibleDescription("text/html");
 
@@ -169,7 +169,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(310, Short.MAX_VALUE)
+                .addContainerGap(385, Short.MAX_VALUE)
                 .addComponent(previewButton)
                 .addGap(90, 90, 90)
                 .addComponent(saveQuestionButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,27 +178,27 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                 .addGap(10, 10, 10)
                 .addComponent(cancelButton)
                 .addGap(32, 32, 32))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 865, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(questionAnswerLabel)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(questionTypeLabel)
                                 .addGap(40, 40, 40)
-                                .addComponent(questionTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(69, 69, 69)
-                                .addComponent(addImageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(addSourceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(questionTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(questionTextLabel)
-                                .addGap(165, 165, 165)
-                                .addComponent(jButton1)))))
-                .addContainerGap(172, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1)))
+                        .addGap(69, 69, 69)
+                        .addComponent(addImageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(addSourceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,11 +214,11 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                     .addComponent(questionTextLabel)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(questionAnswerLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelButton)
@@ -329,29 +329,25 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         this.resultQuestion=new Question();
 
         String questionText=this.questionTextTextPane.getText()
-                .replaceAll("\n", "<br>"); // remove all \n , we will add new lines with replacing <br>
+                .replaceAll("\n", "<br>")
+                .trim(); // remove all \n , we will add new lines with replacing <br>
+                
+        String questionAnswer=this.questionAnswerTextPane.getText()
+                .replaceAll("\n", "<br>")
+                .trim();
+                
+        
+        
         
         // it is fucking something bad , so temporary solution
         questionText=questionText.replaceAll("alt='image' <br>", "alt='image'");
         
         
-        questionText=questionText.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n")  ;
-
-        String questionAnswer=this.questionAnswerTextPane.getText().replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n")  ;
+        questionText=questionText.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n").replaceAll(" ", "&nbsp;");  ;
+        questionAnswer=questionAnswer.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n").replaceAll(" ", "&nbsp;");  ;
 
          String selectedQuestionType=this.questionTypeComboBox.getSelectedItem().toString();
 
-         
-         // my solution is stupid , dont forget to change it =)
-         //need to fix bug , dont insert <br> into img tag
-         if(questionText.contains("&lt;img")){
-             int imgBegin=questionText.indexOf("&lt;img");
-             int imgEnd=questionText.indexOf("'/&gt;");
-             StringBuilder img=new StringBuilder(questionText.substring(imgBegin, imgEnd+1)); 
-             if(img.indexOf("&lt;br&gt;")>=0){
-                ///.....
-             }
-         }
          
          
 
@@ -381,13 +377,6 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         if(selectedQuestionType.equals("Detailed Answer Question")){
             this.resultQuestion.setType("2");
         }
-
-       if(selectedQuestionType.equals("TIP")){
-           this.resultQuestion.setType("9");
-       }
-         
-       
-       //resultQuestion.setQuestionText(resultQuestion.getQuestionText().replace("\n", "<br>"));
        
         this.readerwriterQuestion.addQuestionToXML(this.resultQuestion, this.newQuestionCategory);
         this.dialogResult=true;
