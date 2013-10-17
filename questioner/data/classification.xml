@@ -120,7 +120,7 @@
       <category id="1_3_1" name="Python EE" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="2" name="Programming Other" nofquestions="0" nofsubcategories="4">
+  <class id="2" name="Programming Other" nofquestions="0" nofsubcategories="5">
     <category id="2_0" name="Patterns" nofquestions="0" nofsubcategories="0" />
     <category id="2_1" name="Version Control" nofquestions="0" nofsubcategories="2">
       <category id="2_1_0" name="Svn" nofquestions="0" nofsubcategories="0" filename="svn2_1_0.xml" />
@@ -138,11 +138,14 @@
       <category id="2_3_2" name="AWS" nofquestions="0" nofsubcategories="0" filename="aws2_3_2.xml" />
       <category id="2_3_3" name="GoogleMaps" nofquestions="0" nofsubcategories="0" filename="googlemaps2_3_3.xml" />
     </category>
+    <category id="2_4" name="Apache Projects" nofquestions="0" nofsubcategories="2">
+      <category id="2_4_0" name="Lucene" nofquestions="0" nofsubcategories="0" />
+      <category id="2_4_1" name="Hadoop" nofquestions="0" nofsubcategories="0" />
+    </category>
   </class>
-  <class id="3" name="Operating.Systems" nofquestions="1" nofsubcategories="3">
+  <class id="3" name="Operating.Systems" nofquestions="0" nofsubcategories="2">
     <category id="3_0" name="Windows" nofquestions="0" nofsubcategories="0" />
     <category id="3_1" name="Linux" nofquestions="0" nofsubcategories="0" />
-    <category id="3_2" name="ttt" nofquestions="1" nofsubcategories="0" filename="ttt3_2.xml" />
   </class>
   <class id="4" name="Languages" nofquestions="0" nofsubcategories="2">
     <category id="4_0" name="English" nofquestions="0" nofsubcategories="0" />
