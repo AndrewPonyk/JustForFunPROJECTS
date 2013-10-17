@@ -3,7 +3,13 @@
   <class id="0" name="Programming Foundation" nofquestions="8" nofsubcategories="4">
     <category id="0_0" name="Web Design and XML" nofquestions="8" nofsubcategories="3">
       <category id="0_0_0" name="HTML5" nofquestions="5" nofsubcategories="0" filename="html5.xml" />
-      <category id="0_0_1" name="CSS and Frameworks" nofquestions="0" nofsubcategories="0" />
+      <category id="0_0_1" name="CSS and Frameworks" nofquestions="0" nofsubcategories="2">
+        <category id="0_0_1_0" name="Css3_Core" nofquestions="0" nofsubcategories="0" filename="css3_core0_0_1_0.xml" />
+        <category id="0_0_1_1" name="Css_Frameworks" nofquestions="0" nofsubcategories="2">
+          <category id="0_0_1_1_0" name="Bootstrap" nofquestions="0" nofsubcategories="0" filename="bootstrap0_0_1_1_0.xml" />
+          <category id="0_0_1_1_1" name="960gs" nofquestions="0" nofsubcategories="0" filename="960gs0_0_1_1_1.xml" />
+        </category>
+      </category>
       <category id="0_0_2" name="XML technologies" nofquestions="3" nofsubcategories="9">
         <category id="0_0_2_0" name="XML Core" nofquestions="3" nofsubcategories="0" filename="xmlcore.xml" />
         <category id="0_0_2_1" name="XML DTD" nofquestions="0" nofsubcategories="0" filename="xmldtd.xml" />
@@ -16,12 +22,13 @@
         <category id="0_0_2_8" name="XML SCHEMA" nofquestions="0" nofsubcategories="0" filename="xmlschema.xml" />
       </category>
     </category>
-    <category id="0_1" name="DataBases" nofquestions="0" nofsubcategories="4">
-      <category id="0_1_0" name="Oracle" nofquestions="0" nofsubcategories="0" />
-      <category id="0_1_1" name="SQL Server" nofquestions="0" nofsubcategories="0" />
-      <category id="0_1_2" name="MySQL" nofquestions="0" nofsubcategories="0" />
-      <category id="0_1_3" name="NoSQL" nofquestions="0" nofsubcategories="1">
-        <category id="0_1_3_0" name="MongoDB" nofquestions="0" nofsubcategories="0" />
+    <category id="0_1" name="DataBases" nofquestions="0" nofsubcategories="5">
+      <category id="0_1_0" name="Relational_Theory" nofquestions="0" nofsubcategories="0" />
+      <category id="0_1_1" name="Oracle" nofquestions="0" nofsubcategories="0" />
+      <category id="0_1_2" name="Mysql" nofquestions="0" nofsubcategories="0" />
+      <category id="0_1_3" name="SqlServer" nofquestions="0" nofsubcategories="0" />
+      <category id="0_1_4" name="NOSql" nofquestions="0" nofsubcategories="1">
+        <category id="0_1_4_0" name="MondoDB" nofquestions="0" nofsubcategories="0" filename="mondodb0_1_4_0.xml" />
       </category>
     </category>
     <category id="0_2" name="Javascript" nofquestions="0" nofsubcategories="0" />
@@ -132,6 +139,11 @@
       <category id="2_3_3" name="GoogleMaps" nofquestions="0" nofsubcategories="0" filename="googlemaps2_3_3.xml" />
     </category>
   </class>
-  <class id="3" name="Programming Other" nofquestions="0" nofsubcategories="4">
+  <class id="3" name="Operating.Systems" nofquestions="1" nofsubcategories="3">
+    <category id="3_0" name="Windows" nofquestions="0" nofsubcategories="0" />
+    <category id="3_1" name="Linux" nofquestions="0" nofsubcategories="0" />
+    <category id="3_2" name="ttt" nofquestions="1" nofsubcategories="0" filename="ttt3_2.xml" />
+  </class>
+  <class id="3" name="Operating.Systems" nofquestions="1" nofsubcategories="3">
   </class>
 </classification>
