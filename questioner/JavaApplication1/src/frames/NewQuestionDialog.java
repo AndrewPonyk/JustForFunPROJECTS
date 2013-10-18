@@ -151,13 +151,14 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         });
 
         addSourceButton.setText("Add Source");
+        addSourceButton.setEnabled(false);
         addSourceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addSourceButtonActionPerformed(evt);
             }
         });
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Debug");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
