@@ -2,6 +2,7 @@ package com.ap.logic.QuizClasses;
 
 import java.util.LinkedHashMap;
 import java.util.Set;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,8 +27,16 @@ public class QuizResult {
             Set<String> questionsIds=questions.keySet();
 
             for(String item : questionsIds){
+                String answer=questions.get(item).getQuestionAnswer();
+                answer=answer.replaceAll("&lt;","").
+                        replaceAll("\n", "").
+                        replaceAll("&nbsp;", "").
+                        replaceAll("<br>", "");
+           
+                System.err.println(questions.get(item).getType());
+                System.err.println("************************");
                     if(questions.get(item).getType().equals("0") && answers.containsKey(item)  ){
-                            if(questions.get(item).getQuestionAnswer().startsWith(answers.get(item)) ){
+                            if(answer.startsWith(answers.get(item)) ){
                                 this.correctAnswers++;
                                 this.correctQuestions.put(questions.get(item).getId(), questions.get(item));
                             }else{
@@ -36,7 +45,7 @@ public class QuizResult {
                     }
 
                     if(questions.get(item).getType().equals("1") && answers.containsKey(item)  ){
-                            if(questions.get(item).getQuestionAnswer().startsWith(answers.get(item)) ){
+                            if(answer.startsWith(answers.get(item)) ){
                                  this.correctAnswers++;
                                 this.correctQuestions.put(questions.get(item).getId(), questions.get(item));
                             }else{

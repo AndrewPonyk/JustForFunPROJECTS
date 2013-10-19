@@ -18,7 +18,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Random;
 
 import java.util.Set;
@@ -702,8 +704,6 @@ public class QuestionerJFrame extends JFrame {
 
                 if(this.quiz!=null){
                     this.addCategoryOrClassToQuiz((ClassificationItem)node.getUserObject(), quiz);
-                    //  if(this.quizTopicsTextPane.getText().indexOf(node.getUserObject().toString())<0)
-                    // this.quizTopicsTextPane.setText(this.quizTopicsTextPane.getText()+node.getUserObject()+"\n");
                     return ;
                 }
          }
@@ -869,6 +869,9 @@ public class QuestionerJFrame extends JFrame {
     private void startQuizButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startQuizButtonActionPerformed
 
         if(this.quiz.getCategories().size()>0){
+                //check maybe we remove some category from textpane
+                this.checkQueizCategories();
+                
                 // configure quiz , set time , number of questions , and generate questions
                 this.quiz.setMinutes(  Integer.parseInt(this.quizMinutesTextField.getText())  );
                 this.quiz.setNofquestions(  Integer.parseInt( this.quizQuestionsCountTextField.getText()) );
@@ -1009,6 +1012,9 @@ public class QuestionerJFrame extends JFrame {
     private void showQuizBeforePrintButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showQuizBeforePrintButtonActionPerformed
             //create quiz
             if(this.quiz.getCategories().size()>0){
+                  //check maybe we remove some category from textpane
+                  this.checkQueizCategories();
+                
                     // configure quiz , set time , number of questions , and generate questions
                     this.quiz.setMinutes(  Integer.parseInt(this.quizMinutesTextField.getText())  );
                     this.quiz.setNofquestions(  Integer.parseInt( this.quizQuestionsCountTextField.getText()) );
@@ -1428,7 +1434,7 @@ public class QuestionerJFrame extends JFrame {
            items=result.getCorrectQuestions().keySet();
            for(String item:items){
                quizReviewString+=result.getCorrectQuestions().get(item).getQuestionText()+"<br>--<br>";
-               quizReviewString+="Correct ans <b>:"+result.getCorrectQuestions().get(item).getQuestionAnswer()+"</b><br>--------------------------<br>";
+               quizReviewString+="Correct ans <b>:"+result.getCorrectQuestions().get(item).getQuestionAnswer()+"</b><br>----------------------------------------------------<br>";
            }
            quizReviewString+="</p>";
 
@@ -1437,7 +1443,7 @@ public class QuestionerJFrame extends JFrame {
            items=result.getWrongQuestions().keySet();
            for(String item:items){
                quizReviewString+=result.getWrongQuestions().get(item).getQuestionText()+"<br>--<br>";
-                quizReviewString+="Correct ans :<b>"+result.getWrongQuestions().get(item).getQuestionAnswer()+"</b><br>--------------------------<br>";
+                quizReviewString+="Correct ans :<b>"+result.getWrongQuestions().get(item).getQuestionAnswer()+"</b><br>----------------------------------------------------<br>";
            }
             quizReviewString+="</p>";
 
@@ -1448,7 +1454,7 @@ public class QuestionerJFrame extends JFrame {
             items=result.getUnasweredQuestions().keySet();
             for(String item:items){
                 quizReviewString+=result.getUnasweredQuestions().get(item).getQuestionText()+"<br>--<br>";
-                quizReviewString+="Correct ans :<b>"+result.getUnasweredQuestions().get(item).getQuestionAnswer()+"</b><br>--------------------------<br>";
+                quizReviewString+="Correct ans :<b>"+result.getUnasweredQuestions().get(item).getQuestionAnswer()+"</b><br>----------------------------------------------------<br>";
             }
             
             quizReviewString+="</p>";
@@ -1466,6 +1472,23 @@ public class QuestionerJFrame extends JFrame {
             }
             quizReviewString+="</p>";
             this.quizReviewTextPane.setText(quizReviewString);
+        }
+        
+        // we can add categories to quiz  by double clicking on the tree
+        // but , after we can remove categories from quiz by deleting category title from textpane
+        // this method will check , maybe we delete some category from textpane and will remove it from
+        //quiz
+        public void checkQueizCategories(){
+            if(this.quiz==null || this.quiz.getCategories().size()<=0){
+                return;
+            }
+            
+            for(Iterator<Map.Entry<String,Category>>it=this.quiz.getCategories().entrySet().iterator();it.hasNext();){
+               Map.Entry<String, Category> entry = it.next();               
+               if(this.quizTopicsTextPane.getText().indexOf( "("+entry.getValue().getId()+")" )<0){
+                  it.remove();
+                }
+            }
         }
 
 }

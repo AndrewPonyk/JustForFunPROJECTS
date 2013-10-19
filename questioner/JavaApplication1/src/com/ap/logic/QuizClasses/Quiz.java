@@ -93,6 +93,13 @@ public class Quiz {
                 .replace("&lt;/br&gt;", "</br>").trim()
                 );
             
+            this.getQuestions().get(item).setQuestionAnswer(
+                this.getQuestions().get(item).getQuestionAnswer().replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace("&lt;br&gt;", "<br>")
+                .replace("&lt;/br&gt;", "</br>").trim()
+                );
+            
             // to display image we need to replace '&lt;img..' to '<img..'
             if(this.getQuestions().get(item).getQuestionText().contains("alt='image'")){
                 
@@ -109,6 +116,26 @@ public class Quiz {
                     );
                 }
             }
+            
+            
+                       // to display image we need to replace '&lt;img..' to '<img..'
+            if(this.getQuestions().get(item).getQuestionAnswer().contains("alt='image'")){
+                
+                //Pattern.DOTALL - because by default '.' is any symbol , byt not \n
+                Pattern p = Pattern.compile("&lt;img.*alt='image'.*/&gt;",Pattern.DOTALL);
+                Matcher m = p.matcher( this.getQuestions().get(item).getQuestionAnswer());
+
+                if (m.find()) {
+                    String img=m.group(0);
+                    
+                    this.getQuestions().get(item).setQuestionAnswer(
+                    this.getQuestions().get(item).getQuestionAnswer().replace(img, img.replace("&lt;","<")
+                    .replace("&gt;",">"))
+                    );
+                }
+            }
+            
+            
             
         }
     }
@@ -188,6 +215,17 @@ public class Quiz {
 
                             currQuestion.setQuestionText(tempText);
                     }
+                    
+                    if(currQuestion.getQuestionAnswer().contains("src='") &&
+                       currQuestion.getQuestionAnswer().contains("alt='image'") // because we will have manu questions with src , and only images have 'alt'     
+                            ){
+                            String  tempAnswer=currQuestion.getQuestionAnswer();
+                            tempAnswer=tempAnswer.replace("src='", 
+                                    "src='file://localhost/"+Config.getQuestionerPath());
+
+                            currQuestion.setQuestionAnswer(tempAnswer);
+                    }
+                    
             }
 
         // shuffle questions

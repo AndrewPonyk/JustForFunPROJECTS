@@ -386,7 +386,14 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_saveQuestionButtonActionPerformed
 
     private void addImageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addImageButtonActionPerformed
-        StyledDocument doc = this.questionTextTextPane.getStyledDocument();
+        
+        StyledDocument doc=null;
+   
+        // we can add image into Question text or Question answer
+        if(this.questionTextTextPane.hasFocus());
+
+        
+        doc = this.questionTextTextPane.getStyledDocument();
         
         // can be url and can be from file system
         JFileChooser chooser=new JFileChooser();

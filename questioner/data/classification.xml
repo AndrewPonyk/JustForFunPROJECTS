@@ -147,8 +147,12 @@
     <category id="3_0" name="Windows" nofquestions="0" nofsubcategories="0" />
     <category id="3_1" name="Linux" nofquestions="0" nofsubcategories="0" />
   </class>
-  <class id="4" name="Languages" nofquestions="0" nofsubcategories="2">
+  <class id="4" name="Languages" nofquestions="8" nofsubcategories="4">
     <category id="4_0" name="English" nofquestions="0" nofsubcategories="0" />
     <category id="4_1" name="German" nofquestions="0" nofsubcategories="0" />
+    <category id="4_2" name="Russia" nofquestions="6" nofsubcategories="1" filename="russia4_2.xml">
+      <category id="4_2_0" name="Moscov" nofquestions="3" nofsubcategories="0" filename="moscov4_2_0.xml" />
+    </category>
+    <category id="4_3" name="img_in_ans" nofquestions="2" nofsubcategories="0" filename="img_in_ans4_3.xml" />
   </class>
 </classification>
