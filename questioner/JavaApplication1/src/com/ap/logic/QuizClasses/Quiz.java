@@ -117,7 +117,6 @@ public class Quiz {
                 }
             }
             
-            
                        // to display image we need to replace '&lt;img..' to '<img..'
             if(this.getQuestions().get(item).getQuestionAnswer().contains("alt='image'")){
                 
@@ -134,9 +133,6 @@ public class Quiz {
                     );
                 }
             }
-            
-            
-            
         }
     }
 
@@ -151,11 +147,17 @@ public class Quiz {
             Set<Integer>  randoms=new LinkedHashSet<Integer>();
             Integer requiredCountQuestions=questionsCountByCategory.get(item);
 
+            int maximumAttemps=0;
             while( randoms.size()!=requiredCountQuestions ){
                 Integer randomInt=random.nextInt(category.getnOfQuestions()); //
                 
                 if(!randoms.contains(randomInt))
                 randoms.add(randomInt);
+                System.err.println("cycling..");
+                maximumAttemps++;
+                if(maximumAttemps==101) {
+                    break;
+                }
             }
             
              System.out.println("getting  "+questionsCountByCategory.get(item) +" from "+categories.get(item).getFileName());
@@ -174,12 +176,18 @@ public class Quiz {
                 randoms=new LinkedHashSet<Integer>();
                 requiredCountQuestions=questionsCountByCategory.get(item);
 
+                maximumAttemps=0;
                 while( randoms.size()!=requiredCountQuestions ){
                 Integer randomInt=random.nextInt(category.getnOfQuestions()); //
                 
                 if(!randoms.contains(randomInt))
                 randoms.add(randomInt);
+                
+                maximumAttemps++;
+                if(maximumAttemps==101){
+                    break;
                 }
+            }
             
                  System.out.println("getting  "+questionsCountByCategory.get(item) +" from "+categories.get(item).getFileName());
                 for(Integer i:randoms){

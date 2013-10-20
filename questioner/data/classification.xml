@@ -67,7 +67,16 @@
           <category id="1_0_1_3_2" name="JSP" nofquestions="0" nofsubcategories="0" filename="jsp.xml" />
           <category id="1_0_1_3_3" name="JSTL" nofquestions="0" nofsubcategories="0" filename="jstl.xml" />
         </category>
-        <category id="1_0_1_4" name="Web FRAMEWORKS" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_1_4" name="Web FRAMEWORKS" nofquestions="0" nofsubcategories="3">
+          <category id="1_0_1_4_0" name="JSF" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_1_4_1" name="Play_Framework" nofquestions="0" nofsubcategories="2">
+            <category id="1_0_1_4_1_0" name="Play1" nofquestions="0" nofsubcategories="0" />
+            <category id="1_0_1_4_1_1" name="Play2" nofquestions="0" nofsubcategories="0" />
+          </category>
+          <category id="1_0_1_4_2" name="Struts" nofquestions="0" nofsubcategories="1">
+            <category id="1_0_1_4_2_0" name="Struts2" nofquestions="0" nofsubcategories="0" />
+          </category>
+        </category>
         <category id="1_0_1_5" name="Application Servers" nofquestions="0" nofsubcategories="2">
           <category id="1_0_1_5_0" name="JBoss" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_1_5_1" name="WebLogic" nofquestions="0" nofsubcategories="0" filename="weblogic.xml" />
@@ -76,7 +85,9 @@
         <category id="1_0_1_7" name="SPRING" nofquestions="0" nofsubcategories="0" />
         <category id="1_0_1_8" name="Testing" nofquestions="0" nofsubcategories="0" />
         <category id="1_0_1_9" name="Eclipse" nofquestions="0" nofsubcategories="0" />
-        <category id="1_0_1_10" name="CI_jenkins_and_hudson___" nofquestions="0" nofsubcategories="0" filename="ci_jenkins_and_hudson___1_0_1_10.xml" />
+        <category id="1_0_1_10" name="CI_jenkins_and_hudson___" nofquestions="0" nofsubcategories="1" filename="ci_jenkins_and_hudson___1_0_1_10.xml">
+          <category id="1_0_1_10_0" name="Jenkins" nofquestions="0" nofsubcategories="0" />
+        </category>
         <category id="1_0_1_11" name="Groovy" nofquestions="0" nofsubcategories="2">
           <category id="1_0_1_11_0" name="Groovy_core" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_1_11_1" name="Grails_framework" nofquestions="0" nofsubcategories="0" filename="grails_framework1_0_1_11_1.xml" />
@@ -147,12 +158,11 @@
     <category id="3_0" name="Windows" nofquestions="0" nofsubcategories="0" />
     <category id="3_1" name="Linux" nofquestions="0" nofsubcategories="0" />
   </class>
-  <class id="4" name="Languages" nofquestions="8" nofsubcategories="4">
+  <class id="4" name="Languages" nofquestions="6" nofsubcategories="3">
     <category id="4_0" name="English" nofquestions="0" nofsubcategories="0" />
     <category id="4_1" name="German" nofquestions="0" nofsubcategories="0" />
     <category id="4_2" name="Russia" nofquestions="6" nofsubcategories="1" filename="russia4_2.xml">
       <category id="4_2_0" name="Moscov" nofquestions="3" nofsubcategories="0" filename="moscov4_2_0.xml" />
     </category>
-    <category id="4_3" name="img_in_ans" nofquestions="2" nofsubcategories="0" filename="img_in_ans4_3.xml" />
   </class>
 </classification>

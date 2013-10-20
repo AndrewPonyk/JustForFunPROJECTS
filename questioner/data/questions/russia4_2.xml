@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="4_2" name="Russia" nofquestions="3" nofsubcategories="0" filename="russia4_2.xml">
+  <question id="4_2:0" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Russia&amp;nbsp;1)&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;text&amp;nbsp;of&amp;nbsp;variant...&amp;nbsp;$v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="4_2:1" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Russia&amp;nbsp;2&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;text&amp;nbsp;of&amp;nbsp;variant...&amp;nbsp;$v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="4_2:2" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Russia&amp;nbsp;3&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;text&amp;nbsp;of&amp;nbsp;variant...&amp;nbsp;$v0end$&lt;br&gt;
+$v1$$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+</questions>

@@ -15,6 +15,7 @@ import com.ap.configuration.Config;
 import com.ap.logic.Classification.Category;
 import com.ap.logic.QuizClasses.Question;
 import com.ap.logic.xml.ReadWriteClassificationXML;
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -74,6 +75,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         addImageButton = new javax.swing.JButton();
         addSourceButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        checkTheUniquenessButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("New Question");
@@ -165,6 +167,13 @@ public class NewQuestionDialog extends javax.swing.JDialog {
             }
         });
 
+        checkTheUniquenessButton.setText("Check the uniqueness");
+        checkTheUniquenessButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkTheUniquenessButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,20 +195,22 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                     .addComponent(questionAnswerLabel)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(questionTypeLabel)
                                 .addGap(40, 40, 40)
-                                .addComponent(questionTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(questionTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(checkTheUniquenessButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(addImageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(addSourceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(questionTextLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1)))
-                        .addGap(69, 69, 69)
-                        .addComponent(addImageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addSourceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(216, Short.MAX_VALUE))
+                                .addComponent(jButton1)))))
+                .addGap(83, 83, 83))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +220,8 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                     .addComponent(questionTypeLabel)
                     .addComponent(questionTypeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addImageButton)
-                    .addComponent(addSourceButton))
+                    .addComponent(addSourceButton)
+                    .addComponent(checkTheUniquenessButton))
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(questionTextLabel)
@@ -510,6 +522,27 @@ public class NewQuestionDialog extends javax.swing.JDialog {
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void checkTheUniquenessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkTheUniquenessButtonActionPerformed
+        
+        // Desctop doesnt work on Linux ((
+        if(Desktop.isDesktopSupported()){
+            try {
+                Desktop.getDesktop().open(new File(Config.questionsPath+
+                            this.newQuestionCategory.getFileName()));
+            } catch (IOException ex) {
+                Logger.getLogger(NewQuestionDialog.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        // solution for linux(ubuntu)
+        try {   
+            Runtime.getRuntime().exec("google-chrome "+Config.questionsPath+
+                             this.newQuestionCategory.getFileName());
+        } catch (IOException ex) {
+            Logger.getLogger(NewQuestionDialog.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }//GEN-LAST:event_checkTheUniquenessButtonActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -531,6 +564,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     private javax.swing.JButton addImageButton;
     private javax.swing.JButton addSourceButton;
     private javax.swing.JButton cancelButton;
+    private javax.swing.JButton checkTheUniquenessButton;
     private javax.swing.JButton clearFormButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
@@ -546,7 +580,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     private javax.swing.JButton saveQuestionButton;
     // End of variables declaration//GEN-END:variables
 
-    private  Question  resultQuestion=new Question();
+    private  Question resultQuestion=new Question();
     private  Category newQuestionCategory=null;
 
 
