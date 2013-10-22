@@ -159,7 +159,9 @@
     <category id="3_1" name="Linux" nofquestions="0" nofsubcategories="0" />
   </class>
   <class id="4" name="Languages" nofquestions="6" nofsubcategories="3">
-    <category id="4_0" name="English" nofquestions="0" nofsubcategories="0" />
+    <category id="4_0" name="English" nofquestions="0" nofsubcategories="1">
+      <category id="4_0_0" name="How English Works BOOK" nofquestions="0" nofsubcategories="0" />
+    </category>
     <category id="4_1" name="German" nofquestions="0" nofsubcategories="0" />
     <category id="4_2" name="Russia" nofquestions="6" nofsubcategories="1" filename="russia4_2.xml">
       <category id="4_2_0" name="Moscov" nofquestions="3" nofsubcategories="0" filename="moscov4_2_0.xml" />

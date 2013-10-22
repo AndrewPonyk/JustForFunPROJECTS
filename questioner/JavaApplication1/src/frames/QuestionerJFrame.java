@@ -812,11 +812,24 @@ public class QuestionerJFrame extends JFrame {
     }//GEN-LAST:event_showInfoItemActionPerformed
 
     private void addQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addQuestionActionPerformed
-
-         Category categoryForNewQuestion=((Category)  ((DefaultMutableTreeNode)  classificationTree.
+        ClassificationItem classOrCategory=
+                (ClassificationItem)((DefaultMutableTreeNode)  classificationTree.
+                                                getSelectionPath().getLastPathComponent()).getUserObject();
+  
+        if( !(classOrCategory instanceof Category) ){
+            JOptionPane.showMessageDialog(this, "You can add Question only to Category");
+            return;
+        }
+        
+        Category categoryForNewQuestion=((Category)  ((DefaultMutableTreeNode)  classificationTree.
                                                 getSelectionPath().getLastPathComponent()).getUserObject());
 
-         DefaultMutableTreeNode  parentOfCategoryForNewQuestion=(DefaultMutableTreeNode)   ((DefaultMutableTreeNode)  classificationTree.
+        if(categoryForNewQuestion.getFileName()==null){
+            JOptionPane.showMessageDialog(this, "You can't add question to Category without file");
+            return;
+        } 
+         
+        DefaultMutableTreeNode  parentOfCategoryForNewQuestion=(DefaultMutableTreeNode)   ((DefaultMutableTreeNode)  classificationTree.
                                                 getSelectionPath().getLastPathComponent()).getParent();         
 
         NewQuestionDialog dialog=new NewQuestionDialog(this, true);
@@ -835,7 +848,6 @@ public class QuestionerJFrame extends JFrame {
             
                 parentOfCategoryForNewQuestion=(DefaultMutableTreeNode) parentOfCategoryForNewQuestion.getParent();
             }
-
         }
         
     }//GEN-LAST:event_addQuestionActionPerformed

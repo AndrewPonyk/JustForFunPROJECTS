@@ -45,9 +45,10 @@ public class NewQuestionDialog extends javax.swing.JDialog {
 
     /** Creates new form NewQuestionDialog */
     public NewQuestionDialog(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+       super(parent, modal);
        initComponents();
 
+       
     }
 
     /** This method is called from within the constructor to
