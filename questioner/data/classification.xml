@@ -152,7 +152,19 @@
     </category>
     <category id="1_2" name="PHP" nofquestions="0" nofsubcategories="2">
       <category id="1_2_0" name="PHP CORE" nofquestions="0" nofsubcategories="0" />
-      <category id="1_2_1" name="PHP EE" nofquestions="0" nofsubcategories="0" />
+      <category id="1_2_1" name="PHP EE" nofquestions="0" nofsubcategories="2">
+        <category id="1_2_1_0" name="CMS" nofquestions="0" nofsubcategories="3">
+          <category id="1_2_1_0_0" name="WordPress" nofquestions="0" nofsubcategories="0" />
+          <category id="1_2_1_0_1" name="Drupal" nofquestions="0" nofsubcategories="0" />
+          <category id="1_2_1_0_2" name="Joomla" nofquestions="0" nofsubcategories="0" />
+        </category>
+        <category id="1_2_1_1" name="Frameworks" nofquestions="0" nofsubcategories="4">
+          <category id="1_2_1_1_0" name="ZendFramework" nofquestions="0" nofsubcategories="0" />
+          <category id="1_2_1_1_1" name="Symphony" nofquestions="0" nofsubcategories="0" />
+          <category id="1_2_1_1_2" name="CodeIgniter" nofquestions="0" nofsubcategories="0" />
+          <category id="1_2_1_1_3" name="CakePHP" nofquestions="0" nofsubcategories="0" />
+        </category>
+      </category>
     </category>
     <category id="1_3" name="Python" nofquestions="0" nofsubcategories="2">
       <category id="1_3_0" name="Python Core" nofquestions="0" nofsubcategories="0" />
