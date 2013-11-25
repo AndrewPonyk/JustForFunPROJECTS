@@ -57,13 +57,12 @@ public class QuestionerJFrame extends JFrame {
     public QuestionerJFrame() {
         initComponents();
         this.setSize(1000, 600);
+        this.setTitle(this.getTitle()+"   "+new Date());
         
-
         // read configuration , and set static variables in Config class
         //Config.classificationXMLPath=...
         //Config.questionsPath=....
         readConfigFile();
-        
         
         //now create tree with all available categories
         createCategoriesTree();
@@ -890,6 +889,7 @@ public class QuestionerJFrame extends JFrame {
                 this.quiz.setNofquestions(  Integer.parseInt( this.quizQuestionsCountTextField.getText()) );
                 this.quiz.setIncludeDetailedAnswersQuestions(this.quizIncludeDetailedAnswersCheckBox.isSelected());
                 //this.quiz.setIncludeTips(this.quizIncludeTipsCheckBox.isSelected());
+                this.quiz.setAllQuestions(this.takeAllQuestionsCheckBox.isSelected());
                 this.quiz.generateQuestions();
                 
                 this.quiz.getAnswers().clear();

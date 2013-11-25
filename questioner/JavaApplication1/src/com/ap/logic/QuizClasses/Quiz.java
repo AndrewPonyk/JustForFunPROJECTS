@@ -39,6 +39,7 @@ public class Quiz {
     private int nofquestions=10;
     private int minutes=20;
     private Boolean includeDetailedAnswersQuestions =true;
+    private Boolean allQuestions=false;
    // private Boolean includeTips = false; // tip and detailed answer are almost the same
 
     // here will be categories with files , so if we add class we get all categories with file from class
@@ -61,13 +62,19 @@ public class Quiz {
         int  ostatok=this.nofquestions - (categories.size()*countByCategory);
 
         Set<String> categoriesKeys=categories.keySet();
+        
+        if(!this.allQuestions){
+            for(String item:categoriesKeys  ){
+                questionsCountByCategory.put(item,countByCategory);
 
-        for(String item:categoriesKeys  ){
-            questionsCountByCategory.put(item,countByCategory);
-
-            if(ostatok>0 && categories.get(item).getnOfQuestions()>countByCategory){
-                questionsCountByCategory.put(item,countByCategory+1);
-                ostatok--;
+                if(ostatok>0 && categories.get(item).getnOfQuestions()>countByCategory){
+                    questionsCountByCategory.put(item,countByCategory+1);
+                    ostatok--;
+                }
+            }
+        }else{
+            for(String item:categoriesKeys  ){
+                questionsCountByCategory.put(item,this.categories.get(item).getnOfQuestions());
             }
         }
 
@@ -488,6 +495,20 @@ public class Quiz {
                 counter++;
         }
         return null;
+    }
+
+    /**
+     * @return the allQuestions
+     */
+    public Boolean getAllQuestions() {
+        return allQuestions;
+    }
+
+    /**
+     * @param allQuestions the allQuestions to set
+     */
+    public void setAllQuestions(Boolean allQuestions) {
+        this.allQuestions = allQuestions;
     }
 
 
