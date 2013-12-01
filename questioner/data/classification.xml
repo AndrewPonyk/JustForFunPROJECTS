@@ -175,7 +175,7 @@
       <category id="1_4_1" name="Ruby EE" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="2" name="Programming Other" nofquestions="0" nofsubcategories="5">
+  <class id="2" name="Programming Other" nofquestions="0" nofsubcategories="6">
     <category id="2_0" name="Patterns" nofquestions="0" nofsubcategories="1">
       <category id="2_0_0" name="Patterns_JAVA_from_Wiki" nofquestions="0" nofsubcategories="0" filename="patterns_java_from_wiki2_0_0.xml" />
     </category>
@@ -189,15 +189,18 @@
         <category id="2_2_0_1" name="Development" nofquestions="0" nofsubcategories="0" filename="development2_2_0_1.xml" />
       </category>
     </category>
-    <category id="2_3" name="ThirdPartApi" nofquestions="0" nofsubcategories="4">
+    <category id="2_3" name="ThirdPartApi" nofquestions="0" nofsubcategories="3">
       <category id="2_3_0" name="Facebook" nofquestions="0" nofsubcategories="0" filename="facebook2_3_0.xml" />
       <category id="2_3_1" name="Salesforce" nofquestions="0" nofsubcategories="0" filename="salesforce2_3_1.xml" />
-      <category id="2_3_2" name="AWS" nofquestions="0" nofsubcategories="0" filename="aws2_3_2.xml" />
       <category id="2_3_3" name="GoogleMaps" nofquestions="0" nofsubcategories="0" filename="googlemaps2_3_3.xml" />
     </category>
     <category id="2_4" name="Apache Projects" nofquestions="0" nofsubcategories="2">
       <category id="2_4_0" name="Lucene" nofquestions="0" nofsubcategories="0" />
       <category id="2_4_1" name="Hadoop" nofquestions="0" nofsubcategories="0" />
+    </category>
+    <category id="2_5" name="Cloud_platforms" nofquestions="0" nofsubcategories="2">
+      <category id="2_5_0" name="AWS" nofquestions="0" nofsubcategories="0" />
+      <category id="2_5_1" name="Heroku" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
   <class id="3" name="Operating.Systems" nofquestions="0" nofsubcategories="2">
