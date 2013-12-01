@@ -147,26 +147,30 @@ public class Quiz {
         this.random=new Random();
         
         Set<String> categoriesKeys=this.categories.keySet();
-
+        
         for(String item:categoriesKeys){
-
+            int maximumAttemps=0;
             Category category=categories.get(item);
             Set<Integer>  randoms=new LinkedHashSet<Integer>();
             Integer requiredCountQuestions=questionsCountByCategory.get(item);
+            if(this.getAllQuestions()){
+               for(int i=0;i<requiredCountQuestions;i++){
+                   randoms.add(i);
+               }
+            }else{ 
+                while( randoms.size()!=requiredCountQuestions ){
+                    Integer randomInt=random.nextInt(category.getnOfQuestions()); //
 
-            int maximumAttemps=0;
-            while( randoms.size()!=requiredCountQuestions ){
-                Integer randomInt=random.nextInt(category.getnOfQuestions()); //
-                
-                if(!randoms.contains(randomInt))
-                randoms.add(randomInt);
-                System.err.println("cycling..");
-                maximumAttemps++;
-                if(maximumAttemps==101) {
-                    break;
+                    if(!randoms.contains(randomInt))
+                    randoms.add(randomInt);
+                    System.err.println("cycling..");
+                    maximumAttemps++;
+                    if(maximumAttemps==101) {
+                        break;
+                    }
                 }
             }
-            
+   
              System.out.println("getting  "+questionsCountByCategory.get(item) +" from "+categories.get(item).getFileName());
                 for(Integer i:randoms){
                     System.out.print(i+" ");
@@ -174,7 +178,6 @@ public class Quiz {
             System.out.println("<- randoms----------------------");
             
             LinkedHashMap<String,Question> generatedItems= this.getCategoryRandomizedQuestionsFromXML(categories.get(item), randoms);
-            //JOptionPane.showMessageDialog(null, generatedItems.size());
             
             //if not enouth , we will try to regenerate , is is stupid , but ...
             if(generatedItems.size()<questionsCountByCategory.get(item))
@@ -214,34 +217,32 @@ public class Quiz {
                 }
             }
             this.questions.putAll( generatedItems);
-
         }
         
-                    // make images path , if some questions has images
-            Set<String> questionsIds=this.questions.keySet();
-            for(String q :questionsIds){
-                    Question currQuestion=this.questions.get(q);
-                    if(currQuestion.getQuestionText().contains("src='") &&
-                       currQuestion.getQuestionText().contains("alt='image'") // because we will have manu questions with src , and only images have 'alt'     
-                            ){
-                            String  tempText=currQuestion.getQuestionText();
-                            tempText=tempText.replace("src='", 
-                                    "src='file://localhost/"+Config.getQuestionerPath());
+        // make images path , if some questions has images
+        Set<String> questionsIds=this.questions.keySet();
+        for(String q :questionsIds){
+            Question currQuestion=this.questions.get(q);
+            if(currQuestion.getQuestionText().contains("src='") &&
+               currQuestion.getQuestionText().contains("alt='image'") // because we will have manu questions with src , and only images have 'alt'     
+                    ){
+                    String  tempText=currQuestion.getQuestionText();
+                    tempText=tempText.replace("src='", 
+                            "src='file://localhost/"+Config.getQuestionerPath());
 
-                            currQuestion.setQuestionText(tempText);
-                    }
-                    
-                    if(currQuestion.getQuestionAnswer().contains("src='") &&
-                       currQuestion.getQuestionAnswer().contains("alt='image'") // because we will have manu questions with src , and only images have 'alt'     
-                            ){
-                            String  tempAnswer=currQuestion.getQuestionAnswer();
-                            tempAnswer=tempAnswer.replace("src='", 
-                                    "src='file://localhost/"+Config.getQuestionerPath());
-
-                            currQuestion.setQuestionAnswer(tempAnswer);
-                    }
-                    
+                    currQuestion.setQuestionText(tempText);
             }
+                    
+            if(currQuestion.getQuestionAnswer().contains("src='") &&
+               currQuestion.getQuestionAnswer().contains("alt='image'") // because we will have manu questions with src , and only images have 'alt'     
+                    ){
+                    String  tempAnswer=currQuestion.getQuestionAnswer();
+                    tempAnswer=tempAnswer.replace("src='", 
+                            "src='file://localhost/"+Config.getQuestionerPath());
+
+                    currQuestion.setQuestionAnswer(tempAnswer);
+            }  
+        }
 
         // shuffle questions
         final List<Question> vs = new ArrayList<Question>(this.questions.values());        
