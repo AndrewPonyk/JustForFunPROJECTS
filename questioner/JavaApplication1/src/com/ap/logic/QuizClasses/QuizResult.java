@@ -21,49 +21,49 @@ public class QuizResult {
 
     ///log
     public void checkQuiz(){
-            LinkedHashMap<String,Question> questions=quiz.getQuestions();
-            LinkedHashMap<String,String> answers = quiz.getAnswers();        // user answers
+        LinkedHashMap<String,Question> questions=quiz.getQuestions();
+        LinkedHashMap<String,String> answers = quiz.getAnswers();        // user answers
 
-            Set<String> questionsIds=questions.keySet();
+        Set<String> questionsIds=questions.keySet();
 
-            for(String item : questionsIds){
-                String answer=questions.get(item).getQuestionAnswer();
-                answer=answer.replaceAll("&lt;","").
-                        replaceAll("\n", "").
-                        replaceAll("&nbsp;", "").
-                        replaceAll("<br>", "");
-           
-                System.err.println(questions.get(item).getType());
-                System.err.println("************************");
-                    if(questions.get(item).getType().equals("0") && answers.containsKey(item)  ){
-                            if(answer.startsWith(answers.get(item)) ){
-                                this.correctAnswers++;
-                                this.correctQuestions.put(questions.get(item).getId(), questions.get(item));
-                            }else{
-                                this.wrongQuestions.put(questions.get(item).getId(), questions.get(item));
-                            }
-                    }
+        for(String item : questionsIds){
+            String answer=questions.get(item).getQuestionAnswer();
+            answer=answer.replaceAll("&lt;","").
+                replaceAll("\n", "").
+                replaceAll("&nbsp;", "").
+                replaceAll("<br>", "");
 
-                    if(questions.get(item).getType().equals("1") && answers.containsKey(item)  ){
-                            if(answer.startsWith(answers.get(item)) ){
-                                 this.correctAnswers++;
-                                this.correctQuestions.put(questions.get(item).getId(), questions.get(item));
-                            }else{
-                                this.wrongQuestions.put(questions.get(item).getId(), questions.get(item));
-                            }
-                    }
-                    
-                    if( (questions.get(item).getType().equals("0") || questions.get(item).getType().equals("1") )
-                            && (!answers.containsKey(item) ) ){
-                        this.getUnasweredQuestions().put(questions.get(item).getId(), questions.get(item));
- 
-                    }
-                    
-                    if(questions.get(item).getType().equals("2")   ){
-                            this.detailedAnswerQuestions++;
-                            this.detailedAnserQuestions.put(questions.get(item).getId(),questions.get(item));
+            System.err.println(questions.get(item).getType());
+            System.err.println("************************");
+            if(questions.get(item).getType().equals("0") && answers.containsKey(item)  ){
+                    if(answer.startsWith(answers.get(item)) ){
+                        this.correctAnswers++;
+                        this.correctQuestions.put(questions.get(item).getId(), questions.get(item));
+                    }else{
+                        this.wrongQuestions.put(questions.get(item).getId(), questions.get(item));
                     }
             }
+
+            if(questions.get(item).getType().equals("1") && answers.containsKey(item)  ){
+                    if(answer.startsWith(answers.get(item)) ){
+                         this.correctAnswers++;
+                        this.correctQuestions.put(questions.get(item).getId(), questions.get(item));
+                    }else{
+                        this.wrongQuestions.put(questions.get(item).getId(), questions.get(item));
+                    }
+            }
+
+            if( (questions.get(item).getType().equals("0") || questions.get(item).getType().equals("1") )
+                    && (!answers.containsKey(item) ) ){
+                this.getUnasweredQuestions().put(questions.get(item).getId(), questions.get(item));
+
+            }
+
+            if(questions.get(item).getType().equals("2")   ){
+                    this.detailedAnswerQuestions++;
+                    this.detailedAnserQuestions.put(questions.get(item).getId(),questions.get(item));
+            }
+        }
     }
 
     /**

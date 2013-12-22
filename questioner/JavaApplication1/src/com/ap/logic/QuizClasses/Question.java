@@ -116,5 +116,4 @@ public class Question {
     public void setTags(TreeSet<String> tags) {
         this.tags = tags;
     }
-    
 }

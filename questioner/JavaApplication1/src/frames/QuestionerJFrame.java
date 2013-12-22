@@ -62,26 +62,24 @@ public class QuestionerJFrame extends JFrame {
 
         final JLabel infoLabel=this.ClassificationItemInfoLabel;
         final JTextArea infoArea=this.classificationItemInfoTextArea;
-                    // add listener , to show info about selected category
-                    classificationTree.addTreeSelectionListener(new TreeSelectionListener() {
-                        public void valueChanged(TreeSelectionEvent e) {
-                            DefaultMutableTreeNode node = (DefaultMutableTreeNode)
-                                       classificationTree.getLastSelectedPathComponent();
+        // add listener , to show info about selected category
+        classificationTree.addTreeSelectionListener(new TreeSelectionListener() {
+            public void valueChanged(TreeSelectionEvent e) {
+                DefaultMutableTreeNode node = (DefaultMutableTreeNode)
+                           classificationTree.getLastSelectedPathComponent();
 
-                                /* if nothing is selected */
-                                if (node == null ) return;
-                                if(!( node.getUserObject() instanceof ClassificationItem)  ) return ;
-                                ClassificationItem  nodeObject =(ClassificationItem) node.getUserObject();
-                                    infoLabel.setText("");
-                                    infoArea.setText("");
+                /* if nothing is selected */
+                if (node == null ) return;
+                if(!( node.getUserObject() instanceof ClassificationItem)  ) return ;
+                ClassificationItem  nodeObject =(ClassificationItem) node.getUserObject();
 
-                                    infoLabel.setText(nodeObject.getName());
-                                    infoArea.setText(infoArea.getText()+"ID : " +nodeObject.getId()+"\n");
-                                    infoArea.setText(infoArea.getText()+"Number Of Questions  : " +nodeObject.getnOfQuestions()+"\n");
-                                    infoArea.setText(infoArea.getText()+"Number Of Subcategories : " +nodeObject.getnOfSubcategories()+"\n");
-                            }
-                        }
-                    );
+                infoLabel.setText(nodeObject.getName());
+                infoArea.setText("ID : " +nodeObject.getId()+"\n");
+                infoArea.setText(infoArea.getText()+"Number Of Questions  : " +nodeObject.getnOfQuestions()+"\n");
+                infoArea.setText(infoArea.getText()+"Number Of Subcategories : " +nodeObject.getnOfSubcategories()+"\n");
+            }
+         }
+       );
 
     }
 
@@ -101,6 +99,7 @@ public class QuestionerJFrame extends JFrame {
         showInfoItem = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         addQuestion = new javax.swing.JMenuItem();
+        showQuestionsList = new javax.swing.JMenuItem();
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         quizPanel = new javax.swing.JPanel();
@@ -197,6 +196,14 @@ public class QuestionerJFrame extends JFrame {
         });
         categoryTreePopupMenu.add(addQuestion);
 
+        showQuestionsList.setText("Show Questions");
+        showQuestionsList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showQuestionsListActionPerformed(evt);
+            }
+        });
+        categoryTreePopupMenu.add(showQuestionsList);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Questioner 0.1"); // NOI18N
         setBackground(new java.awt.Color(204, 0, 0));
@@ -249,7 +256,7 @@ public class QuestionerJFrame extends JFrame {
                         .addComponent(quizYesRadioButton)
                         .addGap(18, 18, 18)
                         .addComponent(quizNoRadioButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
         quizVariantsPanelLayout.setVerticalGroup(
             quizVariantsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,8 +336,8 @@ public class QuestionerJFrame extends JFrame {
         quizPanelLayout.setVerticalGroup(
             quizPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quizPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-                .addGap(78, 78, 78)
+                .addComponent(jScrollPane2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(quizVariantsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addGroup(quizPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -397,110 +404,100 @@ public class QuestionerJFrame extends JFrame {
         jLabel1.setText("N of copies");
 
         takeAllQuestionsCheckBox.setText("Take All Questions");
+        takeAllQuestionsCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                takeAllQuestionsCheckBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout quizSetupPanelLayout = new javax.swing.GroupLayout(quizSetupPanel);
         quizSetupPanel.setLayout(quizSetupPanelLayout);
         quizSetupPanelLayout.setHorizontalGroup(
             quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(21, 21, 21)
+                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(questionsCountLabel)
+                    .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(quizNameLabel)
+                        .addComponent(timeLabel))
                     .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(quizTopicsLabel)
-                            .addComponent(questionsCountLabel)
-                            .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(quizNameLabel)
-                                .addComponent(timeLabel))))
-                    .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(printQuizCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(showQuizBeforePrintButton))
-                    .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(printQuizCheckbox))
-                    .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)))
+                        .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(printQuizCheckbox)
+                            .addComponent(jLabel1)
+                            .addComponent(printQuizCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(showQuizBeforePrintButton)
+                            .addComponent(printQuizButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(quizTopicsLabel)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                        .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, quizSetupPanelLayout.createSequentialGroup()
-                                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(quizQuestionsCountTextField)
-                                    .addComponent(quizMinutesTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(takeAllQuestionsCheckBox)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
+                        .addComponent(startQuizButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(quizSetupPanelLayout.createSequentialGroup()
                         .addComponent(quizIncludeDetailedAnswersCheckBox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                         .addComponent(includeTipsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)
                         .addComponent(quizIncludeTipsCheckBox)
-                        .addGap(23, 23, 23))
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quizSetupPanelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
                     .addGroup(quizSetupPanelLayout.createSequentialGroup()
                         .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(quizNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(startQuizButton))
+                            .addGroup(quizSetupPanelLayout.createSequentialGroup()
+                                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(quizQuestionsCountTextField)
+                                    .addComponent(quizMinutesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(takeAllQuestionsCheckBox))
+                            .addComponent(quizNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(printQuizButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         quizSetupPanelLayout.setVerticalGroup(
             quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(quizNameLabel)
-                    .addComponent(quizNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(timeLabel)
-                    .addComponent(quizMinutesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(takeAllQuestionsCheckBox, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(questionsCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(quizQuestionsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                        .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(quizTopicsLabel)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                                .addGap(0, 8, Short.MAX_VALUE)
-                                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(includeTipsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(quizIncludeTipsCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)))
-                            .addComponent(quizIncludeDetailedAnswersCheckBox)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, quizSetupPanelLayout.createSequentialGroup()
                         .addComponent(printQuizCheckbox)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1)
                         .addGap(4, 4, 4)
-                        .addComponent(printQuizCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(quizSetupPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(startQuizButton))
-                    .addGroup(quizSetupPanelLayout.createSequentialGroup()
+                        .addComponent(printQuizCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(showQuizBeforePrintButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(printQuizButton)))
-                .addContainerGap())
+                        .addComponent(printQuizButton))
+                    .addGroup(quizSetupPanelLayout.createSequentialGroup()
+                        .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(quizNameLabel)
+                            .addComponent(quizNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(timeLabel)
+                            .addComponent(quizMinutesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(takeAllQuestionsCheckBox, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(questionsCountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(quizQuestionsCountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(quizTopicsLabel)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(quizSetupPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(quizSetupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(includeTipsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(quizIncludeTipsCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(quizIncludeDetailedAnswersCheckBox))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(startQuizButton))
         );
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
@@ -517,9 +514,9 @@ public class QuestionerJFrame extends JFrame {
 
         ClassificationItemInfoLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
+        classificationItemInfoTextArea.setEditable(false);
         classificationItemInfoTextArea.setBackground(new java.awt.Color(212, 208, 200));
         classificationItemInfoTextArea.setColumns(20);
-        classificationItemInfoTextArea.setEditable(false);
         classificationItemInfoTextArea.setRows(5);
         jScrollPane4.setViewportView(classificationItemInfoTextArea);
 
@@ -534,8 +531,8 @@ public class QuestionerJFrame extends JFrame {
                         .addComponent(ClassificationItemInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(statisticPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)))
+                .addGap(22, 22, 22))
         );
         statisticPanelLayout.setVerticalGroup(
             statisticPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -557,7 +554,7 @@ public class QuestionerJFrame extends JFrame {
                     .addGroup(leftPanelLayout.createSequentialGroup()
                         .addComponent(statisticPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addComponent(paneWithTree, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)))
+                    .addComponent(paneWithTree, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)))
         );
         leftPanelLayout.setVerticalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -583,7 +580,7 @@ public class QuestionerJFrame extends JFrame {
         );
         quizReviewPanelLayout.setVerticalGroup(
             quizReviewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
         );
 
         fileMenu.setText("File");
@@ -671,7 +668,7 @@ public class QuestionerJFrame extends JFrame {
                         .addComponent(quizPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(quizReviewPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(leftPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -685,45 +682,45 @@ public class QuestionerJFrame extends JFrame {
          TreePath tp = tree.getPathForLocation(evt.getX(), evt.getY()); // get path as [root, subnode ,subnode ..]
    
          if (tp != null){
-                    // if we click on some node
-                    System.out.println(tp.toString());
+            // if we click on some node
+            System.out.println(tp.toString());
          }
          if(tp==null) return ;
 
          DefaultMutableTreeNode node = (DefaultMutableTreeNode) tp.getLastPathComponent();
 
-         if(  evt.getClickCount()==2){
-                // dont add dublicates
-
-                if(this.quiz!=null){
-                    this.addCategoryOrClassToQuiz((ClassificationItem)node.getUserObject(), quiz);
-                    return ;
-                }
+         if(evt.getClickCount()==2){
+            // dont add dublicates
+            if(this.quiz!=null){
+                this.addCategoryOrClassToQuiz((ClassificationItem)node.getUserObject(), quiz);
+                return ;
+            }
          }
 
       if(SwingUtilities.isRightMouseButton(evt)){
-             if(tp.toString().equals("[root]")){
-                      categoryTreePopupMenu.removeAll();   
-                      categoryTreePopupMenu.add(this.addClassItem);
-                      categoryTreePopupMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+        if(tp.toString().equals("[root]")){
+            categoryTreePopupMenu.removeAll();   
+            categoryTreePopupMenu.add(this.addClassItem);
+            categoryTreePopupMenu.show(evt.getComponent(), evt.getX(), evt.getY());
 
-                                    classificationTree.setSelectionPath(tp);
-                                    classificationTree.scrollPathToVisible(tp);
-             }else {
-                                    categoryTreePopupMenu.removeAll();
-                                    categoryTreePopupMenu.add(this.addCategoryItem);
+            classificationTree.setSelectionPath(tp);
+            classificationTree.scrollPathToVisible(tp);
+         }else {
+            categoryTreePopupMenu.removeAll();
+            categoryTreePopupMenu.add(this.addCategoryItem);
                                     
-                                    if( ((DefaultMutableTreeNode)tp.getLastPathComponent()).getUserObject() instanceof Category){
-                                        categoryTreePopupMenu.add(this.removeCategoryItem);
-                                    }
+            if( ((DefaultMutableTreeNode)tp.getLastPathComponent()).getUserObject() instanceof Category){
+                categoryTreePopupMenu.add(this.removeCategoryItem);
+            }
                                     
-                                    categoryTreePopupMenu.add(this.jSeparator1);
-                                    categoryTreePopupMenu.add(this.addQuestion);
-                                    categoryTreePopupMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+            categoryTreePopupMenu.add(this.jSeparator1);
+            categoryTreePopupMenu.add(this.addQuestion);
+            categoryTreePopupMenu.add(this.showQuestionsList);
+            categoryTreePopupMenu.show(evt.getComponent(), evt.getX(), evt.getY());
 
-                                    classificationTree.setSelectionPath(tp);
-                                    classificationTree.scrollPathToVisible(tp);
-                    }
+            classificationTree.setSelectionPath(tp);
+            classificationTree.scrollPathToVisible(tp);
+         }
       }
     }//GEN-LAST:event_classificationTreeMouseClicked
 
@@ -737,7 +734,6 @@ public class QuestionerJFrame extends JFrame {
     }//GEN-LAST:event_exitMouseEntered
 
     private void exitMenuKeyPressed(javax.swing.event.MenuKeyEvent evt) {//GEN-FIRST:event_exitMenuKeyPressed
-
     }//GEN-LAST:event_exitMenuKeyPressed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
@@ -777,7 +773,7 @@ public class QuestionerJFrame extends JFrame {
         newCategory.setId(nextId);
         
         //old version of generation id
-         // newCategory.setId(((ClassificationItem)currCategoryNode.getUserObject()).getId()+"_"+currCategoryNode.getChildCount() );    
+        // newCategory.setId(((ClassificationItem)currCategoryNode.getUserObject()).getId()+"_"+currCategoryNode.getChildCount() );    
         
         newCategory.setName(newCategoryName);
         newCategory.setnOfQuestions(0);
@@ -872,31 +868,29 @@ public class QuestionerJFrame extends JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void startQuizButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startQuizButtonActionPerformed
-
         if(this.quiz.getCategories().size()>0){
-                //check maybe we remove some category from textpane
-                this.checkQueizCategories();
+            //check maybe we remove some category from textpane
+            this.checkQueizCategories();
                 
-                // configure quiz , set time , number of questions , and generate questions
-                this.quiz.setMinutes(  Integer.parseInt(this.quizMinutesTextField.getText())  );
-                this.quiz.setNofquestions(  Integer.parseInt( this.quizQuestionsCountTextField.getText()) );
-                this.quiz.setIncludeDetailedAnswersQuestions(this.quizIncludeDetailedAnswersCheckBox.isSelected());
-                //this.quiz.setIncludeTips(this.quizIncludeTipsCheckBox.isSelected());
-                this.quiz.setAllQuestions(this.takeAllQuestionsCheckBox.isSelected());
-                this.quiz.generateQuestions();
+            // configure quiz , set time , number of questions , and generate questions
+            this.quiz.setMinutes(Integer.parseInt(this.quizMinutesTextField.getText())  );
+            this.quiz.setNofquestions(Integer.parseInt(this.quizQuestionsCountTextField.getText()) );
+            this.quiz.setIncludeDetailedAnswersQuestions(this.quizIncludeDetailedAnswersCheckBox.isSelected());
+            //this.quiz.setIncludeTips(this.quizIncludeTipsCheckBox.isSelected());
+            this.quiz.setAllQuestions(this.takeAllQuestionsCheckBox.isSelected());
+            this.quiz.generateQuestions(true);
                 
-                this.quiz.getAnswers().clear();
+            this.quiz.getAnswers().clear();
 
-
-                // hide quiz configuration , and display quiz panel
-                this.leftPanel.setVisible(false);
-                this.quizSetupPanel.setVisible(false);
-                this.quizPanel.setVisible(true);
+            // hide quiz configuration , and display quiz panel
+            this.leftPanel.setVisible(false);
+            this.quizSetupPanel.setVisible(false);
+            this.quizPanel.setVisible(true);
 
                 
-                this.runQuiz();
+            this.runQuiz();
         }else{
-                JOptionPane.showMessageDialog(this, "Add some categories to quiz , by double clicking on category in the tree");
+            JOptionPane.showMessageDialog(this, "Add some categories to quiz , by double clicking on category in the tree");
         }
     }//GEN-LAST:event_startQuizButtonActionPerformed
 
@@ -906,7 +900,6 @@ public class QuestionerJFrame extends JFrame {
         TreePath tp = classificationTree.getSelectionPath(); // get path as [root, subnode ,subnode ..]
         DefaultMutableTreeNode  currCategoryNode = (DefaultMutableTreeNode) tp.getLastPathComponent();
         Category categoryToRemove =(Category) currCategoryNode.getUserObject();
-
         
         // we need to remove category from file and remove all files from this category 
         // and subcategories
@@ -939,7 +932,7 @@ public class QuestionerJFrame extends JFrame {
 
     private void prevQuestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prevQuestionButtonActionPerformed
          saveAnswer();
-
+         
          this.quiz.getPreviousQuestion();
                activateDeactivateNextPrevBrowseButtons();
                ShowQuestionAndshowVariants(null);
@@ -956,24 +949,20 @@ public class QuestionerJFrame extends JFrame {
     }//GEN-LAST:event_quizFinishButtonActionPerformed
 
     private void printQuizCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printQuizCheckboxActionPerformed
-        // TODO add your handling code here:
-        if(printQuizCheckbox.isSelected()){
-            printQuizCountTextField.setEnabled(true);
-            printQuizButton.setEnabled(true);
-        }else{
-            printQuizCountTextField.setEnabled(false);
-            printQuizButton.setEnabled(false);
-        }
+
+        Boolean printQuiz = printQuizCheckbox.isSelected();
+
+        printQuizCountTextField.setEnabled(printQuiz);
+        printQuizButton.setEnabled(printQuiz);
+        showQuizBeforePrintButton.setEnabled(printQuiz);
     }//GEN-LAST:event_printQuizCheckboxActionPerformed
 
     private void printQuizButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printQuizButtonActionPerformed
 
-        JOptionPane.showMessageDialog(this, "printing");
         JTextPane printQuizPane=new JTextPane();
         printQuizPane.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         printQuizPane.getAccessibleContext().setAccessibleDescription("text/html");
         printQuizPane.setContentType("text/html");
-
         
         String quizString="<b>Quiz : </b>"+this.quizNameText.getText()+"<br><br>";
         
@@ -985,15 +974,16 @@ public class QuestionerJFrame extends JFrame {
             String currentQuestionText=currentQuestion.getQuestionText();
             currentQuestionText=currentQuestionText.replace("$v$", "").replace("$vend$", "");
             for(int i=0;i<5;i++){
-                currentQuestionText=currentQuestionText.replace("$v"+i+"$", "\t"+i+"]");
-                currentQuestionText=currentQuestionText.replace("$v"+i+"end$", "");
+                currentQuestionText=currentQuestionText.replace("$v"+i+"$", "<span style='background-color:computed'>" + "\t"+(i+1)+"]");
+                currentQuestionText=currentQuestionText.replace("$v"+i+"end$", "</span>");
+                currentQuestionText=currentQuestionText.replace("computed", (i%2==0?"#AFDFDF":"#F3F3F3") );
             }
             
             quizString+="<b>"+counter+ " )</b>"+currentQuestionText;
             if(currentQuestion.getType().equals("2")){
                 quizString+="<br><br><br>";
             }
-            quizString+="<hr style='margin:2px 0'>";
+            quizString+="<hr style='margin:0'>";
             counter++;
         }
         
@@ -1011,25 +1001,45 @@ public class QuestionerJFrame extends JFrame {
     }//GEN-LAST:event_helpMenuItemActionPerformed
 
     private void showQuizBeforePrintButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showQuizBeforePrintButtonActionPerformed
-            //create quiz
-            if(this.quiz.getCategories().size()>0){
-                  //check maybe we remove some category from textpane
-                  this.checkQueizCategories();
-                
-                    // configure quiz , set time , number of questions , and generate questions
-                    this.quiz.setMinutes(  Integer.parseInt(this.quizMinutesTextField.getText())  );
-                    this.quiz.setNofquestions(  Integer.parseInt( this.quizQuestionsCountTextField.getText()) );
-                    this.quiz.setIncludeDetailedAnswersQuestions(this.quizIncludeDetailedAnswersCheckBox.isSelected());
-                    this.quiz.generateQuestions();
-                }
-                // 'check' this quiz
-                this.quizResult=new QuizResult();
-                this.quizResult.setQuiz(this.quiz);
-                this.quizResult.checkQuiz();
+        //create quiz
+        if(this.quiz.getCategories().size()>0){
+                //check maybe we remove some category from textpane
+                this.checkQueizCategories();
+
+                // configure quiz , set time , number of questions , and generate questions
+                this.quiz.setMinutes(  Integer.parseInt(this.quizMinutesTextField.getText())  );
+                this.quiz.setNofquestions(  Integer.parseInt( this.quizQuestionsCountTextField.getText()) );
+                this.quiz.setAllQuestions(this.takeAllQuestionsCheckBox.isSelected());
+                this.quiz.setIncludeDetailedAnswersQuestions(this.quizIncludeDetailedAnswersCheckBox.isSelected());
+                this.quiz.generateQuestions(true);
+        }
+        // 'check' this quiz
+        this.quizResult=new QuizResult();
+        this.quizResult.setQuiz(this.quiz);
+        this.quizResult.checkQuiz();
 
         //display quiz for printing
         showCorrectAndWrongAnswers(this.quizResult);
     }//GEN-LAST:event_showQuizBeforePrintButtonActionPerformed
+
+    private void takeAllQuestionsCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takeAllQuestionsCheckBoxActionPerformed
+        this.quizQuestionsCountTextField.setVisible(!this.takeAllQuestionsCheckBox.isSelected());
+    }//GEN-LAST:event_takeAllQuestionsCheckBoxActionPerformed
+
+    private void showQuestionsListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showQuestionsListActionPerformed
+
+        ClassificationItem classOrCategory=
+            (ClassificationItem)((DefaultMutableTreeNode)  classificationTree.
+                                                getSelectionPath().getLastPathComponent()).getUserObject();
+
+        
+        
+        QuestionsListJFrame questionsFrame = new QuestionsListJFrame();
+        questionsFrame.setCategoryOrClass(classOrCategory);
+        questionsFrame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        questionsFrame.setExtendedState(MAXIMIZED_BOTH);
+        questionsFrame.setVisible(true);
+    }//GEN-LAST:event_showQuestionsListActionPerformed
 
 
     public static void main(String args[]) {
@@ -1067,33 +1077,28 @@ public class QuestionerJFrame extends JFrame {
     }
 
     private void readConfigFile(){            
-            System.err.println(new  File(QuestionerJFrame.class.getProtectionDomain().getCodeSource().getLocation().getPath())); 
+        // get location of questioner app , it can be jar - when i will build it
+        //it cat be .class - when i develop it
+        // change it before first release =) 
+        String jarLocation=(new  File(QuestionerJFrame.class.getProtectionDomain().getCodeSource().getLocation().getPath())).toString();
+        //linux
+        jarLocation=  jarLocation.replace(
+                "/JavaApplication1/build/classes", "");
+        jarLocation=  jarLocation.replace(
+                "/JavaApplication1/dist/JavaApplication1.jar", "");
 
-            // get location of questioner app , it can be jar - when i will build it
-            //it cat be .class - when i develop it
-            // change it before first release =) 
-            String jarLocation=(new  File(QuestionerJFrame.class.getProtectionDomain().getCodeSource().getLocation().getPath())).toString();
+        //windows 
+        jarLocation=  jarLocation.replace(
+                "\\JavaApplication1\\build\\classes", "");
+        jarLocation=  jarLocation.replace(
+                "\\JavaApplication1\\dist\\JavaApplication1.jar", "");
 
-            //linux
-            jarLocation=  jarLocation.replace(
-                    "/JavaApplication1/build/classes", "");
-            jarLocation=  jarLocation.replace(
-                    "/JavaApplication1/dist/JavaApplication1.jar", "");
+        // Production =)
+        jarLocation=  jarLocation.replace(
+                "JavaApplication1.jar", "");
 
-            //windows 
-            jarLocation=  jarLocation.replace(
-                    "\\JavaApplication1\\build\\classes", "");
-            jarLocation=  jarLocation.replace(
-                    "\\JavaApplication1\\dist\\JavaApplication1.jar", "");
-
-            // Production =)
-            jarLocation=  jarLocation.replace(
-                    "JavaApplication1.jar", "");
-
-            System.out.println(jarLocation);
-            Config.setQuestionerPath(jarLocation);
-           // JOptionPane.showMessageDialog(this, Config.getQuestionerPath());
-            //JOptionPane.showMessageDialog(this, Config.classificationXMLPath);
+        System.out.println(jarLocation);
+        Config.setQuestionerPath(jarLocation);
 
         return;
     }
@@ -1202,6 +1207,7 @@ public class QuestionerJFrame extends JFrame {
     private javax.swing.JRadioButton quizYesRadioButton;
     private javax.swing.JMenuItem removeCategoryItem;
     private javax.swing.JMenuItem showInfoItem;
+    private javax.swing.JMenuItem showQuestionsList;
     private javax.swing.JButton showQuizBeforePrintButton;
     private javax.swing.JButton startQuizButton;
     private javax.swing.JPanel statisticPanel;
@@ -1248,24 +1254,24 @@ public class QuestionerJFrame extends JFrame {
     }
 
         public void runQuiz(){
-             this.quizQuestionsBrowserPanel.setLayout(new FlowLayout());
-             this.quizQuestionsBrowserPanel.removeAll();
-             int questionCount=this.quiz.getQuestions().size();
+            this.quizQuestionsBrowserPanel.setLayout(new FlowLayout());
+            this.quizQuestionsBrowserPanel.removeAll();
+            int questionCount=this.quiz.getQuestions().size();
 
-             this.browseButtons.clear();
+            this.browseButtons.clear();
               
-             for(int i=0;i<questionCount;i++){
-                    JButton button=new JButton( (i+1)+"" );
-                     this.browseButtons.add(button);
-                    final int currQuestionI=i;
-                           button.addActionListener(new java.awt.event.ActionListener() {
-                             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                 
-                                setCurrentQuestion(currQuestionI);
-                             }
-                         });
+            for(int i=0;i<questionCount;i++){
+                JButton button=new JButton( (i+1)+"" );
+                this.browseButtons.add(button);
+                final int currQuestionI=i;
+                button.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                
+                        setCurrentQuestion(currQuestionI);
+                    }
+                });
 
-                    this.quizQuestionsBrowserPanel.add(button);
+                this.quizQuestionsBrowserPanel.add(button);
              }
 
              this.quizScrollPane.setViewportView(this.quizQuestionsBrowserPanel);
@@ -1292,93 +1298,95 @@ public class QuestionerJFrame extends JFrame {
             String questionText="";
             String variants = "" ; //if question type == 0
             if(this.quiz.getCurrentQuestion().getType().equals("0")){
-                     questionText=this.quiz.getCurrentQuestion().getQuestionText();
-                     // variants with 'tags' like $v1$ and $v1end$
-                     String tempVarians=this.quiz.getCurrentQuestion().getQuestionText().substring(
-                                this.quiz.getCurrentQuestion().getQuestionText().indexOf("$v$"),
-                                this.quiz.getCurrentQuestion().getQuestionText().indexOf("$vend$")
-                             );
-                    questionText=questionText.substring(0,questionText.indexOf("$v"));
-                    for(int i=0;i<10;i++){
-                        if(tempVarians.contains("$v"+i+"$")){
-                            variants+="<br>\nVariant "+ (i+1) +" :"+tempVarians.substring(
+                questionText=this.quiz.getCurrentQuestion().getQuestionText();
+                // variants with 'tags' like $v1$ and $v1end$
+                String tempVarians=this.quiz.getCurrentQuestion().getQuestionText().substring(
+                           this.quiz.getCurrentQuestion().getQuestionText().indexOf("$v$"),
+                           this.quiz.getCurrentQuestion().getQuestionText().indexOf("$vend$")
+                        );
+               questionText=questionText.substring(0,questionText.indexOf("$v"));
+               for(int i=0;i<10;i++){
+                   if(tempVarians.contains("$v"+i+"$")){
+                       String currentVariant ="<span style='background-color:computed'>"+
+                               "<br>\nVariant "+ (i+1) +" :"+tempVarians.substring(
                                tempVarians.indexOf("$v"+i+"$")+4,
-                                tempVarians.indexOf("$v"+i+"end$")
-                             );
-                        }
-                    }
+                               tempVarians.indexOf("$v"+i+"end$") )+
+                               "</span>";
+                       currentVariant=currentVariant.replace("computed", (i%2==0?"#AFDFDF":"#F3F3F3") );
+                       variants+=currentVariant;
+                   }
+               }
             }
             else{
                  questionText=this.quiz.getCurrentQuestion().getQuestionText();
             }
-
-              this.quizQuestionTextTextPane.setText(questionText+"\n"+variants);
-
-              quizPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null,"Quiz :question #"+(quiz.getCurrentQuestionIndex()+1),
-                javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.black));
-
+              
+            this.quizQuestionTextTextPane.setText(questionText+"\n"+variants );
+              
+            quizPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null,"Quiz :question #"+(quiz.getCurrentQuestionIndex()+1),
+              javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.black));
 
             for(Component comp:this.quizVariantsPanel.getComponents()){
                 comp.setVisible(false);
             }
 
             if(this.quiz.getCurrentQuestion().getType().equals("0")){
-              this.quizVariant0RadioButton.setVisible(true);
-              this.quizVariant1RadioButton.setVisible(true);
-              this.quizVariant2RadioButton.setVisible(true);
-              this.quizVariant3RadioButton.setVisible(true);
+                this.quizVariant0RadioButton.setVisible(true);
+                this.quizVariant1RadioButton.setVisible(true);
+                this.quizVariant2RadioButton.setVisible(true);
+                this.quizVariant3RadioButton.setVisible(true);
 
-               this.buttonGroup1.clearSelection();
+                this.buttonGroup1.clearSelection();
 
-              if(this.quiz.getAnswers().containsKey(this.quiz.getCurrentQuestion().getId())){
+                if(this.quiz.getAnswers().containsKey(this.quiz.getCurrentQuestion().getId())){
 
-                          if(this.quiz.getAnswers().get(this.quiz.getCurrentQuestion().getId()).equals("0")  ){
-                                this.quizVariant0RadioButton.setSelected(true);
-                          }
+                    if(this.quiz.getAnswers().get(this.quiz.getCurrentQuestion().getId()).equals("0")  ){
+                        this.quizVariant0RadioButton.setSelected(true);
+                    }
 
-                            if(this.quiz.getAnswers().get(this.quiz.getCurrentQuestion().getId()).equals("1")  ){
-                                this.quizVariant1RadioButton.setSelected(true);
-                            }
-                            if(this.quiz.getAnswers().get(this.quiz.getCurrentQuestion().getId()).equals("2")  ){
-                                this.quizVariant2RadioButton.setSelected(true);
-                            }
-                            if(this.quiz.getAnswers().get(this.quiz.getCurrentQuestion().getId()).equals("3")  ){
-                                this.quizVariant3RadioButton.setSelected(true);
-                            }
+                    if(this.quiz.getAnswers().get(this.quiz.getCurrentQuestion().getId()).equals("1")  ){
+                        this.quizVariant1RadioButton.setSelected(true);
+                    }
+                    if(this.quiz.getAnswers().get(this.quiz.getCurrentQuestion().getId()).equals("2")  ){
+                        this.quizVariant2RadioButton.setSelected(true);
+                    }
+                    if(this.quiz.getAnswers().get(this.quiz.getCurrentQuestion().getId()).equals("3")  ){
+                        this.quizVariant3RadioButton.setSelected(true);
+                    }
                 }
               
             }
 
             if(this.quiz.getCurrentQuestion().getType().equals("1")){
-              this.quizYesRadioButton.setVisible(true);
-              this.quizNoRadioButton.setVisible(true);
+                this.quizYesRadioButton.setVisible(true);
+                this.quizNoRadioButton.setVisible(true);
 
-              this.buttonGroup2.clearSelection();
+                this.buttonGroup2.clearSelection();
 
-                            if(this.quiz.getAnswers().containsKey(this.quiz.getCurrentQuestion().getId())){
-                                   if(this.quiz.getAnswers().get(this.quiz.getCurrentQuestion().getId()).contains("yes")  ){
-                                        this.quizYesRadioButton.setSelected(true);
-                                   }
-                                   if(this.quiz.getAnswers().get(this.quiz.getCurrentQuestion().getId()).contains("no")  ){
-                                        this.quizNoRadioButton.setSelected(true);
-                                   }
-                            }
+                if(this.quiz.getAnswers().containsKey(this.quiz.getCurrentQuestion().getId())){
+                    if(this.quiz.getAnswers().get(this.quiz.getCurrentQuestion().getId()).contains("yes")  ){
+                         this.quizYesRadioButton.setSelected(true);
+                    }
+                    if(this.quiz.getAnswers().get(this.quiz.getCurrentQuestion().getId()).contains("no")  ){
+                         this.quizNoRadioButton.setSelected(true);
+                    }
+                }
             }
         }
 
         public void saveAnswer(){
             if(this.quiz.getCurrentQuestion().getType().equals("0")){
-                    if(this.quizVariant0RadioButton.isSelected())
-                        this.quiz.getAnswers().put(this.quiz.getCurrentQuestion().getId(), "0");
+                if(this.quizVariant0RadioButton.isSelected())
+                    this.quiz.getAnswers().put(this.quiz.getCurrentQuestion().getId(), "0");
 
-                     if(this.quizVariant1RadioButton.isSelected())
-                        this.quiz.getAnswers().put(this.quiz.getCurrentQuestion().getId(), "1");
+                if(this.quizVariant1RadioButton.isSelected())
+                   this.quiz.getAnswers().put(this.quiz.getCurrentQuestion().getId(), "1");
 
-                     if(this.quizVariant2RadioButton.isSelected())
-                        this.quiz.getAnswers().put(this.quiz.getCurrentQuestion().getId(), "2");
+                if(this.quizVariant2RadioButton.isSelected())
+                   this.quiz.getAnswers().put(this.quiz.getCurrentQuestion().getId(), "2");
 
-                     if(this.quizVariant3RadioButton.isSelected())
-                        this.quiz.getAnswers().put(this.quiz.getCurrentQuestion().getId(), "3");
+                if(this.quizVariant3RadioButton.isSelected())
+                   this.quiz.getAnswers().put(this.quiz.getCurrentQuestion().getId(), "3");
             }
 
             if(this.quiz.getCurrentQuestion().getType().equals("1")){
@@ -1390,53 +1398,52 @@ public class QuestionerJFrame extends JFrame {
         }
 
         public void setCurrentQuestion(int n){
-                // n - 0,1,2,...
-                saveAnswer();
-                this.quiz.setCurrentQuestionIndex(n);
+            // n - 0,1,2,...
+            saveAnswer();
+            this.quiz.setCurrentQuestionIndex(n);
 
-                activateDeactivateNextPrevBrowseButtons();
-                ShowQuestionAndshowVariants(null);
+            activateDeactivateNextPrevBrowseButtons();
+            ShowQuestionAndshowVariants(null);
         }
 
         public void showCorrectAndWrongAnswers(QuizResult result){
-        //    this.quizSetupPanel.setVisible(false);
+            //this.quizSetupPanel.setVisible(false);
             this.quizPanel.setVisible(false);
             this.quizReviewPanel.setVisible(true); 
 
-           this.quizReviewTextPane.setContentType("text/html");
+            this.quizReviewTextPane.setContentType("text/html");
 
-           String quizReviewString="";
-           Set<String> items=null;
+            String quizReviewString="";
+            Set<String> items=null;
 
-           quizReviewString+="<b>Quiz review</b><br>";
-           quizReviewString+="Quiz with <b>"+result.getTotalQuestions()+"</b> quiestions <br><hr>";
+            quizReviewString+="<b>Quiz review</b><br>";
+            quizReviewString+="Quiz with <b>"+result.getTotalQuestions()+"</b> quiestions <br><hr>";
 
-           quizReviewString+="Count of Questions with VARIANTS  <b>"+(result.getTotalQuestions()-result.getDetailedAnswerQuestions())+"</b><br>";
-           quizReviewString+="Correct answers with VARIANTS count <b>"+result.getCorrectAnswers()+"</b> <br><hr>";
+            quizReviewString+="Count of Questions with VARIANTS  <b>"+(result.getTotalQuestions()-result.getDetailedAnswerQuestions())+"</b><br>";
+            quizReviewString+="Correct answers with VARIANTS count <b>"+result.getCorrectAnswers()+"</b> <br><hr>";
 
             quizReviewString+="Count of Questions with DETAILED Answer "+result.getDetailedAnswerQuestions()+"<br><hr>";
 
 
-           quizReviewString+="<p style='background-color:#99FF66'>" ;
-           quizReviewString+="<b>Correct answered questions</b>";
-           items=result.getCorrectQuestions().keySet();
-           for(String item:items){
-               quizReviewString+=result.getCorrectQuestions().get(item).getQuestionText()+"<br>--<br>";
-               quizReviewString+="Correct ans <b>:"+result.getCorrectQuestions().get(item).getQuestionAnswer()+"</b><br>----------------------------------------------------<br>";
-           }
-           quizReviewString+="</p>";
+            quizReviewString+="<p style='background-color:#99FF66'>" ;
+            quizReviewString+="<b>Correct answered questions</b>";
+            items=result.getCorrectQuestions().keySet();
+            for(String item:items){
+                quizReviewString+=result.getCorrectQuestions().get(item).getQuestionText()+"<br>--<br>";
+                quizReviewString+="Correct ans <b>:"+result.getCorrectQuestions().get(item).getQuestionAnswer()+"</b><br>----------------------------------------------------<br>";
+            }
+            quizReviewString+="</p>";
 
-           quizReviewString+="<p style='background-color:#F75D59'>" ;
-           quizReviewString+="<b>Wrong answered questions</b><br>";
-           items=result.getWrongQuestions().keySet();
-           for(String item:items){
-               quizReviewString+=result.getWrongQuestions().get(item).getQuestionText()+"<br>--<br>";
+            quizReviewString+="<p style='background-color:#F75D59'>" ;
+            quizReviewString+="<b>Wrong answered questions</b><br>";
+            items=result.getWrongQuestions().keySet();
+            for(String item:items){
+                quizReviewString+=result.getWrongQuestions().get(item).getQuestionText()+"<br>--<br>";
                 quizReviewString+="Correct ans :<b>"+result.getWrongQuestions().get(item).getQuestionAnswer()+"</b><br>----------------------------------------------------<br>";
-           }
+            }
             quizReviewString+="</p>";
 
             // show unanswered questions
-            
             quizReviewString+="<p style='background-color:#ffccff'>" ;
             quizReviewString+="<b>Unaswered questions</b><br>";
             items=result.getUnasweredQuestions().keySet();
@@ -1448,20 +1455,18 @@ public class QuestionerJFrame extends JFrame {
             quizReviewString+="</p>";
             
             
-            
-           quizReviewString+="<p style='background-color:yellow'>" ;
-           quizReviewString+="<b>Detailed answered questions</b><br>";
+            quizReviewString+="<p style='background-color:yellow'>" ;
+            quizReviewString+="<b>Detailed answered questions</b><br>";
 
-           items=result.getDetailedAnserQuestions().keySet();
-           for(String item:items){
-               quizReviewString+=result.getDetailedAnserQuestions().get(item).getQuestionText()+"<br>--<br>";
-               quizReviewString+="Answer :<b>"+result.getDetailedAnserQuestions().get(item).getQuestionAnswer()+"</b><br>--------------------------<br>";
-
+            items=result.getDetailedAnserQuestions().keySet();
+            for(String item:items){
+                quizReviewString+=result.getDetailedAnserQuestions().get(item).getQuestionText()+"<br>--<br>";
+                quizReviewString+="Answer :<b>"+result.getDetailedAnserQuestions().get(item).getQuestionAnswer()+"</b><br>--------------------------<br>";
             }
             quizReviewString+="</p>";
             this.quizReviewTextPane.setText(quizReviewString);
         }
-        
+         
         // we can add categories to quiz  by double clicking on the tree
         // but , after we can remove categories from quiz by deleting category title from textpane
         // this method will check , maybe we delete some category from textpane and will remove it from
@@ -1478,5 +1483,4 @@ public class QuestionerJFrame extends JFrame {
                 }
             }
         }
-
 }

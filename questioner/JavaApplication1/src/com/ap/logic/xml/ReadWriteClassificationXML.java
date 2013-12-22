@@ -6,7 +6,6 @@ package com.ap.logic.xml;
  */
 import com.ap.logic.Classification.Category;
 import com.ap.logic.Classification.Classification;
-import com.ap.logic.Classification.Class;
 import com.ap.logic.QuizClasses.Question;
 import com.ap.configuration.Config;
 import java.io.File;
@@ -89,8 +88,7 @@ public class ReadWriteClassificationXML {
     }
 
     public void removeCategoryFromXML(Category category, String xmlFilePath,String parentID){
-
-            try {
+        try {
             System.out.println("removing category FROM XML  ");
             //update count of questions in parent nodes
             this.updateQuestionsCountInXML(category, category.getnOfQuestions()*-1 );
@@ -117,13 +115,13 @@ public class ReadWriteClassificationXML {
             xmlOutput.setFormat(Format.getPrettyFormat());
             xmlOutput.output(document, new FileWriter(xmlFilePath));
             
-            }catch (JDOMException ex) {
+        }catch (JDOMException ex) {
             Logger.getLogger(ReadWriteClassificationXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(ReadWriteClassificationXML.class.getName()).log(Level.SEVERE, null, ex);
         }
             
-        return ;
+        return;
     }
     
     public void removeFilesWithQuestions(Category categoryToRemove){
@@ -132,10 +130,10 @@ public class ReadWriteClassificationXML {
             System.out.println("removing " +Config.questionsPath + categoryToRemove.getFileName());
             File file=new File(Config.questionsPath+ categoryToRemove.getFileName());
             if(file.delete()){
-    			System.err.println(file.getName() + " is deleted!");
-    		}else{
-    			System.err.println(file.getName()+ " Delete operation is failed.");
-    		}
+                System.err.println(file.getName() + " is deleted!");
+            }else{
+                System.err.println(file.getName()+ " Delete operation is failed.");
+            }
         }
                 
         if(categoryToRemove.getCategories().size()>0){
@@ -147,7 +145,7 @@ public class ReadWriteClassificationXML {
     }
     
     public void addCategoryToXML(Category category, String xmlFilePath, String parentID) {
-
+        
         Element categoryElement = new Element("category");
         categoryElement.setAttribute("id", category.getId());
         categoryElement.setAttribute("name", category.getName());
@@ -246,7 +244,7 @@ public class ReadWriteClassificationXML {
     }
 
     public void updateQuestionsCountInXML(Category category , int addedQuestionsCount){
-               SAXBuilder builder = new SAXBuilder();
+        SAXBuilder builder = new SAXBuilder();
 
         try {
             File xmlFile = new File(   Config.classificationXMLPath );
@@ -282,7 +280,7 @@ public class ReadWriteClassificationXML {
               Logger.getLogger(ReadWriteClassificationXML.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return ;
+        return;
     }
 
     public static void main(String[] args) throws InterruptedException {

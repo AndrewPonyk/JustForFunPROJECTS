@@ -1,4 +1,3 @@
-
 package com.ap.logic.Classification;
 
 import java.util.LinkedHashMap;
@@ -8,11 +7,11 @@ import java.util.LinkedHashMap;
  * @author andrew
  */
 public class ClassificationItem {
-        protected String name;
-        protected   String id;
-        protected int nOfQuestions;
-        protected int nOfSubcategories;
-        private LinkedHashMap<String, Category> categories=new LinkedHashMap<String, Category>();
+    protected String name;
+    protected   String id;
+    protected int nOfQuestions;
+    protected int nOfSubcategories;
+    private LinkedHashMap<String, Category> categories=new LinkedHashMap<String, Category>();
     /**
      * @return the id
      */

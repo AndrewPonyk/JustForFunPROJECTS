@@ -1,18 +1,14 @@
 package com.ap.logic.Classification;
 
-import java.util.LinkedHashMap;
-
 /**
  *
  * @author olia
  */
 public class Category  extends  ClassificationItem{
-    
-    
+   
     private String fileName=null;
 
     //private String questionClass;
-    
     
     public Category(){    
     }
@@ -21,9 +17,9 @@ public class Category  extends  ClassificationItem{
     public String toString() {
 
         if(this.fileName!=null)
-            return this.getName()+"("+this.id+")"+"[questions :"+this.nOfQuestions+" ; file:"+this.fileName+"]";
+        return this.getName()+"("+this.id+")"+"[questions :"+this.nOfQuestions+" ; file:"+this.fileName+"]";
 
-            return this.getName()+"("+this.id+")"+"[questions :"+this.nOfQuestions+"]";
+        return this.getName()+"("+this.id+")"+"[questions :"+this.nOfQuestions+"]";
     }
 
     /**

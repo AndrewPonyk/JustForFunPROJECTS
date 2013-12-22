@@ -101,12 +101,9 @@ public class NewCategoryDialog extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Input name for a new category");
             return ;
         }
-
-        
-        setVisible(false);
-        dispose();
        
-         
+        setVisible(false);
+        dispose(); 
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing

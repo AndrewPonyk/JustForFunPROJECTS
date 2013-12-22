@@ -284,30 +284,26 @@ public class NewQuestionDialog extends javax.swing.JDialog {
 
         if(selectedQuestionType.equals("With Variants")){
            
-
             this.questionTextTextPane.setContentType("text/html");
             this.questionTextTextPane.setText("");
             String variants="<br>$v$<br>"+
-                                                        "$v0$ text of variant... $v0end$<br>"+
-                                                        "$v1$$v1end$<br>"+
-                                                        "$v2$$v2end$<br>"+
-                                                        "$v3$$v3end$<br>"+
-                                                    "$vend$";
+                            "$v0$ text of variant... $v0end$<br>"+
+                            "$v1$$v1end$<br>"+
+                            "$v2$$v2end$<br>"+
+                            "$v3$$v3end$<br>"+
+                            "$vend$";
             this.questionTextTextPane.setText(variants);
-             this.questionAnswerTextPane.setText("put here  number of variant (numeration from zero)");
+            this.questionAnswerTextPane.setText("put here  number of variant (numeration from zero)");
         }
 
         if(selectedQuestionType.equals("Yes/No Question")){
-           
             this.questionTextTextPane.setContentType("text/html");
             this.questionTextTextPane.setText("");
             // if yes no question in aswet put 'yes' or 'no'
-            this.questionAnswerTextPane.setText("put here  'yes' or 'no'");
-            
+            this.questionAnswerTextPane.setText("put here  'yes' or 'no'");  
         }
         
-        if(selectedQuestionType.equals("Detailed Answer Question")){
-            
+        if(selectedQuestionType.equals("Detailed Answer Question")){    
             this.questionTextTextPane.setContentType("text/html");
             this.questionTextTextPane.setText("");
 
@@ -315,12 +311,10 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         }
 
        if(selectedQuestionType.equals("TIP")){
-           
            this.questionTextTextPane.setContentType("text/html");
            this.questionTextTextPane.setText("");
            this.questionAnswerTextPane.setText("put here tip content");
        }
-
     }//GEN-LAST:event_questionTypeComboBoxActionPerformed
 
 
@@ -349,21 +343,14 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         String questionAnswer=this.questionAnswerTextPane.getText()
                 .replaceAll("\n", "<br>")
                 .trim();
-                
-        
-        
         
         // it is fucking something bad , so temporary solution
         questionText=questionText.replaceAll("alt='image' <br>", "alt='image'");
-        
-        
-        questionText=questionText.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n").replaceAll(" ", "&nbsp;");  ;
-        questionAnswer=questionAnswer.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n").replaceAll(" ", "&nbsp;");  ;
+         
+        questionText=questionText.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n").replaceAll(" ", "&nbsp;"); // we need &nbsp to FORMAT code for exampe(cause html doesnt understand simple spaces) 
+        questionAnswer=questionAnswer.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n").replaceAll(" ", "&nbsp;");
 
          String selectedQuestionType=this.questionTypeComboBox.getSelectedItem().toString();
-
-         
-         
 
          if(questionText.indexOf("<body>")>0){
             this.resultQuestion.setQuestionText(questionText.substring(questionText.indexOf("<body>")+6,questionText.indexOf("</body>")));
@@ -378,7 +365,6 @@ public class NewQuestionDialog extends javax.swing.JDialog {
          else{
              this.resultQuestion.setQuestionAnswer(questionAnswer);
          }
-
 
         if(selectedQuestionType.equals("With Variants")){
                 this.resultQuestion.setType("0");
@@ -399,14 +385,8 @@ public class NewQuestionDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_saveQuestionButtonActionPerformed
 
     private void addImageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addImageButtonActionPerformed
+        StyledDocument doc = this.questionTextTextPane.getStyledDocument();   
         
-        StyledDocument doc=null;
-   
-        // we can add image into Question text or Question answer
-        if(this.questionTextTextPane.hasFocus());
-
-        
-        doc = this.questionTextTextPane.getStyledDocument();
         
         // can be url and can be from file system
         JFileChooser chooser=new JFileChooser();
@@ -416,9 +396,8 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         
         if(imageURL==null || imageURL.length()<3){ 
            return;
-        }
-        
-        
+        }   
+     
         //put image to images dir 
         try{    
             BufferedImage image =null;
@@ -518,14 +497,12 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         String temp=this.questionTextTextPane.getText();
 
-        
         JOptionPane.showMessageDialog(this, temp);
-       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void checkTheUniquenessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkTheUniquenessButtonActionPerformed
         
-        // Desctop doesnt work on Linux ((
+        // Desktop doesnt work on Linux ((
         if(Desktop.isDesktopSupported()){
             try {
                 Desktop.getDesktop().open(new File(Config.questionsPath+
@@ -598,6 +575,5 @@ public class NewQuestionDialog extends javax.swing.JDialog {
 
     public Boolean getDialogResult(){
         return this.dialogResult;
-    }
-    
+    } 
 }

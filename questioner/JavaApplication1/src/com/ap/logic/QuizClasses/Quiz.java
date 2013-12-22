@@ -1,12 +1,10 @@
 /**
- *
  * @author olia
  */
 
 package com.ap.logic.QuizClasses;
 
 import com.ap.logic.Classification.Category;
-import com.ap.logic.Classification.ClassificationItem;
 import com.ap.configuration.Config;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -25,7 +23,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.JOptionPane;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
@@ -40,7 +37,7 @@ public class Quiz {
     private int minutes=20;
     private Boolean includeDetailedAnswersQuestions =true;
     private Boolean allQuestions=false;
-   // private Boolean includeTips = false; // tip and detailed answer are almost the same
+    // private Boolean includeTips = false; // tip and detailed answer are almost the same
 
     // here will be categories with files , so if we add class we get all categories with file from class
     // if we add category without file , we will add all subcategories with files
@@ -54,9 +51,8 @@ public class Quiz {
     private Integer currentQuestionIndex=0;
 
     private Random random=new Random(new Date().getTime());
-    ///
 
-    public void generateQuestions(){
+    public void generateQuestions(boolean shuffle){
 
         int countByCategory=this.nofquestions/categories.size();
         int  ostatok=this.nofquestions - (categories.size()*countByCategory);
@@ -83,7 +79,7 @@ public class Quiz {
         }
         
         //get questions 
-        fillQuestions();
+        fillQuestions(shuffle);
         
         // to correct dislpay tags in questions , because question can contain something tags
         Set<String> bla=this.getQuestions().keySet();
@@ -98,14 +94,14 @@ public class Quiz {
                 .replace(">", "&gt;")
                 .replace("&lt;br&gt;", "<br>")
                 .replace("&lt;/br&gt;", "</br>").trim()
-                );
+            );
             
             this.getQuestions().get(item).setQuestionAnswer(
                 this.getQuestions().get(item).getQuestionAnswer().replace("<", "&lt;")
                 .replace(">", "&gt;")
                 .replace("&lt;br&gt;", "<br>")
                 .replace("&lt;/br&gt;", "</br>").trim()
-                );
+            );
             
             // to display image we need to replace '&lt;img..' to '<img..'
             if(this.getQuestions().get(item).getQuestionText().contains("alt='image'")){
@@ -124,7 +120,7 @@ public class Quiz {
                 }
             }
             
-                       // to display image we need to replace '&lt;img..' to '<img..'
+            // to display image we need to replace '&lt;img..' to '<img..'
             if(this.getQuestions().get(item).getQuestionAnswer().contains("alt='image'")){
                 
                 //Pattern.DOTALL - because by default '.' is any symbol , byt not \n
@@ -143,7 +139,7 @@ public class Quiz {
         }
     }
 
-    public void  fillQuestions(){
+    public void  fillQuestions(boolean  shuffle){
         this.random=new Random();
         
         Set<String> categoriesKeys=this.categories.keySet();
@@ -171,10 +167,10 @@ public class Quiz {
                 }
             }
    
-             System.out.println("getting  "+questionsCountByCategory.get(item) +" from "+categories.get(item).getFileName());
-                for(Integer i:randoms){
-                    System.out.print(i+" ");
-                }
+            System.out.println("getting  "+questionsCountByCategory.get(item) +" from "+categories.get(item).getFileName());
+            for(Integer i:randoms){
+                System.out.print(i+" ");
+            }
             System.out.println("<- randoms----------------------");
             
             LinkedHashMap<String,Question> generatedItems= this.getCategoryRandomizedQuestionsFromXML(categories.get(item), randoms);
@@ -183,37 +179,37 @@ public class Quiz {
             if(generatedItems.size()<questionsCountByCategory.get(item))
             {
                 for(int j=0;j<6;j++){
-                randoms=new LinkedHashSet<Integer>();
-                requiredCountQuestions=questionsCountByCategory.get(item);
+                    randoms=new LinkedHashSet<Integer>();
+                    requiredCountQuestions=questionsCountByCategory.get(item);
 
-                maximumAttemps=0;
-                while( randoms.size()!=requiredCountQuestions ){
-                Integer randomInt=random.nextInt(category.getnOfQuestions()); //
+                    maximumAttemps=0;
+                    while( randoms.size()!=requiredCountQuestions ){
+                        Integer randomInt=random.nextInt(category.getnOfQuestions()); //
                 
-                if(!randoms.contains(randomInt))
-                randoms.add(randomInt);
+                        if(!randoms.contains(randomInt))
+                        randoms.add(randomInt);
                 
-                maximumAttemps++;
-                if(maximumAttemps==101){
-                    break;
-                }
-            }
-            
-                 System.out.println("getting  "+questionsCountByCategory.get(item) +" from "+categories.get(item).getFileName());
-                for(Integer i:randoms){
-                    System.out.print(i+" ");
-                }
-                System.out.println("<- randoms----------------------");
-                
-                generatedItems= this.getCategoryRandomizedQuestionsFromXML(categories.get(item), randoms);
-
-                   if(generatedItems.size()==questionsCountByCategory.get(item))
-                       break;
-                    try {
-                        Thread.sleep(random.nextInt(4));
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(Quiz.class.getName()).log(Level.SEVERE, null, ex);
+                        maximumAttemps++;
+                        if(maximumAttemps==101){
+                            break;
+                        }
                     }
+            
+                    System.out.println("getting  "+questionsCountByCategory.get(item) +" from "+categories.get(item).getFileName());
+                    for(Integer i:randoms){
+                        System.out.print(i+" ");
+                    }
+                    System.out.println("<- randoms----------------------");
+                
+                    generatedItems= this.getCategoryRandomizedQuestionsFromXML(categories.get(item), randoms);
+
+                    if(generatedItems.size()==questionsCountByCategory.get(item))
+                        break;
+                        try {
+                            Thread.sleep(random.nextInt(4));
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(Quiz.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                 }
             }
             this.questions.putAll( generatedItems);
@@ -226,34 +222,36 @@ public class Quiz {
             if(currQuestion.getQuestionText().contains("src='") &&
                currQuestion.getQuestionText().contains("alt='image'") // because we will have manu questions with src , and only images have 'alt'     
                     ){
-                    String  tempText=currQuestion.getQuestionText();
-                    tempText=tempText.replace("src='", 
+                String  tempText=currQuestion.getQuestionText();
+                tempText=tempText.replace("src='", 
                             "src='file://localhost/"+Config.getQuestionerPath());
 
-                    currQuestion.setQuestionText(tempText);
+                currQuestion.setQuestionText(tempText);
             }
                     
             if(currQuestion.getQuestionAnswer().contains("src='") &&
                currQuestion.getQuestionAnswer().contains("alt='image'") // because we will have manu questions with src , and only images have 'alt'     
                     ){
-                    String  tempAnswer=currQuestion.getQuestionAnswer();
-                    tempAnswer=tempAnswer.replace("src='", 
+                String  tempAnswer=currQuestion.getQuestionAnswer();
+                tempAnswer=tempAnswer.replace("src='", 
                             "src='file://localhost/"+Config.getQuestionerPath());
 
-                    currQuestion.setQuestionAnswer(tempAnswer);
+                currQuestion.setQuestionAnswer(tempAnswer);
             }  
         }
 
         // shuffle questions
-        final List<Question> vs = new ArrayList<Question>(this.questions.values());        
-        Collections.shuffle(vs);
-        this.questions.clear();
+        if(shuffle){
+            final List<Question> vs = new ArrayList<Question>(this.questions.values());        
+            Collections.shuffle(vs);
+            this.questions.clear();
 
             final Iterator<Question> vIter = vs.iterator();
             while(vIter.hasNext()){
                 Question next=vIter.next();
                 this.questions.put(next.getId(), next);
             }
+        }
         //set current and next questions
         this.setCurrentQuestionIndex((Integer) 0);
     }
@@ -268,79 +266,77 @@ public class Quiz {
         
         InputStream in =null;
         try{
-		XMLInputFactory inputFactory=XMLInputFactory.newInstance();
-		in =new FileInputStream(Config.questionsPath+category.getFileName());
+            XMLInputFactory inputFactory=XMLInputFactory.newInstance();
+            in =new FileInputStream(Config.questionsPath+category.getFileName());
                 
-		XMLEventReader eventReader=inputFactory.createXMLEventReader(in);
+            XMLEventReader eventReader=inputFactory.createXMLEventReader(in);
 
-                while (eventReader.hasNext()) {
-			XMLEvent event=eventReader.nextEvent();
+            while (eventReader.hasNext()) {
+                XMLEvent event=eventReader.nextEvent();
 
-                        if(event.isStartElement()){
-				StartElement startElement=event.asStartElement();
+                if(event.isStartElement()){
+                    StartElement startElement=event.asStartElement();
 
-				if(  startElement.getName().getLocalPart().equals("question")  ){
-                                        if( randoms.contains(counter)){
-                                            
-                                            System.err.println("type: "+startElement.getAttributeByName(new QName("type")).getValue());
-                                            
-                                            if(!startElement.getAttributeByName(new QName("type")).getValue().equals("2")||
-                                                    this.includeDetailedAnswersQuestions)
-                                            {
-                                            question.setId(startElement.getAttributeByName(new QName("id")).getValue());
-                                            question.setType(startElement.getAttributeByName(new QName("type")).getValue());
-                                            currentQuestion=true;
-                                            }
-                                        }
+                    if(  startElement.getName().getLocalPart().equals("question")  ){
+                        if( randoms.contains(counter)){
 
-                                        if(startElement.getAttributeByName(new QName("type")).getValue().equals("2") &&
-                                        !this.includeDetailedAnswersQuestions){
-                                        counter=counter;
-                                        }else{
-                                            counter++;
-                                        }
-				}
+                            System.err.println("type: "+startElement.getAttributeByName(new QName("type")).getValue());
 
-                                if(  startElement.getName().getLocalPart().equals("questiontext")  &&  currentQuestion ){
-                                    String questionText="";
-                                    event = eventReader.nextEvent();
-                                    questionText+=event.asCharacters().getData();
+                            if(!startElement.getAttributeByName(new QName("type")).getValue().equals("2")||
+                                    this.includeDetailedAnswersQuestions)
+                            {
+                                question.setId(startElement.getAttributeByName(new QName("id")).getValue());
+                                question.setType(startElement.getAttributeByName(new QName("type")).getValue());
+                                currentQuestion=true;
+                            }
+                        }
 
-                                    event = eventReader.nextEvent();
-                                    while(!event.isEndElement()  ){
-                                        questionText+=event.asCharacters().getData();
-                                        event = eventReader.nextEvent();
-                                    }
-                                    question.setQuestionText(questionText);                                    
-                                }
+                        if( !(startElement.getAttributeByName(new QName("type")).getValue().equals("2") &&
+                        !this.includeDetailedAnswersQuestions) ){
+                        counter++;
+                        }
+                    }
 
-                                if(  startElement.getName().getLocalPart().equals("questionanswer")  &&  currentQuestion ){
-                                        String questionAnswer="";
-                                        event = eventReader.nextEvent();
-                                        questionAnswer+=event.asCharacters().getData();
+                    if( startElement.getName().getLocalPart().equals("questiontext")  &&  currentQuestion ){
+                        String questionText="";
+                        event = eventReader.nextEvent();
+                        questionText+=event.asCharacters().getData();
 
-                                        event = eventReader.nextEvent();
-                                        while(!event.isEndElement()  ){
-                                            questionAnswer+=event.asCharacters().getData();
-                                            event = eventReader.nextEvent();
-                                        }
-                                        question.setQuestionAnswer(questionAnswer);
+                        event = eventReader.nextEvent();
+                        while(!event.isEndElement()  ){
+                            questionText+=event.asCharacters().getData();
+                            event = eventReader.nextEvent();
+                        }
+                        question.setQuestionText(questionText);                                    
+                    }
 
-                                        System.err.println(question.getId());
-                                        System.err.println(question.getType());
-                                        System.err.println(question.getQuestionText());
-                                        System.out.println(question.getQuestionAnswer());
-                                        System.err.println("--end question --");
-                                        System.err.println();
+                    if(startElement.getName().getLocalPart().equals("questionanswer")  &&  currentQuestion ){
+                        String questionAnswer="";
+                        event = eventReader.nextEvent();
+                        questionAnswer+=event.asCharacters().getData();
 
-                                        result.put(question.getId(), question);
+                        event = eventReader.nextEvent();
+                        while(!event.isEndElement()  ){
+                            questionAnswer+=event.asCharacters().getData();
+                            event = eventReader.nextEvent();
+                        }
+                        question.setQuestionAnswer(questionAnswer);
 
-                                        // default values for next questions
-                                        question=new Question();
-                                        currentQuestion=false;
-                                }
-			}
+                        System.err.println(question.getId());
+                        System.err.println(question.getType());
+                        System.err.println(question.getQuestionText());
+                        System.out.println(question.getQuestionAnswer());
+                        System.err.println("--end question --");
+                        System.err.println();
+
+                        result.put(question.getId(), question);
+
+                        // default values for next questions
+                        question=new Question();
+                        currentQuestion=false;
+                    }
                 }
+            }
                 
         }
         catch(FileNotFoundException e){
@@ -359,9 +355,7 @@ public class Quiz {
 
         return result;
     }
-
     ////////////////////////////////////////////////////////////
-
     /**
      * @return the nofquestions
      */
@@ -472,28 +466,26 @@ public class Quiz {
     }
 
     public Question getPreviousQuestion(){
-        
-
         if(this.hasPreviousQuestion()){
             this.setCurrentQuestionIndex((Integer) (this.getCurrentQuestionIndex() - 1));
             return this.getNthQuestion(this.getCurrentQuestionIndex());
         }
         
-            return null;
+        return null;
     }
 
     public Question getCurrentQuestion(){
         return this.getNthQuestion(this.getCurrentQuestionIndex());
     }
 
-    public Question getNthQuestion( int n){
+    public Question getNthQuestion(int n){
      // n - can be 0,1,2,3...
         int counter=0;
         for(String item :this.questions.keySet()){
             if(counter==n)
                 return this.questions.get(item);
                 
-                counter++;
+            counter++;
         }
         return null;
     }
@@ -511,7 +503,5 @@ public class Quiz {
     public void setAllQuestions(Boolean allQuestions) {
         this.allQuestions = allQuestions;
     }
-
-
 
 }
