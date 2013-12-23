@@ -159,13 +159,10 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         
         scroll.setViewportView(questionContent);
         
-        scroll.setSize(new Dimension(400, 500));
-        questionContent.setSize(new Dimension(400, 500));
+        scroll.setPreferredSize(new Dimension(400,500));
         
         if(evt.getClickCount() == 2){
             JOptionPane.showMessageDialog(this, scroll, "Question content", 0);
-           // JOptionPane.showMessageDialog(this, scroll.getSize());
-            // JOptionPane.showMessageDialog(this, questionContent.getSize());
         }
     }//GEN-LAST:event_questionsListJListMouseClicked
 
