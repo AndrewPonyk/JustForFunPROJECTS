@@ -1032,8 +1032,7 @@ public class QuestionerJFrame extends JFrame {
             (ClassificationItem)((DefaultMutableTreeNode)  classificationTree.
                                                 getSelectionPath().getLastPathComponent()).getUserObject();
 
-        
-        
+
         QuestionsListJFrame questionsFrame = new QuestionsListJFrame();
         questionsFrame.setCategoryOrClass(classOrCategory);
         questionsFrame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);

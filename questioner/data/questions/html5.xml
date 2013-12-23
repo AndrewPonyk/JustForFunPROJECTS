@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="0_0_0" name="HTML5" nofquestions="8" nofsubcategories="0" filename="html5.xml">
+<questions id="0_0_0" name="HTML5" nofquestions="9" nofsubcategories="0" filename="html5.xml">
   <question id="0_0_0:0" type="0">
     <questiontext>What does HTML stand for?
 $v$&lt;br&gt;
@@ -80,5 +80,13 @@ $vend$&lt;br&gt;
     <questionanswer>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;0&lt;br&gt;
 &amp;nbsp;&amp;nbsp;</questionanswer>
+  </question>
+  <question id="0_0_0:8" type="1">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&lt;br&gt;
+&amp;nbsp;&amp;nbsp;2&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>yes</questionanswer>
   </question>
 </questions>

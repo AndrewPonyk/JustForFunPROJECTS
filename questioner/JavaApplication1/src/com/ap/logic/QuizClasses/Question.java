@@ -19,6 +19,10 @@ public class Question {
     public Question() {
     }
 
+    public String getQuestionTextEncode(){
+        return questionText.replace("&nbsp;", " "); // dont replace <br> , or '<' , or '>'  
+    }
+    
     /**
      * @return the id
      */

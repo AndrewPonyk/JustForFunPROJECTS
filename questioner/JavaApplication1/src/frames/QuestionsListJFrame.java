@@ -48,12 +48,7 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         
         // populate JList model
         for(String id : questionsIds){
-            String questionText = quiz.getQuestions().get(id).getQuestionText();
-            questionText = questionText.replace("&nbsp;", " ");
-            //questionText = questionText.replace("<br>", "\n");
-            //questionText = questionText.replace("&lt;", "<");
-            //questionText = questionText.replace("&gt;", ">");
-            
+            String questionText = quiz.getQuestions().get(id).getQuestionTextEncode();
             
             questionsModel[counter] = " - " + (counter+1) + "  " +
                 //questionText.substring(0, (questionText.length()>120?120:questionText.length()) );
@@ -79,12 +74,33 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        questionsListPopupMenu = new javax.swing.JPopupMenu();
+        showQuestionjMenuItem = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        removeQuestionMenuItem1 = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         questionsListJList = new javax.swing.JList();
         categoryQuestionsListTitle = new javax.swing.JLabel();
         categoryTitleLabel = new javax.swing.JLabel();
         findQuestionTextTextBox = new javax.swing.JTextField();
         findQuestionButton = new javax.swing.JButton();
+
+        showQuestionjMenuItem.setText("Show Question");
+        showQuestionjMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showQuestionjMenuItemActionPerformed(evt);
+            }
+        });
+        questionsListPopupMenu.add(showQuestionjMenuItem);
+        questionsListPopupMenu.add(jSeparator1);
+
+        removeQuestionMenuItem1.setText("Remove Question");
+        removeQuestionMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeQuestionMenuItem1ActionPerformed(evt);
+            }
+        });
+        questionsListPopupMenu.add(removeQuestionMenuItem1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("List of questions");
@@ -152,23 +168,44 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         JTextPane questionContent = new JTextPane();
         JScrollPane scroll = new JScrollPane();
         
-        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        
         questionContent.setContentType("text/html");
         questionContent.setText(questionsListJList.getSelectedValue().toString());
         
+        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scroll.setViewportView(questionContent);
-        
         scroll.setPreferredSize(new Dimension(400,500));
         
         if(evt.getClickCount() == 2){
             JOptionPane.showMessageDialog(this, scroll, "Question content", 0);
         }
+        
+        if(SwingUtilities.isRightMouseButton(evt)){
+            questionsListJList.setSelectedIndex(questionsListJList.locationToIndex(evt.getPoint()));
+            //JOptionPane.showMessageDialog(this, this.questionsListJList.getSelectedValue());
+            /*if(tp.toString().equals("[root]")){
+                categoryTreePopupMenu.removeAll();   
+                categoryTreePopupMenu.add(this.addClassItem);
+               
+
+                classificationTree.setSelectionPath(tp);
+                classificationTree.scrollPathToVisible(tp);
+            }*/
+             questionsListPopupMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+        }
+        
     }//GEN-LAST:event_questionsListJListMouseClicked
 
     private void findQuestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findQuestionButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_findQuestionButtonActionPerformed
+
+    private void showQuestionjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showQuestionjMenuItemActionPerformed
+        
+    }//GEN-LAST:event_showQuestionjMenuItemActionPerformed
+
+    private void removeQuestionMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeQuestionMenuItem1ActionPerformed
+        
+    }//GEN-LAST:event_removeQuestionMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,7 +247,11 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
     private javax.swing.JButton findQuestionButton;
     private javax.swing.JTextField findQuestionTextTextBox;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JList questionsListJList;
+    private javax.swing.JPopupMenu questionsListPopupMenu;
+    private javax.swing.JMenuItem removeQuestionMenuItem1;
+    private javax.swing.JMenuItem showQuestionjMenuItem;
     // End of variables declaration//GEN-END:variables
 
     /**
