@@ -6,8 +6,10 @@ package frames;
 
 import com.ap.logic.Classification.Category;
 import com.ap.logic.Classification.ClassificationItem;
+import com.ap.logic.QuizClasses.Question;
 import com.ap.logic.QuizClasses.Quiz;
 import com.ap.logic.QuizClasses.QuizResult;
+import com.ap.logic.xml.ReadWriteClassificationXML;
 import java.awt.Dimension;
 import java.util.Set;
 import javax.swing.JOptionPane;
@@ -23,18 +25,19 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
      */
     private ClassificationItem categoryOrClass;
     private String [] questionsModel;
+    private Question [] questionsList;
     
+    // before 1.0  make this methods static , because it is fucking bad =)
+    private ReadWriteClassificationXML reader =new ReadWriteClassificationXML();
+    private Quiz quiz = new Quiz();
+    
+    public QuestionerJFrame parentFrame ;
     
     public QuestionsListJFrame(){
         initComponents();     
     }
     
     public void buildQuestionsModel(){
-        this.questionsModel = new String[categoryOrClass.getnOfQuestions()];
-        int counter = 0;
-        
-        Quiz quiz = new Quiz();
-        QuizResult quizResult = new QuizResult();
         
         quiz.getCategories().put(categoryOrClass.getId(),
                 (Category)categoryOrClass);
@@ -44,25 +47,30 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         quiz.setIncludeDetailedAnswersQuestions(true);
         quiz.generateQuestions(false);   
         
+        
+        this.questionsModel = new String[quiz.getQuestions().size()];
+        this.questionsList = new Question[quiz.getQuestions().size()];
+        int counter = 0;
+        
         Set<String> questionsIds = quiz.getQuestions().keySet();
         
         // populate JList model
         for(String id : questionsIds){
-            String questionText = quiz.getQuestions().get(id).getQuestionTextEncode();
+            String questionText = quiz.getQuestions().get(id).toString();
             
             questionsModel[counter] = " - " + (counter+1) + "  " +
-                //questionText.substring(0, (questionText.length()>120?120:questionText.length()) );
                 questionText.substring(0, questionText.length() );
+            
+            questionsList[counter] = quiz.getQuestions().get(id);
+            
             counter++;
         }
-        
-        
-        
-        
-        // 'check' this quiz
-        quizResult.setQuiz(quiz);
-        quizResult.checkQuiz();
 
+        this.questionsListJList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = questionsModel;
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
     }
 
     /**
@@ -104,6 +112,11 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("List of questions");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         questionsListJList.setBackground(new java.awt.Color(204, 255, 204));
         questionsListJList.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -181,16 +194,7 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         
         if(SwingUtilities.isRightMouseButton(evt)){
             questionsListJList.setSelectedIndex(questionsListJList.locationToIndex(evt.getPoint()));
-            //JOptionPane.showMessageDialog(this, this.questionsListJList.getSelectedValue());
-            /*if(tp.toString().equals("[root]")){
-                categoryTreePopupMenu.removeAll();   
-                categoryTreePopupMenu.add(this.addClassItem);
-               
-
-                classificationTree.setSelectionPath(tp);
-                classificationTree.scrollPathToVisible(tp);
-            }*/
-             questionsListPopupMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+            questionsListPopupMenu.show(evt.getComponent(), evt.getX(), evt.getY());
         }
         
     }//GEN-LAST:event_questionsListJListMouseClicked
@@ -204,8 +208,21 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_showQuestionjMenuItemActionPerformed
 
     private void removeQuestionMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeQuestionMenuItem1ActionPerformed
+        //JOptionPane.showMessageDialog(this, questionsList[questionsListJList.getSelectedIndex()].getId()  );
+        reader.removeQuestion((Category)this.getCategoryOrClass(),
+                questionsList[questionsListJList.getSelectedIndex()]);
+        
+        this.quiz.getQuestions().remove(questionsList[questionsListJList.getSelectedIndex()].getId());
+        this.quiz.getAnswers().remove(questionsList[questionsListJList.getSelectedIndex()].getId());
+        this.buildQuestionsModel();
         
     }//GEN-LAST:event_removeQuestionMenuItem1ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        // parent 
+        parentFrame.createCategoriesTree();
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -269,11 +286,5 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         this.categoryTitleLabel.setText(categoryOrClass.toString());
         this.buildQuestionsModel(); ///
         
-         this.questionsListJList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = questionsModel;
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
     }
-
 }

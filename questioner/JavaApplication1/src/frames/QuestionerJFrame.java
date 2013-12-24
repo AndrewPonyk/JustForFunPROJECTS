@@ -1034,6 +1034,7 @@ public class QuestionerJFrame extends JFrame {
 
 
         QuestionsListJFrame questionsFrame = new QuestionsListJFrame();
+        questionsFrame.parentFrame = this;
         questionsFrame.setCategoryOrClass(classOrCategory);
         questionsFrame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         questionsFrame.setExtendedState(MAXIMIZED_BOTH);
@@ -1102,7 +1103,7 @@ public class QuestionerJFrame extends JFrame {
         return;
     }
     
-    private void createCategoriesTree() {
+    public void createCategoriesTree() {
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("root");
 
         this.classification = this.reader.getClassification(Config.classificationXMLPath);
@@ -1241,16 +1242,16 @@ public class QuestionerJFrame extends JFrame {
                 }else return;
             }
 
-              if(classorcategory instanceof  Class){
-                    Class currentClass=(Class)classorcategory;
-                    if(currentClass.getCategories().size()>0){
-                        Set<String> childCategoriesKeySet=currentClass.getCategories().keySet();
-                        for(String item : childCategoriesKeySet){
-                            addCategoryOrClassToQuiz(currentClass.getCategories().get(item), quiz);
-                        }
-                    }
-              }
-    }
+            if(classorcategory instanceof  Class){
+                  Class currentClass=(Class)classorcategory;
+                  if(currentClass.getCategories().size()>0){
+                      Set<String> childCategoriesKeySet=currentClass.getCategories().keySet();
+                      for(String item : childCategoriesKeySet){
+                          addCategoryOrClassToQuiz(currentClass.getCategories().get(item), quiz);
+                      }
+                  }
+            }
+        }
 
         public void runQuiz(){
             this.quizQuestionsBrowserPanel.setLayout(new FlowLayout());

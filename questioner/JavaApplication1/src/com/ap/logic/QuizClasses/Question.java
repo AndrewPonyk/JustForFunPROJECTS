@@ -19,7 +19,7 @@ public class Question {
     public Question() {
     }
 
-    public String getQuestionTextEncode(){
+    public String toString(){
         return questionText.replace("&nbsp;", " "); // dont replace <br> , or '<' , or '>'  
     }
     

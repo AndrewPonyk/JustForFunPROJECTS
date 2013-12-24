@@ -120,7 +120,6 @@ public class ReadWriteClassificationXML {
         } catch (IOException ex) {
             Logger.getLogger(ReadWriteClassificationXML.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
         return;
     }
     
@@ -221,7 +220,24 @@ public class ReadWriteClassificationXML {
 
             Element rootNode = document.getRootElement();
 
-            question.setId(category.getId()+":"+rootNode.getChildren().size()); // generate id , as  categoryid:indexofquestion
+            
+            // generate id , as  categoryid:indexofquestion , and if exists increment id 
+            int newId = rootNode.getChildren().size();
+            
+            //Build the xpath expression
+            XPath xpathExpression = XPath.newInstance("//*[@id=$questionID]");
+            xpathExpression.setVariable("questionID", category.getId()+":" + newId);
+           
+            ArrayList<Element> questionWithId = (ArrayList<Element>) xpathExpression.selectNodes(document);
+            
+            while(questionWithId.size() > 0){
+                System.out.println("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+                newId++;
+                xpathExpression.setVariable("questionID", category.getId()+":" + newId);
+                questionWithId = (ArrayList<Element>) xpathExpression.selectNodes(document);
+            }
+            
+            question.setId(category.getId()+":" + newId); 
 
             Element questionElement=new Element("question");
             questionElement.setAttribute("id", question.getId());
@@ -247,7 +263,7 @@ public class ReadWriteClassificationXML {
         SAXBuilder builder = new SAXBuilder();
 
         try {
-            File xmlFile = new File(   Config.classificationXMLPath );
+            File xmlFile = new File( Config.classificationXMLPath );
             Document document = (Document) builder.build(xmlFile);
             
              //Build the xpath expression
@@ -363,5 +379,38 @@ public class ReadWriteClassificationXML {
             category.getCategories().put(child.getId(), child);
             fillCategory(children.get(i), child);
         }
+    }
+    
+    public  void removeQuestion(Category category, Question questionToDelete){
+        System.out.println("removing Question FROM XML , questionId = " + questionToDelete.getId());
+        try {
+           
+            //update count of questions in parent nodes
+            this.updateQuestionsCountInXML(category, -1);
+            
+            SAXBuilder builder = new SAXBuilder();
+            File xmlFile = new File(Config.questionsPath + category.getFileName());
+            Document document = (Document) builder.build(xmlFile);
+            
+            Element rootNode = document.getRootElement();
+
+            //Build the xpath expression
+            XPath xpathExpression = XPath.newInstance("//*[@id=$questionID]");
+            xpathExpression.setVariable("questionID", questionToDelete.getId());
+           
+            ArrayList<Element> questionToRemoveNode = (ArrayList<Element>) xpathExpression.selectNodes(document);
+            
+            System.out.println( "-------deleting"+ questionToRemoveNode.get(0).detach());
+               
+            XMLOutputter xmlOutput = new XMLOutputter();
+            xmlOutput.setFormat(Format.getPrettyFormat());
+            xmlOutput.output(document, new FileWriter(Config.questionsPath + category.getFileName()));
+            
+        }catch (JDOMException ex) {
+            Logger.getLogger(ReadWriteClassificationXML.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ReadWriteClassificationXML.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return;
     }
 }
