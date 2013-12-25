@@ -208,7 +208,11 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_showQuestionjMenuItemActionPerformed
 
     private void removeQuestionMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeQuestionMenuItem1ActionPerformed
-        //JOptionPane.showMessageDialog(this, questionsList[questionsListJList.getSelectedIndex()].getId()  );
+        int result = JOptionPane.showConfirmDialog(this, "Remove selected question ?", "Confirm removing", JOptionPane.YES_NO_OPTION);
+        if(result != JOptionPane.YES_OPTION){
+            return;
+        }
+        
         reader.removeQuestion((Category)this.getCategoryOrClass(),
                 questionsList[questionsListJList.getSelectedIndex()]);
         
@@ -219,7 +223,6 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_removeQuestionMenuItem1ActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        // TODO add your handling code here:
         // parent 
         parentFrame.createCategoriesTree();
     }//GEN-LAST:event_formWindowClosed

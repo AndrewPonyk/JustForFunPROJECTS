@@ -895,8 +895,11 @@ public class QuestionerJFrame extends JFrame {
     }//GEN-LAST:event_startQuizButtonActionPerformed
 
     private void removeCategoryItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeCategoryItemActionPerformed
-        JOptionPane.showMessageDialog(this, "removing category ");
-
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure ?", "Confirm removing", JOptionPane.YES_NO_OPTION);
+        if(result != JOptionPane.YES_OPTION){
+            return;
+        }
+        
         TreePath tp = classificationTree.getSelectionPath(); // get path as [root, subnode ,subnode ..]
         DefaultMutableTreeNode  currCategoryNode = (DefaultMutableTreeNode) tp.getLastPathComponent();
         Category categoryToRemove =(Category) currCategoryNode.getUserObject();
@@ -909,8 +912,6 @@ public class QuestionerJFrame extends JFrame {
         //updating count of questions in tree
         DefaultMutableTreeNode iteratorNode =(DefaultMutableTreeNode) currCategoryNode.getParent();
         while( !iteratorNode.getUserObject().equals("root") ) {
-            //     System.out.println("..."+ currCategoryNode.getUserObject().toString() );
-            //     System.out.println("..." +currCategoryNode.getUserObject().getClass());
               ClassificationItem parentItem= ((ClassificationItem)iteratorNode.getUserObject());
               parentItem.setnOfQuestions(parentItem.getnOfQuestions()-categoryToRemove.getnOfQuestions());
               iteratorNode =(DefaultMutableTreeNode) iteratorNode.getParent();
