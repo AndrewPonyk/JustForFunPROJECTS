@@ -11,6 +11,7 @@ import com.ap.logic.QuizClasses.Quiz;
 import com.ap.logic.QuizClasses.QuizResult;
 import com.ap.logic.xml.ReadWriteClassificationXML;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.*;
@@ -119,12 +120,13 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         });
 
         questionsListJList.setBackground(new java.awt.Color(204, 255, 204));
-        questionsListJList.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        questionsListJList.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         questionsListJList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        questionsListJList.setFixedCellHeight(22);
         questionsListJList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 questionsListJListMouseClicked(evt);
@@ -136,6 +138,12 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         categoryQuestionsListTitle.setText("Questions in category  :");
 
         categoryTitleLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        findQuestionTextTextBox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                findQuestionTextTextBoxKeyPressed(evt);
+            }
+        });
 
         findQuestionButton.setText("Find");
         findQuestionButton.addActionListener(new java.awt.event.ActionListener() {
@@ -200,7 +208,7 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_questionsListJListMouseClicked
 
     private void findQuestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findQuestionButtonActionPerformed
-        // TODO add your handling code here:
+        findQuestions();
     }//GEN-LAST:event_findQuestionButtonActionPerformed
 
     private void showQuestionjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showQuestionjMenuItemActionPerformed
@@ -226,6 +234,14 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         // parent 
         parentFrame.createCategoriesTree();
     }//GEN-LAST:event_formWindowClosed
+
+    private void findQuestionTextTextBoxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findQuestionTextTextBoxKeyPressed
+        // TODO add your handling code here:
+
+        if(evt.getKeyCode() == 10){
+            findQuestions();
+        }
+    }//GEN-LAST:event_findQuestionTextTextBoxKeyPressed
 
     /**
      * @param args the command line arguments
@@ -289,5 +305,24 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         this.categoryTitleLabel.setText(categoryOrClass.toString());
         this.buildQuestionsModel(); ///
         
+    }
+    
+    
+    private void findQuestions(){
+        ArrayList<Integer> findedQuestions = new ArrayList<Integer>();
+        
+        for(int i=0; i<this.questionsModel.length; i++){
+            if(this.questionsModel[i].toLowerCase().contains(findQuestionTextTextBox.getText().toLowerCase())){
+                findedQuestions.add(i);
+            };
+        }
+
+        //mark finded questions 
+        int [] selectedIndixes = new int[findedQuestions.size()];
+        for(int i=0;i<selectedIndixes.length;i++){
+            selectedIndixes[i] = findedQuestions.get(i);
+        }
+        this.questionsListJList.setSelectedIndices(selectedIndixes) ;
+       
     }
 }
