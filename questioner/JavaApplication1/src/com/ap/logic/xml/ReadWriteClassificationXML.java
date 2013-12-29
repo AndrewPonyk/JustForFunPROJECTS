@@ -9,8 +9,11 @@ import com.ap.logic.Classification.Classification;
 import com.ap.logic.QuizClasses.Question;
 import com.ap.configuration.Config;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -18,6 +21,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.xml.stream.XMLEventReader;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -26,6 +30,7 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.XMLOutputter;
 import org.jdom2.xpath.XPath;
 import org.jdom2.output.Format;
+import org.xml.sax.InputSource;
 
 public class ReadWriteClassificationXML {
 
@@ -214,9 +219,18 @@ public class ReadWriteClassificationXML {
 
             System.out.println("adddding question");
             SAXBuilder builder = new SAXBuilder();
-
+           
+             //old wrong
             File xmlFile = new File(Config.questionsPath+category.getFileName());
-            Document document = (Document) builder.build(xmlFile);
+   
+            FileInputStream in =new FileInputStream(Config.questionsPath+category.getFileName());
+            
+            //new method , look here http://www.mkyong.com/java/sax-error-malformedbytesequenceexception-invalid-byte-1-of-1-byte-utf-8-sequence/
+            Reader reader = new InputStreamReader(in,"UTF-8");
+            InputSource is = new InputSource(reader);
+            is.setEncoding("UTF-8");
+            
+            Document document = (Document) builder.build(is);
 
             Element rootNode = document.getRootElement();
 

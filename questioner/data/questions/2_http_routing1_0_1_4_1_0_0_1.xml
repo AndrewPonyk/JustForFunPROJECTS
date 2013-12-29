@@ -1,2 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_1" name="2_HTTP_routing" nofquestions="0" nofsubcategories="0" filename="2_http_routing1_0_1_4_1_0_0_1.xml" />
+<questions id="1_0_1_4_1_0_0_1" name="2_HTTP_routing" nofquestions="9" nofsubcategories="0" filename="2_http_routing1_0_1_4_1_0_0_1.xml">
+  <question id="1_0_1_4_1_0_0_1:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;In&amp;nbsp;which&amp;nbsp;place&amp;nbsp;we&amp;nbsp;put&amp;nbsp;routes&amp;nbsp;definition&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;make&amp;nbsp;some&amp;nbsp;routes&amp;nbsp;in&amp;nbsp;your&amp;nbsp;application&amp;nbsp;you&amp;nbsp;need&amp;nbsp;file&amp;nbsp;'routes'&amp;nbsp;in&amp;nbsp;directory&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;'conf'&amp;nbsp;&amp;#8217;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_1:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The &amp;nbsp;URI&amp;nbsp;Pattern&amp;nbsp;,&amp;nbsp;give&amp;nbsp;some&amp;nbsp;examples&amp;nbsp;using&amp;nbsp;play&amp;nbsp;routes&amp;nbsp;syntax.&amp;nbsp;What&amp;nbsp;is&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;'dynamic&amp;nbsp;part'&amp;nbsp;of&amp;nbsp;route&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>The&amp;nbsp;URI&amp;nbsp;pattern&amp;nbsp;defines&amp;nbsp;the&amp;nbsp;routes&amp;nbsp;request&amp;nbsp;path.&amp;nbsp;Some&amp;nbsp;parts&amp;nbsp;of&amp;nbsp;the&amp;nbsp;request&amp;nbsp;path&amp;nbsp;can&amp;nbsp;be&amp;nbsp;dynamic.&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!!!!!!!!!&amp;nbsp;Any&amp;nbsp;dynamic&amp;nbsp;part&amp;nbsp;must&amp;nbsp;be&amp;nbsp;specified&amp;nbsp;within&amp;nbsp;braces&amp;nbsp;{...}.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Dynamic&amp;nbsp;part&amp;nbsp;-&amp;nbsp;is&amp;nbsp;the&amp;nbsp;place&amp;nbsp;for&amp;nbsp;parametes&amp;nbsp;in&amp;nbsp;route&amp;nbsp;(as&amp;nbsp;/show/{id}&amp;nbsp;)&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/clients/all&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;exactly&amp;nbsp;matches:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/clients/all&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;but...&lt;br&gt;
+	&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/clients/{id}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;matches&amp;nbsp;both:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/clients/12121&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/clients/toto</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_1:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Give&amp;nbsp;example&amp;nbsp;of&amp;nbsp;using&amp;nbsp;Play1&amp;nbsp;routing&amp;nbsp;system&amp;nbsp;:&amp;nbsp;write&amp;nbsp;java&amp;nbsp;code&amp;nbsp;,&amp;nbsp;routes&amp;nbsp;,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;html&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>routes&amp;nbsp;:&lt;br&gt;
+GET&amp;nbsp;	/show/{id}/{name}					Application.show&lt;br&gt;
+&lt;br&gt;
+Create&amp;nbsp;file&amp;nbsp;show.html&amp;nbsp;in&amp;nbsp;folder&amp;nbsp;views&lt;br&gt;
+&lt;br&gt;
+Application.java&lt;br&gt;
+...&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;show(String&amp;nbsp;id,String&amp;nbsp;name){&lt;br&gt;
+	System.out.println("Id&amp;nbsp;:"+id);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("Name&amp;nbsp;:"+name);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;render();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+..&lt;br&gt;
+&lt;br&gt;
+Andrew&amp;nbsp;now&amp;nbsp;we&amp;nbsp;can&amp;nbsp;make&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://localhost:9000/show/10/Andrew&amp;nbsp;&lt;br&gt;
+and&amp;nbsp;will&amp;nbsp;have&amp;nbsp;&lt;b&gt;id&lt;/b&gt;&amp;nbsp;and&amp;nbsp;&lt;b&gt;name&lt;/b&gt;&amp;nbsp;VARIABLES&amp;nbsp;IN&amp;nbsp;METHOD&amp;nbsp;&lt;b&gt;show&lt;/b&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_1:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;RegExp&amp;nbsp;in&amp;nbsp;routes&amp;nbsp;,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;use&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>GET&amp;nbsp;		/show/{&lt;[0-9]+&gt;id}/{name}&amp;nbsp;	Application.sho&lt;br&gt;
+&lt;br&gt;
+so&amp;nbsp;we&amp;nbsp;have&amp;nbsp;such&amp;nbsp;request&amp;nbsp;:&amp;nbsp;http://localhost:9000/show/10/Petro&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;200&amp;nbsp;ok&amp;nbsp;method&amp;nbsp;&lt;b&gt;&amp;nbsp;show&lt;/b&gt;&amp;nbsp;will&amp;nbsp;be&amp;nbsp;invoked&lt;br&gt;
+and&amp;nbsp;now&amp;nbsp;we&amp;nbsp;have&amp;nbsp;another&amp;nbsp;request&amp;nbsp;:&amp;nbsp;http://localhost:9000/10z/Petro&amp;nbsp;-&amp;nbsp;404&amp;nbsp;not&amp;nbsp;found&amp;nbsp;,&amp;nbsp;because&amp;nbsp;&lt;b&gt;10z&lt;/b&gt;&amp;nbsp;doesnt&amp;nbsp;match&amp;nbsp;pattern&amp;nbsp;&lt;b&gt;[0-9]+&lt;/b&gt;&lt;br&gt;
+&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_1:4" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Static(default)&amp;nbsp;args&amp;nbsp;in&amp;nbsp;routes&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>GET&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/home&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Application.page(id:'home')&lt;br&gt;
+GET&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/pages/{id}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Application.page&lt;br&gt;
+&lt;br&gt;
+if&amp;nbsp;we&amp;nbsp;make&amp;nbsp;http://localhost:9000/show&amp;nbsp;&amp;nbsp;-&amp;nbsp;then&amp;nbsp;${id}&amp;nbsp;on&amp;nbsp;this&amp;nbsp;page&amp;nbsp;will&amp;nbsp;be&amp;nbsp;'home'&lt;br&gt;
+if&amp;nbsp;we&amp;nbsp;make&amp;nbsp;http://localhost:9000/show/myHome&amp;nbsp;-&amp;nbsp;thid&amp;nbsp;${id}&amp;nbsp;will&amp;nbsp;be&amp;nbsp;'myHome'</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_1:5" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Variables&amp;nbsp;and&amp;nbsp;scripts&amp;nbsp;in&amp;nbsp;'routes'&amp;nbsp;file&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;please&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>You&amp;nbsp;can&amp;nbsp;also&amp;nbsp;use&amp;nbsp;the&amp;nbsp;${...}&amp;nbsp;syntax&amp;nbsp;for&amp;nbsp;variables,&amp;nbsp;and&amp;nbsp;the&amp;nbsp;%{...}%&amp;nbsp;syntax&amp;nbsp;for&amp;nbsp;scripts&amp;nbsp;in&amp;nbsp;the&amp;nbsp;routes&amp;nbsp;file,&amp;nbsp;as&amp;nbsp;you&amp;nbsp;can&amp;nbsp;in&amp;nbsp;templates.&amp;nbsp;For&amp;nbsp;example:&lt;br&gt;
+&lt;br&gt;
+%{&amp;nbsp;context&amp;nbsp;=&amp;nbsp;play.configuration.getProperty('context',&amp;nbsp;'')&amp;nbsp;}%&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+#&amp;nbsp;Home&amp;nbsp;page&lt;br&gt;
+GET&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;${context}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Secure.login&lt;br&gt;
+GET&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;${context}/&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Secure.login&lt;br&gt;
+Another&amp;nbsp;example&amp;nbsp;is&amp;nbsp;the&amp;nbsp;CRUD&amp;nbsp;module's&amp;nbsp;routes&amp;nbsp;file,&amp;nbsp;which&amp;nbsp;uses&amp;nbsp;the&amp;nbsp;crud.types&amp;nbsp;tag&amp;nbsp;to&amp;nbsp;loop&amp;nbsp;over&amp;nbsp;&lt;br&gt;
+model&amp;nbsp;types&amp;nbsp;to&amp;nbsp;generate&amp;nbsp;controller&amp;nbsp;route&amp;nbsp;definitions&amp;nbsp;for&amp;nbsp;each&amp;nbsp;type.</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_1:6" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Describe&amp;nbsp;routes&amp;nbsp;priority&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Many&amp;nbsp;routes&amp;nbsp;can&amp;nbsp;match&amp;nbsp;the&amp;nbsp;same&amp;nbsp;request.&amp;nbsp;If&amp;nbsp;there&amp;nbsp;is&amp;nbsp;any&amp;nbsp;conflict,&amp;nbsp;the&amp;nbsp;first&amp;nbsp;route&amp;nbsp;(following&amp;nbsp;the&amp;nbsp;declaration&amp;nbsp;order)&amp;nbsp;is&amp;nbsp;used.</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_1:7" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Publishing&amp;nbsp;&amp;nbsp;as&amp;nbsp;a&amp;nbsp;static&amp;nbsp;resources&amp;nbsp;,&amp;nbsp;describe&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>TO&amp;nbsp;publish&amp;nbsp;some&amp;nbsp;folder&amp;nbsp;as&amp;nbsp;static&amp;nbsp;resource&amp;nbsp;you&amp;nbsp;need&amp;nbsp;special&amp;nbsp;action&amp;nbsp;&lt;b&gt;staticDir&lt;/b&gt;&lt;br&gt;
+&lt;br&gt;
+For&amp;nbsp;example&amp;nbsp;,&amp;nbsp;with&amp;nbsp;this&amp;nbsp;line&amp;nbsp;we&amp;nbsp;can&amp;nbsp;'open'&amp;nbsp;public&amp;nbsp;directory&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;GET&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/public/&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;staticDir:public&lt;br&gt;
+&lt;br&gt;
+With&amp;nbsp;this&amp;nbsp;GET&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/test/&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;staticDir:test&amp;nbsp;&amp;nbsp;,&amp;nbsp;we&amp;nbsp;open&amp;nbsp;test&amp;nbsp;folder&lt;br&gt;
+so&amp;nbsp;if&amp;nbsp;we&amp;nbsp;make&amp;nbsp;http://localhost:9000/test/BasicTest.java&amp;nbsp;-&amp;nbsp;we&amp;nbsp;will&amp;nbsp;see&amp;nbsp;code&amp;nbsp;of&amp;nbsp;this&amp;nbsp;test&lt;br&gt;
+{…}&lt;br&gt;
+&lt;br&gt;
+!&amp;nbsp;staticFile:&amp;nbsp;mapping&lt;br&gt;
+You&amp;nbsp;can&amp;nbsp;also&amp;nbsp;directly&amp;nbsp;map&amp;nbsp;a&amp;nbsp;URL&amp;nbsp;path&amp;nbsp;to&amp;nbsp;a&amp;nbsp;static&amp;nbsp;file&amp;nbsp;rendering.&lt;br&gt;
+&lt;br&gt;
+#&amp;nbsp;Serve&amp;nbsp;index.html&amp;nbsp;static&amp;nbsp;file&amp;nbsp;for&amp;nbsp;home&amp;nbsp;requests&lt;br&gt;
+GET&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/home&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;staticFile:/public/html/index.html</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_1:8" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Rendering&amp;nbsp;different&amp;nbsp;types&amp;nbsp;of&amp;nbsp;data&amp;nbsp;Play&amp;nbsp;has&amp;nbsp;built-in&amp;nbsp;support&amp;nbsp;for&amp;nbsp;a&amp;nbsp;few&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;formats:&amp;nbsp;html,&amp;nbsp;txt,&amp;nbsp;json&amp;nbsp;and&amp;nbsp;xml.&amp;nbsp;Provide&amp;nbsp;some&amp;nbsp;examples.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Rendering&amp;nbsp;XML&amp;nbsp;:&lt;br&gt;
+&lt;br&gt;
+*&amp;nbsp;create&amp;nbsp;file&amp;nbsp;showXML.xml&amp;nbsp;in&amp;nbsp;'views'&amp;nbsp;folder&amp;nbsp;&lt;br&gt;
+	&lt;?xml&amp;nbsp;version="1.0"&amp;nbsp;encoding="UTF-8"&amp;nbsp;?&gt;&lt;br&gt;
+	&lt;showXML&gt;&lt;br&gt;
+		&lt;defaultId&amp;nbsp;id="${id}"&amp;nbsp;/&gt;&lt;br&gt;
+	&lt;/showXML&gt;&lt;br&gt;
+&lt;br&gt;
+*&amp;nbsp;create&amp;nbsp;method&amp;nbsp;showXML&amp;nbsp;in&amp;nbsp;Application.java&lt;br&gt;
+	public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;showXML(){&lt;br&gt;
+		&lt;br&gt;
+			String&amp;nbsp;id="8888";&lt;br&gt;
+			render(id);	&lt;br&gt;
+	&amp;nbsp;	}&lt;br&gt;
+&lt;br&gt;
+*&amp;nbsp;In&amp;nbsp;'routes'&amp;nbsp;file&amp;nbsp;&lt;br&gt;
+GET&amp;nbsp;	/showXML				Application.showXML(format:'xml')&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+and&amp;nbsp;if&amp;nbsp;you&amp;nbsp;make&amp;nbsp;request&amp;nbsp;http://localhost:9000/showXML&lt;br&gt;
+you&amp;nbsp;will&amp;nbsp;recieve&amp;nbsp;&lt;br&gt;
+	&lt;?xml&amp;nbsp;version="1.0"&amp;nbsp;encoding="UTF-8"&amp;nbsp;?&gt;&lt;br&gt;
+	&lt;showXML&gt;&lt;br&gt;
+		&lt;defaultId&amp;nbsp;id="8888"&amp;nbsp;/&gt;&lt;br&gt;
+	&lt;/showXML&gt;&lt;br&gt;</questionanswer>
+  </question>
+</questions>

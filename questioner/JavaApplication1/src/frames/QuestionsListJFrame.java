@@ -8,7 +8,6 @@ import com.ap.logic.Classification.Category;
 import com.ap.logic.Classification.ClassificationItem;
 import com.ap.logic.QuizClasses.Question;
 import com.ap.logic.QuizClasses.Quiz;
-import com.ap.logic.QuizClasses.QuizResult;
 import com.ap.logic.xml.ReadWriteClassificationXML;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -33,6 +32,7 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
     private Quiz quiz = new Quiz();
     
     public QuestionerJFrame parentFrame ;
+    public boolean  questionsListChanged = false;
     
     public QuestionsListJFrame(){
         initComponents();     
@@ -47,7 +47,6 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         quiz.setAllQuestions(true);
         quiz.setIncludeDetailedAnswersQuestions(true);
         quiz.generateQuestions(false);   
-        
         
         this.questionsModel = new String[quiz.getQuestions().size()];
         this.questionsList = new Question[quiz.getQuestions().size()];
@@ -74,6 +73,22 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         });
     }
 
+    public void showQuestion(int selectedIndex){
+        JTextPane questionContent = new JTextPane();
+        JScrollPane scroll = new JScrollPane();
+
+        questionContent.setContentType("text/html");
+        questionContent.setText( this.questionsList[selectedIndex].getQuestionText() +
+                "<br>-----------------------------<br> Answer : <br> -----<br>"+
+                this.questionsList[selectedIndex].getQuestionAnswer());
+        
+        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scroll.setViewportView(questionContent);
+        scroll.setPreferredSize(new Dimension(400,500));
+
+        JOptionPane.showMessageDialog(this, scroll, "Question content", 0);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -186,18 +201,10 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void questionsListJListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_questionsListJListMouseClicked
-        JTextPane questionContent = new JTextPane();
-        JScrollPane scroll = new JScrollPane();
-        
-        questionContent.setContentType("text/html");
-        questionContent.setText(questionsListJList.getSelectedValue().toString());
-        
-        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scroll.setViewportView(questionContent);
-        scroll.setPreferredSize(new Dimension(400,500));
-        
+        int selectedIndex = this.questionsListJList.getSelectedIndex();
+            
         if(evt.getClickCount() == 2){
-            JOptionPane.showMessageDialog(this, scroll, "Question content", 0);
+            showQuestion(selectedIndex);
         }
         
         if(SwingUtilities.isRightMouseButton(evt)){
@@ -212,7 +219,8 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_findQuestionButtonActionPerformed
 
     private void showQuestionjMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showQuestionjMenuItemActionPerformed
-        
+        int selectedIndex = this.questionsListJList.getSelectedIndex();
+        showQuestion(selectedIndex);
     }//GEN-LAST:event_showQuestionjMenuItemActionPerformed
 
     private void removeQuestionMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeQuestionMenuItem1ActionPerformed
@@ -226,13 +234,15 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         
         this.quiz.getQuestions().remove(questionsList[questionsListJList.getSelectedIndex()].getId());
         this.quiz.getAnswers().remove(questionsList[questionsListJList.getSelectedIndex()].getId());
-        this.buildQuestionsModel();
-        
+        this.questionsListChanged = true;
+        this.buildQuestionsModel(); 
     }//GEN-LAST:event_removeQuestionMenuItem1ActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        // parent 
-        parentFrame.createCategoriesTree();
+        // parent tree 'refresh' , we only need to 'refresh' it , if we change someting (remove , modify ...)
+        if(this.questionsListChanged){
+            parentFrame.createCategoriesTree();
+        }
     }//GEN-LAST:event_formWindowClosed
 
     private void findQuestionTextTextBoxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_findQuestionTextTextBoxKeyPressed

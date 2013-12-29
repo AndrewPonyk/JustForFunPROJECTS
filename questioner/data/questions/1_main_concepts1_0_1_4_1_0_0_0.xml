@@ -1,2 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_0" name="1_Main_Concepts" nofquestions="0" nofsubcategories="0" filename="1_main_concepts1_0_1_4_1_0_0_0.xml" />
+<questions id="1_0_1_4_1_0_0_0" name="1_Main_Concepts" nofquestions="1" nofsubcategories="0" filename="1_main_concepts1_0_1_4_1_0_0_0.xml">
+  <question id="1_0_1_4_1_0_0_0:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Few&amp;nbsp;words&amp;nbsp;about&amp;nbsp;play&amp;nbsp;framework&amp;nbsp;1&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>A&amp;nbsp;Play&amp;nbsp;application&amp;nbsp;follows&amp;nbsp;the&amp;nbsp;MVC&amp;nbsp;architectural&amp;nbsp;pattern&amp;nbsp;applied&amp;nbsp;to&amp;nbsp;the&amp;nbsp;web&amp;nbsp;architecture.&lt;br&gt;
+&lt;br&gt;
+This&amp;nbsp;pattern&amp;nbsp;splits&amp;nbsp;the&amp;nbsp;application&amp;nbsp;into&amp;nbsp;separate&amp;nbsp;layers:&amp;nbsp;the&amp;nbsp;Presentation&amp;nbsp;layer&amp;nbsp;and&amp;nbsp;the&amp;nbsp;Model&amp;nbsp;layer.&amp;nbsp;The&amp;nbsp;Presentation&amp;nbsp;layer&amp;nbsp;is&amp;nbsp;further&amp;nbsp;split&amp;nbsp;into&amp;nbsp;a&amp;nbsp;View&amp;nbsp;and&amp;nbsp;a&amp;nbsp;Controller&amp;nbsp;layer.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;Model&amp;nbsp;is&amp;nbsp;the&amp;nbsp;domain-specific&amp;nbsp;representation&amp;nbsp;of&amp;nbsp;the&amp;nbsp;information&amp;nbsp;on&amp;nbsp;which&amp;nbsp;the&amp;nbsp;application&amp;nbsp;operates.&amp;nbsp;&lt;br&gt;
+Domain&amp;nbsp;logic&amp;nbsp;adds&amp;nbsp;'meaning'&amp;nbsp;to&amp;nbsp;raw&amp;nbsp;data&amp;nbsp;(e.g.,&amp;nbsp;calculating&amp;nbsp;if&amp;nbsp;today&amp;nbsp;is&amp;nbsp;the&amp;nbsp;user's&amp;nbsp;birthday,&amp;nbsp;or&amp;nbsp;the&amp;nbsp;&lt;br&gt;
+totals,&amp;nbsp;taxes,&amp;nbsp;and&amp;nbsp;shipping&amp;nbsp;charges&amp;nbsp;for&amp;nbsp;a&amp;nbsp;shopping&amp;nbsp;cart).&amp;nbsp;Most&amp;nbsp;applications&amp;nbsp;use&amp;nbsp;a&amp;nbsp;persistent&amp;nbsp;storage&amp;nbsp;&lt;br&gt;
+mechanism&amp;nbsp;such&amp;nbsp;as&amp;nbsp;a&amp;nbsp;database&amp;nbsp;to&amp;nbsp;store&amp;nbsp;data.&amp;nbsp;MVC&amp;nbsp;does&amp;nbsp;not&amp;nbsp;specifically&amp;nbsp;mention&amp;nbsp;the&amp;nbsp;data&amp;nbsp;access&amp;nbsp;layer&amp;nbsp;&lt;br&gt;
+because&amp;nbsp;it&amp;nbsp;is&amp;nbsp;understood&amp;nbsp;to&amp;nbsp;be&amp;nbsp;underneath,&amp;nbsp;or&amp;nbsp;encapsulated&amp;nbsp;by,&amp;nbsp;the&amp;nbsp;Model.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;View&amp;nbsp;renders&amp;nbsp;the&amp;nbsp;model&amp;nbsp;into&amp;nbsp;a&amp;nbsp;form&amp;nbsp;suitable&amp;nbsp;for&amp;nbsp;interactions,&amp;nbsp;typically&amp;nbsp;a&amp;nbsp;user&amp;nbsp;interface.&amp;nbsp;&lt;br&gt;
+Multiple&amp;nbsp;views&amp;nbsp;can&amp;nbsp;exist&amp;nbsp;for&amp;nbsp;a&amp;nbsp;single&amp;nbsp;model,&amp;nbsp;for&amp;nbsp;different&amp;nbsp;purposes.&amp;nbsp;In&amp;nbsp;a&amp;nbsp;Web&amp;nbsp;application&amp;nbsp;the&amp;nbsp;view&amp;nbsp;&lt;br&gt;
+is&amp;nbsp;usually&amp;nbsp;rendered&amp;nbsp;in&amp;nbsp;a&amp;nbsp;'web&amp;nbsp;format'&amp;nbsp;like&amp;nbsp;HTML,&amp;nbsp;XML&amp;nbsp;or&amp;nbsp;JSON.&amp;nbsp;However&amp;nbsp;there&amp;nbsp;are&amp;nbsp;some&amp;nbsp;cases&amp;nbsp;where&amp;nbsp;the&amp;nbsp;&lt;br&gt;
+view&amp;nbsp;can&amp;nbsp;be&amp;nbsp;expressed&amp;nbsp;in&amp;nbsp;a&amp;nbsp;binary&amp;nbsp;form,&amp;nbsp;e.g.&amp;nbsp;dynamically&amp;nbsp;rendered&amp;nbsp;chart&amp;nbsp;diagrams.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;Controller&amp;nbsp;responds&amp;nbsp;to&amp;nbsp;events&amp;nbsp;(typically&amp;nbsp;user&amp;nbsp;actions)&amp;nbsp;and&amp;nbsp;processes&amp;nbsp;them,&amp;nbsp;and&amp;nbsp;may&amp;nbsp;also&amp;nbsp;invoke&amp;nbsp;&lt;br&gt;
+changes&amp;nbsp;on&amp;nbsp;the&amp;nbsp;model.&amp;nbsp;In&amp;nbsp;a&amp;nbsp;Web&amp;nbsp;application,&amp;nbsp;events&amp;nbsp;are&amp;nbsp;typically&amp;nbsp;HTTP&amp;nbsp;requests:&amp;nbsp;a&amp;nbsp;Controller&amp;nbsp;listens&amp;nbsp;for&amp;nbsp;&lt;br&gt;
+HTTP&amp;nbsp;requests,&amp;nbsp;extracts&amp;nbsp;relevant&amp;nbsp;data&amp;nbsp;from&amp;nbsp;the&amp;nbsp;'event',&amp;nbsp;such&amp;nbsp;as&amp;nbsp;query&amp;nbsp;string&amp;nbsp;parameters,&amp;nbsp;request&amp;nbsp;headers...&amp;nbsp;&lt;br&gt;
+and&amp;nbsp;applies&amp;nbsp;changes&amp;nbsp;to&amp;nbsp;the&amp;nbsp;underlying&amp;nbsp;model&amp;nbsp;objects.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Folders&amp;nbsp;&lt;br&gt;
+app/controllers&lt;br&gt;
+A&amp;nbsp;Controller&amp;nbsp;is&amp;nbsp;a&amp;nbsp;Java&amp;nbsp;class&amp;nbsp;where&amp;nbsp;each&amp;nbsp;public,&amp;nbsp;static,&amp;nbsp;method&amp;nbsp;is&amp;nbsp;an&amp;nbsp;action.&amp;nbsp;&lt;br&gt;
+An&amp;nbsp;action&amp;nbsp;is&amp;nbsp;a&amp;nbsp;Java&amp;nbsp;entry&amp;nbsp;point&amp;nbsp;invoked&amp;nbsp;when&amp;nbsp;an&amp;nbsp;HTTP&amp;nbsp;Request&amp;nbsp;is&amp;nbsp;received.&amp;nbsp;The&amp;nbsp;Java&amp;nbsp;code&amp;nbsp;from&amp;nbsp;&lt;br&gt;
+the&amp;nbsp;Controller&amp;nbsp;class&amp;nbsp;isn't&amp;nbsp;really&amp;nbsp;object&amp;nbsp;oriented:&amp;nbsp;it's&amp;nbsp;mainly&amp;nbsp;procedural&amp;nbsp;code.&amp;nbsp;&lt;br&gt;
+The&amp;nbsp;action&amp;nbsp;method&amp;nbsp;extracts&amp;nbsp;relevant&amp;nbsp;data&amp;nbsp;from&amp;nbsp;the&amp;nbsp;HTTP&amp;nbsp;Request,&amp;nbsp;reads&amp;nbsp;or&amp;nbsp;updates&amp;nbsp;the&amp;nbsp;model&amp;nbsp;objects,&lt;br&gt;
+&amp;nbsp;and&amp;nbsp;sends&amp;nbsp;back&amp;nbsp;a&amp;nbsp;result&amp;nbsp;which&amp;nbsp;is&amp;nbsp;wrapped&amp;nbsp;into&amp;nbsp;an&amp;nbsp;HTTP&amp;nbsp;Response.&lt;br&gt;
+&lt;br&gt;
+app/models&lt;br&gt;
+The&amp;nbsp;domain&amp;nbsp;model&amp;nbsp;object&amp;nbsp;layer&amp;nbsp;is&amp;nbsp;a&amp;nbsp;set&amp;nbsp;of&amp;nbsp;Java&amp;nbsp;classes&amp;nbsp;using&amp;nbsp;all&amp;nbsp;the&amp;nbsp;object-oriented&amp;nbsp;features&amp;nbsp;&lt;br&gt;
+available&amp;nbsp;from&amp;nbsp;the&amp;nbsp;Java&amp;nbsp;language.&amp;nbsp;It&amp;nbsp;contains&amp;nbsp;data&amp;nbsp;structures&amp;nbsp;and&amp;nbsp;operations&amp;nbsp;on&amp;nbsp;which&amp;nbsp;the&amp;nbsp;application&amp;nbsp;&lt;br&gt;
+operates.&amp;nbsp;Whenever&amp;nbsp;model&amp;nbsp;objects&amp;nbsp;need&amp;nbsp;to&amp;nbsp;be&amp;nbsp;saved&amp;nbsp;to&amp;nbsp;persistent&amp;nbsp;storage,&amp;nbsp;they&amp;nbsp;may&amp;nbsp;contain&amp;nbsp;some&amp;nbsp;glue&amp;nbsp;&lt;br&gt;
+artifacts&amp;nbsp;like&amp;nbsp;JPA&amp;nbsp;annotations&amp;nbsp;or&amp;nbsp;SQL&amp;nbsp;statements.&lt;br&gt;
+&lt;br&gt;
+app/views&lt;br&gt;
+Most&amp;nbsp;of&amp;nbsp;the&amp;nbsp;application&amp;nbsp;views&amp;nbsp;are&amp;nbsp;generated&amp;nbsp;using&amp;nbsp;an&amp;nbsp;efficient&amp;nbsp;templating&amp;nbsp;system&amp;nbsp;provided&amp;nbsp;by&amp;nbsp;Play.&lt;br&gt;
+The&amp;nbsp;Controller&amp;nbsp;gets&amp;nbsp;some&amp;nbsp;interesting&amp;nbsp;data&amp;nbsp;from&amp;nbsp;the&amp;nbsp;model&amp;nbsp;layer,&amp;nbsp;and&amp;nbsp;then&amp;nbsp;applies&amp;nbsp;a&amp;nbsp;template&amp;nbsp;to&amp;nbsp;decorate&lt;br&gt;
+these&amp;nbsp;objects.&amp;nbsp;This&amp;nbsp;package&amp;nbsp;contains&amp;nbsp;HTML,&amp;nbsp;XML,&amp;nbsp;JSON&amp;nbsp;or&amp;nbsp;other&amp;nbsp;template&amp;nbsp;files&amp;nbsp;with&amp;nbsp;special&amp;nbsp;directives&amp;nbsp;used&amp;nbsp;to&amp;nbsp;&lt;br&gt;
+dynamically&amp;nbsp;generate&amp;nbsp;the&amp;nbsp;model&amp;nbsp;representation.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;public&amp;nbsp;directory&lt;br&gt;
+Resources&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;the&amp;nbsp;public&amp;nbsp;directory&amp;nbsp;are&amp;nbsp;static&amp;nbsp;assets&amp;nbsp;and&amp;nbsp;are&amp;nbsp;served&amp;nbsp;directly&amp;nbsp;&lt;br&gt;
+by&amp;nbsp;the&amp;nbsp;Web&amp;nbsp;server.&lt;br&gt;
+This&amp;nbsp;directory&amp;nbsp;is&amp;nbsp;split&amp;nbsp;into&amp;nbsp;three&amp;nbsp;standard&amp;nbsp;sub-directories:&amp;nbsp;for&amp;nbsp;images,&amp;nbsp;&lt;br&gt;
+CSS&amp;nbsp;stylesheets&amp;nbsp;and&amp;nbsp;JavaScript&amp;nbsp;files.&amp;nbsp;You&amp;nbsp;should&amp;nbsp;try&amp;nbsp;to&amp;nbsp;organize&amp;nbsp;your&amp;nbsp;static&amp;nbsp;&lt;br&gt;
+assets&amp;nbsp;like&amp;nbsp;this&amp;nbsp;to&amp;nbsp;keep&amp;nbsp;all&amp;nbsp;Play&amp;nbsp;applications&amp;nbsp;consistent.&lt;br&gt;
+&lt;br&gt;
+By&amp;nbsp;default&amp;nbsp;the&amp;nbsp;/public&amp;nbsp;directory&amp;nbsp;is&amp;nbsp;mapped&amp;nbsp;to&amp;nbsp;the&amp;nbsp;/public&amp;nbsp;URL&amp;nbsp;path,&amp;nbsp;but&amp;nbsp;you&amp;nbsp;can&amp;nbsp;easily&amp;nbsp;change&amp;nbsp;that,&amp;nbsp;&lt;br&gt;
+or&amp;nbsp;even&amp;nbsp;use&amp;nbsp;several&amp;nbsp;directories&amp;nbsp;for&amp;nbsp;your&amp;nbsp;static&amp;nbsp;assets.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;'conf'&amp;nbsp;directory&lt;br&gt;
+The&amp;nbsp;conf&amp;nbsp;directory&amp;nbsp;contains&amp;nbsp;all&amp;nbsp;configuration&amp;nbsp;files&amp;nbsp;for&amp;nbsp;the&amp;nbsp;application.&lt;br&gt;
+There&amp;nbsp;are&amp;nbsp;two&amp;nbsp;required&amp;nbsp;configuration&amp;nbsp;files:&lt;br&gt;
+&lt;br&gt;
+application.conf,&amp;nbsp;the&amp;nbsp;main&amp;nbsp;configuration&amp;nbsp;file&amp;nbsp;for&amp;nbsp;the&amp;nbsp;application.&amp;nbsp;&lt;br&gt;
+It&amp;nbsp;contains&amp;nbsp;standard&amp;nbsp;configuration&amp;nbsp;parameters.&lt;br&gt;
+routes,&amp;nbsp;the&amp;nbsp;routes&amp;nbsp;definition&amp;nbsp;file.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;lib&amp;nbsp;directory&lt;br&gt;
+This&amp;nbsp;directory&amp;nbsp;contains&amp;nbsp;all&amp;nbsp;standard&amp;nbsp;Java&amp;nbsp;libraries&amp;nbsp;needed&amp;nbsp;by&amp;nbsp;your&amp;nbsp;application.&lt;br&gt;
+They&amp;nbsp;are&amp;nbsp;automatically&amp;nbsp;added&amp;nbsp;to&amp;nbsp;the&amp;nbsp;Java&amp;nbsp;classpath.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+!!!About&amp;nbsp;DEV/PROD&amp;nbsp;modes&lt;br&gt;
+You&amp;nbsp;can&amp;nbsp;run&amp;nbsp;an&amp;nbsp;application&amp;nbsp;either&amp;nbsp;in&amp;nbsp;a&amp;nbsp;DEV&amp;nbsp;or&amp;nbsp;PROD&amp;nbsp;mode.&amp;nbsp;&lt;br&gt;
+You&amp;nbsp;toggle&amp;nbsp;this&amp;nbsp;mode&amp;nbsp;using&amp;nbsp;the&amp;nbsp;application.mode&amp;nbsp;configuration.&lt;br&gt;
+When&amp;nbsp;run&amp;nbsp;in&amp;nbsp;DEV&amp;nbsp;mode,&amp;nbsp;Play&amp;nbsp;will&amp;nbsp;check&amp;nbsp;for&amp;nbsp;file&amp;nbsp;changes&amp;nbsp;and&amp;nbsp;will&amp;nbsp;handle&amp;nbsp;hot&amp;nbsp;reloading&amp;nbsp;if&amp;nbsp;necessary.&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;PROD&amp;nbsp;mode&amp;nbsp;is&amp;nbsp;fully&amp;nbsp;optimized&amp;nbsp;for&amp;nbsp;production:&amp;nbsp;Java&amp;nbsp;sources&amp;nbsp;and&amp;nbsp;templates&amp;nbsp;are&amp;nbsp;compiled&lt;br&gt;
+once&amp;nbsp;and&amp;nbsp;cached&amp;nbsp;for&amp;nbsp;multiple&amp;nbsp;uses.</questionanswer>
+  </question>
+</questions>

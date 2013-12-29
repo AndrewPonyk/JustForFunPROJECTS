@@ -1,2 +1,522 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_2" name="3_Controllers" nofquestions="0" nofsubcategories="0" filename="3_controllers1_0_1_4_1_0_0_2.xml" />
+<questions id="1_0_1_4_1_0_0_2" name="3_Controllers" nofquestions="15" nofsubcategories="0" filename="3_controllers1_0_1_4_1_0_0_2.xml">
+  <question id="1_0_1_4_1_0_0_2:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;cotroller&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Business&amp;nbsp;logic&amp;nbsp;is&amp;nbsp;managed&amp;nbsp;in&amp;nbsp;the&amp;nbsp;domain&amp;nbsp;model&amp;nbsp;layer.&amp;nbsp;As&amp;nbsp;a&amp;nbsp;client&amp;nbsp;(typically&amp;nbsp;a&amp;nbsp;web&amp;nbsp;browser)&amp;nbsp;cannot&amp;nbsp;directly&amp;nbsp;invoke&amp;nbsp;this&amp;nbsp;code,&amp;nbsp;the&amp;nbsp;functionality&amp;nbsp;of&amp;nbsp;a&amp;nbsp;domain&amp;nbsp;object&amp;nbsp;is&amp;nbsp;exposed&amp;nbsp;as&amp;nbsp;resources&amp;nbsp;represented&amp;nbsp;by&amp;nbsp;URIs.&lt;br&gt;
+&lt;br&gt;
+A&amp;nbsp;client&amp;nbsp;uses&amp;nbsp;the&amp;nbsp;uniform&amp;nbsp;API&amp;nbsp;provided&amp;nbsp;by&amp;nbsp;the&amp;nbsp;HTTP&amp;nbsp;protocol&amp;nbsp;to&amp;nbsp;manipulate&amp;nbsp;these&amp;nbsp;resources,&amp;nbsp;and&amp;nbsp;by&amp;nbsp;implication&amp;nbsp;the&amp;nbsp;underlying&amp;nbsp;business&amp;nbsp;logic.&lt;br&gt;
+However,&amp;nbsp;this&amp;nbsp;mapping&amp;nbsp;of&amp;nbsp;resources&amp;nbsp;to&amp;nbsp;domain&amp;nbsp;objects&amp;nbsp;is&amp;nbsp;not&amp;nbsp;a&amp;nbsp;bijection:&amp;nbsp;the&amp;nbsp;granularity&amp;nbsp;can&amp;nbsp;be&amp;nbsp;expressed&amp;nbsp;at&amp;nbsp;different&amp;nbsp;levels,&amp;nbsp;some&amp;nbsp;resources&amp;nbsp;may&amp;nbsp;be&amp;nbsp;virtual,&amp;nbsp;for&amp;nbsp;some&amp;nbsp;resources&amp;nbsp;aliases&amp;nbsp;may&amp;nbsp;be&amp;nbsp;defined...&lt;br&gt;
+&lt;br&gt;
+This&amp;nbsp;is&amp;nbsp;precisely&amp;nbsp;the&amp;nbsp;role&amp;nbsp;played&amp;nbsp;by&amp;nbsp;the&amp;nbsp;Controller&amp;nbsp;layer:&amp;nbsp;providing&amp;nbsp;a&amp;nbsp;glue&amp;nbsp;between&amp;nbsp;the&amp;nbsp;domain&amp;nbsp;model&amp;nbsp;objects&amp;nbsp;and&amp;nbsp;transport&amp;nbsp;layer&amp;nbsp;events.&amp;nbsp;As&amp;nbsp;the&amp;nbsp;Model&amp;nbsp;layer,&amp;nbsp;controllers&amp;nbsp;are&amp;nbsp;written&amp;nbsp;in&amp;nbsp;pure&amp;nbsp;Java,&amp;nbsp;making&amp;nbsp;it&amp;nbsp;easy&amp;nbsp;to&amp;nbsp;access&amp;nbsp;or&amp;nbsp;modify&amp;nbsp;Model&amp;nbsp;objects.&amp;nbsp;Like&amp;nbsp;the&amp;nbsp;HTTP&amp;nbsp;interface,&amp;nbsp;Controllers&amp;nbsp;are&amp;nbsp;procedural&amp;nbsp;and&amp;nbsp;Request/Response&amp;nbsp;oriented.&lt;br&gt;
+&lt;br&gt;
+!!!!The&amp;nbsp;Controller&amp;nbsp;layer&amp;nbsp;reduces&amp;nbsp;the&amp;nbsp;impedance&amp;nbsp;mismatch&amp;nbsp;between&amp;nbsp;HTTP&amp;nbsp;and&amp;nbsp;the&amp;nbsp;Domain&amp;nbsp;Model.&lt;br&gt;
+&lt;br&gt;
+&lt;b&gt;&lt;br&gt;
+There&amp;nbsp;are&amp;nbsp;different&amp;nbsp;architectural&amp;nbsp;models&amp;nbsp;with&amp;nbsp;different&amp;nbsp;strategies.&amp;nbsp;Some&amp;nbsp;protocols&amp;nbsp;give&amp;nbsp;you&amp;nbsp;direct&amp;nbsp;access&amp;nbsp;to&amp;nbsp;the&amp;nbsp;domain&amp;nbsp;model&amp;nbsp;objects.&amp;nbsp;This&amp;nbsp;is&amp;nbsp;typically&amp;nbsp;what&amp;nbsp;EJB&amp;nbsp;or&amp;nbsp;Corba&amp;nbsp;protocols&amp;nbsp;do.&amp;nbsp;In&amp;nbsp;these&amp;nbsp;cases,&amp;nbsp;the&amp;nbsp;architectural&amp;nbsp;style&amp;nbsp;used&amp;nbsp;is&amp;nbsp;RPC&amp;nbsp;(Remote&amp;nbsp;Procedure&amp;nbsp;Call).&amp;nbsp;These&amp;nbsp;communication&amp;nbsp;styles&amp;nbsp;are&amp;nbsp;hardly&amp;nbsp;compatible&amp;nbsp;with&amp;nbsp;web&amp;nbsp;architecture.&lt;br&gt;
+&lt;br&gt;
+Some&amp;nbsp;technologies&amp;nbsp;like&amp;nbsp;SOAP&amp;nbsp;try&amp;nbsp;to&amp;nbsp;give&amp;nbsp;access&amp;nbsp;to&amp;nbsp;the&amp;nbsp;model&amp;nbsp;object&amp;nbsp;domain&amp;nbsp;through&amp;nbsp;the&amp;nbsp;Web.&amp;nbsp;However,&amp;nbsp;SOAP&amp;nbsp;is&amp;nbsp;just&amp;nbsp;another&amp;nbsp;RPC-style&amp;nbsp;protocol,&amp;nbsp;in&amp;nbsp;this&amp;nbsp;case&amp;nbsp;using&amp;nbsp;HTTP&amp;nbsp;as&amp;nbsp;a&amp;nbsp;transport&amp;nbsp;protocol.&amp;nbsp;It&amp;nbsp;is&amp;nbsp;not&amp;nbsp;an&amp;nbsp;application&amp;nbsp;protocol.&lt;br&gt;
+&lt;br&gt;
+&lt;/b&gt;&lt;br&gt;
+The&amp;nbsp;web?s&amp;nbsp;principles&amp;nbsp;are&amp;nbsp;not&amp;nbsp;fundamentally&amp;nbsp;object-oriented.&amp;nbsp;So&amp;nbsp;a&amp;nbsp;layer&amp;nbsp;is&amp;nbsp;needed&amp;nbsp;to&amp;nbsp;adapt&amp;nbsp;HTTP&amp;nbsp;to&amp;nbsp;your&amp;nbsp;favorite&amp;nbsp;language.</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_2:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Controllers&amp;nbsp;overview&amp;nbsp;,&amp;nbsp;write&amp;nbsp;simple&amp;nbsp;controller&amp;nbsp;(with&amp;nbsp;some&amp;nbsp;actions&amp;nbsp;).&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>A&amp;nbsp;Controller&amp;nbsp;is&amp;nbsp;a&amp;nbsp;Java&amp;nbsp;class,&amp;nbsp;hosted&amp;nbsp;by&amp;nbsp;the&amp;nbsp;controllers&amp;nbsp;package,&amp;nbsp;and&amp;nbsp;subclassing&amp;nbsp;play.mvc.Controller.&lt;br&gt;
+	package&amp;nbsp;controllers;&lt;br&gt;
+	&amp;nbsp;&lt;br&gt;
+	import&amp;nbsp;models.Client;&lt;br&gt;
+	import&amp;nbsp;play.mvc.Controller;&lt;br&gt;
+	&amp;nbsp;&lt;br&gt;
+	public&amp;nbsp;class&amp;nbsp;Clients&amp;nbsp;extends&amp;nbsp;Controller&amp;nbsp;{&lt;br&gt;
+	&amp;nbsp;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;show(Long&amp;nbsp;id)&amp;nbsp;{&lt;br&gt;
+		Client&amp;nbsp;client&amp;nbsp;=&amp;nbsp;Client.findById(id);&lt;br&gt;
+		render(client);&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+	&amp;nbsp;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;delete(Long&amp;nbsp;id)&amp;nbsp;{&lt;br&gt;
+		Client&amp;nbsp;client&amp;nbsp;=&amp;nbsp;Client.findById(id);&lt;br&gt;
+		client.delete();&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+	&amp;nbsp;&lt;br&gt;
+	}&lt;br&gt;
+&lt;br&gt;
+	&lt;b&gt;&lt;br&gt;
+	Each&amp;nbsp;public,&amp;nbsp;static&amp;nbsp;method&amp;nbsp;in&amp;nbsp;a&amp;nbsp;Controller&amp;nbsp;is&amp;nbsp;called&amp;nbsp;an&amp;nbsp;action.&amp;nbsp;The&amp;nbsp;signature&amp;nbsp;for&amp;nbsp;an&amp;nbsp;action&amp;nbsp;method&amp;nbsp;is&amp;nbsp;always:&lt;br&gt;
+	public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;action_name(params...);&amp;nbsp;	&lt;br&gt;
+	&lt;/b&gt;&lt;br&gt;
+&lt;br&gt;
+	&amp;nbsp;You&amp;nbsp;can&amp;nbsp;&lt;b&gt;define&amp;nbsp;parameters&amp;nbsp;&lt;/b&gt;&amp;nbsp;in&amp;nbsp;the&amp;nbsp;action&amp;nbsp;method&amp;nbsp;signature.&amp;nbsp;These&amp;nbsp;parameters&amp;nbsp;will&amp;nbsp;be&amp;nbsp;&lt;b&gt;automatically&lt;/b&gt;&amp;nbsp;resolved&amp;nbsp;by&amp;nbsp;the&amp;nbsp;	&amp;nbsp;&amp;nbsp;framework&amp;nbsp;from&amp;nbsp;	the&amp;nbsp;	corresponding&amp;nbsp;HTTP&amp;nbsp;parameters.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+	&lt;b&gt;&lt;br&gt;
+	Usually,&amp;nbsp;an&amp;nbsp;action&amp;nbsp;method&amp;nbsp;doesn?t&amp;nbsp;include&amp;nbsp;a&amp;nbsp;return&amp;nbsp;statement.&amp;nbsp;The&amp;nbsp;method&amp;nbsp;exit&amp;nbsp;is&amp;nbsp;done&amp;nbsp;by&amp;nbsp;the&amp;nbsp;invocation&amp;nbsp;of&amp;nbsp;a&amp;nbsp;result&amp;nbsp;method.&amp;nbsp;In&amp;nbsp;			this&amp;nbsp;example,&amp;nbsp;&lt;b&gt;&amp;nbsp;render(...)&amp;nbsp;&lt;/b&gt;&amp;nbsp;is&amp;nbsp;a&amp;nbsp;result&amp;nbsp;method&amp;nbsp;that&amp;nbsp;executes&amp;nbsp;and&amp;nbsp;displays&amp;nbsp;a&amp;nbsp;template&lt;br&gt;
+	&lt;/b&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_2:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Retrieving&amp;nbsp;HTTP&amp;nbsp;parameters&amp;nbsp;in&amp;nbsp;controllers&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>An&amp;nbsp;HTTP&amp;nbsp;request&amp;nbsp;contains&amp;nbsp;data.&amp;nbsp;This&amp;nbsp;data&amp;nbsp;can&amp;nbsp;be&amp;nbsp;extracted&amp;nbsp;from:&lt;br&gt;
+&lt;br&gt;
+	*The&amp;nbsp;URI&amp;nbsp;path:&amp;nbsp;in&amp;nbsp;/clients/1541,&amp;nbsp;1541&amp;nbsp;is&amp;nbsp;the&amp;nbsp;dynamic&amp;nbsp;part&amp;nbsp;of&amp;nbsp;the&amp;nbsp;URI&amp;nbsp;Pattern.&lt;br&gt;
+	*The&amp;nbsp;Query&amp;nbsp;String:&amp;nbsp;/clients?id=1541.&lt;br&gt;
+	*The&amp;nbsp;request&amp;nbsp;body:&amp;nbsp;if&amp;nbsp;the&amp;nbsp;request&amp;nbsp;was&amp;nbsp;sent&amp;nbsp;from&amp;nbsp;an&amp;nbsp;HTML&amp;nbsp;form,&amp;nbsp;the&amp;nbsp;request&amp;nbsp;body&amp;nbsp;contains&amp;nbsp;the&amp;nbsp;form&amp;nbsp;data&amp;nbsp;encoded&amp;nbsp;as&amp;nbsp;x-www-urlform-encoded.&lt;br&gt;
+&lt;br&gt;
+	In&amp;nbsp;all&amp;nbsp;cases,&amp;nbsp;Play&amp;nbsp;extracts&amp;nbsp;this&amp;nbsp;data&amp;nbsp;and&amp;nbsp;builds&amp;nbsp;a&amp;nbsp;Map&lt;String,&amp;nbsp;String[]&gt;&amp;nbsp;&lt;b&gt;params&lt;/b&gt;&amp;nbsp;which&amp;nbsp;contains&amp;nbsp;all&amp;nbsp;the&amp;nbsp;HTTP&amp;nbsp;parameters.&amp;nbsp;The&amp;nbsp;key&amp;nbsp;		is&amp;nbsp;the&amp;nbsp;parameter&amp;nbsp;name.&amp;nbsp;The&amp;nbsp;parameter&amp;nbsp;name&amp;nbsp;is&amp;nbsp;derived&amp;nbsp;from:&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;String&amp;nbsp;id&amp;nbsp;=&amp;nbsp;params.get("id");&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;String[]&amp;nbsp;names&amp;nbsp;=&amp;nbsp;params.getAll("names");&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+!BUUTTTTTTTTTT&amp;nbsp;,there&amp;nbsp;is&amp;nbsp;easier&amp;nbsp;way&amp;nbsp;to&amp;nbsp;retrieve&amp;nbsp;parameters&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+	public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;showArguments(Long&amp;nbsp;id){&lt;br&gt;
+		//&amp;nbsp;and&amp;nbsp;you&amp;nbsp;have&amp;nbsp;id&amp;nbsp;from&amp;nbsp;url&amp;nbsp;&lt;br&gt;
+		//play&amp;nbsp;try&amp;nbsp;to&amp;nbsp;cast&amp;nbsp;it&amp;nbsp;,&amp;nbsp;if&amp;nbsp;we&amp;nbsp;pass&amp;nbsp;wrong&amp;nbsp;value&amp;nbsp;then&amp;nbsp;id&amp;nbsp;will&amp;nbsp;be&amp;nbsp;null&amp;nbsp;(default&amp;nbsp;value)&lt;br&gt;
+		&lt;br&gt;
+		redner(id);&lt;br&gt;
+&lt;br&gt;
+	}</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_2:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Advanced&amp;nbsp;HTTP&amp;nbsp;to&amp;nbsp;Java&amp;nbsp;binding&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&amp;nbsp;(and&amp;nbsp;few&amp;nbsp;words&amp;nbsp;about&amp;nbsp;@As&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;annotation)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>All&amp;nbsp;the&amp;nbsp;native&amp;nbsp;and&amp;nbsp;common&amp;nbsp;Java&amp;nbsp;types&amp;nbsp;are&amp;nbsp;automatically&amp;nbsp;bound:&lt;br&gt;
+&lt;br&gt;
+	int,&amp;nbsp;long,&amp;nbsp;boolean,&amp;nbsp;char,&amp;nbsp;byte,&amp;nbsp;float,&amp;nbsp;double,&amp;nbsp;Integer,&amp;nbsp;Long,&amp;nbsp;Boolean,&amp;nbsp;Char,&amp;nbsp;String,&amp;nbsp;Byte,&amp;nbsp;Float,&amp;nbsp;Double.&lt;br&gt;
+	&lt;B&gt;	&lt;br&gt;
+	Note&amp;nbsp;that&amp;nbsp;if&amp;nbsp;the&amp;nbsp;parameter&amp;nbsp;is&amp;nbsp;missing&amp;nbsp;in&amp;nbsp;the&amp;nbsp;HTTP&amp;nbsp;Request,&amp;nbsp;or&amp;nbsp;if&amp;nbsp;automatic&amp;nbsp;conversion&amp;nbsp;fails,&amp;nbsp;Object&amp;nbsp;types&amp;nbsp;will&amp;nbsp;be&amp;nbsp;set&amp;nbsp;to&amp;nbsp;null&amp;nbsp;and&amp;nbsp;native&amp;nbsp;types&amp;nbsp;will&amp;nbsp;be&amp;nbsp;set&amp;nbsp;to&amp;nbsp;their&amp;nbsp;default&amp;nbsp;values.&lt;br&gt;
+	&lt;/B&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+	!!&amp;nbsp;Passing&amp;nbsp;&lt;b&gt;date&lt;/b&gt;&amp;nbsp;to&amp;nbsp;controller&amp;nbsp;:&lt;br&gt;
+	finally&amp;nbsp;we&amp;nbsp;have&amp;nbsp;request&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+	&lt;b&gt;http://localhost:9000/Application/getDate?originalDate=21-10-2012&amp;addDays=6&lt;/b&gt;&lt;br&gt;
+	and&amp;nbsp;response&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+	&lt;b&gt;The&amp;nbsp;date&amp;nbsp;after&amp;nbsp;6&amp;nbsp;days&amp;nbsp;will&amp;nbsp;be&amp;nbsp;27/10/2012&lt;/b&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+	Java&amp;nbsp;code&amp;nbsp;in&amp;nbsp;controller&amp;nbsp;(@As&amp;nbsp;annotation&amp;nbsp;is&amp;nbsp;interesting)&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;getDate(@As("dd-MM-yyyy")GregorianCalendar&amp;nbsp;originalDate,Long&amp;nbsp;addDays){&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;	&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;	originalDate.add(Calendar.DAY_OF_WEEK,&amp;nbsp;addDays.intValue());&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;	&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;	Date&amp;nbsp;result=originalDate.getTime();&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;	String&amp;nbsp;resultDate=new&amp;nbsp;SimpleDateFormat("dd/MM/yyyy").format(result);&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;	&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;	render(resultDate,addDays);&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+	&lt;br&gt;
+	&lt;br&gt;
+	&lt;br&gt;
+	On&amp;nbsp;the&amp;nbsp;page&amp;nbsp;getDate.html&lt;br&gt;
+&lt;br&gt;
+	#{extends&amp;nbsp;'main.html'&amp;nbsp;/}&lt;br&gt;
+	#{set&amp;nbsp;title:'Get&amp;nbsp;Date'&amp;nbsp;/}&lt;br&gt;
+&lt;br&gt;
+	The&amp;nbsp;date&amp;nbsp;after&amp;nbsp;&lt;b&gt;${addDays}&amp;nbsp;days&lt;/b&gt;&amp;nbsp;&amp;nbsp;will&amp;nbsp;be&amp;nbsp;&lt;b&gt;${resultDate.toString()}&lt;/b&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_2:4" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Save&amp;nbsp;file&amp;nbsp;with&amp;nbsp;Play&amp;nbsp;framework&amp;nbsp;1&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Java&amp;nbsp;code&amp;nbsp;:&lt;br&gt;
+&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;saveFile(File&amp;nbsp;file)&amp;nbsp;throws&amp;nbsp;IOException{&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;	String&amp;nbsp;message="something&amp;nbsp;wrong";&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;	if(file!=null){&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;	FileChannel&amp;nbsp;sourceChannel&amp;nbsp;=&amp;nbsp;null;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FileChannel&amp;nbsp;destChannel&amp;nbsp;=&amp;nbsp;null;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;try&amp;nbsp;{&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;	String&amp;nbsp;mimeType&amp;nbsp;=&amp;nbsp;MimeTypes.getContentType(file.getName());&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;sourceChannel&amp;nbsp;=&amp;nbsp;new&amp;nbsp;FileInputStream(file).getChannel();&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;destChannel&amp;nbsp;=&amp;nbsp;new&amp;nbsp;FileOutputStream("/home/andrew/temp.jpg").getChannel();&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;destChannel.transferFrom(sourceChannel,&amp;nbsp;0,&amp;nbsp;sourceChannel.size());&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;message="ok";&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}finally{&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;sourceChannel.close();&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;destChannel.close();&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;	}&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;	render(message);&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+	index.html&amp;nbsp;:&lt;br&gt;
+	&lt;div&amp;nbsp;style="margin:20px;widht:500px;border:1px&amp;nbsp;solid&amp;nbsp;gray"&gt;&lt;br&gt;
+		&lt;form&amp;nbsp;action="@{Application.saveFile}"&amp;nbsp;method="post"&amp;nbsp;enctype="multipart/form-data"&gt;&lt;br&gt;
+			&lt;input&amp;nbsp;type="file"&amp;nbsp;name="file"&amp;nbsp;/&gt;&lt;br&gt;
+&lt;br&gt;
+			&lt;input&amp;nbsp;type="submit"&amp;nbsp;value="Save&amp;nbsp;file&amp;nbsp;to&amp;nbsp;home&amp;nbsp;dir"/&gt;&amp;nbsp;&lt;br&gt;
+		&lt;/form&gt;&lt;br&gt;
+	&lt;/div&gt;&lt;br&gt;
+&lt;br&gt;
+	save.html&amp;nbsp;:&lt;br&gt;
+&lt;br&gt;
+	#{extends&amp;nbsp;'main.html'&amp;nbsp;/}&lt;br&gt;
+	#{set&amp;nbsp;title:'saving'&amp;nbsp;/}&lt;br&gt;
+&lt;br&gt;
+	${message}</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_2:5" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;POJO&amp;nbsp;object&amp;nbsp;binding&amp;nbsp;-&amp;nbsp;important&amp;nbsp;and&amp;nbsp;very&amp;nbsp;easy&amp;nbsp;,&amp;nbsp;describe&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>For&amp;nbsp;example&amp;nbsp;we&amp;nbsp;have&amp;nbsp;object&amp;nbsp;Client&lt;br&gt;
+	package&amp;nbsp;models;&lt;br&gt;
+&lt;br&gt;
+	public&amp;nbsp;class&amp;nbsp;Client&amp;nbsp;{&lt;br&gt;
+	&lt;br&gt;
+		public&amp;nbsp;String&amp;nbsp;name="";&lt;br&gt;
+		public&amp;nbsp;String&amp;nbsp;secondName="";&lt;br&gt;
+	&lt;br&gt;
+		@Override&lt;br&gt;
+		public&amp;nbsp;String&amp;nbsp;toString()&amp;nbsp;{&lt;br&gt;
+			return&amp;nbsp;this.name+"&amp;nbsp;"+this.secondName;&lt;br&gt;
+		}&lt;br&gt;
+	}&lt;br&gt;
+&lt;br&gt;
+	And&amp;nbsp;we&amp;nbsp;have&amp;nbsp;request&amp;nbsp;&lt;br&gt;
+	http://localhost:9000/Clients/saveClient?client.name=Ivan&amp;client.secondName=Ivanenko&lt;br&gt;
+	&lt;br&gt;
+&lt;br&gt;
+	And&amp;nbsp;java&amp;nbsp;code&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+		public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;saveClient(Client&amp;nbsp;client){&lt;br&gt;
+			System.out.println(client);&lt;br&gt;
+			//&amp;nbsp;client&amp;nbsp;is&amp;nbsp;automatically&amp;nbsp;generated&amp;nbsp;from&amp;nbsp;request&amp;nbsp;url&amp;nbsp;,&amp;nbsp;it&amp;nbsp;is&amp;nbsp;very&amp;nbsp;cool&amp;nbsp;=)&lt;br&gt;
+			render();&lt;br&gt;
+		}</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_2:6" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Custom&amp;nbsp;binding&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&amp;nbsp;(@As,&amp;nbsp;@NoBinding,&amp;nbsp;@Global)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;b&gt;@play.data.binding.As&lt;/b&gt;&lt;br&gt;
+&lt;br&gt;
+	public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;update(@As("dd/MM/yyyy")&amp;nbsp;Date&amp;nbsp;updatedAt)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		...&lt;br&gt;
+	}&lt;br&gt;
+	&lt;br&gt;
+	The&amp;nbsp;@As&amp;nbsp;annotation&amp;nbsp;also&amp;nbsp;has&amp;nbsp;internationalisation&amp;nbsp;support,&amp;nbsp;which&amp;nbsp;means&amp;nbsp;that&amp;nbsp;you&amp;nbsp;can&amp;nbsp;provide&amp;nbsp;a&amp;nbsp;specific&amp;nbsp;annotation&amp;nbsp;for&amp;nbsp;each&amp;nbsp;locale:&lt;br&gt;
+&lt;br&gt;
+	public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;update(&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@As(&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;lang={"fr,de","en","*"},&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;value={"dd/MM/yyyy","dd-MM-yyyy","MM-dd-yy"}&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;)&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Date&amp;nbsp;updatedAt&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;)&amp;nbsp;{&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;...&lt;br&gt;
+	}&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+	&lt;b&gt;@play.data.binding.NoBinding&lt;/b&gt;&lt;br&gt;
+&lt;br&gt;
+	The&amp;nbsp;new&amp;nbsp;@play.data.binding.NoBinding&amp;nbsp;annotation&amp;nbsp;allows&amp;nbsp;yous&amp;nbsp;to&amp;nbsp;mark&amp;nbsp;non-bindable&amp;nbsp;fields,&amp;nbsp;resolving&amp;nbsp;potential&amp;nbsp;security&amp;nbsp;issues.&amp;nbsp;For&amp;nbsp;		example:&lt;br&gt;
+	&lt;br&gt;
+	public&amp;nbsp;class&amp;nbsp;User&amp;nbsp;extends&amp;nbsp;Model&amp;nbsp;{&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@NoBinding("profile")&amp;nbsp;public&amp;nbsp;boolean&amp;nbsp;isAdmin;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@As("dd,&amp;nbsp;MM&amp;nbsp;yyyy")&amp;nbsp;Date&amp;nbsp;birthDate;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;name;&lt;br&gt;
+	}&lt;br&gt;
+	&amp;nbsp;&lt;br&gt;
+	public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;editProfile(@As("profile")&amp;nbsp;User&amp;nbsp;user)&amp;nbsp;{&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;...&lt;br&gt;
+	}&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+	@play.data.binding.Global&lt;br&gt;
+&lt;br&gt;
+	Alternatively,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;define&amp;nbsp;a&amp;nbsp;global&amp;nbsp;custom&amp;nbsp;binder&amp;nbsp;that&amp;nbsp;will&amp;nbsp;apply&amp;nbsp;for&amp;nbsp;the&amp;nbsp;corresponding&amp;nbsp;type.&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;you&amp;nbsp;define&amp;nbsp;a&amp;nbsp;binder&amp;nbsp;for&amp;nbsp;the&amp;nbsp;java.awt.Point&amp;nbsp;class&amp;nbsp;like&amp;nbsp;this:&lt;br&gt;
+&lt;br&gt;
+	@Global&lt;br&gt;
+	public&amp;nbsp;class&amp;nbsp;PointBinder&amp;nbsp;implements&amp;nbsp;TypeBinder&lt;Point&gt;&amp;nbsp;{&lt;br&gt;
+	&amp;nbsp;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Object&amp;nbsp;bind(String&amp;nbsp;name,&amp;nbsp;Annotation[]&amp;nbsp;anns,&amp;nbsp;String&amp;nbsp;value,&amp;nbsp;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Class&amp;nbsp;class)&amp;nbsp;{&lt;br&gt;
+		String[]&amp;nbsp;values&amp;nbsp;=&amp;nbsp;value.split(",");&lt;br&gt;
+		return&amp;nbsp;new&amp;nbsp;Point(&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Integer.parseInt(values[0]),&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Integer.parseInt(values[1])&lt;br&gt;
+		);&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+	}</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_2:7" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Result&amp;nbsp;types&amp;nbsp;(tip:&amp;nbsp;what&amp;nbsp;action&amp;nbsp;returns&amp;nbsp;)&amp;nbsp;,&amp;nbsp;describe&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>An&amp;nbsp;action&amp;nbsp;method&amp;nbsp;has&amp;nbsp;to&amp;nbsp;generate&amp;nbsp;an&amp;nbsp;HTTP&amp;nbsp;response.&amp;nbsp;The&amp;nbsp;easiest&amp;nbsp;way&amp;nbsp;to&amp;nbsp;do&amp;nbsp;this&amp;nbsp;is&amp;nbsp;to&amp;nbsp;emit&amp;nbsp;a&amp;nbsp;Result&amp;nbsp;object.&amp;nbsp;&lt;br&gt;
+	When&amp;nbsp;a&amp;nbsp;Result&amp;nbsp;object&amp;nbsp;is&amp;nbsp;		&lt;br&gt;
+	emitted,&amp;nbsp;the&amp;nbsp;normal&amp;nbsp;execution&amp;nbsp;flow&amp;nbsp;is&amp;nbsp;interrupted&amp;nbsp;and&amp;nbsp;the&amp;nbsp;method&amp;nbsp;returns.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+	For&amp;nbsp;example:&lt;br&gt;
+&lt;br&gt;
+	public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;show(Long&amp;nbsp;id)&amp;nbsp;{&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Client&amp;nbsp;client&amp;nbsp;=&amp;nbsp;Client.findById(id);&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;render(client);&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("This&amp;nbsp;message&amp;nbsp;will&amp;nbsp;never&amp;nbsp;be&amp;nbsp;displayed&amp;nbsp;!");&lt;br&gt;
+	}&lt;br&gt;
+&lt;br&gt;
+	&lt;b&gt;The&amp;nbsp;render(...)&amp;nbsp;method&amp;nbsp;emits&amp;nbsp;a&amp;nbsp;Result&amp;nbsp;object&amp;nbsp;and&amp;nbsp;stops&amp;nbsp;further&amp;nbsp;method&amp;nbsp;execution.&lt;/b&gt;&lt;br&gt;
+&lt;br&gt;
+	Return&amp;nbsp;some&amp;nbsp;&lt;b&gt;textual&lt;/b&gt;&amp;nbsp;content&lt;br&gt;
+&lt;br&gt;
+	The&amp;nbsp;renderText(...)&amp;nbsp;method&amp;nbsp;emits&amp;nbsp;a&amp;nbsp;simple&amp;nbsp;Result&amp;nbsp;event&amp;nbsp;which&amp;nbsp;writes&amp;nbsp;some&amp;nbsp;text&amp;nbsp;directly&amp;nbsp;to&amp;nbsp;the&amp;nbsp;underlying&amp;nbsp;HTTP&amp;nbsp;Response.&lt;br&gt;
+&lt;br&gt;
+	Example:&lt;br&gt;
+&lt;br&gt;
+	//&amp;nbsp;here&amp;nbsp;we&amp;nbsp;dont&amp;nbsp;need&amp;nbsp;countUnreadMessages.html&amp;nbsp;file&amp;nbsp;&amp;nbsp;&lt;br&gt;
+	public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;countUnreadMessages()&amp;nbsp;{&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Integer&amp;nbsp;unreadMessages&amp;nbsp;=&amp;nbsp;MessagesBox.countUnreadMessages();&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;renderText(unreadMessages);&lt;br&gt;
+	}&lt;br&gt;
+&lt;br&gt;
+	&amp;nbsp;renderXml("&lt;unreadmessages&gt;"+unreadMessages+"&lt;/unreadmessages&gt;");&amp;nbsp;-&amp;nbsp;render&amp;nbsp;xml&amp;nbsp;&lt;br&gt;
+	&lt;br&gt;
+	also&amp;nbsp;there&amp;nbsp;is&amp;nbsp;renderJson&amp;nbsp;method&lt;br&gt;
+	also&amp;nbsp;we&amp;nbsp;can&amp;nbsp;render&amp;nbsp;binary&amp;nbsp;data&amp;nbsp;(renderBinary&amp;nbsp;method)</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_2:8" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Return&amp;nbsp;binary&amp;nbsp;content&amp;nbsp;from&amp;nbsp;action&amp;nbsp;&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&amp;nbsp;Provide&amp;nbsp;some&amp;nbsp;example&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;userPhoto(long&amp;nbsp;id)&amp;nbsp;{&amp;nbsp;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;final&amp;nbsp;User&amp;nbsp;user&amp;nbsp;=&amp;nbsp;User.findById(id);&amp;nbsp;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;response.setContentTypeIfNotSet(user.photo.type());&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;java.io.InputStream&amp;nbsp;binaryData&amp;nbsp;=&amp;nbsp;user.photo.get();&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;renderBinary(binaryData);&lt;br&gt;
+	}&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+	or&amp;nbsp;other&amp;nbsp;&lt;b&gt;example&lt;/b&gt;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;downloadFile(Long&amp;nbsp;id){&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;response.setContentTypeIfNotSet("pdf");&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;java.io.InputStream&amp;nbsp;binaryData;&lt;br&gt;
+				try&amp;nbsp;{&lt;br&gt;
+					binaryData&amp;nbsp;=&amp;nbsp;new&amp;nbsp;FileInputStream("/media/88D4CBF1D4CBDF94/pro_html5_and_css3_design_patterns.pdf");&lt;br&gt;
+					renderBinary(binaryData);&lt;br&gt;
+				}&amp;nbsp;catch&amp;nbsp;(FileNotFoundException&amp;nbsp;e)&amp;nbsp;{&lt;br&gt;
+					//&amp;nbsp;TODO&amp;nbsp;Auto-generated&amp;nbsp;catch&amp;nbsp;block&lt;br&gt;
+					e.printStackTrace();&lt;br&gt;
+					renderText("Error");&lt;br&gt;
+					}&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;		&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_2:9" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Execute&amp;nbsp;a&amp;nbsp;template&amp;nbsp;.&amp;nbsp;Some&amp;nbsp;examples&amp;nbsp;of&amp;nbsp;using&amp;nbsp;render&amp;nbsp;method&amp;nbsp;.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>If&amp;nbsp;the&amp;nbsp;generated&amp;nbsp;content&amp;nbsp;is&amp;nbsp;complex,&amp;nbsp;you&amp;nbsp;should&amp;nbsp;use&amp;nbsp;a&amp;nbsp;template&amp;nbsp;to&amp;nbsp;generate&amp;nbsp;the&amp;nbsp;response&amp;nbsp;content.&lt;br&gt;
+&lt;br&gt;
+	&lt;br&gt;
+	public&amp;nbsp;class&amp;nbsp;Clients&amp;nbsp;extends&amp;nbsp;Controller&amp;nbsp;{&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+		//&amp;nbsp;we&amp;nbsp;need&amp;nbsp;index.html&amp;nbsp;file&amp;nbsp;	&amp;nbsp;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;index()&amp;nbsp;{&lt;br&gt;
+		render();&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+	}&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+	!!!&amp;nbsp;Add&amp;nbsp;data&amp;nbsp;to&amp;nbsp;the&amp;nbsp;template&amp;nbsp;scope&lt;br&gt;
+&lt;br&gt;
+	renderArgs.put("client",&amp;nbsp;client);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;render();&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+	!!!!&amp;nbsp;A&amp;nbsp;simpler&amp;nbsp;way&amp;nbsp;to&amp;nbsp;add&amp;nbsp;data&amp;nbsp;to&amp;nbsp;the&amp;nbsp;template&amp;nbsp;scope&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;String&amp;nbsp;name&amp;nbsp;="Some&amp;nbsp;name";&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;render(name);&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+	on&amp;nbsp;the&amp;nbsp;page&amp;nbsp;we&amp;nbsp;can&amp;nbsp;access&amp;nbsp;to&amp;nbsp;'name'&amp;nbsp;with&amp;nbsp;${name}&amp;nbsp;-&amp;nbsp;syntax</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_2:10" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Specify&amp;nbsp;another&amp;nbsp;template&amp;nbsp;(another&amp;nbsp;than&amp;nbsp;action&amp;nbsp;name&amp;nbsp;)&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>If&amp;nbsp;you&amp;nbsp;don?t&amp;nbsp;want&amp;nbsp;to&amp;nbsp;use&amp;nbsp;the&amp;nbsp;default&amp;nbsp;template,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;specify&amp;nbsp;your&amp;nbsp;own&amp;nbsp;template&amp;nbsp;file&amp;nbsp;using&amp;nbsp;the&amp;nbsp;&lt;br&gt;
+		renderTemplate(...)&amp;nbsp;method,&amp;nbsp;by&amp;nbsp;			passing&amp;nbsp;the&amp;nbsp;template&amp;nbsp;name&amp;nbsp;as&amp;nbsp;the&amp;nbsp;first&amp;nbsp;parameter:&lt;br&gt;
+&lt;br&gt;
+		Example:&lt;br&gt;
+&lt;br&gt;
+		public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;show(Long&amp;nbsp;id)&amp;nbsp;{&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Client&amp;nbsp;client&amp;nbsp;=&amp;nbsp;Client.findById(id);&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;renderTemplate("Clients/showClient.html",&amp;nbsp;id,&amp;nbsp;client);&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+		}&lt;br&gt;
+	&lt;br&gt;
+		public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;anotherIndex(){&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;	renderTemplate("Application/index.html");&lt;br&gt;
+		}</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_2:11" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Redirect&amp;nbsp;to&amp;nbsp;another&amp;nbsp;URL&amp;nbsp;,&amp;nbsp;describe&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>redirect&amp;nbsp;to&amp;nbsp;another&amp;nbsp;url&lt;br&gt;
+redirect("http://www.zenexity.fr");&lt;br&gt;
+		&amp;nbsp;&lt;br&gt;
+&amp;nbsp;redirect&amp;nbsp;for&amp;nbsp;example&amp;nbsp;from&amp;nbsp;one&amp;nbsp;action&amp;nbsp;go&amp;nbsp;to&amp;nbsp;index&amp;nbsp;action&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+	public&amp;nbsp;class&amp;nbsp;Application&amp;nbsp;extends&amp;nbsp;Controller&amp;nbsp;{&lt;br&gt;
+	...&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;index()&amp;nbsp;{&lt;br&gt;
+		...&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+	&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;someAction(){&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+		index()&amp;nbsp;;&amp;nbsp;&amp;nbsp;//&amp;nbsp;&lt;BBBBBBBBBBB&gt;&amp;nbsp;will&amp;nbsp;redirect&amp;nbsp;us&amp;nbsp;to&amp;nbsp;index&amp;nbsp;page&amp;nbsp;of&amp;nbsp;out&amp;nbsp;application,&amp;nbsp;we&amp;nbsp;can&amp;nbsp;also&amp;nbsp;pass&amp;nbsp;arguments&amp;nbsp;&lt;/BBBBBBBBBBBBB&gt;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_2:12" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Interceptions&amp;nbsp;&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&amp;nbsp;(@Before&amp;nbsp;,&amp;nbsp;@After&amp;nbsp;,&amp;nbsp;@Catch&amp;nbsp;,&amp;nbsp;@Finally&amp;nbsp;,&amp;nbsp;@With&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;describe)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>main&amp;nbsp;Interceptors&amp;nbsp;:&amp;nbsp;@Before&amp;nbsp;,&amp;nbsp;@After&amp;nbsp;,&amp;nbsp;@Catch&amp;nbsp;,&amp;nbsp;@Finally&amp;nbsp;,&amp;nbsp;@With&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+	import&amp;nbsp;play.mvc.Before;&lt;br&gt;
+	import&amp;nbsp;play.mvc.Controller;&lt;br&gt;
+&lt;br&gt;
+	public&amp;nbsp;class&amp;nbsp;Interceptor1&amp;nbsp;extends&amp;nbsp;Controller&amp;nbsp;{&lt;br&gt;
+		&lt;br&gt;
+		//this&amp;nbsp;method&amp;nbsp;will&amp;nbsp;be&amp;nbsp;invoked&amp;nbsp;before&amp;nbsp;invoking&amp;nbsp;actions&amp;nbsp;of&amp;nbsp;Interceptor1&amp;nbsp;class&lt;br&gt;
+		@Before&lt;br&gt;
+		public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;beforeInterceptor1(){&lt;br&gt;
+			System.out.println("Before&amp;nbsp;Interceptor1");&lt;br&gt;
+		}&lt;br&gt;
+		&lt;br&gt;
+		public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;index(){&lt;br&gt;
+			renderText("Interceptor1.index");&lt;br&gt;
+		}&lt;br&gt;
+	}&lt;br&gt;
+&lt;br&gt;
+	!!!&amp;nbsp;Interceptors&amp;nbsp;for&amp;nbsp;only&amp;nbsp;some&amp;nbsp;methods&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+		*&amp;nbsp;&amp;nbsp;@Before(unless="login")..method.&amp;nbsp;-&amp;nbsp;&amp;nbsp;&amp;nbsp;'method'&amp;nbsp;will&amp;nbsp;be&amp;nbsp;invoked&amp;nbsp;for&amp;nbsp;all&amp;nbsp;actions&amp;nbsp;,&amp;nbsp;but&amp;nbsp;not&amp;nbsp;for&amp;nbsp;login&amp;nbsp;action&lt;br&gt;
+		*&amp;nbsp;&amp;nbsp;@Before(only={"login","logout"})...mehtod...&amp;nbsp;-&amp;nbsp;'method'&amp;nbsp;will&amp;nbsp;be&amp;nbsp;invoked&amp;nbsp;only&amp;nbsp;for&amp;nbsp;login&amp;nbsp;and&amp;nbsp;logout&amp;nbsp;actions&lt;br&gt;
+		*&lt;br&gt;
+	&lt;b&gt;The&amp;nbsp;unless&amp;nbsp;and&amp;nbsp;only&amp;nbsp;parameters&amp;nbsp;are&amp;nbsp;available&amp;nbsp;for&amp;nbsp;the&amp;nbsp;@After,&amp;nbsp;@Before&amp;nbsp;and&amp;nbsp;@Finally&amp;nbsp;annotations.&lt;/b&gt;&lt;br&gt;
+&lt;br&gt;
+--------------&lt;br&gt;
+	@Catch&lt;br&gt;
+	Methods&amp;nbsp;annotated&amp;nbsp;with&amp;nbsp;@Catch&amp;nbsp;are&amp;nbsp;called&amp;nbsp;if&amp;nbsp;another&amp;nbsp;action&amp;nbsp;method&amp;nbsp;throws&amp;nbsp;the&amp;nbsp;specified&amp;nbsp;exception.&amp;nbsp;The&amp;nbsp;thrown&amp;nbsp;exception&amp;nbsp;is&amp;nbsp;passed&amp;nbsp;as&amp;nbsp;a&amp;nbsp;		parameter&amp;nbsp;to&amp;nbsp;the&amp;nbsp;@Catch&amp;nbsp;method.&amp;nbsp;(@Catch&amp;nbsp;aren't&amp;nbsp;invoked&amp;nbsp;if&amp;nbsp;exception&amp;nbsp;is&amp;nbsp;inside&amp;nbsp;try..catch&amp;nbsp;block)&lt;br&gt;
+		&lt;br&gt;
+	...&lt;br&gt;
+	public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;throwNullPointer(){&lt;br&gt;
+&lt;br&gt;
+			String&amp;nbsp;nul=null;&lt;br&gt;
+			//System.out.println(nul.toString());&lt;br&gt;
+			int&amp;nbsp;a=nul.length();&lt;br&gt;
+			renderText("Throwing&amp;nbsp;null&amp;nbsp;pointer");&lt;br&gt;
+		}&lt;br&gt;
+&lt;br&gt;
+	@Catch({NullPointerException.class})&lt;br&gt;
+	public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;catchNullPointer(Throwable&amp;nbsp;throwable){&lt;br&gt;
+			System.out.println("Catch&amp;nbsp;null&amp;nbsp;pointer&amp;nbsp;interceptor&amp;nbsp;in&amp;nbsp;Interceptor1");&lt;br&gt;
+	}&lt;br&gt;
+	...&lt;br&gt;
+&lt;br&gt;
+	As&amp;nbsp;with&amp;nbsp;normal&amp;nbsp;Java&amp;nbsp;exception&amp;nbsp;handling,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;catch&amp;nbsp;a&amp;nbsp;super-class&amp;nbsp;to&amp;nbsp;catch&amp;nbsp;more&amp;nbsp;exception&amp;nbsp;types.&amp;nbsp;If&amp;nbsp;you&amp;nbsp;have&amp;nbsp;more&amp;nbsp;than&amp;nbsp;one&amp;nbsp;catch&amp;nbsp;		method,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;specify&amp;nbsp;their&amp;nbsp;priority&amp;nbsp;so&amp;nbsp;that&amp;nbsp;they&amp;nbsp;are&amp;nbsp;executed&amp;nbsp;in&amp;nbsp;order&amp;nbsp;of&amp;nbsp;priority&amp;nbsp;(priority&amp;nbsp;1&amp;nbsp;is&amp;nbsp;executed&amp;nbsp;first).&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+---------&lt;br&gt;
+	@Finally&lt;br&gt;
+	Methods&amp;nbsp;annotated&amp;nbsp;with&amp;nbsp;the&amp;nbsp;@Finally&amp;nbsp;annotation&amp;nbsp;are&amp;nbsp;always&amp;nbsp;executed&amp;nbsp;after&amp;nbsp;each&amp;nbsp;action&amp;nbsp;call&amp;nbsp;to&amp;nbsp;this&amp;nbsp;Controller.&lt;br&gt;
+	@Finally-methods&amp;nbsp;are&amp;nbsp;called&amp;nbsp;both&amp;nbsp;after&amp;nbsp;successful&amp;nbsp;action&amp;nbsp;calls&amp;nbsp;and&amp;nbsp;if&amp;nbsp;an&amp;nbsp;error&amp;nbsp;occurred.&lt;br&gt;
+&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Admin&amp;nbsp;extends&amp;nbsp;Controller&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@Finally&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;void&amp;nbsp;log(Throwable&amp;nbsp;e)&amp;nbsp;{&lt;br&gt;
+		if(&amp;nbsp;e&amp;nbsp;==&amp;nbsp;null&amp;nbsp;){&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Logger.info("action&amp;nbsp;call&amp;nbsp;was&amp;nbsp;successful");&lt;br&gt;
+		}&amp;nbsp;else{&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Logger.info("action&amp;nbsp;call&amp;nbsp;failed",&amp;nbsp;e);&lt;br&gt;
+		}&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+	&amp;nbsp;&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;index()&amp;nbsp;{&lt;br&gt;
+		List&lt;User&gt;&amp;nbsp;users&amp;nbsp;=&amp;nbsp;User.findAll();&lt;br&gt;
+		render(users);&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+	&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;...&lt;br&gt;
+	}&lt;br&gt;
+&lt;br&gt;
+------------!!!!&lt;br&gt;
+		@With&amp;nbsp;interceptor&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+		Adding&amp;nbsp;more&amp;nbsp;interceptors&amp;nbsp;using&amp;nbsp;the&amp;nbsp;@With&amp;nbsp;annotation&lt;br&gt;
+		Because&amp;nbsp;Java&amp;nbsp;does&amp;nbsp;not&amp;nbsp;allow&amp;nbsp;multiple&amp;nbsp;inheritance,&amp;nbsp;it&amp;nbsp;can&amp;nbsp;be&amp;nbsp;very&amp;nbsp;limiting&amp;nbsp;to&amp;nbsp;rely&amp;nbsp;on&amp;nbsp;the&amp;nbsp;Controller&amp;nbsp;hierarchy&amp;nbsp;to&amp;nbsp;apply&amp;nbsp;			interceptors.&amp;nbsp;But&amp;nbsp;you&amp;nbsp;can&amp;nbsp;define&amp;nbsp;some&amp;nbsp;interceptors&amp;nbsp;in&amp;nbsp;a&amp;nbsp;totally&amp;nbsp;different&amp;nbsp;class,&amp;nbsp;and&amp;nbsp;&lt;b&gt;link&lt;/b&gt;&amp;nbsp;them&amp;nbsp;with&amp;nbsp;any&amp;nbsp;controller&amp;nbsp;using&amp;nbsp;		the&amp;nbsp;@With&amp;nbsp;annotation.&lt;br&gt;
+	&lt;br&gt;
+		public&amp;nbsp;class&amp;nbsp;Secure&amp;nbsp;extends&amp;nbsp;Controller&amp;nbsp;{&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+		@Before&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;void&amp;nbsp;checkAuthenticated()&amp;nbsp;{&lt;br&gt;
+			if(!session.containsKey("user"))&amp;nbsp;{&lt;br&gt;
+			&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;unAuthorized();&lt;br&gt;
+			}&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+		}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+		And&amp;nbsp;on&amp;nbsp;another&amp;nbsp;Controller:&lt;br&gt;
+&lt;br&gt;
+		@With(Secure.class)&amp;nbsp;&amp;nbsp;//&amp;nbsp;before&amp;nbsp;all&amp;nbsp;actions&amp;nbsp;in&amp;nbsp;class&amp;nbsp;Admin&amp;nbsp;,&amp;nbsp;method&amp;nbsp;'checkAutenticated'&amp;nbsp;will&amp;nbsp;be&amp;nbsp;invoked&lt;br&gt;
+		public&amp;nbsp;class&amp;nbsp;Admin&amp;nbsp;extends&amp;nbsp;Controller&amp;nbsp;{&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;...&lt;br&gt;
+		}</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_2:13" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Session&amp;nbsp;and&amp;nbsp;Flash&amp;nbsp;scopes&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+	If&amp;nbsp;you&amp;nbsp;have&amp;nbsp;to&amp;nbsp;keep&amp;nbsp;data&amp;nbsp;across&amp;nbsp;multiple&amp;nbsp;HTTP&amp;nbsp;Requests,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;save&amp;nbsp;them&amp;nbsp;in&amp;nbsp;the&amp;nbsp;Session&lt;br&gt;
+	or&amp;nbsp;the&amp;nbsp;Flash&amp;nbsp;scope.&amp;nbsp;Data&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;the&amp;nbsp;Session&amp;nbsp;	are&amp;nbsp;available&amp;nbsp;during&amp;nbsp;the&amp;nbsp;whole&amp;nbsp;user&amp;nbsp;session,&lt;br&gt;
+	and&amp;nbsp;data&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;the&amp;nbsp;flash&amp;nbsp;scope&amp;nbsp;are&amp;nbsp;available&amp;nbsp;to&amp;nbsp;the&amp;nbsp;next&amp;nbsp;request&amp;nbsp;only.&lt;br&gt;
+&lt;br&gt;
+	It’s&amp;nbsp;important&amp;nbsp;to&amp;nbsp;understand&amp;nbsp;that&amp;nbsp;Session&amp;nbsp;and&amp;nbsp;Flash&amp;nbsp;data&amp;nbsp;are&amp;nbsp;not&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;the&amp;nbsp;server&amp;nbsp;but&amp;nbsp;are&amp;nbsp;&lt;br&gt;
+	added&amp;nbsp;to&amp;nbsp;each&amp;nbsp;subsequent&amp;nbsp;HTTP&amp;nbsp;Request,&amp;nbsp;		&lt;b&gt;using&amp;nbsp;the&amp;nbsp;Cookie&amp;nbsp;mechanism&amp;nbsp;&lt;/b&gt;.&amp;nbsp;So&amp;nbsp;the&amp;nbsp;data&amp;nbsp;size&lt;br&gt;
+	is&amp;nbsp;very&amp;nbsp;limited&amp;nbsp;(up&amp;nbsp;to&amp;nbsp;4&amp;nbsp;KB)&amp;nbsp;and&amp;nbsp;you&amp;nbsp;can&amp;nbsp;only&amp;nbsp;store&amp;nbsp;String&amp;nbsp;values.			&lt;br&gt;
+		&lt;br&gt;
+	&lt;br&gt;
+	Of&amp;nbsp;course,&amp;nbsp;cookies&amp;nbsp;are&amp;nbsp;signed&amp;nbsp;with&amp;nbsp;a&amp;nbsp;secret&amp;nbsp;key&amp;nbsp;so&amp;nbsp;the&amp;nbsp;client&amp;nbsp;can’t&amp;nbsp;modify&amp;nbsp;the&amp;nbsp;cookie&amp;nbsp;data&amp;nbsp;&lt;br&gt;
+	(or&amp;nbsp;it&amp;nbsp;will&amp;nbsp;be&amp;nbsp;invalidated).&amp;nbsp;The&amp;nbsp;Play&amp;nbsp;		session&amp;nbsp;is&amp;nbsp;not&amp;nbsp;aimed&amp;nbsp;to&amp;nbsp;be&amp;nbsp;used&amp;nbsp;as&amp;nbsp;a&amp;nbsp;cache.&lt;br&gt;
+	If&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;cache&amp;nbsp;some&amp;nbsp;data&amp;nbsp;related&amp;nbsp;to&amp;nbsp;a&amp;nbsp;specific&amp;nbsp;session,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&amp;nbsp;the&amp;nbsp;Play&amp;nbsp;built-in&amp;nbsp;	&lt;br&gt;
+	cache&amp;nbsp;mechanism&amp;nbsp;and&amp;nbsp;use&amp;nbsp;the&amp;nbsp;session.getId()&amp;nbsp;key&amp;nbsp;to&amp;nbsp;keep&amp;nbsp;them&amp;nbsp;related&amp;nbsp;to&amp;nbsp;a&amp;nbsp;specific&amp;nbsp;user&amp;nbsp;session.&lt;br&gt;
+&lt;br&gt;
+		public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;index()&amp;nbsp;{&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&amp;nbsp;messages&amp;nbsp;=&amp;nbsp;Cache.get(session.getId()&amp;nbsp;+&amp;nbsp;"-messages",&amp;nbsp;List.class);&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if(messages&amp;nbsp;==&amp;nbsp;null)&amp;nbsp;{&lt;br&gt;
+			//&amp;nbsp;Cache&amp;nbsp;miss&lt;br&gt;
+			messages&amp;nbsp;=&amp;nbsp;Message.findByUser(session.get("user"));&lt;br&gt;
+			Cache.set(session.getId()&amp;nbsp;+&amp;nbsp;"-messages",&amp;nbsp;messages,&amp;nbsp;"30mn");&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+		&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;render(messages);&lt;br&gt;
+		}&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+	=)&amp;nbsp;so&amp;nbsp;'flash'&amp;nbsp;is&amp;nbsp;scope&amp;nbsp;visible&amp;nbsp;only&amp;nbsp;in&amp;nbsp;NEXT&amp;nbsp;request&amp;nbsp;(useful&amp;nbsp;thing)&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+	P.S.&lt;br&gt;
+	The&amp;nbsp;session&amp;nbsp;expires&amp;nbsp;when&amp;nbsp;you&amp;nbsp;close&amp;nbsp;your&amp;nbsp;web&amp;nbsp;browser,&amp;nbsp;unless&amp;nbsp;you&amp;nbsp;configure&amp;nbsp;&lt;b&gt;application.session.maxAge&amp;nbsp;&lt;/b&gt;.&lt;br&gt;
+&lt;br&gt;
+	The&amp;nbsp;cache&amp;nbsp;has&amp;nbsp;different&amp;nbsp;semantics&amp;nbsp;to&amp;nbsp;the&amp;nbsp;classic&amp;nbsp;Servlet&amp;nbsp;HTTP&amp;nbsp;session&amp;nbsp;object.&amp;nbsp;You&amp;nbsp;can’t&amp;nbsp;assume&amp;nbsp;that&amp;nbsp;&lt;br&gt;
+	these&amp;nbsp;objects&amp;nbsp;will&amp;nbsp;be&amp;nbsp;always&amp;nbsp;in&amp;nbsp;the&amp;nbsp;	cache.&amp;nbsp;So&amp;nbsp;it&amp;nbsp;forces&amp;nbsp;you&amp;nbsp;to&amp;nbsp;handle&amp;nbsp;the&amp;nbsp;cache&amp;nbsp;miss&amp;nbsp;cases,&amp;nbsp;&lt;br&gt;
+	and&amp;nbsp;keeps&amp;nbsp;your&amp;nbsp;application&amp;nbsp;fully&amp;nbsp;stateless.</questionanswer>
+  </question>
+</questions>

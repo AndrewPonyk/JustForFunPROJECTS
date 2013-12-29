@@ -21,17 +21,6 @@ $v2$ &lt;head&gt; $v2end$
 $vend$</questiontext>
     <questionanswer>0</questionanswer>
   </question>
-  <question id="0_0_0:2" type="0">
-    <questiontext>What is the correct HTML tag for inserting a line break?&lt;br&gt;
-$v$&lt;br&gt;
-$v0$ 
-    &lt;lb&gt; $v0end$&lt;br&gt;
-$v1$ &lt;br&gt;
- $v1end$
-$v2$ &lt;break&gt; $v2end$&lt;br&gt;
-$vend$</questiontext>
-    <questionanswer>1</questionanswer>
-  </question>
   <question id="0_0_0:3" type="0">
     <questiontext>What tags (beginning and end) indicate table rows?&lt;br&gt;
 $v$&lt;br&gt;

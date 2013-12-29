@@ -1,7 +1,6 @@
 /**
  * @author olia
  */
-
 package com.ap.logic.QuizClasses;
 
 import com.ap.logic.Classification.Category;
@@ -10,6 +9,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -29,6 +31,7 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
+import org.xml.sax.InputSource;
 
 public class Quiz {
 
@@ -268,9 +271,17 @@ public class Quiz {
         try{
             XMLInputFactory inputFactory=XMLInputFactory.newInstance();
             in =new FileInputStream(Config.questionsPath+category.getFileName());
-                
-            XMLEventReader eventReader=inputFactory.createXMLEventReader(in);
-
+            
+            //must set utf-8 , for special characters
+            XMLEventReader eventReader;// = inputFactory.createXMLEventReader(in,"UTF-8");
+           
+            //new method , look here http://www.mkyong.com/java/sax-error-malformedbytesequenceexception-invalid-byte-1-of-1-byte-utf-8-sequence/
+            Reader reader = new InputStreamReader(in,"UTF-8");
+            InputSource is = new InputSource(reader);
+            is.setEncoding("UTF-8");
+            eventReader = inputFactory.createXMLEventReader(reader);
+            
+            
             while (eventReader.hasNext()) {
                 XMLEvent event=eventReader.nextEvent();
 
@@ -345,6 +356,8 @@ public class Quiz {
         }
         catch(XMLStreamException e){
             e.printStackTrace();
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(Quiz.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             try {
                 in.close();

@@ -39,14 +39,10 @@ import javax.swing.tree.DefaultTreeModel;
 
 import javax.swing.tree.TreePath;
 /**
-
  * @author olia
  */
 public class QuestionerJFrame extends JFrame {
 
-    /**
-     * Creates new form QuestionerJFrame
-     */
     public QuestionerJFrame() {
         initComponents();
         this.setSize(1000, 600);
@@ -55,8 +51,7 @@ public class QuestionerJFrame extends JFrame {
         // read configuration , and set static variables in Config class
         //Config.classificationXMLPath=...
         //Config.questionsPath=....
-        readConfigFile();
-        
+        readConfigFile();     
         //now create tree with all available categories
         createCategoriesTree();
 
@@ -778,7 +773,7 @@ public class QuestionerJFrame extends JFrame {
         newCategory.setName(newCategoryName);
         newCategory.setnOfQuestions(0);
         newCategory.setnOfSubcategories(0);
-        if(newCategoryFile  ){
+        if(newCategoryFile ){
             newCategory.setFileName(newCategoryName.replace(" ", "").toLowerCase() +newCategory.getId()+".xml");
             // create new file for category if needed
             this.reader.addQuestionsFile(Config.questionsPath+newCategory.getFileName(), newCategory);
@@ -804,7 +799,7 @@ public class QuestionerJFrame extends JFrame {
                 (ClassificationItem)((DefaultMutableTreeNode)  classificationTree.
                                                 getSelectionPath().getLastPathComponent()).getUserObject();
   
-        if( !(classOrCategory instanceof Category) ){
+        if(!(classOrCategory instanceof Category)){
             JOptionPane.showMessageDialog(this, "You can add Question only to Category");
             return;
         }
@@ -886,8 +881,7 @@ public class QuestionerJFrame extends JFrame {
             this.leftPanel.setVisible(false);
             this.quizSetupPanel.setVisible(false);
             this.quizPanel.setVisible(true);
-
-                
+      
             this.runQuiz();
         }else{
             JOptionPane.showMessageDialog(this, "Add some categories to quiz , by double clicking on category in the tree");
@@ -1024,15 +1018,15 @@ public class QuestionerJFrame extends JFrame {
     }//GEN-LAST:event_showQuizBeforePrintButtonActionPerformed
 
     private void takeAllQuestionsCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takeAllQuestionsCheckBoxActionPerformed
-        this.quizQuestionsCountTextField.setVisible(!this.takeAllQuestionsCheckBox.isSelected());
+        this.quizQuestionsCountTextField.setEnabled(!this.takeAllQuestionsCheckBox.isSelected());
+        int p =0;
     }//GEN-LAST:event_takeAllQuestionsCheckBoxActionPerformed
 
     private void showQuestionsListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showQuestionsListActionPerformed
 
         ClassificationItem classOrCategory=
             (ClassificationItem)((DefaultMutableTreeNode)  classificationTree.
-                                                getSelectionPath().getLastPathComponent()).getUserObject();
-
+                    getSelectionPath().getLastPathComponent()).getUserObject();
 
         QuestionsListJFrame questionsFrame = new QuestionsListJFrame();
         questionsFrame.parentFrame = this;
@@ -1096,11 +1090,10 @@ public class QuestionerJFrame extends JFrame {
 
         // Production =)
         jarLocation=  jarLocation.replace(
-                "JavaApplication1.jar", "");
+                "questioner.jar", "");
 
         System.out.println(jarLocation);
         Config.setQuestionerPath(jarLocation);
-
         return;
     }
     
@@ -1376,6 +1369,9 @@ public class QuestionerJFrame extends JFrame {
         }
 
         public void saveAnswer(){
+            if(this.quiz == null || this.quiz.getCurrentQuestion() ==null){
+                return ;
+            }
             if(this.quiz.getCurrentQuestion().getType().equals("0")){
                 if(this.quizVariant0RadioButton.isSelected())
                     this.quiz.getAnswers().put(this.quiz.getCurrentQuestion().getId(), "0");
@@ -1408,13 +1404,14 @@ public class QuestionerJFrame extends JFrame {
         }
 
         public void showCorrectAndWrongAnswers(QuizResult result){
-            //this.quizSetupPanel.setVisible(false);
             this.quizPanel.setVisible(false);
             this.quizReviewPanel.setVisible(true); 
 
             this.quizReviewTextPane.setContentType("text/html");
 
             String quizReviewString="";
+            String questionDelimiter = "<br>--------------------------------------------------------------------------------------------------------------------<br>";
+            String answerDelimiter = "<br>----------<br>";
             Set<String> items=null;
 
             quizReviewString+="<b>Quiz review</b><br>";
@@ -1430,8 +1427,9 @@ public class QuestionerJFrame extends JFrame {
             quizReviewString+="<b>Correct answered questions</b>";
             items=result.getCorrectQuestions().keySet();
             for(String item:items){
-                quizReviewString+=result.getCorrectQuestions().get(item).getQuestionText()+"<br>--<br>";
-                quizReviewString+="Correct ans <b>:"+result.getCorrectQuestions().get(item).getQuestionAnswer()+"</b><br>----------------------------------------------------<br>";
+                quizReviewString+=result.getCorrectQuestions().get(item).getQuestionText() + answerDelimiter;
+                quizReviewString+="Correct ans <b>:"+result.getCorrectQuestions().get(item).getQuestionAnswer()
+                        + "</b>" + questionDelimiter;
             }
             quizReviewString+="</p>";
 
@@ -1439,8 +1437,9 @@ public class QuestionerJFrame extends JFrame {
             quizReviewString+="<b>Wrong answered questions</b><br>";
             items=result.getWrongQuestions().keySet();
             for(String item:items){
-                quizReviewString+=result.getWrongQuestions().get(item).getQuestionText()+"<br>--<br>";
-                quizReviewString+="Correct ans :<b>"+result.getWrongQuestions().get(item).getQuestionAnswer()+"</b><br>----------------------------------------------------<br>";
+                quizReviewString+=result.getWrongQuestions().get(item).getQuestionText() + answerDelimiter;
+                quizReviewString+="Correct ans :<b>"+result.getWrongQuestions().get(item).getQuestionAnswer()
+                        + "</b>" + questionDelimiter;
             }
             quizReviewString+="</p>";
 
@@ -1449,8 +1448,9 @@ public class QuestionerJFrame extends JFrame {
             quizReviewString+="<b>Unaswered questions</b><br>";
             items=result.getUnasweredQuestions().keySet();
             for(String item:items){
-                quizReviewString+=result.getUnasweredQuestions().get(item).getQuestionText()+"<br>--<br>";
-                quizReviewString+="Correct ans :<b>"+result.getUnasweredQuestions().get(item).getQuestionAnswer()+"</b><br>----------------------------------------------------<br>";
+                quizReviewString+=result.getUnasweredQuestions().get(item).getQuestionText() + answerDelimiter;
+                quizReviewString+="Correct ans :<b>"+result.getUnasweredQuestions().get(item).getQuestionAnswer()
+                        + "</b>" + questionDelimiter;
             }
             
             quizReviewString+="</p>";
@@ -1461,8 +1461,9 @@ public class QuestionerJFrame extends JFrame {
 
             items=result.getDetailedAnserQuestions().keySet();
             for(String item:items){
-                quizReviewString+=result.getDetailedAnserQuestions().get(item).getQuestionText()+"<br>--<br>";
-                quizReviewString+="Answer :<b>"+result.getDetailedAnserQuestions().get(item).getQuestionAnswer()+"</b><br>--------------------------<br>";
+                quizReviewString+=result.getDetailedAnserQuestions().get(item).getQuestionText() + answerDelimiter;
+                quizReviewString+="Answer :<b>"+result.getDetailedAnserQuestions().get(item).getQuestionAnswer()
+                        + "</b>" + questionDelimiter;
             }
             quizReviewString+="</p>";
             this.quizReviewTextPane.setText(quizReviewString);
