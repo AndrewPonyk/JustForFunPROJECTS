@@ -1,2 +1,353 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_3" name="4_Template_engine" nofquestions="0" nofsubcategories="0" filename="4_template_engine1_0_1_4_1_0_0_3.xml" />
+<questions id="1_0_1_4_1_0_0_3" name="4_Template_engine" nofquestions="13" nofsubcategories="0" filename="4_template_engine1_0_1_4_1_0_0_3.xml">
+  <question id="1_0_1_4_1_0_0_3:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Describe&amp;nbsp;Play1&amp;nbsp;templating&amp;nbsp;system&amp;nbsp;,&amp;nbsp;and&amp;nbsp;template&amp;nbsp;syntax&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Play&amp;nbsp;has&amp;nbsp;an&amp;nbsp;efficient&amp;nbsp;templating&amp;nbsp;system&amp;nbsp;which&amp;nbsp;allows&amp;nbsp;to&amp;nbsp;dynamically&amp;nbsp;generate&amp;nbsp;HTML,&amp;nbsp;XML,&amp;nbsp;JSON&amp;nbsp;or&amp;nbsp;any&amp;nbsp;text-based&amp;nbsp;formatted&amp;nbsp;document.&amp;nbsp;&lt;br&gt;
+	The&amp;nbsp;		template&amp;nbsp;engine&amp;nbsp;uses&amp;nbsp;Groovy&amp;nbsp;as&amp;nbsp;an&amp;nbsp;expression&amp;nbsp;language.&amp;nbsp;A&amp;nbsp;tag&amp;nbsp;system&amp;nbsp;allows&amp;nbsp;you&amp;nbsp;to&amp;nbsp;create&amp;nbsp;reusable&amp;nbsp;functions.&lt;br&gt;
+&lt;br&gt;
+Templates&amp;nbsp;are&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;the&amp;nbsp;'app/views'&amp;nbsp;directory.&lt;br&gt;
+&lt;br&gt;
+A&amp;nbsp;template&amp;nbsp;file&amp;nbsp;is&amp;nbsp;a&amp;nbsp;text&amp;nbsp;file,&amp;nbsp;some&amp;nbsp;parts&amp;nbsp;of&amp;nbsp;which&amp;nbsp;have&amp;nbsp;placeholders&amp;nbsp;for&amp;nbsp;&lt;b&gt;dynamically&amp;nbsp;generated&amp;nbsp;content&lt;/b&gt;.&amp;nbsp;&lt;br&gt;
+The&amp;nbsp;template?s&amp;nbsp;dynamic&amp;nbsp;	&amp;nbsp;&amp;nbsp;elements&amp;nbsp;are&amp;nbsp;written&amp;nbsp;using&amp;nbsp;the&amp;nbsp;Groovy&amp;nbsp;language.&amp;nbsp;Groovy?s&amp;nbsp;syntax&amp;nbsp;is&amp;nbsp;very&amp;nbsp;close&amp;nbsp;to&amp;nbsp;Java?s.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+A&amp;nbsp;template&amp;nbsp;file&amp;nbsp;is&amp;nbsp;a&amp;nbsp;text&amp;nbsp;file,&amp;nbsp;some&amp;nbsp;parts&amp;nbsp;of&amp;nbsp;which&amp;nbsp;have&amp;nbsp;placeholders&amp;nbsp;for&amp;nbsp;dynamically&amp;nbsp;generated&amp;nbsp;content.&lt;br&gt;
+The&amp;nbsp;template?s&amp;nbsp;dynamic&amp;nbsp;elements&amp;nbsp;are&amp;nbsp;written&amp;nbsp;using&amp;nbsp;the&amp;nbsp;Groovy&amp;nbsp;language.&amp;nbsp;Groovy?s&amp;nbsp;syntax&amp;nbsp;is&amp;nbsp;very&amp;nbsp;close&amp;nbsp;to&amp;nbsp;Java?s.&lt;br&gt;
+	&lt;br&gt;
+Dynamic&amp;nbsp;elements&amp;nbsp;are&amp;nbsp;resolved&amp;nbsp;during&amp;nbsp;template&amp;nbsp;execution.&amp;nbsp;The&amp;nbsp;rendered&amp;nbsp;result&amp;nbsp;is&amp;nbsp;then&amp;nbsp;sent&amp;nbsp;as&amp;nbsp;part&amp;nbsp;of&amp;nbsp;the&amp;nbsp;HTTP&amp;nbsp;response.	&lt;br&gt;
+	!Expressions:&amp;nbsp;&amp;nbsp;&lt;b&gt;&amp;nbsp;${?}&amp;nbsp;&lt;/b&gt;&lt;br&gt;
+		for&amp;nbsp;example&amp;nbsp;we&amp;nbsp;have&amp;nbsp;index.html&lt;br&gt;
+			inside&amp;nbsp;${10+30}&amp;nbsp;-&amp;nbsp;display&amp;nbsp;'40'&amp;nbsp;(dynamically&amp;nbsp;executes&amp;nbsp;)&lt;br&gt;
+		----&lt;br&gt;
+		next&amp;nbsp;example&amp;nbsp;display&amp;nbsp;username&amp;nbsp;on&amp;nbsp;page&lt;br&gt;
+		public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;index()&amp;nbsp;{&lt;br&gt;
+			User&amp;nbsp;user=new&amp;nbsp;User();&lt;br&gt;
+			user.name="Ivan";&lt;br&gt;
+	&lt;br&gt;
+			render(user);&lt;br&gt;
+		}&lt;br&gt;
+		....&lt;br&gt;
+		index.html:&lt;br&gt;
+		${user.name}&amp;nbsp;-&amp;nbsp;display&amp;nbsp;user&amp;nbsp;name&lt;br&gt;
+		&lt;br&gt;
+		if&amp;nbsp;user&amp;nbsp;==&amp;nbsp;null&amp;nbsp;&lt;br&gt;
+		&amp;nbsp;and&amp;nbsp;we&amp;nbsp;will&amp;nbsp;call&amp;nbsp;on&amp;nbsp;the&amp;nbsp;page&amp;nbsp;:&amp;nbsp;${user.name}&amp;nbsp;-&amp;nbsp;we&amp;nbsp;will&amp;nbsp;have&amp;nbsp;exception&lt;br&gt;
+		&amp;nbsp;&lt;br&gt;
+		&amp;nbsp;To&amp;nbsp;prevent&amp;nbsp;nullpointer&amp;nbsp;exception&amp;nbsp;we&amp;nbsp;can&amp;nbsp;do&amp;nbsp;${user?.name}&amp;nbsp;-&amp;nbsp;if&amp;nbsp;user&amp;nbsp;will&amp;nbsp;be&amp;nbsp;null&amp;nbsp;,&amp;nbsp;&amp;nbsp;there&amp;nbsp;will&amp;nbsp;be&amp;nbsp;no&amp;nbsp;exception&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_3:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Template&amp;nbsp;decorators&amp;nbsp;:&amp;nbsp;#{extends&amp;nbsp;/}&amp;nbsp;and&amp;nbsp;#{doLayout&amp;nbsp;/}&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Decorators&amp;nbsp;provide&amp;nbsp;a&amp;nbsp;clean&amp;nbsp;solution&amp;nbsp;to&amp;nbsp;share&amp;nbsp;a&amp;nbsp;page&amp;nbsp;layout&amp;nbsp;(or&amp;nbsp;design)&amp;nbsp;across&amp;nbsp;several&amp;nbsp;templates.&lt;br&gt;
+	&lt;br&gt;
+	Example&amp;nbsp;&amp;nbsp;we&amp;nbsp;have&amp;nbsp;&amp;nbsp;template&amp;nbsp;main.html&amp;nbsp;,&amp;nbsp;and&amp;nbsp;want&amp;nbsp;to&amp;nbsp;extend&amp;nbsp;it&amp;nbsp;&lt;br&gt;
+		/app/views/main.html:&lt;br&gt;
+			&lt;br&gt;
+			&lt;html&amp;nbsp;&gt;&lt;br&gt;
+				&lt;head&gt;&lt;br&gt;
+					&lt;title&gt;#{get&amp;nbsp;'title'&amp;nbsp;/}&lt;/title&gt;&lt;br&gt;
+					&lt;meta&amp;nbsp;charset="${_response_encoding}"&gt;&lt;br&gt;
+					&lt;link&amp;nbsp;rel="stylesheet"&amp;nbsp;media="screen"&amp;nbsp;href="@{'/public/stylesheets/main.css'}"&gt;&lt;br&gt;
+					#{get&amp;nbsp;'moreStyles'&amp;nbsp;/}&lt;br&gt;
+					&lt;link&amp;nbsp;rel="shortcut&amp;nbsp;icon"&amp;nbsp;type="image/png"&amp;nbsp;href="@{'/public/images/favicon.png'}"&gt;&lt;br&gt;
+					&lt;script&amp;nbsp;src="@{'/public/javascripts/jquery-1.6.4.min.js'}"&amp;nbsp;type="text/javascript"&amp;nbsp;charset="${_response_encoding}"&gt;&lt;/script&gt;&lt;br&gt;
+					#{get&amp;nbsp;'moreScripts'&amp;nbsp;/}&lt;br&gt;
+				&lt;/head&gt;&lt;br&gt;
+				&lt;body&amp;nbsp;&gt;&lt;br&gt;
+					&lt;h4&gt;4&amp;nbsp;Template&amp;nbsp;Engline&amp;nbsp;(page&amp;nbsp;name&amp;nbsp;:&amp;nbsp;#{get&amp;nbsp;'pagename'&amp;nbsp;/})&lt;/h4&gt;&lt;br&gt;
+					&lt;hr&gt;&lt;br&gt;
+					#{doLayout&amp;nbsp;/}&lt;br&gt;
+				&lt;/body&amp;nbsp;&gt;&lt;br&gt;
+			&lt;/html&amp;nbsp;&gt;&lt;br&gt;
+			&lt;br&gt;
+			and&amp;nbsp;file&amp;nbsp;/app/views/Application/index.html&amp;nbsp;(we&amp;nbsp;put&amp;nbsp;content&amp;nbsp;using&amp;nbsp;#{extends&amp;nbsp;'main.html'&amp;nbsp;/}&lt;br&gt;
+				#{extends&amp;nbsp;'main.html'&amp;nbsp;/}&lt;br&gt;
+				#{set&amp;nbsp;title:'Template&amp;nbsp;engine'&amp;nbsp;/}&lt;br&gt;
+&lt;br&gt;
+				#{set&amp;nbsp;pagename:'index.html'&amp;nbsp;/}&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+				${108+25}&amp;nbsp;-&amp;nbsp;display&amp;nbsp;133&lt;br&gt;
+&lt;br&gt;
+				${user?.name}&amp;nbsp;-&amp;nbsp;display&amp;nbsp;user&amp;nbsp;name&lt;br&gt;
+						&lt;br&gt;
+						&lt;br&gt;
+						&lt;br&gt;
+		&lt;b&gt;!!!!!&amp;nbsp;se&amp;nbsp;#{get}&amp;nbsp;and&amp;nbsp;#{set}&amp;nbsp;tags&amp;nbsp;to&amp;nbsp;share&amp;nbsp;variables&amp;nbsp;between&amp;nbsp;the&amp;nbsp;template&amp;nbsp;and&amp;nbsp;the&amp;nbsp;decorator.					&lt;/b&gt;&lt;br&gt;
+						#{set&amp;nbsp;title:'Template&amp;nbsp;engine'&amp;nbsp;/}&lt;br&gt;
+						#{get&amp;nbsp;'title'&amp;nbsp;/}</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_3:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Tags&amp;nbsp;in&amp;nbsp;Play1&amp;nbsp;,&amp;nbsp;decribe&amp;nbsp;(syntax&amp;nbsp;,&amp;nbsp;where&amp;nbsp;save&amp;nbsp;tag)&amp;nbsp;.&lt;br&gt;
+A&amp;nbsp;few&amp;nbsp;words&amp;nbsp;about&amp;nbsp;'list'&amp;nbsp;tag&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;b&gt;&amp;nbsp;#{tagName&amp;nbsp;/}&amp;nbsp;&lt;/b&gt;&amp;nbsp;-&amp;nbsp;tag&amp;nbsp;invokation&lt;br&gt;
+&lt;br&gt;
+	A&amp;nbsp;tag&amp;nbsp;is&amp;nbsp;a&amp;nbsp;template&amp;nbsp;fragment&amp;nbsp;that&amp;nbsp;can&amp;nbsp;be&amp;nbsp;called&amp;nbsp;with&amp;nbsp;parameters.&amp;nbsp;If&amp;nbsp;the&amp;nbsp;tag&amp;nbsp;has&amp;nbsp;only&amp;nbsp;one&amp;nbsp;parameter,&amp;nbsp;by&amp;nbsp;convention&amp;nbsp;it&amp;nbsp;is&amp;nbsp;called&amp;nbsp;&lt;b&gt;&amp;nbsp;“arg”&amp;nbsp;&lt;/b&gt;&amp;nbsp;and&amp;nbsp;its&amp;nbsp;name&amp;nbsp;can&amp;nbsp;be&amp;nbsp;omitted.&lt;br&gt;
+		&lt;br&gt;
+	A&amp;nbsp;tag&amp;nbsp;has&amp;nbsp;to&amp;nbsp;be&amp;nbsp;closed,&amp;nbsp;either&amp;nbsp;directly&amp;nbsp;or&amp;nbsp;by&amp;nbsp;an&amp;nbsp;end&amp;nbsp;tag:&lt;br&gt;
+	#{script&amp;nbsp;'jquery.js'&amp;nbsp;/}&lt;br&gt;
+		or&lt;br&gt;
+		&lt;br&gt;
+	#{script&amp;nbsp;'jquery.js'}#{/script}&lt;br&gt;
+		&lt;br&gt;
+	EExample&amp;nbsp;::&amp;nbsp;(iteration&amp;nbsp;on&amp;nbsp;the&amp;nbsp;page)&lt;br&gt;
+	&lt;ul&gt;&lt;br&gt;
+		#{list&amp;nbsp;items:client.accounts,&amp;nbsp;as:'account'&amp;nbsp;}&lt;br&gt;
+			&lt;li&gt;${account}&lt;/li&gt;&lt;br&gt;
+		#{/list}&lt;br&gt;
+	&lt;/ul&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_3:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Actions&amp;nbsp;in&amp;nbsp;html&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;difference&amp;nbsp;between&amp;nbsp;&amp;nbsp;@{...}&amp;nbsp;and&amp;nbsp;@@{...}.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>You&amp;nbsp;can&amp;nbsp;use&amp;nbsp;the&amp;nbsp;Router&amp;nbsp;to&amp;nbsp;(reverse)&amp;nbsp;generate&amp;nbsp;a&amp;nbsp;URL&amp;nbsp;corresponding&amp;nbsp;to&amp;nbsp;a&amp;nbsp;specified&amp;nbsp;route.&amp;nbsp;From&amp;nbsp;a&amp;nbsp;template&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&amp;nbsp;the&amp;nbsp;special&amp;nbsp;@{...}&amp;nbsp;syntax&amp;nbsp;to&amp;nbsp;do&amp;nbsp;that.&lt;br&gt;
+Example&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+	&lt;a&amp;nbsp;href="@{Clients.index()}"&gt;Back&lt;/a&gt;&lt;br&gt;
+	&lt;br&gt;
+	!&amp;nbsp;The&amp;nbsp;@@{...}&amp;nbsp;syntax&amp;nbsp;does&amp;nbsp;the&amp;nbsp;same&amp;nbsp;but&amp;nbsp;generates&amp;nbsp;an&amp;nbsp;&lt;b&gt;&amp;nbsp;absolute&amp;nbsp;&lt;/b&gt;&amp;nbsp;URL&amp;nbsp;(notably&amp;nbsp;useful&amp;nbsp;for&amp;nbsp;e-mail).</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_3:4" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Messages:&amp;nbsp;&amp;amp;{...}&amp;nbsp;and&amp;nbsp;internationalization&amp;nbsp;,&amp;nbsp;describe&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>If&amp;nbsp;your&amp;nbsp;application&amp;nbsp;needs&amp;nbsp;&lt;b&gt;&amp;nbsp;internationalization&amp;nbsp;&amp;nbsp;&lt;/b&gt;&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&amp;nbsp;the&amp;nbsp;&amp;{...}&amp;nbsp;syntax&amp;nbsp;to&amp;nbsp;display&amp;nbsp;an&amp;nbsp;internationalized&amp;nbsp;message:&lt;br&gt;
+	&lt;br&gt;
+	For&amp;nbsp;example&amp;nbsp;in&amp;nbsp;the&amp;nbsp;files&amp;nbsp;conf/messages&amp;nbsp;we&amp;nbsp;specify:&lt;br&gt;
+		lientName=The&amp;nbsp;client&amp;nbsp;name&amp;nbsp;is&amp;nbsp;%s&lt;br&gt;
+		&lt;h1&gt;&amp;{'clientName',&amp;nbsp;client.name}&lt;/h1&gt;&lt;br&gt;
+		&lt;br&gt;
+Play&amp;nbsp;framework&amp;nbsp;1&amp;nbsp;uses&amp;nbsp;'Accept-Language'&amp;nbsp;header&amp;nbsp;to&amp;nbsp;define&amp;nbsp;Language&lt;br&gt;
+		&lt;br&gt;
+	uk&amp;nbsp;-&amp;nbsp;is&amp;nbsp;Ukrainian&amp;nbsp;language&amp;nbsp;(so&amp;nbsp;Ukrainian&amp;nbsp;messages&amp;nbsp;will&amp;nbsp;be&amp;nbsp;in&amp;nbsp;file&amp;nbsp;conf/messages.uk)&lt;br&gt;
+	en-US&amp;nbsp;-&amp;nbsp;is&amp;nbsp;English&amp;nbsp;(so&amp;nbsp;English&amp;nbsp;messages&amp;nbsp;will&amp;nbsp;be&amp;nbsp;in&amp;nbsp;file&amp;nbsp;conf/messages&amp;nbsp;)&amp;nbsp;&lt;br&gt;
+		&lt;br&gt;
+	Here&amp;nbsp;overview&amp;nbsp;of&amp;nbsp;i118n&lt;br&gt;
+		&lt;br&gt;
+	To&amp;nbsp;get&amp;nbsp;started,&amp;nbsp;first&amp;nbsp;edit&amp;nbsp;conf/application.conf&amp;nbsp;and&amp;nbsp;uncomment&amp;nbsp;(in&amp;nbsp;the&amp;nbsp;default&amp;nbsp;configuration&amp;nbsp;file)&amp;nbsp;or&amp;nbsp;add&amp;nbsp;a&amp;nbsp;line&amp;nbsp;with&amp;nbsp;three&amp;nbsp;supported&amp;nbsp;languages:&amp;nbsp;&lt;br&gt;
+	#&amp;nbsp;Localisations&amp;nbsp;for&amp;nbsp;English,&amp;nbsp;Dutch&amp;nbsp;and&amp;nbsp;French.&amp;nbsp;&lt;br&gt;
+	application.langs=en,nl,fr&lt;br&gt;
+	&lt;br&gt;
+	then&amp;nbsp;create&amp;nbsp;file&amp;nbsp;messages,&amp;nbsp;messages.nl,&amp;nbsp;messages.fr&lt;br&gt;
+	(and&amp;nbsp;play&amp;nbsp;will&amp;nbsp;choose&amp;nbsp;language&amp;nbsp;)&lt;br&gt;
+		&lt;br&gt;
+	so&amp;nbsp;it&amp;nbsp;is&amp;nbsp;easy&amp;nbsp;=)&lt;br&gt;
+		&lt;br&gt;
+	!!!!!!&amp;nbsp;If&amp;nbsp;we&amp;nbsp;want&amp;nbsp;we&amp;nbsp;can&amp;nbsp;change&amp;nbsp;language&amp;nbsp;&amp;nbsp;as&amp;nbsp;:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;b&gt;&amp;nbsp;Lang.change("ja");&amp;nbsp;&lt;/b&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_3:5" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Comment:&amp;nbsp;*{...}*&amp;nbsp;and&amp;nbsp;scripts&amp;nbsp;&amp;nbsp;%{...}%&amp;nbsp;&amp;nbsp;,&amp;nbsp;describe&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Comments&amp;nbsp;aren’t&amp;nbsp;evaluated&amp;nbsp;by&amp;nbsp;the&amp;nbsp;template&amp;nbsp;engine.&amp;nbsp;They&amp;nbsp;are&amp;nbsp;just&amp;nbsp;comments…&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*{This&amp;nbsp;is&amp;nbsp;comment&amp;nbsp;in&amp;nbsp;template}*&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+A&amp;nbsp;script&amp;nbsp;is&amp;nbsp;a&amp;nbsp;more&amp;nbsp;complicated&amp;nbsp;set&amp;nbsp;of&amp;nbsp;expressions.&amp;nbsp;A&amp;nbsp;script&amp;nbsp;can&amp;nbsp;declare&amp;nbsp;some&amp;nbsp;variables&amp;nbsp;and&amp;nbsp;define&amp;nbsp;some&amp;nbsp;statements.&lt;br&gt;
+		&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Example&amp;nbsp;:&amp;nbsp;	%{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;fullName&amp;nbsp;=&amp;nbsp;client.name.toUpperCase()+'&amp;nbsp;'+client.forname;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}%&lt;br&gt;
+					&lt;br&gt;
+		&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;script&amp;nbsp;can&amp;nbsp;write&amp;nbsp;dynamic&amp;nbsp;content&amp;nbsp;directly&amp;nbsp;using&amp;nbsp;the&amp;nbsp;out&amp;nbsp;object:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;fullName&amp;nbsp;=&amp;nbsp;client.name.toUpperCase()+'&amp;nbsp;'+client.forname;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;out.print('&lt;h1&gt;'+fullName+'&lt;/h1&gt;');&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}%&lt;br&gt;
+		&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;use&amp;nbsp;a&amp;nbsp;script&amp;nbsp;to&amp;nbsp;create&amp;nbsp;a&amp;nbsp;structure&amp;nbsp;such&amp;nbsp;as&amp;nbsp;an&amp;nbsp;iteration&amp;nbsp;in&amp;nbsp;your&amp;nbsp;template:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;h1&gt;Client&amp;nbsp;${client.name}&lt;/h1&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;ul&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for(account&amp;nbsp;in&amp;nbsp;client.accounts)&amp;nbsp;{&amp;nbsp;&amp;nbsp;//&amp;nbsp;something&amp;nbsp;interesting&amp;nbsp;it&amp;nbsp;is&amp;nbsp;not&amp;nbsp;Java&amp;nbsp;=)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}%&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;li&gt;${account}&lt;/li&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}%&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/ul&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_3:6" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Template&amp;nbsp;inheritance&amp;nbsp;,&amp;nbsp;describe&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>A&amp;nbsp;template&amp;nbsp;can&amp;nbsp;inherit&amp;nbsp;another&amp;nbsp;template,&amp;nbsp;i.e.&amp;nbsp;it&amp;nbsp;can&amp;nbsp;be&amp;nbsp;included&amp;nbsp;as&amp;nbsp;a&amp;nbsp;part&amp;nbsp;of&amp;nbsp;an&amp;nbsp;other&amp;nbsp;template.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;inherit&amp;nbsp;another&amp;nbsp;template,&amp;nbsp;use&amp;nbsp;the&amp;nbsp;&lt;b&gt;extends&lt;/b&gt;&amp;nbsp;tag:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{extends&amp;nbsp;'main.html'&amp;nbsp;/}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;h1&gt;Some&amp;nbsp;code&lt;/h1&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;main.html&amp;nbsp;template&amp;nbsp;is&amp;nbsp;a&amp;nbsp;standard&amp;nbsp;template,&amp;nbsp;but&amp;nbsp;it&amp;nbsp;uses&amp;nbsp;the&amp;nbsp;doLayout&amp;nbsp;tag&amp;nbsp;to&amp;nbsp;include&amp;nbsp;the&amp;nbsp;content:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;h1&gt;Main&amp;nbsp;template&lt;/h1&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;div&amp;nbsp;id="content"&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{doLayout&amp;nbsp;/}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/div&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_3:7" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;create&amp;nbsp;custom&amp;nbsp;template&amp;nbsp;TAGS&amp;nbsp;?&lt;br&gt;
+How&amp;nbsp;pass&amp;nbsp;intenationalized&amp;nbsp;messages&amp;nbsp;to&amp;nbsp;tags&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>You&amp;nbsp;can&amp;nbsp;easily&amp;nbsp;create&amp;nbsp;specific&amp;nbsp;tags&amp;nbsp;for&amp;nbsp;your&amp;nbsp;application.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;tag&amp;nbsp;is&amp;nbsp;a&amp;nbsp;simple&amp;nbsp;template&amp;nbsp;file,&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;the&amp;nbsp;&lt;b&gt;&amp;nbsp;app/views/tags&amp;nbsp;&lt;/b&gt;&amp;nbsp;directory.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;template’s&amp;nbsp;file&amp;nbsp;name&amp;nbsp;is&amp;nbsp;used&amp;nbsp;as&amp;nbsp;the&amp;nbsp;tag&amp;nbsp;name.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;simple&amp;nbsp;hello&amp;nbsp;world&amp;nbsp;tag&amp;nbsp;:&amp;nbsp;*&amp;nbsp;create&amp;nbsp;file&amp;nbsp;hello.tag&amp;nbsp;,&amp;nbsp;in&amp;nbsp;/app/views/tags&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;in&amp;nbsp;file&amp;nbsp;write&amp;nbsp;'Hello&amp;nbsp;world'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;invoke&amp;nbsp;hello&amp;nbsp;world&amp;nbsp;tag&amp;nbsp;on&amp;nbsp;page&amp;nbsp;:&amp;nbsp;#{hello&amp;nbsp;/}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Pass&amp;nbsp;parameter&amp;nbsp;to&amp;nbsp;tag&amp;nbsp;:&amp;nbsp;*&amp;nbsp;create&amp;nbsp;file&amp;nbsp;greeting.tag&amp;nbsp;,&amp;nbsp;in&amp;nbsp;/app/views/tags&amp;nbsp;with&amp;nbsp;content&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hello&amp;nbsp;,&amp;nbsp;${_name}&amp;nbsp;!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;on&amp;nbsp;the&amp;nbsp;page&amp;nbsp;invoke&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{greeting&amp;nbsp;name:'Ivan'&amp;nbsp;/}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Invoke&amp;nbsp;tag&amp;nbsp;body&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;your&amp;nbsp;tag&amp;nbsp;supports&amp;nbsp;a&amp;nbsp;body,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;include&amp;nbsp;it&amp;nbsp;at&amp;nbsp;any&amp;nbsp;point&amp;nbsp;in&amp;nbsp;the&amp;nbsp;tag&amp;nbsp;code,&amp;nbsp;using&amp;nbsp;the&amp;nbsp;doBody&amp;nbsp;tag.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;For&amp;nbsp;example:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hello&amp;nbsp;#{doBody&amp;nbsp;/}!&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;And&amp;nbsp;you&amp;nbsp;can&amp;nbsp;then&amp;nbsp;pass&amp;nbsp;the&amp;nbsp;name&amp;nbsp;as&amp;nbsp;tag&amp;nbsp;body:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{hello}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bob&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{/hello}&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Pass&amp;nbsp;element&amp;nbsp;from&amp;nbsp;messages&amp;nbsp;to&amp;nbsp;tag&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*create&amp;nbsp;tag&amp;nbsp;search_form.tag&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;form&amp;nbsp;method="get"&amp;nbsp;action="http://google.com"&amp;nbsp;&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;input&amp;nbsp;type="text"&amp;nbsp;value=${_val}&amp;nbsp;/&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;input&amp;nbsp;type="submit"&amp;nbsp;value="submit"&amp;nbsp;/&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/form&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*use&amp;nbsp;this&amp;nbsp;tag&amp;nbsp;on&amp;nbsp;the&amp;nbsp;page&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{search_form&amp;nbsp;&amp;nbsp;val:messages.get('search')&amp;nbsp;/}</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_3:8" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Custom&amp;nbsp;Java&amp;nbsp;tags&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>You&amp;nbsp;can&amp;nbsp;also&amp;nbsp;define&amp;nbsp;custom&amp;nbsp;tags&amp;nbsp;in&amp;nbsp;Java&amp;nbsp;code.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Similarly&amp;nbsp;to&amp;nbsp;how&amp;nbsp;JavaExtensions&amp;nbsp;work&amp;nbsp;by&amp;nbsp;extending&amp;nbsp;the&amp;nbsp;play.templates.JavaExtensions&amp;nbsp;class,&amp;nbsp;to&amp;nbsp;create&amp;nbsp;a&amp;nbsp;FastTag&amp;nbsp;you&amp;nbsp;need&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;create&amp;nbsp;a&amp;nbsp;method&amp;nbsp;in&amp;nbsp;a&amp;nbsp;class&amp;nbsp;that&amp;nbsp;extends&amp;nbsp;play.templates.FastTags.&amp;nbsp;Each&amp;nbsp;method&amp;nbsp;that&amp;nbsp;you&amp;nbsp;want&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;execute&amp;nbsp;as&amp;nbsp;a&amp;nbsp;tag&amp;nbsp;must&amp;nbsp;have&amp;nbsp;the&amp;nbsp;following&amp;nbsp;method&amp;nbsp;signature.&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;b&gt;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;_tagName(Map&lt;?,&amp;nbsp;?&gt;&amp;nbsp;args,&amp;nbsp;Closure&amp;nbsp;body,&amp;nbsp;PrintWriter&amp;nbsp;out,&amp;nbsp;ExecutableTemplate&amp;nbsp;template,&amp;nbsp;int&amp;nbsp;fromLine)&amp;nbsp;&lt;/b&gt;&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_3:9" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;object&amp;nbsp;extensions&amp;nbsp;in&amp;nbsp;templates&amp;nbsp;,&amp;nbsp;describe&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>When&amp;nbsp;you&amp;nbsp;use&amp;nbsp;your&amp;nbsp;Java&amp;nbsp;object&amp;nbsp;within&amp;nbsp;the&amp;nbsp;template&amp;nbsp;engine,&amp;nbsp;new&amp;nbsp;methods&amp;nbsp;are&amp;nbsp;added&amp;nbsp;to&amp;nbsp;it.&amp;nbsp;These&amp;nbsp;methods&amp;nbsp;don’t&amp;nbsp;exist&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;in&amp;nbsp;the&amp;nbsp;original&amp;nbsp;Java&amp;nbsp;class&amp;nbsp;and&amp;nbsp;are&amp;nbsp;dynamically&amp;nbsp;added&amp;nbsp;by&amp;nbsp;the&amp;nbsp;template&amp;nbsp;engine.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;to&amp;nbsp;allow&amp;nbsp;easy&amp;nbsp;number&amp;nbsp;formatting&amp;nbsp;in&amp;nbsp;a&amp;nbsp;template,&amp;nbsp;a&amp;nbsp;format&amp;nbsp;method&amp;nbsp;is&amp;nbsp;added&amp;nbsp;to&amp;nbsp;java.lang.Number.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;It’s&amp;nbsp;then&amp;nbsp;very&amp;nbsp;easy&amp;nbsp;to&amp;nbsp;format&amp;nbsp;a&amp;nbsp;number:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;ul&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{list&amp;nbsp;items:products,&amp;nbsp;as:'product'}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;li&gt;${product.name}.&amp;nbsp;Price:&amp;nbsp;${product.price.format('##&amp;nbsp;###,00')}&amp;nbsp;€&lt;/li&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{/list}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/ul&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Example&amp;nbsp;:&amp;nbsp;'Create&amp;nbsp;extension&amp;nbsp;to&amp;nbsp;show&amp;nbsp;money&amp;nbsp;values'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;package&amp;nbsp;JavaExtensions;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;import&amp;nbsp;groovy.lang.Closure;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;import&amp;nbsp;java.io.PrintWriter;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;import&amp;nbsp;java.util.Map;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;import&amp;nbsp;play.Play;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;import&amp;nbsp;play.templates.JavaExtensions;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;import&amp;nbsp;play.templates.GroovyTemplate.ExecutableTemplate;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;class&amp;nbsp;MyJavaExtension&amp;nbsp;&amp;nbsp;extends&amp;nbsp;&amp;nbsp;JavaExtensions{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;String&amp;nbsp;ccyAccount(Number&amp;nbsp;number,&amp;nbsp;String&amp;nbsp;currencyName){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;"Sum:&amp;nbsp;"&amp;nbsp;+&amp;nbsp;number+"&amp;nbsp;&amp;nbsp;"+currencyName;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;And&amp;nbsp;on&amp;nbsp;the&amp;nbsp;page&amp;nbsp;we&amp;nbsp;write&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;${100.ccyAccount("dolars")}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Output&amp;nbsp;will&amp;nbsp;be&amp;nbsp;:&amp;nbsp;'Sum&amp;nbsp;100&amp;nbsp;dolars&amp;nbsp;'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;P.S&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Template&amp;nbsp;extension&amp;nbsp;classes&amp;nbsp;are&amp;nbsp;automatically&amp;nbsp;detected&amp;nbsp;by&amp;nbsp;Play&amp;nbsp;at&amp;nbsp;start-up.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;just&amp;nbsp;have&amp;nbsp;to&amp;nbsp;restart&amp;nbsp;your&amp;nbsp;application&amp;nbsp;to&amp;nbsp;make&amp;nbsp;them&amp;nbsp;available.</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_3:10" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Implicit&amp;nbsp;objects&amp;nbsp;available&amp;nbsp;in&amp;nbsp;a&amp;nbsp;template&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>All&amp;nbsp;objects&amp;nbsp;added&amp;nbsp;to&amp;nbsp;the&amp;nbsp;renderArgs&amp;nbsp;scope&amp;nbsp;are&amp;nbsp;directly&amp;nbsp;injected&amp;nbsp;as&amp;nbsp;template&amp;nbsp;variables.&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;For&amp;nbsp;instance,&amp;nbsp;to&amp;nbsp;inject&amp;nbsp;a&amp;nbsp;‘user’&amp;nbsp;bean&amp;nbsp;into&amp;nbsp;the&amp;nbsp;template&amp;nbsp;from&amp;nbsp;a&amp;nbsp;controller:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;renderArgs.put("user",&amp;nbsp;user&amp;nbsp;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;---&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;When&amp;nbsp;you&amp;nbsp;render&amp;nbsp;a&amp;nbsp;template&amp;nbsp;from&amp;nbsp;an&amp;nbsp;action,&amp;nbsp;the&amp;nbsp;framework&amp;nbsp;also&amp;nbsp;adds&amp;nbsp;implicit&amp;nbsp;objects:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;errors&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Validation&amp;nbsp;errors&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://www.playframework.com/@api/play/data/validation/Validation.html#errors()&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;flash&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Flash&amp;nbsp;scope&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://www.playframework.com/@api/play/mvc/Scope.Flash.html&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;lang&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;current&amp;nbsp;language&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://www.playframework.com/@api/play/i18n/Lang.html&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;messages&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;messages&amp;nbsp;map&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://www.playframework.com/@api/play/i18n/Messages.html&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;out&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;output&amp;nbsp;stream&amp;nbsp;writer&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;java.io.PrintWriter&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;params&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Current&amp;nbsp;parameters&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;play&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Main&amp;nbsp;framework&amp;nbsp;class&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;play.Play&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;request&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;current&amp;nbsp;HTTP&amp;nbsp;request&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://www.playframework.com/@api/play/mvc/Http.Request.html&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;session&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Session&amp;nbsp;scope&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;In&amp;nbsp;addition&amp;nbsp;to&amp;nbsp;the&amp;nbsp;list&amp;nbsp;above&amp;nbsp;the&amp;nbsp;names&amp;nbsp;owner,&amp;nbsp;delegate&amp;nbsp;and&amp;nbsp;it&amp;nbsp;are&amp;nbsp;reserved&amp;nbsp;in&amp;nbsp;Groovy&amp;nbsp;and&amp;nbsp;shouldn’t&amp;nbsp;be&amp;nbsp;used&amp;nbsp;as&amp;nbsp;variable&amp;nbsp;names&amp;nbsp;in&amp;nbsp;templates.&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_3:11" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;to&amp;nbsp;use&amp;nbsp;&amp;quot;moreStyles&amp;quot;&amp;nbsp;and&amp;nbsp;&amp;quot;moreScripts&amp;quot;&amp;nbsp;tags&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>In&amp;nbsp;the&amp;nbsp;file&amp;nbsp;main.html,&amp;nbsp;in&amp;nbsp;default&amp;nbsp;project&amp;nbsp;created&amp;nbsp;by&amp;nbsp;Play!,&amp;nbsp;there's&amp;nbsp;this&amp;nbsp;line&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{get&amp;nbsp;'moreStyles'&amp;nbsp;/}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;I&amp;nbsp;understand&amp;nbsp;that&amp;nbsp;if&amp;nbsp;I&amp;nbsp;need&amp;nbsp;to&amp;nbsp;add&amp;nbsp;more&amp;nbsp;styles,&amp;nbsp;in&amp;nbsp;my&amp;nbsp;view&amp;nbsp;script,&amp;nbsp;I&amp;nbsp;have&amp;nbsp;to&amp;nbsp;use&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{set&amp;nbsp;tag:'value'&amp;nbsp;/}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where&amp;nbsp;tag&amp;nbsp;should&amp;nbsp;be&amp;nbsp;moreStyles,&amp;nbsp;but&amp;nbsp;it&amp;nbsp;seems&amp;nbsp;worng&amp;nbsp;to&amp;nbsp;set&amp;nbsp;the&amp;nbsp;value&amp;nbsp;to&amp;nbsp;the&amp;nbsp;full&amp;nbsp;HTML&amp;nbsp;&lt;link&gt;&amp;nbsp;tag.&amp;nbsp;And&amp;nbsp;what&amp;nbsp;happens&amp;nbsp;if&amp;nbsp;the&amp;nbsp;view&amp;nbsp;needs&amp;nbsp;to&amp;nbsp;add&amp;nbsp;more&amp;nbsp;styles,&amp;nbsp;or&amp;nbsp;scripts?&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Answer&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;you&amp;nbsp;set&amp;nbsp;more&amp;nbsp;styles&amp;nbsp;with:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{set&amp;nbsp;'moreStyles'}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{stylesheet&amp;nbsp;'main.css'&amp;nbsp;/}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{/set}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;like&amp;nbsp;scripts:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{set&amp;nbsp;'moreScripts'}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{script&amp;nbsp;'base64.js'/}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{/set}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;or&amp;nbsp;#&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{set&amp;nbsp;'moreStyles'}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;link&amp;nbsp;rel="stylesheet"&amp;nbsp;type="text/css"&amp;nbsp;media="screen"&amp;nbsp;href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/ui-lightness/jquery-ui.css"&amp;nbsp;charset="${_response_encoding}"/&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{/set}</questionanswer>
+  </question>
+</questions>

@@ -84,8 +84,8 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         
         scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scroll.setViewportView(questionContent);
-        scroll.setPreferredSize(new Dimension(400,500));
-
+        scroll.setPreferredSize(new Dimension(600,500));
+        
         JOptionPane.showMessageDialog(this, scroll, "Question content", 0);
     }
     

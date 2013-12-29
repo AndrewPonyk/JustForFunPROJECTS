@@ -6,7 +6,6 @@
 /*
  * NewQuestionDialog.java
  *
- * Created on Aug 25, 2013, 2:41:22 PM
  */
 
 package frames;
@@ -347,8 +346,8 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         // it is fucking something bad , so temporary solution
         questionText=questionText.replaceAll("alt='image' <br>", "alt='image'");
          
-        questionText=questionText.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n").replaceAll(" ", "&nbsp;"); // we need &nbsp to FORMAT code for exampe(cause html doesnt understand simple spaces) 
-        questionAnswer=questionAnswer.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n").replaceAll(" ", "&nbsp;");
+        questionText=questionText.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n").replaceAll(" ", "&nbsp;").replaceAll("\t", "&nbsp;&nbsp;&nbsp;&nbsp;"); // we need &nbsp to FORMAT code for exampe(cause html doesnt understand simple spaces) 
+        questionAnswer=questionAnswer.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n").replaceAll(" ", "&nbsp;").replaceAll("\t", "&nbsp;&nbsp;&nbsp;&nbsp;");
 
          String selectedQuestionType=this.questionTypeComboBox.getSelectedItem().toString();
 
