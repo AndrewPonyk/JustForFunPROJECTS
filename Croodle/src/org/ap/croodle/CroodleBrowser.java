@@ -29,7 +29,6 @@ public class CroodleBrowser {
     private WebDriverWait wait = new WebDriverWait(firefox, 11);
     
     public void goAndPassTest(){
-        parser.tryToAnswer(null, null);
         loginAndGoToQuizURL();
         
         //now we will start quiz
@@ -41,7 +40,7 @@ public class CroodleBrowser {
         
         // main part of appliction 
         while( checkboxes.size() >1 || radiobuttons.size()>1){
-            processQuestion();
+            processQuestion(); // !!! here we get question text , question variants  and try to get answer
             
             // go to next question
             nextQuestionButton.click();
@@ -68,18 +67,26 @@ public class CroodleBrowser {
             ArrayList<Integer> correctVariants = new ArrayList<Integer>();
             
             // get question text and variants
-            List<WebElement> variants = getElementByLocator(
+            List<WebElement> variantsElements = getElementByLocator(
                         By.cssSelector("div.r0 label, div.r1 label"));
             
+            ArrayList<String> variants = new ArrayList<String>();
+            for(WebElement element:variantsElements){
+                variants.add(element.getText());
+            }
+            
+            
             System.out.println(questionTextParagraph.getText() +"\n");
-            for(int i=0; i< variants.size(); i++){
-                 System.out.println("   [length="+ variants.get(i).getText().length()+"] " 
-                        + variants.get(i).getText());
-                if(variants.get(i).getText().length() > maxLength){
-                    maxLength = variants.get(i).getText().length();
+            for(int i=0; i< variantsElements.size(); i++){
+                 System.out.println("   [length="+ variantsElements.get(i).getText().length()+"] " 
+                        + variantsElements.get(i).getText());
+                if(variantsElements.get(i).getText().length() > maxLength){
+                    maxLength = variantsElements.get(i).getText().length();
                     longestVariantIndex = i;
                 }
             }
+            
+            parser.tryToAnswer(questionTextParagraph.getText(), variants);
             
             if(checkboxes.size() >= 2){ 
                 System.out.println("Szzzzze = " + checkboxes.size() );
