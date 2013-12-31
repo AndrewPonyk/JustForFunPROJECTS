@@ -29,6 +29,7 @@ public class CroodleBrowser {
     private WebDriverWait wait = new WebDriverWait(firefox, 11);
     
     public void goAndPassTest(){
+        parser.tryToAnswer(null, null);
         loginAndGoToQuizURL();
         
         //now we will start quiz
