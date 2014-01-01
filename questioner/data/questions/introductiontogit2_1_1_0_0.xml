@@ -1,2 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_1_1_0_0" name="IntroductiontoGit" nofquestions="0" nofsubcategories="0" filename="introductiontogit2_1_1_0_0.xml" />
+<questions id="2_1_1_0_0" name="IntroductiontoGit" nofquestions="2" nofsubcategories="0" filename="introductiontogit2_1_1_0_0.xml">
+  <question id="2_1_1_0_0:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;History&amp;nbsp;of&amp;nbsp;Version&amp;nbsp;control&amp;nbsp;systems,&amp;nbsp;and&amp;nbsp;advantages&amp;nbsp;of&amp;nbsp;GIT&amp;nbsp;,&amp;nbsp;few&amp;nbsp;words.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>First&amp;nbsp;generation&amp;nbsp;of&amp;nbsp;source&amp;nbsp;cotrol&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;single-file&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;no&amp;nbsp;networking&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;e.g&amp;nbsp;SCCS(40&amp;nbsp;years&amp;nbsp;ago&amp;nbsp;,&amp;nbsp;RCS(Revision&amp;nbsp;Control&amp;nbsp;System&amp;nbsp;-&amp;nbsp;30&amp;nbsp;years&amp;nbsp;ago)&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Second&amp;nbsp;generation:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Multi&amp;nbsp;file&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Centralized&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;e.g&amp;nbsp;CVS,&amp;nbsp;VSS&amp;nbsp;,&amp;nbsp;SVN,&amp;nbsp;TFS,&amp;nbsp;Perforce&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Third&amp;nbsp;generation&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Changesets&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Distributed&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;e.g&amp;nbsp;Git&amp;nbsp;,&amp;nbsp;Hg,&amp;nbsp;Bazaar,&amp;nbsp;BitKeeper&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Adwantages&amp;nbsp;of&amp;nbsp;DVCS&amp;nbsp;(Discributed&amp;nbsp;version&amp;nbsp;control&amp;nbsp;systems)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-DIFFERENT&amp;nbsp;TOPOLOGIES&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*Centralized(developers&amp;nbsp;push&amp;nbsp;changes&amp;nbsp;to&amp;nbsp;one&amp;nbsp;central&amp;nbsp;repo)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*Hierarchical(developers&amp;nbsp;push&amp;nbsp;changes&amp;nbsp;to&amp;nbsp;subsystem-base&amp;nbsp;repos;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;sub-systems&amp;nbsp;repos&amp;nbsp;are&amp;nbsp;periodically&amp;nbsp;merged&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*Distributed(push&amp;nbsp;changes&amp;nbsp;to&amp;nbsp;own&amp;nbsp;repos)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-Backups&amp;nbsp;are&amp;nbsp;easy&amp;nbsp;(each&amp;nbsp;developer&amp;nbsp;has&amp;nbsp;full&amp;nbsp;backup)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-Reliable&amp;nbsp;branching/merging(feature&amp;nbsp;branches,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-Full&amp;nbsp;local&amp;nbsp;history&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Git&amp;nbsp;was&amp;nbsp;developed&amp;nbsp;by&amp;nbsp;Linus&amp;nbsp;Torvalds.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Git&amp;nbsp;promted&amp;nbsp;by&amp;nbsp;Linux-BitKeeper&amp;nbsp;separation&amp;nbsp;(bitkeeper&amp;nbsp;-&amp;nbsp;is&amp;nbsp;commercial&amp;nbsp;,&amp;nbsp;bitkeeper&amp;nbsp;desiced&amp;nbsp;to&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;stop&amp;nbsp;suplying&amp;nbsp;linux&amp;nbsp;project&amp;nbsp;=&gt;&amp;nbsp;Linus&amp;nbsp;create&amp;nbsp;own&amp;nbsp;=)&amp;nbsp;).&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Git&amp;nbsp;runs&amp;nbsp;on&amp;nbsp;Linux&amp;nbsp;,&amp;nbsp;OS&amp;nbsp;X&amp;nbsp;,&amp;nbsp;Windosw&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Git&amp;nbsp;Design&amp;nbsp;goals&amp;nbsp;(speed,&amp;nbsp;simplicity&amp;nbsp;,&amp;nbsp;strong&amp;nbsp;branch/merge&amp;nbsp;support&amp;nbsp;,&amp;nbsp;discributed,&amp;nbsp;scales&amp;nbsp;well&amp;nbsp;for&amp;nbsp;big&amp;nbsp;projects&amp;nbsp;).</questionanswer>
+  </question>
+  <question id="2_1_1_0_0:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Installing&amp;nbsp;and&amp;nbsp;configure&amp;nbsp;git&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>On&amp;nbsp;Windows&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&amp;nbsp;'msysgit'&amp;nbsp;.&amp;nbsp;Installation&amp;nbsp;is&amp;nbsp;easy&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;On&amp;nbsp;Linux&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;apt-get&amp;nbsp;install&amp;nbsp;git-core&amp;nbsp;(debian&amp;nbsp;ubuntu)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;yum&amp;nbsp;install&amp;nbsp;git-core&amp;nbsp;(fedora)&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Installation&amp;nbsp;is&amp;nbsp;easy&amp;nbsp;,&amp;nbsp;but&amp;nbsp;can&amp;nbsp;be&amp;nbsp;some&amp;nbsp;problems&amp;nbsp;with&amp;nbsp;'mergetool'&amp;nbsp;,how&amp;nbsp;to&amp;nbsp;configure&amp;nbsp;it&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;'git&amp;nbsp;--version'&amp;nbsp;&amp;nbsp;#&amp;nbsp;show&amp;nbsp;version&amp;nbsp;of&amp;nbsp;installed&amp;nbsp;git&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;'git&amp;nbsp;init&amp;nbsp;'&amp;nbsp;#&amp;nbsp;create&amp;nbsp;repo&amp;nbsp;in&amp;nbsp;current&amp;nbsp;folder&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Git&amp;nbsp;CONFIGURATION(3&amp;nbsp;levels)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;config&amp;nbsp;--system&amp;nbsp;('system&amp;nbsp;level'&amp;nbsp;/etc/gitconfig&amp;nbsp;or&amp;nbsp;/programfiles/git\etc\gitconfig&amp;nbsp;-&amp;nbsp;apply&amp;nbsp;to&amp;nbsp;entire&amp;nbsp;computer)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;config&amp;nbsp;--global&amp;nbsp;&amp;nbsp;('user&amp;nbsp;level'&amp;nbsp;~/.gitcofig&amp;nbsp;or&amp;nbsp;&amp;nbsp;c:\users\&lt;name&gt;\.gitconfig)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;config&amp;nbsp;('repo&amp;nbsp;level'&amp;nbsp;&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;.git/config&amp;nbsp;in&amp;nbsp;each&amp;nbsp;repo)&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Examples&amp;nbsp;of&amp;nbsp;configuration&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;config&amp;nbsp;--global&amp;nbsp;user.name&amp;nbsp;"Adam&amp;nbsp;Smith"&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;config&amp;nbsp;--bloabl&amp;nbsp;user.email&amp;nbsp;"adam@gmail.com"&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#and&amp;nbsp;now&amp;nbsp;&amp;nbsp;we&amp;nbsp;can&amp;nbsp;list&amp;nbsp;git&amp;nbsp;configuration&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;config&amp;nbsp;--global&amp;nbsp;--list&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;config&amp;nbsp;--global&amp;nbsp;help.autocorrect&amp;nbsp;&amp;nbsp;1&amp;nbsp;#&amp;nbsp;git&amp;nbsp;will&amp;nbsp;help&amp;nbsp;if&amp;nbsp;we&amp;nbsp;make&amp;nbsp;syntax&amp;nbsp;mistake&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;config&amp;nbsp;--global&amp;nbsp;color.ui&amp;nbsp;auto&amp;nbsp;#&amp;nbsp;will&amp;nbsp;display&amp;nbsp;text&amp;nbsp;in&amp;nbsp;console&amp;nbsp;in&amp;nbsp;different&amp;nbsp;colors&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;config&amp;nbsp;--global&amp;nbsp;core.autocrlf&amp;nbsp;true&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;Git&amp;nbsp;can&amp;nbsp;handle&amp;nbsp;this&amp;nbsp;by&amp;nbsp;auto-converting&amp;nbsp;CRLF&amp;nbsp;line&amp;nbsp;endings&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;into&amp;nbsp;LF&amp;nbsp;when&amp;nbsp;you&amp;nbsp;commit,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;vice&amp;nbsp;versa&amp;nbsp;when&amp;nbsp;it&amp;nbsp;checks&amp;nbsp;out&amp;nbsp;code&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;onto&amp;nbsp;your&amp;nbsp;filesystem.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;turn&amp;nbsp;on&amp;nbsp;this&amp;nbsp;functionality&amp;nbsp;with&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;core.autocrlf&amp;nbsp;setting.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you’re&amp;nbsp;on&amp;nbsp;a&amp;nbsp;Windows&amp;nbsp;machine,&amp;nbsp;set&amp;nbsp;it&amp;nbsp;to&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;true&amp;nbsp;—&amp;nbsp;this&amp;nbsp;converts&amp;nbsp;LF&amp;nbsp;endings&amp;nbsp;into&amp;nbsp;CRLF&amp;nbsp;when&amp;nbsp;you&amp;nbsp;check&amp;nbsp;out&amp;nbsp;code.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Repo&amp;nbsp;settings&amp;nbsp;override&amp;nbsp;user&amp;nbsp;settings,&amp;nbsp;and&amp;nbsp;user&amp;nbsp;settings&amp;nbsp;override&amp;nbsp;system&amp;nbsp;settings&amp;nbsp;.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;To&amp;nbsp;REMOVE&amp;nbsp;some&amp;nbsp;config&amp;nbsp;property&amp;nbsp;you&amp;nbsp;can&amp;nbsp;do&amp;nbsp;:&amp;nbsp;'git&amp;nbsp;config&amp;nbsp;--unset&amp;nbsp;user.name'</questionanswer>
+  </question>
+</questions>
