@@ -64,7 +64,7 @@ public class CroodleBrowser {
             // we will click on longest variant =)
             int longestVariantIndex = 0;
             int maxLength = 0;
-            ArrayList<Integer> correctVariants = new ArrayList<Integer>();
+            int[] correctVariants = null;
             
             // get question text and variants
             List<WebElement> variantsElements = getElementByLocator(
@@ -77,24 +77,32 @@ public class CroodleBrowser {
             
             
             System.out.println(questionTextParagraph.getText() +"\n");
-            for(int i=0; i< variantsElements.size(); i++){
-                 System.out.println("   [length="+ variantsElements.get(i).getText().length()+"] " 
-                        + variantsElements.get(i).getText());
-                if(variantsElements.get(i).getText().length() > maxLength){
-                    maxLength = variantsElements.get(i).getText().length();
+            for(int i=0; i< variants.size(); i++){
+                 System.out.println("   [length:="+ variants.get(i).length()+"] " 
+                        + variants.get(i));
+                if(variants.get(i).length() > maxLength){
+                    maxLength = variants.get(i).length();
                     longestVariantIndex = i;
                 }
             }
             
-            parser.tryToAnswer(questionTextParagraph.getText(), variants);
+            correctVariants  = parser.tryToAnswer(questionTextParagraph.getText(), variants);
             
             if(checkboxes.size() >= 2){ 
-                System.out.println("Szzzzze = " + checkboxes.size() );
+                if(correctVariants.length == 0)
                 checkboxes.get(longestVariantIndex).click();    //
+                for(int i = 0; i < correctVariants.length; i++){
+                    checkboxes.get(correctVariants[i]).click();
+                }
+                
                 System.err.println("========next question");
             }
             if(radiobuttons.size() > 1){
+                if(correctVariants.length == 0)
                 radiobuttons.get(longestVariantIndex).click();
+                for(int i = 0; i < correctVariants.length; i++){
+                    radiobuttons.get(correctVariants[i]).click();
+                }
                 
                 System.err.println("========next question");
             }
@@ -215,16 +223,12 @@ public class CroodleBrowser {
         this.correctQuestionsPercent = correctQuestionsPercent;
     }
 
-    /**
-     * @return the password
-     */
+
     public String getPassword() {
         return password;
     }
 
-    /**
-     * @param questionsFile the questionsFile to set
-     */
+ 
     public void setQuestionsFile(String questionsFile) {
         this.questionsFile = questionsFile;
         this.parser.setQuestionFile(new File(questionsFile));
