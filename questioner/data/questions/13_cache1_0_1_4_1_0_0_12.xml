@@ -1,2 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_12" name="13_Cache" nofquestions="0" nofsubcategories="0" filename="13_cache1_0_1_4_1_0_0_12.xml" />
+<questions id="1_0_1_4_1_0_0_12" name="13_Cache" nofquestions="3" nofsubcategories="0" filename="13_cache1_0_1_4_1_0_0_12.xml">
+  <question id="1_0_1_4_1_0_0_12:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Use&amp;nbsp;a&amp;nbsp;cache&amp;nbsp;.&amp;nbsp;A&amp;nbsp;few&amp;nbsp;words&amp;nbsp;about&amp;nbsp;cache&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>To&amp;nbsp;create&amp;nbsp;high-performance&amp;nbsp;systems,&amp;nbsp;sometimes&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;cache&amp;nbsp;data.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Play&amp;nbsp;has&amp;nbsp;a&amp;nbsp;cache&amp;nbsp;library&amp;nbsp;and&amp;nbsp;will&amp;nbsp;use&amp;nbsp;Memcached&amp;nbsp;when&amp;nbsp;used&amp;nbsp;in&amp;nbsp;a&amp;nbsp;distributed&amp;nbsp;environment.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;don’t&amp;nbsp;configure&amp;nbsp;Memcached,&amp;nbsp;Play&amp;nbsp;will&amp;nbsp;use&amp;nbsp;a&amp;nbsp;standalone&amp;nbsp;cache&amp;nbsp;that&amp;nbsp;stores&amp;nbsp;data&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;in&amp;nbsp;the&amp;nbsp;JVM&amp;nbsp;heap.&amp;nbsp;Caching&amp;nbsp;data&amp;nbsp;in&amp;nbsp;the&amp;nbsp;JVM&amp;nbsp;application&amp;nbsp;breaks&amp;nbsp;the&amp;nbsp;‘share&amp;nbsp;nothing’&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;assumption&amp;nbsp;made&amp;nbsp;by&amp;nbsp;Play:&amp;nbsp;you&amp;nbsp;can’t&amp;nbsp;run&amp;nbsp;your&amp;nbsp;application&amp;nbsp;on&amp;nbsp;several&amp;nbsp;servers,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;expect&amp;nbsp;the&amp;nbsp;application&amp;nbsp;to&amp;nbsp;behave&amp;nbsp;consistently.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Each&amp;nbsp;application&amp;nbsp;instance&amp;nbsp;will&amp;nbsp;have&amp;nbsp;a&amp;nbsp;different&amp;nbsp;copy&amp;nbsp;of&amp;nbsp;the&amp;nbsp;data.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;It&amp;nbsp;is&amp;nbsp;important&amp;nbsp;to&amp;nbsp;understand&amp;nbsp;that&amp;nbsp;the&amp;nbsp;cache&amp;nbsp;contract&amp;nbsp;is&amp;nbsp;clear:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;when&amp;nbsp;you&amp;nbsp;put&amp;nbsp;data&amp;nbsp;in&amp;nbsp;a&amp;nbsp;cache,&amp;nbsp;you&amp;nbsp;can’t&amp;nbsp;expect&amp;nbsp;that&amp;nbsp;data&amp;nbsp;to&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;remain&amp;nbsp;there&amp;nbsp;forever.&amp;nbsp;In&amp;nbsp;fact&amp;nbsp;you&amp;nbsp;shouldn’t.&amp;nbsp;A&amp;nbsp;cache&amp;nbsp;is&amp;nbsp;fast,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;but&amp;nbsp;values&amp;nbsp;expire,&amp;nbsp;and&amp;nbsp;the&amp;nbsp;cache&amp;nbsp;generally&amp;nbsp;exists&amp;nbsp;only&amp;nbsp;in&amp;nbsp;memory&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(without&amp;nbsp;persistent&amp;nbsp;backup).&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;b&gt;&amp;nbsp;So&amp;nbsp;the&amp;nbsp;best&amp;nbsp;way&amp;nbsp;to&amp;nbsp;use&amp;nbsp;the&amp;nbsp;cache&amp;nbsp;is&amp;nbsp;to&amp;nbsp;repopulate&amp;nbsp;it&amp;nbsp;when&amp;nbsp;it&amp;nbsp;doesn’t&amp;nbsp;have&amp;nbsp;what&amp;nbsp;you&amp;nbsp;expect:&amp;nbsp;&lt;/b&gt;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;allProducts()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;Product&gt;&amp;nbsp;products&amp;nbsp;=&amp;nbsp;Cache.get("products",&amp;nbsp;List.class);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if(products&amp;nbsp;==&amp;nbsp;null)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;products&amp;nbsp;=&amp;nbsp;Product.findAll();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Cache.set("products",&amp;nbsp;products,&amp;nbsp;"30mn");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;render(products);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;or&amp;nbsp;simple&amp;nbsp;example&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;index()&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;String&amp;nbsp;val=Cache.get("someObject",String.class);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if(val==null){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Cache.set("someObject",&amp;nbsp;"valueOfSomeObject","180s");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;val=Cache.get("someObject",String.class);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("%%%%%%%%%%%%%%%%"+val);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;render(val);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!&amp;nbsp;I&amp;nbsp;dont&amp;nbsp;understand&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;i&amp;nbsp;wrote&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;index()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Cache.set("someObject",&amp;nbsp;"valueOfSomeObject","180s");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;String&amp;nbsp;val=Cache.get("someObject",String.class);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;render(val);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;on&amp;nbsp;the&amp;nbsp;page&amp;nbsp;just&amp;nbsp;display&amp;nbsp;value&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;${val}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*make&amp;nbsp;a&amp;nbsp;request&amp;nbsp;http://localhost:9000&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;then&amp;nbsp;comment&amp;nbsp;this&amp;nbsp;line&amp;nbsp;&amp;nbsp;(&amp;nbsp;i&amp;nbsp;expect&amp;nbsp;that&amp;nbsp;value&amp;nbsp;was&amp;nbsp;saved&amp;nbsp;with&amp;nbsp;180&amp;nbsp;seconds&amp;nbsp;expiration)&amp;nbsp;(and&amp;nbsp;it&amp;nbsp;was&amp;nbsp;mistake&amp;nbsp;,&amp;nbsp;dont&amp;nbsp;change&amp;nbsp;the&amp;nbsp;code&amp;nbsp;when&amp;nbsp;app&amp;nbsp;IS&amp;nbsp;RUNNING&amp;nbsp;=))&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;String&amp;nbsp;val=Cache.get("someObject",String.class);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;make&amp;nbsp;a&amp;nbsp;request&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;And&amp;nbsp;&amp;nbsp;i&amp;nbsp;have&amp;nbsp;null&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;WHHHHY&amp;nbsp;&amp;nbsp;null&amp;nbsp;(i&amp;nbsp;wanted&amp;nbsp;180&amp;nbsp;second&amp;nbsp;)?&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_12:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Delete&amp;nbsp;data&amp;nbsp;from&amp;nbsp;Cache&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;deleteProduct(String&amp;nbsp;id)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Product&amp;nbsp;product&amp;nbsp;=&amp;nbsp;Product.findById(id);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;product.delete();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Cache.delete("product_"&amp;nbsp;+&amp;nbsp;id);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;allProducts();&amp;nbsp;//&amp;nbsp;some&amp;nbsp;method&amp;nbsp;=)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Some&amp;nbsp;methods&amp;nbsp;start&amp;nbsp;with&amp;nbsp;the&amp;nbsp;safe&amp;nbsp;prefix&amp;nbsp;–&amp;nbsp;e.g.&lt;b&gt;&amp;nbsp;safeDelete,&amp;nbsp;safeSet&amp;nbsp;&lt;/b&gt;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;standard&amp;nbsp;methods&amp;nbsp;are&amp;nbsp;non-blocking.&amp;nbsp;That&amp;nbsp;means&amp;nbsp;that&amp;nbsp;when&amp;nbsp;you&amp;nbsp;issue&amp;nbsp;the&amp;nbsp;call:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Cache.delete("product_"&amp;nbsp;+&amp;nbsp;id);&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;delete&amp;nbsp;method&amp;nbsp;will&amp;nbsp;return&amp;nbsp;immediately&amp;nbsp;and&amp;nbsp;will&amp;nbsp;not&amp;nbsp;wait&amp;nbsp;until&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;cached&amp;nbsp;object&amp;nbsp;is&amp;nbsp;actually&amp;nbsp;deleted.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So&amp;nbsp;if&amp;nbsp;an&amp;nbsp;error&amp;nbsp;occurs&amp;nbsp;–&amp;nbsp;e.g.&amp;nbsp;an&amp;nbsp;IO&amp;nbsp;error&amp;nbsp;–&amp;nbsp;the&amp;nbsp;object&amp;nbsp;may&amp;nbsp;still&amp;nbsp;be&amp;nbsp;present.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;method&amp;nbsp;(safeDelete)&amp;nbsp;is&amp;nbsp;blocking&amp;nbsp;and&amp;nbsp;returns&amp;nbsp;a&amp;nbsp;boolean&amp;nbsp;value&amp;nbsp;indicating&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;whether&amp;nbsp;the&amp;nbsp;object&amp;nbsp;has&amp;nbsp;been&amp;nbsp;deleted&amp;nbsp;or&amp;nbsp;not.&amp;nbsp;So&amp;nbsp;the&amp;nbsp;&lt;b&gt;full&amp;nbsp;pattern&lt;/b&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;that&amp;nbsp;ensures&amp;nbsp;an&amp;nbsp;item&amp;nbsp;is&amp;nbsp;deleted&amp;nbsp;from&amp;nbsp;the&amp;nbsp;cache&amp;nbsp;is:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if(!Cache.safeDelete("product_"&amp;nbsp;+&amp;nbsp;id))&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;throw&amp;nbsp;new&amp;nbsp;Exception("Oops,&amp;nbsp;the&amp;nbsp;product&amp;nbsp;has&amp;nbsp;not&amp;nbsp;been&amp;nbsp;removed&amp;nbsp;from&amp;nbsp;the&amp;nbsp;cache");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;...&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Note&amp;nbsp;that&amp;nbsp;those&amp;nbsp;being&amp;nbsp;blocking&amp;nbsp;calls,&amp;nbsp;safe&amp;nbsp;methods&amp;nbsp;will&amp;nbsp;&lt;b&gt;slow&amp;nbsp;down&amp;nbsp;your&amp;nbsp;application&lt;/b&gt;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So&amp;nbsp;use&amp;nbsp;them&amp;nbsp;only&amp;nbsp;when&amp;nbsp;needed.</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_12:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Cache&amp;nbsp;API(methods)&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;&amp;nbsp;,&amp;nbsp;Describe&amp;nbsp;.&lt;br&gt;
+Don&amp;#8217;t&amp;nbsp;use&amp;nbsp;the&amp;nbsp;Session&amp;nbsp;as&amp;nbsp;a&amp;nbsp;cache!&amp;nbsp;(Why&amp;nbsp;?&amp;nbsp;)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>The&amp;nbsp;cache&amp;nbsp;API&amp;nbsp;is&amp;nbsp;provided&amp;nbsp;by&amp;nbsp;the&amp;nbsp;&lt;b&gt;&amp;nbsp;play.cache.Cache&amp;nbsp;&lt;/b&gt;&amp;nbsp;class.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;class&amp;nbsp;contains&amp;nbsp;the&amp;nbsp;set&amp;nbsp;of&amp;nbsp;methods&amp;nbsp;to&amp;nbsp;set,&amp;nbsp;replace,&amp;nbsp;and&amp;nbsp;get&amp;nbsp;data&amp;nbsp;from&amp;nbsp;the&amp;nbsp;cache.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Refer&amp;nbsp;to&amp;nbsp;the&amp;nbsp;Memcached&amp;nbsp;documentation&amp;nbsp;to&amp;nbsp;understand&amp;nbsp;the&amp;nbsp;exact&amp;nbsp;behavior&amp;nbsp;of&amp;nbsp;each&amp;nbsp;method.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Cache.get&amp;nbsp;,&amp;nbsp;Cache.set&amp;nbsp;,&amp;nbsp;Cache.delete&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Cache.safeSet&amp;nbsp;,&amp;nbsp;Cache.safeDelete&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;also&amp;nbsp;there&amp;nbsp;are&amp;nbsp;useful&amp;nbsp;methods&amp;nbsp;:&amp;nbsp;Cache.replace&amp;nbsp;,&amp;nbsp;Cache.clear&amp;nbsp;,&amp;nbsp;Cache.stop&amp;nbsp;-&amp;nbsp;stop&amp;nbsp;the&amp;nbsp;cache&amp;nbsp;system&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;some&amp;nbsp;other&amp;nbsp;methods&amp;nbsp;.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Don’t&amp;nbsp;use&amp;nbsp;the&amp;nbsp;Session&amp;nbsp;as&amp;nbsp;a&amp;nbsp;cache!&amp;nbsp;(Why&amp;nbsp;?&amp;nbsp;)&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Answer&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;come&amp;nbsp;from&amp;nbsp;a&amp;nbsp;framework&amp;nbsp;that&amp;nbsp;uses&amp;nbsp;an&amp;nbsp;in-memory&amp;nbsp;Session&amp;nbsp;implementation,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;you&amp;nbsp;may&amp;nbsp;be&amp;nbsp;frustrated&amp;nbsp;to&amp;nbsp;see&amp;nbsp;that&amp;nbsp;Play&amp;nbsp;allows&amp;nbsp;only&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;a&amp;nbsp;small&amp;nbsp;set&amp;nbsp;of&amp;nbsp;String&amp;nbsp;data&amp;nbsp;to&amp;nbsp;be&amp;nbsp;saved&amp;nbsp;in&amp;nbsp;the&amp;nbsp;HTTP&amp;nbsp;Session.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;But&amp;nbsp;this&amp;nbsp;is&amp;nbsp;much&amp;nbsp;better&amp;nbsp;because&amp;nbsp;a&amp;nbsp;session&amp;nbsp;is&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;not&amp;nbsp;the&amp;nbsp;place&amp;nbsp;to&amp;nbsp;cache&amp;nbsp;your&amp;nbsp;application&amp;nbsp;data!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So&amp;nbsp;if&amp;nbsp;you&amp;nbsp;have&amp;nbsp;been&amp;nbsp;accustomed&amp;nbsp;to&amp;nbsp;doing&amp;nbsp;things&amp;nbsp;similar&amp;nbsp;to:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;httpServletRequest.getSession().put("userProducts",&amp;nbsp;products);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;...&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;and&amp;nbsp;then&amp;nbsp;in&amp;nbsp;subsequent&amp;nbsp;requests&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;products&amp;nbsp;=&amp;nbsp;(List&lt;Product&gt;)httpServletRequest.getSession().get("userProducts");&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;In&amp;nbsp;Play1&amp;nbsp;you&amp;nbsp;achieve&amp;nbsp;the&amp;nbsp;&lt;b&gt;same&amp;nbsp;effect&amp;nbsp;a&amp;nbsp;little&amp;nbsp;differently&lt;/b&gt;.&amp;nbsp;We&amp;nbsp;think&amp;nbsp;it’s&amp;nbsp;a&amp;nbsp;better&amp;nbsp;approach:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Cache.set(session.getId(),&amp;nbsp;products);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;...&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;and&amp;nbsp;then&amp;nbsp;in&amp;nbsp;subsequent&amp;nbsp;requests&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;Product&gt;&amp;nbsp;products&amp;nbsp;=&amp;nbsp;Cache.get(session.getId(),&amp;nbsp;List.class)&lt;br&gt;
+&lt;br&gt;
+Configure&amp;nbsp;memcached&amp;nbsp;(consider&amp;nbsp;in&amp;nbsp;details&amp;nbsp;!!!&amp;nbsp;)&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;When&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;enable&amp;nbsp;a&amp;nbsp;real&amp;nbsp;Memcached&amp;nbsp;implementation,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;enable&amp;nbsp;Memcached&amp;nbsp;with&amp;nbsp;the&amp;nbsp;memcached&amp;nbsp;configuration&amp;nbsp;and&amp;nbsp;define&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;daemon&amp;nbsp;address&amp;nbsp;in&amp;nbsp;the&amp;nbsp;memcached.host&amp;nbsp;configuration.</questionanswer>
+  </question>
+</questions>

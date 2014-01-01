@@ -1,2 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_16" name="17_Modules_and_the_module_repository" nofquestions="0" nofsubcategories="0" filename="17_modules_and_the_module_repository1_0_1_4_1_0_0_16.xml" />
+<questions id="1_0_1_4_1_0_0_16" name="17_Modules_and_the_module_repository" nofquestions="3" nofsubcategories="0" filename="17_modules_and_the_module_repository1_0_1_4_1_0_0_16.xml">
+  <question id="1_0_1_4_1_0_0_16:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;a&amp;nbsp;module&amp;nbsp;in&amp;nbsp;Play1&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>A&amp;nbsp;module&amp;nbsp;is&amp;nbsp;&lt;b&gt;just&amp;nbsp;another&amp;nbsp;Play&amp;nbsp;application&lt;/b&gt;&amp;nbsp;however&amp;nbsp;some&amp;nbsp;differences&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;exist&amp;nbsp;in&amp;nbsp;the&amp;nbsp;way&amp;nbsp;resources&amp;nbsp;are&amp;nbsp;loaded&amp;nbsp;for&amp;nbsp;an&amp;nbsp;application&amp;nbsp;module:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;A&amp;nbsp;module&amp;nbsp;does&amp;nbsp;not&amp;nbsp;have&amp;nbsp;a&amp;nbsp;conf/application.conf&amp;nbsp;file.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;A&amp;nbsp;module&amp;nbsp;can&amp;nbsp;have&amp;nbsp;a&amp;nbsp;conf/routes&amp;nbsp;file,&amp;nbsp;but&amp;nbsp;these&amp;nbsp;routes&amp;nbsp;will&amp;nbsp;not&amp;nbsp;be&amp;nbsp;loaded&amp;nbsp;automatically.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;All&amp;nbsp;files&amp;nbsp;are&amp;nbsp;first&amp;nbsp;searched&amp;nbsp;for&amp;nbsp;in&amp;nbsp;the&amp;nbsp;main&amp;nbsp;application&amp;nbsp;path,&amp;nbsp;then&amp;nbsp;in&amp;nbsp;all&amp;nbsp;loaded&amp;nbsp;modules.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;A&amp;nbsp;module&amp;nbsp;can&amp;nbsp;contain&amp;nbsp;plain&amp;nbsp;Java&amp;nbsp;code&amp;nbsp;packaged&amp;nbsp;as&amp;nbsp;a&amp;nbsp;JAR&amp;nbsp;file&amp;nbsp;in&amp;nbsp;the&amp;nbsp;module/lib&amp;nbsp;directory.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;A&amp;nbsp;module&amp;nbsp;can&amp;nbsp;include&amp;nbsp;a&amp;nbsp;documentation&amp;nbsp;page.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Everything&amp;nbsp;in&amp;nbsp;a&amp;nbsp;module&amp;nbsp;is&amp;nbsp;optional.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;You&amp;nbsp;can&amp;nbsp;create&amp;nbsp;a&amp;nbsp;module&amp;nbsp;with&amp;nbsp;the&amp;nbsp;&amp;nbsp;&lt;b&gt;&amp;nbsp;play&amp;nbsp;new-module&amp;nbsp;&lt;/b&gt;&amp;nbsp;command.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Modules&amp;nbsp;are&amp;nbsp;automatically&amp;nbsp;loaded&amp;nbsp;&lt;b&gt;from&amp;nbsp;the&amp;nbsp;/modules&amp;nbsp;directory&lt;/b&gt;&amp;nbsp;of&amp;nbsp;the&amp;nbsp;application.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;use&amp;nbsp;the&amp;nbsp;dependency&amp;nbsp;management&amp;nbsp;system&amp;nbsp;to&amp;nbsp;automatically&amp;nbsp;manage&amp;nbsp;your&amp;nbsp;application&amp;nbsp;modules.</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_16:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Load&amp;nbsp;default&amp;nbsp;routes&amp;nbsp;from&amp;nbsp;modules&amp;nbsp;in&amp;nbsp;Play1&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>A&amp;nbsp;module&amp;nbsp;can&amp;nbsp;provide&amp;nbsp;a&amp;nbsp;default&amp;nbsp;routes&amp;nbsp;file.&amp;nbsp;You&amp;nbsp;can&amp;nbsp;load&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;it&amp;nbsp;in&amp;nbsp;the&amp;nbsp;main&amp;nbsp;application&amp;nbsp;routes&amp;nbsp;file,&amp;nbsp;using&amp;nbsp;a&amp;nbsp;special&amp;nbsp;route&amp;nbsp;declaration:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;Import&amp;nbsp;the&amp;nbsp;default&amp;nbsp;CRUD&amp;nbsp;routes(crud&amp;nbsp;is&amp;nbsp;good&amp;nbsp;modul&amp;nbsp;,&amp;nbsp;need&amp;nbsp;to&amp;nbsp;study&amp;nbsp;it)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GET&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/admin&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;module:crud&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;even&amp;nbsp;load&amp;nbsp;routes&amp;nbsp;from&amp;nbsp;all&amp;nbsp;available&amp;nbsp;modules:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GET&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;module:*</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_16:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Using&amp;nbsp;the&amp;nbsp;Play1&amp;nbsp;module&amp;nbsp;repository&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>The&amp;nbsp;module&amp;nbsp;repository&amp;nbsp;identifies&amp;nbsp;all&amp;nbsp;modules&amp;nbsp;contributed&amp;nbsp;by&amp;nbsp;the&amp;nbsp;community.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;module&amp;nbsp;can&amp;nbsp;have&amp;nbsp;several&amp;nbsp;versions.&amp;nbsp;You&amp;nbsp;have&amp;nbsp;to&amp;nbsp;check&amp;nbsp;the&amp;nbsp;module’s&amp;nbsp;documentation&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for&amp;nbsp;which&amp;nbsp;version&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;use&amp;nbsp;for&amp;nbsp;your&amp;nbsp;framework&amp;nbsp;version.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;also&amp;nbsp;browse&amp;nbsp;the&amp;nbsp;module&amp;nbsp;repository&amp;nbsp;using&amp;nbsp;the&amp;nbsp;&lt;b&gt;&amp;nbsp;play&amp;nbsp;list-modules&lt;/b&gt;&amp;nbsp;command.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;to&amp;nbsp;install&amp;nbsp;Scala&amp;nbsp;support&amp;nbsp;in&amp;nbsp;the&amp;nbsp;framework,&amp;nbsp;use:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;play&amp;nbsp;install&amp;nbsp;scala-head&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Modules&amp;nbsp;installed&amp;nbsp;this&amp;nbsp;way&amp;nbsp;are&amp;nbsp;downloaded&amp;nbsp;to&amp;nbsp;the&amp;nbsp;/modules&amp;nbsp;directory&amp;nbsp;of&amp;nbsp;your&amp;nbsp;framework&amp;nbsp;installation.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;change&amp;nbsp;the&amp;nbsp;installation&amp;nbsp;path&amp;nbsp;using&amp;nbsp;the&amp;nbsp;--path&amp;nbsp;option:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;play&amp;nbsp;install&amp;nbsp;gwt&amp;nbsp;--path=my-project&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&amp;nbsp;of&amp;nbsp;modules&amp;nbsp;here&amp;nbsp;:&amp;nbsp;http://www.playframework.com/modules&lt;br&gt;
+&lt;br&gt;</questionanswer>
+  </question>
+</questions>

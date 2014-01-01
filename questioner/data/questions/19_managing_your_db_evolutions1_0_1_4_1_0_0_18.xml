@@ -1,2 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_18" name="19_Managing_your_DB_evolutions" nofquestions="0" nofsubcategories="0" filename="19_managing_your_db_evolutions1_0_1_4_1_0_0_18.xml" />
+<questions id="1_0_1_4_1_0_0_18" name="19_Managing_your_DB_evolutions" nofquestions="2" nofsubcategories="0" filename="19_managing_your_db_evolutions1_0_1_4_1_0_0_18.xml">
+  <question id="1_0_1_4_1_0_0_18:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DB&amp;nbsp;Evolutions&amp;nbsp;scripts&amp;nbsp;&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>When&amp;nbsp;you&amp;nbsp;use&amp;nbsp;a&amp;nbsp;relational&amp;nbsp;database,&amp;nbsp;you&amp;nbsp;need&amp;nbsp;a&amp;nbsp;way&amp;nbsp;to&amp;nbsp;track&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;organize&amp;nbsp;your&amp;nbsp;database&amp;nbsp;schema&amp;nbsp;evolutions.&amp;nbsp;Typically&amp;nbsp;there&amp;nbsp;are&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;several&amp;nbsp;situation&amp;nbsp;where&amp;nbsp;you&amp;nbsp;need&amp;nbsp;a&amp;nbsp;more&amp;nbsp;sophisticated&amp;nbsp;way&amp;nbsp;to&amp;nbsp;track&amp;nbsp;your&amp;nbsp;database&amp;nbsp;schema&amp;nbsp;changes:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;When&amp;nbsp;you&amp;nbsp;work&amp;nbsp;within&amp;nbsp;a&amp;nbsp;team&amp;nbsp;of&amp;nbsp;developers,&amp;nbsp;each&amp;nbsp;person&amp;nbsp;needs&amp;nbsp;to&amp;nbsp;know&amp;nbsp;about&amp;nbsp;any&amp;nbsp;schema&amp;nbsp;change.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;When&amp;nbsp;you&amp;nbsp;deploy&amp;nbsp;on&amp;nbsp;a&amp;nbsp;production&amp;nbsp;server,&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;have&amp;nbsp;a&amp;nbsp;robust&amp;nbsp;way&amp;nbsp;to&amp;nbsp;upgrade&amp;nbsp;your&amp;nbsp;database&amp;nbsp;schema.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;If&amp;nbsp;you&amp;nbsp;work&amp;nbsp;on&amp;nbsp;several&amp;nbsp;machines,&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;keep&amp;nbsp;all&amp;nbsp;database&amp;nbsp;schemas&amp;nbsp;synchronized.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;b&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;work&amp;nbsp;with&amp;nbsp;JPA,&amp;nbsp;Hibernate&amp;nbsp;can&amp;nbsp;handle&amp;nbsp;database&amp;nbsp;evolutions&amp;nbsp;for&amp;nbsp;you&amp;nbsp;automatically.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Evolutions&amp;nbsp;are&amp;nbsp;useful&amp;nbsp;if&amp;nbsp;you&amp;nbsp;don’t&amp;nbsp;use&amp;nbsp;JPA&amp;nbsp;or&amp;nbsp;if&amp;nbsp;you&amp;nbsp;prefer&amp;nbsp;to&amp;nbsp;manually&amp;nbsp;take&amp;nbsp;care&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;of&amp;nbsp;your&amp;nbsp;database&amp;nbsp;schema&amp;nbsp;for&amp;nbsp;finer&amp;nbsp;tuning.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Play&amp;nbsp;tracks&amp;nbsp;your&amp;nbsp;database&amp;nbsp;evolutions&amp;nbsp;using&amp;nbsp;several&amp;nbsp;evolutions&amp;nbsp;script.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;These&amp;nbsp;scripts&amp;nbsp;are&amp;nbsp;written&amp;nbsp;in&amp;nbsp;plain&amp;nbsp;old&amp;nbsp;SQL&amp;nbsp;and&amp;nbsp;should&amp;nbsp;be&amp;nbsp;located&amp;nbsp;in&amp;nbsp;the&amp;nbsp;db/evolutions&amp;nbsp;directory&amp;nbsp;of&amp;nbsp;your&amp;nbsp;application.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Play&amp;nbsp;tracks&amp;nbsp;your&amp;nbsp;database&amp;nbsp;evolutions&amp;nbsp;using&amp;nbsp;several&amp;nbsp;evolutions&amp;nbsp;script.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;These&amp;nbsp;scripts&amp;nbsp;are&amp;nbsp;written&amp;nbsp;in&amp;nbsp;plain&amp;nbsp;old&amp;nbsp;SQL&amp;nbsp;and&amp;nbsp;should&amp;nbsp;be&amp;nbsp;located&amp;nbsp;in&amp;nbsp;the&amp;nbsp;&lt;b&gt;db/evolutions&lt;/b&gt;&amp;nbsp;directory&amp;nbsp;of&amp;nbsp;your&amp;nbsp;application.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;first&amp;nbsp;script&amp;nbsp;is&amp;nbsp;named&amp;nbsp;1.sql,&amp;nbsp;the&amp;nbsp;second&amp;nbsp;script&amp;nbsp;2.sql,&amp;nbsp;and&amp;nbsp;so&amp;nbsp;on…&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Each&amp;nbsp;script&amp;nbsp;contains&amp;nbsp;&lt;b&gt;two&lt;b&gt;&amp;nbsp;parts:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*The&amp;nbsp;Ups&amp;nbsp;part&amp;nbsp;the&amp;nbsp;describe&amp;nbsp;the&amp;nbsp;required&amp;nbsp;transformations.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*The&amp;nbsp;Downs&amp;nbsp;part&amp;nbsp;that&amp;nbsp;describe&amp;nbsp;how&amp;nbsp;to&amp;nbsp;revert&amp;nbsp;them.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;take&amp;nbsp;a&amp;nbsp;look&amp;nbsp;at&amp;nbsp;this&amp;nbsp;first&amp;nbsp;evolution&amp;nbsp;script&amp;nbsp;that&amp;nbsp;bootstrap&amp;nbsp;a&amp;nbsp;basic&amp;nbsp;application:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;Users&amp;nbsp;schema&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;---&amp;nbsp;!Ups&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CREATE&amp;nbsp;TABLE&amp;nbsp;User&amp;nbsp;(&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;id&amp;nbsp;bigint(20)&amp;nbsp;NOT&amp;nbsp;NULL&amp;nbsp;AUTO_INCREMENT,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;email&amp;nbsp;varchar(255)&amp;nbsp;NOT&amp;nbsp;NULL,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;password&amp;nbsp;varchar(255)&amp;nbsp;NOT&amp;nbsp;NULL,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;fullname&amp;nbsp;varchar(255)&amp;nbsp;NOT&amp;nbsp;NULL,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;isAdmin&amp;nbsp;boolean&amp;nbsp;NOT&amp;nbsp;NULL,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;PRIMARY&amp;nbsp;KEY&amp;nbsp;(id)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;---&amp;nbsp;!Downs&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DROP&amp;nbsp;TABLE&amp;nbsp;User;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;As&amp;nbsp;you&amp;nbsp;see&amp;nbsp;you&amp;nbsp;have&amp;nbsp;to&amp;nbsp;delimitate&amp;nbsp;the&amp;nbsp;both&amp;nbsp;Ups&amp;nbsp;and&amp;nbsp;Downs&amp;nbsp;section&amp;nbsp;by&amp;nbsp;using&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;comments&amp;nbsp;in&amp;nbsp;your&amp;nbsp;SQL&amp;nbsp;script.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Evolutions&amp;nbsp;are&amp;nbsp;automatically&amp;nbsp;activated&amp;nbsp;if&amp;nbsp;a&amp;nbsp;database&amp;nbsp;is&amp;nbsp;configured&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;in&amp;nbsp;application.conf&amp;nbsp;and&amp;nbsp;evolution&amp;nbsp;scripts&amp;nbsp;are&amp;nbsp;present.&amp;nbsp;You&amp;nbsp;can&amp;nbsp;disable&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;them&amp;nbsp;by&amp;nbsp;setting&amp;nbsp;'evolutions.enabled'&amp;nbsp;to&amp;nbsp;false.&amp;nbsp;For&amp;nbsp;example&amp;nbsp;when&amp;nbsp;tests&amp;nbsp;set&amp;nbsp;up&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;their&amp;nbsp;own&amp;nbsp;database&amp;nbsp;you&amp;nbsp;can&amp;nbsp;disable&amp;nbsp;evolutions&amp;nbsp;for&amp;nbsp;the&amp;nbsp;test&amp;nbsp;environment.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;When&amp;nbsp;evolutions&amp;nbsp;are&amp;nbsp;activated,&amp;nbsp;Play&amp;nbsp;will&amp;nbsp;check&amp;nbsp;your&amp;nbsp;database&amp;nbsp;schema&amp;nbsp;state&amp;nbsp;before&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;each&amp;nbsp;request&amp;nbsp;in&amp;nbsp;DEV&amp;nbsp;mode,&amp;nbsp;or&amp;nbsp;before&amp;nbsp;starting&amp;nbsp;the&amp;nbsp;application&amp;nbsp;in&amp;nbsp;PROD&amp;nbsp;mode.&amp;nbsp;In&amp;nbsp;DEV&amp;nbsp;mode,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if&amp;nbsp;your&amp;nbsp;database&amp;nbsp;schema&amp;nbsp;is&amp;nbsp;not&amp;nbsp;up&amp;nbsp;to&amp;nbsp;date,&amp;nbsp;an&amp;nbsp;error&amp;nbsp;page&amp;nbsp;will&amp;nbsp;suggest&amp;nbsp;that&amp;nbsp;you&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;synchronise&amp;nbsp;your&amp;nbsp;database&amp;nbsp;schema&amp;nbsp;by&amp;nbsp;running&amp;nbsp;the&amp;nbsp;appropriate&amp;nbsp;SQL&amp;nbsp;script.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Inconsistent&amp;nbsp;states&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Sometimes&amp;nbsp;you&amp;nbsp;will&amp;nbsp;make&amp;nbsp;a&amp;nbsp;mistake&amp;nbsp;in&amp;nbsp;your&amp;nbsp;evolution&amp;nbsp;scripts,&amp;nbsp;and&amp;nbsp;they&amp;nbsp;will&amp;nbsp;fail.&amp;nbsp;In&amp;nbsp;this&amp;nbsp;case,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Play&amp;nbsp;will&amp;nbsp;mark&amp;nbsp;your&amp;nbsp;database&amp;nbsp;schema&amp;nbsp;as&amp;nbsp;being&amp;nbsp;in&amp;nbsp;an&amp;nbsp;inconsistent&amp;nbsp;state&amp;nbsp;and&amp;nbsp;will&amp;nbsp;ask&amp;nbsp;you&amp;nbsp;to&amp;nbsp;manually&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;resolve&amp;nbsp;the&amp;nbsp;problem&amp;nbsp;before&amp;nbsp;continuing.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!!!!!!!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;play&amp;nbsp;define&amp;nbsp;is&amp;nbsp;evolutions&amp;nbsp;applied&amp;nbsp;or&amp;nbsp;no&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;There&amp;nbsp;is&amp;nbsp;a&amp;nbsp;table&amp;nbsp;'play_evolutions'&amp;nbsp;,&amp;nbsp;and&amp;nbsp;for&amp;nbsp;example&amp;nbsp;when&amp;nbsp;you&amp;nbsp;first&amp;nbsp;time&amp;nbsp;apply&amp;nbsp;evolutions&amp;nbsp;this&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;table&amp;nbsp;is&amp;nbsp;created&amp;nbsp;.&amp;nbsp;After&amp;nbsp;this&amp;nbsp;,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;for&amp;nbsp;example&amp;nbsp;delete&amp;nbsp;this&amp;nbsp;table&amp;nbsp;,&amp;nbsp;and&amp;nbsp;play&amp;nbsp;think&amp;nbsp;:&amp;nbsp;'db&amp;nbsp;is&amp;nbsp;changed&amp;nbsp;'&amp;nbsp;,and&amp;nbsp;make&amp;nbsp;evolutions&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(it&amp;nbsp;is&amp;nbsp;stupid&amp;nbsp;,&amp;nbsp;so&amp;nbsp;if&amp;nbsp;you&amp;nbsp;change&amp;nbsp;structure&amp;nbsp;of&amp;nbsp;DB&amp;nbsp;&amp;nbsp;play&amp;nbsp;doestn&amp;nbsp;see&amp;nbsp;it&amp;nbsp;,&amp;nbsp;it&amp;nbsp;see&amp;nbsp;only&amp;nbsp;'play_evolutions'&amp;nbsp;table&amp;nbsp;=)&amp;nbsp;)</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_18:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DB&amp;nbsp;Evolutions&amp;nbsp;commands&amp;nbsp;in&amp;nbsp;Play1&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>The&amp;nbsp;evolutions&amp;nbsp;run&amp;nbsp;interactively&amp;nbsp;in&amp;nbsp;DEV&amp;nbsp;mode.&amp;nbsp;However&amp;nbsp;in&amp;nbsp;PROD&amp;nbsp;mode&amp;nbsp;you&amp;nbsp;will&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;have&amp;nbsp;to&amp;nbsp;use&amp;nbsp;the&amp;nbsp;'evolutions'&amp;nbsp;command&amp;nbsp;to&amp;nbsp;fix&amp;nbsp;your&amp;nbsp;database&amp;nbsp;schema&amp;nbsp;before&amp;nbsp;running&amp;nbsp;your&amp;nbsp;application.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;'play&amp;nbsp;evolutions'&amp;nbsp;&amp;nbsp;-&amp;nbsp;just&amp;nbsp;create&amp;nbsp;table&amp;nbsp;play_evolutions&amp;nbsp;in&amp;nbsp;DB&amp;nbsp;,&amp;nbsp;to&amp;nbsp;apply&amp;nbsp;evolutions&amp;nbsp;use&amp;nbsp;:&amp;nbsp;'play&amp;nbsp;evolutions:apply'&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;want&amp;nbsp;Play&amp;nbsp;to&amp;nbsp;automatically&amp;nbsp;run&amp;nbsp;this&amp;nbsp;evolution&amp;nbsp;for&amp;nbsp;you,&amp;nbsp;then&amp;nbsp;run:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$&amp;nbsp;play&amp;nbsp;evolutions:apply&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;prefer&amp;nbsp;running&amp;nbsp;this&amp;nbsp;script&amp;nbsp;manually&amp;nbsp;on&amp;nbsp;your&amp;nbsp;production&amp;nbsp;database,&amp;nbsp;you&amp;nbsp;need&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;tell&amp;nbsp;Play&amp;nbsp;that&amp;nbsp;you&amp;nbsp;database&amp;nbsp;is&amp;nbsp;up-to-date&amp;nbsp;by&amp;nbsp;running:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$&amp;nbsp;play&amp;nbsp;evolutions:markApplied&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;there&amp;nbsp;are&amp;nbsp;any&amp;nbsp;errors&amp;nbsp;while&amp;nbsp;automatically&amp;nbsp;running&amp;nbsp;the&amp;nbsp;evolutions&amp;nbsp;scripts,&amp;nbsp;as&amp;nbsp;in&amp;nbsp;DEV&amp;nbsp;mode,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;manually&amp;nbsp;resolve&amp;nbsp;them,&amp;nbsp;and&amp;nbsp;mark&amp;nbsp;your&amp;nbsp;database&amp;nbsp;schema&amp;nbsp;a&amp;nbsp;fixed&amp;nbsp;by&amp;nbsp;running:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$&amp;nbsp;play&amp;nbsp;evolutions:resolve</questionanswer>
+  </question>
+</questions>

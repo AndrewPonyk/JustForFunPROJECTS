@@ -1,2 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_19" name="20_Logging_configuration" nofquestions="0" nofsubcategories="0" filename="20_logging_configuration1_0_1_4_1_0_0_19.xml" />
+<questions id="1_0_1_4_1_0_0_19" name="20_Logging_configuration" nofquestions="1" nofsubcategories="0" filename="20_logging_configuration1_0_1_4_1_0_0_19.xml">
+  <question id="1_0_1_4_1_0_0_19:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Logging&amp;nbsp;from&amp;nbsp;your&amp;nbsp;application&amp;nbsp;in&amp;nbsp;Play1&amp;nbsp;,&amp;nbsp;and&amp;nbsp;&lt;br&gt;
+Configure&amp;nbsp;log&amp;nbsp;levels&amp;nbsp;,&amp;nbsp;create&amp;nbsp;daily&amp;nbsp;logger&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Play&amp;nbsp;provides&amp;nbsp;a&amp;nbsp;default&amp;nbsp;logger&amp;nbsp;with&amp;nbsp;the&amp;nbsp;class&amp;nbsp;play.Logger.&amp;nbsp;This&amp;nbsp;class&amp;nbsp;uses&amp;nbsp;&lt;b&gt;Log4j&lt;/b&gt;&amp;nbsp;to&amp;nbsp;write&amp;nbsp;messages&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;exceptions&amp;nbsp;to&amp;nbsp;a&amp;nbsp;logger&amp;nbsp;named&amp;nbsp;play.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Logging&amp;nbsp;from&amp;nbsp;your&amp;nbsp;application&amp;nbsp;is&amp;nbsp;&lt;b&gt;easy&lt;/b&gt;:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Logger.info("A&amp;nbsp;log&amp;nbsp;message");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Logger.error(ex,&amp;nbsp;"Oops");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;play.Logger&amp;nbsp;class’&amp;nbsp;methods&amp;nbsp;support&amp;nbsp;easy&amp;nbsp;formatting&amp;nbsp;through&amp;nbsp;the&amp;nbsp;standard&amp;nbsp;Java&amp;nbsp;formatter&amp;nbsp;syntax:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Logger.debug("The&amp;nbsp;param&amp;nbsp;was&amp;nbsp;%s",&amp;nbsp;param);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Logger.info("I&amp;nbsp;want&amp;nbsp;to&amp;nbsp;log&amp;nbsp;%s&amp;nbsp;and&amp;nbsp;%s&amp;nbsp;and&amp;nbsp;%s",&amp;nbsp;a,&amp;nbsp;b,&amp;nbsp;c);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;still&amp;nbsp;use&amp;nbsp;Log4j&amp;nbsp;directly&amp;nbsp;to&amp;nbsp;create&amp;nbsp;alternative&amp;nbsp;loggers&amp;nbsp;for&amp;nbsp;specific&amp;nbsp;needs:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;org.apache.log4j.Logger.getLogger("another.logger");&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!Tips&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;%dev...&amp;nbsp;in&amp;nbsp;your&amp;nbsp;app&amp;nbsp;denote&amp;nbsp;a&amp;nbsp;"dev"&amp;nbsp;id,&amp;nbsp;not&amp;nbsp;"dev"&amp;nbsp;mode.&amp;nbsp;So&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;run&amp;nbsp;your&amp;nbsp;app&amp;nbsp;using&amp;nbsp;play&amp;nbsp;run&amp;nbsp;--%dev&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;you&amp;nbsp;can&amp;nbsp;any&amp;nbsp;how&amp;nbsp;get&amp;nbsp;the&amp;nbsp;log&amp;nbsp;file&amp;nbsp;if&amp;nbsp;you&amp;nbsp;type&amp;nbsp;'play&amp;nbsp;start'.&amp;nbsp;It&amp;nbsp;will&amp;nbsp;be&amp;nbsp;default&amp;nbsp;logged&amp;nbsp;to&amp;nbsp;&lt;b&gt;logs/system.out&lt;/b&gt;&amp;nbsp;(!!!!!!!!)&lt;br&gt;
+&lt;br&gt;
+If&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;fully&amp;nbsp;configure&amp;nbsp;Log4j,&amp;nbsp;create&amp;nbsp;a&amp;nbsp;log4j.properties&amp;nbsp;file&amp;nbsp;in&amp;nbsp;the&amp;nbsp;conf/&amp;nbsp;directory.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Since&amp;nbsp;this&amp;nbsp;directory&amp;nbsp;is&amp;nbsp;the&amp;nbsp;first&amp;nbsp;element&amp;nbsp;of&amp;nbsp;the&amp;nbsp;classpath,&amp;nbsp;this&amp;nbsp;file&amp;nbsp;will&amp;nbsp;be&amp;nbsp;the&amp;nbsp;defaul&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;used&amp;nbsp;by&amp;nbsp;all&amp;nbsp;libraries.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;default&amp;nbsp;Log4j&amp;nbsp;configuration&amp;nbsp;is&amp;nbsp;the&amp;nbsp;following:&amp;nbsp;(log4j.properties&amp;nbsp;in&amp;nbsp;conf&amp;nbsp;directory)&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.rootLogger=ERROR,&amp;nbsp;Console&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.logger.play=INFO&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;Console&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.appender.Console=org.apache.log4j.ConsoleAppender&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.appender.Console.layout=org.apache.log4j.PatternLayout&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.appender.Console.layout.ConversionPattern=%d{ABSOLUTE}&amp;nbsp;%-5p&amp;nbsp;~&amp;nbsp;%m%n&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Configure&amp;nbsp;for&amp;nbsp;production&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(output&amp;nbsp;to&amp;nbsp;file&amp;nbsp;)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.rootLogger=ERROR,&amp;nbsp;Rolling&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.logger.play=INFO&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;Rolling&amp;nbsp;files&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.appender.Rolling=org.apache.log4j.RollingFileAppender&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.appender.Rolling.File=application.log&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.appender.Rolling.MaxFileSize=1MB&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.appender.Rolling.MaxBackupIndex=100&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.appender.Rolling.layout=org.apache.log4j.PatternLayout&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.appender.Rolling.layout.ConversionPattern=%d{ABSOLUTE}&amp;nbsp;%-5p&amp;nbsp;~&amp;nbsp;%m%n&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!&amp;nbsp;I&amp;nbsp;dont&amp;nbsp;know&amp;nbsp;how&amp;nbsp;to&amp;nbsp;make&amp;nbsp;daily&amp;nbsp;logger&amp;nbsp;=)(NOW&amp;nbsp;i&amp;nbsp;KNOW&amp;nbsp;=))&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Daily&amp;nbsp;logger&amp;nbsp;idea&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;In&amp;nbsp;current&amp;nbsp;date&amp;nbsp;log&amp;nbsp;is&amp;nbsp;written&amp;nbsp;to&amp;nbsp;application.log&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;at&amp;nbsp;00:00&amp;nbsp;AM&amp;nbsp;current&amp;nbsp;log&amp;nbsp;is&amp;nbsp;renaming&amp;nbsp;to&amp;nbsp;application.logXX.XX.2013&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;and&amp;nbsp;on&amp;nbsp;next&amp;nbsp;day&amp;nbsp;there&amp;nbsp;is&amp;nbsp;new&amp;nbsp;current&amp;nbsp;log&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.rootLogger=ERROR,Rolling&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.logger.play=INFO&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;Daily&amp;nbsp;logs&amp;nbsp;for&amp;nbsp;application&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.appender.Rolling=org.apache.log4j.DailyRollingFileAppender&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.appender.Rolling.DatePattern='.'yyyy-MM-dd&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.appender.Rolling.File=dailylogs/application.log&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.appender.Rolling.layout=org.apache.log4j.PatternLayout&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;log4j.appender.Rolling.layout.ConversionPattern=%d{ABSOLUTE}&amp;nbsp;%-5p&amp;nbsp;~%m%n</questionanswer>
+  </question>
+</questions>

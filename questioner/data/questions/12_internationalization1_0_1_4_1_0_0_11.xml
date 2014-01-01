@@ -1,2 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_11" name="12_Internationalization" nofquestions="0" nofsubcategories="0" filename="12_internationalization1_0_1_4_1_0_0_11.xml" />
+<questions id="1_0_1_4_1_0_0_11" name="12_Internationalization" nofquestions="5" nofsubcategories="0" filename="12_internationalization1_0_1_4_1_0_0_11.xml">
+  <question id="1_0_1_4_1_0_0_11:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;Internatiolazation&amp;nbsp;,&amp;nbsp;and&amp;nbsp;Why&amp;nbsp;only&amp;nbsp;UTF-8&amp;nbsp;encoding&amp;nbsp;is&amp;nbsp;using&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Def&amp;nbsp;:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Internationalisation&amp;nbsp;(I18N)&amp;nbsp;is&amp;nbsp;a&amp;nbsp;means&amp;nbsp;of&amp;nbsp;adapting&amp;nbsp;your&amp;nbsp;application&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;different&amp;nbsp;languages&amp;nbsp;to&amp;nbsp;allow&amp;nbsp;for&amp;nbsp;regional&amp;nbsp;differences.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Follow&amp;nbsp;these&amp;nbsp;steps&amp;nbsp;to&amp;nbsp;enable&amp;nbsp;internationalisation&amp;nbsp;in&amp;nbsp;your&amp;nbsp;application.&lt;br&gt;
+&lt;br&gt;
+Play&amp;nbsp;supports&amp;nbsp;only&amp;nbsp;one&amp;nbsp;encoding:&amp;nbsp;UTF-8.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Since&amp;nbsp;encoding&amp;nbsp;problems&amp;nbsp;can&amp;nbsp;be&amp;nbsp;weird&amp;nbsp;and&amp;nbsp;difficult&amp;nbsp;to&amp;nbsp;deal&amp;nbsp;with,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;we&amp;nbsp;made&amp;nbsp;the&amp;nbsp;choice&amp;nbsp;to&amp;nbsp;support&amp;nbsp;only&amp;nbsp;one&amp;nbsp;encoding.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UTF-8&amp;nbsp;allows&amp;nbsp;you&amp;nbsp;to&amp;nbsp;display&amp;nbsp;all&amp;nbsp;characters&amp;nbsp;for&amp;nbsp;all&amp;nbsp;languages.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Be&amp;nbsp;sure&amp;nbsp;to&amp;nbsp;be&amp;nbsp;consistent&amp;nbsp;with&amp;nbsp;UTF-8&amp;nbsp;usage&amp;nbsp;throughout&amp;nbsp;your&amp;nbsp;application:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Edit&amp;nbsp;all&amp;nbsp;your&amp;nbsp;source&amp;nbsp;files&amp;nbsp;as&amp;nbsp;UTF-8&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Define&amp;nbsp;proper&amp;nbsp;encoding&amp;nbsp;headers&amp;nbsp;in&amp;nbsp;HTTP&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Set&amp;nbsp;your&amp;nbsp;HTML&amp;nbsp;meta&amp;nbsp;tags&amp;nbsp;to&amp;nbsp;UTF-8&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;If&amp;nbsp;you&amp;nbsp;use&amp;nbsp;a&amp;nbsp;database,&amp;nbsp;configure&amp;nbsp;it&amp;nbsp;to&amp;nbsp;use&amp;nbsp;UTF-8,&amp;nbsp;and&amp;nbsp;always&amp;nbsp;connect&amp;nbsp;to&amp;nbsp;it&amp;nbsp;using&amp;nbsp;UTF-8&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;b&gt;&amp;nbsp;Note&amp;nbsp;&lt;/b&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;UTF-8&amp;nbsp;encoding&amp;nbsp;issue&amp;nbsp;is&amp;nbsp;the&amp;nbsp;reason&amp;nbsp;why&amp;nbsp;most&amp;nbsp;of&amp;nbsp;the&amp;nbsp;Play&amp;nbsp;configuration&amp;nbsp;files,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;even&amp;nbsp;though&amp;nbsp;they&amp;nbsp;are&amp;nbsp;Java&amp;nbsp;properties&amp;nbsp;files,&amp;nbsp;are&amp;nbsp;not&amp;nbsp;named&amp;nbsp;*.properties.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;imposes&amp;nbsp;the&amp;nbsp;requirement&amp;nbsp;that&amp;nbsp;properties&amp;nbsp;files&amp;nbsp;must&amp;nbsp;be&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;encoded&amp;nbsp;with&amp;nbsp;the&amp;nbsp;ISO-8859-1&amp;nbsp;encoding.&amp;nbsp;Play&amp;nbsp;configuration&amp;nbsp;files&amp;nbsp;must&amp;nbsp;be&amp;nbsp;UTF-8&amp;nbsp;encoded.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Need&amp;nbsp;we&amp;nbsp;say&amp;nbsp;more&amp;nbsp;?</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_11:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Externalize&amp;nbsp;your&amp;nbsp;messages&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;steps&amp;nbsp;.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>To&amp;nbsp;support&amp;nbsp;I18N&amp;nbsp;you&amp;nbsp;have&amp;nbsp;to&amp;nbsp;externalize&amp;nbsp;all&amp;nbsp;messages&amp;nbsp;in&amp;nbsp;your&amp;nbsp;application.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Steps&amp;nbsp;to&amp;nbsp;support&amp;nbsp;I18N&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;add&amp;nbsp;supported&amp;nbsp;languages&amp;nbsp;to&amp;nbsp;application.conf&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;application.langs=uk,en,de,ja&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;create&amp;nbsp;files&amp;nbsp;conf/messages&amp;nbsp;,&amp;nbsp;conf/messages.uk&amp;nbsp;,&amp;nbsp;conf/messages.de&amp;nbsp;,&amp;nbsp;conf/messages.ja&amp;nbsp;with&amp;nbsp;messages&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;conf/messages.uk&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;welcome&amp;nbsp;=&amp;nbsp;Вітаємо&amp;nbsp;!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;login&amp;nbsp;=&amp;nbsp;Логін&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;password&amp;nbsp;=&amp;nbsp;Пароль&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;And&amp;nbsp;now&amp;nbsp;on&amp;nbsp;we&amp;nbsp;page&amp;nbsp;you&amp;nbsp;can&amp;nbsp;write&amp;nbsp;&amp;{'welcome'}&amp;nbsp;and&amp;nbsp;Play1&amp;nbsp;will&amp;nbsp;detect&amp;nbsp;which&amp;nbsp;language&amp;nbsp;use</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_11:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Define&amp;nbsp;languages&amp;nbsp;supported&amp;nbsp;by&amp;nbsp;the&amp;nbsp;application&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;,&amp;nbsp;how&amp;nbsp;play&amp;nbsp;1&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;define&amp;nbsp;language&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>On&amp;nbsp;the&amp;nbsp;first&amp;nbsp;request&amp;nbsp;from&amp;nbsp;a&amp;nbsp;new&amp;nbsp;user,&amp;nbsp;Play&amp;nbsp;will&amp;nbsp;guess&amp;nbsp;the&amp;nbsp;default&amp;nbsp;language&amp;nbsp;to&amp;nbsp;use.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;It&amp;nbsp;does&amp;nbsp;so&amp;nbsp;by&amp;nbsp;parsing&amp;nbsp;the&amp;nbsp;HTTP&amp;nbsp;Accept-language&amp;nbsp;header.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;It&amp;nbsp;will&amp;nbsp;then&amp;nbsp;save&amp;nbsp;the&amp;nbsp;chosen&amp;nbsp;language&amp;nbsp;in&amp;nbsp;a&amp;nbsp;PLAY_LANG&amp;nbsp;cookie.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So&amp;nbsp;the&amp;nbsp;next&amp;nbsp;request&amp;nbsp;will&amp;nbsp;use&amp;nbsp;the&amp;nbsp;same&amp;nbsp;language.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;From&amp;nbsp;your&amp;nbsp;application&amp;nbsp;code&amp;nbsp;your&amp;nbsp;can&amp;nbsp;&lt;b&gt;&amp;nbsp;retrieve&amp;nbsp;the&amp;nbsp;current&amp;nbsp;language&amp;nbsp;&lt;/b&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for&amp;nbsp;the&amp;nbsp;user&amp;nbsp;by&amp;nbsp;accessing&amp;nbsp;the&amp;nbsp;play.i18n.Lang&amp;nbsp;object:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;String&amp;nbsp;lang&amp;nbsp;=&amp;nbsp;Lang.get();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;permanently&amp;nbsp;change&amp;nbsp;the&amp;nbsp;user&amp;nbsp;language,&amp;nbsp;use&amp;nbsp;the&amp;nbsp;&lt;b&gt;&amp;nbsp;change()&amp;nbsp;&lt;/b&gt;&amp;nbsp;method:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Lang.change("ja");</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_11:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Retrieve&amp;nbsp;localized&amp;nbsp;messages&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;,&amp;nbsp;and&amp;nbsp;Define&amp;nbsp;date&amp;nbsp;format&amp;nbsp;according&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;your&amp;nbsp;locale&amp;nbsp;,&amp;nbsp;Describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>From&amp;nbsp;the&amp;nbsp;application&amp;nbsp;code,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;retrieve&amp;nbsp;messages&amp;nbsp;defined&amp;nbsp;in&amp;nbsp;message&amp;nbsp;files.&amp;nbsp;From&amp;nbsp;Java,&amp;nbsp;use&amp;nbsp;the&amp;nbsp;play.i18n.Messages&amp;nbsp;object.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;hello()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;renderText(Messages.get("hello"));&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;We&amp;nbsp;support&amp;nbsp;message&amp;nbsp;formatting&amp;nbsp;through&amp;nbsp;the&amp;nbsp;standard&amp;nbsp;java.util.Formatter&amp;nbsp;‘Format&amp;nbsp;string&amp;nbsp;syntax’.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;also&amp;nbsp;define&amp;nbsp;dynamic&amp;nbsp;content&amp;nbsp;in&amp;nbsp;your&amp;nbsp;messages:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;hello=Hello&amp;nbsp;%s!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where&amp;nbsp;%s&amp;nbsp;represents&amp;nbsp;a&amp;nbsp;message&amp;nbsp;argument&amp;nbsp;that&amp;nbsp;will&amp;nbsp;be&amp;nbsp;output&amp;nbsp;as&amp;nbsp;a&amp;nbsp;String.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Message&amp;nbsp;arguments&amp;nbsp;are&amp;nbsp;provided&amp;nbsp;by&amp;nbsp;additional&amp;nbsp;(varargs)&amp;nbsp;arguments&amp;nbsp;to&amp;nbsp;Messages.get:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;hello(String&amp;nbsp;user)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;renderText(Messages.get("hello",&amp;nbsp;user));&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Template&amp;nbsp;output&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;From&amp;nbsp;a&amp;nbsp;template&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&amp;nbsp;the&amp;nbsp;special&amp;nbsp;&lt;b&gt;&amp;nbsp;&amp;{...}&amp;nbsp;&lt;/b&gt;&amp;nbsp;syntax&amp;nbsp;to&amp;nbsp;display&amp;nbsp;localized&amp;nbsp;messages:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;h1&gt;&amp;{'hello'}&lt;/h1&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;or&amp;nbsp;using&amp;nbsp;dynamic&amp;nbsp;content&amp;nbsp;in&amp;nbsp;message&amp;nbsp;arguments:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;h1&gt;&amp;{'hello',&amp;nbsp;params.user}&lt;/h1&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Sets&amp;nbsp;the&amp;nbsp;default&amp;nbsp;date&amp;nbsp;format,&amp;nbsp;using&amp;nbsp;a&amp;nbsp;java.text.SimpleDateFormat&amp;nbsp;pattern.&amp;nbsp;For&amp;nbsp;example:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;date.format=dd-MM-yyyy&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;property&amp;nbsp;also&amp;nbsp;affects&amp;nbsp;how&amp;nbsp;${date.format()}&amp;nbsp;renders&amp;nbsp;dates&amp;nbsp;in&amp;nbsp;templates.&amp;nbsp;It&amp;nbsp;also&amp;nbsp;set&amp;nbsp;the&amp;nbsp;default&amp;nbsp;date&amp;nbsp;format&amp;nbsp;when&amp;nbsp;binding&amp;nbsp;a&amp;nbsp;date&amp;nbsp;parameter.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Default:&amp;nbsp;yyyy-MM-dd&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;also&amp;nbsp;set&amp;nbsp;a&amp;nbsp;different&amp;nbsp;date&amp;nbsp;format&amp;nbsp;for&amp;nbsp;&lt;b&gt;&amp;nbsp;specific&amp;nbsp;languages&amp;nbsp;&lt;/b&gt;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;that&amp;nbsp;you&amp;nbsp;have&amp;nbsp;configured&amp;nbsp;with&amp;nbsp;application.langs,&amp;nbsp;for&amp;nbsp;example:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;date.format.fr=dd-MM-yyyy&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;date.fomat.de=&amp;nbsp;MM-dd-yyyy&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;b&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;now&amp;nbsp;on&amp;nbsp;the&amp;nbsp;page&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;..&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;${new&amp;nbsp;Date().format()}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;..&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;will&amp;nbsp;display&amp;nbsp;different&amp;nbsp;for&amp;nbsp;different&amp;nbsp;languages&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_11:4" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Multiple&amp;nbsp;arguments&amp;nbsp;in&amp;nbsp;internationalized&amp;nbsp;messages&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>You&amp;nbsp;can&amp;nbsp;define&amp;nbsp;multiple&amp;nbsp;message&amp;nbsp;arguments,&amp;nbsp;such&amp;nbsp;as&amp;nbsp;this&amp;nbsp;message&amp;nbsp;which&amp;nbsp;refers&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;two&amp;nbsp;‘decimal&amp;nbsp;integer’&amp;nbsp;arguments:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;guess=Please&amp;nbsp;pick&amp;nbsp;a&amp;nbsp;number&amp;nbsp;between&amp;nbsp;%d&amp;nbsp;and&amp;nbsp;%d&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;which&amp;nbsp;you&amp;nbsp;display&amp;nbsp;by&amp;nbsp;specifying&amp;nbsp;the&amp;nbsp;message&amp;nbsp;arguments&amp;nbsp;in&amp;nbsp;the&amp;nbsp;right&amp;nbsp;order:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;p&gt;&amp;{'guess',&amp;nbsp;low,&amp;nbsp;high}&lt;/p&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;b&gt;Argument&amp;nbsp;indices&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;guess.characteristic=Devinez&amp;nbsp;%2$s&amp;nbsp;de&amp;nbsp;%1$s.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where&amp;nbsp;%2$s&amp;nbsp;outputs&amp;nbsp;the&amp;nbsp;second&amp;nbsp;argument&amp;nbsp;as&amp;nbsp;a&amp;nbsp;decimal&amp;nbsp;integer.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!!&amp;nbsp;Messages&amp;nbsp;inside&amp;nbsp;messages&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;also&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;message&amp;nbsp;argument&amp;nbsp;explicitly,&amp;nbsp;to&amp;nbsp;use&amp;nbsp;a&amp;nbsp;different&amp;nbsp;order.&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;suppose&amp;nbsp;a&amp;nbsp;message&amp;nbsp;in&amp;nbsp;English&amp;nbsp;has&amp;nbsp;two&amp;nbsp;parameters:&lt;br&gt;
+&lt;br&gt;
+guess.characteristic=Guess&amp;nbsp;%s’s&amp;nbsp;%s.&lt;br&gt;
+with&amp;nbsp;message&amp;nbsp;output&amp;nbsp;like:&lt;br&gt;
+&lt;br&gt;
+&lt;p&gt;&amp;{'guess.characteristic',&amp;nbsp;person.name,&amp;nbsp;'age'}&lt;/p&gt;&lt;br&gt;
+The&amp;nbsp;French&amp;nbsp;localisation&amp;nbsp;has&amp;nbsp;the&amp;nbsp;two&amp;nbsp;message&amp;nbsp;in&amp;nbsp;the&amp;nbsp;opposite&amp;nbsp;order,&amp;nbsp;so&amp;nbsp;in&amp;nbsp;the&amp;nbsp;French&amp;nbsp;localisation&amp;nbsp;we&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;argument&amp;nbsp;indices:&lt;br&gt;
+&lt;br&gt;
+guess.characteristic=Devinez&amp;nbsp;%2$s&amp;nbsp;de&amp;nbsp;%1$s.&lt;br&gt;
+where&amp;nbsp;%2$s&amp;nbsp;outputs&amp;nbsp;the&amp;nbsp;second&amp;nbsp;argument&amp;nbsp;as&amp;nbsp;a&amp;nbsp;decimal&amp;nbsp;integer.&lt;br&gt;
+&lt;br&gt;
+Finally,&amp;nbsp;we&amp;nbsp;want&amp;nbsp;to&amp;nbsp;localise&amp;nbsp;the&amp;nbsp;characteristic&amp;nbsp;name&amp;nbsp;‘age’&amp;nbsp;as&amp;nbsp;well,&amp;nbsp;so&amp;nbsp;we&amp;nbsp;would&amp;nbsp;change&amp;nbsp;the&amp;nbsp;output&amp;nbsp;to&amp;nbsp;use&amp;nbsp;the&amp;nbsp;message&amp;nbsp;key&amp;nbsp;person.age,&amp;nbsp;and&amp;nbsp;change&amp;nbsp;the&amp;nbsp;message&amp;nbsp;definitions&amp;nbsp;to:&lt;br&gt;
+&lt;br&gt;
+guess.characteristic=Guess&amp;nbsp;%s’s&amp;nbsp;&amp;{%s}.&lt;br&gt;
+person.age&amp;nbsp;=&amp;nbsp;age&lt;br&gt;
+and&lt;br&gt;
+&lt;br&gt;
+guess.characteristic=Devinez&amp;nbsp;&amp;{%2$s}&amp;nbsp;de&amp;nbsp;%1$s.&lt;br&gt;
+person.age&amp;nbsp;=&amp;nbsp;l’age&lt;br&gt;
+where&amp;nbsp;&amp;{%s}&amp;nbsp;is&amp;nbsp;itself&amp;nbsp;a&amp;nbsp;message&amp;nbsp;look-up,&amp;nbsp;with&amp;nbsp;the&amp;nbsp;argument&amp;nbsp;value&amp;nbsp;as&amp;nbsp;the&amp;nbsp;message&amp;nbsp;key.</questionanswer>
+  </question>
+</questions>

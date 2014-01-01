@@ -1,2 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_20" name="21_Configuration_in_several_environments" nofquestions="0" nofsubcategories="0" filename="21_configuration_in_several_environments1_0_1_4_1_0_0_20.xml" />
+<questions id="1_0_1_4_1_0_0_20" name="21_Configuration_in_several_environments" nofquestions="1" nofsubcategories="0" filename="21_configuration_in_several_environments1_0_1_4_1_0_0_20.xml">
+  <question id="1_0_1_4_1_0_0_20:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;The&amp;nbsp;framework&amp;nbsp;ID&amp;nbsp;?&lt;br&gt;
+Setting&amp;nbsp;the&amp;nbsp;framework&amp;nbsp;ID&amp;nbsp;from&amp;nbsp;the&amp;nbsp;command&amp;nbsp;line&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>When&amp;nbsp;you&amp;nbsp;run&amp;nbsp;your&amp;nbsp;application&amp;nbsp;in&amp;nbsp;test&amp;nbsp;mode('play&amp;nbsp;test')&amp;nbsp;you&amp;nbsp;can&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;see&amp;nbsp;these&amp;nbsp;lines&amp;nbsp;in&amp;nbsp;console&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;~&amp;nbsp;play!&amp;nbsp;1.2.7,&amp;nbsp;http://www.playframework.org&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;~&amp;nbsp;framework&amp;nbsp;ID&amp;nbsp;is&amp;nbsp;test&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;we&amp;nbsp;execute&amp;nbsp;'play&amp;nbsp;test'&amp;nbsp;it&amp;nbsp;is&amp;nbsp;the&amp;nbsp;same&amp;nbsp;as&amp;nbsp;'play&amp;nbsp;run&amp;nbsp;--%test'&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;('test'&amp;nbsp;will&amp;nbsp;be&amp;nbsp;framework&amp;nbsp;id)&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;we&amp;nbsp;run&amp;nbsp;application&amp;nbsp;in&amp;nbsp;production&amp;nbsp;mode&amp;nbsp;'play&amp;nbsp;run&amp;nbsp;--%prod'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;('prod'&amp;nbsp;will&amp;nbsp;be&amp;nbsp;framework&amp;nbsp;id&amp;nbsp;)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So&amp;nbsp;we&amp;nbsp;can&amp;nbsp;define&amp;nbsp;which&amp;nbsp;id&amp;nbsp;will&amp;nbsp;application&amp;nbsp;have&amp;nbsp;using&amp;nbsp;command&amp;nbsp;:&amp;nbsp;'play&amp;nbsp;run&amp;nbsp;--%&lt;some_id&gt;'&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;get&amp;nbsp;id&amp;nbsp;of&amp;nbsp;application&amp;nbsp;you&amp;nbsp;can&amp;nbsp;execute:&amp;nbsp;'play&amp;nbsp;id'&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;then&amp;nbsp;prefix&amp;nbsp;your&amp;nbsp;configuration&amp;nbsp;keys&amp;nbsp;with&amp;nbsp;the&amp;nbsp;framework&amp;nbsp;ID&amp;nbsp;for&amp;nbsp;which&amp;nbsp;the&amp;nbsp;configuration&amp;nbsp;option&amp;nbsp;is&amp;nbsp;intended:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;application.name=Cool&amp;nbsp;app&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;application.mode=dev&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;application.log=INFO&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;Configuration&amp;nbsp;for&amp;nbsp;gbo&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%gbo.application.log=DEBUG&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%gbo.db=mem&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;Configuration&amp;nbsp;for&amp;nbsp;src&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%scr.http.port=9500&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;Production&amp;nbsp;configuration&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%production.http.port=80&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%production.application.log=INFO&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%production.application.mode=prod&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;get&amp;nbsp;something&amp;nbsp;value&amp;nbsp;from&amp;nbsp;conf&amp;nbsp;file&amp;nbsp;we&amp;nbsp;can&amp;nbsp;use&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;${play.configuration.get("application.mode")}&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if&amp;nbsp;we&amp;nbsp;will&amp;nbsp;execute&amp;nbsp;:&amp;nbsp;'play&amp;nbsp;run'&amp;nbsp;,&amp;nbsp;then&amp;nbsp;(1)&amp;nbsp;will&amp;nbsp;return&amp;nbsp;'dev'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if&amp;nbsp;we&amp;nbsp;will&amp;nbsp;execute&amp;nbsp;:&amp;nbsp;'play&amp;nbsp;run&amp;nbsp;--%prod'&amp;nbsp;,&amp;nbsp;then&amp;nbsp;(1)&amp;nbsp;will&amp;nbsp;return&amp;nbsp;'prod'&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+You&amp;nbsp;can&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;framework&amp;nbsp;ID&amp;nbsp;to&amp;nbsp;use&amp;nbsp;for&amp;nbsp;a&amp;nbsp;particular&amp;nbsp;command&amp;nbsp;directly&amp;nbsp;from&amp;nbsp;the&amp;nbsp;command&amp;nbsp;line.&amp;nbsp;For&amp;nbsp;example&amp;nbsp;to&amp;nbsp;run&amp;nbsp;an&amp;nbsp;application&amp;nbsp;in&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;production&amp;nbsp;mode&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;play&amp;nbsp;run&amp;nbsp;--%production&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;with&amp;nbsp;these&amp;nbsp;lines&amp;nbsp;defined&amp;nbsp;in&amp;nbsp;the&amp;nbsp;application.conf&amp;nbsp;file:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;application.mode=dev&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%production.application.mode=prod&lt;br&gt;</questionanswer>
+  </question>
+</questions>

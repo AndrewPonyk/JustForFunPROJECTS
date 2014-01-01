@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="1_0_1_4_1_0_0_23_2" name="LESS" nofquestions="1" nofsubcategories="0" filename="less1_0_1_4_1_0_0_23_2.xml">
+  <question id="1_0_1_4_1_0_0_23_2:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;:&amp;nbsp;&amp;nbsp;Less&amp;nbsp;module&amp;nbsp;,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;use&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>(IF&amp;nbsp;YOU&amp;nbsp;WANT&amp;nbsp;TO&amp;nbsp;HAVE&amp;nbsp;ONE&amp;nbsp;APP1&amp;nbsp;AND&amp;nbsp;APP2&amp;nbsp;WHICH&amp;nbsp;INCLUDE&amp;nbsp;APP1&amp;nbsp;AS&amp;nbsp;MODULE&amp;nbsp;,&amp;nbsp;AND&amp;nbsp;YOU&amp;nbsp;WANT&amp;nbsp;TO&amp;nbsp;REWRITE&amp;nbsp;VARIABLES&amp;nbsp;FROM&amp;nbsp;APP1&amp;nbsp;YOU&amp;nbsp;MUST&amp;nbsp;USE&amp;nbsp;NOT&amp;nbsp;LESS&amp;nbsp;,&amp;nbsp;BUT&amp;nbsp;'SAAS'&amp;nbsp;MODULE&amp;nbsp;&amp;nbsp;,&amp;nbsp;LIKE&amp;nbsp;WE&amp;nbsp;DO&amp;nbsp;IN&amp;nbsp;RADIOSHACK&amp;nbsp;!!!!!!!!!!!!)&lt;br&gt;
+&lt;br&gt;
+*&amp;nbsp;You&amp;nbsp;need&amp;nbsp;to&amp;nbsp;setup&amp;nbsp;less&amp;nbsp;module&amp;nbsp;,&amp;nbsp;it&amp;nbsp;is&amp;nbsp;not&amp;nbsp;complicated&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Next&amp;nbsp;,&amp;nbsp;we&amp;nbsp;need&amp;nbsp;application&amp;nbsp;which&amp;nbsp;will&amp;nbsp;be&amp;nbsp;module&amp;nbsp;(as&amp;nbsp;selfcare-core)&amp;nbsp;&amp;nbsp;i&amp;nbsp;call&amp;nbsp;this&amp;nbsp;application&amp;nbsp;'less'&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/less/publis/styleshets/core.less:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@import&amp;nbsp;url('variable.less');&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;body{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color:&amp;nbsp;@color;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;border:none;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/less/publis/styleshets/variables.less:&amp;nbsp;(default&amp;nbsp;values&amp;nbsp;which&amp;nbsp;we&amp;nbsp;will&amp;nbsp;override&amp;nbsp;in&amp;nbsp;client&amp;nbsp;apps)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@color&amp;nbsp;:&amp;nbsp;red;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;div{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background:&amp;nbsp;orange;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;body{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-size:21px;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(IT&amp;nbsp;DOESNT&amp;nbsp;WORk,&amp;nbsp;&amp;nbsp;TO&amp;nbsp;OVERRIDE&amp;nbsp;VALUES&amp;nbsp;FROM&amp;nbsp;CLIENT&amp;nbsp;APPLICATiON&amp;nbsp;&amp;nbsp;-&amp;nbsp;IT&amp;nbsp;WORKS&amp;nbsp;WITH&amp;nbsp;'SASS'&amp;nbsp;module&amp;nbsp;,&amp;nbsp;but&amp;nbsp;sass&amp;nbsp;is&amp;nbsp;12&amp;nbsp;mb&amp;nbsp;)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;And&amp;nbsp;we&amp;nbsp;need&amp;nbsp;'client'&amp;nbsp;application&amp;nbsp;(like&amp;nbsp;selfcare-wds&amp;nbsp;)&amp;nbsp;&amp;nbsp;which&amp;nbsp;will&amp;nbsp;use&amp;nbsp;css&amp;nbsp;from&amp;nbsp;selfcare-core&amp;nbsp;and&amp;nbsp;will&amp;nbsp;pass&amp;nbsp;own&amp;nbsp;css&amp;nbsp;variables&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(using&amp;nbsp;less)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;routes&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;...&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GET&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/useMyLessModule&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;module:less&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;dependencies:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;....&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;less&amp;nbsp;-&gt;&amp;nbsp;less&amp;nbsp;1&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;play&amp;nbsp;-&gt;&amp;nbsp;less&amp;nbsp;0.9.1&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;repositories:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;My&amp;nbsp;modules:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;type:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;local&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;artifact:&amp;nbsp;&amp;nbsp;&amp;nbsp;${application.path}/../less/dist/[module]-[revision].zip&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;contains:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;less&amp;nbsp;-&gt;&amp;nbsp;*&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;ovverride&amp;nbsp;default&amp;nbsp;values&amp;nbsp;:/use_less_core/publis/styleshets/variables.less&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@color&amp;nbsp;:&amp;nbsp;green;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;div{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background:&amp;nbsp;orange;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+!!!Be&amp;nbsp;careful&amp;nbsp;&amp;nbsp;if&amp;nbsp;your&amp;nbsp;app&amp;nbsp;and&amp;nbsp;your&amp;nbsp;app&amp;nbsp;has&amp;nbsp;Application&amp;nbsp;class&amp;nbsp;in&amp;nbsp;'controllers'&amp;nbsp;package&amp;nbsp;it&amp;nbsp;will&amp;nbsp;be&amp;nbsp;error&amp;nbsp;:&amp;nbsp;play&amp;nbsp;dont&amp;nbsp;know&amp;nbsp;which&amp;nbsp;to&amp;nbsp;use&amp;nbsp;=)&lt;br&gt;
+&lt;br&gt;
+!!!!Be&amp;nbsp;careful(you&amp;nbsp;must&amp;nbsp;change&amp;nbsp;less&amp;nbsp;file&amp;nbsp;to&amp;nbsp;recompile&amp;nbsp;it&amp;nbsp;,&amp;nbsp;or&amp;nbsp;it&amp;nbsp;will&amp;nbsp;be&amp;nbsp;getting&amp;nbsp;from&amp;nbsp;cache&amp;nbsp;.&amp;nbsp;I&amp;nbsp;used&amp;nbsp;css&amp;nbsp;:&amp;nbsp;include&amp;nbsp;url('var.less')&amp;nbsp;and&amp;nbsp;have&amp;nbsp;problem)&lt;br&gt;
+Caching&lt;br&gt;
+The&amp;nbsp;less&amp;nbsp;module&amp;nbsp;sets&amp;nbsp;and&amp;nbsp;listens&amp;nbsp;to&amp;nbsp;Last-Modified&amp;nbsp;and&amp;nbsp;ETag&amp;nbsp;headers,&amp;nbsp;so&amp;nbsp;most&amp;nbsp;browsers&amp;nbsp;will&amp;nbsp;retrieve&amp;nbsp;the&amp;nbsp;file&amp;nbsp;only&amp;nbsp;once.&amp;nbsp;At&amp;nbsp;the&amp;nbsp;server,&amp;nbsp;a&amp;nbsp;compiled&amp;nbsp;CSS&amp;nbsp;file&amp;nbsp;is&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;the&amp;nbsp;cache,&amp;nbsp;and&amp;nbsp;automatically&amp;nbsp;invalidated&amp;nbsp;when&amp;nbsp;the&amp;nbsp;less&amp;nbsp;file&amp;nbsp;changes,&amp;nbsp;or&amp;nbsp;when&amp;nbsp;one&amp;nbsp;of&amp;nbsp;the&amp;nbsp;imported&amp;nbsp;files&amp;nbsp;change.&amp;nbsp;So&amp;nbsp;you&amp;nbsp;can&amp;nbsp;change&amp;nbsp;your&amp;nbsp;less&amp;nbsp;files&amp;nbsp;even&amp;nbsp;while&amp;nbsp;Play&amp;nbsp;is&amp;nbsp;running&amp;nbsp;in&amp;nbsp;production&amp;nbsp;mode.&lt;br&gt;</questionanswer>
+  </question>
+</questions>

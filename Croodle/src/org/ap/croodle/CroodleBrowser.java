@@ -160,7 +160,7 @@ public class CroodleBrowser {
     }
     
     public List<WebElement>  getElementByLocator( final By locator ) {
-        firefox.manage().timeouts().implicitlyWait( 15, TimeUnit.SECONDS );
+        firefox.manage().timeouts().implicitlyWait( 3, TimeUnit.SECONDS );
         List<WebElement> we = null;
         int tries = 0;
         while ( tries < 4 ) { // try 4 times

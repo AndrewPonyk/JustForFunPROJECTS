@@ -1,2 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_5" name="6_The_domain_object_model" nofquestions="0" nofsubcategories="0" filename="6_the_domain_object_model1_0_1_4_1_0_0_5.xml" />
+<questions id="1_0_1_4_1_0_0_5" name="6_The_domain_object_model" nofquestions="3" nofsubcategories="0" filename="6_the_domain_object_model1_0_1_4_1_0_0_5.xml">
+  <question id="1_0_1_4_1_0_0_5:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;domain&amp;nbsp;object&amp;nbsp;model&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&amp;nbsp;&lt;br&gt;
+Properties&amp;nbsp;simulation(something&amp;nbsp;about&amp;nbsp;get/set&amp;nbsp;about&amp;nbsp;access&amp;nbsp;modifiers&amp;nbsp;in&amp;nbsp;Java&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;in&amp;nbsp;Play1)&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;model&amp;nbsp;has&amp;nbsp;a&amp;nbsp;central&amp;nbsp;position&amp;nbsp;in&amp;nbsp;a&amp;nbsp;Play&amp;nbsp;application.&amp;nbsp;It's&amp;nbsp;the&amp;nbsp;domain-specific&amp;nbsp;representation&amp;nbsp;of&amp;nbsp;the&amp;nbsp;information&amp;nbsp;on&amp;nbsp;which&amp;nbsp;the&amp;nbsp;application&amp;nbsp;operates.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Martin&amp;nbsp;Fowler&amp;nbsp;defines&amp;nbsp;it&amp;nbsp;as:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Responsible&amp;nbsp;for&amp;nbsp;representing&amp;nbsp;concepts&amp;nbsp;of&amp;nbsp;the&amp;nbsp;business,&amp;nbsp;information&amp;nbsp;about&amp;nbsp;the&amp;nbsp;business&amp;nbsp;situation,&amp;nbsp;and&amp;nbsp;business&amp;nbsp;rules.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;State&amp;nbsp;that&amp;nbsp;reflects&amp;nbsp;the&amp;nbsp;business&amp;nbsp;situation&amp;nbsp;is&amp;nbsp;controlled&amp;nbsp;and&amp;nbsp;used&amp;nbsp;here,&amp;nbsp;even&amp;nbsp;though&amp;nbsp;the&amp;nbsp;technical&amp;nbsp;details&amp;nbsp;of&amp;nbsp;storing&amp;nbsp;it&amp;nbsp;are&amp;nbsp;delegated&amp;nbsp;to&amp;nbsp;the&amp;nbsp;infrastructure.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;layer&amp;nbsp;is&amp;nbsp;the&amp;nbsp;heart&amp;nbsp;of&amp;nbsp;business&amp;nbsp;software.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+If&amp;nbsp;you&amp;nbsp;take&amp;nbsp;a&amp;nbsp;look&amp;nbsp;at&amp;nbsp;Play&amp;nbsp;sample&amp;nbsp;applications,&amp;nbsp;you&amp;nbsp;will&amp;nbsp;often&amp;nbsp;see&amp;nbsp;that&amp;nbsp;classes&amp;nbsp;declare&amp;nbsp;public&amp;nbsp;variables.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Now&amp;nbsp;if&amp;nbsp;you're&amp;nbsp;a&amp;nbsp;Java&amp;nbsp;developer&amp;nbsp;with&amp;nbsp;any&amp;nbsp;experience&amp;nbsp;at&amp;nbsp;all,&amp;nbsp;warning&amp;nbsp;sirens&amp;nbsp;are&amp;nbsp;probably&amp;nbsp;clanging&amp;nbsp;like&amp;nbsp;mad&amp;nbsp;at&amp;nbsp;the&amp;nbsp;sight&amp;nbsp;of&amp;nbsp;a&amp;nbsp;public&amp;nbsp;variable.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;In&amp;nbsp;Java&amp;nbsp;(as&amp;nbsp;in&amp;nbsp;other&amp;nbsp;object-oriented&amp;nbsp;languages),&amp;nbsp;best&amp;nbsp;practice&amp;nbsp;says&amp;nbsp;to&amp;nbsp;make&amp;nbsp;all&amp;nbsp;fields&amp;nbsp;private&amp;nbsp;and&amp;nbsp;provide&amp;nbsp;accessors&amp;nbsp;and&amp;nbsp;mutators.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;is&amp;nbsp;to&amp;nbsp;promote&amp;nbsp;encapsulation,&amp;nbsp;a&amp;nbsp;concept&amp;nbsp;critical&amp;nbsp;to&amp;nbsp;object&amp;nbsp;oriented&amp;nbsp;design.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;has&amp;nbsp;no&amp;nbsp;truly&amp;nbsp;built-in&amp;nbsp;property&amp;nbsp;definition&amp;nbsp;system.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;It&amp;nbsp;uses&amp;nbsp;a&amp;nbsp;convention&amp;nbsp;named&amp;nbsp;Java&amp;nbsp;Beans:&amp;nbsp;a&amp;nbsp;property&amp;nbsp;on&amp;nbsp;a&amp;nbsp;Java&amp;nbsp;object&amp;nbsp;is&amp;nbsp;defined&amp;nbsp;by&amp;nbsp;a&amp;nbsp;couple&amp;nbsp;of&amp;nbsp;getXxx/setXxx&amp;nbsp;methods.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;the&amp;nbsp;property&amp;nbsp;is&amp;nbsp;read-only&amp;nbsp;there&amp;nbsp;is&amp;nbsp;only&amp;nbsp;a&amp;nbsp;getter.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;b&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;Model&amp;nbsp;portion&amp;nbsp;of&amp;nbsp;the&amp;nbsp;Play&amp;nbsp;framework&amp;nbsp;automatically&amp;nbsp;generates&amp;nbsp;this&amp;nbsp;pattern&amp;nbsp;while&amp;nbsp;keeping&amp;nbsp;your&amp;nbsp;code&amp;nbsp;clean.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Effectively,&amp;nbsp;all&amp;nbsp;public&amp;nbsp;variables&amp;nbsp;become&amp;nbsp;instance&amp;nbsp;properties.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;convention&amp;nbsp;is&amp;nbsp;that&amp;nbsp;any&amp;nbsp;public,&amp;nbsp;non-static,&amp;nbsp;non-final&amp;nbsp;field&amp;nbsp;of&amp;nbsp;a&amp;nbsp;class&amp;nbsp;is&amp;nbsp;seen&amp;nbsp;as&amp;nbsp;a&amp;nbsp;property.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;when&amp;nbsp;you&amp;nbsp;define&amp;nbsp;a&amp;nbsp;class&amp;nbsp;like&amp;nbsp;this:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Product&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;name;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Integer&amp;nbsp;price;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;loaded&amp;nbsp;class&amp;nbsp;will&amp;nbsp;be:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Product&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;name;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Integer&amp;nbsp;price;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;getName()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;name;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;setName(String&amp;nbsp;name)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;this.name&amp;nbsp;=&amp;nbsp;name;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Integer&amp;nbsp;getPrice()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;price;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;setPrice(Integer&amp;nbsp;price)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;this.price&amp;nbsp;=&amp;nbsp;price;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Then&amp;nbsp;when&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;access&amp;nbsp;a&amp;nbsp;property&amp;nbsp;you&amp;nbsp;can&amp;nbsp;just&amp;nbsp;write:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;product.name&amp;nbsp;=&amp;nbsp;"My&amp;nbsp;product";&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;product.price&amp;nbsp;=&amp;nbsp;58;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Which&amp;nbsp;is&amp;nbsp;translated&amp;nbsp;at&amp;nbsp;load&amp;nbsp;time&amp;nbsp;to:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;product.setName("My&amp;nbsp;product");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;product.setPrice(58);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Warning&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!!!!!!!!!!!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can't&amp;nbsp;directly&amp;nbsp;use&amp;nbsp;getter&amp;nbsp;and&amp;nbsp;setter&amp;nbsp;methods&amp;nbsp;to&amp;nbsp;access&amp;nbsp;properties&amp;nbsp;if&amp;nbsp;you&amp;nbsp;rely&amp;nbsp;on&amp;nbsp;automatic&amp;nbsp;generation.&amp;nbsp;These&amp;nbsp;methods&amp;nbsp;are&amp;nbsp;generated&amp;nbsp;at&amp;nbsp;runtime.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So&amp;nbsp;if&amp;nbsp;you&amp;nbsp;reference&amp;nbsp;them&amp;nbsp;in&amp;nbsp;code&amp;nbsp;you&amp;nbsp;write,&amp;nbsp;the&amp;nbsp;compiler&amp;nbsp;won't&amp;nbsp;find&amp;nbsp;the&amp;nbsp;methods&amp;nbsp;and&amp;nbsp;will&amp;nbsp;generate&amp;nbsp;an&amp;nbsp;error.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;((Of&amp;nbsp;course&amp;nbsp;you&amp;nbsp;can&amp;nbsp;define&amp;nbsp;the&amp;nbsp;getter&amp;nbsp;and&amp;nbsp;setter&amp;nbsp;methods&amp;nbsp;yourself.&amp;nbsp;If&amp;nbsp;a&amp;nbsp;method&amp;nbsp;exists&amp;nbsp;Play&amp;nbsp;will&amp;nbsp;use&amp;nbsp;the&amp;nbsp;existing&amp;nbsp;accessors.))</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_5:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;to&amp;nbsp;Set-up&amp;nbsp;a&amp;nbsp;database&amp;nbsp;to&amp;nbsp;persist&amp;nbsp;your&amp;nbsp;model&amp;nbsp;objects&amp;nbsp;&amp;nbsp;in&amp;nbsp;Play1&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Most&amp;nbsp;of&amp;nbsp;the&amp;nbsp;time&amp;nbsp;you&amp;nbsp;will&amp;nbsp;need&amp;nbsp;to&amp;nbsp;save&amp;nbsp;the&amp;nbsp;model&amp;nbsp;object&amp;nbsp;data&amp;nbsp;permanently.&amp;nbsp;The&amp;nbsp;most&amp;nbsp;natural&amp;nbsp;way&amp;nbsp;is&amp;nbsp;to&amp;nbsp;save&amp;nbsp;this&amp;nbsp;data&amp;nbsp;into&amp;nbsp;a&amp;nbsp;database.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;During&amp;nbsp;&lt;b&gt;development&lt;/b&gt;,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;quickly&amp;nbsp;set&amp;nbsp;up&amp;nbsp;an&amp;nbsp;embedded&amp;nbsp;database&amp;nbsp;either&amp;nbsp;in-memory&amp;nbsp;or&amp;nbsp;save&amp;nbsp;it&amp;nbsp;in&amp;nbsp;a&amp;nbsp;sub-directory&amp;nbsp;within&amp;nbsp;your&amp;nbsp;application&amp;nbsp;using&amp;nbsp;the&amp;nbsp;db&amp;nbsp;configuration.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;db&amp;nbsp;=&amp;nbsp;mem&amp;nbsp;&amp;nbsp;#&amp;nbsp;using&amp;nbsp;in&amp;nbsp;memory&amp;nbsp;db&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;Play&amp;nbsp;distribution&amp;nbsp;includes&amp;nbsp;JDBC&amp;nbsp;drivers&amp;nbsp;for&amp;nbsp;H2&amp;nbsp;and&amp;nbsp;MySQL&amp;nbsp;in&amp;nbsp;the&amp;nbsp;$PLAY_HOME/framework/lib/&amp;nbsp;directory.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;are&amp;nbsp;using&amp;nbsp;a&amp;nbsp;PostgreSQL&amp;nbsp;or&amp;nbsp;Oracle&amp;nbsp;database,&amp;nbsp;for&amp;nbsp;example,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;then&amp;nbsp;you&amp;nbsp;should&amp;nbsp;add&amp;nbsp;the&amp;nbsp;JDBC&amp;nbsp;driver&amp;nbsp;library&amp;nbsp;there,&amp;nbsp;or&amp;nbsp;in&amp;nbsp;your&amp;nbsp;applications&amp;nbsp;lib/&amp;nbsp;directory.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;b&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;connect&amp;nbsp;to&amp;nbsp;&lt;b&gt;&amp;nbsp;any&amp;nbsp;JDBC&amp;nbsp;&lt;/b&gt;&amp;nbsp;compliant&amp;nbsp;database.&amp;nbsp;Just&amp;nbsp;&lt;b&gt;add&amp;nbsp;the&amp;nbsp;driver&amp;nbsp;library&amp;nbsp;to&lt;/b&gt;&amp;nbsp;and&amp;nbsp;&lt;b&gt;define&amp;nbsp;the&amp;nbsp;JDBC&amp;nbsp;properties&amp;nbsp;db.url,&amp;nbsp;db.driver,&amp;nbsp;db.user&amp;nbsp;and&amp;nbsp;db.pass&amp;nbsp;&lt;/b&gt;&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;db.url=jdbc:mysql://localhost/test&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;db.driver=com.mysql.jdbc.Driver&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;db.user=root&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;db.pass=&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;also&amp;nbsp;configure&amp;nbsp;a&amp;nbsp;JPA&amp;nbsp;dialect&amp;nbsp;with&amp;nbsp;jpa.dialect.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;From&amp;nbsp;your&amp;nbsp;code,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;then&amp;nbsp;obtain&amp;nbsp;a&amp;nbsp;java.sql.Connection&amp;nbsp;from&amp;nbsp;the&amp;nbsp;play.db.DB&amp;nbsp;and&amp;nbsp;use&amp;nbsp;it&amp;nbsp;in&amp;nbsp;the&amp;nbsp;standard&amp;nbsp;way.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Connection&amp;nbsp;conn&amp;nbsp;=&amp;nbsp;DB.getConnection();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;conn.createStatement().execute("select&amp;nbsp;*&amp;nbsp;from&amp;nbsp;products");</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_5:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Persist&amp;nbsp;your&amp;nbsp;object&amp;nbsp;model&amp;nbsp;with&amp;nbsp;Hibernate&amp;nbsp;&amp;nbsp;,&amp;nbsp;in&amp;nbsp;Play1&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>You&amp;nbsp;can&amp;nbsp;use&amp;nbsp;Hibernate&amp;nbsp;(through&amp;nbsp;JPA)&amp;nbsp;to&amp;nbsp;persist&amp;nbsp;your&amp;nbsp;Java&amp;nbsp;objects&amp;nbsp;in&amp;nbsp;the&amp;nbsp;Database&amp;nbsp;automatically.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;When&amp;nbsp;you&amp;nbsp;define&amp;nbsp;JPA&amp;nbsp;entities&amp;nbsp;by&amp;nbsp;adding&amp;nbsp;@javax.persistence.Entity&amp;nbsp;annotations&amp;nbsp;to&amp;nbsp;any&amp;nbsp;Java&amp;nbsp;object,&amp;nbsp;Play&amp;nbsp;will&amp;nbsp;automatically&amp;nbsp;start&amp;nbsp;a&amp;nbsp;JPA&amp;nbsp;entity&amp;nbsp;manager.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@Entity&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Product&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;name;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Integer&amp;nbsp;price;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;b&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Warning!!!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;common&amp;nbsp;mistake&amp;nbsp;is&amp;nbsp;to&amp;nbsp;use&amp;nbsp;the&amp;nbsp;Hibernate&amp;nbsp;@Entity&amp;nbsp;annotation&amp;nbsp;instead&amp;nbsp;of&amp;nbsp;the&amp;nbsp;JPA&amp;nbsp;one.&amp;nbsp;Remember&amp;nbsp;that&amp;nbsp;Play&amp;nbsp;uses&amp;nbsp;Hibernate&amp;nbsp;through&amp;nbsp;the&amp;nbsp;JPA&amp;nbsp;API.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/b&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;then&amp;nbsp;obtain&amp;nbsp;the&amp;nbsp;EntityManager&amp;nbsp;from&amp;nbsp;the&amp;nbsp;play.db.jpa.JPA&amp;nbsp;object:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;EntityManager&amp;nbsp;em&amp;nbsp;=&amp;nbsp;JPA.em();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;em.persist(product);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;em.createQuery("from&amp;nbsp;Product&amp;nbsp;where&amp;nbsp;price&amp;nbsp;&gt;&amp;nbsp;50").getResultList();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Play&amp;nbsp;provides&amp;nbsp;a&amp;nbsp;nice&amp;nbsp;support&amp;nbsp;class&amp;nbsp;to&amp;nbsp;help&amp;nbsp;you&amp;nbsp;to&amp;nbsp;deal&amp;nbsp;with&amp;nbsp;JPA.&amp;nbsp;Just&amp;nbsp;extend&amp;nbsp;&lt;b&gt;&amp;nbsp;play.db.jpa.Model&amp;nbsp;&lt;/b&gt;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@Entity&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Product&amp;nbsp;extends&amp;nbsp;Model&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;name;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Integer&amp;nbsp;price;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;And&amp;nbsp;then&amp;nbsp;manipulate&amp;nbsp;the&amp;nbsp;Product&amp;nbsp;object&amp;nbsp;using&amp;nbsp;simple&amp;nbsp;methods&amp;nbsp;on&amp;nbsp;the&amp;nbsp;Product&amp;nbsp;instances:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Product.find("price&amp;nbsp;&gt;&amp;nbsp;?",&amp;nbsp;50).fetch();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Product&amp;nbsp;product&amp;nbsp;=&amp;nbsp;Product.findById(2L);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;product.save();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;product.delete();</questionanswer>
+  </question>
+</questions>

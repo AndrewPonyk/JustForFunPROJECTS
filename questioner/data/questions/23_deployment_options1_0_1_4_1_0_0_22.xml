@@ -1,2 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_22" name="23_Deployment_options" nofquestions="0" nofsubcategories="0" filename="23_deployment_options1_0_1_4_1_0_0_22.xml" />
+<questions id="1_0_1_4_1_0_0_22" name="23_Deployment_options" nofquestions="3" nofsubcategories="0" filename="23_deployment_options1_0_1_4_1_0_0_22.xml">
+  <question id="1_0_1_4_1_0_0_22:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Standalone&amp;nbsp;Play1&amp;nbsp;applications&amp;nbsp;without&amp;nbsp;any&amp;nbsp;other&amp;nbsp;servers&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>The&amp;nbsp;simplest&amp;nbsp;and&amp;nbsp;the&amp;nbsp;most&amp;nbsp;robust&amp;nbsp;way&amp;nbsp;is&amp;nbsp;to&amp;nbsp;simply&amp;nbsp;run&amp;nbsp;your&amp;nbsp;Play&amp;nbsp;application&amp;nbsp;without&amp;nbsp;any&amp;nbsp;container.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;use&amp;nbsp;a&amp;nbsp;frontal&amp;nbsp;HTTP&amp;nbsp;server&amp;nbsp;like&amp;nbsp;Lighttpd&amp;nbsp;or&amp;nbsp;Apache&amp;nbsp;if&amp;nbsp;you&amp;nbsp;need&amp;nbsp;more&amp;nbsp;advanced&amp;nbsp;HTTP&amp;nbsp;features&amp;nbsp;like&amp;nbsp;virtual&amp;nbsp;hosting.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;built-in&amp;nbsp;HTTP&amp;nbsp;server&amp;nbsp;can&amp;nbsp;serve&amp;nbsp;thousands&amp;nbsp;of&amp;nbsp;HTTP&amp;nbsp;requests&amp;nbsp;per&amp;nbsp;second&amp;nbsp;so&amp;nbsp;it&amp;nbsp;will&amp;nbsp;&lt;b&gt;never&amp;nbsp;be&amp;nbsp;the&amp;nbsp;performance&amp;nbsp;bottleneck&lt;/b&gt;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Moreover&amp;nbsp;it&amp;nbsp;uses&amp;nbsp;a&amp;nbsp;more&amp;nbsp;efficient&amp;nbsp;threading&amp;nbsp;model&amp;nbsp;(where&amp;nbsp;a&amp;nbsp;Servlet&amp;nbsp;container&amp;nbsp;uses&amp;nbsp;1&amp;nbsp;thread&amp;nbsp;per&amp;nbsp;request).&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Different&amp;nbsp;modules&amp;nbsp;allow&amp;nbsp;you&amp;nbsp;to&amp;nbsp;use&amp;nbsp;different&amp;nbsp;servers&amp;nbsp;(Grizzly,&amp;nbsp;Netty,&amp;nbsp;etc...)&amp;nbsp;as&amp;nbsp;well.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Those&amp;nbsp;servers&amp;nbsp;support&amp;nbsp;long&amp;nbsp;polling&amp;nbsp;and&amp;nbsp;allow&amp;nbsp;to&amp;nbsp;manage&amp;nbsp;very&amp;nbsp;long&amp;nbsp;requests&amp;nbsp;(waiting&amp;nbsp;for&amp;nbsp;a&amp;nbsp;long&amp;nbsp;task&amp;nbsp;to&amp;nbsp;complete),&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;direct&amp;nbsp;streaming&amp;nbsp;of&amp;nbsp;File&amp;nbsp;objects&amp;nbsp;(and&amp;nbsp;any&amp;nbsp;InputStream&amp;nbsp;if&amp;nbsp;you&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;Content-Length),&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;without&amp;nbsp;blocking&amp;nbsp;the&amp;nbsp;execution&amp;nbsp;thread.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;will&amp;nbsp;have&amp;nbsp;fewer&amp;nbsp;problems&amp;nbsp;running&amp;nbsp;your&amp;nbsp;application&amp;nbsp;this&amp;nbsp;way,&amp;nbsp;as&amp;nbsp;you&amp;nbsp;will&amp;nbsp;use&amp;nbsp;the&amp;nbsp;same&amp;nbsp;environment&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;that&amp;nbsp;you&amp;nbsp;used&amp;nbsp;during&amp;nbsp;the&amp;nbsp;development&amp;nbsp;process.&amp;nbsp;A&amp;nbsp;lot&amp;nbsp;of&amp;nbsp;bugs&amp;nbsp;can&amp;nbsp;be&amp;nbsp;discovered&amp;nbsp;only&amp;nbsp;when&amp;nbsp;you&amp;nbsp;deploy&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;a&amp;nbsp;JEE&amp;nbsp;application&amp;nbsp;server&amp;nbsp;(different&amp;nbsp;home&amp;nbsp;dir,&amp;nbsp;classloader&amp;nbsp;issues,&amp;nbsp;library&amp;nbsp;conflicts,&amp;nbsp;etc...).&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Please&amp;nbsp;refer&amp;nbsp;to&amp;nbsp;the&amp;nbsp;'Put&amp;nbsp;your&amp;nbsp;application&amp;nbsp;in&amp;nbsp;production'&amp;nbsp;page&amp;nbsp;for&amp;nbsp;more&amp;nbsp;information.</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_22:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;EE&amp;nbsp;application&amp;nbsp;servers&amp;nbsp;and&amp;nbsp;Play1&amp;nbsp;,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;use&amp;nbsp;.&lt;br&gt;
+How&amp;nbsp;to&amp;nbsp;deploy&amp;nbsp;Play1&amp;nbsp;app&amp;nbsp;to&amp;nbsp;tomcat&amp;nbsp;7&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Your&amp;nbsp;Play&amp;nbsp;application&amp;nbsp;can&amp;nbsp;also&amp;nbsp;run&amp;nbsp;inside&amp;nbsp;your&amp;nbsp;favorite&amp;nbsp;application&amp;nbsp;server.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Most&amp;nbsp;application&amp;nbsp;servers&amp;nbsp;are&amp;nbsp;supported&amp;nbsp;out&amp;nbsp;of&amp;nbsp;the&amp;nbsp;box.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Deploying&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;need&amp;nbsp;to&amp;nbsp;package&amp;nbsp;your&amp;nbsp;application&amp;nbsp;as&amp;nbsp;a&amp;nbsp;WAR&amp;nbsp;file.&amp;nbsp;This&amp;nbsp;is&amp;nbsp;easily&amp;nbsp;done&amp;nbsp;with&amp;nbsp;the&amp;nbsp;following&amp;nbsp;command:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;play&amp;nbsp;war&amp;nbsp;myapp&amp;nbsp;-o&amp;nbsp;myapp.war&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!&amp;nbsp;Example&amp;nbsp;(Create&amp;nbsp;simple&amp;nbsp;project&amp;nbsp;with&amp;nbsp;one&amp;nbsp;controller&amp;nbsp;and&amp;nbsp;two&amp;nbsp;actions&amp;nbsp;to&amp;nbsp;process&amp;nbsp;form&amp;nbsp;and&amp;nbsp;deploy&amp;nbsp;to&amp;nbsp;TTTTTomcat&amp;nbsp;7)&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;create&amp;nbsp;simple&amp;nbsp;application&amp;nbsp;(the&amp;nbsp;name&amp;nbsp;of&amp;nbsp;my&amp;nbsp;simple&amp;nbsp;app&amp;nbsp;is&amp;nbsp;'deployment_options')&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;make&amp;nbsp;a&amp;nbsp;'war'&amp;nbsp;by&amp;nbsp;executing&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;play&amp;nbsp;war&amp;nbsp;deployment_options&amp;nbsp;-o&amp;nbsp;deploy&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;there&amp;nbsp;will&amp;nbsp;be&amp;nbsp;folder&amp;nbsp;'deploy'&amp;nbsp;and&amp;nbsp;inside&amp;nbsp;this&amp;nbsp;folder&amp;nbsp;will&amp;nbsp;be&amp;nbsp;'WEB-INF'&amp;nbsp;folder&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;copy&amp;nbsp;this&amp;nbsp;'WEB-INF'&amp;nbsp;to&amp;nbsp;tomcat&amp;nbsp;'webapps'&amp;nbsp;folder&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;start&amp;nbsp;tomcat&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;http://localhost:8080/deploy_options&amp;nbsp;-&amp;nbsp;out&amp;nbsp;simple&amp;nbsp;Play1&amp;nbsp;app&amp;nbsp;in&amp;nbsp;Tomcat7</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_22:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Cloud-based&amp;nbsp;hosting&amp;nbsp;and&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&amp;nbsp;&lt;br&gt;
+What&amp;nbsp;is&amp;nbsp;heroku&amp;nbsp;,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;deploy&amp;nbsp;app&amp;nbsp;to&amp;nbsp;heroku&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;B&gt;Heroku&lt;/B&gt;&amp;nbsp;(first&amp;nbsp;look&amp;nbsp;:&amp;nbsp;'great'&amp;nbsp;platform)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;Heroku&amp;nbsp;cloud&amp;nbsp;application&amp;nbsp;platform&amp;nbsp;has&amp;nbsp;Play-specific&amp;nbsp;application&amp;nbsp;hosting&amp;nbsp;support.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;deploy&amp;nbsp;and&amp;nbsp;run&amp;nbsp;your&amp;nbsp;Play&amp;nbsp;application,&amp;nbsp;use&amp;nbsp;the&amp;nbsp;following&amp;nbsp;steps.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Create&amp;nbsp;account&amp;nbsp;on&amp;nbsp;Heroku(set&amp;nbsp;email&amp;nbsp;and&amp;nbsp;pass)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Install&amp;nbsp;'Heroku&amp;nbsp;ToolBelt'&amp;nbsp;(in&amp;nbsp;Ubuntu&amp;nbsp;:'wget&amp;nbsp;-qO-&amp;nbsp;https://toolbelt.heroku.com/install-ubuntu.sh&amp;nbsp;|&amp;nbsp;sh')&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Login&amp;nbsp;in&amp;nbsp;heroku&amp;nbsp;by&amp;nbsp;executing&amp;nbsp;command&amp;nbsp;'heroku&amp;nbsp;login'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Create&amp;nbsp;and&amp;nbsp;test&amp;nbsp;local&amp;nbsp;app(use&amp;nbsp;play1.2.4&amp;nbsp;or&amp;nbsp;higher)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Create&amp;nbsp;'Procfile'&amp;nbsp;in&amp;nbsp;root&amp;nbsp;directory&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Use&amp;nbsp;a&amp;nbsp;Procfile,&amp;nbsp;a&amp;nbsp;text&amp;nbsp;file&amp;nbsp;in&amp;nbsp;the&amp;nbsp;root&amp;nbsp;directory&amp;nbsp;of&amp;nbsp;your&amp;nbsp;application,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;explicitly&amp;nbsp;declare&amp;nbsp;what&amp;nbsp;command&amp;nbsp;should&amp;nbsp;be&amp;nbsp;executed&amp;nbsp;to&amp;nbsp;start&amp;nbsp;a&amp;nbsp;web&amp;nbsp;dyno.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;In&amp;nbsp;this&amp;nbsp;case,&amp;nbsp;you&amp;nbsp;was&amp;nbsp;to&amp;nbsp;execute&amp;nbsp;play&amp;nbsp;run,&amp;nbsp;ensuring&amp;nbsp;it&amp;nbsp;listens&amp;nbsp;on&amp;nbsp;a&amp;nbsp;particular&amp;nbsp;port.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;init&amp;nbsp;local&amp;nbsp;git&amp;nbsp;repo&amp;nbsp;in&amp;nbsp;application&amp;nbsp;folder&amp;nbsp;and&amp;nbsp;make&amp;nbsp;commit&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Create&amp;nbsp;application&amp;nbsp;in&amp;nbsp;cloud&amp;nbsp;by&amp;nbsp;executing&amp;nbsp;:&amp;nbsp;'heroku&amp;nbsp;create'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Push&amp;nbsp;your&amp;nbsp;code&amp;nbsp;to&amp;nbsp;cloud&amp;nbsp;by&amp;nbsp;executing&amp;nbsp;:&amp;nbsp;'git&amp;nbsp;push&amp;nbsp;heroku&amp;nbsp;master'&amp;nbsp;(you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;agree&amp;nbsp;to&amp;nbsp;create&amp;nbsp;key&amp;nbsp;to&amp;nbsp;auth)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;open&amp;nbsp;heroku&amp;nbsp;application&amp;nbsp;in&amp;nbsp;browser&amp;nbsp;by&amp;nbsp;executing&amp;nbsp;:&amp;nbsp;'heroku&amp;nbsp;open'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;on&amp;nbsp;the&amp;nbsp;heroku.com&amp;nbsp;you&amp;nbsp;can&amp;nbsp;rename&amp;nbsp;you&amp;nbsp;application&amp;nbsp;(&lt;yourname&gt;.herokuapp.com)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;=)&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;view&amp;nbsp;the&amp;nbsp;logs&amp;nbsp;run:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;heroku&amp;nbsp;logs&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;scale&amp;nbsp;the&amp;nbsp;application&amp;nbsp;to&amp;nbsp;multiple&amp;nbsp;‘dynos’&amp;nbsp;run:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;heroku&amp;nbsp;scale&amp;nbsp;web=2&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;use&amp;nbsp;the&amp;nbsp;Heroku&amp;nbsp;Shared&amp;nbsp;Database&amp;nbsp;in&amp;nbsp;production&amp;nbsp;add&amp;nbsp;the&amp;nbsp;following&amp;nbsp;to&amp;nbsp;your&amp;nbsp;conf/application.conf&amp;nbsp;file:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%prod.db=${DATABASE_URL}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%prod.jpa.dialect=org.hibernate.dialect.PostgreSQLDialect&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%prod.jpa.ddl=update</questionanswer>
+  </question>
+</questions>

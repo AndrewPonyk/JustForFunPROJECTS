@@ -1,2 +1,365 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_6" name="7_JPA_persistence" nofquestions="0" nofsubcategories="0" filename="7_jpa_persistence1_0_1_4_1_0_0_6.xml" />
+<questions id="1_0_1_4_1_0_0_6" name="7_JPA_persistence" nofquestions="8" nofsubcategories="0" filename="7_jpa_persistence1_0_1_4_1_0_0_6.xml">
+  <question id="1_0_1_4_1_0_0_6:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;JPA&amp;nbsp;in&amp;nbsp;play&amp;nbsp;1&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+Starting&amp;nbsp;and&amp;nbsp;obtaining&amp;nbsp;EntityManager&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;b&gt;Starting&lt;/b&gt;&amp;nbsp;the&amp;nbsp;JPA&amp;nbsp;entity&amp;nbsp;manager&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Play&amp;nbsp;will&amp;nbsp;automatically&amp;nbsp;start&amp;nbsp;the&amp;nbsp;Hibernate&amp;nbsp;entity&amp;nbsp;manager&amp;nbsp;when&amp;nbsp;it&amp;nbsp;finds&amp;nbsp;one&amp;nbsp;or&amp;nbsp;more&amp;nbsp;classes&amp;nbsp;annotated&amp;nbsp;with&amp;nbsp;the&amp;nbsp;@javax.persistence.Entity&amp;nbsp;annotation.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;However,&amp;nbsp;make&amp;nbsp;sure&amp;nbsp;that&amp;nbsp;you&amp;nbsp;have&amp;nbsp;correctly&amp;nbsp;configured&amp;nbsp;a&amp;nbsp;JDBC&amp;nbsp;datasource&amp;nbsp;or&amp;nbsp;it&amp;nbsp;will&amp;nbsp;fail.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;b&gt;Obtaining&lt;/b&gt;&amp;nbsp;the&amp;nbsp;JPA&amp;nbsp;entity&amp;nbsp;manager&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;When&amp;nbsp;the&amp;nbsp;JPA&amp;nbsp;entity&amp;nbsp;manager&amp;nbsp;is&amp;nbsp;started&amp;nbsp;you&amp;nbsp;can&amp;nbsp;get&amp;nbsp;it&amp;nbsp;from&amp;nbsp;the&amp;nbsp;application&amp;nbsp;code,&amp;nbsp;using&amp;nbsp;the&amp;nbsp;&lt;b&gt;JPA&amp;nbsp;helper&amp;nbsp;&lt;/b&gt;.&amp;nbsp;For&amp;nbsp;example:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;index()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Query&amp;nbsp;query&amp;nbsp;=&amp;nbsp;JPA.em().createQuery("select&amp;nbsp;*&amp;nbsp;from&amp;nbsp;Article");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;Article&gt;&amp;nbsp;articles&amp;nbsp;=&amp;nbsp;query.getResultList();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;render(articles);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;way&amp;nbsp;hibernate/play&amp;nbsp;manages&amp;nbsp;the&amp;nbsp;database&amp;nbsp;on&amp;nbsp;Model&amp;nbsp;changes&amp;nbsp;is&amp;nbsp;via&amp;nbsp;the&amp;nbsp;'jpa.ddl'&amp;nbsp;property&amp;nbsp;in&amp;nbsp;your&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;application.conf.&amp;nbsp;If&amp;nbsp;you&amp;nbsp;read&amp;nbsp;the&amp;nbsp;file&amp;nbsp;it&amp;nbsp;states.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;Specify&amp;nbsp;the&amp;nbsp;ddl&amp;nbsp;generation&amp;nbsp;pattern&amp;nbsp;to&amp;nbsp;use.&amp;nbsp;Set&amp;nbsp;to&amp;nbsp;none&amp;nbsp;to&amp;nbsp;disable&amp;nbsp;it&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;(default&amp;nbsp;to&amp;nbsp;update&amp;nbsp;in&amp;nbsp;DEV&amp;nbsp;mode,&amp;nbsp;and&amp;nbsp;none&amp;nbsp;in&amp;nbsp;PROD&amp;nbsp;mode):&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;jpa.ddl=update&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;options&amp;nbsp;that&amp;nbsp;I&amp;nbsp;know&amp;nbsp;about&amp;nbsp;are&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;jpa.ddl=update&amp;nbsp;-&amp;nbsp;This&amp;nbsp;simply&amp;nbsp;updates&amp;nbsp;the&amp;nbsp;tables&amp;nbsp;when&amp;nbsp;a&amp;nbsp;model&amp;nbsp;changes&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;jpa.ddl=create-drop&amp;nbsp;-&amp;nbsp;This&amp;nbsp;deletes&amp;nbsp;the&amp;nbsp;tables&amp;nbsp;and&amp;nbsp;recreates&amp;nbsp;on&amp;nbsp;model&amp;nbsp;changes&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;jpa.ddl=validate&amp;nbsp;-Just&amp;nbsp;checks&amp;nbsp;the&amp;nbsp;schema,&amp;nbsp;but&amp;nbsp;does&amp;nbsp;not&amp;nbsp;make&amp;nbsp;any&amp;nbsp;changes&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;jpa.ddl=none&amp;nbsp;-&amp;nbsp;Does&amp;nbsp;nothing</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_6:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;:&amp;nbsp;Connect&amp;nbsp;to&amp;nbsp;MySQL&amp;nbsp;,&amp;nbsp;Save&amp;nbsp;some&amp;nbsp;data&amp;nbsp;,&amp;nbsp;and&amp;nbsp;display&amp;nbsp;on&amp;nbsp;the&amp;nbsp;page&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>*&amp;nbsp;change&amp;nbsp;configuration&amp;nbsp;in&amp;nbsp;application.conf&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;db=mysql://root:password@localhost/play1&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Create&amp;nbsp;bootstrap&amp;nbsp;job&amp;nbsp;to&amp;nbsp;save&amp;nbsp;some&amp;nbsp;data&amp;nbsp;to&amp;nbsp;DB&amp;nbsp;onApplicationStart&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;package&amp;nbsp;Bootstrap;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;import&amp;nbsp;models.Item;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;import&amp;nbsp;play.jobs.Job;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@play.jobs.OnApplicationStart&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;class&amp;nbsp;OnApplicationStart&amp;nbsp;&amp;nbsp;extends&amp;nbsp;Job{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@Override&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;doJob()&amp;nbsp;throws&amp;nbsp;Exception&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("APPLICATION&amp;nbsp;STARTS");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//create&amp;nbsp;two&amp;nbsp;items&amp;nbsp;and&amp;nbsp;save&amp;nbsp;them&amp;nbsp;in&amp;nbsp;db&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Item&amp;nbsp;i1=new&amp;nbsp;Item();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;i1.name="item1";&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;i1.count=10;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Item&amp;nbsp;i2=new&amp;nbsp;Item();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;i2.name="item2";&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;i2.count=4;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;i1.save();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;i2.save();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;create&amp;nbsp;some&amp;nbsp;model&amp;nbsp;,&amp;nbsp;for&amp;nbsp;example&amp;nbsp;class&amp;nbsp;Item&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;package&amp;nbsp;models;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;import&amp;nbsp;javax.persistence.Entity;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;import&amp;nbsp;play.db.jpa.Model;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@Entity&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Item&amp;nbsp;&amp;nbsp;extends&amp;nbsp;Model{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;name;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Integer&amp;nbsp;count;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;in&amp;nbsp;controller&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;index()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;renderArgs.put("Items",&amp;nbsp;Item.findAll());&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;render();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;on&amp;nbsp;the&amp;nbsp;page&amp;nbsp;index.html&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;div&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;All&amp;nbsp;items&amp;nbsp;in&amp;nbsp;DB&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;ul&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{list&amp;nbsp;items:Items,&amp;nbsp;as:'item'}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;li&gt;${item.name},&amp;nbsp;Count=${item.count}&lt;/li&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{/list}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/ul&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!The&amp;nbsp;way&amp;nbsp;hibernate/play&amp;nbsp;manages&amp;nbsp;the&amp;nbsp;database&amp;nbsp;on&amp;nbsp;Model&amp;nbsp;changes&amp;nbsp;is&amp;nbsp;via&amp;nbsp;the&amp;nbsp;jpa.ddl&amp;nbsp;property&amp;nbsp;in&amp;nbsp;your&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;application.conf.&amp;nbsp;If&amp;nbsp;you&amp;nbsp;read&amp;nbsp;the&amp;nbsp;file&amp;nbsp;it&amp;nbsp;states.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;Specify&amp;nbsp;the&amp;nbsp;ddl&amp;nbsp;generation&amp;nbsp;pattern&amp;nbsp;to&amp;nbsp;use.&amp;nbsp;Set&amp;nbsp;to&amp;nbsp;none&amp;nbsp;to&amp;nbsp;disable&amp;nbsp;it&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;(default&amp;nbsp;to&amp;nbsp;update&amp;nbsp;in&amp;nbsp;DEV&amp;nbsp;mode,&amp;nbsp;and&amp;nbsp;none&amp;nbsp;in&amp;nbsp;PROD&amp;nbsp;mode):&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;jpa.ddl=update&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;options&amp;nbsp;that&amp;nbsp;I&amp;nbsp;know&amp;nbsp;about&amp;nbsp;are&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;jpa.ddl=update&amp;nbsp;-&amp;nbsp;This&amp;nbsp;simply&amp;nbsp;updates&amp;nbsp;the&amp;nbsp;tables&amp;nbsp;when&amp;nbsp;a&amp;nbsp;model&amp;nbsp;changes&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;jpa.ddl=create-drop&amp;nbsp;-&amp;nbsp;This&amp;nbsp;deletes&amp;nbsp;the&amp;nbsp;tables&amp;nbsp;and&amp;nbsp;recreates&amp;nbsp;on&amp;nbsp;model&amp;nbsp;changes&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;jpa.ddl=validate&amp;nbsp;-Just&amp;nbsp;checks&amp;nbsp;the&amp;nbsp;schema,&amp;nbsp;but&amp;nbsp;does&amp;nbsp;not&amp;nbsp;make&amp;nbsp;any&amp;nbsp;changes&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;jpa.ddl=none&amp;nbsp;-&amp;nbsp;Does&amp;nbsp;nothing</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_6:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Transaction&amp;nbsp;management&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;principles&amp;nbsp;of&amp;nbsp;transactions&amp;nbsp;in&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DB.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Play&amp;nbsp;will&amp;nbsp;automatically&amp;nbsp;manage&amp;nbsp;transactions&amp;nbsp;for&amp;nbsp;you.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;It&amp;nbsp;will&amp;nbsp;start&amp;nbsp;a&amp;nbsp;transaction&amp;nbsp;for&amp;nbsp;each&amp;nbsp;HTTP&amp;nbsp;request&amp;nbsp;and&amp;nbsp;commit&amp;nbsp;it&amp;nbsp;when&amp;nbsp;the&amp;nbsp;HTTP&amp;nbsp;response&amp;nbsp;is&amp;nbsp;sent.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;your&amp;nbsp;code&amp;nbsp;throws&amp;nbsp;an&amp;nbsp;exception,&amp;nbsp;the&amp;nbsp;transaction&amp;nbsp;will&amp;nbsp;automatically&amp;nbsp;rollback.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;force&amp;nbsp;transaction&amp;nbsp;rollback&amp;nbsp;from&amp;nbsp;the&amp;nbsp;application&amp;nbsp;code,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&amp;nbsp;the&amp;nbsp;JPA.setRollbackOnly()&amp;nbsp;method,&amp;nbsp;which&amp;nbsp;tells&amp;nbsp;JPA&amp;nbsp;not&amp;nbsp;to&amp;nbsp;commit&amp;nbsp;the&amp;nbsp;current&amp;nbsp;transaction.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;also&amp;nbsp;use&amp;nbsp;&lt;b&gt;&amp;nbsp;annotations&amp;nbsp;&lt;/b&gt;&amp;nbsp;to&amp;nbsp;specify&amp;nbsp;how&amp;nbsp;transactions&amp;nbsp;should&amp;nbsp;be&amp;nbsp;handled.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;annotated&amp;nbsp;the&amp;nbsp;method&amp;nbsp;in&amp;nbsp;the&amp;nbsp;controller&amp;nbsp;with&amp;nbsp;@play.db.jpa.Transactional(readOnly=true),&amp;nbsp;then&amp;nbsp;the&amp;nbsp;transaction&amp;nbsp;will&amp;nbsp;be&amp;nbsp;read-only.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;prevent&amp;nbsp;Play&amp;nbsp;from&amp;nbsp;starting&amp;nbsp;any&amp;nbsp;transaction&amp;nbsp;at&amp;nbsp;all,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;annotate&amp;nbsp;the&amp;nbsp;method&amp;nbsp;with&amp;nbsp;@play.db.jpa.NoTransaction.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;prevent&amp;nbsp;transactions&amp;nbsp;for&amp;nbsp;all&amp;nbsp;methods,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;annotate&amp;nbsp;the&amp;nbsp;Controller-class&amp;nbsp;with&amp;nbsp;@play.db.jpa.NoTransaction.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;When&amp;nbsp;using&amp;nbsp;@play.db.jpa.NoTransaction,&amp;nbsp;Play&amp;nbsp;does&amp;nbsp;not&amp;nbsp;get&amp;nbsp;a&amp;nbsp;connection&amp;nbsp;from&amp;nbsp;the&amp;nbsp;connection&amp;nbsp;pool&amp;nbsp;at&amp;nbsp;all&amp;nbsp;&amp;nbsp;which&amp;nbsp;improves&amp;nbsp;speed.</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_6:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;&amp;nbsp;play.db.jpa.Model&amp;nbsp;&amp;nbsp;support&amp;nbsp;class&amp;nbsp;,&amp;nbsp;describe&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>This&amp;nbsp;is&amp;nbsp;the&amp;nbsp;main&amp;nbsp;helper&amp;nbsp;class&amp;nbsp;for&amp;nbsp;JPA.&amp;nbsp;If&amp;nbsp;you&amp;nbsp;make&amp;nbsp;one&amp;nbsp;of&amp;nbsp;your&amp;nbsp;JPA&amp;nbsp;entities&amp;nbsp;extend&amp;nbsp;the&amp;nbsp;play.db.jpa.Model&amp;nbsp;class,&amp;nbsp;it&amp;nbsp;will&amp;nbsp;give&amp;nbsp;you&amp;nbsp;a&amp;nbsp;lot&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;of&amp;nbsp;helper&amp;nbsp;methods&amp;nbsp;to&amp;nbsp;simplify&amp;nbsp;the&amp;nbsp;JPA&amp;nbsp;access.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Example&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@Entity&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Post&amp;nbsp;extends&amp;nbsp;Model&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;title;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;content;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Date&amp;nbsp;postDate;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@ManyToOne&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Author&amp;nbsp;author;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@OneToMany&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;List&lt;Comment&gt;&amp;nbsp;comments;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;play.db.jpa.Model&amp;nbsp;class&amp;nbsp;automatically&amp;nbsp;provides&amp;nbsp;an&amp;nbsp;autogenerated&amp;nbsp;Long&amp;nbsp;id&amp;nbsp;field.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;We&amp;nbsp;think&amp;nbsp;that&amp;nbsp;it's&amp;nbsp;generally&amp;nbsp;a&amp;nbsp;good&amp;nbsp;idea&amp;nbsp;to&amp;nbsp;keep&amp;nbsp;an&amp;nbsp;auto-generated&amp;nbsp;Long&amp;nbsp;id&amp;nbsp;as&amp;nbsp;primary&amp;nbsp;key&amp;nbsp;for&amp;nbsp;JPA&amp;nbsp;models&amp;nbsp;(the&amp;nbsp;technical&amp;nbsp;primary&amp;nbsp;key)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;manage&amp;nbsp;your&amp;nbsp;functional&amp;nbsp;primary&amp;nbsp;key&amp;nbsp;using&amp;nbsp;another&amp;nbsp;field.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Note&amp;nbsp;that&amp;nbsp;we&amp;nbsp;have&amp;nbsp;used&amp;nbsp;the&amp;nbsp;fact&amp;nbsp;that&amp;nbsp;Play&amp;nbsp;automatically&amp;nbsp;considers&amp;nbsp;the&amp;nbsp;Post&amp;nbsp;class&amp;nbsp;public&amp;nbsp;members&amp;nbsp;as&amp;nbsp;properties.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So&amp;nbsp;we&amp;nbsp;don't&amp;nbsp;need&amp;nbsp;to&amp;nbsp;write&amp;nbsp;all&amp;nbsp;setter/getter&amp;nbsp;methods&amp;nbsp;for&amp;nbsp;this&amp;nbsp;object.&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_6:4" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Custom&amp;nbsp;id&amp;nbsp;mapping&amp;nbsp;with&amp;nbsp;GenericModel&amp;nbsp;in&amp;nbsp;Play1&amp;nbsp;JPA.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Nothing&amp;nbsp;forces&amp;nbsp;you&amp;nbsp;to&amp;nbsp;base&amp;nbsp;your&amp;nbsp;entities&amp;nbsp;on&amp;nbsp;play.db.jpa.Model.&amp;nbsp;Your&amp;nbsp;JPA&amp;nbsp;entities&amp;nbsp;can&amp;nbsp;also&amp;nbsp;extend&amp;nbsp;the&amp;nbsp;play.db.jpa.GenericModel&amp;nbsp;class.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;is&amp;nbsp;required&amp;nbsp;if&amp;nbsp;you&amp;nbsp;do&amp;nbsp;not&amp;nbsp;want&amp;nbsp;to&amp;nbsp;use&amp;nbsp;a&amp;nbsp;Long&amp;nbsp;id&amp;nbsp;as&amp;nbsp;the&amp;nbsp;primary&amp;nbsp;key&amp;nbsp;for&amp;nbsp;your&amp;nbsp;entity.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;here&amp;nbsp;is&amp;nbsp;a&amp;nbsp;mapping&amp;nbsp;for&amp;nbsp;a&amp;nbsp;very&amp;nbsp;simple&amp;nbsp;User&amp;nbsp;entity.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;id&amp;nbsp;is&amp;nbsp;a&amp;nbsp;UUID,&amp;nbsp;the&amp;nbsp;name&amp;nbsp;and&amp;nbsp;mail&amp;nbsp;properties&amp;nbsp;are&amp;nbsp;required,&amp;nbsp;and&amp;nbsp;we&amp;nbsp;use&amp;nbsp;Play&amp;nbsp;Validation&amp;nbsp;to&amp;nbsp;enforce&amp;nbsp;simple&amp;nbsp;business&amp;nbsp;rules.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@Entity&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;class&amp;nbsp;User&amp;nbsp;extends&amp;nbsp;GenericModel&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@Id&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@GeneratedValue(generator&amp;nbsp;=&amp;nbsp;"system-uuid")&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@GenericGenerator(name&amp;nbsp;=&amp;nbsp;"system-uuid",&amp;nbsp;strategy&amp;nbsp;=&amp;nbsp;"uuid")&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;id;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@Required&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;name;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@Required&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@MaxSize(value=255,&amp;nbsp;message&amp;nbsp;=&amp;nbsp;"email.maxsize")&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@play.data.validation.Email&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;mail;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_6:5" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Finding&amp;nbsp;objects&amp;nbsp;in&amp;nbsp;Play1&amp;nbsp;JpA&amp;nbsp;,&amp;nbsp;using&amp;nbsp;different&amp;nbsp;approaches&amp;nbsp;(JPQL,simplified&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;query,&amp;nbsp;using&amp;nbsp;Model&amp;nbsp;class&amp;nbsp;)&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>The&amp;nbsp;play.db.jpa.Model&amp;nbsp;gives&amp;nbsp;you&amp;nbsp;several&amp;nbsp;ways&amp;nbsp;to&amp;nbsp;find&amp;nbsp;data.&amp;nbsp;For&amp;nbsp;example:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Find&amp;nbsp;by&amp;nbsp;ID&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//The&amp;nbsp;simplest&amp;nbsp;way&amp;nbsp;to&amp;nbsp;find&amp;nbsp;an&amp;nbsp;object.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Post&amp;nbsp;aPost&amp;nbsp;=&amp;nbsp;Post.findById(5L);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*Find&amp;nbsp;all&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;Post&gt;&amp;nbsp;posts&amp;nbsp;=&amp;nbsp;Post.findAll();&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;is&amp;nbsp;the&amp;nbsp;simplest&amp;nbsp;way&amp;nbsp;to&amp;nbsp;retrieve&amp;nbsp;all&amp;nbsp;posts,&amp;nbsp;but&amp;nbsp;you&amp;nbsp;can&amp;nbsp;do&amp;nbsp;the&amp;nbsp;same&amp;nbsp;using:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;Post&gt;&amp;nbsp;posts&amp;nbsp;=&amp;nbsp;Post.all().fetch();&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;allows&amp;nbsp;you&amp;nbsp;to&amp;nbsp;paginate&amp;nbsp;results:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;100&amp;nbsp;max&amp;nbsp;posts&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;Post&gt;&amp;nbsp;posts&amp;nbsp;=&amp;nbsp;Post.all().fetch(100);&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;or&amp;nbsp;even,&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;100&amp;nbsp;max&amp;nbsp;posts&amp;nbsp;start&amp;nbsp;at&amp;nbsp;50&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;Post&gt;&amp;nbsp;posts&amp;nbsp;=&amp;nbsp;Post.all().from(50).fetch(100);&lt;br&gt;
+&lt;br&gt;
+Find&amp;nbsp;using&amp;nbsp;a&amp;nbsp;simplified&amp;nbsp;query&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Post.find("byTitle",&amp;nbsp;"My&amp;nbsp;first&amp;nbsp;post").fetch();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Post.find("byTitleLike",&amp;nbsp;"%hello%").fetch();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Post.find("byAuthorIsNull").fetch();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Post.find("byTitleLikeAndAuthor",&amp;nbsp;"%hello%",&amp;nbsp;connectedUser).fetch();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!!&amp;nbsp;DOESNT&amp;nbsp;work&amp;nbsp;for&amp;nbsp;numerical&amp;nbsp;(NNNNNNNNeed&amp;nbsp;to&amp;nbsp;resolve&amp;nbsp;)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!Simple&amp;nbsp;queries&amp;nbsp;follow&amp;nbsp;the&amp;nbsp;following&amp;nbsp;syntax&amp;nbsp;[Property][Comparator]And?&amp;nbsp;where&amp;nbsp;Comparator&amp;nbsp;can&amp;nbsp;be&amp;nbsp;the&amp;nbsp;following:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;LessThan&amp;nbsp;-&amp;nbsp;less&amp;nbsp;than&amp;nbsp;the&amp;nbsp;given&amp;nbsp;value&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;LessThanEquals&amp;nbsp;-&amp;nbsp;less&amp;nbsp;than&amp;nbsp;or&amp;nbsp;equal&amp;nbsp;a&amp;nbsp;give&amp;nbsp;value&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GreaterThan&amp;nbsp;-&amp;nbsp;greater&amp;nbsp;than&amp;nbsp;a&amp;nbsp;given&amp;nbsp;value&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GreaterThanEquals&amp;nbsp;-&amp;nbsp;greater&amp;nbsp;than&amp;nbsp;or&amp;nbsp;equal&amp;nbsp;a&amp;nbsp;given&amp;nbsp;value&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Like&amp;nbsp;-&amp;nbsp;Equivalent&amp;nbsp;to&amp;nbsp;a&amp;nbsp;SQL&amp;nbsp;like&amp;nbsp;expression,&amp;nbsp;except&amp;nbsp;that&amp;nbsp;the&amp;nbsp;property&amp;nbsp;will&amp;nbsp;always&amp;nbsp;convert&amp;nbsp;to&amp;nbsp;lower&amp;nbsp;case.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Ilike&amp;nbsp;-&amp;nbsp;Similar&amp;nbsp;to&amp;nbsp;a&amp;nbsp;Like,&amp;nbsp;except&amp;nbsp;case&amp;nbsp;insensitive,&amp;nbsp;meaning&amp;nbsp;that&amp;nbsp;your&amp;nbsp;argument&amp;nbsp;will&amp;nbsp;convert&amp;nbsp;to&amp;nbsp;lower&amp;nbsp;case&amp;nbsp;too.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Elike&amp;nbsp;-&amp;nbsp;Equivalent&amp;nbsp;to&amp;nbsp;a&amp;nbsp;SQL&amp;nbsp;like&amp;nbsp;expression,&amp;nbsp;no&amp;nbsp;conversion.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NotEqual&amp;nbsp;-&amp;nbsp;Negates&amp;nbsp;equality&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Between&amp;nbsp;-&amp;nbsp;Between&amp;nbsp;two&amp;nbsp;values&amp;nbsp;(requires&amp;nbsp;two&amp;nbsp;arguments)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IsNotNull&amp;nbsp;-&amp;nbsp;Not&amp;nbsp;a&amp;nbsp;null&amp;nbsp;value&amp;nbsp;(doesn't&amp;nbsp;require&amp;nbsp;an&amp;nbsp;argument)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IsNull&amp;nbsp;-&amp;nbsp;Is&amp;nbsp;a&amp;nbsp;null&amp;nbsp;value&amp;nbsp;(doesn't&amp;nbsp;require&amp;nbsp;an&amp;nbsp;argument)&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Find&amp;nbsp;using&amp;nbsp;a&amp;nbsp;JPQL&amp;nbsp;query&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;use&amp;nbsp;a&amp;nbsp;JPQL&amp;nbsp;query:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Post.find(&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"select&amp;nbsp;p&amp;nbsp;from&amp;nbsp;Post&amp;nbsp;p,&amp;nbsp;Comment&amp;nbsp;c&amp;nbsp;"&amp;nbsp;+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"where&amp;nbsp;c.post&amp;nbsp;=&amp;nbsp;p&amp;nbsp;and&amp;nbsp;c.subject&amp;nbsp;like&amp;nbsp;?",&amp;nbsp;"%hop%"&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;);&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;or&amp;nbsp;even&amp;nbsp;a&amp;nbsp;part&amp;nbsp;of:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Post.find("title",&amp;nbsp;"My&amp;nbsp;first&amp;nbsp;post").fetch();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Post.find("title&amp;nbsp;like&amp;nbsp;?",&amp;nbsp;"%hello%").fetch();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Post.find("author&amp;nbsp;is&amp;nbsp;null").fetch();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Post.find("title&amp;nbsp;like&amp;nbsp;?&amp;nbsp;and&amp;nbsp;author&amp;nbsp;is&amp;nbsp;null",&amp;nbsp;"%hello%").fetch();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Post.find("title&amp;nbsp;like&amp;nbsp;?&amp;nbsp;and&amp;nbsp;author&amp;nbsp;is&amp;nbsp;null&amp;nbsp;order&amp;nbsp;by&amp;nbsp;postDate",&amp;nbsp;"%hello%").fetch();&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;even&amp;nbsp;specify&amp;nbsp;only&amp;nbsp;the&amp;nbsp;order&amp;nbsp;by&amp;nbsp;statement:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Post.find("order&amp;nbsp;by&amp;nbsp;postDate&amp;nbsp;desc").fetch();&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Counting&amp;nbsp;objects&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;easily&amp;nbsp;count&amp;nbsp;objects.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;long&amp;nbsp;postCount&amp;nbsp;=&amp;nbsp;Post.count();&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Or&amp;nbsp;even&amp;nbsp;count&amp;nbsp;using&amp;nbsp;a&amp;nbsp;query:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;long&amp;nbsp;userPostCount&amp;nbsp;=&amp;nbsp;Post.count("author&amp;nbsp;=&amp;nbsp;?",&amp;nbsp;connectedUser);</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_6:6" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Storing&amp;nbsp;uploaded&amp;nbsp;files&amp;nbsp;with&amp;nbsp;play.db.jpa.Blob&amp;nbsp;,&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>You&amp;nbsp;can&amp;nbsp;use&amp;nbsp;the&amp;nbsp;play.db.jpa.Blob&amp;nbsp;type&amp;nbsp;to&amp;nbsp;store&amp;nbsp;uploaded&amp;nbsp;files&amp;nbsp;in&amp;nbsp;the&amp;nbsp;file&amp;nbsp;system&amp;nbsp;(not&amp;nbsp;in&amp;nbsp;the&amp;nbsp;database).&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;On&amp;nbsp;the&amp;nbsp;server,&amp;nbsp;Play&amp;nbsp;stores&amp;nbsp;the&amp;nbsp;uploaded&amp;nbsp;image&amp;nbsp;in&amp;nbsp;a&amp;nbsp;file&amp;nbsp;in&amp;nbsp;the&amp;nbsp;attachments/&amp;nbsp;folder,&amp;nbsp;inside&amp;nbsp;the&amp;nbsp;application&amp;nbsp;folder.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;file&amp;nbsp;name&amp;nbsp;(a&amp;nbsp;UUID)&amp;nbsp;and&amp;nbsp;MIME&amp;nbsp;type&amp;nbsp;are&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;a&amp;nbsp;database&amp;nbsp;attribute&amp;nbsp;whose&amp;nbsp;SQL&amp;nbsp;type&amp;nbsp;is&amp;nbsp;VARCHAR.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;basic&amp;nbsp;use&amp;nbsp;case&amp;nbsp;of&amp;nbsp;uploading,&amp;nbsp;storing&amp;nbsp;and&amp;nbsp;serving&amp;nbsp;a&amp;nbsp;file&amp;nbsp;is&amp;nbsp;extremely&amp;nbsp;easy&amp;nbsp;in&amp;nbsp;Play.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;is&amp;nbsp;because&amp;nbsp;the&amp;nbsp;binding&amp;nbsp;framework&amp;nbsp;automatically&amp;nbsp;binds&amp;nbsp;a&amp;nbsp;file&amp;nbsp;uploaded&amp;nbsp;from&amp;nbsp;an&amp;nbsp;HTML&amp;nbsp;form&amp;nbsp;to&amp;nbsp;your&amp;nbsp;JPA&amp;nbsp;model,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;because&amp;nbsp;Play&amp;nbsp;provides&amp;nbsp;convenience&amp;nbsp;methods&amp;nbsp;that&amp;nbsp;make&amp;nbsp;serving&amp;nbsp;binary&amp;nbsp;data&amp;nbsp;as&amp;nbsp;easy&amp;nbsp;as&amp;nbsp;serving&amp;nbsp;plain&amp;nbsp;text.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;store&amp;nbsp;file&amp;nbsp;uploads&amp;nbsp;in&amp;nbsp;your&amp;nbsp;model,&amp;nbsp;add&amp;nbsp;a&amp;nbsp;property&amp;nbsp;of&amp;nbsp;type&amp;nbsp;play.db.jpa.Blob&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;import&amp;nbsp;play.db.jpa.Blob;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@Entity&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;class&amp;nbsp;User&amp;nbsp;extends&amp;nbsp;Model&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;name;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Blob&amp;nbsp;photo;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;upload&amp;nbsp;files,&amp;nbsp;add&amp;nbsp;a&amp;nbsp;form&amp;nbsp;to&amp;nbsp;your&amp;nbsp;view&amp;nbsp;template,&amp;nbsp;and&amp;nbsp;use&amp;nbsp;a&amp;nbsp;file&amp;nbsp;upload&amp;nbsp;form&amp;nbsp;control&amp;nbsp;for&amp;nbsp;the&amp;nbsp;model's&amp;nbsp;Blob&amp;nbsp;property:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{form&amp;nbsp;@addUser(),&amp;nbsp;enctype:'multipart/form-data'}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;input&amp;nbsp;type="file"&amp;nbsp;name="user.photo"&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;input&amp;nbsp;type="submit"&amp;nbsp;name="submit"&amp;nbsp;value="Upload"&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{/form}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Then,&amp;nbsp;in&amp;nbsp;the&amp;nbsp;controller,&amp;nbsp;add&amp;nbsp;an&amp;nbsp;action&amp;nbsp;that&amp;nbsp;saves&amp;nbsp;the&amp;nbsp;upload&amp;nbsp;in&amp;nbsp;a&amp;nbsp;new&amp;nbsp;model&amp;nbsp;object:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;addUser(User&amp;nbsp;user)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;user.save();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;index();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;code&amp;nbsp;does&amp;nbsp;not&amp;nbsp;appear&amp;nbsp;to&amp;nbsp;do&amp;nbsp;anything&amp;nbsp;other&amp;nbsp;than&amp;nbsp;save&amp;nbsp;the&amp;nbsp;JPA&amp;nbsp;entity,&amp;nbsp;because&amp;nbsp;the&amp;nbsp;file&amp;nbsp;upload&amp;nbsp;is&amp;nbsp;handled&amp;nbsp;automatically&amp;nbsp;by&amp;nbsp;Play.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;First,&amp;nbsp;before&amp;nbsp;the&amp;nbsp;start&amp;nbsp;of&amp;nbsp;the&amp;nbsp;action&amp;nbsp;method,&amp;nbsp;the&amp;nbsp;uploaded&amp;nbsp;file&amp;nbsp;is&amp;nbsp;saved&amp;nbsp;in&amp;nbsp;a&amp;nbsp;sub-folder&amp;nbsp;of&amp;nbsp;tmp/uploads/.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Next,&amp;nbsp;when&amp;nbsp;the&amp;nbsp;entity&amp;nbsp;is&amp;nbsp;saved,&amp;nbsp;the&amp;nbsp;file&amp;nbsp;is&amp;nbsp;copied&amp;nbsp;to&amp;nbsp;the&amp;nbsp;attachments/&amp;nbsp;folder,&amp;nbsp;with&amp;nbsp;a&amp;nbsp;UUID&amp;nbsp;as&amp;nbsp;the&amp;nbsp;file&amp;nbsp;name.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Finally,&amp;nbsp;when&amp;nbsp;the&amp;nbsp;action&amp;nbsp;is&amp;nbsp;complete,&amp;nbsp;the&amp;nbsp;temporary&amp;nbsp;file&amp;nbsp;is&amp;nbsp;deleted.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;upload&amp;nbsp;another&amp;nbsp;file&amp;nbsp;for&amp;nbsp;the&amp;nbsp;same&amp;nbsp;user,&amp;nbsp;this&amp;nbsp;will&amp;nbsp;be&amp;nbsp;saved&amp;nbsp;as&amp;nbsp;a&amp;nbsp;new&amp;nbsp;file&amp;nbsp;on&amp;nbsp;the&amp;nbsp;server,&amp;nbsp;whose&amp;nbsp;name&amp;nbsp;is&amp;nbsp;a&amp;nbsp;new&amp;nbsp;UUID.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;means&amp;nbsp;that&amp;nbsp;the&amp;nbsp;original&amp;nbsp;file&amp;nbsp;will&amp;nbsp;now&amp;nbsp;be&amp;nbsp;orphaned.&amp;nbsp;If&amp;nbsp;you&amp;nbsp;do&amp;nbsp;not&amp;nbsp;have&amp;nbsp;unlimited&amp;nbsp;disk&amp;nbsp;space&amp;nbsp;then&amp;nbsp;you&amp;nbsp;will&amp;nbsp;have&amp;nbsp;to&amp;nbsp;implement&amp;nbsp;your&amp;nbsp;own&amp;nbsp;scheme&amp;nbsp;for&amp;nbsp;cleaning&amp;nbsp;up,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;perhaps&amp;nbsp;with&amp;nbsp;an&amp;nbsp;asynchronous&amp;nbsp;job.</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_6:7" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;More&amp;nbsp;about&amp;nbsp;generic&amp;nbsp;typing&amp;nbsp;problems&amp;nbsp;in&amp;nbsp;Play1&amp;nbsp;jpa&amp;nbsp;,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;solve&amp;nbsp;it&amp;nbsp;(&lt;br&gt;
+example&amp;nbsp;of&amp;nbsp;wrong&amp;nbsp;usage&amp;nbsp;&lt;br&gt;
+for(Post&amp;nbsp;p&amp;nbsp;:&amp;nbsp;Post.findAll())&amp;nbsp;{&amp;nbsp;//&amp;nbsp;error&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p.delete();&lt;br&gt;
+}&lt;br&gt;
+)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>The&amp;nbsp;play.db.jpa.Model&amp;nbsp;defines&amp;nbsp;a&amp;nbsp;set&amp;nbsp;of&amp;nbsp;generic&amp;nbsp;methods.&amp;nbsp;These&amp;nbsp;generic&amp;nbsp;methods&amp;nbsp;use&amp;nbsp;a&amp;nbsp;type&amp;nbsp;parameter&amp;nbsp;to&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;methods&amp;nbsp;return&amp;nbsp;type.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;When&amp;nbsp;using&amp;nbsp;those&amp;nbsp;methods,&amp;nbsp;the&amp;nbsp;concrete&amp;nbsp;type&amp;nbsp;to&amp;nbsp;be&amp;nbsp;used&amp;nbsp;as&amp;nbsp;return&amp;nbsp;value&amp;nbsp;is&amp;nbsp;derived&amp;nbsp;from&amp;nbsp;the&amp;nbsp;invocation&amp;nbsp;context&amp;nbsp;using&amp;nbsp;type&amp;nbsp;inference.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;the&amp;nbsp;findAll&amp;nbsp;method&amp;nbsp;is&amp;nbsp;defined&amp;nbsp;as:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;T&gt;&amp;nbsp;List&lt;T&gt;&amp;nbsp;findAll();&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;And&amp;nbsp;you&amp;nbsp;use&amp;nbsp;it&amp;nbsp;as:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;Post&gt;&amp;nbsp;posts&amp;nbsp;=&amp;nbsp;Post.findAll();&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Here&amp;nbsp;the&amp;nbsp;Java&amp;nbsp;compiler&amp;nbsp;resolves&amp;nbsp;the&amp;nbsp;actual&amp;nbsp;type&amp;nbsp;of&amp;nbsp;T&amp;nbsp;using&amp;nbsp;the&amp;nbsp;fact&amp;nbsp;that&amp;nbsp;you&amp;nbsp;assign&amp;nbsp;the&amp;nbsp;method&amp;nbsp;result&amp;nbsp;to&amp;nbsp;a&amp;nbsp;List&lt;Post&gt;.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So&amp;nbsp;T&amp;nbsp;is&amp;nbsp;resolved&amp;nbsp;as&amp;nbsp;a&amp;nbsp;Post&amp;nbsp;type.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;b&gt;Unfortunately&amp;nbsp;&lt;/b&gt;&amp;nbsp;,&amp;nbsp;this&amp;nbsp;doesn't&amp;nbsp;work&amp;nbsp;if&amp;nbsp;the&amp;nbsp;generic&amp;nbsp;methods&amp;nbsp;return&amp;nbsp;value&amp;nbsp;is&amp;nbsp;directly&amp;nbsp;used&amp;nbsp;as&amp;nbsp;a&amp;nbsp;parameter&amp;nbsp;for&amp;nbsp;another&amp;nbsp;method&amp;nbsp;invocation&amp;nbsp;or&amp;nbsp;used&amp;nbsp;in&amp;nbsp;a&amp;nbsp;loop.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code&amp;nbsp;fails&amp;nbsp;with&amp;nbsp;a&amp;nbsp;compiler&amp;nbsp;error&amp;nbsp;saying&amp;nbsp;Type&amp;nbsp;mismatch:&amp;nbsp;cannot&amp;nbsp;convert&amp;nbsp;from&amp;nbsp;element&amp;nbsp;type&amp;nbsp;Object&amp;nbsp;to&amp;nbsp;Post:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for(Post&amp;nbsp;p&amp;nbsp;:&amp;nbsp;Post.findAll())&amp;nbsp;{&amp;nbsp;//&amp;nbsp;error&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p.delete();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Of&amp;nbsp;course&amp;nbsp;you&amp;nbsp;can&amp;nbsp;resolve&amp;nbsp;this&amp;nbsp;issue&amp;nbsp;using&amp;nbsp;a&amp;nbsp;temporary&amp;nbsp;local&amp;nbsp;variable,&amp;nbsp;as:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;Post&gt;&amp;nbsp;posts&amp;nbsp;=&amp;nbsp;Post.findAll();&amp;nbsp;//&amp;nbsp;type&amp;nbsp;inference&amp;nbsp;works&amp;nbsp;here!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for(Post&amp;nbsp;p&amp;nbsp;:&amp;nbsp;posts)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p.delete();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;But&amp;nbsp;wait,&amp;nbsp;there&amp;nbsp;is&amp;nbsp;a&amp;nbsp;&lt;b&gt;&amp;nbsp;better&amp;nbsp;way&amp;nbsp;&lt;/b&gt;.&amp;nbsp;You&amp;nbsp;can&amp;nbsp;use&amp;nbsp;a&amp;nbsp;practical&amp;nbsp;but&amp;nbsp;somewhat&amp;nbsp;unknown&amp;nbsp;Java&amp;nbsp;language&amp;nbsp;feature,&amp;nbsp;which&amp;nbsp;makes&amp;nbsp;the&amp;nbsp;code&amp;nbsp;shorter&amp;nbsp;while&amp;nbsp;more&amp;nbsp;readable&amp;nbsp;at&amp;nbsp;the&amp;nbsp;same&amp;nbsp;time:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for(Post&amp;nbsp;p&amp;nbsp;:&amp;nbsp;Post.&lt;Post&gt;findAll())&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p.delete();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}</questionanswer>
+  </question>
+</questions>

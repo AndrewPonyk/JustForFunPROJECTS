@@ -1,2 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_15" name="16_Security_Guide" nofquestions="0" nofsubcategories="0" filename="16_security_guide1_0_1_4_1_0_0_15.xml" />
+<questions id="1_0_1_4_1_0_0_15" name="16_Security_Guide" nofquestions="3" nofsubcategories="0" filename="16_security_guide1_0_1_4_1_0_0_15.xml">
+  <question id="1_0_1_4_1_0_0_15:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Sessions&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;,describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Often&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;keep&amp;nbsp;information&amp;nbsp;associated&amp;nbsp;with&amp;nbsp;a&amp;nbsp;user,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;in&amp;nbsp;particular&amp;nbsp;the&amp;nbsp;logged-in&amp;nbsp;status.&amp;nbsp;Without&amp;nbsp;a&amp;nbsp;session,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;user&amp;nbsp;would&amp;nbsp;need&amp;nbsp;to&amp;nbsp;pass&amp;nbsp;credentials&amp;nbsp;with&amp;nbsp;each&amp;nbsp;request.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;That’s&amp;nbsp;what&amp;nbsp;sessions&amp;nbsp;&lt;b&gt;are&amp;nbsp;for&amp;nbsp;&lt;/b&gt;:&amp;nbsp;a&amp;nbsp;set&amp;nbsp;of&amp;nbsp;cookies&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;the&amp;nbsp;user’s&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;browser&amp;nbsp;that&amp;nbsp;identify&amp;nbsp;him&amp;nbsp;or&amp;nbsp;her&amp;nbsp;to&amp;nbsp;the&amp;nbsp;web&amp;nbsp;site,&amp;nbsp;and&amp;nbsp;provide&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;other&amp;nbsp;information&amp;nbsp;your&amp;nbsp;web&amp;nbsp;application&amp;nbsp;may&amp;nbsp;choose&amp;nbsp;to&amp;nbsp;store&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;there&amp;nbsp;rather&amp;nbsp;than&amp;nbsp;in&amp;nbsp;the&amp;nbsp;data&amp;nbsp;layer;&amp;nbsp;for&amp;nbsp;example&amp;nbsp;the&amp;nbsp;language.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Keep&amp;nbsp;your&amp;nbsp;secret…&amp;nbsp;secret&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;session&amp;nbsp;is&amp;nbsp;a&amp;nbsp;hash&amp;nbsp;of&amp;nbsp;key/values,&amp;nbsp;signed&amp;nbsp;but&amp;nbsp;not&amp;nbsp;encrypted.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;That&amp;nbsp;means&amp;nbsp;that&amp;nbsp;as&amp;nbsp;long&amp;nbsp;as&amp;nbsp;your&amp;nbsp;secret&amp;nbsp;is&amp;nbsp;safe,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;it&amp;nbsp;is&amp;nbsp;not&amp;nbsp;possible&amp;nbsp;for&amp;nbsp;a&amp;nbsp;third-party&amp;nbsp;to&amp;nbsp;forge&amp;nbsp;sessions.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;secret&amp;nbsp;is&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;conf/application.conf.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;It&amp;nbsp;is&amp;nbsp;very&amp;nbsp;important&amp;nbsp;to&amp;nbsp;keep&amp;nbsp;it&amp;nbsp;private:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;do&amp;nbsp;not&amp;nbsp;commit&amp;nbsp;it&amp;nbsp;in&amp;nbsp;a&amp;nbsp;public&amp;nbsp;repository,&amp;nbsp;and&amp;nbsp;when&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;you&amp;nbsp;install&amp;nbsp;an&amp;nbsp;application&amp;nbsp;written&amp;nbsp;by&amp;nbsp;someone&amp;nbsp;else&amp;nbsp;change&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;secret&amp;nbsp;key&amp;nbsp;to&amp;nbsp;your&amp;nbsp;own.&amp;nbsp;You&amp;nbsp;can&amp;nbsp;do&amp;nbsp;that&amp;nbsp;with&amp;nbsp;the&amp;nbsp;command&amp;nbsp;play&amp;nbsp;secret.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Don’t&amp;nbsp;store&amp;nbsp;critical&amp;nbsp;data&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;However,&amp;nbsp;since&amp;nbsp;it&amp;nbsp;is&amp;nbsp;not&amp;nbsp;encrypted,&amp;nbsp;you&amp;nbsp;should&amp;nbsp;not&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;store&amp;nbsp;critical&amp;nbsp;data&amp;nbsp;in&amp;nbsp;the&amp;nbsp;session.&amp;nbsp;It&amp;nbsp;can&amp;nbsp;be&amp;nbsp;seen&amp;nbsp;by&amp;nbsp;looking&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;at&amp;nbsp;the&amp;nbsp;user&amp;nbsp;cookie,&amp;nbsp;by&amp;nbsp;sniffing&amp;nbsp;the&amp;nbsp;connection&amp;nbsp;on&amp;nbsp;a&amp;nbsp;local&amp;nbsp;network&amp;nbsp;or&amp;nbsp;over&amp;nbsp;wifi.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;session&amp;nbsp;is&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;a&amp;nbsp;cookie,&amp;nbsp;and&amp;nbsp;cookies&amp;nbsp;are&amp;nbsp;limited&amp;nbsp;to&amp;nbsp;4&amp;nbsp;KB.&amp;nbsp;In&amp;nbsp;addition&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;this&amp;nbsp;limit,&amp;nbsp;only&amp;nbsp;strings&amp;nbsp;can&amp;nbsp;be&amp;nbsp;stored.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So&amp;nbsp;&amp;nbsp;,&amp;nbsp;in&amp;nbsp;play&amp;nbsp;if&amp;nbsp;you&amp;nbsp;put&amp;nbsp;value&amp;nbsp;into&amp;nbsp;session&amp;nbsp;=&amp;nbsp;put&amp;nbsp;value&amp;nbsp;into&amp;nbsp;cookie&amp;nbsp;.=)</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_15:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Cross-Site&amp;nbsp;Scripting&amp;nbsp;and&amp;nbsp;SQL&amp;nbsp;Injection&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>SQL&amp;nbsp;Injection&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SQL&amp;nbsp;injection&amp;nbsp;is&amp;nbsp;an&amp;nbsp;exploit&amp;nbsp;consisting&amp;nbsp;in&amp;nbsp;using&amp;nbsp;user&amp;nbsp;input&amp;nbsp;to&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;execute&amp;nbsp;a&amp;nbsp;SQL&amp;nbsp;query&amp;nbsp;that&amp;nbsp;was&amp;nbsp;not&amp;nbsp;intended&amp;nbsp;by&amp;nbsp;the&amp;nbsp;developer.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;can&amp;nbsp;be&amp;nbsp;used&amp;nbsp;to&amp;nbsp;destroy&amp;nbsp;data,&amp;nbsp;or&amp;nbsp;to&amp;nbsp;get&amp;nbsp;access&amp;nbsp;to&amp;nbsp;data&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;that&amp;nbsp;shouldn’t&amp;nbsp;be&amp;nbsp;visible&amp;nbsp;to&amp;nbsp;the&amp;nbsp;current&amp;nbsp;user.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;When&amp;nbsp;you&amp;nbsp;are&amp;nbsp;using&amp;nbsp;high&amp;nbsp;level&amp;nbsp;“find”&amp;nbsp;methods,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;you&amp;nbsp;should&amp;nbsp;be&amp;nbsp;covered&amp;nbsp;against&amp;nbsp;SQL&amp;nbsp;injection.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;When&amp;nbsp;you&amp;nbsp;build&amp;nbsp;your&amp;nbsp;own&amp;nbsp;queries&amp;nbsp;manually,&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;be&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;careful&amp;nbsp;not&amp;nbsp;to&amp;nbsp;concatenate&amp;nbsp;strings&amp;nbsp;with&amp;nbsp;+&amp;nbsp;but&amp;nbsp;use&amp;nbsp;?&amp;nbsp;placeholders.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GOOD:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;createQuery("SELECT&amp;nbsp;*&amp;nbsp;from&amp;nbsp;Stuff&amp;nbsp;WHERE&amp;nbsp;type=&amp;nbsp;?1").setParameter(1,&amp;nbsp;theType);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;BAD:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;createQuery("SELECT&amp;nbsp;*&amp;nbsp;from&amp;nbsp;Stuff&amp;nbsp;WHERE&amp;nbsp;type="&amp;nbsp;+&amp;nbsp;theType);&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Cross-Site&amp;nbsp;Scripting&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Cross-site&amp;nbsp;scripting&amp;nbsp;is&amp;nbsp;one&amp;nbsp;of&amp;nbsp;the&amp;nbsp;most&amp;nbsp;common&amp;nbsp;vulnerabilities&amp;nbsp;in&amp;nbsp;web&amp;nbsp;applications.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;It&amp;nbsp;consists&amp;nbsp;of&amp;nbsp;injecting&amp;nbsp;&lt;b&gt;malicious&amp;nbsp;JavaScript&amp;nbsp;&lt;/b&gt;&amp;nbsp;into&amp;nbsp;web&amp;nbsp;pages&amp;nbsp;using&amp;nbsp;forms&amp;nbsp;that&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;your&amp;nbsp;application&amp;nbsp;provides.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Let’s&amp;nbsp;say&amp;nbsp;you’re&amp;nbsp;writing&amp;nbsp;a&amp;nbsp;blog,&amp;nbsp;and&amp;nbsp;anyone&amp;nbsp;can&amp;nbsp;add&amp;nbsp;a&amp;nbsp;comment.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;blindly&amp;nbsp;include&amp;nbsp;what&amp;nbsp;commenters&amp;nbsp;have&amp;nbsp;written&amp;nbsp;into&amp;nbsp;your&amp;nbsp;HTML&amp;nbsp;page,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;you’re&amp;nbsp;opening&amp;nbsp;your&amp;nbsp;site&amp;nbsp;to&amp;nbsp;attacks.&amp;nbsp;It&amp;nbsp;can&amp;nbsp;be:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*Show&amp;nbsp;a&amp;nbsp;popup&amp;nbsp;to&amp;nbsp;your&amp;nbsp;visitors&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*Redirect&amp;nbsp;your&amp;nbsp;visitors&amp;nbsp;to&amp;nbsp;a&amp;nbsp;site&amp;nbsp;controlled&amp;nbsp;by&amp;nbsp;the&amp;nbsp;attacker&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*Steal&amp;nbsp;information&amp;nbsp;supposed&amp;nbsp;to&amp;nbsp;be&amp;nbsp;visible&amp;nbsp;only&amp;nbsp;to&amp;nbsp;the&amp;nbsp;current&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;user,&amp;nbsp;and&amp;nbsp;send&amp;nbsp;it&amp;nbsp;back&amp;nbsp;to&amp;nbsp;the&amp;nbsp;attacker’s&amp;nbsp;site&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Play’s&amp;nbsp;template&amp;nbsp;engine&amp;nbsp;automatically&amp;nbsp;escapes&amp;nbsp;strings.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;really&amp;nbsp;need&amp;nbsp;to&amp;nbsp;insert&amp;nbsp;unescaped&amp;nbsp;HTML&amp;nbsp;in&amp;nbsp;your&amp;nbsp;templates,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;do&amp;nbsp;so&amp;nbsp;using&amp;nbsp;the&amp;nbsp;raw()&amp;nbsp;Java&amp;nbsp;extension&amp;nbsp;on&amp;nbsp;the&amp;nbsp;string.</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_15:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Cross-Site&amp;nbsp;Request&amp;nbsp;Forgery&amp;nbsp;,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;prevent&amp;nbsp;it&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>The&amp;nbsp;CSRF&amp;nbsp;attack&amp;nbsp;can&amp;nbsp;be&amp;nbsp;really&amp;nbsp;problematic&amp;nbsp;in&amp;nbsp;web&amp;nbsp;applications:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;attack&amp;nbsp;method&amp;nbsp;works&amp;nbsp;by&amp;nbsp;including&amp;nbsp;malicious&amp;nbsp;code&amp;nbsp;or&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;a&amp;nbsp;link&amp;nbsp;in&amp;nbsp;a&amp;nbsp;page&amp;nbsp;that&amp;nbsp;accesses&amp;nbsp;a&amp;nbsp;web&amp;nbsp;application&amp;nbsp;that&amp;nbsp;the&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;user&amp;nbsp;is&amp;nbsp;believed&amp;nbsp;to&amp;nbsp;have&amp;nbsp;authenticated.&amp;nbsp;If&amp;nbsp;the&amp;nbsp;session&amp;nbsp;for&amp;nbsp;that&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;web&amp;nbsp;application&amp;nbsp;has&amp;nbsp;not&amp;nbsp;timed&amp;nbsp;out,&amp;nbsp;an&amp;nbsp;attacker&amp;nbsp;may&amp;nbsp;execute&amp;nbsp;unauthorized&amp;nbsp;commands.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;prevent&amp;nbsp;this&amp;nbsp;attack,&amp;nbsp;the&amp;nbsp;first&amp;nbsp;thing&amp;nbsp;to&amp;nbsp;do&amp;nbsp;is&amp;nbsp;to&amp;nbsp;use&amp;nbsp;GET&amp;nbsp;and&amp;nbsp;POST&amp;nbsp;methods&amp;nbsp;appropriately.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;That&amp;nbsp;means&amp;nbsp;that&amp;nbsp;&lt;b&gt;only&amp;nbsp;the&amp;nbsp;POST&amp;nbsp;method&amp;nbsp;should&amp;nbsp;be&amp;nbsp;used&amp;nbsp;to&amp;nbsp;change&amp;nbsp;the&amp;nbsp;application’s&amp;nbsp;state&lt;/b&gt;.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;For&amp;nbsp;POST&amp;nbsp;requests&amp;nbsp;the&amp;nbsp;only&amp;nbsp;way&amp;nbsp;to&amp;nbsp;secure&amp;nbsp;critical&amp;nbsp;actions&amp;nbsp;properly&amp;nbsp;is&amp;nbsp;to&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;issue&amp;nbsp;an&amp;nbsp;&lt;b&gt;authenticity&amp;nbsp;token&lt;/b&gt;(in&amp;nbsp;struts1&amp;nbsp;i&amp;nbsp;used&amp;nbsp;it).&amp;nbsp;Play&amp;nbsp;now&amp;nbsp;has&amp;nbsp;a&amp;nbsp;built-in&amp;nbsp;helper&amp;nbsp;to&amp;nbsp;handle&amp;nbsp;that:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;checkAuthenticity()&amp;nbsp;method&amp;nbsp;available&amp;nbsp;in&amp;nbsp;controllers,&amp;nbsp;that&amp;nbsp;checks&amp;nbsp;for&amp;nbsp;a&amp;nbsp;valid&amp;nbsp;authenticity&amp;nbsp;token&amp;nbsp;in&amp;nbsp;the&amp;nbsp;request&amp;nbsp;parameters&amp;nbsp;and&amp;nbsp;sends&amp;nbsp;a&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;forbidden&amp;nbsp;response&amp;nbsp;if&amp;nbsp;something&amp;nbsp;is&amp;nbsp;bad.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;session.getAuthenticityToken()&amp;nbsp;generates&amp;nbsp;an&amp;nbsp;authenticity&amp;nbsp;token&amp;nbsp;only&amp;nbsp;valid&amp;nbsp;for&amp;nbsp;the&amp;nbsp;current&amp;nbsp;session.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;#{authenticityToken&amp;nbsp;/}&amp;nbsp;creates&amp;nbsp;a&amp;nbsp;hidden&amp;nbsp;input&amp;nbsp;field&amp;nbsp;that&amp;nbsp;you&amp;nbsp;can&amp;nbsp;add&amp;nbsp;to&amp;nbsp;any&amp;nbsp;form.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So&amp;nbsp;for&amp;nbsp;example:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;destroyMyAccount()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;checkAuthenticity();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;…&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Will&amp;nbsp;only&amp;nbsp;work&amp;nbsp;when&amp;nbsp;called&amp;nbsp;from&amp;nbsp;a&amp;nbsp;form&amp;nbsp;including&amp;nbsp;a&amp;nbsp;proper&amp;nbsp;authenticity&amp;nbsp;token:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;form&amp;nbsp;method="post"&amp;nbsp;action="/account/destroy"&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#{authenticityToken&amp;nbsp;/}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;input&amp;nbsp;type="submit"&amp;nbsp;value="destroy&amp;nbsp;my&amp;nbsp;account"&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/form&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;In&amp;nbsp;addition&amp;nbsp;:&amp;nbsp;#{form}&amp;nbsp;tag&amp;nbsp;-&amp;nbsp;automatically&amp;nbsp;generate&amp;nbsp;authenticity&amp;nbsp;token&lt;br&gt;</questionanswer>
+  </question>
+</questions>

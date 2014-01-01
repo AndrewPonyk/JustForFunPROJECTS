@@ -1,2 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_1_0_0_13" name="14_Sending_EMAILs" nofquestions="0" nofsubcategories="0" filename="14_sending_emails1_0_1_4_1_0_0_13.xml" />
+<questions id="1_0_1_4_1_0_0_13" name="14_Sending_EMAILs" nofquestions="3" nofsubcategories="0" filename="14_sending_emails1_0_1_4_1_0_0_13.xml">
+  <question id="1_0_1_4_1_0_0_13:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!&amp;nbsp;Mail&amp;nbsp;and&amp;nbsp;MVC&amp;nbsp;(&amp;nbsp;render&amp;nbsp;emails&amp;nbsp;from&amp;nbsp;templates)&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;div&amp;nbsp;style="border:1ps&amp;nbsp;solid&amp;nbsp;black;&amp;nbsp;width:400px;padding:14px;height:400px;background:gray"&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hello&amp;nbsp;${user}&amp;nbsp;&amp;nbsp;and&amp;nbsp;Welcome&amp;nbsp;=)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</questionanswer>
+  </question>
+  <question id="1_0_1_4_1_0_0_13:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Sending&amp;nbsp;simpe&amp;nbsp;email&amp;nbsp;,&amp;nbsp;and&amp;nbsp;sending&amp;nbsp;HTML&amp;nbsp;in&amp;nbsp;email&amp;nbsp;&amp;nbsp;in&amp;nbsp;Play&amp;nbsp;1&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Email&amp;nbsp;configuration&amp;nbsp;in&amp;nbsp;config&amp;nbsp;file&amp;nbsp;&lt;br&gt;
+SMTP&amp;nbsp;configuration&lt;br&gt;
+E-mail&amp;nbsp;functionality&amp;nbsp;is&amp;nbsp;configured&amp;nbsp;by&amp;nbsp;several&amp;nbsp;mail&amp;nbsp;configuration&amp;nbsp;properties:&lt;br&gt;
+&lt;br&gt;
+SMTP&amp;nbsp;server&amp;nbsp;-&amp;nbsp;mail.smtp.host&lt;br&gt;
+SMTP&amp;nbsp;server&amp;nbsp;authentication&amp;nbsp;-&amp;nbsp;mail.smtp.user&amp;nbsp;and&amp;nbsp;mail.smtp.pass&lt;br&gt;
+encrypted&amp;nbsp;channel&amp;nbsp;-&amp;nbsp;mail.smtp.channel&lt;br&gt;
+JavaMail&amp;nbsp;SMTP&amp;nbsp;transaction&amp;nbsp;logging&amp;nbsp;-&amp;nbsp;mail.debug.&lt;br&gt;
+Two&amp;nbsp;additional&amp;nbsp;configuration&amp;nbsp;properties&amp;nbsp;let&amp;nbsp;you&amp;nbsp;override&amp;nbsp;default&amp;nbsp;behaviour:&lt;br&gt;
+&lt;br&gt;
+mail.smtp.socketFactory.class&lt;br&gt;
+mail.smtp.port&lt;br&gt;
+By&amp;nbsp;default,&amp;nbsp;in&amp;nbsp;DEV&amp;nbsp;mode,&amp;nbsp;the&amp;nbsp;e-mail&amp;nbsp;will&amp;nbsp;be&amp;nbsp;printed&amp;nbsp;to&amp;nbsp;the&amp;nbsp;console,&amp;nbsp;while&amp;nbsp;in&amp;nbsp;PROD&amp;nbsp;mode&amp;nbsp;it&amp;nbsp;will&amp;nbsp;be&amp;nbsp;sent&amp;nbsp;to&amp;nbsp;the&amp;nbsp;actual&amp;nbsp;SMTP&amp;nbsp;server.&amp;nbsp;You&amp;nbsp;can&amp;nbsp;change&amp;nbsp;the&amp;nbsp;default&amp;nbsp;behaviour&amp;nbsp;in&amp;nbsp;DEV&amp;nbsp;mode&amp;nbsp;by&amp;nbsp;commenting&amp;nbsp;the&amp;nbsp;following&amp;nbsp;line:&lt;br&gt;
+&lt;br&gt;
+#&amp;nbsp;Default&amp;nbsp;is&amp;nbsp;to&amp;nbsp;use&amp;nbsp;a&amp;nbsp;mock&amp;nbsp;Mailer&lt;br&gt;
+mail.smtp=mock&lt;br&gt;
+Using&amp;nbsp;Gmail&lt;br&gt;
+To&amp;nbsp;use&amp;nbsp;Gmail’s&amp;nbsp;servers,&amp;nbsp;for&amp;nbsp;example&amp;nbsp;when&amp;nbsp;you&amp;nbsp;deploy&amp;nbsp;with&amp;nbsp;playapps,&amp;nbsp;use&amp;nbsp;this&amp;nbsp;configuration:&lt;br&gt;
+&lt;br&gt;
+mail.smtp.host=smtp.gmail.com&lt;br&gt;
+mail.smtp.user=yourGmailLogin&lt;br&gt;
+mail.smtp.pass=yourGmailPassword&lt;br&gt;
+mail.smtp.channel=ssl&lt;br&gt;
+&lt;br&gt;
+Send&amp;nbsp;simple&amp;nbsp;email&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;sendMail(String&amp;nbsp;to,String&amp;nbsp;message){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(to);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(message);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;there&amp;nbsp;is&amp;nbsp;also&amp;nbsp;SimpleEmail&amp;nbsp;class&amp;nbsp;,&amp;nbsp;but&amp;nbsp;if&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;send&amp;nbsp;html&amp;nbsp;content&amp;nbsp;we&amp;nbsp;will&amp;nbsp;use&amp;nbsp;HtmlEmail&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SimpleEmail&amp;nbsp;email=new&amp;nbsp;SimpleEmail();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;try&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;email.setFrom("andrew9999@gmail.com");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;email.setSubject("ss");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;email.setMsg(message);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;email.addTo(to);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Mail.send(email);&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;catch&amp;nbsp;(EmailException&amp;nbsp;e)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;e.printStackTrace();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;renderText("OK");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;add&amp;nbsp;&amp;nbsp;to&amp;nbsp;application.conf&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mail.smtp.host=smtp.gmail.com&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mail.smtp.user=andrew.ponuk9999@gmail.com&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mail.smtp.pass=E*****2&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mail.smtp.channel=ssl&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;and&amp;nbsp;we&amp;nbsp;need&amp;nbsp;to&amp;nbsp;comment&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mail.smtp=mock&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;if&amp;nbsp;we&amp;nbsp;make&amp;nbsp;play&amp;nbsp;test&amp;nbsp;,&amp;nbsp;we&amp;nbsp;need&amp;nbsp;comment&amp;nbsp;this&amp;nbsp;line&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;%test.mail.smtp=mock&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;add&amp;nbsp;line&amp;nbsp;to&amp;nbsp;routes&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;POST&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Application.sendMail&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;add&amp;nbsp;Form&amp;nbsp;to&amp;nbsp;index&amp;nbsp;page&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;form&amp;nbsp;action="@{Application.sendMail}"&amp;nbsp;method="post"&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;label&gt;To:&amp;nbsp;&lt;/label&gt;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;input&amp;nbsp;type="text"&amp;nbsp;name="to"&gt;&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;label&gt;Message&lt;/label&gt;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;textarea&amp;nbsp;rows="15"&amp;nbsp;cols="40"&amp;nbsp;name="message"&gt;&lt;/textarea&gt;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;input&amp;nbsp;&amp;nbsp;type&amp;nbsp;="submit"&amp;nbsp;value=&amp;nbsp;"Send"&amp;nbsp;/&gt;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/form&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Send&amp;nbsp;HTML&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;sendMail(String&amp;nbsp;to,String&amp;nbsp;message){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(to);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(message);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;there&amp;nbsp;is&amp;nbsp;also&amp;nbsp;SimpleEmail&amp;nbsp;class&amp;nbsp;,&amp;nbsp;but&amp;nbsp;if&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;send&amp;nbsp;html&amp;nbsp;content&amp;nbsp;we&amp;nbsp;will&amp;nbsp;use&amp;nbsp;HtmlEmail&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;HtmlEmail&amp;nbsp;email=new&amp;nbsp;HtmlEmail();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;try&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;email.setFrom("andrew.ponuk9999@gmail.com");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;email.addTo(to);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;email.setSubject("subject");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;email.setHtmlMsg("&lt;html&gt;&lt;h3&gt;Message&amp;nbsp;header&lt;/h3&gt;&amp;nbsp;&amp;nbsp;&lt;div&gt;"+message+"&lt;/div&gt;&lt;/html&gt;");&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;set&amp;nbsp;the&amp;nbsp;alternative&amp;nbsp;message&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;email.setMsg("Your&amp;nbsp;email&amp;nbsp;client&amp;nbsp;does&amp;nbsp;not&amp;nbsp;support&amp;nbsp;HTML,&amp;nbsp;too&amp;nbsp;bad&amp;nbsp;:(");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Mail.send(email);&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;catch&amp;nbsp;(EmailException&amp;nbsp;e)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;TODO&amp;nbsp;Auto-generated&amp;nbsp;catch&amp;nbsp;block&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;e.printStackTrace();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;renderText("OK");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;</questionanswer>
+  </question>
+</questions>
