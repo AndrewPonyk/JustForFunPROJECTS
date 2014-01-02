@@ -50,7 +50,7 @@ public class CroodleBrowser {
         
         System.err.println("==========================================="+ "finish questions");
         //try to finish attempt
-        finishQuiz(true);
+        finishQuiz(false);
     }
     
     
@@ -89,8 +89,8 @@ public class CroodleBrowser {
             correctVariants  = parser.tryToAnswer(questionTextParagraph.getText(), variants);
             
             if(checkboxes.size() >= 2){ 
-                if(correctVariants.length == 0)
-                checkboxes.get(longestVariantIndex).click();    //
+                //if(correctVariants.length == 0)
+                //checkboxes.get(longestVariantIndex).click();    //
                 for(int i = 0; i < correctVariants.length; i++){
                     checkboxes.get(correctVariants[i]).click();
                 }
@@ -98,8 +98,8 @@ public class CroodleBrowser {
                 System.err.println("========next question");
             }
             if(radiobuttons.size() > 1){
-                if(correctVariants.length == 0)
-                radiobuttons.get(longestVariantIndex).click();
+                //if(correctVariants.length == 0)
+                //radiobuttons.get(longestVariantIndex).click();
                 for(int i = 0; i < correctVariants.length; i++){
                     radiobuttons.get(correctVariants[i]).click();
                 }
