@@ -39,6 +39,8 @@ public class CroodleQuestionsParser {
                     System.err.println("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFfinded");
                     
                     System.err.println("<["+ question +"]>");
+                   
+                    
                     System.err.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
                     return getCorrectAnswers(i, variantsWords);
                     //break;
@@ -64,6 +66,9 @@ public class CroodleQuestionsParser {
         for(int i = 0; i< variantsWords.size(); i++){ // iterate through all variants .
             variantTrueCoef = 0;
             wordsInVariant = variantsWords.get(i).length;
+            if(variantsWords.get(i)[0].length()<2){
+                wordsInVariant = wordsInVariant - 1;
+            }
             
             for(int j = 0; j < 5; j++){  // check 5 lines after question
                 lineWords = this.questionsFileLinesWords.get(questionIndexInFileLines + j + 1);
@@ -77,10 +82,10 @@ public class CroodleQuestionsParser {
                 }
                 
                 variantTrueCoef = matchedWords / wordsInVariant;
-                if(variantTrueCoef>0.65){
-                    result.add(i);
-                    System.err.println("$$$$$$$$$$$$$$$$$$$Correct variant" + variantsWords.get(i)); 
-                }
+                    if(variantTrueCoef>0.65){
+                        result.add(i);
+                        System.err.println("$$$$$$$$$$$$$$$$$$$Correct variant" + StringUtils.join(variantsWords.get(i), " ") ); 
+                    }
                 }
             
         }
@@ -101,7 +106,6 @@ public class CroodleQuestionsParser {
         double currentLineWordlsCount = lineWords.length; 
         double matchedWords = 0; // > 60%
         
-        
         // words in line length is much more than words in question it is automaticaly not this question
         if( (currentLineWordlsCount/2) > wordsInQuestion){
             return false;
@@ -109,7 +113,7 @@ public class CroodleQuestionsParser {
         
         for(int i=0; i< lineWords.length;i++){
             
-            if(ArrayUtils.contains(questionWords, lineWords[i])){
+            if( ArrayUtils.contains(questionWords, lineWords[i])){
                 matchedWords = matchedWords + 1;
             }
         }
@@ -120,8 +124,9 @@ public class CroodleQuestionsParser {
         
         
         questionTrueCoef = matchedWords / wordsInQuestion;
-        if(questionTrueCoef>0.7){
+        if(questionTrueCoef>0.86){
             System.err.println("Coef = " + questionTrueCoef + "#########" + matchedWords + " / " + wordsInQuestion);
+            System.err.println(StringUtils.join(lineWords, "*"));
             return true;
         }
         
