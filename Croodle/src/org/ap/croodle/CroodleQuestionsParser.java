@@ -40,9 +40,13 @@ public class CroodleQuestionsParser {
                     
                     System.err.println("<["+ question +"]>");
                    
-                    
                     System.err.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-                    return getCorrectAnswers(i, variantsWords);
+                    if(getCorrectAnswers(i, variantsWords).length>0 ){
+                        return getCorrectAnswers(i, variantsWords);
+                    }else{
+                        continue;
+                    }
+
                     //break;
                 };
             }
@@ -82,8 +86,9 @@ public class CroodleQuestionsParser {
                 }
                 
                 variantTrueCoef = matchedWords / wordsInVariant;
-                    if(variantTrueCoef>0.65){
+                    if(variantTrueCoef>0.67){
                         result.add(i);
+                        System.err.println("matched words / words in wariang : "+matchedWords +"/ "+wordsInVariant); 
                         System.err.println("$$$$$$$$$$$$$$$$$$$Correct variant" + StringUtils.join(variantsWords.get(i), " ") ); 
                     }
                 }
@@ -107,7 +112,7 @@ public class CroodleQuestionsParser {
         double matchedWords = 0; // > 60%
         
         // words in line length is much more than words in question it is automaticaly not this question
-        if( (currentLineWordlsCount/2) > wordsInQuestion){
+        if( (currentLineWordlsCount/1.5) > wordsInQuestion){
             return false;
         }
         
@@ -121,7 +126,6 @@ public class CroodleQuestionsParser {
         // if coef is less than 0.65 it can mean : 
         // 1: it is not this question
         // 2: question in file takes more than 1 line , in this case we need get second(third, ...) line and check
-        
         
         questionTrueCoef = matchedWords / wordsInQuestion;
         if(questionTrueCoef>0.86){
