@@ -86,7 +86,7 @@ public class CroodleQuestionsParser {
                 }
                 
                 variantTrueCoef = matchedWords / wordsInVariant;
-                    if(variantTrueCoef>0.67){
+                    if(variantTrueCoef>0.77){
                         result.add(i);
                         System.err.println("matched words / words in wariang : "+matchedWords +"/ "+wordsInVariant); 
                         System.err.println("$$$$$$$$$$$$$$$$$$$Correct variant" + StringUtils.join(variantsWords.get(i), " ") ); 
@@ -128,7 +128,7 @@ public class CroodleQuestionsParser {
         // 2: question in file takes more than 1 line , in this case we need get second(third, ...) line and check
         
         questionTrueCoef = matchedWords / wordsInQuestion;
-        if(questionTrueCoef>0.86){
+        if(questionTrueCoef>0.901){
             System.err.println("Coef = " + questionTrueCoef + "#########" + matchedWords + " / " + wordsInQuestion);
             System.err.println(StringUtils.join(lineWords, "*"));
             return true;
