@@ -1,2 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_1_1_0_2" name="WorkingRemotelywithGit" nofquestions="0" nofsubcategories="0" filename="workingremotelywithgit2_1_1_0_2.xml" />
+<questions id="2_1_1_0_2" name="WorkingRemotelywithGit" nofquestions="5" nofsubcategories="0" filename="workingremotelywithgit2_1_1_0_2.xml">
+  <question id="2_1_1_0_2:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;to&amp;nbsp;clone&amp;nbsp;Git&amp;nbsp;repo&amp;nbsp;from&amp;nbsp;remote&amp;nbsp;,&amp;nbsp;which&amp;nbsp;protocols&amp;nbsp;we&amp;nbsp;can&amp;nbsp;use&amp;nbsp;for&amp;nbsp;cloning?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>*&amp;nbsp;git&amp;nbsp;clone&amp;nbsp;&lt;remote_repo_address&gt;&amp;nbsp;&amp;nbsp;-&amp;nbsp;clone&amp;nbsp;full&amp;nbsp;repo&amp;nbsp;from&amp;nbsp;remote&amp;nbsp;to&amp;nbsp;local&amp;nbsp;machine&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(address&amp;nbsp;can&amp;nbsp;be&amp;nbsp;http&amp;nbsp;,&amp;nbsp;ssh)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;log&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;to&amp;nbsp;see&amp;nbsp;full&amp;nbsp;history&amp;nbsp;of&amp;nbsp;repo,&amp;nbsp;(git&amp;nbsp;log&amp;nbsp;--oneline&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;one&amp;nbsp;line&amp;nbsp;per&amp;nbsp;commit)&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;protocols&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http(s)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ssh&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;file</questionanswer>
+  </question>
+  <question id="2_1_1_0_2:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Basic&amp;nbsp;repo&amp;nbsp;Statistic&amp;nbsp;in&amp;nbsp;Git&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&amp;nbsp;What&amp;nbsp;is&amp;nbsp;git&amp;nbsp;show&amp;nbsp;command&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>*&amp;nbsp;git&amp;nbsp;log&amp;nbsp;--oneline&amp;nbsp;|&amp;nbsp;wc&amp;nbsp;-l&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;show&amp;nbsp;count&amp;nbsp;of&amp;nbsp;commits&amp;nbsp;in&amp;nbsp;repo&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;log&amp;nbsp;--graph&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;show&amp;nbsp;diffent&amp;nbsp;branches&amp;nbsp;and&amp;nbsp;merges&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;shortlog&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;shows&amp;nbsp;users&amp;nbsp;and&amp;nbsp;their&amp;nbsp;commits&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;show&amp;nbsp;HEAD&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;show&amp;nbsp;the&amp;nbsp;last&amp;nbsp;commit&amp;nbsp;,&amp;nbsp;date&amp;nbsp;,&amp;nbsp;who&amp;nbsp;made&amp;nbsp;,&amp;nbsp;what&amp;nbsp;was&amp;nbsp;added&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;remote&amp;nbsp;-&amp;nbsp;shows&amp;nbsp;which&amp;nbsp;remote&amp;nbsp;repo&amp;nbsp;are&amp;nbsp;present&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;branch&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;shows&amp;nbsp;git&amp;nbsp;branches&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;branch&amp;nbsp;-r&amp;nbsp;&amp;nbsp;-&amp;nbsp;shows&amp;nbsp;remote&amp;nbsp;branches&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;tag&amp;nbsp;&amp;nbsp;-&amp;nbsp;shows&amp;nbsp;tags&amp;nbsp;(tags&amp;nbsp;is&amp;nbsp;like&amp;nbsp;versions&amp;nbsp;of&amp;nbsp;application)</questionanswer>
+  </question>
+  <question id="2_1_1_0_2:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Git&amp;nbsp;how&amp;nbsp;to&amp;nbsp;add&amp;nbsp;remote&amp;nbsp;to&amp;nbsp;local&amp;nbsp;repo&amp;nbsp;,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;fetch&amp;nbsp;and&amp;nbsp;then&amp;nbsp;merge&amp;nbsp;from&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;remote&amp;nbsp;,&amp;nbsp;what&amp;nbsp;is&amp;nbsp;git&amp;nbsp;pull,&amp;nbsp;what&amp;nbsp;is&amp;nbsp;--set-upstream&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>You&amp;nbsp;have&amp;nbsp;local&amp;nbsp;repo&amp;nbsp;,&amp;nbsp;and&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;'connect&amp;nbsp;'&amp;nbsp;it&amp;nbsp;with&amp;nbsp;your&amp;nbsp;empty&amp;nbsp;github&amp;nbsp;repo&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;add&amp;nbsp;remote&amp;nbsp;to&amp;nbsp;your&amp;nbsp;repo&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;remote&amp;nbsp;add&amp;nbsp;origin&amp;nbsp;https://github.com/AndrewPonyk/GitFundamentals.git&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;remote&amp;nbsp;-v&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;check&amp;nbsp;that&amp;nbsp;you&amp;nbsp;add&amp;nbsp;correct&amp;nbsp;value&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;fetch&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;fech&amp;nbsp;data&amp;nbsp;from&amp;nbsp;remote&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;merge&amp;nbsp;origin/master&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;merge&amp;nbsp;local&amp;nbsp;and&amp;nbsp;remote&amp;nbsp;branches&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;remote&amp;nbsp;rm&amp;nbsp;origin&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;removes&amp;nbsp;remote&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;'git&amp;nbsp;pull'&amp;nbsp;???&amp;nbsp;-&amp;nbsp;Answer&amp;nbsp;:&amp;nbsp;'git&amp;nbsp;pull'&amp;nbsp;is&amp;nbsp;alias&amp;nbsp;for&amp;nbsp;'&amp;nbsp;git&amp;nbsp;fetch;&amp;nbsp;git&amp;nbsp;merge&amp;nbsp;'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;'git&amp;nbsp;pull&amp;nbsp;--rebase'&amp;nbsp;?&amp;nbsp;Answer&amp;nbsp;:&amp;nbsp;'git&amp;nbsp;pull&amp;nbsp;--&amp;nbsp;rebase'&amp;nbsp;is&amp;nbsp;alias&amp;nbsp;for&amp;nbsp;'git&amp;nbsp;fetch;&amp;nbsp;git&amp;nbsp;rebase'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!&amp;nbsp;Before&amp;nbsp;git&amp;nbsp;pull&amp;nbsp;&amp;nbsp;we&amp;nbsp;must&amp;nbsp;set&amp;nbsp;correspondence&amp;nbsp;between&amp;nbsp;local&amp;nbsp;and&amp;nbsp;remote&amp;nbsp;branches&amp;nbsp;(connect&amp;nbsp;them&amp;nbsp;=)):&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;branch&amp;nbsp;--set-upstream&amp;nbsp;master&amp;nbsp;origin/master</questionanswer>
+  </question>
+  <question id="2_1_1_0_2:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;git&amp;nbsp;push&amp;nbsp;?&amp;nbsp;What&amp;nbsp;you&amp;nbsp;have&amp;nbsp;to&amp;nbsp;do&amp;nbsp;before&amp;nbsp;first&amp;nbsp;push(tip:set-upstream)&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>*&amp;nbsp;git&amp;nbsp;push&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;push&amp;nbsp;your&amp;nbsp;changes&amp;nbsp;to&amp;nbsp;remote&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;before&amp;nbsp;you&amp;nbsp;can&amp;nbsp;perform&amp;nbsp;push&amp;nbsp;,&amp;nbsp;you&amp;nbsp;must&amp;nbsp;set&amp;nbsp;upstream&amp;nbsp;branch&amp;nbsp;&amp;nbsp;(connect&amp;nbsp;branches&amp;nbsp;remote&amp;nbsp;and&amp;nbsp;local)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;branch&amp;nbsp;--set-upstream&amp;nbsp;master&amp;nbsp;origin/master&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;And&amp;nbsp;now&amp;nbsp;you&amp;nbsp;can&amp;nbsp;:&amp;nbsp;'git&amp;nbsp;push'&amp;nbsp;&amp;nbsp;=)</questionanswer>
+  </question>
+  <question id="2_1_1_0_2:4" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;Git&amp;nbsp;tag&amp;nbsp;?&amp;nbsp;Creating&amp;nbsp;tags&amp;nbsp;,&amp;nbsp;verifying&amp;nbsp;tags&amp;nbsp;,&amp;nbsp;and&amp;nbsp;pushing&amp;nbsp;them&amp;nbsp;to&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;remote.&lt;br&gt;
+&amp;nbsp;How&amp;nbsp;to&amp;nbsp;see&amp;nbsp;diff&amp;nbsp;between&amp;nbsp;two&amp;nbsp;tags&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Git&amp;nbsp;tag&amp;nbsp;-&amp;nbsp;is&amp;nbsp;just&amp;nbsp;alias&amp;nbsp;for&amp;nbsp;some&amp;nbsp;commit&amp;nbsp;(like&amp;nbsp;version&amp;nbsp;of&amp;nbsp;application)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;tag&amp;nbsp;-&amp;nbsp;shows&amp;nbsp;the&amp;nbsp;list&amp;nbsp;of&amp;nbsp;existing&amp;nbsp;tags&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Create&amp;nbsp;tag&amp;nbsp;(and&amp;nbsp;bing&amp;nbsp;it&amp;nbsp;to&amp;nbsp;some&amp;nbsp;commit)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;tag&amp;nbsp;v0&amp;nbsp;b100f&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;bind&amp;nbsp;tag&amp;nbsp;'v0'&amp;nbsp;to&amp;nbsp;commit&amp;nbsp;b100f(it&amp;nbsp;is&amp;nbsp;hash&amp;nbsp;of&amp;nbsp;commit)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Create&amp;nbsp;tag&amp;nbsp;with&amp;nbsp;message&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;tag&amp;nbsp;-a&amp;nbsp;v1.0_with_message&amp;nbsp;&amp;nbsp;-&amp;nbsp;bing&amp;nbsp;tag&amp;nbsp;'v1.0_with_message'&amp;nbsp;&amp;nbsp;to&amp;nbsp;HEAD&amp;nbsp;(default&amp;nbsp;editor&amp;nbsp;will&amp;nbsp;be&amp;nbsp;opened&amp;nbsp;and&amp;nbsp;write&amp;nbsp;some&amp;nbsp;message&amp;nbsp;,&amp;nbsp;or&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&amp;nbsp;'-m')&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;We&amp;nbsp;can&amp;nbsp;also&amp;nbsp;"SIGN"&amp;nbsp;tags&amp;nbsp;with&amp;nbsp;rsa&amp;nbsp;&amp;nbsp;.!!!!!!(git&amp;nbsp;tag&amp;nbsp;-s&amp;nbsp;v1.0_signed)&amp;nbsp;you&amp;nbsp;need&amp;nbsp;rsa&amp;nbsp;key&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!&amp;nbsp;TO&amp;nbsp;push&amp;nbsp;tags&amp;nbsp;you&amp;nbsp;need&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;push&amp;nbsp;--tags&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!!!!!!&amp;nbsp;Git&amp;nbsp;diff&amp;nbsp;between&amp;nbsp;given&amp;nbsp;two&amp;nbsp;tags&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$&amp;nbsp;git&amp;nbsp;diff&amp;nbsp;tag1&amp;nbsp;tag2&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;or&amp;nbsp;show&amp;nbsp;log&amp;nbsp;between&amp;nbsp;them:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$&amp;nbsp;git&amp;nbsp;log&amp;nbsp;tag1..tag2&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;sometimes&amp;nbsp;it&amp;nbsp;may&amp;nbsp;be&amp;nbsp;convenient&amp;nbsp;to&amp;nbsp;see&amp;nbsp;only&amp;nbsp;the&amp;nbsp;list&amp;nbsp;of&amp;nbsp;files&amp;nbsp;that&amp;nbsp;were&amp;nbsp;changed:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$&amp;nbsp;git&amp;nbsp;diff&amp;nbsp;tag1&amp;nbsp;tag2&amp;nbsp;--stat&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;then&amp;nbsp;look&amp;nbsp;at&amp;nbsp;the&amp;nbsp;differences&amp;nbsp;for&amp;nbsp;some&amp;nbsp;particular&amp;nbsp;file:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$&amp;nbsp;git&amp;nbsp;diff&amp;nbsp;tag1&amp;nbsp;tag2&amp;nbsp;--&amp;nbsp;some/file/name&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;tag&amp;nbsp;is&amp;nbsp;only&amp;nbsp;a&amp;nbsp;reference&amp;nbsp;to&amp;nbsp;the&amp;nbsp;latest&amp;nbsp;commit&amp;nbsp;'on&amp;nbsp;that&amp;nbsp;tag',&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;so&amp;nbsp;that&amp;nbsp;you&amp;nbsp;are&amp;nbsp;doing&amp;nbsp;a&amp;nbsp;diff&amp;nbsp;on&amp;nbsp;the&amp;nbsp;commits&amp;nbsp;between&amp;nbsp;them.</questionanswer>
+  </question>
+</questions>

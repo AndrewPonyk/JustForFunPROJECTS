@@ -1,2 +1,287 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_1_1_0_3" name="Branching,Merging,andRebasingwithGit" nofquestions="0" nofsubcategories="0" filename="branching,merging,andrebasingwithgit2_1_1_0_3.xml" />
+<questions id="2_1_1_0_3" name="Branching,Merging,andRebasingwithGit" nofquestions="9" nofsubcategories="0" filename="branching,merging,andrebasingwithgit2_1_1_0_3.xml">
+  <question id="2_1_1_0_3:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Visualizing&amp;nbsp;branches&amp;nbsp;in&amp;nbsp;Git&amp;nbsp;(in&amp;nbsp;console),&amp;nbsp;what&amp;nbsp;is&amp;nbsp;command&amp;nbsp;alias.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>git&amp;nbsp;log&amp;nbsp;--graph&amp;nbsp;--oneline&amp;nbsp;--all&amp;nbsp;--decorate&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;nice&amp;nbsp;display&amp;nbsp;of&amp;nbsp;all&amp;nbsp;branches&amp;nbsp;,&amp;nbsp;merges,&amp;nbsp;tags&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Create&amp;nbsp;alias&amp;nbsp;for&amp;nbsp;this&amp;nbsp;long&amp;nbsp;command&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;config&amp;nbsp;--global&amp;nbsp;alias.lga&amp;nbsp;"log&amp;nbsp;--graph&amp;nbsp;--oneline&amp;nbsp;--all&amp;nbsp;--decorate"&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;now&amp;nbsp;:&amp;nbsp;'git&amp;nbsp;lga'&amp;nbsp;=)&lt;br&gt;</questionanswer>
+  </question>
+  <question id="2_1_1_0_3:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Creating&amp;nbsp;local&amp;nbsp;branches&amp;nbsp;in&amp;nbsp;Git&amp;nbsp;,&amp;nbsp;differences&amp;nbsp;between&amp;nbsp;branches&amp;nbsp;and&amp;nbsp;tags,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Create&amp;nbsp;local&amp;nbsp;branch&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;branch&amp;nbsp;feature1&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;create&amp;nbsp;'feature1'&amp;nbsp;branch&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;checkout&amp;nbsp;feature1&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;make&amp;nbsp;'feature1'&amp;nbsp;current&amp;nbsp;branch&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(or&amp;nbsp;one&amp;nbsp;command&amp;nbsp;'git&amp;nbsp;&amp;nbsp;checkout&amp;nbsp;-b&amp;nbsp;feature1')&amp;nbsp;!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;We&amp;nbsp;can&amp;nbsp;also&amp;nbsp;create&amp;nbsp;branch&amp;nbsp;by&amp;nbsp;binding&amp;nbsp;it&amp;nbsp;to&amp;nbsp;commit&amp;nbsp;in&amp;nbsp;past&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;branch&amp;nbsp;fix1&amp;nbsp;b38d3&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!&amp;nbsp;Difference&amp;nbsp;between&amp;nbsp;branch&amp;nbsp;and&amp;nbsp;tag&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;branch&amp;nbsp;follow&amp;nbsp;commits&amp;nbsp;,&amp;nbsp;and&amp;nbsp;tag&amp;nbsp;is&amp;nbsp;binded&amp;nbsp;to&amp;nbsp;one&amp;nbsp;commit;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;branch&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;"branch"&amp;nbsp;is&amp;nbsp;an&amp;nbsp;active&amp;nbsp;line&amp;nbsp;of&amp;nbsp;development.&amp;nbsp;The&amp;nbsp;most&amp;nbsp;recent&amp;nbsp;commit&amp;nbsp;on&amp;nbsp;a&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;branch&amp;nbsp;is&amp;nbsp;referred&amp;nbsp;to&amp;nbsp;as&amp;nbsp;the&amp;nbsp;tip&amp;nbsp;of&amp;nbsp;that&amp;nbsp;branch.&amp;nbsp;The&amp;nbsp;tip&amp;nbsp;of&amp;nbsp;the&amp;nbsp;branch&amp;nbsp;is&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;referenced&amp;nbsp;by&amp;nbsp;a&amp;nbsp;branch&amp;nbsp;head,&amp;nbsp;which&amp;nbsp;moves&amp;nbsp;forward&amp;nbsp;as&amp;nbsp;additional&amp;nbsp;development&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;is&amp;nbsp;done&amp;nbsp;on&amp;nbsp;the&amp;nbsp;branch.&amp;nbsp;A&amp;nbsp;single&amp;nbsp;git&amp;nbsp;repository&amp;nbsp;can&amp;nbsp;track&amp;nbsp;an&amp;nbsp;arbitrary&amp;nbsp;number&amp;nbsp;of&amp;nbsp;branches,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;but&amp;nbsp;your&amp;nbsp;working&amp;nbsp;tree&amp;nbsp;is&amp;nbsp;associated&amp;nbsp;with&amp;nbsp;just&amp;nbsp;one&amp;nbsp;of&amp;nbsp;them&amp;nbsp;(the&amp;nbsp;"current"&amp;nbsp;or&amp;nbsp;"checked&amp;nbsp;out"&amp;nbsp;branch),&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;HEAD&amp;nbsp;points&amp;nbsp;to&amp;nbsp;that&amp;nbsp;branch.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;tag&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;ref&amp;nbsp;pointing&amp;nbsp;to&amp;nbsp;a&amp;nbsp;tag&amp;nbsp;or&amp;nbsp;commit&amp;nbsp;object.&amp;nbsp;In&amp;nbsp;contrast&amp;nbsp;to&amp;nbsp;a&amp;nbsp;head,&amp;nbsp;a&amp;nbsp;tag&amp;nbsp;is&amp;nbsp;not&amp;nbsp;changed&amp;nbsp;by&amp;nbsp;a&amp;nbsp;commit.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Tags&amp;nbsp;(not&amp;nbsp;tag&amp;nbsp;objects)&amp;nbsp;are&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;$GIT_DIR/refs/tags/.&amp;nbsp;[...].&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;tag&amp;nbsp;is&amp;nbsp;most&amp;nbsp;typically&amp;nbsp;used&amp;nbsp;to&amp;nbsp;mark&amp;nbsp;a&amp;nbsp;particular&amp;nbsp;point&amp;nbsp;in&amp;nbsp;the&amp;nbsp;commit&amp;nbsp;ancestry&amp;nbsp;chain.</questionanswer>
+  </question>
+  <question id="2_1_1_0_3:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Git&amp;nbsp;rename&amp;nbsp;and&amp;nbsp;remove&amp;nbsp;branches,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>To&amp;nbsp;rename&amp;nbsp;branch&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;branch&amp;nbsp;-m&amp;nbsp;fix1&amp;nbsp;bug1234&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;rename&amp;nbsp;branch&amp;nbsp;'fix1'&amp;nbsp;to&amp;nbsp;'bug1234'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;delete&amp;nbsp;branch&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;branch&amp;nbsp;-d&amp;nbsp;bug1234&lt;br&gt;</questionanswer>
+  </question>
+  <question id="2_1_1_0_3:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Git&amp;nbsp;recovering&amp;nbsp;deleted&amp;nbsp;commits&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>*&amp;nbsp;git&amp;nbsp;reflog&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;shows&amp;nbsp;where&amp;nbsp;HEAD&amp;nbsp;was(and&amp;nbsp;show&amp;nbsp;commits)&amp;nbsp;,&amp;nbsp;so&amp;nbsp;you&amp;nbsp;can&amp;nbsp;recover&amp;nbsp;commits&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Reflog&amp;nbsp;is&amp;nbsp;a&amp;nbsp;mechanism&amp;nbsp;to&amp;nbsp;record&amp;nbsp;when&amp;nbsp;the&amp;nbsp;tip&amp;nbsp;of&amp;nbsp;branches&amp;nbsp;are&amp;nbsp;updated.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;command&amp;nbsp;is&amp;nbsp;to&amp;nbsp;manage&amp;nbsp;the&amp;nbsp;information&amp;nbsp;recorded&amp;nbsp;in&amp;nbsp;it.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;subcommand&amp;nbsp;"expire"&amp;nbsp;is&amp;nbsp;used&amp;nbsp;to&amp;nbsp;prune&amp;nbsp;older&amp;nbsp;reflog&amp;nbsp;entries.&amp;nbsp;Entries&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;older&amp;nbsp;than&amp;nbsp;expire&amp;nbsp;time,&amp;nbsp;or&amp;nbsp;entries&amp;nbsp;older&amp;nbsp;than&amp;nbsp;expire-unreachable&amp;nbsp;time&amp;nbsp;and&amp;nbsp;not&amp;nbsp;reachable&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from&amp;nbsp;the&amp;nbsp;current&amp;nbsp;tip,&amp;nbsp;are&amp;nbsp;removed&amp;nbsp;from&amp;nbsp;the&amp;nbsp;reflog.&amp;nbsp;This&amp;nbsp;is&amp;nbsp;typically&amp;nbsp;not&amp;nbsp;used&amp;nbsp;directly&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;by&amp;nbsp;the&amp;nbsp;end&amp;nbsp;users&amp;nbsp;--&amp;nbsp;instead,&amp;nbsp;see&amp;nbsp;git-gc(1).&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;subcommand&amp;nbsp;"show"&amp;nbsp;(which&amp;nbsp;is&amp;nbsp;also&amp;nbsp;the&amp;nbsp;default,&amp;nbsp;in&amp;nbsp;the&amp;nbsp;absence&amp;nbsp;of&amp;nbsp;any&amp;nbsp;subcommands)&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;will&amp;nbsp;take&amp;nbsp;all&amp;nbsp;the&amp;nbsp;normal&amp;nbsp;log&amp;nbsp;options,&amp;nbsp;and&amp;nbsp;show&amp;nbsp;the&amp;nbsp;log&amp;nbsp;of&amp;nbsp;the&amp;nbsp;reference&amp;nbsp;provided&amp;nbsp;in&amp;nbsp;the&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;command-line&amp;nbsp;(or&amp;nbsp;HEAD,&amp;nbsp;by&amp;nbsp;default).&amp;nbsp;The&amp;nbsp;reflog&amp;nbsp;will&amp;nbsp;cover&amp;nbsp;all&amp;nbsp;recent&amp;nbsp;actions&amp;nbsp;(HEAD&amp;nbsp;reflog&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;records&amp;nbsp;branch&amp;nbsp;switching&amp;nbsp;as&amp;nbsp;well).&amp;nbsp;It&amp;nbsp;is&amp;nbsp;an&amp;nbsp;alias&amp;nbsp;for&amp;nbsp;git&amp;nbsp;log&amp;nbsp;-g&amp;nbsp;--abbrev-commit&amp;nbsp;--pretty=oneline;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;see&amp;nbsp;git-log(1).&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;reflog&amp;nbsp;is&amp;nbsp;useful&amp;nbsp;in&amp;nbsp;various&amp;nbsp;Git&amp;nbsp;commands,&amp;nbsp;to&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;old&amp;nbsp;value&amp;nbsp;of&amp;nbsp;a&amp;nbsp;reference.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;HEAD@{2}&amp;nbsp;means&amp;nbsp;"where&amp;nbsp;HEAD&amp;nbsp;used&amp;nbsp;to&amp;nbsp;be&amp;nbsp;two&amp;nbsp;moves&amp;nbsp;ago",&amp;nbsp;master@{one.week.ago}&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;means&amp;nbsp;"where&amp;nbsp;master&amp;nbsp;used&amp;nbsp;to&amp;nbsp;point&amp;nbsp;to&amp;nbsp;one&amp;nbsp;week&amp;nbsp;ago",&amp;nbsp;and&amp;nbsp;so&amp;nbsp;on.&amp;nbsp;See&amp;nbsp;gitrevisions(7)&amp;nbsp;for&amp;nbsp;more&amp;nbsp;details.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;delete&amp;nbsp;single&amp;nbsp;entries&amp;nbsp;from&amp;nbsp;the&amp;nbsp;reflog,&amp;nbsp;use&amp;nbsp;the&amp;nbsp;subcommand&amp;nbsp;"delete"&amp;nbsp;and&amp;nbsp;specify&amp;nbsp;the&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;exact&amp;nbsp;entry&amp;nbsp;(e.g.&amp;nbsp;"git&amp;nbsp;reflog&amp;nbsp;delete&amp;nbsp;master@{2}").&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;OPTIONS&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;--stale-fix&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;revamps&amp;nbsp;the&amp;nbsp;logic&amp;nbsp;--&amp;nbsp;the&amp;nbsp;definition&amp;nbsp;of&amp;nbsp;"broken&amp;nbsp;commit"&amp;nbsp;becomes:&amp;nbsp;a&amp;nbsp;commit&amp;nbsp;that&amp;nbsp;is&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;not&amp;nbsp;reachable&amp;nbsp;from&amp;nbsp;any&amp;nbsp;of&amp;nbsp;the&amp;nbsp;refs&amp;nbsp;and&amp;nbsp;there&amp;nbsp;is&amp;nbsp;a&amp;nbsp;missing&amp;nbsp;object&amp;nbsp;among&amp;nbsp;the&amp;nbsp;commit,&amp;nbsp;tree,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;or&amp;nbsp;blob&amp;nbsp;objects&amp;nbsp;reachable&amp;nbsp;from&amp;nbsp;it&amp;nbsp;that&amp;nbsp;is&amp;nbsp;not&amp;nbsp;reachable&amp;nbsp;from&amp;nbsp;any&amp;nbsp;of&amp;nbsp;the&amp;nbsp;refs.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;computation&amp;nbsp;involves&amp;nbsp;traversing&amp;nbsp;all&amp;nbsp;the&amp;nbsp;reachable&amp;nbsp;objects,&amp;nbsp;i.e.&amp;nbsp;it&amp;nbsp;has&amp;nbsp;the&amp;nbsp;same&amp;nbsp;cost&amp;nbsp;as&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;prune.&amp;nbsp;Fortunately,&amp;nbsp;once&amp;nbsp;this&amp;nbsp;is&amp;nbsp;run,&amp;nbsp;we&amp;nbsp;should&amp;nbsp;not&amp;nbsp;have&amp;nbsp;to&amp;nbsp;ever&amp;nbsp;worry&amp;nbsp;about&amp;nbsp;missing&amp;nbsp;objects,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;because&amp;nbsp;the&amp;nbsp;current&amp;nbsp;prune&amp;nbsp;and&amp;nbsp;pack-objects&amp;nbsp;know&amp;nbsp;about&amp;nbsp;reflogs&amp;nbsp;and&amp;nbsp;protect&amp;nbsp;objects&amp;nbsp;referred&amp;nbsp;by&amp;nbsp;them.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;--expire=&lt;time&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Entries&amp;nbsp;older&amp;nbsp;than&amp;nbsp;this&amp;nbsp;time&amp;nbsp;are&amp;nbsp;pruned.&amp;nbsp;Without&amp;nbsp;the&amp;nbsp;option&amp;nbsp;it&amp;nbsp;is&amp;nbsp;taken&amp;nbsp;from&amp;nbsp;configuration&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;gc.reflogExpire,&amp;nbsp;which&amp;nbsp;in&amp;nbsp;turn&amp;nbsp;defaults&amp;nbsp;to&amp;nbsp;90&amp;nbsp;days.&amp;nbsp;--expire=all&amp;nbsp;prunes&amp;nbsp;entries&amp;nbsp;regardless&amp;nbsp;of&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;their&amp;nbsp;age;&amp;nbsp;--expire=never&amp;nbsp;turns&amp;nbsp;off&amp;nbsp;pruning&amp;nbsp;of&amp;nbsp;reachable&amp;nbsp;entries&amp;nbsp;(but&amp;nbsp;see&amp;nbsp;--expire-unreachable).&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;--expire-unreachable=&lt;time&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Entries&amp;nbsp;older&amp;nbsp;than&amp;nbsp;this&amp;nbsp;time&amp;nbsp;and&amp;nbsp;not&amp;nbsp;reachable&amp;nbsp;from&amp;nbsp;the&amp;nbsp;current&amp;nbsp;tip&amp;nbsp;of&amp;nbsp;the&amp;nbsp;branch&amp;nbsp;are&amp;nbsp;pruned.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Without&amp;nbsp;the&amp;nbsp;option&amp;nbsp;it&amp;nbsp;is&amp;nbsp;taken&amp;nbsp;from&amp;nbsp;configuration&amp;nbsp;gc.reflogExpireUnreachable,&amp;nbsp;which&amp;nbsp;in&amp;nbsp;turn&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;defaults&amp;nbsp;to&amp;nbsp;30&amp;nbsp;days.&amp;nbsp;--expire-unreachable=all&amp;nbsp;prunes&amp;nbsp;unreachable&amp;nbsp;entries&amp;nbsp;regardless&amp;nbsp;of&amp;nbsp;their&amp;nbsp;age;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;--expire-unreachable=never&amp;nbsp;turns&amp;nbsp;off&amp;nbsp;early&amp;nbsp;pruning&amp;nbsp;of&amp;nbsp;unreachable&amp;nbsp;entries&amp;nbsp;(but&amp;nbsp;see&amp;nbsp;--expire).&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;--all&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Instead&amp;nbsp;of&amp;nbsp;listing&amp;nbsp;&lt;refs&gt;&amp;nbsp;explicitly,&amp;nbsp;prune&amp;nbsp;all&amp;nbsp;refs.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;--updateref&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Update&amp;nbsp;the&amp;nbsp;ref&amp;nbsp;with&amp;nbsp;the&amp;nbsp;sha1&amp;nbsp;of&amp;nbsp;the&amp;nbsp;top&amp;nbsp;reflog&amp;nbsp;entry&amp;nbsp;(i.e.&amp;nbsp;&lt;ref&gt;@{0})&amp;nbsp;after&amp;nbsp;expiring&amp;nbsp;or&amp;nbsp;deleting.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;--rewrite&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;While&amp;nbsp;expiring&amp;nbsp;or&amp;nbsp;deleting,&amp;nbsp;adjust&amp;nbsp;each&amp;nbsp;reflog&amp;nbsp;entry&amp;nbsp;to&amp;nbsp;ensure&amp;nbsp;that&amp;nbsp;the&amp;nbsp;old&amp;nbsp;sha1&amp;nbsp;field&amp;nbsp;points&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;the&amp;nbsp;new&amp;nbsp;sha1&amp;nbsp;field&amp;nbsp;of&amp;nbsp;the&amp;nbsp;previous&amp;nbsp;entry.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;--verbose&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Print&amp;nbsp;extra&amp;nbsp;information&amp;nbsp;on&amp;nbsp;screen.</questionanswer>
+  </question>
+  <question id="2_1_1_0_3:4" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;STASHING&amp;nbsp;changes&amp;nbsp;in&amp;nbsp;Git&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;&amp;nbsp;.&amp;nbsp;Git:&amp;nbsp;How&amp;nbsp;to&amp;nbsp;stash&amp;nbsp;with&amp;nbsp;a&amp;nbsp;custom&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;message&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>When&amp;nbsp;you&amp;nbsp;are&amp;nbsp;on&amp;nbsp;branch&amp;nbsp;BRANCH1&amp;nbsp;,&amp;nbsp;made&amp;nbsp;some&amp;nbsp;changes&amp;nbsp;,&amp;nbsp;and&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;checkout&amp;nbsp;BRANCH2&amp;nbsp;,&amp;nbsp;you&amp;nbsp;cant&amp;nbsp;do&amp;nbsp;this&amp;nbsp;,&amp;nbsp;because&amp;nbsp;you&amp;nbsp;have&amp;nbsp;changes.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;YOU&amp;nbsp;have&amp;nbsp;two&amp;nbsp;choices&amp;nbsp;:&amp;nbsp;commit&amp;nbsp;changes&amp;nbsp;OR&amp;nbsp;stash&amp;nbsp;changes&amp;nbsp;,&amp;nbsp;so&amp;nbsp;if&amp;nbsp;you&amp;nbsp;dont&amp;nbsp;want&amp;nbsp;to&amp;nbsp;commit&amp;nbsp;,&amp;nbsp;you&amp;nbsp;will&amp;nbsp;STASH&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;changes.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Example&amp;nbsp;you&amp;nbsp;are&amp;nbsp;on&amp;nbsp;'feature2'&amp;nbsp;branch,&amp;nbsp;make&amp;nbsp;some&amp;nbsp;changes&amp;nbsp;in&amp;nbsp;README.txt&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;stash&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;stash&amp;nbsp;your&amp;nbsp;changes&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;stash&amp;nbsp;list&amp;nbsp;&amp;nbsp;-&amp;nbsp;shows&amp;nbsp;stashed&amp;nbsp;list&amp;nbsp;(you&amp;nbsp;can&amp;nbsp;have&amp;nbsp;one&amp;nbsp;,&amp;nbsp;two&amp;nbsp;or&amp;nbsp;more&amp;nbsp;stash&amp;nbsp;levels&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;checkout&amp;nbsp;feature1&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;checkout&amp;nbsp;to&amp;nbsp;feature1&amp;nbsp;branch&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;checkout&amp;nbsp;feature2&amp;nbsp;&amp;nbsp;-&amp;nbsp;return&amp;nbsp;to&amp;nbsp;feature2&amp;nbsp;branch&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;stash&amp;nbsp;pop&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;get&amp;nbsp;stashed&amp;nbsp;changes&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;commit&amp;nbsp;-m&amp;nbsp;"&amp;nbsp;Commit&amp;nbsp;stashed&amp;nbsp;changes"&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TO&amp;nbsp;get&amp;nbsp;stashed&amp;nbsp;changes&amp;nbsp;we&amp;nbsp;can&amp;nbsp;use&amp;nbsp;'git&amp;nbsp;apply&amp;nbsp;'&amp;nbsp;or&amp;nbsp;'git&amp;nbsp;pop'&amp;nbsp;(i&amp;nbsp;use&amp;nbsp;git&amp;nbsp;pop);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;see&amp;nbsp;what&amp;nbsp;is&amp;nbsp;stashed(levels)&amp;nbsp;use&amp;nbsp;'git&amp;nbsp;stash&amp;nbsp;list'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;remove&amp;nbsp;last&amp;nbsp;stash&amp;nbsp;level&amp;nbsp;use&amp;nbsp;'git&amp;nbsp;stash&amp;nbsp;drop'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!&amp;nbsp;We&amp;nbsp;can&amp;nbsp;create&amp;nbsp;branch&amp;nbsp;from&amp;nbsp;stashed&amp;nbsp;changes(funny&amp;nbsp;and&amp;nbsp;sometimes&amp;nbsp;usefull)&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;stash&amp;nbsp;branch&amp;nbsp;feature2_additional&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;commit&amp;nbsp;-m&amp;nbsp;"Commit&amp;nbsp;stashed&amp;nbsp;changes&amp;nbsp;as&amp;nbsp;new&amp;nbsp;branch"&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Git:&amp;nbsp;How&amp;nbsp;to&amp;nbsp;stash&amp;nbsp;with&amp;nbsp;a&amp;nbsp;custom&amp;nbsp;message&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Answer&amp;nbsp;:&amp;nbsp;'git&amp;nbsp;stash&amp;nbsp;save&amp;nbsp;doing&amp;nbsp;crazy&amp;nbsp;things'</questionanswer>
+  </question>
+  <question id="2_1_1_0_3:5" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Git&amp;nbsp;Merging&amp;nbsp;branches&amp;nbsp;,&amp;nbsp;describe.&amp;nbsp;What&amp;nbsp;does&amp;nbsp;it&amp;nbsp;mean&amp;nbsp;'fast-forward'&amp;nbsp;in&amp;nbsp;Git&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>What's&amp;nbsp;a&amp;nbsp;?fast-forward?&amp;nbsp;in&amp;nbsp;Git?&amp;nbsp;(fast-forward&amp;nbsp;-&amp;nbsp;in&amp;nbsp;russian&amp;nbsp;'peremotka'&amp;nbsp;=))&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Ultimately,&amp;nbsp;"fast-forward"&amp;nbsp;means&amp;nbsp;that&amp;nbsp;the&amp;nbsp;commits&amp;nbsp;can&amp;nbsp;be&amp;nbsp;applied&amp;nbsp;directly&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;on&amp;nbsp;top&amp;nbsp;of&amp;nbsp;the&amp;nbsp;working&amp;nbsp;tree&amp;nbsp;without&amp;nbsp;requiring&amp;nbsp;a&amp;nbsp;merge.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;fast-forward&amp;nbsp;update&amp;nbsp;is&amp;nbsp;where&amp;nbsp;the&amp;nbsp;only&amp;nbsp;changes&amp;nbsp;one&amp;nbsp;one&amp;nbsp;side&amp;nbsp;are&amp;nbsp;after&amp;nbsp;the&amp;nbsp;most&amp;nbsp;recent&amp;nbsp;commit&amp;nbsp;on&amp;nbsp;the&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;other&amp;nbsp;side,&amp;nbsp;so&amp;nbsp;there&amp;nbsp;doesn't&amp;nbsp;need&amp;nbsp;to&amp;nbsp;be&amp;nbsp;any&amp;nbsp;merging.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;is&amp;nbsp;saying&amp;nbsp;that&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;merge&amp;nbsp;your&amp;nbsp;changes&amp;nbsp;before&amp;nbsp;you&amp;nbsp;can&amp;nbsp;push.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!Configure&amp;nbsp;git&amp;nbsp;merge&amp;nbsp;tool&amp;nbsp;in&amp;nbsp;windows&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;download&amp;nbsp;kdiff3.exe&amp;nbsp;and&amp;nbsp;install&amp;nbsp;it&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;config&amp;nbsp;--global&amp;nbsp;merge.tool&amp;nbsp;kdiff3.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;and&amp;nbsp;add&amp;nbsp;it&amp;nbsp;to&amp;nbsp;path(Windows)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!&amp;nbsp;To&amp;nbsp;merge&amp;nbsp;two&amp;nbsp;branches&amp;nbsp;(for&amp;nbsp;example&amp;nbsp;master&amp;nbsp;and&amp;nbsp;feature2_additional)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;we&amp;nbsp;need:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;checkout&amp;nbsp;master&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;merge&amp;nbsp;feature2_additional&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;you&amp;nbsp;can&amp;nbsp;see&amp;nbsp;that&amp;nbsp;there&amp;nbsp;are&amp;nbsp;merge&amp;nbsp;conflicts&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;mergeetool&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;start&amp;nbsp;your&amp;nbsp;mergetool,&amp;nbsp;you&amp;nbsp;have&amp;nbsp;merge&amp;nbsp;every&amp;nbsp;file&amp;nbsp;with&amp;nbsp;confilt&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;commit&amp;nbsp;-m&amp;nbsp;"Merged&amp;nbsp;two&amp;nbsp;branches"&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;=)&lt;br&gt;</questionanswer>
+  </question>
+  <question id="2_1_1_0_3:6" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;'git&amp;nbsp;rebase'&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>How&amp;nbsp;i&amp;nbsp;UNDERSTAND&amp;nbsp;it&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;for&amp;nbsp;example&amp;nbsp;we&amp;nbsp;have&amp;nbsp;two&amp;nbsp;branches&amp;nbsp;'master'&amp;nbsp;and&amp;nbsp;'expreriment'&amp;nbsp;&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;And&amp;nbsp;i&amp;nbsp;want&amp;nbsp;to&amp;nbsp;set&amp;nbsp;branch&amp;nbsp;'experiment'&amp;nbsp;ON&amp;nbsp;TOP(rebase)&amp;nbsp;of&amp;nbsp;'master'&amp;nbsp;,&amp;nbsp;so&amp;nbsp;i&amp;nbsp;will&amp;nbsp;do&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;'git&amp;nbsp;checkout&amp;nbsp;experiment'&amp;nbsp;,&amp;nbsp;'git&amp;nbsp;rebase&amp;nbsp;master'&amp;nbsp;&amp;nbsp;(there&amp;nbsp;can&amp;nbsp;be&amp;nbsp;conflicts&amp;nbsp;,&amp;nbsp;you&amp;nbsp;should&amp;nbsp;resolve&amp;nbsp;conflicts&amp;nbsp;and&amp;nbsp;make&amp;nbsp;'git&amp;nbsp;rebase&amp;nbsp;--continue')&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;And&amp;nbsp;after&amp;nbsp;this&amp;nbsp;:&amp;nbsp;'git&amp;nbsp;checkout&amp;nbsp;master&amp;nbsp;'&amp;nbsp;,&amp;nbsp;'git&amp;nbsp;merge&amp;nbsp;experiment'&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;=)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;is&amp;nbsp;written&amp;nbsp;in&amp;nbsp;Git&amp;nbsp;documentation&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git-rebase&amp;nbsp;-&amp;nbsp;Forward-port&amp;nbsp;local&amp;nbsp;commits&amp;nbsp;to&amp;nbsp;the&amp;nbsp;updated&amp;nbsp;upstream&amp;nbsp;head&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DESCRIPTION&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;&lt;branch&gt;&amp;nbsp;is&amp;nbsp;specified,&amp;nbsp;git&amp;nbsp;rebase&amp;nbsp;will&amp;nbsp;perform&amp;nbsp;an&amp;nbsp;automatic&amp;nbsp;git&amp;nbsp;checkout&amp;nbsp;&lt;branch&gt;&amp;nbsp;before&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;doing&amp;nbsp;anything&amp;nbsp;else.&amp;nbsp;Otherwise&amp;nbsp;it&amp;nbsp;remains&amp;nbsp;on&amp;nbsp;the&amp;nbsp;current&amp;nbsp;branch.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;&lt;upstream&gt;&amp;nbsp;is&amp;nbsp;not&amp;nbsp;specified,&amp;nbsp;the&amp;nbsp;upstream&amp;nbsp;configured&amp;nbsp;in&amp;nbsp;branch.&lt;name&gt;.remote&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;branch.&lt;name&gt;.merge&amp;nbsp;options&amp;nbsp;will&amp;nbsp;be&amp;nbsp;used;&amp;nbsp;see&amp;nbsp;git-config(1)&amp;nbsp;for&amp;nbsp;details.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;are&amp;nbsp;currently&amp;nbsp;not&amp;nbsp;on&amp;nbsp;any&amp;nbsp;branch&amp;nbsp;or&amp;nbsp;if&amp;nbsp;the&amp;nbsp;current&amp;nbsp;branch&amp;nbsp;does&amp;nbsp;not&amp;nbsp;have&amp;nbsp;a&amp;nbsp;configured&amp;nbsp;upstream,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;rebase&amp;nbsp;will&amp;nbsp;abort.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;All&amp;nbsp;changes&amp;nbsp;made&amp;nbsp;by&amp;nbsp;commits&amp;nbsp;in&amp;nbsp;the&amp;nbsp;current&amp;nbsp;branch&amp;nbsp;but&amp;nbsp;that&amp;nbsp;are&amp;nbsp;not&amp;nbsp;in&amp;nbsp;&lt;upstream&gt;&amp;nbsp;are&amp;nbsp;saved&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;a&amp;nbsp;temporary&amp;nbsp;area.&amp;nbsp;This&amp;nbsp;is&amp;nbsp;the&amp;nbsp;same&amp;nbsp;set&amp;nbsp;of&amp;nbsp;commits&amp;nbsp;that&amp;nbsp;would&amp;nbsp;be&amp;nbsp;shown&amp;nbsp;by&amp;nbsp;git&amp;nbsp;log&amp;nbsp;&lt;upstream&gt;..HEAD&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(or&amp;nbsp;git&amp;nbsp;log&amp;nbsp;HEAD,&amp;nbsp;if&amp;nbsp;--root&amp;nbsp;is&amp;nbsp;specified).&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;current&amp;nbsp;branch&amp;nbsp;is&amp;nbsp;reset&amp;nbsp;to&amp;nbsp;&lt;upstream&gt;,&amp;nbsp;or&amp;nbsp;&lt;newbase&gt;&amp;nbsp;if&amp;nbsp;the&amp;nbsp;--onto&amp;nbsp;option&amp;nbsp;was&amp;nbsp;supplied.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;has&amp;nbsp;the&amp;nbsp;exact&amp;nbsp;same&amp;nbsp;effect&amp;nbsp;as&amp;nbsp;git&amp;nbsp;reset&amp;nbsp;--hard&amp;nbsp;&lt;upstream&gt;&amp;nbsp;(or&amp;nbsp;&lt;newbase&gt;).&amp;nbsp;ORIG_HEAD&amp;nbsp;is&amp;nbsp;set&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;point&amp;nbsp;at&amp;nbsp;the&amp;nbsp;tip&amp;nbsp;of&amp;nbsp;the&amp;nbsp;branch&amp;nbsp;before&amp;nbsp;the&amp;nbsp;reset.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;commits&amp;nbsp;that&amp;nbsp;were&amp;nbsp;previously&amp;nbsp;saved&amp;nbsp;into&amp;nbsp;the&amp;nbsp;temporary&amp;nbsp;area&amp;nbsp;are&amp;nbsp;then&amp;nbsp;reapplied&amp;nbsp;to&amp;nbsp;the&amp;nbsp;current&amp;nbsp;branch,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;one&amp;nbsp;by&amp;nbsp;one,&amp;nbsp;in&amp;nbsp;order.&amp;nbsp;Note&amp;nbsp;that&amp;nbsp;any&amp;nbsp;commits&amp;nbsp;in&amp;nbsp;HEAD&amp;nbsp;which&amp;nbsp;introduce&amp;nbsp;the&amp;nbsp;same&amp;nbsp;textual&amp;nbsp;changes&amp;nbsp;as&amp;nbsp;a&amp;nbsp;commit&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;in&amp;nbsp;HEAD..&lt;upstream&gt;&amp;nbsp;are&amp;nbsp;omitted&amp;nbsp;(i.e.,&amp;nbsp;a&amp;nbsp;patch&amp;nbsp;already&amp;nbsp;accepted&amp;nbsp;upstream&amp;nbsp;with&amp;nbsp;a&amp;nbsp;different&amp;nbsp;commit&amp;nbsp;message&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;or&amp;nbsp;timestamp&amp;nbsp;will&amp;nbsp;be&amp;nbsp;skipped).&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;It&amp;nbsp;is&amp;nbsp;possible&amp;nbsp;that&amp;nbsp;a&amp;nbsp;merge&amp;nbsp;failure&amp;nbsp;will&amp;nbsp;prevent&amp;nbsp;this&amp;nbsp;process&amp;nbsp;from&amp;nbsp;being&amp;nbsp;completely&amp;nbsp;automatic.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;will&amp;nbsp;have&amp;nbsp;to&amp;nbsp;resolve&amp;nbsp;any&amp;nbsp;such&amp;nbsp;merge&amp;nbsp;failure&amp;nbsp;and&amp;nbsp;run&amp;nbsp;git&amp;nbsp;rebase&amp;nbsp;--continue.&amp;nbsp;Another&amp;nbsp;option&amp;nbsp;is&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;bypass&amp;nbsp;the&amp;nbsp;commit&amp;nbsp;that&amp;nbsp;caused&amp;nbsp;the&amp;nbsp;merge&amp;nbsp;failure&amp;nbsp;with&amp;nbsp;git&amp;nbsp;rebase&amp;nbsp;--skip.&amp;nbsp;To&amp;nbsp;check&amp;nbsp;out&amp;nbsp;the&amp;nbsp;original&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;branch&gt;&amp;nbsp;and&amp;nbsp;remove&amp;nbsp;the&amp;nbsp;.git/rebase-apply&amp;nbsp;working&amp;nbsp;files,&amp;nbsp;use&amp;nbsp;the&amp;nbsp;command&amp;nbsp;git&amp;nbsp;rebase&amp;nbsp;--abort&amp;nbsp;instead.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Assume&amp;nbsp;the&amp;nbsp;following&amp;nbsp;history&amp;nbsp;exists&amp;nbsp;and&amp;nbsp;the&amp;nbsp;current&amp;nbsp;branch&amp;nbsp;is&amp;nbsp;"topic":&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A---B---C&amp;nbsp;topic&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;D---E---F---G&amp;nbsp;master&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;From&amp;nbsp;this&amp;nbsp;point,&amp;nbsp;the&amp;nbsp;result&amp;nbsp;of&amp;nbsp;either&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;commands:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;rebase&amp;nbsp;master&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;rebase&amp;nbsp;master&amp;nbsp;topic&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;would&amp;nbsp;be:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A'--B'--C'&amp;nbsp;topic&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;D---E---F---G&amp;nbsp;master&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NOTE:&amp;nbsp;The&amp;nbsp;latter&amp;nbsp;form&amp;nbsp;is&amp;nbsp;just&amp;nbsp;a&amp;nbsp;short-hand&amp;nbsp;of&amp;nbsp;git&amp;nbsp;checkout&amp;nbsp;topic&amp;nbsp;followed&amp;nbsp;by&amp;nbsp;git&amp;nbsp;rebase&amp;nbsp;master.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;When&amp;nbsp;rebase&amp;nbsp;exits&amp;nbsp;topic&amp;nbsp;will&amp;nbsp;remain&amp;nbsp;the&amp;nbsp;checked-out&amp;nbsp;branch.</questionanswer>
+  </question>
+  <question id="2_1_1_0_3:7" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;cherry-picking&amp;nbsp;in&amp;nbsp;Git&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Sometimes&amp;nbsp;you&amp;nbsp;have&amp;nbsp;two&amp;nbsp;branches&amp;nbsp;b1&amp;nbsp;and&amp;nbsp;b2,&amp;nbsp;and&amp;nbsp;you&amp;nbsp;dont&amp;nbsp;want&amp;nbsp;to&amp;nbsp;merge&amp;nbsp;it,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;BUT&amp;nbsp;you&amp;nbsp;NEED&amp;nbsp;in&amp;nbsp;b2&amp;nbsp;one&amp;nbsp;commit&amp;nbsp;from&amp;nbsp;b1&amp;nbsp;,&amp;nbsp;so&amp;nbsp;'cherry-pick'&amp;nbsp;is&amp;nbsp;very&amp;nbsp;usefull.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;It&amp;nbsp;allows&amp;nbsp;to&amp;nbsp;get&amp;nbsp;only&amp;nbsp;one&amp;nbsp;commit&amp;nbsp;from&amp;nbsp;another&amp;nbsp;branch.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Syntax&amp;nbsp;:&amp;nbsp;git&amp;nbsp;cherry-pick&amp;nbsp;3rk44&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;get&amp;nbsp;only&amp;nbsp;one&amp;nbsp;commit&amp;nbsp;!!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;From&amp;nbsp;documentation&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;cherry-pick&amp;nbsp;-&amp;nbsp;Apply&amp;nbsp;the&amp;nbsp;changes&amp;nbsp;introduced&amp;nbsp;by&amp;nbsp;some&amp;nbsp;existing&amp;nbsp;commits&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DESCRIPTION&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Given&amp;nbsp;one&amp;nbsp;or&amp;nbsp;more&amp;nbsp;existing&amp;nbsp;commits,&amp;nbsp;apply&amp;nbsp;the&amp;nbsp;change&amp;nbsp;each&amp;nbsp;one&amp;nbsp;introduces,&amp;nbsp;recording&amp;nbsp;a&amp;nbsp;new&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;commit&amp;nbsp;for&amp;nbsp;each.&amp;nbsp;This&amp;nbsp;requires&amp;nbsp;your&amp;nbsp;working&amp;nbsp;tree&amp;nbsp;to&amp;nbsp;be&amp;nbsp;clean&amp;nbsp;(no&amp;nbsp;modifications&amp;nbsp;from&amp;nbsp;the&amp;nbsp;HEAD&amp;nbsp;commit).&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;When&amp;nbsp;it&amp;nbsp;is&amp;nbsp;not&amp;nbsp;obvious&amp;nbsp;how&amp;nbsp;to&amp;nbsp;apply&amp;nbsp;a&amp;nbsp;change,&amp;nbsp;the&amp;nbsp;following&amp;nbsp;happens:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;current&amp;nbsp;branch&amp;nbsp;and&amp;nbsp;HEAD&amp;nbsp;pointer&amp;nbsp;stay&amp;nbsp;at&amp;nbsp;the&amp;nbsp;last&amp;nbsp;commit&amp;nbsp;successfully&amp;nbsp;made.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;CHERRY_PICK_HEAD&amp;nbsp;ref&amp;nbsp;is&amp;nbsp;set&amp;nbsp;to&amp;nbsp;point&amp;nbsp;at&amp;nbsp;the&amp;nbsp;commit&amp;nbsp;that&amp;nbsp;introduced&amp;nbsp;the&amp;nbsp;change&amp;nbsp;that&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;is&amp;nbsp;difficult&amp;nbsp;to&amp;nbsp;apply.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Paths&amp;nbsp;in&amp;nbsp;which&amp;nbsp;the&amp;nbsp;change&amp;nbsp;applied&amp;nbsp;cleanly&amp;nbsp;are&amp;nbsp;updated&amp;nbsp;both&amp;nbsp;in&amp;nbsp;the&amp;nbsp;index&amp;nbsp;file&amp;nbsp;and&amp;nbsp;in&amp;nbsp;your&amp;nbsp;working&amp;nbsp;tree.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;For&amp;nbsp;conflicting&amp;nbsp;paths,&amp;nbsp;the&amp;nbsp;index&amp;nbsp;file&amp;nbsp;records&amp;nbsp;up&amp;nbsp;to&amp;nbsp;three&amp;nbsp;versions,&amp;nbsp;as&amp;nbsp;described&amp;nbsp;in&amp;nbsp;the&amp;nbsp;"TRUE&amp;nbsp;MERGE"&amp;nbsp;section&amp;nbsp;of&amp;nbsp;git-merge(1).&amp;nbsp;The&amp;nbsp;working&amp;nbsp;tree&amp;nbsp;files&amp;nbsp;will&amp;nbsp;include&amp;nbsp;a&amp;nbsp;description&amp;nbsp;of&amp;nbsp;the&amp;nbsp;conflict&amp;nbsp;bracketed&amp;nbsp;by&amp;nbsp;the&amp;nbsp;usual&amp;nbsp;conflict&amp;nbsp;markers&amp;nbsp;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&amp;nbsp;and&amp;nbsp;&gt;&gt;&gt;&gt;&gt;&gt;&gt;.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;No&amp;nbsp;other&amp;nbsp;modifications&amp;nbsp;are&amp;nbsp;made.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;See&amp;nbsp;git-merge(1)&amp;nbsp;for&amp;nbsp;some&amp;nbsp;hints&amp;nbsp;on&amp;nbsp;resolving&amp;nbsp;such&amp;nbsp;conflicts.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;</questionanswer>
+  </question>
+  <question id="2_1_1_0_3:8" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Git&amp;nbsp;create&amp;nbsp;remote&amp;nbsp;branches,&amp;nbsp;and&amp;nbsp;removing&amp;nbsp;remote&amp;nbsp;branches,&amp;nbsp;describe.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>If&amp;nbsp;you&amp;nbsp;have&amp;nbsp;more&amp;nbsp;than&amp;nbsp;one&amp;nbsp;branches&amp;nbsp;on&amp;nbsp;local&amp;nbsp;repo,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;easy&amp;nbsp;push&amp;nbsp;it&amp;nbsp;to&amp;nbsp;remote.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;For&amp;nbsp;example&amp;nbsp;you&amp;nbsp;have&amp;nbsp;master&amp;nbsp;branch,&amp;nbsp;and&amp;nbsp;v1.0_fixes&amp;nbsp;branch.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;push&amp;nbsp;'v1.0_fixes'&amp;nbsp;to&amp;nbsp;remote&amp;nbsp;do:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;push&amp;nbsp;origin&amp;nbsp;v1.0_fixes&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;list&amp;nbsp;remote&amp;nbsp;branches&amp;nbsp;do&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;branch&amp;nbsp;-r&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;delete&amp;nbsp;remote&amp;nbsp;branch&amp;nbsp;do(it&amp;nbsp;means&amp;nbsp;push&amp;nbsp;nothing&amp;nbsp;to&amp;nbsp;this&amp;nbsp;branch):&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;push&amp;nbsp;origin&amp;nbsp;:v1.0_fixes</questionanswer>
+  </question>
+</questions>

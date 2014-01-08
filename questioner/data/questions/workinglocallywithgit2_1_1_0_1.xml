@@ -1,2 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_1_1_0_1" name="WorkingLocallywithGit" nofquestions="0" nofsubcategories="0" filename="workinglocallywithgit2_1_1_0_1.xml" />
+<questions id="2_1_1_0_1" name="WorkingLocallywithGit" nofquestions="10" nofsubcategories="0" filename="workinglocallywithgit2_1_1_0_1.xml">
+  <question id="2_1_1_0_1:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;to&amp;nbsp;create&amp;nbsp;empty&amp;nbsp;repo&amp;nbsp;,&amp;nbsp;add&amp;nbsp;files&amp;nbsp;to&amp;nbsp;stage&amp;nbsp;area(describe),&amp;nbsp;&amp;nbsp;and&amp;nbsp;perform&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;first&amp;nbsp;commit&amp;nbsp;&amp;nbsp;in&amp;nbsp;Git?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>git&amp;nbsp;init&amp;nbsp;&amp;nbsp;-&amp;nbsp;command&amp;nbsp;to&amp;nbsp;create&amp;nbsp;repo&amp;nbsp;in&amp;nbsp;current&amp;nbsp;folder,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;status&amp;nbsp;-&amp;nbsp;shows&amp;nbsp;modified&amp;nbsp;files&amp;nbsp;&amp;nbsp;,&amp;nbsp;files&amp;nbsp;added&amp;nbsp;to&amp;nbsp;stage&amp;nbsp;area,&amp;nbsp;removed&amp;nbsp;file..&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;add&amp;nbsp;&lt;file_name&gt;&amp;nbsp;&amp;nbsp;-&amp;nbsp;add&amp;nbsp;file&amp;nbsp;to&amp;nbsp;'stage'&amp;nbsp;area,&amp;nbsp;all&amp;nbsp;files&amp;nbsp;from&amp;nbsp;stage&amp;nbsp;area&amp;nbsp;will&amp;nbsp;be&amp;nbsp;commited&amp;nbsp;on&amp;nbsp;next&amp;nbsp;commit&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;commit&amp;nbsp;-m&amp;nbsp;"Message&amp;nbsp;..."&amp;nbsp;-&amp;nbsp;MAKE&amp;nbsp;commit&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;log&amp;nbsp;-&amp;nbsp;shows&amp;nbsp;commits&amp;nbsp;history&amp;nbsp;(date&amp;nbsp;,&amp;nbsp;hash,&amp;nbsp;message.&amp;nbsp;This&amp;nbsp;command&amp;nbsp;has&amp;nbsp;a&amp;nbsp;lot&amp;nbsp;of&amp;nbsp;arguments)&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;add&amp;nbsp;-u&amp;nbsp;-&amp;nbsp;add&amp;nbsp;all&amp;nbsp;MODIFIED&amp;nbsp;files&amp;nbsp;to&amp;nbsp;'stage'&amp;nbsp;(MODIFIED&amp;nbsp;and&amp;nbsp;DELETED)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;add&amp;nbsp;-A&amp;nbsp;-&amp;nbsp;add&amp;nbsp;ALL&amp;nbsp;files&amp;nbsp;to&amp;nbsp;stage</questionanswer>
+  </question>
+  <question id="2_1_1_0_1:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;STAGE&amp;nbsp;area&amp;nbsp;in&amp;nbsp;Git&amp;nbsp;&amp;nbsp;,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;add&amp;nbsp;file&amp;nbsp;to&amp;nbsp;stage&amp;nbsp;,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;remove&amp;nbsp;file&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from&amp;nbsp;stage?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>To&amp;nbsp;stage&amp;nbsp;a&amp;nbsp;file&amp;nbsp;is&amp;nbsp;simply&amp;nbsp;to&amp;nbsp;prepare&amp;nbsp;it&amp;nbsp;finely&amp;nbsp;for&amp;nbsp;a&amp;nbsp;commit.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Git,&amp;nbsp;with&amp;nbsp;its&amp;nbsp;index&amp;nbsp;allows&amp;nbsp;you&amp;nbsp;to&amp;nbsp;commit&amp;nbsp;only&amp;nbsp;certain&amp;nbsp;parts&amp;nbsp;of&amp;nbsp;the&amp;nbsp;changes&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;you've&amp;nbsp;done&amp;nbsp;since&amp;nbsp;the&amp;nbsp;last&amp;nbsp;commit.&amp;nbsp;Say&amp;nbsp;you're&amp;nbsp;working&amp;nbsp;on&amp;nbsp;two&amp;nbsp;features&amp;nbsp;-&amp;nbsp;one&amp;nbsp;is&amp;nbsp;finished,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;one&amp;nbsp;still&amp;nbsp;needs&amp;nbsp;some&amp;nbsp;work&amp;nbsp;done.&amp;nbsp;You'd&amp;nbsp;like&amp;nbsp;to&amp;nbsp;make&amp;nbsp;a&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;commit&amp;nbsp;and&amp;nbsp;go&amp;nbsp;home&amp;nbsp;(5&amp;nbsp;o'clock,&amp;nbsp;finally!)&amp;nbsp;but&amp;nbsp;wouldn't&amp;nbsp;like&amp;nbsp;to&amp;nbsp;commit&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;parts&amp;nbsp;of&amp;nbsp;the&amp;nbsp;second&amp;nbsp;feature,&amp;nbsp;which&amp;nbsp;is&amp;nbsp;not&amp;nbsp;done&amp;nbsp;yet.&amp;nbsp;You&amp;nbsp;stage&amp;nbsp;the&amp;nbsp;parts&amp;nbsp;you&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;know&amp;nbsp;belong&amp;nbsp;to&amp;nbsp;the&amp;nbsp;first&amp;nbsp;feature,&amp;nbsp;and&amp;nbsp;commit.&amp;nbsp;Now&amp;nbsp;your&amp;nbsp;commit&amp;nbsp;is&amp;nbsp;your&amp;nbsp;project&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;with&amp;nbsp;the&amp;nbsp;first&amp;nbsp;feature&amp;nbsp;done,&amp;nbsp;while&amp;nbsp;the&amp;nbsp;second&amp;nbsp;is&amp;nbsp;still&amp;nbsp;in&amp;nbsp;work-in-progress&amp;nbsp;in&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;your&amp;nbsp;working&amp;nbsp;directory.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;EXAMPLE&amp;nbsp;:&amp;nbsp;we&amp;nbsp;modified&amp;nbsp;two&amp;nbsp;files&amp;nbsp;file1.txt&amp;nbsp;and&amp;nbsp;file2.txt,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;we&amp;nbsp;want&amp;nbsp;commit&amp;nbsp;only&amp;nbsp;changes&amp;nbsp;in&amp;nbsp;file1.txt&amp;nbsp;,&amp;nbsp;so&amp;nbsp;we&amp;nbsp;do&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;add&amp;nbsp;file1.txt&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;file1.txt&amp;nbsp;is&amp;nbsp;now&amp;nbsp;in&amp;nbsp;stage&amp;nbsp;area&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;commit&amp;nbsp;-m&amp;nbsp;"Fixing&amp;nbsp;bug&amp;nbsp;1234"&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;only&amp;nbsp;file1.txt&amp;nbsp;changes&amp;nbsp;were&amp;nbsp;commited&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;EXAMPLE&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;I&amp;nbsp;mistakenly&amp;nbsp;added&amp;nbsp;files&amp;nbsp;using&amp;nbsp;the&amp;nbsp;command&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;add&amp;nbsp;file&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;I&amp;nbsp;have&amp;nbsp;not&amp;nbsp;yet&amp;nbsp;run&amp;nbsp;git&amp;nbsp;commit.&amp;nbsp;Is&amp;nbsp;there&amp;nbsp;a&amp;nbsp;way&amp;nbsp;to&amp;nbsp;undo&amp;nbsp;this&amp;nbsp;or&amp;nbsp;remove&amp;nbsp;these&amp;nbsp;files&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from&amp;nbsp;the&amp;nbsp;commit?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ANSWER&amp;nbsp;:You&amp;nbsp;can&amp;nbsp;also&amp;nbsp;git&amp;nbsp;reset&amp;nbsp;HEAD&amp;nbsp;&lt;file&gt;,&amp;nbsp;which&amp;nbsp;will&amp;nbsp;remove&amp;nbsp;it&amp;nbsp;from&amp;nbsp;the&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;current&amp;nbsp;index&amp;nbsp;(the&amp;nbsp;"about&amp;nbsp;to&amp;nbsp;be&amp;nbsp;committed"&amp;nbsp;area)&amp;nbsp;without&amp;nbsp;changing&amp;nbsp;anything&amp;nbsp;else.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Also&amp;nbsp;we&amp;nbsp;can&amp;nbsp;define&amp;nbsp;alias&amp;nbsp;for&amp;nbsp;this&amp;nbsp;command&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;config&amp;nbsp;--global&amp;nbsp;alias.unstage&amp;nbsp;'reset&amp;nbsp;HEAD&amp;nbsp;'&amp;nbsp;Now&amp;nbsp;I&amp;nbsp;can&amp;nbsp;use&amp;nbsp;'git&amp;nbsp;unstage&amp;nbsp;myfile'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DO&amp;nbsp;NOT&amp;nbsp;USE&amp;nbsp;"git&amp;nbsp;rm"&amp;nbsp;as&amp;nbsp;suggested&amp;nbsp;in&amp;nbsp;another&amp;nbsp;answer.&amp;nbsp;This&amp;nbsp;is&amp;nbsp;used&amp;nbsp;to&amp;nbsp;stop&amp;nbsp;tracking&amp;nbsp;a&amp;nbsp;file,&amp;nbsp;and&amp;nbsp;depending&amp;nbsp;on&amp;nbsp;the&amp;nbsp;flags,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;it&amp;nbsp;may&amp;nbsp;even&amp;nbsp;remove&amp;nbsp;it&amp;nbsp;from&amp;nbsp;your&amp;nbsp;file&amp;nbsp;system&amp;nbsp;which&amp;nbsp;is&amp;nbsp;not&amp;nbsp;what&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;do.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;rm&amp;nbsp;--cached&amp;nbsp;FILENAME&amp;nbsp;does&amp;nbsp;NOT&amp;nbsp;delete&amp;nbsp;the&amp;nbsp;file,&amp;nbsp;it&amp;nbsp;removes&amp;nbsp;it&amp;nbsp;from&amp;nbsp;the&amp;nbsp;index&amp;nbsp;(aka&amp;nbsp;unstages).</questionanswer>
+  </question>
+  <question id="2_1_1_0_1:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;to&amp;nbsp;see&amp;nbsp;diff&amp;nbsp;between&amp;nbsp;two&amp;nbsp;commits&amp;nbsp;in&amp;nbsp;Git&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>*&amp;nbsp;git&amp;nbsp;log&amp;nbsp;-&amp;nbsp;show&amp;nbsp;commits&amp;nbsp;history&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;You&amp;nbsp;can&amp;nbsp;use&amp;nbsp;'gitk'&amp;nbsp;-&amp;nbsp;Git&amp;nbsp;gui&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;You&amp;nbsp;can&amp;nbsp;use&amp;nbsp;&amp;nbsp;:&amp;nbsp;'git&amp;nbsp;diff&amp;nbsp;93949..38438'&amp;nbsp;-&amp;nbsp;show&amp;nbsp;different&amp;nbsp;between&amp;nbsp;two&amp;nbsp;commits&amp;nbsp;(93949,38438&amp;nbsp;-hashes&amp;nbsp;of&amp;nbsp;commits)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Or&amp;nbsp;'git&amp;nbsp;diff&amp;nbsp;HEAD~1..HEAD&amp;nbsp;(or&amp;nbsp;HEAD~1&amp;nbsp;-&amp;nbsp;1&amp;nbsp;commit&amp;nbsp;before&amp;nbsp;head)</questionanswer>
+  </question>
+  <question id="2_1_1_0_1:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;to&amp;nbsp;commit&amp;nbsp;only&amp;nbsp;one&amp;nbsp;part&amp;nbsp;of&amp;nbsp;file&amp;nbsp;in&amp;nbsp;Git&amp;nbsp;(commit&amp;nbsp;only&amp;nbsp;part&amp;nbsp;of&amp;nbsp;changes&amp;nbsp;)?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>You&amp;nbsp;can&amp;nbsp;do&amp;nbsp;'git&amp;nbsp;add&amp;nbsp;-p&amp;nbsp;filename.x'&amp;nbsp;,&amp;nbsp;and&amp;nbsp;it'll&amp;nbsp;ask&amp;nbsp;you&amp;nbsp;what&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;stage.&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;then:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;hit&amp;nbsp;'s'&amp;nbsp;to&amp;nbsp;split&amp;nbsp;whatever&amp;nbsp;change&amp;nbsp;into&amp;nbsp;smaller&amp;nbsp;hunks.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;only&amp;nbsp;works&amp;nbsp;if&amp;nbsp;there&amp;nbsp;is&amp;nbsp;at&amp;nbsp;least&amp;nbsp;one&amp;nbsp;unchanged&amp;nbsp;line&amp;nbsp;in&amp;nbsp;the&amp;nbsp;"middle"&amp;nbsp;of&amp;nbsp;the&amp;nbsp;hunk,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;which&amp;nbsp;is&amp;nbsp;where&amp;nbsp;the&amp;nbsp;hunk&amp;nbsp;will&amp;nbsp;be&amp;nbsp;split&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;then&amp;nbsp;hit&amp;nbsp;'y'&amp;nbsp;to&amp;nbsp;stage&amp;nbsp;that&amp;nbsp;hunk&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;or&amp;nbsp;'n'&amp;nbsp;to&amp;nbsp;not&amp;nbsp;stage&amp;nbsp;that&amp;nbsp;hunk&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;or&amp;nbsp;'e'&amp;nbsp;to&amp;nbsp;manually&amp;nbsp;edit&amp;nbsp;the&amp;nbsp;hunk&amp;nbsp;(useful&amp;nbsp;when&amp;nbsp;git&amp;nbsp;can't&amp;nbsp;split&amp;nbsp;it&amp;nbsp;automatically)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;'d'&amp;nbsp;to&amp;nbsp;exit&amp;nbsp;or&amp;nbsp;go&amp;nbsp;to&amp;nbsp;the&amp;nbsp;next&amp;nbsp;file.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Use&amp;nbsp;'?'&amp;nbsp;to&amp;nbsp;get&amp;nbsp;the&amp;nbsp;whole&amp;nbsp;list&amp;nbsp;of&amp;nbsp;available&amp;nbsp;options.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;the&amp;nbsp;file&amp;nbsp;is&amp;nbsp;not&amp;nbsp;in&amp;nbsp;the&amp;nbsp;repository&amp;nbsp;yet,&amp;nbsp;do&amp;nbsp;first&amp;nbsp;git&amp;nbsp;add&amp;nbsp;-N&amp;nbsp;filename.x.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Afterwards&amp;nbsp;you&amp;nbsp;can&amp;nbsp;go&amp;nbsp;on&amp;nbsp;with&amp;nbsp;git&amp;nbsp;add&amp;nbsp;-p&amp;nbsp;filename.x.</questionanswer>
+  </question>
+  <question id="2_1_1_0_1:4" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Deleting&amp;nbsp;and&amp;nbsp;renaming&amp;nbsp;files&amp;nbsp;in&amp;nbsp;Git&amp;nbsp;repo&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>To&amp;nbsp;delete&amp;nbsp;file&amp;nbsp;from&amp;nbsp;repo&amp;nbsp;and&amp;nbsp;commit&amp;nbsp;this&amp;nbsp;operation&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;remove&amp;nbsp;file&amp;nbsp;from&amp;nbsp;repo&amp;nbsp;(from&amp;nbsp;folder&amp;nbsp;=))&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;add&amp;nbsp;this&amp;nbsp;DELETION&amp;nbsp;to&amp;nbsp;stage&amp;nbsp;area&amp;nbsp;&amp;nbsp;:&amp;nbsp;'git&amp;nbsp;rm&amp;nbsp;&lt;filename&gt;'&amp;nbsp;or&amp;nbsp;'git&amp;nbsp;add&amp;nbsp;-A'&amp;nbsp;or&amp;nbsp;'git&amp;nbsp;add&amp;nbsp;-u'&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;commit&amp;nbsp;-m&amp;nbsp;"message..."&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;rename&amp;nbsp;file&amp;nbsp;in&amp;nbsp;repo&amp;nbsp;and&amp;nbsp;commit&amp;nbsp;this&amp;nbsp;renaming:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;rename&amp;nbsp;file&amp;nbsp;in&amp;nbsp;repo&amp;nbsp;(git&amp;nbsp;will&amp;nbsp;see&amp;nbsp;renaming&amp;nbsp;as&amp;nbsp;removing&amp;nbsp;file&amp;nbsp;with&amp;nbsp;old&amp;nbsp;name&amp;nbsp;,&amp;nbsp;and&amp;nbsp;create&amp;nbsp;file&amp;nbsp;with&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;new&amp;nbsp;name)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;add&amp;nbsp;this&amp;nbsp;RENAMING&amp;nbsp;to&amp;nbsp;stage&amp;nbsp;area&amp;nbsp;(add&amp;nbsp;one&amp;nbsp;deletion(with&amp;nbsp;'git&amp;nbsp;rm&amp;nbsp;file')&amp;nbsp;and&amp;nbsp;one&amp;nbsp;new&amp;nbsp;file)&amp;nbsp;:&amp;nbsp;git&amp;nbsp;add&amp;nbsp;-A&lt;br&gt;</questionanswer>
+  </question>
+  <question id="2_1_1_0_1:5" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Undoing&amp;nbsp;and&amp;nbsp;redoing&amp;nbsp;changes&amp;nbsp;in&amp;nbsp;Git&amp;nbsp;repo&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>*&amp;nbsp;git&amp;nbsp;reset&amp;nbsp;--soft&amp;nbsp;HEAD~1&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;back&amp;nbsp;to&amp;nbsp;previous&amp;nbsp;commit&amp;nbsp;,&amp;nbsp;AND&amp;nbsp;STAGE&amp;nbsp;area&amp;nbsp;is&amp;nbsp;saved(because&amp;nbsp;--soft&amp;nbsp;option)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;reset&amp;nbsp;--hard&amp;nbsp;HEAD~1&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;back&amp;nbsp;to&amp;nbsp;previous&amp;nbsp;commit&amp;nbsp;(and&amp;nbsp;all&amp;nbsp;changes&amp;nbsp;are&amp;nbsp;deleted&amp;nbsp;!&amp;nbsp;&amp;nbsp;carefull)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;SYNOPSIS&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;reset&amp;nbsp;[-q]&amp;nbsp;[&lt;commit&gt;]&amp;nbsp;[--]&amp;nbsp;&lt;paths&gt;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;reset&amp;nbsp;(--patch&amp;nbsp;|&amp;nbsp;-p)&amp;nbsp;[&lt;commit&gt;]&amp;nbsp;[--]&amp;nbsp;[&lt;paths&gt;?]&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;reset&amp;nbsp;[--soft&amp;nbsp;|&amp;nbsp;--mixed&amp;nbsp;|&amp;nbsp;--hard&amp;nbsp;|&amp;nbsp;--merge&amp;nbsp;|&amp;nbsp;--keep]&amp;nbsp;[-q]&amp;nbsp;[&lt;commit&gt;]&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;--soft&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Does&amp;nbsp;not&amp;nbsp;touch&amp;nbsp;the&amp;nbsp;index&amp;nbsp;file&amp;nbsp;nor&amp;nbsp;the&amp;nbsp;working&amp;nbsp;tree&amp;nbsp;at&amp;nbsp;all&amp;nbsp;(but&amp;nbsp;resets&amp;nbsp;the&amp;nbsp;head&amp;nbsp;to&amp;nbsp;&lt;commit&gt;,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;just&amp;nbsp;like&amp;nbsp;all&amp;nbsp;modes&amp;nbsp;do).&amp;nbsp;This&amp;nbsp;leaves&amp;nbsp;all&amp;nbsp;your&amp;nbsp;changed&amp;nbsp;files&amp;nbsp;"Changes&amp;nbsp;to&amp;nbsp;be&amp;nbsp;committed",&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;as&amp;nbsp;git&amp;nbsp;status&amp;nbsp;would&amp;nbsp;put&amp;nbsp;it.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!!!!!!!!(DEFAULT)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;--mixed&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Resets&amp;nbsp;the&amp;nbsp;index&amp;nbsp;but&amp;nbsp;not&amp;nbsp;the&amp;nbsp;working&amp;nbsp;tree&amp;nbsp;(i.e.,&amp;nbsp;the&amp;nbsp;changed&amp;nbsp;files&amp;nbsp;are&amp;nbsp;preserved&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;but&amp;nbsp;not&amp;nbsp;marked&amp;nbsp;for&amp;nbsp;commit)&amp;nbsp;and&amp;nbsp;reports&amp;nbsp;what&amp;nbsp;has&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;not&amp;nbsp;been&amp;nbsp;updated.&amp;nbsp;This&amp;nbsp;is&amp;nbsp;the&amp;nbsp;DEFAULT&amp;nbsp;action.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;--hard&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Resets&amp;nbsp;the&amp;nbsp;index&amp;nbsp;and&amp;nbsp;working&amp;nbsp;tree.&amp;nbsp;Any&amp;nbsp;changes&amp;nbsp;to&amp;nbsp;tracked&amp;nbsp;files&amp;nbsp;in&amp;nbsp;the&amp;nbsp;working&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;tree&amp;nbsp;since&amp;nbsp;&lt;commit&gt;&amp;nbsp;are&amp;nbsp;discarded.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;--merge&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Resets&amp;nbsp;the&amp;nbsp;index&amp;nbsp;and&amp;nbsp;updates&amp;nbsp;the&amp;nbsp;files&amp;nbsp;in&amp;nbsp;the&amp;nbsp;working&amp;nbsp;tree&amp;nbsp;that&amp;nbsp;are&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;different&amp;nbsp;between&amp;nbsp;&lt;commit&gt;&amp;nbsp;and&amp;nbsp;HEAD,&amp;nbsp;but&amp;nbsp;keeps&amp;nbsp;those&amp;nbsp;which&amp;nbsp;are&amp;nbsp;different&amp;nbsp;between&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;index&amp;nbsp;and&amp;nbsp;working&amp;nbsp;tree&amp;nbsp;(i.e.&amp;nbsp;which&amp;nbsp;have&amp;nbsp;changes&amp;nbsp;which&amp;nbsp;have&amp;nbsp;not&amp;nbsp;been&amp;nbsp;added).&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;a&amp;nbsp;file&amp;nbsp;that&amp;nbsp;is&amp;nbsp;different&amp;nbsp;between&amp;nbsp;&lt;commit&gt;&amp;nbsp;and&amp;nbsp;the&amp;nbsp;index&amp;nbsp;has&amp;nbsp;unstaged&amp;nbsp;changes,&amp;nbsp;reset&amp;nbsp;is&amp;nbsp;aborted.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;In&amp;nbsp;other&amp;nbsp;words,&amp;nbsp;--merge&amp;nbsp;does&amp;nbsp;something&amp;nbsp;like&amp;nbsp;a&amp;nbsp;git&amp;nbsp;read-tree&amp;nbsp;-u&amp;nbsp;-m&amp;nbsp;&lt;commit&gt;,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;but&amp;nbsp;carries&amp;nbsp;forward&amp;nbsp;unmerged&amp;nbsp;index&amp;nbsp;entries.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;--keep&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Resets&amp;nbsp;index&amp;nbsp;entries&amp;nbsp;and&amp;nbsp;updates&amp;nbsp;files&amp;nbsp;in&amp;nbsp;the&amp;nbsp;working&amp;nbsp;tree&amp;nbsp;that&amp;nbsp;are&amp;nbsp;different&amp;nbsp;between&amp;nbsp;&lt;commit&gt;&amp;nbsp;and&amp;nbsp;HEAD.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;a&amp;nbsp;file&amp;nbsp;that&amp;nbsp;is&amp;nbsp;different&amp;nbsp;between&amp;nbsp;&lt;commit&gt;&amp;nbsp;and&amp;nbsp;HEAD&amp;nbsp;has&amp;nbsp;local&amp;nbsp;changes,&amp;nbsp;reset&amp;nbsp;is&amp;nbsp;aborted.</questionanswer>
+  </question>
+  <question id="2_1_1_0_1:6" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Cleaning&amp;nbsp;working&amp;nbsp;copy&amp;nbsp;in&amp;nbsp;Git&amp;nbsp;repo,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Sometimes&amp;nbsp;we&amp;nbsp;need&amp;nbsp;to&amp;nbsp;delete&amp;nbsp;temporary&amp;nbsp;files&amp;nbsp;.&amp;nbsp;TO&amp;nbsp;delete&amp;nbsp;files&amp;nbsp;which&amp;nbsp;are&amp;nbsp;not&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;in&amp;nbsp;stage&amp;nbsp;area&amp;nbsp;we&amp;nbsp;can&amp;nbsp;perform&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;clean&amp;nbsp;-n&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;shows&amp;nbsp;which&amp;nbsp;files&amp;nbsp;will&amp;nbsp;be&amp;nbsp;removed&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;git&amp;nbsp;clean&amp;nbsp;-f&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;removes&amp;nbsp;files&amp;nbsp;which&amp;nbsp;are&amp;nbsp;not&amp;nbsp;in&amp;nbsp;stage&amp;nbsp;area,and&amp;nbsp;not&amp;nbsp;in&amp;nbsp;commit(files&amp;nbsp;which&amp;nbsp;are&amp;nbsp;'red')&lt;br&gt;</questionanswer>
+  </question>
+  <question id="2_1_1_0_1:7" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Ignoring&amp;nbsp;files&amp;nbsp;in&amp;nbsp;Git&amp;nbsp;repo,&amp;nbsp;describe&amp;nbsp;different&amp;nbsp;ways&amp;nbsp;to&amp;nbsp;ignore&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;files(.gitignore&amp;nbsp;syntax,&amp;nbsp;.git\exclude\info&amp;nbsp;file&amp;nbsp;,&amp;nbsp;git&amp;nbsp;update-index&amp;nbsp;).&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Create&amp;nbsp;file&amp;nbsp;'.gitignore'&amp;nbsp;in&amp;nbsp;repo&amp;nbsp;root&amp;nbsp;folder&amp;nbsp;,&amp;nbsp;in&amp;nbsp;this&amp;nbsp;files&amp;nbsp;list&amp;nbsp;all&amp;nbsp;ignored&amp;nbsp;resources&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;'.gitignore'&amp;nbsp;Example&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/logs/*.txt&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;text&amp;nbsp;files&amp;nbsp;in&amp;nbsp;&lt;repo_root&gt;/logs&amp;nbsp;folder&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;logs/*.txt&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;text&amp;nbsp;files&amp;nbsp;in&amp;nbsp;all&amp;nbsp;'logs'&amp;nbsp;folders&amp;nbsp;inside&amp;nbsp;repo&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/logs/&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;all&amp;nbsp;logs&amp;nbsp;folder&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!!!!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!&amp;nbsp;.gitignore&amp;nbsp;-&amp;nbsp;with&amp;nbsp;this&amp;nbsp;file&amp;nbsp;we&amp;nbsp;can&amp;nbsp;ingonre&amp;nbsp;only&amp;nbsp;files&amp;nbsp;which&amp;nbsp;are&amp;nbsp;not&amp;nbsp;already&amp;nbsp;commited&amp;nbsp;!!!!!!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So&amp;nbsp;we&amp;nbsp;cannot&amp;nbsp;get&amp;nbsp;repository&amp;nbsp;from&amp;nbsp;remote&amp;nbsp;,&amp;nbsp;and&amp;nbsp;set&amp;nbsp;files&amp;nbsp;to&amp;nbsp;ignore&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So&amp;nbsp;,&amp;nbsp;if&amp;nbsp;you&amp;nbsp;have&amp;nbsp;repo&amp;nbsp;and&amp;nbsp;global&amp;nbsp;.gitignore&amp;nbsp;file&amp;nbsp;,&amp;nbsp;and&amp;nbsp;you&amp;nbsp;want&amp;nbsp;add&amp;nbsp;some&amp;nbsp;new&amp;nbsp;files&amp;nbsp;to&amp;nbsp;ignore,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;but&amp;nbsp;dont&amp;nbsp;want&amp;nbsp;modify&amp;nbsp;.gitignore&amp;nbsp;&amp;nbsp;you&amp;nbsp;can&amp;nbsp;do&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;modify&amp;nbsp;.git/exclude/info&amp;nbsp;&amp;nbsp;file&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;git&amp;nbsp;ls-files&amp;nbsp;--others&amp;nbsp;--exclude-from=.git/info/exclude&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;Lines&amp;nbsp;that&amp;nbsp;start&amp;nbsp;with&amp;nbsp;'#'&amp;nbsp;are&amp;nbsp;comments.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;For&amp;nbsp;a&amp;nbsp;project&amp;nbsp;mostly&amp;nbsp;in&amp;nbsp;C,&amp;nbsp;the&amp;nbsp;following&amp;nbsp;would&amp;nbsp;be&amp;nbsp;a&amp;nbsp;good&amp;nbsp;set&amp;nbsp;of&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;exclude&amp;nbsp;patterns&amp;nbsp;(uncomment&amp;nbsp;them&amp;nbsp;if&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;use&amp;nbsp;them):&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;*.[oa]&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#&amp;nbsp;*~&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*.temp&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;execute&amp;nbsp;command&amp;nbsp;:&amp;nbsp;git&amp;nbsp;ls-files&amp;nbsp;--others&amp;nbsp;--exclude-from=.git/info/exclude&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;AND&amp;nbsp;NOW&amp;nbsp;EVERY&amp;nbsp;NEW&amp;nbsp;FILE&amp;nbsp;in&amp;nbsp;REPO&amp;nbsp;with&amp;nbsp;'.temp'&amp;nbsp;extension&amp;nbsp;will&amp;nbsp;be&amp;nbsp;ignored&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(!!!!&amp;nbsp;BUT&amp;nbsp;THIS&amp;nbsp;WAY&amp;nbsp;we&amp;nbsp;cant&amp;nbsp;ignore&amp;nbsp;already&amp;nbsp;commited&amp;nbsp;files&amp;nbsp;!!!!!!)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!!!!!!!!!!!!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!!!!!!!!!!!!!!!!!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!!!!!!!!!!!!!!!!!!!!!!!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IF&amp;nbsp;YOU&amp;nbsp;WANT&amp;nbsp;&amp;nbsp;TO&amp;nbsp;IGNORE&amp;nbsp;FILES&amp;nbsp;WHICH&amp;nbsp;WAS&amp;nbsp;ALREADY&amp;nbsp;COMMITED&amp;nbsp;,&amp;nbsp;YOU&amp;nbsp;CAN&amp;nbsp;DO&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Use&amp;nbsp;git-update-index&amp;nbsp;to&amp;nbsp;temporarily&amp;nbsp;ignore&amp;nbsp;changes&amp;nbsp;to&amp;nbsp;files&amp;nbsp;that&amp;nbsp;are&amp;nbsp;already&amp;nbsp;under&amp;nbsp;version&amp;nbsp;control:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;update-index&amp;nbsp;--assume-unchanged&amp;nbsp;&lt;files&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;undo&amp;nbsp;that&amp;nbsp;use:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;update-index&amp;nbsp;--no-assume-unchanged&amp;nbsp;&lt;files&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Also&amp;nbsp;have&amp;nbsp;a&amp;nbsp;look&amp;nbsp;at&amp;nbsp;the&amp;nbsp;skip-worktree&amp;nbsp;and&amp;nbsp;no-skip-worktree&amp;nbsp;options&amp;nbsp;for&amp;nbsp;update-index&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if&amp;nbsp;you&amp;nbsp;need&amp;nbsp;this&amp;nbsp;to&amp;nbsp;persist&amp;nbsp;past&amp;nbsp;a&amp;nbsp;git-reset&lt;br&gt;</questionanswer>
+  </question>
+  <question id="2_1_1_0_1:8" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;do&amp;nbsp;I&amp;nbsp;edit&amp;nbsp;an&amp;nbsp;incorrect&amp;nbsp;commit&amp;nbsp;message&amp;nbsp;in&amp;nbsp;Git?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>git&amp;nbsp;commit&amp;nbsp;--amend&amp;nbsp;-m&amp;nbsp;"new&amp;nbsp;message&amp;nbsp;for&amp;nbsp;last&amp;nbsp;commit"</questionanswer>
+  </question>
+  <question id="2_1_1_0_1:9" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Git&amp;nbsp;how&amp;nbsp;to&amp;nbsp;go&amp;nbsp;back&amp;nbsp;to&amp;nbsp;a&amp;nbsp;specific&amp;nbsp;commit&amp;nbsp;then&amp;nbsp;go&amp;nbsp;back&amp;nbsp;to&amp;nbsp;the&amp;nbsp;present&amp;nbsp;?&amp;nbsp;!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Suppose&amp;nbsp;your&amp;nbsp;current&amp;nbsp;branch&amp;nbsp;is&amp;nbsp;master&amp;nbsp;and&amp;nbsp;the&amp;nbsp;old&amp;nbsp;commit&amp;nbsp;is&amp;nbsp;a1b2c3,&amp;nbsp;then&amp;nbsp;you&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;can&amp;nbsp;change&amp;nbsp;all&amp;nbsp;the&amp;nbsp;files&amp;nbsp;in&amp;nbsp;your&amp;nbsp;working&amp;nbsp;tree&amp;nbsp;back&amp;nbsp;to&amp;nbsp;the&amp;nbsp;old&amp;nbsp;commit&amp;nbsp;with:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;checkout&amp;nbsp;a1b2c3&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;...&amp;nbsp;and&amp;nbsp;return&amp;nbsp;to&amp;nbsp;master&amp;nbsp;with:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;git&amp;nbsp;checkout&amp;nbsp;master&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;This&amp;nbsp;way&amp;nbsp;of&amp;nbsp;hopping&amp;nbsp;about&amp;nbsp;in&amp;nbsp;your&amp;nbsp;git&amp;nbsp;history&amp;nbsp;(i.e.&amp;nbsp;checking&amp;nbsp;out&amp;nbsp;a&amp;nbsp;commit&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;with&amp;nbsp;its&amp;nbsp;object&amp;nbsp;name,&amp;nbsp;also&amp;nbsp;known&amp;nbsp;as&amp;nbsp;its&amp;nbsp;hash&amp;nbsp;or&amp;nbsp;SHA1sum)&amp;nbsp;is&amp;nbsp;very&amp;nbsp;useful&amp;nbsp;for&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;finding&amp;nbsp;a&amp;nbsp;previous&amp;nbsp;good&amp;nbsp;commit&amp;nbsp;for&amp;nbsp;git&amp;nbsp;bisect,&amp;nbsp;for&amp;nbsp;example,&amp;nbsp;since&amp;nbsp;it&amp;nbsp;won't&amp;nbsp;move&amp;nbsp;your&amp;nbsp;branches.</questionanswer>
+  </question>
+</questions>
