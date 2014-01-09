@@ -181,9 +181,6 @@
     </category>
   </class>
   <class id="2" name="Programming Other" nofquestions="26" nofsubcategories="6">
-    <category id="2_0" name="Patterns" nofquestions="0" nofsubcategories="1">
-      <category id="2_0_0" name="Patterns_JAVA_from_Wiki" nofquestions="0" nofsubcategories="0" filename="patterns_java_from_wiki2_0_0.xml" />
-    </category>
     <category id="2_1" name="Version Control" nofquestions="26" nofsubcategories="2">
       <category id="2_1_0" name="Svn" nofquestions="0" nofsubcategories="0" filename="svn2_1_0.xml" />
       <category id="2_1_1" name="Git" nofquestions="26" nofsubcategories="1" filename="git2_1_1.xml">
@@ -213,6 +210,10 @@
     <category id="2_5" name="Cloud_platforms" nofquestions="0" nofsubcategories="2">
       <category id="2_5_0" name="AWS" nofquestions="0" nofsubcategories="0" />
       <category id="2_5_1" name="Heroku" nofquestions="0" nofsubcategories="0" />
+    </category>
+    <category id="2_6" name="OOP_Patterns_OOD" nofquestions="0" nofsubcategories="2">
+      <category id="2_6_0" name="UML" nofquestions="0" nofsubcategories="0" />
+      <category id="2_6_1" name="GOF_patterns_WIKI_in_Java" nofquestions="0" nofsubcategories="0" filename="gof_patterns_wiki_in_java2_6_1.xml" />
     </category>
   </class>
   <class id="3" name="Operating.Systems" nofquestions="0" nofsubcategories="2">
