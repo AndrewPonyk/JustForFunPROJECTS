@@ -225,7 +225,12 @@
       <category id="2_6_1" name="DudzyaniyOOP_and_Stackoverflos_OOP" nofquestions="0" nofsubcategories="0" filename="dudzyaniyoop_and_stackoverflos_oop2_6_1.xml" />
       <category id="2_6_2" name="OReilly_LearningUML2" nofquestions="0" nofsubcategories="0" filename="oreilly_learninguml22_6_2.xml" />
       <category id="2_6_3" name="OReilly_Head_first_OOA_and_OOD" nofquestions="0" nofsubcategories="0" filename="oreilly_head_first_ooa_and_ood2_6_3.xml" />
-      <category id="2_6_4" name="Pluralsight_UML_Introduction" nofquestions="0" nofsubcategories="0" />
+      <category id="2_6_4" name="Pluralsight_UML_Introduction" nofquestions="0" nofsubcategories="4">
+        <category id="2_6_4_0" name="History_Need_and_Tools" nofquestions="0" nofsubcategories="0" filename="history_need_and_tools2_6_4_0.xml" />
+        <category id="2_6_4_1" name="UML_Basics" nofquestions="0" nofsubcategories="0" filename="uml_basics2_6_4_1.xml" />
+        <category id="2_6_4_2" name="Structural_Diagrams" nofquestions="0" nofsubcategories="0" filename="structural_diagrams2_6_4_2.xml" />
+        <category id="2_6_4_3" name="Behavioral_Diagrams" nofquestions="0" nofsubcategories="0" filename="behavioral_diagrams2_6_4_3.xml" />
+      </category>
     </category>
     <category id="2_7" name="Interviews" nofquestions="0" nofsubcategories="0" />
   </class>
