@@ -345,6 +345,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         
         // it is fucking something bad , so temporary solution
         questionText=questionText.replaceAll("alt='image' <br>", "alt='image'");
+        questionAnswer=questionAnswer.replaceAll("alt='image' <br>", "alt='image'");
          
         questionText=questionText.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n").replaceAll(" ", "&nbsp;").replaceAll("\t", "&nbsp;&nbsp;&nbsp;&nbsp;"); // we need &nbsp to FORMAT code for exampe(cause html doesnt understand simple spaces) 
         questionAnswer=questionAnswer.replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("<br>", "<br>\n").replaceAll(" ", "&nbsp;").replaceAll("\t", "&nbsp;&nbsp;&nbsp;&nbsp;");
