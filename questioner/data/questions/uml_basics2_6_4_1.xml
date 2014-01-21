@@ -1,2 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_6_4_1" name="UML_Basics" nofquestions="0" nofsubcategories="0" filename="uml_basics2_6_4_1.xml" />
+<questions id="2_6_4_1" name="UML_Basics" nofquestions="4" nofsubcategories="0" filename="uml_basics2_6_4_1.xml">
+  <question id="2_6_4_1:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Two&amp;nbsp;types&amp;nbsp;of&amp;nbsp;Modeling&amp;nbsp;in&amp;nbsp;UML&amp;nbsp;,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Structural&amp;nbsp;and&amp;nbsp;Behavioral&amp;nbsp;modeling&amp;nbsp;.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1)&amp;nbsp;Structural&amp;nbsp;:&amp;nbsp;Physical&amp;nbsp;things&amp;nbsp;of&amp;nbsp;system,&amp;nbsp;static&amp;nbsp;parts,&amp;nbsp;(nouns)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Diagrams:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Class&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Component&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Package&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Deployment&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2)&amp;nbsp;Behavioral&amp;nbsp;modeling&amp;nbsp;:&amp;nbsp;Functionality(processes,&amp;nbsp;interactions),&amp;nbsp;Dynamic&amp;nbsp;parts,&amp;nbsp;(verbs)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Diagrams:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Use&amp;nbsp;Case&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Sequence&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;State&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Activity</questionanswer>
+  </question>
+  <question id="2_6_4_1:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Building&amp;nbsp;Blocks(&amp;nbsp;things,&amp;nbsp;relationships&amp;nbsp;)&amp;nbsp;in&amp;nbsp;UML,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Things&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Class&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Use&amp;nbsp;Case&amp;nbsp;(functions&amp;nbsp;,&amp;nbsp;that&amp;nbsp;we&amp;nbsp;expect&amp;nbsp;the&amp;nbsp;system&amp;nbsp;to&amp;nbsp;accomplish)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Component&amp;nbsp;(&amp;nbsp;represents&amp;nbsp;a&amp;nbsp;modular&amp;nbsp;part&amp;nbsp;of&amp;nbsp;a&amp;nbsp;system,&amp;nbsp;that&amp;nbsp;encapsulates&amp;nbsp;its&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;content&amp;nbsp;and&amp;nbsp;whose&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;manifestation&amp;nbsp;is&amp;nbsp;replaceable&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;within&amp;nbsp;its&amp;nbsp;environment&amp;nbsp;)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Node&amp;nbsp;(used&amp;nbsp;in&amp;nbsp;deployment&amp;nbsp;diagrams&amp;nbsp;,&amp;nbsp;represented&amp;nbsp;by&amp;nbsp;CUBE)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Messages&amp;nbsp;(simple&amp;nbsp;message&amp;nbsp;,&amp;nbsp;return&amp;nbsp;message,&amp;nbsp;asynchronous&amp;nbsp;message)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;States&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Actions&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='800'&amp;nbsp;height='400'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/Things1.png'/&gt;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='800'&amp;nbsp;height='500'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/Things2.png'/&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Relationships:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Association&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Generalization&amp;nbsp;(Inheritance)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Implementation&amp;nbsp;(implementation&amp;nbsp;of&amp;nbsp;interface)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Dependency&amp;nbsp;(one&amp;nbsp;object&amp;nbsp;is&amp;nbsp;depends&amp;nbsp;on&amp;nbsp;other)&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='800'&amp;nbsp;height='400'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/UmlRelationships.png'/&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!!!!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Different&amp;nbsp;foms&amp;nbsp;of&amp;nbsp;Association&amp;nbsp;(Association,&amp;nbsp;Aggregation,&amp;nbsp;Composition)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Association&amp;nbsp;is&amp;nbsp;a&amp;nbsp;relationship&amp;nbsp;where&amp;nbsp;all&amp;nbsp;object&amp;nbsp;have&amp;nbsp;their&amp;nbsp;own&amp;nbsp;life&amp;nbsp;cycle&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;there&amp;nbsp;is&amp;nbsp;no&amp;nbsp;owner.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Let&amp;#8217;s&amp;nbsp;take&amp;nbsp;an&amp;nbsp;example&amp;nbsp;of&amp;nbsp;Teacher&amp;nbsp;and&amp;nbsp;Student.&amp;nbsp;Multiple&amp;nbsp;students&amp;nbsp;can&amp;nbsp;associate&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;with&amp;nbsp;a&amp;nbsp;single&amp;nbsp;teacher&amp;nbsp;and&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;a&amp;nbsp;single&amp;nbsp;student&amp;nbsp;can&amp;nbsp;associate&amp;nbsp;with&amp;nbsp;multiple&amp;nbsp;teachers&amp;nbsp;but&amp;nbsp;there&amp;nbsp;is&amp;nbsp;no&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ownership&amp;nbsp;between&amp;nbsp;the&amp;nbsp;objects&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;both&amp;nbsp;have&amp;nbsp;their&amp;nbsp;own&amp;nbsp;lifecycle.&amp;nbsp;Both&amp;nbsp;can&amp;nbsp;be&amp;nbsp;created&amp;nbsp;and&amp;nbsp;deleted&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;independently.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Aggregation&amp;nbsp;is&amp;nbsp;a&amp;nbsp;specialized&amp;nbsp;form&amp;nbsp;of&amp;nbsp;Association&amp;nbsp;where&amp;nbsp;all&amp;nbsp;objects&amp;nbsp;have&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;their&amp;nbsp;own&amp;nbsp;lifecycle&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;but&amp;nbsp;there&amp;nbsp;is&amp;nbsp;an&amp;nbsp;ownership:&amp;nbsp;a&amp;nbsp;child&amp;nbsp;object&amp;nbsp;can&amp;nbsp;not&amp;nbsp;belong&amp;nbsp;to&amp;nbsp;another&amp;nbsp;parent&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;object.&amp;nbsp;Let&amp;#8217;s&amp;nbsp;take&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;an&amp;nbsp;example&amp;nbsp;of&amp;nbsp;Department&amp;nbsp;and&amp;nbsp;teacher.&amp;nbsp;A&amp;nbsp;single&amp;nbsp;teacher&amp;nbsp;can&amp;nbsp;not&amp;nbsp;belong&amp;nbsp;to&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;multiple&amp;nbsp;departments,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;but&amp;nbsp;if&amp;nbsp;we&amp;nbsp;delete&amp;nbsp;the&amp;nbsp;department&amp;nbsp;the&amp;nbsp;teacher&amp;nbsp;object&amp;nbsp;will&amp;nbsp;not&amp;nbsp;be&amp;nbsp;destroyed.&amp;nbsp;We&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;can&amp;nbsp;think&amp;nbsp;about&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;it&amp;nbsp;as&amp;nbsp;a&amp;nbsp;&amp;#8220;has-a&amp;#8221;&amp;nbsp;relationship.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Composition&amp;nbsp;is&amp;nbsp;again&amp;nbsp;a&amp;nbsp;specialized&amp;nbsp;form&amp;nbsp;of&amp;nbsp;Aggregation&amp;nbsp;and&amp;nbsp;we&amp;nbsp;can&amp;nbsp;call&amp;nbsp;this&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;as&amp;nbsp;a&amp;nbsp;&amp;#8220;death&amp;#8221;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;relationship.&amp;nbsp;It&amp;nbsp;is&amp;nbsp;a&amp;nbsp;strong&amp;nbsp;type&amp;nbsp;of&amp;nbsp;Aggregation.&amp;nbsp;Child&amp;nbsp;objects&amp;nbsp;does&amp;nbsp;not&amp;nbsp;have&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;their&amp;nbsp;life&amp;nbsp;cycle&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;if&amp;nbsp;the&amp;nbsp;parent&amp;nbsp;object&amp;nbsp;is&amp;nbsp;deleted&amp;nbsp;all&amp;nbsp;child&amp;nbsp;objects&amp;nbsp;will&amp;nbsp;also&amp;nbsp;be&amp;nbsp;deleted.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Let&amp;#8217;s&amp;nbsp;take&amp;nbsp;again&amp;nbsp;an&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;example&amp;nbsp;of&amp;nbsp;relationship&amp;nbsp;between&amp;nbsp;House&amp;nbsp;and&amp;nbsp;rooms.&amp;nbsp;A&amp;nbsp;house&amp;nbsp;can&amp;nbsp;contain&amp;nbsp;multiple&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;rooms&amp;nbsp;and&amp;nbsp;there&amp;nbsp;is&amp;nbsp;no&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;independent&amp;nbsp;life&amp;nbsp;for&amp;nbsp;a&amp;nbsp;room&amp;nbsp;and&amp;nbsp;a&amp;nbsp;room&amp;nbsp;can&amp;nbsp;not&amp;nbsp;belong&amp;nbsp;to&amp;nbsp;two&amp;nbsp;different&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;houses.&amp;nbsp;If&amp;nbsp;we&amp;nbsp;delete&amp;nbsp;the&amp;nbsp;house&amp;nbsp;its&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;rooms&amp;nbsp;will&amp;nbsp;be&amp;nbsp;automatically&amp;nbsp;deleted.&amp;nbsp;Let&amp;#8217;s&amp;nbsp;take&amp;nbsp;another&amp;nbsp;example&amp;nbsp;relationship&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;between&amp;nbsp;Questions&amp;nbsp;and&amp;nbsp;options.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Single&amp;nbsp;questions&amp;nbsp;can&amp;nbsp;have&amp;nbsp;multiple&amp;nbsp;options&amp;nbsp;and&amp;nbsp;an&amp;nbsp;option&amp;nbsp;can&amp;nbsp;not&amp;nbsp;belong&amp;nbsp;to&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;multiple&amp;nbsp;questions.&amp;nbsp;If&amp;nbsp;we&amp;nbsp;delete&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;a&amp;nbsp;question&amp;nbsp;its&amp;nbsp;options&amp;nbsp;will&amp;nbsp;also&amp;nbsp;be&amp;nbsp;deleted.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questionanswer>
+  </question>
+  <question id="2_6_4_1:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UML&amp;nbsp;Common&amp;nbsp;Extensions&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&amp;nbsp;(3&amp;nbsp;types&amp;nbsp;of&amp;nbsp;common&amp;nbsp;extensions)&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Uml&amp;nbsp;2&amp;nbsp;Common&amp;nbsp;extensions&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Annotations/Notes&amp;nbsp;(or&amp;nbsp;Constraints&amp;nbsp;,&amp;nbsp;The&amp;nbsp;constraint&amp;nbsp;string&amp;nbsp;may&amp;nbsp;be&amp;nbsp;placed&amp;nbsp;in&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;a&amp;nbsp;note&amp;nbsp;symbol&amp;nbsp;(same&amp;nbsp;as&amp;nbsp;used&amp;nbsp;for&amp;nbsp;comments)&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;attached&amp;nbsp;to&amp;nbsp;each&amp;nbsp;of&amp;nbsp;the&amp;nbsp;symbols&amp;nbsp;for&amp;nbsp;the&amp;nbsp;constrained&amp;nbsp;elements&amp;nbsp;by&amp;nbsp;a&amp;nbsp;dashed&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;line.)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Stereotypes&amp;nbsp;(A&amp;nbsp;stereotype&amp;nbsp;is&amp;nbsp;one&amp;nbsp;of&amp;nbsp;three&amp;nbsp;types&amp;nbsp;of&amp;nbsp;extensibility&amp;nbsp;mechanisms&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;in&amp;nbsp;the&amp;nbsp;Unified&amp;nbsp;Modeling&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Language&amp;nbsp;(UML),&amp;nbsp;other&amp;nbsp;two&amp;nbsp;being&amp;nbsp;tags&amp;nbsp;and&amp;nbsp;constraints.&amp;nbsp;They&amp;nbsp;allow&amp;nbsp;designers&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;extend&amp;nbsp;the&amp;nbsp;vocabulary&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;of&amp;nbsp;UML&amp;nbsp;in&amp;nbsp;order&amp;nbsp;to&amp;nbsp;create&amp;nbsp;new&amp;nbsp;model&amp;nbsp;elements,&amp;nbsp;derived&amp;nbsp;from&amp;nbsp;existing&amp;nbsp;ones,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;but&amp;nbsp;that&amp;nbsp;have&amp;nbsp;specific&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;properties&amp;nbsp;that&amp;nbsp;are&amp;nbsp;suitable&amp;nbsp;for&amp;nbsp;a&amp;nbsp;particular&amp;nbsp;problem)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Icon&amp;nbsp;Stereotypes&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='550'&amp;nbsp;height='400'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/UML_common_extensions.png'/&gt;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+Example&amp;nbsp;:&amp;nbsp;Constraint(note)&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='750'&amp;nbsp;height='400'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/Uml2Constraint.png'/&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questionanswer>
+  </question>
+</questions>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_6_4_0" name="History_Need_and_Tools" nofquestions="4" nofsubcategories="0" filename="history_need_and_tools2_6_4_0.xml">
+<questions id="2_6_4_0" name="History_Need_and_Tools" nofquestions="6" nofsubcategories="0" filename="history_need_and_tools2_6_4_0.xml">
   <question id="2_6_4_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;UML&amp;nbsp;?&amp;nbsp;History&amp;nbsp;of&amp;nbsp;UML&amp;nbsp;?&amp;nbsp;What&amp;nbsp;are&amp;nbsp;the&amp;nbsp;TWO&amp;nbsp;main&amp;nbsp;types&amp;nbsp;of&amp;nbsp;DIAGRAMS&amp;nbsp;in&amp;nbsp;&lt;br&gt;
@@ -114,5 +114,29 @@ Interaction&amp;nbsp;diagrams&lt;br&gt;
 4.4&amp;nbsp;Timing&amp;nbsp;diagrams:&amp;nbsp;a&amp;nbsp;specific&amp;nbsp;type&amp;nbsp;of&amp;nbsp;interaction&amp;nbsp;diagram&amp;nbsp;where&amp;nbsp;the&amp;nbsp;focus&amp;nbsp;is&amp;nbsp;&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;on&amp;nbsp;timing&amp;nbsp;constraints&lt;br&gt;
 &amp;nbsp;&amp;nbsp;</questionanswer>
+  </question>
+  <question id="2_6_4_0:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Is&amp;nbsp;UML&amp;nbsp;Practical&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>In&amp;nbsp;a&amp;nbsp;sufficiently&amp;nbsp;complex&amp;nbsp;system&amp;nbsp;there&amp;nbsp;are&amp;nbsp;some&amp;nbsp;places&amp;nbsp;where&amp;nbsp;some&amp;nbsp;UML&amp;nbsp;is&amp;nbsp;considered&amp;nbsp;useful.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;useful&amp;nbsp;diagrams&amp;nbsp;for&amp;nbsp;a&amp;nbsp;system,&amp;nbsp;vary&amp;nbsp;by&amp;nbsp;applicability.&amp;nbsp;But&amp;nbsp;the&amp;nbsp;most&amp;nbsp;widely&amp;nbsp;used&amp;nbsp;ones&amp;nbsp;are&amp;nbsp;State&amp;nbsp;Diagrams,&amp;nbsp;&lt;br&gt;
+Activity&amp;nbsp;Diagrams&amp;nbsp;and&amp;nbsp;Sequence&amp;nbsp;Diagram.&lt;br&gt;
+&lt;br&gt;
+There&amp;nbsp;are&amp;nbsp;many&amp;nbsp;enterprises&amp;nbsp;who&amp;nbsp;swear&amp;nbsp;by&amp;nbsp;them&amp;nbsp;and&amp;nbsp;many&amp;nbsp;who&amp;nbsp;outright&amp;nbsp;reject&amp;nbsp;them&amp;nbsp;as&amp;nbsp;&lt;br&gt;
+an&amp;nbsp;utter&amp;nbsp;waste&amp;nbsp;of&amp;nbsp;time&amp;nbsp;and&amp;nbsp;effort.&lt;br&gt;
+&lt;br&gt;
+Its&amp;nbsp;best&amp;nbsp;not&amp;nbsp;to&amp;nbsp;go&amp;nbsp;overboard&amp;nbsp;and&amp;nbsp;think&amp;nbsp;whats&amp;nbsp;best&amp;nbsp;for&amp;nbsp;the&amp;nbsp;project&amp;nbsp;you&amp;nbsp;are&amp;nbsp;on&amp;nbsp;and&amp;nbsp;pick&amp;nbsp;the&amp;nbsp;&lt;br&gt;
+stuff&amp;nbsp;that&amp;nbsp;is&amp;nbsp;applicable&amp;nbsp;and&amp;nbsp;makes&amp;nbsp;sense.&lt;br&gt;</questionanswer>
+  </question>
+  <question id="2_6_4_0:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Is&amp;nbsp;UML&amp;nbsp;a&amp;nbsp;programming&amp;nbsp;language?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Short&amp;nbsp;answer:&amp;nbsp;no.&amp;nbsp;Some&amp;nbsp;UML&amp;nbsp;modeling&amp;nbsp;tools&amp;nbsp;can&amp;nbsp;generate&amp;nbsp;Java,&amp;nbsp;C++,&amp;nbsp;and&amp;nbsp;&lt;br&gt;
+code&amp;nbsp;in&amp;nbsp;other&amp;nbsp;programming&amp;nbsp;languages.&amp;nbsp;However,&amp;nbsp;what&amp;nbsp;it&amp;nbsp;generates&amp;nbsp;are&amp;nbsp;usually&amp;nbsp;interfaces&lt;br&gt;
+and&amp;nbsp;class&amp;nbsp;relationships.&amp;nbsp;These&amp;nbsp;tools&amp;nbsp;generate&amp;nbsp;stubs&amp;nbsp;for&amp;nbsp;which&amp;nbsp;the&amp;nbsp;implementation&amp;nbsp;still&amp;nbsp;&lt;br&gt;
+needs&amp;nbsp;to&amp;nbsp;be&amp;nbsp;provided,&amp;nbsp;so&amp;nbsp;human&amp;nbsp;intervention&amp;nbsp;is&amp;nbsp;necessary.</questionanswer>
   </question>
 </questions>
