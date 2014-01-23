@@ -31,7 +31,20 @@
         <category id="0_1_4_0" name="MondoDB" nofquestions="0" nofsubcategories="0" filename="mondodb0_1_4_0.xml" />
       </category>
     </category>
-    <category id="0_2" name="Javascript" nofquestions="0" nofsubcategories="0" />
+    <category id="0_2" name="Javascript" nofquestions="0" nofsubcategories="2">
+      <category id="0_2_0" name="Javascript Core" nofquestions="0" nofsubcategories="2">
+        <category id="0_2_0_0" name="BasicSyntaxDataTypesETC" nofquestions="0" nofsubcategories="0" filename="basicsyntaxdatatypesetc0_2_0_0.xml" />
+        <category id="0_2_0_1" name="OopInJavascript" nofquestions="0" nofsubcategories="0" filename="oopinjavascript0_2_0_1.xml" />
+      </category>
+      <category id="0_2_1" name="Javascript EE" nofquestions="0" nofsubcategories="3">
+        <category id="0_2_1_0" name="Frameworks" nofquestions="0" nofsubcategories="2">
+          <category id="0_2_1_0_0" name="JQuery" nofquestions="0" nofsubcategories="0" />
+          <category id="0_2_1_0_1" name="MVC_Frameworks" nofquestions="0" nofsubcategories="0" />
+        </category>
+        <category id="0_2_1_1" name="Testing" nofquestions="0" nofsubcategories="0" />
+        <category id="0_2_1_2" name="ServerSideJavascript" nofquestions="0" nofsubcategories="0" />
+      </category>
+    </category>
     <category id="0_3" name="Algorithms(huge)" nofquestions="0" nofsubcategories="1">
       <category id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="0" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml" />
     </category>
