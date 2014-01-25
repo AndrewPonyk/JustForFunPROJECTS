@@ -1,2 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_6_4_2" name="Structural_Diagrams" nofquestions="0" nofsubcategories="0" filename="structural_diagrams2_6_4_2.xml" />
+<questions id="2_6_4_2" name="Structural_Diagrams" nofquestions="4" nofsubcategories="0" filename="structural_diagrams2_6_4_2.xml">
+  <question id="2_6_4_2:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Different&amp;#160;foms&amp;#160;of&amp;#160;Association,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Different foms of Association (Association, Aggregation, Composition)&amp;nbsp;    &lt;br&gt;
+&lt;br&gt;
+- Association is a relationship where all object have their own life cycle &amp;nbsp;    and there is no owner. &amp;nbsp;   &lt;br&gt;
+ Let’s take an example of Teacher and Student. Multiple students can associate &amp;nbsp;    with a single teacher and &amp;nbsp;&lt;br&gt;
+ a single student can associate with multiple teachers but there is no &amp;nbsp;    ownership between the objects&amp;nbsp; &lt;br&gt;
+and both have their own lifecycle. Both can be created and deleted &amp;nbsp;    independently.&amp;nbsp;&amp;nbsp;    &lt;br&gt;
+&lt;br&gt;
+- Aggregation is a specialized form of Association where all objects have &amp;nbsp;    their own lifecycle&amp;nbsp; &lt;br&gt;
+ but there is an ownership: a child object can not belong to another parent &amp;nbsp;    object. Let’s take&amp;nbsp;&lt;br&gt;
+an example of Department and teacher. A single teacher can not belong to &amp;nbsp;&lt;br&gt;
+multiple departments, but if we delete the department the teacher object will not be destroyed.&lt;br&gt;
+ We can think about it as a “has-a” relationship.&amp;nbsp;&amp;nbsp;    &lt;br&gt;
+&lt;br&gt;
+- Composition is again a specialized form of Aggregation and we can call this&amp;nbsp;as a “death”&amp;nbsp;&lt;br&gt;
+ relationship. It is a strong type of Aggregation. Child objects does not have&amp;nbsp;their life cycle&amp;nbsp;&lt;br&gt;
+and if the parent object is deleted all child objects will also be deleted. &lt;br&gt;
+Let&amp;nbsp;s take again an&amp;nbsp;example of relationship between House and rooms. A house can contain multiple &lt;br&gt;
+rooms and there is no&amp;nbsp;independent life for a room and a room can not belong to two different &amp;nbsp;&lt;br&gt;
+houses. If we delete the house its&amp;nbsp;rooms will be automatically deleted. Let’s take another example relationship &lt;br&gt;
+between Questions and options.Single questions can have multiple options and an option can not belong to &lt;br&gt;
+multiple questions. If we delete&amp;nbsp;a question its options will also be deleted.</questionanswer>
+  </question>
+  <question id="2_6_4_2:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Class&amp;nbsp;Diagrams&amp;nbsp;,describe&amp;nbsp;and&amp;nbsp;provide&amp;nbsp;example&amp;nbsp;(example&amp;nbsp;with&amp;nbsp;banking&amp;nbsp;&lt;br&gt;
+accounts:&amp;nbsp;diffrent&amp;nbsp;types&amp;nbsp;of&amp;nbsp;bank&amp;nbsp;accouns&amp;nbsp;,&amp;nbsp;customers&amp;nbsp;with&amp;nbsp;addresses&amp;nbsp;,&amp;nbsp;customer&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;can&amp;nbsp;have&amp;nbsp;many&amp;nbsp;payees)&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Solution&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='850'&amp;nbsp;height='550'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/CLASS_DIAGRAM.png'/&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questionanswer>
+  </question>
+  <question id="2_6_4_2:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Component&amp;nbsp;diagrams&amp;nbsp;in&amp;nbsp;UML&amp;nbsp;2&amp;nbsp;,describe&amp;nbsp;.&amp;nbsp;&lt;br&gt;
+How&amp;nbsp;to&amp;nbsp;components&amp;nbsp;between&amp;nbsp;each&amp;nbsp;other&amp;nbsp;(two&amp;nbsp;types&amp;nbsp;of&amp;nbsp;connection).&lt;br&gt;
+Provide&amp;nbsp;example&amp;nbsp;of&amp;nbsp;Payment&amp;nbsp;System(using&amp;nbsp;component&amp;nbsp;diagram).&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;In&amp;nbsp;the&amp;nbsp;Unified&amp;nbsp;Modeling&amp;nbsp;Language,&amp;nbsp;a&amp;nbsp;component&amp;nbsp;diagram&amp;nbsp;depicts&amp;nbsp;how&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;components&amp;nbsp;are&amp;nbsp;wired&lt;br&gt;
+together&amp;nbsp;to&amp;nbsp;form&amp;nbsp;larger&amp;nbsp;components&amp;nbsp;and&amp;nbsp;or&amp;nbsp;software&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;systems.&amp;nbsp;They&amp;nbsp;are&amp;nbsp;used&amp;nbsp;to&amp;nbsp;illustrate&amp;nbsp;the&lt;br&gt;
+structure&amp;nbsp;of&amp;nbsp;arbitrarily&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;complex&amp;nbsp;systems.&lt;br&gt;
+&lt;br&gt;
+Component&amp;nbsp;Diagram&amp;nbsp;example&amp;nbsp;(payment&amp;nbsp;system):&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='800'&amp;nbsp;height='450'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/ComponentDiagram1.png'/&gt;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+Components&amp;nbsp;and&amp;nbsp;interfaces&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='800'&amp;nbsp;height='450'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/Component2.png'/&gt;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+Two&amp;nbsp;types&amp;nbsp;of&amp;nbsp;connections&amp;nbsp;between&amp;nbsp;component&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='800'&amp;nbsp;height='450'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/ComponentDiagramConnectComponents3.png'/&gt;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='800'&amp;nbsp;height='450'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/ComponentDiagram4.png'/&gt;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questionanswer>
+  </question>
+  <question id="2_6_4_2:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Package&amp;nbsp;diagrams&amp;nbsp;in&amp;nbsp;UML&amp;nbsp;,&amp;nbsp;describe.&amp;nbsp;Provide&amp;nbsp;examples&amp;nbsp;.&amp;nbsp;&lt;br&gt;
+What&amp;nbsp;Package&amp;nbsp;can&amp;nbsp;contain&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Package&amp;nbsp;diagrams&amp;nbsp;-&amp;nbsp;can&amp;nbsp;use&amp;nbsp;packages&amp;nbsp;containing&amp;nbsp;use&amp;nbsp;cases(use&amp;nbsp;case&amp;nbsp;is&amp;nbsp;a&amp;nbsp;list&lt;br&gt;
+of&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;steps,&amp;nbsp;typically&amp;nbsp;defining&amp;nbsp;interactions&amp;nbsp;between&amp;nbsp;a&amp;nbsp;role)&amp;nbsp;to&amp;nbsp;illustrate&lt;br&gt;
+the&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;functionality&amp;nbsp;of&amp;nbsp;a&amp;nbsp;software&amp;nbsp;system.&amp;nbsp;Package&amp;nbsp;diagrams&amp;nbsp;can&amp;nbsp;use&lt;br&gt;
+packages&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;that&amp;nbsp;represent&amp;nbsp;the&amp;nbsp;different&amp;nbsp;layers&amp;nbsp;of&amp;nbsp;a&amp;nbsp;software&amp;nbsp;system&amp;nbsp;to&lt;br&gt;
+illustrate&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;layered&amp;nbsp;architecture&amp;nbsp;of&amp;nbsp;a&amp;nbsp;software&amp;nbsp;system.&amp;nbsp;The&amp;nbsp;dependencies&lt;br&gt;
+between&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;these&amp;nbsp;packages&amp;nbsp;can&amp;nbsp;be&amp;nbsp;adorned&amp;nbsp;with&amp;nbsp;labels&amp;nbsp;/stereotypes&amp;nbsp;to&lt;br&gt;
+indicate&amp;nbsp;the&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;communication&amp;nbsp;mechanism&amp;nbsp;between&amp;nbsp;the&amp;nbsp;layers.&lt;br&gt;
+&lt;br&gt;
+Elements&amp;nbsp;of&amp;nbsp;package&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;diagrams&amp;nbsp;:&lt;br&gt;
+-&amp;nbsp;Package:&amp;nbsp;It&amp;nbsp;is&amp;nbsp;a&amp;nbsp;general&amp;nbsp;purpose&amp;nbsp;mechanism&amp;nbsp;for&amp;nbsp;organizing&amp;nbsp;model&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;elements&amp;nbsp;and&lt;br&gt;
+diagrams&amp;nbsp;into&amp;nbsp;groups.&amp;nbsp;It&amp;nbsp;provides&amp;nbsp;an&amp;nbsp;encapsulated&amp;nbsp;namespace&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;within&lt;br&gt;
+which&amp;nbsp;all&amp;nbsp;the&amp;nbsp;names&amp;nbsp;must&amp;nbsp;be&amp;nbsp;unique.&amp;nbsp;It&amp;nbsp;is&amp;nbsp;used&amp;nbsp;to&amp;nbsp;group&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;semantically&amp;nbsp;related&amp;nbsp;elements.&lt;br&gt;
+It&amp;nbsp;is&amp;nbsp;a&amp;nbsp;namespace&amp;nbsp;as&amp;nbsp;well&amp;nbsp;as&amp;nbsp;an&amp;nbsp;element&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;that&amp;nbsp;can&amp;nbsp;be&amp;nbsp;contained&amp;nbsp;in&amp;nbsp;other&amp;nbsp;package's&amp;nbsp;namespaces.&lt;br&gt;
+-Class:&amp;nbsp;It&amp;nbsp;is&amp;nbsp;a&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;representation&amp;nbsp;of&amp;nbsp;objects,&amp;nbsp;that&amp;nbsp;reflects&amp;nbsp;their&amp;nbsp;structure&amp;nbsp;and&lt;br&gt;
+behavior&amp;nbsp;within&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;system.&amp;nbsp;It&amp;nbsp;is&amp;nbsp;a&amp;nbsp;template&amp;nbsp;from&amp;nbsp;which&amp;nbsp;actually&amp;nbsp;running&lt;br&gt;
+instances&amp;nbsp;are&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;created.&amp;nbsp;Classes&amp;nbsp;usually&amp;nbsp;describe&amp;nbsp;logical&amp;nbsp;structure&amp;nbsp;of&lt;br&gt;
+system.&lt;br&gt;
+-&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Interface:&amp;nbsp;It&amp;nbsp;is&amp;nbsp;a&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;behavior.&amp;nbsp;Implementing&amp;nbsp;classes&amp;nbsp;of&amp;nbsp;an&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;interface&amp;nbsp;class&amp;nbsp;are&lt;br&gt;
+required&amp;nbsp;to&amp;nbsp;support&amp;nbsp;the&amp;nbsp;behavior.&lt;br&gt;
+-&amp;nbsp;Object:&amp;nbsp;It&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;is&amp;nbsp;an&amp;nbsp;instance&amp;nbsp;of&amp;nbsp;class.&amp;nbsp;It&amp;nbsp;is&amp;nbsp;often&amp;nbsp;used&amp;nbsp;in&lt;br&gt;
+analysis&amp;nbsp;to&amp;nbsp;represent&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;numerous&amp;nbsp;artifacts&amp;nbsp;and&amp;nbsp;items&amp;nbsp;that&amp;nbsp;exist.&lt;br&gt;
+-&amp;nbsp;Table:&amp;nbsp;It&amp;nbsp;is&amp;nbsp;a&amp;nbsp;stereotyped&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;class&lt;br&gt;
+&lt;br&gt;
+In&amp;nbsp;addition&amp;nbsp;to&amp;nbsp;the&amp;nbsp;standard&amp;nbsp;UML&amp;nbsp;Dependency&amp;nbsp;relationship,&amp;nbsp;there&amp;nbsp;are&amp;nbsp;two&amp;nbsp;special&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;types&lt;br&gt;
+of&amp;nbsp;dependencies&amp;nbsp;defined&amp;nbsp;between&amp;nbsp;packages:&lt;br&gt;
+-&amp;nbsp;package&amp;nbsp;import&lt;br&gt;
+-&amp;nbsp;package&amp;nbsp;merge&lt;br&gt;
+&lt;br&gt;
+A&amp;nbsp;package&amp;nbsp;import&amp;nbsp;is&amp;nbsp;&amp;quot;a&amp;nbsp;relationship&amp;nbsp;between&amp;nbsp;an&amp;nbsp;importing&amp;nbsp;namespace&amp;nbsp;and&amp;nbsp;a&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;package,&lt;br&gt;
+&amp;nbsp;indicating&amp;nbsp;that&amp;nbsp;the&amp;nbsp;importing&amp;nbsp;namespace&amp;nbsp;adds&amp;nbsp;the&amp;nbsp;names&amp;nbsp;of&amp;nbsp;the&amp;nbsp;members&amp;nbsp;of&amp;nbsp;the&amp;nbsp;&lt;br&gt;
+package&amp;nbsp;to&amp;nbsp;its&amp;nbsp;own&amp;nbsp;namespace.&amp;quot;&amp;nbsp;&lt;br&gt;
+[1]&amp;nbsp;By&amp;nbsp;default,&amp;nbsp;an&amp;nbsp;unlabeled&amp;nbsp;dependency&amp;nbsp;between&amp;nbsp;two&amp;nbsp;packages&amp;nbsp;is&amp;nbsp;interpreted&amp;nbsp;&lt;br&gt;
+as&amp;nbsp;a&amp;nbsp;package&amp;nbsp;import&amp;nbsp;relationship.&amp;nbsp;In&amp;nbsp;this&amp;nbsp;relationship,&amp;nbsp;elements&amp;nbsp;within&amp;nbsp;the&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;target&amp;nbsp;&lt;br&gt;
+package&amp;nbsp;will&amp;nbsp;be&amp;nbsp;imported&amp;nbsp;in&amp;nbsp;source&amp;nbsp;package.&lt;br&gt;
+&lt;br&gt;
+A&amp;nbsp;package&amp;nbsp;merge&amp;nbsp;is&amp;nbsp;&amp;quot;a&amp;nbsp;directed&amp;nbsp;relationship&amp;nbsp;between&amp;nbsp;two&amp;nbsp;packages,&amp;nbsp;that&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;indicates&amp;nbsp;that&amp;nbsp;&lt;br&gt;
+the&amp;nbsp;contents&amp;nbsp;of&amp;nbsp;the&amp;nbsp;two&amp;nbsp;packages&amp;nbsp;are&amp;nbsp;to&amp;nbsp;be&amp;nbsp;combined.&amp;nbsp;It&amp;nbsp;is&amp;nbsp;very&amp;nbsp;similar&amp;nbsp;to&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Generalization&amp;nbsp;&lt;br&gt;
+in&amp;nbsp;the&amp;nbsp;sense&amp;nbsp;that&amp;nbsp;the&amp;nbsp;source&amp;nbsp;element&amp;nbsp;conceptually&amp;nbsp;adds&amp;nbsp;the&amp;nbsp;characteristics&amp;nbsp;of&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;target&lt;br&gt;
+&amp;nbsp;element&amp;nbsp;to&amp;nbsp;its&amp;nbsp;own&amp;nbsp;characteristics&amp;nbsp;resulting&amp;nbsp;in&amp;nbsp;an&amp;nbsp;element&amp;nbsp;that&amp;nbsp;combines&amp;nbsp;the&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;characteristics&amp;nbsp;&lt;br&gt;
+of&amp;nbsp;both&amp;quot;[2]&amp;nbsp;In&amp;nbsp;this&amp;nbsp;relationship,&amp;nbsp;if&amp;nbsp;an&amp;nbsp;element&amp;nbsp;exists&amp;nbsp;within&amp;nbsp;both&amp;nbsp;the&amp;nbsp;source&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;package&amp;nbsp;&lt;br&gt;
+and&amp;nbsp;the&amp;nbsp;target&amp;nbsp;package&amp;nbsp;then&amp;nbsp;the&amp;nbsp;source&amp;nbsp;element's&amp;nbsp;definition&amp;nbsp;will&amp;nbsp;be&amp;nbsp;expanded&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;include&amp;nbsp;&lt;br&gt;
+the&amp;nbsp;target&amp;nbsp;element's&amp;nbsp;definition.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='850'&amp;nbsp;height='550'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/PackageDiagram1.png'/&gt;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='850'&amp;nbsp;height='550'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/PackageDiagram2.png'/&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questionanswer>
+  </question>
+</questions>
