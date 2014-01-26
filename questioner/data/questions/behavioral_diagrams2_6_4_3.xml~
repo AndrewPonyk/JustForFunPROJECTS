@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_6_4_3" name="Behavioral_Diagrams" nofquestions="4" nofsubcategories="0" filename="behavioral_diagrams2_6_4_3.xml">
+<questions id="2_6_4_3" name="Behavioral_Diagrams" nofquestions="3" nofsubcategories="0" filename="behavioral_diagrams2_6_4_3.xml">
   <question id="2_6_4_3:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Behavior&amp;nbsp;diagrams&amp;nbsp;in&amp;nbsp;UML&amp;nbsp;2&amp;nbsp;,&amp;nbsp;describe.&lt;br&gt;
@@ -62,57 +62,64 @@ Example&amp;nbsp;of&amp;nbsp;Use&amp;nbsp;Case&amp;nbsp;diagram&amp;nbsp;from&am
   </question>
   <question id="2_6_4_3:2" type="2">
     <questiontext>&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Sequence&amp;nbsp;diagrams&amp;nbsp;in&amp;nbsp;UML&amp;nbsp;2&amp;nbsp;,&amp;nbsp;describe&amp;nbsp;.&lt;br&gt;
-Which&amp;nbsp;elements&amp;nbsp;can&amp;nbsp;appear&amp;nbsp;on&amp;nbsp;sequence&amp;nbsp;diagrams&amp;nbsp;(classes&amp;nbsp;,&amp;nbsp;messages&amp;nbsp;,&amp;nbsp;life&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;lines...)&amp;nbsp;?&lt;br&gt;
-Provide&amp;nbsp;examles.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Sequence&amp;nbsp;Diagram&amp;nbsp;in&amp;nbsp;Uml&amp;nbsp;,&amp;nbsp;describe.&amp;nbsp;&lt;br&gt;
+What&amp;nbsp;elements&amp;nbsp;can&amp;nbsp;appear&amp;nbsp;on&amp;nbsp;sequence&amp;nbsp;diagram&amp;nbsp;(classes&amp;nbsp;,&amp;nbsp;messages,&amp;nbsp;object&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;lifetime..)&amp;nbsp;?&lt;br&gt;
+Provide&amp;nbsp;examples.&amp;nbsp;&lt;br&gt;
+How&amp;nbsp;to&amp;nbsp;model&amp;nbsp;loops&amp;nbsp;,if&amp;nbsp;else&amp;nbsp;,&amp;nbsp;optional&amp;nbsp;elements&amp;nbsp;in&amp;nbsp;Uml&amp;nbsp;sequence&amp;nbsp;diagrams&amp;nbsp;.&amp;nbsp;&lt;br&gt;
 &amp;nbsp;&amp;nbsp;</questiontext>
     <questionanswer>&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
-A&amp;nbsp;sequence&amp;nbsp;diagram&amp;nbsp;is&amp;nbsp;an&amp;nbsp;interaction&amp;nbsp;diagram&amp;nbsp;that&amp;nbsp;shows&amp;nbsp;how&amp;nbsp;processes&amp;nbsp;operate&lt;br&gt;
-with&amp;nbsp;one&amp;nbsp;another&amp;nbsp;and&amp;nbsp;in&amp;nbsp;what&amp;nbsp;order.&amp;nbsp;It&amp;nbsp;is&amp;nbsp;a&amp;nbsp;construct&amp;nbsp;of&amp;nbsp;a&amp;nbsp;Message&amp;nbsp;Sequence&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;sequence&amp;nbsp;diagram&amp;nbsp;is&amp;nbsp;an&amp;nbsp;interaction&amp;nbsp;diagram&amp;nbsp;that&amp;nbsp;shows&amp;nbsp;how&amp;nbsp;processes&lt;br&gt;
+operate&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;with&amp;nbsp;one&amp;nbsp;another&amp;nbsp;and&amp;nbsp;in&amp;nbsp;what&amp;nbsp;order.&amp;nbsp;It&amp;nbsp;is&amp;nbsp;a&amp;nbsp;construct&amp;nbsp;of&amp;nbsp;a&amp;nbsp;Message&lt;br&gt;
+Sequence&amp;nbsp;&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Chart.&lt;br&gt;
-A&amp;nbsp;sequence&amp;nbsp;diagram&amp;nbsp;shows&amp;nbsp;object&amp;nbsp;interactions&amp;nbsp;arranged&amp;nbsp;in&amp;nbsp;time&amp;nbsp;sequence.&amp;nbsp;It&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;depicts&amp;nbsp;the&amp;nbsp;objects&lt;br&gt;
-and&amp;nbsp;classes&amp;nbsp;involved&amp;nbsp;in&amp;nbsp;the&amp;nbsp;scenario&amp;nbsp;and&amp;nbsp;the&amp;nbsp;sequence&amp;nbsp;of&amp;nbsp;messages&amp;nbsp;exchanged&lt;br&gt;
-between&amp;nbsp;the&amp;nbsp;objects&amp;nbsp;needed&amp;nbsp;to&amp;nbsp;carry&amp;nbsp;out&amp;nbsp;the&amp;nbsp;functionality&amp;nbsp;of&amp;nbsp;the&amp;nbsp;scenario.&lt;br&gt;
-Sequence&amp;nbsp;diagrams&amp;nbsp;are&amp;nbsp;typically&amp;nbsp;associated&amp;nbsp;with&amp;nbsp;use&amp;nbsp;case&amp;nbsp;realizations&amp;nbsp;in&amp;nbsp;the&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Logical&amp;nbsp;View&amp;nbsp;of&lt;br&gt;
-&amp;nbsp;the&amp;nbsp;system&amp;nbsp;under&amp;nbsp;development.&amp;nbsp;Sequence&amp;nbsp;diagrams&amp;nbsp;are&amp;nbsp;sometimes&amp;nbsp;called&amp;nbsp;event&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;diagrams,&lt;br&gt;
-event&amp;nbsp;scenarios&lt;br&gt;
+A&amp;nbsp;sequence&amp;nbsp;diagram&amp;nbsp;shows&amp;nbsp;object&amp;nbsp;interactions&amp;nbsp;arranged&amp;nbsp;in&amp;nbsp;time&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;sequence.&lt;br&gt;
+It&amp;nbsp;depicts&amp;nbsp;the&amp;nbsp;objects&amp;nbsp;and&amp;nbsp;classes&amp;nbsp;involved&amp;nbsp;in&amp;nbsp;the&amp;nbsp;scenario&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;the&amp;nbsp;sequence&lt;br&gt;
+of&amp;nbsp;messages&amp;nbsp;exchanged&amp;nbsp;between&amp;nbsp;the&amp;nbsp;objects&amp;nbsp;needed&amp;nbsp;to&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;carry&amp;nbsp;out&amp;nbsp;the&amp;nbsp;functionality&lt;br&gt;
+of&amp;nbsp;the&amp;nbsp;scenario.&amp;nbsp;Sequence&amp;nbsp;diagrams&amp;nbsp;are&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;typically&amp;nbsp;associated&amp;nbsp;with&amp;nbsp;use&amp;nbsp;case&lt;br&gt;
+realizations&amp;nbsp;in&amp;nbsp;the&lt;br&gt;
+Logical&amp;nbsp;View&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;of&amp;nbsp;the&amp;nbsp;system&amp;nbsp;under&amp;nbsp;development.&amp;nbsp;Sequence&amp;nbsp;diagrams&amp;nbsp;are&amp;nbsp;sometimes&lt;br&gt;
+called&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;event&amp;nbsp;diagrams,&amp;nbsp;event&amp;nbsp;scenarios.&lt;br&gt;
 &lt;br&gt;
-If&amp;nbsp;the&amp;nbsp;lifeline&amp;nbsp;is&amp;nbsp;that&amp;nbsp;of&amp;nbsp;an&amp;nbsp;object,&amp;nbsp;it&amp;nbsp;demonstrates&amp;nbsp;a&amp;nbsp;role.&amp;nbsp;Note&amp;nbsp;that&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;leaving&amp;nbsp;the&amp;nbsp;instance&lt;br&gt;
-name&amp;nbsp;blank&amp;nbsp;can&amp;nbsp;represent&amp;nbsp;anonymous&amp;nbsp;and&amp;nbsp;unnamed&amp;nbsp;instances.&lt;br&gt;
-Messages,&amp;nbsp;written&amp;nbsp;with&amp;nbsp;horizontal&amp;nbsp;arrows&amp;nbsp;with&amp;nbsp;the&amp;nbsp;message&amp;nbsp;name&amp;nbsp;written&amp;nbsp;above&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;them,&lt;br&gt;
-display&amp;nbsp;interaction.&amp;nbsp;Solid&amp;nbsp;arrow&amp;nbsp;heads&amp;nbsp;represent&amp;nbsp;synchronous&amp;nbsp;calls,&amp;nbsp;open&amp;nbsp;arrow&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;heads&amp;nbsp;represent&lt;br&gt;
-asynchronous&amp;nbsp;messages,&amp;nbsp;and&amp;nbsp;dashed&amp;nbsp;lines&amp;nbsp;represent&amp;nbsp;reply&amp;nbsp;messages.&lt;br&gt;
+If&amp;nbsp;the&amp;nbsp;lifeline&amp;nbsp;is&amp;nbsp;that&amp;nbsp;of&amp;nbsp;an&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;object,&amp;nbsp;it&amp;nbsp;demonstrates&amp;nbsp;a&amp;nbsp;role.&amp;nbsp;Note&amp;nbsp;that&lt;br&gt;
+leaving&amp;nbsp;the&amp;nbsp;instance&amp;nbsp;name&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;blank&amp;nbsp;can&amp;nbsp;represent&amp;nbsp;anonymous&amp;nbsp;and&amp;nbsp;unnamed&amp;nbsp;instances.&lt;br&gt;
+Messages,&amp;nbsp;written&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;with&amp;nbsp;horizontal&amp;nbsp;arrows&amp;nbsp;with&amp;nbsp;the&amp;nbsp;message&amp;nbsp;name&amp;nbsp;written&amp;nbsp;above&lt;br&gt;
+them,&amp;nbsp;display&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;interaction.&amp;nbsp;Solid&amp;nbsp;arrow&amp;nbsp;heads&amp;nbsp;represent&amp;nbsp;synchronous&amp;nbsp;calls,&amp;nbsp;open&amp;nbsp;arrow&lt;br&gt;
+heads&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;represent&amp;nbsp;asynchronous&amp;nbsp;messages,&amp;nbsp;and&amp;nbsp;dashed&amp;nbsp;lines&amp;nbsp;represent&amp;nbsp;reply&amp;nbsp;messages.&lt;br&gt;
+If&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;a&amp;nbsp;caller&amp;nbsp;sends&amp;nbsp;a&amp;nbsp;synchronous&amp;nbsp;message,&amp;nbsp;it&amp;nbsp;must&amp;nbsp;wait&amp;nbsp;until&amp;nbsp;the&amp;nbsp;message&amp;nbsp;is&lt;br&gt;
+done,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;such&amp;nbsp;as&amp;nbsp;invoking&amp;nbsp;a&amp;nbsp;subroutine.&amp;nbsp;If&amp;nbsp;a&amp;nbsp;caller&amp;nbsp;sends&amp;nbsp;an&amp;nbsp;asynchronous&amp;nbsp;message,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;it&amp;nbsp;can&lt;br&gt;
+continue&amp;nbsp;processing&amp;nbsp;and&amp;nbsp;doesn&amp;#8217;t&amp;nbsp;have&amp;nbsp;to&amp;nbsp;wait&amp;nbsp;for&amp;nbsp;a&amp;nbsp;response.&lt;br&gt;
 &lt;br&gt;
-When&amp;nbsp;an&amp;nbsp;object&amp;nbsp;is&amp;nbsp;destroyed&amp;nbsp;(removed&amp;nbsp;from&amp;nbsp;memory),&amp;nbsp;an&amp;nbsp;X&amp;nbsp;is&amp;nbsp;drawn&amp;nbsp;on&amp;nbsp;top&amp;nbsp;of&amp;nbsp;the&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;lifeline,&lt;br&gt;
-and&amp;nbsp;the&amp;nbsp;dashed&amp;nbsp;line&amp;nbsp;ceases&amp;nbsp;to&amp;nbsp;be&amp;nbsp;drawn&amp;nbsp;below&amp;nbsp;it&amp;nbsp;(this&amp;nbsp;is&amp;nbsp;not&amp;nbsp;the&amp;nbsp;case&amp;nbsp;in&amp;nbsp;the&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;first&amp;nbsp;example&amp;nbsp;though).&lt;br&gt;
-It&amp;nbsp;should&amp;nbsp;be&amp;nbsp;the&amp;nbsp;result&amp;nbsp;of&amp;nbsp;a&amp;nbsp;message,&amp;nbsp;either&amp;nbsp;from&amp;nbsp;the&amp;nbsp;object&amp;nbsp;itself,&amp;nbsp;or&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;another.&lt;br&gt;
+&lt;img&amp;nbsp;alt="image"&amp;nbsp;width="900"&amp;nbsp;height="480" src='/data/images/SequenceDiagramExample1.png'/&gt;&lt;br&gt;
 &lt;br&gt;
+&lt;img&amp;nbsp;alt="image"&amp;nbsp;width="900"&amp;nbsp;height="480" src='/data/images/SequenceDiagrams2Elements.png'/&gt;&lt;br&gt;
 &lt;br&gt;
-&lt;img&amp;nbsp;width='900'&amp;nbsp;height='500'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/SequenceDiagramExample1.png'/&gt;&amp;nbsp;&lt;br&gt;
+&lt;img&amp;nbsp;alt="image"&amp;nbsp;width="900"&amp;nbsp;height="480" src='/data/images/SequenceDiagrams3Messages.png'/&gt;&lt;br&gt;
 &lt;br&gt;
-&lt;img&amp;nbsp;width='900'&amp;nbsp;height='500'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/SequenceDiagrams2Elements.png'/&gt;&amp;nbsp;&lt;br&gt;
+&lt;img&amp;nbsp;alt="image"&amp;nbsp;width="900"&amp;nbsp;height="480" src='/data/images/SequenceDiagrams4Looping.png'/&gt;&lt;br&gt;
 &lt;br&gt;
-&lt;img&amp;nbsp;width='900'&amp;nbsp;height='500'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/SequenceDiagrams3Messages.png'/&gt;&lt;br&gt;
+&lt;img&amp;nbsp;alt="image"&amp;nbsp;width="900"&amp;nbsp;height="480" src='/data/images/SequenceDiagrams5Optional.png'/&gt;&lt;br&gt;
 &lt;br&gt;
-&lt;img&amp;nbsp;width='900'&amp;nbsp;height='500'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/SequenceDiagrams4Looping.png'/&gt;&lt;br&gt;
+&lt;img&amp;nbsp;alt="image"&amp;nbsp;width="900"&amp;nbsp;height="480" src='/data/images/SequenceDiagrams6Condition.png'/&gt;&lt;br&gt;
 &lt;br&gt;
-&lt;img&amp;nbsp;width='900'&amp;nbsp;height='500'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/SequenceDiagrams5Optional.png'/&gt;&lt;br&gt;
+&lt;img&amp;nbsp;alt="image"&amp;nbsp;width="950"&amp;nbsp;height="700" src='/data/images/sequence-example-dwr-ajax-comments(1).png'/&gt;&lt;br&gt;
 &lt;br&gt;
-&lt;img&amp;nbsp;width='900'&amp;nbsp;height='500'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/SequenceDiagrams6Condition.png'/&gt;&lt;br&gt;
-&lt;br&gt;
-&lt;img&amp;nbsp;width='900'&amp;nbsp;height='600'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/sequence-example-dwr-ajax-comments.png'/&gt;&lt;br&gt;
-&lt;br&gt;
+
 &amp;nbsp;&amp;nbsp;</questionanswer>
   </question>
 </questions>
