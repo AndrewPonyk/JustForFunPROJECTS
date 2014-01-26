@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_6_4_2" name="Structural_Diagrams" nofquestions="7" nofsubcategories="0" filename="structural_diagrams2_6_4_2.xml">
+<questions id="2_6_4_2" name="Structural_Diagrams" nofquestions="5" nofsubcategories="0" filename="structural_diagrams2_6_4_2.xml">
   <question id="2_6_4_2:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Different&amp;#160;foms&amp;#160;of&amp;#160;Association,&amp;nbsp;describe.&lt;br&gt;
@@ -218,113 +218,8 @@ Elements&amp;nbsp;on&amp;nbsp;deployment&amp;nbsp;diagram&amp;nbsp;&lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
 General&amp;nbsp;example&amp;nbsp;of&amp;nbsp;Deployment&amp;nbsp;diagram&amp;nbsp;&lt;br&gt;
-&lt;img&amp;nbsp;width='650'&amp;nbsp;height='330'&amp;nbsp;
+&lt;img&amp;nbsp;width='650'&amp;nbsp;height='330'&amp;nbsp;&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/UMLDeploymentDiagramGoogExample.png'/&gt;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;</questionanswer>
-  </question>
-  <question id="2_6_4_2:5" type="2">
-    <questiontext>&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;Object&amp;nbsp;Diagrams&amp;nbsp;in&amp;nbsp;UML&amp;nbsp;?&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;</questiontext>
-    <questionanswer>&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;An&amp;nbsp;object&amp;nbsp;diagram&amp;nbsp;in&amp;nbsp;the&amp;nbsp;Unified&amp;nbsp;Modeling&amp;nbsp;Language&amp;nbsp;(UML),&amp;nbsp;is&amp;nbsp;a&lt;br&gt;
-diagram&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;that&amp;nbsp;shows&amp;nbsp;a&amp;nbsp;complete&amp;nbsp;or&amp;nbsp;partial&amp;nbsp;view&amp;nbsp;of&amp;nbsp;the&amp;nbsp;structure&amp;nbsp;of&amp;nbsp;a&amp;nbsp;modeled&amp;nbsp;system&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;at&amp;nbsp;a&amp;nbsp;SPECIFIC&amp;nbsp;TIME.&lt;br&gt;
-&lt;br&gt;
-An&amp;nbsp;object&amp;nbsp;diagram&amp;nbsp;is&amp;nbsp;a&amp;nbsp;graph&amp;nbsp;of&amp;nbsp;instances,&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;including&amp;nbsp;objects&amp;nbsp;and&amp;nbsp;data&amp;nbsp;values.&lt;br&gt;
-A&amp;nbsp;static&amp;nbsp;object&amp;nbsp;diagram&amp;nbsp;is&amp;nbsp;an&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;instance&amp;nbsp;of&amp;nbsp;a&amp;nbsp;class&amp;nbsp;diagram;&amp;nbsp;it&amp;nbsp;shows&amp;nbsp;a&amp;nbsp;snapshot&amp;nbsp;of&lt;br&gt;
-the&amp;nbsp;detailed&amp;nbsp;state&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;of&amp;nbsp;a&amp;nbsp;system&amp;nbsp;at&amp;nbsp;a&amp;nbsp;point&amp;nbsp;in&amp;nbsp;time.&amp;nbsp;The&amp;nbsp;use&amp;nbsp;of&amp;nbsp;object&amp;nbsp;diagrams&amp;nbsp;is&amp;nbsp;fairly&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;limited,&lt;br&gt;
-namely&amp;nbsp;to&amp;nbsp;show&amp;nbsp;examples&amp;nbsp;of&amp;nbsp;data&amp;nbsp;structure.&lt;br&gt;
-&lt;br&gt;
-Object&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;diagrams&amp;nbsp;and&amp;nbsp;class&amp;nbsp;diagrams&amp;nbsp;are&amp;nbsp;closely&amp;nbsp;related&lt;br&gt;
-and&amp;nbsp;use&amp;nbsp;almost&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;identical&amp;nbsp;notation.&amp;nbsp;Both&amp;nbsp;diagrams&amp;nbsp;are&amp;nbsp;meant&amp;nbsp;to&amp;nbsp;visualize&amp;nbsp;static&lt;br&gt;
-structure&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;of&amp;nbsp;a&amp;nbsp;system.&amp;nbsp;While&amp;nbsp;class&amp;nbsp;diagrams&amp;nbsp;show&amp;nbsp;classes,&amp;nbsp;object&amp;nbsp;diagrams&amp;nbsp;displays&lt;br&gt;
-instances&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;of&amp;nbsp;classes&amp;nbsp;(objects).&amp;nbsp;Object&amp;nbsp;diagrams&amp;nbsp;are&amp;nbsp;more&amp;nbsp;concrete&amp;nbsp;than&amp;nbsp;class&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;diagrams.&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-Example&amp;nbsp;&lt;br&gt;
-&lt;br&gt;
-&lt;img&amp;nbsp;width='750'&amp;nbsp;height='350'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/exampleOfObjectDiagram.png'/&gt;&lt;br&gt;
-&lt;br&gt;
-&amp;nbsp;&amp;nbsp;</questionanswer>
-  </question>
-  <question id="2_6_4_2:6" type="2">
-    <questiontext>&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;Profile&amp;nbsp;diagrams&amp;nbsp;in&amp;nbsp;Uml&amp;nbsp;2&amp;nbsp;?&lt;br&gt;
-What&amp;nbsp;is&amp;nbsp;Composite&amp;nbsp;Structure&amp;nbsp;diagrams&amp;nbsp;?&lt;br&gt;
-Provide&amp;nbsp;examples.&lt;br&gt;
-&lt;br&gt;
-&amp;nbsp;&amp;nbsp;</questiontext>
-    <questionanswer>&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;profile&amp;nbsp;diagram&amp;nbsp;operates&amp;nbsp;at&amp;nbsp;the&amp;nbsp;metamodel&amp;nbsp;level&amp;nbsp;to&amp;nbsp;show&amp;nbsp;stereotypes&amp;nbsp;as&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;classes&amp;nbsp;with&amp;nbsp;the&amp;nbsp;&amp;nbsp;stereotype,&amp;nbsp;and&amp;nbsp;profiles&amp;nbsp;as&amp;nbsp;packages&amp;nbsp;with&amp;nbsp;the&amp;nbsp;profile&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;stereotype.&lt;br&gt;
-The&amp;nbsp;extension&amp;nbsp;relation&amp;nbsp;(solid&amp;nbsp;line&amp;nbsp;with&amp;nbsp;closed,&amp;nbsp;filled&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;arrowhead)&amp;nbsp;indicates&amp;nbsp;what&amp;nbsp;metamodel&amp;nbsp;element&lt;br&gt;
-a&amp;nbsp;given&amp;nbsp;stereotype&amp;nbsp;is&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;extending.&lt;br&gt;
-&lt;br&gt;
-The&amp;nbsp;profile&amp;nbsp;diagram&amp;nbsp;didn't&amp;nbsp;exist&amp;nbsp;in&amp;nbsp;UML&amp;nbsp;1.&amp;nbsp;It&amp;nbsp;was&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;introduced&amp;nbsp;with&amp;nbsp;UML&amp;nbsp;2&amp;nbsp;to&amp;nbsp;display&amp;nbsp;the&amp;nbsp;usage&amp;nbsp;of&amp;nbsp;profiles.&lt;br&gt;
-&lt;br&gt;
-&lt;img&amp;nbsp;width='500'&amp;nbsp;height='260'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/ProfileDiagram.png'/&gt;&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-Composite&amp;nbsp;structure&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;diagram&amp;nbsp;in&amp;nbsp;the&amp;nbsp;Unified&amp;nbsp;Modeling&amp;nbsp;Language&amp;nbsp;(UML)&amp;nbsp;is&amp;nbsp;a&amp;nbsp;type&amp;nbsp;of&amp;nbsp;static&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;structure&lt;br&gt;
-diagram,&amp;nbsp;that&amp;nbsp;shows&amp;nbsp;the&amp;nbsp;internal&amp;nbsp;structure&amp;nbsp;of&amp;nbsp;a&amp;nbsp;class&amp;nbsp;and&amp;nbsp;the&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;collaborations&amp;nbsp;that&amp;nbsp;this&amp;nbsp;structure&lt;br&gt;
-makes&amp;nbsp;possible.&lt;br&gt;
-This&amp;nbsp;diagram&amp;nbsp;can&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;include&amp;nbsp;internal&amp;nbsp;parts,&amp;nbsp;ports&amp;nbsp;through&amp;nbsp;which&amp;nbsp;the&amp;nbsp;parts&amp;nbsp;interact&amp;nbsp;with&amp;nbsp;each&lt;br&gt;
-other&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;or&amp;nbsp;through&amp;nbsp;which&amp;nbsp;instances&amp;nbsp;of&amp;nbsp;the&amp;nbsp;class&amp;nbsp;interact&amp;nbsp;with&amp;nbsp;the&amp;nbsp;parts&amp;nbsp;and&amp;nbsp;with&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;outside&amp;nbsp;world,&lt;br&gt;
-and&amp;nbsp;connectors&amp;nbsp;between&amp;nbsp;parts&amp;nbsp;or&amp;nbsp;ports.&amp;nbsp;A&amp;nbsp;composite&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;structure&amp;nbsp;is&amp;nbsp;a&amp;nbsp;set&amp;nbsp;of&amp;nbsp;interconnected&amp;nbsp;elements&lt;br&gt;
-that&amp;nbsp;collaborate&amp;nbsp;at&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;runtime&amp;nbsp;to&amp;nbsp;achieve&amp;nbsp;some&amp;nbsp;purpose.&amp;nbsp;Each&amp;nbsp;element&amp;nbsp;has&amp;nbsp;some&amp;nbsp;defined&amp;nbsp;role&amp;nbsp;in&amp;nbsp;the&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;collaboration.&lt;br&gt;
-&lt;br&gt;
--Part&amp;nbsp;:&amp;nbsp;A&amp;nbsp;part&amp;nbsp;represents&amp;nbsp;a&amp;nbsp;role&amp;nbsp;played&amp;nbsp;at&amp;nbsp;runtime&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;by&amp;nbsp;one&amp;nbsp;instance&amp;nbsp;of&amp;nbsp;a&amp;nbsp;classifier&amp;nbsp;or&amp;nbsp;by&amp;nbsp;a&lt;br&gt;
-collection&amp;nbsp;of&amp;nbsp;instances.&amp;nbsp;The&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;part&amp;nbsp;may&amp;nbsp;only&amp;nbsp;name&amp;nbsp;the&amp;nbsp;role,&amp;nbsp;it&amp;nbsp;may&amp;nbsp;name&amp;nbsp;an&amp;nbsp;abstract&amp;nbsp;superclass,&lt;br&gt;
-or&amp;nbsp;it&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;may&amp;nbsp;name&amp;nbsp;a&amp;nbsp;specific&amp;nbsp;concrete&amp;nbsp;class.&lt;br&gt;
--Port&amp;nbsp;:&amp;nbsp;A&amp;nbsp;port&amp;nbsp;is&amp;nbsp;an&amp;nbsp;interaction&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;point&amp;nbsp;that&amp;nbsp;can&amp;nbsp;be&amp;nbsp;used&amp;nbsp;to&amp;nbsp;connect&amp;nbsp;structured&amp;nbsp;classifiers&amp;nbsp;with&amp;nbsp;their&amp;nbsp;parts&lt;br&gt;
-and&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;with&amp;nbsp;the&amp;nbsp;environment.&amp;nbsp;Ports&amp;nbsp;can&amp;nbsp;optionally&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;services&amp;nbsp;they&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;provide&amp;nbsp;and&amp;nbsp;the&amp;nbsp;services&amp;nbsp;they&lt;br&gt;
-require&amp;nbsp;from&amp;nbsp;other&amp;nbsp;parts&amp;nbsp;of&amp;nbsp;the&amp;nbsp;system.&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;In&amp;nbsp;the&amp;nbsp;diagram,&amp;nbsp;each&amp;nbsp;of&amp;nbsp;the&amp;nbsp;small&amp;nbsp;squares&amp;nbsp;is&amp;nbsp;a&amp;nbsp;port.&lt;br&gt;
--Connector&amp;nbsp;:&amp;nbsp;A&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;connector&amp;nbsp;binds&amp;nbsp;two&amp;nbsp;or&amp;nbsp;more&amp;nbsp;entities&amp;nbsp;together,&amp;nbsp;allowing&amp;nbsp;them&amp;nbsp;to&amp;nbsp;interact&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;at&amp;nbsp;runtime.&lt;br&gt;
-The&amp;nbsp;connector&amp;nbsp;is&amp;nbsp;shown&amp;nbsp;as&amp;nbsp;a&amp;nbsp;line&amp;nbsp;between&amp;nbsp;some&amp;nbsp;combination&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;of&amp;nbsp;parts,&amp;nbsp;ports&amp;nbsp;and&amp;nbsp;structured&amp;nbsp;classifiers.&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-As&amp;nbsp;an&amp;nbsp;example,&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;consider&amp;nbsp;one&amp;nbsp;possible&amp;nbsp;way&amp;nbsp;of&amp;nbsp;modeling&amp;nbsp;production&amp;nbsp;of&amp;nbsp;the&amp;nbsp;Fibonacci&amp;nbsp;sequence.&lt;br&gt;
-This&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;UML&amp;nbsp;2.0&amp;nbsp;composite&amp;nbsp;structure&amp;nbsp;diagram&amp;nbsp;specifies&amp;nbsp;that&amp;nbsp;instances&amp;nbsp;of&amp;nbsp;the&amp;nbsp;&lt;br&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;'FibonacciSystem'&lt;br&gt;
-class&amp;nbsp;are&amp;nbsp;composed&amp;nbsp;of&amp;nbsp;a&amp;nbsp;number&amp;nbsp;of&amp;nbsp;parts.&lt;br&gt;
-&lt;br&gt;
-&lt;img&amp;nbsp;width='450'&amp;nbsp;height='165'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/Composite_Structure_Diagram.png'/&gt;&lt;br&gt;
 &amp;nbsp;&amp;nbsp;</questionanswer>
   </question>
 </questions>
