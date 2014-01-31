@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_6_5_0" name="CreationalPatterns" nofquestions="2" nofsubcategories="0" filename="creationalpatterns2_6_5_0.xml">
+<questions id="2_6_5_0" name="CreationalPatterns" nofquestions="4" nofsubcategories="0" filename="creationalpatterns2_6_5_0.xml">
   <question id="2_6_5_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;GOF&amp;nbsp;&amp;nbsp;patterns,&amp;nbsp;&amp;nbsp;you&amp;nbsp;know&amp;nbsp;?&lt;br&gt;
@@ -213,5 +213,72 @@ public&amp;nbsp;class&amp;nbsp;Singleton&amp;nbsp;{&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;SingletonHolder.INSTANCE;&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
 }&lt;br&gt;</questionanswer>
+  </question>
+  <question id="2_6_5_0:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Singleton&amp;#160;pattern,&amp;#160;&lt;br&gt;
+double&amp;#160;checking&amp;#160;VS&amp;#160;Initialization&amp;#160;on&amp;#160;demand&amp;#160;idiom,&amp;#160;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Double&amp;nbsp;checking&amp;nbsp;:&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;SingletonDemo&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;static&amp;nbsp;volatile&amp;nbsp;SingletonDemo&amp;nbsp;instance&amp;nbsp;=&amp;nbsp;null;&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;SingletonDemo()&amp;nbsp;{&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;SingletonDemo&amp;nbsp;getInstance()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if&amp;nbsp;(instance&amp;nbsp;==&amp;nbsp;null)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;synchronized&amp;nbsp;(SingletonDemo&amp;nbsp;.class){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if&amp;nbsp;(instance&amp;nbsp;==&amp;nbsp;null)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;instance&amp;nbsp;=&amp;nbsp;new&amp;nbsp;SingletonDemo&amp;nbsp;();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;instance;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+======&lt;br&gt;
+Initialization&amp;nbsp;on&amp;nbsp;Demand:&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;Singleton&amp;nbsp;{&lt;br&gt;
+private&amp;nbsp;Singleton()&amp;nbsp;{&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+private&amp;nbsp;static&amp;nbsp;class&amp;nbsp;LazyHolder&amp;nbsp;{&lt;br&gt;
+private&amp;nbsp;static&amp;nbsp;final&amp;nbsp;Singleton&amp;nbsp;INSTANCE&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Singleton();&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;static&amp;nbsp;Singleton&amp;nbsp;getInstance()&amp;nbsp;{&lt;br&gt;
+return&amp;nbsp;LazyHolder.INSTANCE;&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+Read&amp;nbsp;more:&amp;nbsp;http://javarevisited.blogspot.com/2012/12/how-to-create-thread-safe-singleton-in-java-example.html#ixzz2rux0dBCF&lt;br&gt;
+&lt;br&gt;
+WIKI:&lt;br&gt;
+University&amp;nbsp;of&amp;nbsp;Maryland&amp;nbsp;Computer&amp;nbsp;Science&amp;nbsp;researcher&amp;nbsp;Bill&amp;nbsp;Pugh&amp;nbsp;has&amp;nbsp;written&amp;nbsp;about&amp;nbsp;the&amp;nbsp;code&lt;br&gt;
+&amp;nbsp;issues&amp;nbsp;underlying&amp;nbsp;the&amp;nbsp;Singleton&amp;nbsp;pattern&amp;nbsp;when&amp;nbsp;implemented&amp;nbsp;in&amp;nbsp;Java.[10]&amp;nbsp;Pugh's&amp;nbsp;efforts&amp;nbsp;on&amp;nbsp;the&lt;br&gt;
+&amp;nbsp;"Double-checked&amp;nbsp;locking"&amp;nbsp;idiom&amp;nbsp;led&amp;nbsp;to&amp;nbsp;changes&amp;nbsp;in&amp;nbsp;the&amp;nbsp;Java&amp;nbsp;memory&amp;nbsp;model&amp;nbsp;in&amp;nbsp;Java&amp;nbsp;5&amp;nbsp;and&amp;nbsp;to&amp;nbsp;what&amp;nbsp;is&lt;br&gt;
+&amp;nbsp;generally&amp;nbsp;regarded&amp;nbsp;as&amp;nbsp;the&amp;nbsp;standard&amp;nbsp;method&amp;nbsp;to&amp;nbsp;implement&amp;nbsp;Singletons&amp;nbsp;in&amp;nbsp;Java.&amp;nbsp;The&amp;nbsp;technique&amp;nbsp;known&amp;nbsp;as&amp;nbsp;the&lt;br&gt;
+&amp;nbsp;initialization&amp;nbsp;on&amp;nbsp;demand&amp;nbsp;holder&amp;nbsp;idiom,&amp;nbsp;is&amp;nbsp;as&amp;nbsp;lazy&amp;nbsp;as&amp;nbsp;possible,&amp;nbsp;and&amp;nbsp;works&amp;nbsp;in&amp;nbsp;all&amp;nbsp;known&amp;nbsp;versions&amp;nbsp;of&amp;nbsp;Java.&lt;br&gt;
+It&amp;nbsp;takes&amp;nbsp;advantage&amp;nbsp;of&amp;nbsp;language&amp;nbsp;guarantees&amp;nbsp;about&amp;nbsp;class&amp;nbsp;initialization,&amp;nbsp;and&amp;nbsp;will&amp;nbsp;therefore&amp;nbsp;work&amp;nbsp;correctly&amp;nbsp;in&lt;br&gt;
+all&amp;nbsp;Java-compliant&amp;nbsp;compilers&amp;nbsp;and&amp;nbsp;virtual&amp;nbsp;machines.&lt;br&gt;
+The&amp;nbsp;nested&amp;nbsp;class&amp;nbsp;is&amp;nbsp;referenced&amp;nbsp;no&amp;nbsp;earlier&amp;nbsp;(and&amp;nbsp;therefore&amp;nbsp;loaded&amp;nbsp;no&amp;nbsp;earlier&amp;nbsp;by&amp;nbsp;the&amp;nbsp;class&amp;nbsp;loader)&amp;nbsp;than&amp;nbsp;the&amp;nbsp;moment&lt;br&gt;
+that&amp;nbsp;getInstance()&amp;nbsp;is&amp;nbsp;called.&amp;nbsp;Thus,&amp;nbsp;this&amp;nbsp;solution&amp;nbsp;is&amp;nbsp;thread-safe&amp;nbsp;without&amp;nbsp;requiring&amp;nbsp;special&amp;nbsp;language&amp;nbsp;constructs&amp;nbsp;&lt;br&gt;
+(i.e.&amp;nbsp;volatile&amp;nbsp;or&amp;nbsp;synchronized).&lt;br&gt;
+&lt;br&gt;
+Initialization&amp;nbsp;on&amp;nbsp;Demand&amp;nbsp;is&amp;nbsp;Thread-Safe:&lt;br&gt;
+The&amp;nbsp;implementation&amp;nbsp;relies&amp;nbsp;on&amp;nbsp;the&amp;nbsp;well-specified&amp;nbsp;initialization&amp;nbsp;phase&amp;nbsp;of&amp;nbsp;execution&amp;nbsp;within&amp;nbsp;the&amp;nbsp;Java&amp;nbsp;Virtual&amp;nbsp;&lt;br&gt;
+Machine&amp;nbsp;(JVM);&amp;nbsp;see&amp;nbsp;section&amp;nbsp;12.4&amp;nbsp;of&amp;nbsp;Java&amp;nbsp;Language&amp;nbsp;Specification&amp;nbsp;(JLS)&amp;nbsp;for&amp;nbsp;details.&lt;br&gt;
+When&amp;nbsp;the&amp;nbsp;class&amp;nbsp;Something&amp;nbsp;is&amp;nbsp;loaded&amp;nbsp;by&amp;nbsp;the&amp;nbsp;JVM,&amp;nbsp;the&amp;nbsp;class&amp;nbsp;goes&amp;nbsp;through&amp;nbsp;initialization.&amp;nbsp;Since&amp;nbsp;the&amp;nbsp;class&amp;nbsp;does&lt;br&gt;
+&amp;nbsp;not&amp;nbsp;have&amp;nbsp;any&amp;nbsp;static&amp;nbsp;variables&amp;nbsp;to&amp;nbsp;initialize,&amp;nbsp;the&amp;nbsp;initialization&amp;nbsp;completes&amp;nbsp;trivially.&amp;nbsp;The&amp;nbsp;static&amp;nbsp;class&amp;nbsp;definition&amp;nbsp;LazyHolder&amp;nbsp;&lt;br&gt;
+within&amp;nbsp;it&amp;nbsp;is&amp;nbsp;not&amp;nbsp;initialized&amp;nbsp;until&amp;nbsp;the&amp;nbsp;JVM&amp;nbsp;determines&amp;nbsp;that&amp;nbsp;LazyHolder&amp;nbsp;must&amp;nbsp;be&amp;nbsp;executed.&lt;br&gt;
+The&amp;nbsp;static&amp;nbsp;class&amp;nbsp;LazyHolder&amp;nbsp;is&amp;nbsp;only&amp;nbsp;executed&amp;nbsp;when&amp;nbsp;the&amp;nbsp;static&amp;nbsp;method&amp;nbsp;getInstance&amp;nbsp;is&amp;nbsp;invoked&amp;nbsp;on&amp;nbsp;the&amp;nbsp;class&amp;nbsp;Something,&lt;br&gt;
+and&amp;nbsp;the&amp;nbsp;first&amp;nbsp;time&amp;nbsp;this&amp;nbsp;happens&amp;nbsp;the&amp;nbsp;JVM&amp;nbsp;will&amp;nbsp;load&amp;nbsp;and&amp;nbsp;initialize&amp;nbsp;the&amp;nbsp;LazyHolder&amp;nbsp;class.&amp;nbsp;The&amp;nbsp;initialization&amp;nbsp;of&amp;nbsp;the&amp;nbsp;LazyHolder&lt;br&gt;
+class&amp;nbsp;results&amp;nbsp;in&amp;nbsp;static&amp;nbsp;variable&amp;nbsp;INSTANCE&amp;nbsp;being&amp;nbsp;initialized&amp;nbsp;by&amp;nbsp;executing&amp;nbsp;the&amp;nbsp;(private)&amp;nbsp;constructor&amp;nbsp;for&amp;nbsp;the&amp;nbsp;outer&amp;nbsp;&lt;br&gt;
+class&amp;nbsp;Something.&amp;nbsp;Since&amp;nbsp;the&amp;nbsp;class&amp;nbsp;initialization&amp;nbsp;phase&amp;nbsp;is&amp;nbsp;guaranteed&amp;nbsp;by&amp;nbsp;the&amp;nbsp;JLS&amp;nbsp;to&amp;nbsp;be&amp;nbsp;serial,&amp;nbsp;i.e.,&amp;nbsp;non-concurrent,&amp;nbsp;&lt;br&gt;
+no&amp;nbsp;further&amp;nbsp;synchronization&amp;nbsp;is&amp;nbsp;required&amp;nbsp;in&amp;nbsp;the&amp;nbsp;static&amp;nbsp;getInstance&amp;nbsp;method&amp;nbsp;during&amp;nbsp;loading&amp;nbsp;and&amp;nbsp;initialization.&amp;nbsp;And&amp;nbsp;since&amp;nbsp;&lt;br&gt;
+the&amp;nbsp;initialization&amp;nbsp;phase&amp;nbsp;writes&amp;nbsp;the&amp;nbsp;static&amp;nbsp;variable&amp;nbsp;INSTANCE&amp;nbsp;in&amp;nbsp;a&amp;nbsp;serial&amp;nbsp;operation,&amp;nbsp;all&amp;nbsp;subsequent&amp;nbsp;concurrent&amp;nbsp;invocations&amp;nbsp;of&amp;nbsp;the&amp;nbsp;getInstance&amp;nbsp;will&amp;nbsp;return&amp;nbsp;the&amp;nbsp;same&amp;nbsp;correctly&amp;nbsp;initialized&amp;nbsp;INSTANCE&amp;nbsp;without&amp;nbsp;incurring&amp;nbsp;any&amp;nbsp;additional&amp;nbsp;synchronization&amp;nbsp;overhead.&lt;br&gt;
+&lt;br&gt;
+Read&amp;nbsp;more:&amp;nbsp;http://javarevisited.blogspot.com/2012/12/how-to-create-thread-safe-singleton-in-java-example.html#ixzz2ruwrxJRo</questionanswer>
   </question>
 </questions>
