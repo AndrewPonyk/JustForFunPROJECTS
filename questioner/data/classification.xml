@@ -202,7 +202,7 @@
       <category id="1_4_1" name="Ruby EE" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="2" name="Programming Other" nofquestions="52" nofsubcategories="7">
+  <class id="2" name="Programming Other" nofquestions="54" nofsubcategories="7">
     <category id="2_1" name="Version Control" nofquestions="26" nofsubcategories="2">
       <category id="2_1_0" name="Svn" nofquestions="0" nofsubcategories="0" filename="svn2_1_0.xml" />
       <category id="2_1_1" name="Git" nofquestions="26" nofsubcategories="1" filename="git2_1_1.xml">
@@ -234,7 +234,7 @@
       <category id="2_5_0" name="AWS" nofquestions="0" nofsubcategories="0" />
       <category id="2_5_1" name="Heroku" nofquestions="0" nofsubcategories="0" />
     </category>
-    <category id="2_6" name="OppPatternsandOOD" nofquestions="26" nofsubcategories="5">
+    <category id="2_6" name="OppPatternsandOOD" nofquestions="28" nofsubcategories="5">
       <category id="2_6_1" name="DudzyaniyOOP_and_Stackoverflos_OOP" nofquestions="0" nofsubcategories="0" filename="dudzyaniyoop_and_stackoverflos_oop2_6_1.xml" />
       <category id="2_6_2" name="OReilly_LearningUML2" nofquestions="0" nofsubcategories="0" filename="oreilly_learninguml22_6_2.xml" />
       <category id="2_6_3" name="OReilly_Head_first_OOA_and_OOD" nofquestions="0" nofsubcategories="0" filename="oreilly_head_first_ooa_and_ood2_6_3.xml" />
@@ -244,10 +244,10 @@
         <category id="2_6_4_2" name="Structural_Diagrams" nofquestions="7" nofsubcategories="0" filename="structural_diagrams2_6_4_2.xml" />
         <category id="2_6_4_3" name="Behavioral_Diagrams" nofquestions="7" nofsubcategories="0" filename="behavioral_diagrams2_6_4_3.xml" />
       </category>
-      <category id="2_6_5" name="GOF_from_WIKI" nofquestions="6" nofsubcategories="3">
-        <category id="2_6_5_0" name="CreationalPatterns" nofquestions="6" nofsubcategories="0" filename="creationalpatterns2_6_5_0.xml" />
+      <category id="2_6_5" name="GOF_from_WIKI" nofquestions="8" nofsubcategories="3">
+        <category id="2_6_5_0" name="CreationalPatterns" nofquestions="8" nofsubcategories="0" filename="creationalpatterns2_6_5_0.xml" />
         <category id="2_6_5_1" name="StructuralPatterns" nofquestions="0" nofsubcategories="0" filename="structuralpatterns2_6_5_1.xml" />
-        <category id="2_6_5_2" name="CreationalPatterns" nofquestions="0" nofsubcategories="0" filename="creationalpatterns2_6_5_2.xml" />
+        <category id="2_6_5_2" name="BehavioralPatterns" nofquestions="0" nofsubcategories="0" filename="behavioralpatterns2_6_5_2.xml" />
       </category>
     </category>
     <category id="2_7" name="Interviews" nofquestions="0" nofsubcategories="0" />
