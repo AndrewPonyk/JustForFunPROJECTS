@@ -77,10 +77,19 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         JTextPane questionContent = new JTextPane();
         JScrollPane scroll = new JScrollPane();
 
+        String questionText = this.questionsList[selectedIndex].getQuestionText();
+        String questionAnswer = this.questionsList[selectedIndex].getQuestionAnswer();
+        
+        
+        // !!! bug , if i copy answer text into some editor it has bad format !!!
+        //questionAnswer = questionAnswer.replaceAll("&#160;", " ");
+        //questionAnswer = questionAnswer.replaceAll("&nbsp;&nbsp;&nbsp;", "\t");
+        //questionAnswer = questionAnswer.replaceAll("&nbsp;", " ");
+        
         questionContent.setContentType("text/html");
-        questionContent.setText( this.questionsList[selectedIndex].getQuestionText() +
+        questionContent.setText( questionText +
                 "<br>-----------------------------<br> Answer : <br> -----<br>"+
-                this.questionsList[selectedIndex].getQuestionAnswer());
+                questionAnswer);
         
         scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scroll.setViewportView(questionContent);
