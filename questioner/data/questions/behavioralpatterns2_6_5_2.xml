@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_6_5_2" name="BehavioralPatterns" nofquestions="5" nofsubcategories="0" filename="behavioralpatterns2_6_5_2.xml">
+<questions id="2_6_5_2" name="BehavioralPatterns" nofquestions="8" nofsubcategories="0" filename="behavioralpatterns2_6_5_2.xml">
   <question id="2_6_5_2:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Which&amp;nbsp;Behavioral&amp;nbsp;patterns&amp;nbsp;you&amp;nbsp;know&amp;nbsp;?&lt;br&gt;
@@ -680,6 +680,87 @@ participant&amp;nbsp;sends&amp;nbsp;a&amp;nbsp;message,&amp;nbsp;the&amp;nbsp;me
 the&amp;nbsp;participant&amp;nbsp;can&amp;nbsp;be&amp;nbsp;a&amp;nbsp;human&amp;nbsp;or&amp;nbsp;a&amp;nbsp;bot,&lt;br&gt;
 each&amp;nbsp;one&amp;nbsp;having&amp;nbsp;a&amp;nbsp;distinct&amp;nbsp;implementation&amp;nbsp;but&amp;nbsp;implementing&amp;nbsp;the&lt;br&gt;
 same&amp;nbsp;interface.&amp;nbsp;Each&amp;nbsp;participant&amp;nbsp;will&amp;nbsp;keep&amp;nbsp;only&amp;nbsp;a&amp;nbsp;reference&amp;nbsp;to&amp;nbsp;the&amp;nbsp;mediator.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questionanswer>
+  </question>
+  <question id="2_6_5_2:5" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Memento&amp;nbsp;pattern&amp;nbsp;,&amp;nbsp;describe.&amp;nbsp;Provide&amp;nbsp;example&amp;nbsp;.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Simple&amp;nbsp;and&amp;nbsp;useful&amp;nbsp;pattern&amp;nbsp;.&lt;br&gt;
+&lt;br&gt;
+Uml&amp;nbsp;Diagram&amp;nbsp;:&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='600'&amp;nbsp;height='110'&amp;nbsp;alt='image'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;src='/data/images/memento-design-pattern-implementation-uml-class-diagram.png'/&gt;&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;memento&amp;nbsp;pattern&amp;nbsp;is&amp;nbsp;a&amp;nbsp;software&amp;nbsp;design&amp;nbsp;pattern&amp;nbsp;that&amp;nbsp;provides&lt;br&gt;
+the&amp;nbsp;ability&amp;nbsp;to&amp;nbsp;restore&amp;nbsp;an&amp;nbsp;object&amp;nbsp;to&amp;nbsp;its&amp;nbsp;previous&amp;nbsp;state&amp;nbsp;(undo&amp;nbsp;via&amp;nbsp;rollback).&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;memento&amp;nbsp;pattern&amp;nbsp;is&amp;nbsp;implemented&amp;nbsp;with&amp;nbsp;three&amp;nbsp;objects:&lt;br&gt;
+the&amp;nbsp;originator,&amp;nbsp;a&amp;nbsp;caretaker&amp;nbsp;and&amp;nbsp;a&amp;nbsp;memento.&lt;br&gt;
+The&amp;nbsp;originator&amp;nbsp;is&amp;nbsp;some&amp;nbsp;object&amp;nbsp;that&amp;nbsp;has&amp;nbsp;an&amp;nbsp;internal&amp;nbsp;state.&amp;nbsp;The&amp;nbsp;caretaker&lt;br&gt;
+is&amp;nbsp;going&amp;nbsp;to&amp;nbsp;do&amp;nbsp;something&amp;nbsp;to&amp;nbsp;the&amp;nbsp;originator,&amp;nbsp;but&amp;nbsp;wants&amp;nbsp;to&amp;nbsp;be&amp;nbsp;able&lt;br&gt;
+to&amp;nbsp;undo&amp;nbsp;the&amp;nbsp;change.&amp;nbsp;The&amp;nbsp;caretaker&amp;nbsp;first&amp;nbsp;asks&amp;nbsp;the&amp;nbsp;originator&amp;nbsp;for&amp;nbsp;a&lt;br&gt;
+memento&amp;nbsp;object.&amp;nbsp;Then&amp;nbsp;it&amp;nbsp;does&amp;nbsp;whatever&amp;nbsp;operation&amp;nbsp;(or&amp;nbsp;sequence&amp;nbsp;of&lt;br&gt;
+operations)&amp;nbsp;it&amp;nbsp;was&amp;nbsp;going&amp;nbsp;to&amp;nbsp;do.&amp;nbsp;To&amp;nbsp;roll&amp;nbsp;back&amp;nbsp;to&amp;nbsp;the&amp;nbsp;state&amp;nbsp;before&amp;nbsp;the&lt;br&gt;
+operations,&amp;nbsp;it&amp;nbsp;returns&amp;nbsp;the&amp;nbsp;memento&amp;nbsp;object&amp;nbsp;to&amp;nbsp;the&amp;nbsp;originator.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Example&amp;nbsp;(simple):&lt;br&gt;
+public&amp;nbsp;&amp;nbsp;class&amp;nbsp;Memento&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;final&amp;nbsp;String&amp;nbsp;state;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Memento(String&amp;nbsp;stateToSave)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;state&amp;nbsp;=&amp;nbsp;stateToSave;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;getSavedState()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;state;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+===&lt;br&gt;
+class&amp;nbsp;TextEditor&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;String&amp;nbsp;state;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;The&amp;nbsp;class&amp;nbsp;could&amp;nbsp;also&amp;nbsp;contain&amp;nbsp;additional&amp;nbsp;data&amp;nbsp;that&amp;nbsp;is&amp;nbsp;not&amp;nbsp;part&amp;nbsp;of&amp;nbsp;the&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;state&amp;nbsp;saved&amp;nbsp;in&amp;nbsp;the&amp;nbsp;memento..&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;set(String&amp;nbsp;state)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(&amp;quot;Originator:&amp;nbsp;Setting&amp;nbsp;state&amp;nbsp;to&amp;nbsp;&amp;quot;&amp;nbsp;+&amp;nbsp;state);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;this.state&amp;nbsp;=&amp;nbsp;state;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Memento&amp;nbsp;saveToMemento()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(&amp;quot;Originator:&amp;nbsp;Saving&amp;nbsp;to&amp;nbsp;Memento.&amp;quot;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;new&amp;nbsp;Memento(state);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;restoreFromMemento(Memento&amp;nbsp;memento)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;state&amp;nbsp;=&amp;nbsp;memento.getSavedState();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(&amp;quot;Originator:&amp;nbsp;State&amp;nbsp;after&amp;nbsp;restoring&amp;nbsp;from&amp;nbsp;Memento:&amp;nbsp;&amp;quot;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;+&amp;nbsp;state);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+}&lt;br&gt;
+===&lt;br&gt;
+import&amp;nbsp;java.util.ArrayList;&lt;br&gt;
+import&amp;nbsp;java.util.List;&lt;br&gt;
+&lt;br&gt;
+class&amp;nbsp;Caretaker&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;Memento&gt;&amp;nbsp;savedStates&amp;nbsp;=&amp;nbsp;new&amp;nbsp;ArrayList&lt;Memento&gt;();&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TextEditor&amp;nbsp;originator&amp;nbsp;=&amp;nbsp;new&amp;nbsp;TextEditor();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;originator.set(&amp;quot;State1&amp;quot;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;originator.set(&amp;quot;State2&amp;quot;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;savedStates.add(originator.saveToMemento());&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;originator.set(&amp;quot;State3&amp;quot;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;We&amp;nbsp;can&amp;nbsp;request&amp;nbsp;multiple&amp;nbsp;mementos,&amp;nbsp;and&amp;nbsp;choose&amp;nbsp;which&amp;nbsp;one&amp;nbsp;to&amp;nbsp;roll&amp;nbsp;back&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;savedStates.add(originator.saveToMemento());&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;originator.set(&amp;quot;State4&amp;quot;);&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;originator.restoreFromMemento(savedStates.get(1));&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
 &amp;nbsp;&amp;nbsp;</questionanswer>
   </question>
 </questions>
