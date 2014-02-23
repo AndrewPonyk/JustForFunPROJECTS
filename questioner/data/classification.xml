@@ -74,19 +74,17 @@
   <class id="1" name="Programming" nofquestions="151" nofsubcategories="5">
     <category id="1_0" name="Java" nofquestions="116" nofsubcategories="4">
       <category id="1_0_0" name="Java CORE" nofquestions="2" nofsubcategories="9">
-        <category id="1_0_0_0" name="BasicSyntax(types,classes,static,access,inner)" nofquestions="0" nofsubcategories="0" filename="basicsyntax(types,classes,static,access,inner)1_0_0_0.xml" />
-        <category id="1_0_0_1" name="Collections" nofquestions="0" nofsubcategories="0" filename="collections1_0_0_1.xml" />
-        <category id="1_0_0_2" name="Generics" nofquestions="0" nofsubcategories="0" filename="generics1_0_0_2.xml" />
-        <category id="1_0_0_3" name="Multithreading" nofquestions="0" nofsubcategories="0" filename="multithreading1_0_0_3.xml" />
-        <category id="1_0_0_4" name="IO_and_Serialization" nofquestions="0" nofsubcategories="0" filename="io_and_serialization1_0_0_4.xml" />
-        <category id="1_0_0_5" name="XML" nofquestions="0" nofsubcategories="0" filename="xml1_0_0_5.xml" />
-        <category id="1_0_0_6" name="Exceptions" nofquestions="2" nofsubcategories="0" filename="exceptions1_0_0_6.xml" />
-        <category id="1_0_0_7" name="Net" nofquestions="0" nofsubcategories="0" filename="net1_0_0_7.xml" />
-        <category id="1_0_0_8" name="RegExp.GC.Reflection" nofquestions="0" nofsubcategories="3">
-          <category id="1_0_0_8_0" name="RegExp" nofquestions="0" nofsubcategories="0" filename="regexp1_0_0_8_0.xml" />
-          <category id="1_0_0_8_1" name="GC" nofquestions="0" nofsubcategories="0" filename="gc1_0_0_8_1.xml" />
-          <category id="1_0_0_8_2" name="Reflection" nofquestions="0" nofsubcategories="0" filename="reflection1_0_0_8_2.xml" />
+        <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="2" nofsubcategories="1">
+          <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="2" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
         </category>
+        <category id="1_0_0_1" name="Collections" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_0_2" name="Generics" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_0_3" name="Multithreading" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_0_4" name="IO_and_Serialization" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_0_5" name="XML" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_0_6" name="Exceptions" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_0_7" name="Net" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_0_8" name="RegexpGCReflection" nofquestions="0" nofsubcategories="0" />
       </category>
       <category id="1_0_1" name="Java EE" nofquestions="114" nofsubcategories="12">
         <category id="1_0_1_0" name="Java EE JNDI" nofquestions="0" nofsubcategories="0" filename="javaeejndi.xml" />
@@ -279,7 +277,7 @@
     <category id="3_0" name="Windows" nofquestions="0" nofsubcategories="0" />
     <category id="3_1" name="Linux" nofquestions="0" nofsubcategories="0" />
   </class>
-  <class id="4" name="Languages" nofquestions="0" nofsubcategories="2">
+  <class id="4" name="Languages" nofquestions="4" nofsubcategories="3">
     <category id="4_0" name="English" nofquestions="0" nofsubcategories="1">
       <category id="4_0_0" name="How English Works BOOK" nofquestions="0" nofsubcategories="0" />
     </category>
@@ -288,6 +286,9 @@
         <category id="4_1_0_0" name="Tom1" nofquestions="0" nofsubcategories="0" />
         <category id="4_1_0_1" name="Tom2" nofquestions="0" nofsubcategories="0" />
       </category>
+    </category>
+    <category id="4_2" name="head" nofquestions="4" nofsubcategories="1" filename="head4_2.xml">
+      <category id="4_2_0" name="body" nofquestions="2" nofsubcategories="0" filename="body4_2_0.xml" />
     </category>
   </class>
 </classification>

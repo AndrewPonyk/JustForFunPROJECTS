@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="2" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml">
+  <question id="1_0_0_0_0:0" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;following&amp;nbsp;code&amp;nbsp;appears&amp;nbsp;in&amp;nbsp;a&amp;nbsp;file&amp;nbsp;named&amp;nbsp;Book.java&amp;nbsp;.&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;of&amp;nbsp;compiling&lt;br&gt;
+this&amp;nbsp;source&amp;nbsp;file?&amp;nbsp;(Select&amp;nbsp;one&amp;nbsp;answer.)&lt;br&gt;
+&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Book&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;private&amp;nbsp;int&amp;nbsp;pageNumber;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;class&amp;nbsp;BookReader&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;int&amp;nbsp;getPage()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;pageNumber;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;The&amp;nbsp;code&amp;nbsp;compiles&amp;nbsp;successfully&amp;nbsp;and&amp;nbsp;one&amp;nbsp;bytecode&amp;nbsp;file&amp;nbsp;is&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;generated:&amp;nbsp;Book.class&amp;nbsp;.&amp;nbsp;$v0end$&lt;br&gt;
+$v1$The&amp;nbsp;code&amp;nbsp;compiles&amp;nbsp;successfully&amp;nbsp;and&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;two&amp;nbsp;bytecode&amp;nbsp;files&amp;nbsp;are&amp;nbsp;generated:&amp;nbsp;Book.class&amp;nbsp;and&lt;br&gt;
+BookReader.class&amp;nbsp;.$v1end$&lt;br&gt;
+$v2$The&amp;nbsp;code&amp;nbsp;compiles&amp;nbsp;successfully&amp;nbsp;and&amp;nbsp;two&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;bytecode&amp;nbsp;files&amp;nbsp;are&amp;nbsp;generated:&amp;nbsp;Book.class&amp;nbsp;and&lt;br&gt;
+Book$BookReader.class&amp;nbsp;.$v2end$&lt;br&gt;
+$v3$A&amp;nbsp;compiler&amp;nbsp;error&amp;nbsp;occurs&amp;nbsp;on&amp;nbsp;line&amp;nbsp;4.$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:1" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Given&amp;nbsp;the&amp;nbsp;following&amp;nbsp;TV&amp;nbsp;class:&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;TV&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;String&amp;nbsp;make;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;String&amp;nbsp;model;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;TV(String&amp;nbsp;make,&amp;nbsp;String&amp;nbsp;model)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;this.make&amp;nbsp;=&amp;nbsp;make;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;this.model&amp;nbsp;=&amp;nbsp;model;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;boolean&amp;nbsp;equals(TV&amp;nbsp;other)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;make.equals(other.make)&amp;nbsp;&amp;amp;&amp;amp;&amp;nbsp;model.equals(other.model);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;int&amp;nbsp;hashCode()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;make.length()&amp;nbsp;*&amp;nbsp;+model.length();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+what&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;statements?&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+TV&amp;nbsp;a&amp;nbsp;=&amp;nbsp;new&amp;nbsp;TV(&amp;#8220;Philips&amp;#8221;,&amp;nbsp;&amp;#8220;42PFL5603D&amp;#8221;);&lt;br&gt;
+TV&amp;nbsp;b&amp;nbsp;=&amp;nbsp;new&amp;nbsp;TV(&amp;#8220;Philips&amp;#8221;,&amp;nbsp;&amp;#8220;42PFL5603D&amp;#8221;);&lt;br&gt;
+if(a.equals(b))&amp;nbsp;{&lt;br&gt;
+System.out.println(&amp;#8220;equal&amp;#8221;);&lt;br&gt;
+}&amp;nbsp;else&amp;nbsp;{&lt;br&gt;
+System.out.println(&amp;#8220;not&amp;nbsp;equal&amp;#8221;);&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;equal&amp;nbsp;$v0end$&lt;br&gt;
+$v1$not&amp;nbsp;equal$v1end$&lt;br&gt;
+$v2$Line&amp;nbsp;10&amp;nbsp;causes&amp;nbsp;a&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;compiler&amp;nbsp;error.$v2end$&lt;br&gt;
+$v3$Line&amp;nbsp;11&amp;nbsp;causes&amp;nbsp;a&amp;nbsp;compiler&amp;nbsp;error.$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+</questions>
