@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="2" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml">
+<questions id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="8" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml">
   <question id="1_0_0_0_0:0" type="0">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;following&amp;nbsp;code&amp;nbsp;appears&amp;nbsp;in&amp;nbsp;a&amp;nbsp;file&amp;nbsp;named&amp;nbsp;Book.java&amp;nbsp;.&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result&amp;nbsp;&lt;br&gt;
@@ -70,5 +70,112 @@ $v3$Line&amp;nbsp;11&amp;nbsp;causes&amp;nbsp;a&amp;nbsp;compiler&amp;nbsp;error
 $vend$&lt;br&gt;
 &amp;nbsp;&amp;nbsp;</questiontext>
     <questionanswer>0</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:2" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;When&amp;nbsp;does&amp;nbsp;the&amp;nbsp;String&amp;nbsp;object&amp;nbsp;&amp;#8220;&amp;nbsp;hi&amp;nbsp;&amp;#8221;&amp;nbsp;instantiated&amp;nbsp;on&amp;nbsp;line&amp;nbsp;2&amp;nbsp;become&amp;nbsp;eligible&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for&amp;nbsp;garbage&lt;br&gt;
+collection?&lt;br&gt;
+1.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Hello&amp;nbsp;{&lt;br&gt;
+2.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;String&amp;nbsp;greeting&amp;nbsp;=&amp;nbsp;&amp;#8220;hi&amp;#8221;;&lt;br&gt;
+3.&lt;br&gt;
+4.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+5.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hello&amp;nbsp;h&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Hello();&lt;br&gt;
+6.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;h.greeting&amp;nbsp;=&amp;nbsp;null;&lt;br&gt;
+7.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.gc();&lt;br&gt;
+8.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return;&lt;br&gt;
+9.&amp;nbsp;}&lt;br&gt;
+10.}&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$Immediately&amp;nbsp;after&amp;nbsp;line&amp;nbsp;5&amp;nbsp;$v0end$&lt;br&gt;
+$v1$Immediately&amp;nbsp;after&amp;nbsp;line&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;6&amp;nbsp;$v1end$&lt;br&gt;
+$v2$Immediately&amp;nbsp;after&amp;nbsp;line&amp;nbsp;7$v2end$&lt;br&gt;
+$v3$Immediately&amp;nbsp;after&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;line&amp;nbsp;8$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:3" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code?&lt;br&gt;
+&lt;br&gt;
+6.&amp;nbsp;byte&amp;nbsp;x&amp;nbsp;=&amp;nbsp;23,&amp;nbsp;y&amp;nbsp;=&amp;nbsp;4;&lt;br&gt;
+7.&amp;nbsp;int&amp;nbsp;z&amp;nbsp;=&amp;nbsp;23&amp;nbsp;%&amp;nbsp;4;&lt;br&gt;
+8.&amp;nbsp;System.out.println(z);&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;4.75&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;3&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;4&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Compiler&amp;nbsp;error&amp;nbsp;on&amp;nbsp;line&amp;nbsp;6&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:4" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;program?&lt;br&gt;
+1.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Vehicle&amp;nbsp;{&lt;br&gt;
+2.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;boolean&amp;nbsp;used;&lt;br&gt;
+3.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;make;&lt;br&gt;
+4.&lt;br&gt;
+5.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+6.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Vehicle&amp;nbsp;v&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Vehicle();&lt;br&gt;
+7.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if(v.used)&amp;nbsp;{&lt;br&gt;
+8.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(v.make);&lt;br&gt;
+9.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;else&amp;nbsp;{&lt;br&gt;
+10.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(v.make.length());&lt;br&gt;
+11.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+12.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+13.&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;null&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;0&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;Line&amp;nbsp;7&amp;nbsp;generates&amp;nbsp;a&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;compiler&amp;nbsp;error.&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;Line&amp;nbsp;10&amp;nbsp;generates&amp;nbsp;a&amp;nbsp;compiler&amp;nbsp;error.&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:5" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;many&amp;nbsp;classes&amp;nbsp;definitions&amp;nbsp;&amp;nbsp;can&amp;nbsp;one&amp;nbsp;.java&amp;nbsp;file&amp;nbsp;contains&amp;nbsp;?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;2&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;As&amp;nbsp;many&amp;nbsp;,&amp;nbsp;as&amp;nbsp;you&amp;nbsp;need&amp;nbsp;$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:6" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;compiler&amp;nbsp;:What&amp;nbsp;does&amp;nbsp;'-d'&amp;nbsp;option&amp;nbsp;mean&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Suppose&amp;nbsp;you&amp;nbsp;want&amp;nbsp;the&amp;nbsp;compiled&amp;nbsp;code&amp;nbsp;to&amp;nbsp;be&amp;nbsp;in&amp;nbsp;the&amp;nbsp;c:\myproject\build&amp;nbsp;directory.&amp;nbsp;You&lt;br&gt;
+can&amp;nbsp;use&amp;nbsp;the&amp;nbsp;-&amp;nbsp;d&amp;nbsp;fl&amp;nbsp;ag&amp;nbsp;of&amp;nbsp;the&amp;nbsp;compiler&amp;nbsp;to&amp;nbsp;achieve&amp;nbsp;this.&amp;nbsp;The&amp;nbsp;-&amp;nbsp;d&amp;nbsp;fl&amp;nbsp;ag&amp;nbsp;has&amp;nbsp;two&amp;nbsp;effects:&lt;br&gt;
+-&amp;nbsp;The&amp;nbsp;compiled&amp;nbsp;code&amp;nbsp;will&amp;nbsp;be&amp;nbsp;output&amp;nbsp;in&amp;nbsp;the&amp;nbsp;directory&amp;nbsp;specified&amp;nbsp;by&amp;nbsp;the&amp;nbsp;-&amp;nbsp;d&amp;nbsp;flag.&lt;br&gt;
+-&amp;nbsp;The&amp;nbsp;appropriate&amp;nbsp;directory&amp;nbsp;structure&amp;nbsp;that&amp;nbsp;matches&amp;nbsp;the&amp;nbsp;package&amp;nbsp;names&amp;nbsp;of&amp;nbsp;the&amp;nbsp;classes&amp;nbsp;is&lt;br&gt;
+created&amp;nbsp;automatically&amp;nbsp;in&amp;nbsp;the&amp;nbsp;output&amp;nbsp;directory.&lt;br&gt;
+&lt;br&gt;
+Consider&amp;nbsp;the&amp;nbsp;following&amp;nbsp;compiler&amp;nbsp;command,&amp;nbsp;executed&amp;nbsp;from&amp;nbsp;the&amp;nbsp;c:\myproject\src&lt;br&gt;
+directory:&lt;br&gt;
+&lt;br&gt;
+javac&amp;nbsp;-d&amp;nbsp;c:\myproject\build&amp;nbsp;.\com\sybex\payroll\Employee.java&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;-&amp;nbsp;d&amp;nbsp;flag&amp;nbsp;specifies&amp;nbsp;the&amp;nbsp;output&amp;nbsp;directory&amp;nbsp;as&amp;nbsp;c:\myproject\build&amp;nbsp;.&amp;nbsp;Assuming&amp;nbsp;the&amp;nbsp;class&lt;br&gt;
+compiles&amp;nbsp;successfully,&amp;nbsp;the&amp;nbsp;compiler&amp;nbsp;creates&amp;nbsp;the&amp;nbsp;fi&amp;nbsp;le&amp;nbsp;Employee.class&amp;nbsp;in&amp;nbsp;the&amp;nbsp;following&lt;br&gt;
+directory:&lt;br&gt;
+&lt;br&gt;
+c:\myproject\build\com\sybex\payroll\Employee.class</questionanswer>
   </question>
 </questions>
