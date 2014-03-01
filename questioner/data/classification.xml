@@ -71,11 +71,11 @@
       <category id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="0" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="156" nofsubcategories="5">
-    <category id="1_0" name="Java" nofquestions="121" nofsubcategories="4">
-      <category id="1_0_0" name="Java CORE" nofquestions="7" nofsubcategories="9">
-        <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="7" nofsubcategories="1">
-          <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="7" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
+  <class id="1" name="Programming" nofquestions="161" nofsubcategories="5">
+    <category id="1_0" name="Java" nofquestions="126" nofsubcategories="4">
+      <category id="1_0_0" name="Java CORE" nofquestions="12" nofsubcategories="9">
+        <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="12" nofsubcategories="1">
+          <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="12" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
         </category>
         <category id="1_0_0_1" name="Collections" nofquestions="0" nofsubcategories="0" />
         <category id="1_0_0_2" name="Generics" nofquestions="0" nofsubcategories="0" />
