@@ -71,11 +71,11 @@
       <category id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="0" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="166" nofsubcategories="5">
-    <category id="1_0" name="Java" nofquestions="131" nofsubcategories="4">
-      <category id="1_0_0" name="Java CORE" nofquestions="17" nofsubcategories="9">
-        <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="17" nofsubcategories="1">
-          <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="17" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
+  <class id="1" name="Programming" nofquestions="186" nofsubcategories="5">
+    <category id="1_0" name="Java" nofquestions="151" nofsubcategories="4">
+      <category id="1_0_0" name="Java CORE" nofquestions="37" nofsubcategories="9">
+        <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="37" nofsubcategories="1">
+          <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="37" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
         </category>
         <category id="1_0_0_1" name="Collections" nofquestions="0" nofsubcategories="0" />
         <category id="1_0_0_2" name="Generics" nofquestions="0" nofsubcategories="0" />
@@ -277,7 +277,7 @@
     <category id="3_0" name="Windows" nofquestions="0" nofsubcategories="0" />
     <category id="3_1" name="Linux" nofquestions="0" nofsubcategories="0" />
   </class>
-  <class id="4" name="Languages" nofquestions="4" nofsubcategories="3">
+  <class id="4" name="Languages" nofquestions="2" nofsubcategories="3">
     <category id="4_0" name="English" nofquestions="0" nofsubcategories="1">
       <category id="4_0_0" name="How English Works BOOK" nofquestions="0" nofsubcategories="0" />
     </category>
@@ -287,8 +287,8 @@
         <category id="4_1_0_1" name="Tom2" nofquestions="0" nofsubcategories="0" />
       </category>
     </category>
-    <category id="4_2" name="head" nofquestions="4" nofsubcategories="1" filename="head4_2.xml">
-      <category id="4_2_0" name="body" nofquestions="2" nofsubcategories="0" filename="body4_2_0.xml" />
+    <category id="4_2" name="head" nofquestions="2" nofsubcategories="1" filename="head4_2.xml">
+      <category id="4_2_0" name="body" nofquestions="0" nofsubcategories="0" filename="body4_2_0.xml" />
     </category>
   </class>
 </classification>

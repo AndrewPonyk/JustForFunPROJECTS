@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="18" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml">
+<questions id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="38" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml">
   <question id="1_0_0_0_0:0" type="0">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;following&amp;nbsp;code&amp;nbsp;appears&amp;nbsp;in&amp;nbsp;a&amp;nbsp;file&amp;nbsp;named&amp;nbsp;Book.java&amp;nbsp;.&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result&amp;nbsp;&lt;br&gt;
@@ -1153,7 +1153,7 @@ In&amp;nbsp;the&amp;nbsp;Java&amp;nbsp;programming&amp;nbsp;language,&amp;nbsp;e
 a&amp;nbsp;hashCode()&amp;nbsp;method,&amp;nbsp;which&amp;nbsp;digests&amp;nbsp;the&amp;nbsp;data&amp;nbsp;stored&lt;br&gt;
 in&amp;nbsp;an&amp;nbsp;instance&amp;nbsp;of&amp;nbsp;the&amp;nbsp;class&amp;nbsp;into&amp;nbsp;a&amp;nbsp;single&amp;nbsp;hash&amp;nbsp;value&lt;br&gt;
 (a&amp;nbsp;32-bit&amp;nbsp;signed&amp;nbsp;integer).&amp;nbsp;This&amp;nbsp;hash&amp;nbsp;is&amp;nbsp;used&amp;nbsp;by&amp;nbsp;other&amp;nbsp;code&amp;nbsp;when&amp;nbsp;&lt;br&gt;
-storing&amp;nbsp;or&amp;nbsp;manipulating&amp;nbsp;the&amp;nbsp;instance&amp;nbsp;–&amp;nbsp;the&amp;nbsp;values&amp;nbsp;are&amp;nbsp;intended&amp;nbsp;to&amp;nbsp;&lt;br&gt;
+storing&amp;nbsp;or&amp;nbsp;manipulating&amp;nbsp;the&amp;nbsp;instance&amp;nbsp;?&amp;nbsp;the&amp;nbsp;values&amp;nbsp;are&amp;nbsp;intended&amp;nbsp;to&amp;nbsp;&lt;br&gt;
 be&amp;nbsp;evenly&amp;nbsp;distributed&amp;nbsp;for&amp;nbsp;varied&amp;nbsp;inputs&amp;nbsp;in&amp;nbsp;order&amp;nbsp;to&amp;nbsp;use&amp;nbsp;in&amp;nbsp;clustering.&lt;br&gt;
 This&amp;nbsp;property&amp;nbsp;is&amp;nbsp;important&amp;nbsp;to&amp;nbsp;the&amp;nbsp;performance&amp;nbsp;of&amp;nbsp;hash&amp;nbsp;tables&amp;nbsp;and&lt;br&gt;
 other&amp;nbsp;data&amp;nbsp;structures&amp;nbsp;that&amp;nbsp;store&amp;nbsp;objects&amp;nbsp;in&amp;nbsp;groups&amp;nbsp;("buckets")&amp;nbsp;___&lt;br&gt;
@@ -1179,11 +1179,541 @@ be&amp;nbsp;non&amp;nbsp;null.&amp;nbsp;The&amp;nbsp;rule&amp;nbsp;for&amp;nbsp;
 P.S&lt;br&gt;
 If&amp;nbsp;you&amp;nbsp;are&amp;nbsp;using&amp;nbsp;HotSpot&amp;nbsp;you&amp;nbsp;can&amp;nbsp;select&amp;nbsp;Object.hashCode&amp;nbsp;algorithm&amp;nbsp;&lt;br&gt;
 with&amp;nbsp;option&amp;nbsp;:&amp;nbsp;&amp;nbsp;-XX:hashCode=n&lt;br&gt;
-&amp;nbsp;0&amp;nbsp;–&amp;nbsp;Park-Miller&amp;nbsp;RNG&amp;nbsp;(default)&lt;br&gt;
-&amp;nbsp;&amp;nbsp;1&amp;nbsp;–&amp;nbsp;f(address)&lt;br&gt;
-&amp;nbsp;&amp;nbsp;2&amp;nbsp;–&amp;nbsp;Constant&amp;nbsp;'1'&lt;br&gt;
-&amp;nbsp;&amp;nbsp;3&amp;nbsp;–&amp;nbsp;counter&lt;br&gt;
-&amp;nbsp;&amp;nbsp;4&amp;nbsp;–&amp;nbsp;object&amp;nbsp;address&lt;br&gt;
-&amp;nbsp;&amp;nbsp;5&amp;nbsp;–&amp;nbsp;Thread-local&amp;nbsp;Xorshift&lt;br&gt;</questionanswer>
+&amp;nbsp;0&amp;nbsp;?&amp;nbsp;Park-Miller&amp;nbsp;RNG&amp;nbsp;(default)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;1&amp;nbsp;?&amp;nbsp;f(address)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;2&amp;nbsp;?&amp;nbsp;Constant&amp;nbsp;'1'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;3&amp;nbsp;?&amp;nbsp;counter&lt;br&gt;
+&amp;nbsp;&amp;nbsp;4&amp;nbsp;?&amp;nbsp;object&amp;nbsp;address&lt;br&gt;
+&amp;nbsp;&amp;nbsp;5&amp;nbsp;?&amp;nbsp;Thread-local&amp;nbsp;Xorshift&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:17" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;following&amp;nbsp;code&amp;nbsp;appears&amp;nbsp;in&amp;nbsp;a&amp;nbsp;file&amp;nbsp;named&amp;nbsp;Plant.java&amp;nbsp;.&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;result&amp;nbsp;of&amp;nbsp;compiling&amp;nbsp;&lt;br&gt;
+this&amp;nbsp;source&amp;nbsp;file?&amp;nbsp;(Select&amp;nbsp;one&amp;nbsp;answer.)&amp;nbsp;&lt;br&gt;
+1.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Plant&amp;nbsp;{&lt;br&gt;
+2.&amp;nbsp;&amp;nbsp;public&amp;nbsp;boolean&amp;nbsp;flowering;&lt;br&gt;
+3.&amp;nbsp;&amp;nbsp;public&amp;nbsp;Leaf&amp;nbsp;[]&amp;nbsp;leaves;&lt;br&gt;
+4.&amp;nbsp;}&lt;br&gt;
+5.&lt;br&gt;
+6.&amp;nbsp;class&amp;nbsp;Leaf&amp;nbsp;{&lt;br&gt;
+7.&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;color;&lt;br&gt;
+8.&amp;nbsp;&amp;nbsp;public&amp;nbsp;int&amp;nbsp;length;&lt;br&gt;
+9.&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&amp;nbsp;The&amp;nbsp;code&amp;nbsp;compiles&amp;nbsp;successfully&amp;nbsp;and&amp;nbsp;two&amp;nbsp;bytecode&amp;nbsp;files&amp;nbsp;are&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;generated:&amp;nbsp;Plant.class&amp;nbsp;and&amp;nbsp;&lt;br&gt;
+Leaf.class&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&amp;nbsp;The&amp;nbsp;code&amp;nbsp;compiles&amp;nbsp;successfully&amp;nbsp;and&amp;nbsp;one&amp;nbsp;bytecode&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;file&amp;nbsp;is&amp;nbsp;generated:&amp;nbsp;Plant.class.&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&amp;nbsp;A&amp;nbsp;compiler&amp;nbsp;error&amp;nbsp;occurs&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;on&amp;nbsp;line&amp;nbsp;3.&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&amp;nbsp;A&amp;nbsp;compiler&amp;nbsp;error&amp;nbsp;occurs&amp;nbsp;on&amp;nbsp;line&amp;nbsp;6.&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>0&lt;br&gt;
+&lt;br&gt;
+Two&amp;nbsp;.class&amp;nbsp;files&amp;nbsp;are&amp;nbsp;generated&amp;nbsp;in&amp;nbsp;this&amp;nbsp;case.&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:18" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Suppose&amp;nbsp;a&amp;nbsp;class&amp;nbsp;named&amp;nbsp;com.mycompany.Main&amp;nbsp;is&amp;nbsp;a&lt;br&gt;
+Java&amp;nbsp;application,&amp;nbsp;and&amp;nbsp;Main.classis&amp;nbsp;in&amp;nbsp;the&amp;nbsp;following&amp;nbsp;directory:&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+\projects\build\com\mycompany&lt;br&gt;
+&lt;br&gt;
+Which&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;commands&amp;nbsp;successfully&amp;nbsp;executes&amp;nbsp;Main&amp;nbsp;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;java&amp;nbsp;-&amp;nbsp;classpath=\projects\build&amp;nbsp;com.mycompany.Main&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&amp;nbsp;java&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;classpath&amp;nbsp;\projects\build\com\mycompany&amp;nbsp;Main&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&amp;nbsp;java&amp;nbsp;-&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;classpath&amp;nbsp;\projects\build&amp;nbsp;com.mycompany.Main&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&amp;nbsp;java&amp;nbsp;-&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;classpath&amp;nbsp;\projects\build\com&amp;nbsp;mycompany.Main&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2&lt;br&gt;
+&lt;br&gt;
+Also&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&amp;nbsp;short&amp;nbsp;'-cp'&amp;nbsp;intead&amp;nbsp;of&amp;nbsp;'-classpath'&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;java&amp;nbsp;-&amp;nbsp;cp&amp;nbsp;\projects\build&amp;nbsp;com.mycompany.Main</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:19" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;class&amp;nbsp;named&amp;nbsp;Testis&amp;nbsp;in&amp;nbsp;the&amp;nbsp;a.b.c&amp;nbsp;package,&amp;nbsp;defined&lt;br&gt;
+in&amp;nbsp;a&amp;nbsp;file&amp;nbsp;named&amp;nbsp;Test.javaand&amp;nbsp;saved&amp;nbsp;in&amp;nbsp;the&amp;nbsp;following&amp;nbsp;directory:&lt;br&gt;
+&lt;br&gt;
+c:\abcproject\src\Test.java&lt;br&gt;
+&lt;br&gt;
+Assuming&amp;nbsp;the&amp;nbsp;code&amp;nbsp;in&amp;nbsp;Test.java&amp;nbsp;uses&amp;nbsp;only&amp;nbsp;classes&amp;nbsp;from&lt;br&gt;
+java.lang&amp;nbsp;and&amp;nbsp;contains&amp;nbsp;no&amp;nbsp;com-piler&amp;nbsp;errors,&amp;nbsp;what&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result&lt;br&gt;
+of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;command&amp;nbsp;line?&lt;br&gt;
+&lt;br&gt;
+c:\abcproject\src&amp;nbsp;&gt;&amp;nbsp;javac&amp;nbsp;-d&amp;nbsp;c:\abcproject\deploy&amp;nbsp;Test.java&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;NoClassDefFoundError&amp;nbsp;occurs.&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&amp;nbsp;Test.class&amp;nbsp;is&amp;nbsp;generated&amp;nbsp;in&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;c:\abcproject\deploy&amp;nbsp;directory.&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&amp;nbsp;Test.class&amp;nbsp;is&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;generated&amp;nbsp;in&amp;nbsp;the&amp;nbsp;c:\abcproject\deploy\abc&amp;nbsp;directory&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Test.class&amp;nbsp;is&amp;nbsp;generated&amp;nbsp;in&amp;nbsp;the&amp;nbsp;c:\abcproject\deploy\a\b\c&amp;nbsp;directory&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:20" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result&amp;nbsp;of&amp;nbsp;compiling&amp;nbsp;the&amp;nbsp;following&amp;nbsp;class?&lt;br&gt;
+&lt;br&gt;
+1.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Book&amp;nbsp;{&lt;br&gt;
+2.&amp;nbsp;private&amp;nbsp;int&amp;nbsp;ISBN;&lt;br&gt;
+3.&amp;nbsp;private&amp;nbsp;String&amp;nbsp;title,&amp;nbsp;author;&lt;br&gt;
+4.&amp;nbsp;private&amp;nbsp;int&amp;nbsp;pageCount;&lt;br&gt;
+5.&lt;br&gt;
+6.&amp;nbsp;public&amp;nbsp;int&amp;nbsp;hashCode()&amp;nbsp;{&lt;br&gt;
+7.&amp;nbsp;return&amp;nbsp;ISBN;&lt;br&gt;
+8.&amp;nbsp;}&lt;br&gt;
+9.&lt;br&gt;
+10.&amp;nbsp;public&amp;nbsp;boolean&amp;nbsp;equals(Object&amp;nbsp;obj)&amp;nbsp;{&lt;br&gt;
+11.&amp;nbsp;if(!(obj&amp;nbsp;instanceof&amp;nbsp;Book))&amp;nbsp;{&lt;br&gt;
+12.&amp;nbsp;return&amp;nbsp;false;&lt;br&gt;
+13.&amp;nbsp;}&lt;br&gt;
+14.&amp;nbsp;Book&amp;nbsp;other&amp;nbsp;=&amp;nbsp;(Book)&amp;nbsp;obj;&lt;br&gt;
+15.&amp;nbsp;return&amp;nbsp;this.ISBN&amp;nbsp;==&amp;nbsp;other.ISBN;&lt;br&gt;
+16.&amp;nbsp;}&lt;br&gt;
+17.&amp;nbsp;}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&amp;nbsp;The&amp;nbsp;class&amp;nbsp;compiles&amp;nbsp;successfully.&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&amp;nbsp;Line&amp;nbsp;6&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;causes&amp;nbsp;a&amp;nbsp;compiler&amp;nbsp;error&amp;nbsp;because&amp;nbsp;hashCode&amp;nbsp;does&amp;nbsp;not&amp;nbsp;return&amp;nbsp;a&amp;nbsp;unique&amp;nbsp;value.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&amp;nbsp;Line&amp;nbsp;10&amp;nbsp;causes&amp;nbsp;a&amp;nbsp;compiler&amp;nbsp;error&amp;nbsp;because&amp;nbsp;the&amp;nbsp;equals&amp;nbsp;method&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;does&amp;nbsp;not&amp;nbsp;override&amp;nbsp;the&amp;nbsp;par-ent&amp;nbsp;method&amp;nbsp;correctly&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;Line&amp;nbsp;15&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;does&amp;nbsp;not&amp;nbsp;compile&amp;nbsp;because&amp;nbsp;other.ISBNis&amp;nbsp;a&amp;nbsp;private&amp;nbsp;field.&amp;nbsp;&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:21" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;outcome&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;statements?&lt;br&gt;
+&lt;br&gt;
+6.&amp;nbsp;String&amp;nbsp;s1&amp;nbsp;=&amp;nbsp;&amp;#8220;Canada&amp;#8221;;&lt;br&gt;
+7.&amp;nbsp;String&amp;nbsp;s2&amp;nbsp;=&amp;nbsp;new&amp;nbsp;String(s1);&lt;br&gt;
+8.&amp;nbsp;if(s1&amp;nbsp;==&amp;nbsp;s2)&amp;nbsp;{&lt;br&gt;
+9.&amp;nbsp;System.out.println(&amp;#8220;s1&amp;nbsp;==&amp;nbsp;s2&amp;#8221;);&lt;br&gt;
+10.&amp;nbsp;}&lt;br&gt;
+11.&amp;nbsp;if(s1.equals(s2))&amp;nbsp;{&lt;br&gt;
+12.&amp;nbsp;System.out.println(&amp;#8220;s1.equals(s2)&amp;#8221;);&lt;br&gt;
+13.&amp;nbsp;}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&amp;nbsp;There&amp;nbsp;is&amp;nbsp;no&amp;nbsp;output.&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&amp;nbsp;s1&amp;nbsp;==&amp;nbsp;s2&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;s1.equals(s2)&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&amp;nbsp;Both&amp;nbsp;B&amp;nbsp;and&amp;nbsp;C&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:22" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Suppose&amp;nbsp;we&amp;nbsp;have&amp;nbsp;the&amp;nbsp;following&amp;nbsp;class&amp;nbsp;named&amp;nbsp;GC:&lt;br&gt;
+1.&amp;nbsp;import&amp;nbsp;java.util.Date;&lt;br&gt;
+2.&lt;br&gt;
+3.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;GC&amp;nbsp;{&lt;br&gt;
+4.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+5.&amp;nbsp;Date&amp;nbsp;one&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Date();&lt;br&gt;
+6.&amp;nbsp;Date&amp;nbsp;two&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Date();&lt;br&gt;
+7.&amp;nbsp;Date&amp;nbsp;three&amp;nbsp;=&amp;nbsp;one;&lt;br&gt;
+8.&amp;nbsp;one&amp;nbsp;=&amp;nbsp;null;&lt;br&gt;
+9.&amp;nbsp;Date&amp;nbsp;four&amp;nbsp;=&amp;nbsp;one;&lt;br&gt;
+10.&amp;nbsp;three&amp;nbsp;=&amp;nbsp;null;&lt;br&gt;
+11.&amp;nbsp;two&amp;nbsp;=&amp;nbsp;null;&lt;br&gt;
+12.&amp;nbsp;two&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Date();&lt;br&gt;
+13.&amp;nbsp;}&lt;br&gt;
+14.&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+Which&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;statements&amp;nbsp;are&amp;nbsp;true?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;The&amp;nbsp;Date&amp;nbsp;object&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from&amp;nbsp;line&amp;nbsp;5&amp;nbsp;is&amp;nbsp;eligible&amp;nbsp;for&amp;nbsp;garbage&amp;nbsp;collection&amp;nbsp;immediately&amp;nbsp;following&amp;nbsp;&lt;br&gt;
+line&amp;nbsp;8&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;The&amp;nbsp;Date&amp;nbsp;object&amp;nbsp;from&amp;nbsp;line&amp;nbsp;5&amp;nbsp;is&amp;nbsp;eligible&amp;nbsp;for&amp;nbsp;garbage&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;collection&amp;nbsp;immediately&amp;nbsp;following&amp;nbsp;&lt;br&gt;
+line&amp;nbsp;10.&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;The&amp;nbsp;Date&amp;nbsp;object&amp;nbsp;from&amp;nbsp;line&amp;nbsp;5&amp;nbsp;is&amp;nbsp;eligible&amp;nbsp;for&amp;nbsp;garbage&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;collection&amp;nbsp;immediately&amp;nbsp;following&amp;nbsp;&lt;br&gt;
+line&amp;nbsp;13.&amp;nbsp;$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:23" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;output&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code?&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+1.&amp;nbsp;private&amp;nbsp;class&amp;nbsp;Squares&amp;nbsp;{&lt;br&gt;
+2.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;long&amp;nbsp;square(int&amp;nbsp;x)&amp;nbsp;{&lt;br&gt;
+3.&amp;nbsp;long&amp;nbsp;y&amp;nbsp;=&amp;nbsp;x&amp;nbsp;*&amp;nbsp;(long)&amp;nbsp;x;&lt;br&gt;
+4.&amp;nbsp;x&amp;nbsp;=&amp;nbsp;-1;&lt;br&gt;
+5.&amp;nbsp;return&amp;nbsp;y;&lt;br&gt;
+6.&amp;nbsp;}&lt;br&gt;
+7.&lt;br&gt;
+8.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+9.&amp;nbsp;int&amp;nbsp;value&amp;nbsp;=&amp;nbsp;9;&lt;br&gt;
+10.&amp;nbsp;long&amp;nbsp;result&amp;nbsp;=&amp;nbsp;square(value);&lt;br&gt;
+11.&amp;nbsp;System.out.println(value);&lt;br&gt;
+12.&amp;nbsp;}&lt;br&gt;
+13.&amp;nbsp;}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;This&amp;nbsp;code&amp;nbsp;does&amp;nbsp;not&amp;nbsp;compile.&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;9&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-1&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;81&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>0&lt;br&gt;
+Because&amp;nbsp;top&amp;nbsp;level&amp;nbsp;class&amp;nbsp;cant&amp;nbsp;be&amp;nbsp;private</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:24" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;output&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code?&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+1.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;TestDrive&amp;nbsp;{&lt;br&gt;
+2.&lt;br&gt;
+3.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;go(Car&amp;nbsp;c)&amp;nbsp;{&lt;br&gt;
+4.&amp;nbsp;c.velocity&amp;nbsp;+=&amp;nbsp;10;&lt;br&gt;
+5.&amp;nbsp;}&lt;br&gt;
+6.&lt;br&gt;
+7.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+8.&amp;nbsp;Car&amp;nbsp;porsche&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Car();&lt;br&gt;
+9.&amp;nbsp;go(porsche);&lt;br&gt;
+10.&lt;br&gt;
+11.&amp;nbsp;Car&amp;nbsp;stolen&amp;nbsp;=&amp;nbsp;porsche;&lt;br&gt;
+12.&amp;nbsp;go(stolen);&lt;br&gt;
+13.&lt;br&gt;
+14.&amp;nbsp;System.out.println(porsche.velocity);&lt;br&gt;
+15.&amp;nbsp;}&lt;br&gt;
+16.&amp;nbsp;}&lt;br&gt;
+17.&lt;br&gt;
+18.&amp;nbsp;class&amp;nbsp;Car&amp;nbsp;{&lt;br&gt;
+19.&amp;nbsp;public&amp;nbsp;int&amp;nbsp;velocity&amp;nbsp;=&amp;nbsp;10;&lt;br&gt;
+20.&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;0&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;10&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;20&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;30&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:25" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;output&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code?&amp;nbsp;&lt;br&gt;
+1.&amp;nbsp;import&amp;nbsp;java.util.*;&lt;br&gt;
+2.&lt;br&gt;
+3.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;DateSwap&amp;nbsp;{&lt;br&gt;
+4.&lt;br&gt;
+5.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;swap(GregorianCalendar&amp;nbsp;a,&amp;nbsp;GregorianCalendar&amp;nbsp;b)&amp;nbsp;&lt;br&gt;
+6.&amp;nbsp;{&amp;nbsp;&lt;br&gt;
+7.&amp;nbsp;GregorianCalendar&amp;nbsp;temp&amp;nbsp;=&amp;nbsp;a;&lt;br&gt;
+8.&amp;nbsp;a&amp;nbsp;=&amp;nbsp;new&amp;nbsp;GregorianCalendar(2012,&amp;nbsp;1,&amp;nbsp;1);&lt;br&gt;
+9.&amp;nbsp;b&amp;nbsp;=&amp;nbsp;temp;&lt;br&gt;
+10.&amp;nbsp;}&lt;br&gt;
+11.&lt;br&gt;
+12.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+13.&amp;nbsp;GregorianCalendar&amp;nbsp;one&amp;nbsp;=&amp;nbsp;new&amp;nbsp;GregorianCalendar(2010,&amp;nbsp;1,&amp;nbsp;1);&lt;br&gt;
+14.&amp;nbsp;GregorianCalendar&amp;nbsp;two&amp;nbsp;=&amp;nbsp;new&amp;nbsp;GregorianCalendar(2011,&amp;nbsp;1,&amp;nbsp;1);&lt;br&gt;
+15.&lt;br&gt;
+16.&amp;nbsp;swap(one,&amp;nbsp;two);&lt;br&gt;
+17.&lt;br&gt;
+18.&amp;nbsp;System.out.print(one.get(Calendar.YEAR));&lt;br&gt;
+19.&amp;nbsp;System.out.println(two.get(Calendar.YEAR));&lt;br&gt;
+20.&amp;nbsp;}&lt;br&gt;
+21.&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&amp;nbsp;20112010&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&amp;nbsp;20102011&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&amp;nbsp;20122011&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&amp;nbsp;20122010&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:26" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;When&amp;nbsp;does&amp;nbsp;the&amp;nbsp;String&amp;nbsp;object&amp;nbsp;instantiated&amp;nbsp;on&amp;nbsp;line&amp;nbsp;4&amp;nbsp;become&amp;nbsp;eligible&amp;nbsp;for&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;garbage&amp;nbsp;collection?&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+1.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;ReturnDemo&amp;nbsp;{&lt;br&gt;
+2.&lt;br&gt;
+3.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;String&amp;nbsp;getName()&amp;nbsp;{&lt;br&gt;
+4.&amp;nbsp;String&amp;nbsp;temp&amp;nbsp;=&amp;nbsp;new&amp;nbsp;String(&amp;#8220;Jane&amp;nbsp;Doe&amp;#8221;);&lt;br&gt;
+5.&amp;nbsp;return&amp;nbsp;temp;&lt;br&gt;
+6.&amp;nbsp;}&lt;br&gt;
+7.&lt;br&gt;
+8.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+9.&amp;nbsp;String&amp;nbsp;result;&lt;br&gt;
+10.&amp;nbsp;result&amp;nbsp;=&amp;nbsp;getName();&lt;br&gt;
+11.&amp;nbsp;System.out.println(result);&lt;br&gt;
+12.&amp;nbsp;result&amp;nbsp;=&amp;nbsp;null;&lt;br&gt;
+13.&amp;nbsp;System.gc();&lt;br&gt;
+14.&amp;nbsp;}&lt;br&gt;
+15.&amp;nbsp;}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&amp;nbsp;Immediately&amp;nbsp;after&amp;nbsp;line&amp;nbsp;4&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&amp;nbsp;Immediately&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;after&amp;nbsp;line&amp;nbsp;5&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&amp;nbsp;Immediately&amp;nbsp;after&amp;nbsp;line&amp;nbsp;10&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Immediately&amp;nbsp;after&amp;nbsp;line&amp;nbsp;12&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:27" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;output&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code?&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+4.&amp;nbsp;byte&amp;nbsp;a&amp;nbsp;=&amp;nbsp;40,&amp;nbsp;b&amp;nbsp;=&amp;nbsp;50;&lt;br&gt;
+5.&amp;nbsp;byte&amp;nbsp;sum&amp;nbsp;=&amp;nbsp;(byte)&amp;nbsp;a&amp;nbsp;+&amp;nbsp;b;&lt;br&gt;
+6.&amp;nbsp;System.out.println(sum);&amp;nbsp;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&amp;nbsp;Line&amp;nbsp;5&amp;nbsp;generates&amp;nbsp;a&amp;nbsp;compiler&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;error.&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;40&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;50&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;90&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:28" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;output&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code?&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+5.&amp;nbsp;int&amp;nbsp;x&amp;nbsp;=&amp;nbsp;5&amp;nbsp;*&amp;nbsp;4&amp;nbsp;%&amp;nbsp;3;&lt;br&gt;
+6.&amp;nbsp;System.out.println(x);&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;2&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;3&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;5&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;6&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:29" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;output&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code?&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+3.&amp;nbsp;byte&amp;nbsp;y&amp;nbsp;=&amp;nbsp;14&amp;nbsp;&amp;amp;&amp;nbsp;9;&lt;br&gt;
+4.&amp;nbsp;System.out.println(y);&amp;nbsp;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;15&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;9&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;8&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;4&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:30" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;output&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code?&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+1.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;FinalTest&amp;nbsp;{&lt;br&gt;
+2.&lt;br&gt;
+3.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+4.&amp;nbsp;House&amp;nbsp;h&amp;nbsp;=&amp;nbsp;new&amp;nbsp;House();&lt;br&gt;
+5.&amp;nbsp;h.address&amp;nbsp;=&amp;nbsp;&amp;#8220;123&amp;nbsp;Main&amp;nbsp;Street&amp;#8221;;&lt;br&gt;
+6.&amp;nbsp;h&amp;nbsp;=&amp;nbsp;null;&lt;br&gt;
+7.&amp;nbsp;System.gc();&lt;br&gt;
+8.&amp;nbsp;}&lt;br&gt;
+9.&amp;nbsp;}&lt;br&gt;
+10.&amp;nbsp;&lt;br&gt;
+11.&amp;nbsp;class&amp;nbsp;House&amp;nbsp;{&lt;br&gt;
+12.&amp;nbsp;public&amp;nbsp;String&amp;nbsp;address;&lt;br&gt;
+13.&lt;br&gt;
+14.&amp;nbsp;public&amp;nbsp;void&amp;nbsp;finalize()&amp;nbsp;{&lt;br&gt;
+15.&amp;nbsp;System.out.println(&amp;#8220;Inside&amp;nbsp;House&amp;#8221;);&lt;br&gt;
+16.&amp;nbsp;address&amp;nbsp;=&amp;nbsp;null;&lt;br&gt;
+17.&amp;nbsp;}&lt;br&gt;
+18.&amp;nbsp;}&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&amp;nbsp;There&amp;nbsp;is&amp;nbsp;no&amp;nbsp;output.&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&amp;nbsp;The&amp;nbsp;output&amp;nbsp;cannot&amp;nbsp;be&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;determined.&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&amp;nbsp;The&amp;nbsp;code&amp;nbsp;generates&amp;nbsp;a&amp;nbsp;compiler&amp;nbsp;error&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1&lt;br&gt;
+&lt;br&gt;
+In&amp;nbsp;most&amp;nbsp;cases&amp;nbsp;there&amp;nbsp;is&amp;nbsp;no&amp;nbsp;output&amp;nbsp;on&amp;nbsp;my&amp;nbsp;Netbook&amp;nbsp;,&amp;nbsp;because&amp;nbsp;'main'&amp;nbsp;method&amp;nbsp;ends,&lt;br&gt;
+and&amp;nbsp;only&amp;nbsp;then&amp;nbsp;Garbage&amp;nbsp;collection&amp;nbsp;is&amp;nbsp;performed&amp;nbsp;.&amp;nbsp;But&amp;nbsp;sometimes&amp;nbsp;finalize&amp;nbsp;mehtod&amp;nbsp;is&amp;nbsp;&lt;br&gt;
+executed.</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:31" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Given&amp;nbsp;the&amp;nbsp;following&amp;nbsp;class&amp;nbsp;named&amp;nbsp;House&amp;nbsp;,&amp;nbsp;which&amp;nbsp;of&lt;br&gt;
+the&amp;nbsp;following&amp;nbsp;statements&amp;nbsp;is&amp;nbsp;true?&lt;br&gt;
+&lt;br&gt;
+1.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;House&amp;nbsp;{&lt;br&gt;
+2.&amp;nbsp;public&amp;nbsp;String&amp;nbsp;address&amp;nbsp;=&amp;nbsp;new&amp;nbsp;String();&lt;br&gt;
+3.&lt;br&gt;
+4.&amp;nbsp;public&amp;nbsp;void&amp;nbsp;finalize()&amp;nbsp;{&lt;br&gt;
+5.&amp;nbsp;System.out.println(&amp;#8220;Inside&amp;nbsp;House&amp;#8221;);&lt;br&gt;
+6.&amp;nbsp;address&amp;nbsp;=&amp;nbsp;null;&lt;br&gt;
+7.&amp;nbsp;}&lt;br&gt;
+8.&amp;nbsp;}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&amp;nbsp;&amp;#8220;&amp;nbsp;Inside&amp;nbsp;House&amp;nbsp;&amp;#8221;&amp;nbsp;&amp;nbsp;is&amp;nbsp;displayed&amp;nbsp;twice&amp;nbsp;just&amp;nbsp;before&amp;nbsp;a&amp;nbsp;House&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;object&amp;nbsp;is&amp;nbsp;garbage&amp;nbsp;collected.&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;The&amp;nbsp;finalize&amp;nbsp;method&amp;nbsp;on&amp;nbsp;line&amp;nbsp;4&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;never&amp;nbsp;actually&amp;nbsp;gets&amp;nbsp;called&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&amp;nbsp;There&amp;nbsp;is&amp;nbsp;no&amp;nbsp;need&amp;nbsp;to&amp;nbsp;assign&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;address&amp;nbsp;to&amp;nbsp;nullon&amp;nbsp;line&amp;nbsp;6.&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:32" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Which&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;statements&amp;nbsp;is&amp;nbsp;true&amp;nbsp;about&amp;nbsp;the&amp;nbsp;following&amp;nbsp;BaseballTeam&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;class?&amp;nbsp;&lt;br&gt;
+1.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;BaseballTeam&amp;nbsp;{&lt;br&gt;
+2.&amp;nbsp;private&amp;nbsp;String&amp;nbsp;city,&amp;nbsp;mascot;&lt;br&gt;
+3.&amp;nbsp;private&amp;nbsp;int&amp;nbsp;numberOfPlayers;&lt;br&gt;
+4.&lt;br&gt;
+5.&amp;nbsp;public&amp;nbsp;boolean&amp;nbsp;equals(Object&amp;nbsp;obj)&amp;nbsp;{&lt;br&gt;
+6.&amp;nbsp;if(!(obj&amp;nbsp;instanceof&amp;nbsp;BaseballTeam))&amp;nbsp;{&lt;br&gt;
+7.&amp;nbsp;return&amp;nbsp;false;&lt;br&gt;
+8.&amp;nbsp;}&lt;br&gt;
+9.&amp;nbsp;BaseballTeam&amp;nbsp;other&amp;nbsp;=&amp;nbsp;(BaseballTeam)&amp;nbsp;obj;&lt;br&gt;
+10.&amp;nbsp;return&amp;nbsp;(city.equals(other.city)&amp;nbsp;&lt;br&gt;
+11.&amp;nbsp;&amp;amp;&amp;nbsp;&amp;amp;&amp;nbsp;mascot.equals(other.mascot));&lt;br&gt;
+12.&amp;nbsp;}&lt;br&gt;
+13.&lt;br&gt;
+14.&amp;nbsp;public&amp;nbsp;int&amp;nbsp;hashCode()&amp;nbsp;{&lt;br&gt;
+15.&amp;nbsp;return&amp;nbsp;numberOfPlayers;&lt;br&gt;
+16.&amp;nbsp;}&lt;br&gt;
+17.&amp;nbsp;}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;The&amp;nbsp;class&amp;nbsp;does&amp;nbsp;not&amp;nbsp;compile.&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;The&amp;nbsp;class&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;compiles&amp;nbsp;but&amp;nbsp;contains&amp;nbsp;an&amp;nbsp;improper&amp;nbsp;equals&amp;nbsp;method.&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&amp;nbsp;The&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;class&amp;nbsp;compiles&amp;nbsp;but&amp;nbsp;contains&amp;nbsp;an&amp;nbsp;improper&amp;nbsp;hashCode&amp;nbsp;method.&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:33" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;output&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code?&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+3.&amp;nbsp;int&amp;nbsp;x&amp;nbsp;=&amp;nbsp;0;&lt;br&gt;
+4.&amp;nbsp;String&amp;nbsp;s&amp;nbsp;=&amp;nbsp;null;&lt;br&gt;
+5.&amp;nbsp;if(x&amp;nbsp;==&amp;nbsp;s)&amp;nbsp;{&lt;br&gt;
+6.&amp;nbsp;System.out.println(&amp;#8220;Success&amp;#8221;);&lt;br&gt;
+7.&amp;nbsp;}&amp;nbsp;else&amp;nbsp;{&lt;br&gt;
+8.&amp;nbsp;System.out.println(&amp;#8220;Failure&amp;#8221;);&lt;br&gt;
+9.&amp;nbsp;}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&amp;nbsp;Success&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;Failure&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&amp;nbsp;Line&amp;nbsp;4&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;generates&amp;nbsp;a&amp;nbsp;compiler&amp;nbsp;error.&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&amp;nbsp;Line&amp;nbsp;5&amp;nbsp;generates&amp;nbsp;a&amp;nbsp;compiler&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;error.&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:34" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;output&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code?&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+3.&amp;nbsp;int&amp;nbsp;x1&amp;nbsp;=&amp;nbsp;50,&amp;nbsp;x2&amp;nbsp;=&amp;nbsp;75;&lt;br&gt;
+4.&amp;nbsp;boolean&amp;nbsp;b&amp;nbsp;=&amp;nbsp;x1&amp;nbsp;&gt;&amp;nbsp;=&amp;nbsp;x2;&lt;br&gt;
+5.&amp;nbsp;if(b&amp;nbsp;=&amp;nbsp;true)&amp;nbsp;{&lt;br&gt;
+6.&amp;nbsp;System.out.println(&amp;#8220;Success&amp;#8221;);&lt;br&gt;
+7.&amp;nbsp;}&amp;nbsp;else&amp;nbsp;{&lt;br&gt;
+8.&amp;nbsp;System.out.println(&amp;#8220;Failure&amp;#8221;);&lt;br&gt;
+9.&amp;nbsp;}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&amp;nbsp;Success&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;Failure&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&amp;nbsp;Line&amp;nbsp;4&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;generates&amp;nbsp;a&amp;nbsp;compiler&amp;nbsp;error.&amp;nbsp;$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:35" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;output&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code?&lt;br&gt;
+5.&amp;nbsp;int&amp;nbsp;c&amp;nbsp;=&amp;nbsp;7;&lt;br&gt;
+6.&amp;nbsp;int&amp;nbsp;result&amp;nbsp;=&amp;nbsp;4;&lt;br&gt;
+7.&amp;nbsp;result&amp;nbsp;+=&amp;nbsp;++c;&lt;br&gt;
+8.&amp;nbsp;System.out.print(result);&amp;nbsp;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;8&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;12&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;15&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;16&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_0_0_0_0:36" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Determine&amp;nbsp;the&amp;nbsp;output&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code&amp;nbsp;when&amp;nbsp;executed&amp;nbsp;with&amp;nbsp;the&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;command:&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+java&amp;nbsp;HelloWorld&amp;nbsp;hello&amp;nbsp;world&amp;nbsp;goodbye&lt;br&gt;
+&lt;br&gt;
+1.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;class&amp;nbsp;HelloWorld&amp;nbsp;{&lt;br&gt;
+2.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+3.&amp;nbsp;System.out.println(args[1]&amp;nbsp;+&amp;nbsp;args[2]);&lt;br&gt;
+4.&amp;nbsp;}&lt;br&gt;
+5.&amp;nbsp;}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&amp;nbsp;hello&amp;nbsp;world&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&amp;nbsp;world&amp;nbsp;goodbye&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;An&amp;nbsp;ArrayIndexOutOfBoundsException&amp;nbsp;occurs&amp;nbsp;at&amp;nbsp;runtime.&amp;nbsp;&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;The&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;code&amp;nbsp;does&amp;nbsp;not&amp;nbsp;compile.&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>3&lt;br&gt;
+The&amp;nbsp;class&amp;nbsp;declaration&amp;nbsp;on&amp;nbsp;line&amp;nbsp;1&amp;nbsp;contains&amp;nbsp;the&amp;nbsp;static&amp;nbsp;modifier,&lt;br&gt;
+which&amp;nbsp;is&amp;nbsp;not&amp;nbsp;a&amp;nbsp;valid&amp;nbsp;modifier&amp;nbsp;for&amp;nbsp;a&amp;nbsp;top-level&amp;nbsp;class.</questionanswer>
   </question>
 </questions>
