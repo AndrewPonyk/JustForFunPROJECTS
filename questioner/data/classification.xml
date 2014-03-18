@@ -71,16 +71,18 @@
       <category id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="0" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="265" nofsubcategories="5">
-    <category id="1_0" name="Java" nofquestions="230" nofsubcategories="4">
-      <category id="1_0_0" name="Java CORE" nofquestions="116" nofsubcategories="11">
+  <class id="1" name="Programming" nofquestions="274" nofsubcategories="5">
+    <category id="1_0" name="Java" nofquestions="239" nofsubcategories="4">
+      <category id="1_0_0" name="Java CORE" nofquestions="125" nofsubcategories="11">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="87" nofsubcategories="1">
           <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="87" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
         </category>
         <category id="1_0_0_1" name="Collections" nofquestions="29" nofsubcategories="1">
           <category id="1_0_0_1_0" name="Collections_Learning_java4thEdition" nofquestions="29" nofsubcategories="0" filename="collections_learning_java4thedition1_0_0_1_0.xml" />
         </category>
-        <category id="1_0_0_2" name="Generics" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_0_2" name="Generics" nofquestions="9" nofsubcategories="1">
+          <category id="1_0_0_2_0" name="Generics_LearningJava4thEdition" nofquestions="9" nofsubcategories="0" filename="generics_learningjava4thedition1_0_0_2_0.xml" />
+        </category>
         <category id="1_0_0_3" name="Multithreading" nofquestions="0" nofsubcategories="0" />
         <category id="1_0_0_4" name="IO_and_Serialization" nofquestions="0" nofsubcategories="0" />
         <category id="1_0_0_5" name="XML" nofquestions="0" nofsubcategories="0" />
