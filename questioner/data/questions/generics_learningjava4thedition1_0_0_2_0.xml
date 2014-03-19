@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_2_0" name="Generics_LearningJava4thEdition" nofquestions="9" nofsubcategories="0" filename="generics_learningjava4thedition1_0_0_2_0.xml">
+<questions id="1_0_0_2_0" name="Generics_LearningJava4thEdition" nofquestions="26" nofsubcategories="0" filename="generics_learningjava4thedition1_0_0_2_0.xml">
   <question id="1_0_0_2_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;Generics,&amp;nbsp;describe&amp;nbsp;(basic).&amp;nbsp;Provide&amp;nbsp;Hello&amp;nbsp;World&amp;nbsp;Example.&lt;br&gt;
@@ -1217,5 +1217,458 @@ HOWEVER&amp;nbsp;this&amp;nbsp;is&amp;nbsp;potentially&amp;nbsp;dangerous,&amp;n
 with&amp;nbsp;caution.&amp;nbsp;As&amp;nbsp;detailed&amp;nbsp;in&amp;nbsp;the&amp;nbsp;comments,&amp;nbsp;this&amp;nbsp;Object[]&amp;nbsp;is&amp;nbsp;now&lt;br&gt;
 masquerading&amp;nbsp;as&amp;nbsp;our&amp;nbsp;E[]&amp;nbsp;type,&amp;nbsp;and&amp;nbsp;can&amp;nbsp;cause&amp;nbsp;unexpected&amp;nbsp;errors&lt;br&gt;
 or&amp;nbsp;ClassCastExceptions&amp;nbsp;if&amp;nbsp;used&amp;nbsp;unsafely.</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:9" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;Generics&amp;nbsp;:&amp;nbsp;Bridge&amp;nbsp;Methods,&amp;nbsp;describe.&amp;nbsp;Provide&amp;nbsp;example.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Understand&amp;nbsp;=)&lt;br&gt;
+&lt;br&gt;
+Given&amp;nbsp;the&amp;nbsp;following&amp;nbsp;two&amp;nbsp;classes:&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;Node&lt;T&gt;&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;T&amp;nbsp;data;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Node(T&amp;nbsp;data)&amp;nbsp;{&amp;nbsp;this.data&amp;nbsp;=&amp;nbsp;data;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;setData(T&amp;nbsp;data)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("Node.setData");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;this.data&amp;nbsp;=&amp;nbsp;data;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;MyNode&amp;nbsp;extends&amp;nbsp;Node&lt;Integer&gt;&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;MyNode(Integer&amp;nbsp;data)&amp;nbsp;{&amp;nbsp;super(data);&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;setData(Integer&amp;nbsp;data)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("MyNode.setData");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;super.setData(data);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+=====&lt;br&gt;
+Bridge&amp;nbsp;Methods&lt;br&gt;
+&lt;br&gt;
+When&amp;nbsp;compiling&amp;nbsp;a&amp;nbsp;class&amp;nbsp;or&amp;nbsp;interface&amp;nbsp;that&amp;nbsp;extends&amp;nbsp;a&amp;nbsp;parameterized&amp;nbsp;class&lt;br&gt;
+or&amp;nbsp;implements&amp;nbsp;a&amp;nbsp;parameterized&amp;nbsp;interface,&amp;nbsp;the&amp;nbsp;compiler&amp;nbsp;may&amp;nbsp;need&lt;br&gt;
+to&amp;nbsp;create&amp;nbsp;a&amp;nbsp;synthetic&amp;nbsp;method,&amp;nbsp;called&amp;nbsp;a&amp;nbsp;bridge&amp;nbsp;method,&amp;nbsp;as&amp;nbsp;part&amp;nbsp;of&amp;nbsp;the&amp;nbsp;type&lt;br&gt;
+erasure&amp;nbsp;process.&amp;nbsp;You&amp;nbsp;normally&amp;nbsp;don't&amp;nbsp;need&amp;nbsp;to&amp;nbsp;worry&amp;nbsp;about&amp;nbsp;bridge&amp;nbsp;methods,&lt;br&gt;
+but&amp;nbsp;you&amp;nbsp;might&amp;nbsp;be&amp;nbsp;puzzled&amp;nbsp;if&amp;nbsp;one&amp;nbsp;appears&amp;nbsp;in&amp;nbsp;a&amp;nbsp;stack&amp;nbsp;trace.&lt;br&gt;
+&lt;br&gt;
+After&amp;nbsp;type&amp;nbsp;erasure,&amp;nbsp;the&amp;nbsp;Node&amp;nbsp;and&amp;nbsp;MyNode&amp;nbsp;classes&amp;nbsp;become:&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;Node&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;Object&amp;nbsp;data;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Node(Object&amp;nbsp;data)&amp;nbsp;{&amp;nbsp;this.data&amp;nbsp;=&amp;nbsp;data;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;setData(Object&amp;nbsp;data)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("Node.setData");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;this.data&amp;nbsp;=&amp;nbsp;data;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;MyNode&amp;nbsp;extends&amp;nbsp;Node&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;MyNode(Integer&amp;nbsp;data)&amp;nbsp;{&amp;nbsp;super(data);&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;setData(Integer&amp;nbsp;data)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(Integer&amp;nbsp;data);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;super.setData(data);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+==&lt;br&gt;
+After&amp;nbsp;type&amp;nbsp;erasure,&amp;nbsp;the&amp;nbsp;method&amp;nbsp;signatures&amp;nbsp;do&amp;nbsp;not&amp;nbsp;not&amp;nbsp;match.&amp;nbsp;The&amp;nbsp;Node&amp;nbsp;method&lt;br&gt;
+becomes&amp;nbsp;setData(Object)&amp;nbsp;and&amp;nbsp;the&amp;nbsp;MyNode&amp;nbsp;method&amp;nbsp;becomes&lt;br&gt;
+setData(Integer).&amp;nbsp;Therefore,&amp;nbsp;the&amp;nbsp;MyNode&amp;nbsp;setData&amp;nbsp;method&amp;nbsp;does&amp;nbsp;not&lt;br&gt;
+override&amp;nbsp;the&amp;nbsp;Node&amp;nbsp;setData&amp;nbsp;method.&lt;br&gt;
+&lt;br&gt;
+To&amp;nbsp;&amp;nbsp;____solve&amp;nbsp;this&amp;nbsp;problem&amp;nbsp;and&amp;nbsp;preserve&amp;nbsp;the&amp;nbsp;polymorphism&amp;nbsp;of&amp;nbsp;generic&amp;nbsp;types&lt;br&gt;
+after&amp;nbsp;type&amp;nbsp;erasure,&amp;nbsp;a&amp;nbsp;Java&amp;nbsp;compiler&amp;nbsp;generates&amp;nbsp;a&amp;nbsp;bridge&amp;nbsp;method&amp;nbsp;to&amp;nbsp;ensure&lt;br&gt;
+that&amp;nbsp;subtyping&amp;nbsp;works&amp;nbsp;as&amp;nbsp;expected.&amp;nbsp;For&amp;nbsp;the&amp;nbsp;MyNode&amp;nbsp;class,&amp;nbsp;the&amp;nbsp;compiler&lt;br&gt;
+generates&amp;nbsp;the&amp;nbsp;following&amp;nbsp;bridge&amp;nbsp;method&amp;nbsp;for&amp;nbsp;setData:&lt;br&gt;
+&lt;br&gt;
+class&amp;nbsp;MyNode&amp;nbsp;extends&amp;nbsp;Node&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;Bridge&amp;nbsp;method&amp;nbsp;generated&amp;nbsp;by&amp;nbsp;the&amp;nbsp;compiler&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;setData(Object&amp;nbsp;data)&amp;nbsp;{&amp;nbsp;//////&amp;nbsp;&lt;-&amp;nbsp;bridge&amp;nbsp;method&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;setData((Integer)&amp;nbsp;data);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;setData(Integer&amp;nbsp;data)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("MyNode.setData");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;super.setData(data);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;...&lt;br&gt;
+}&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:10" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;program?&lt;br&gt;
+1.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Hello&amp;nbsp;&lt;&amp;nbsp;T&amp;nbsp;&gt;&amp;nbsp;{&lt;br&gt;
+2.&amp;nbsp;T&amp;nbsp;t;&lt;br&gt;
+3.&lt;br&gt;
+4.&amp;nbsp;public&amp;nbsp;Hello(T&amp;nbsp;t)&amp;nbsp;{&lt;br&gt;
+5.&amp;nbsp;this.t&amp;nbsp;=&amp;nbsp;t;&lt;br&gt;
+6.&amp;nbsp;}&lt;br&gt;
+7.&lt;br&gt;
+8.&amp;nbsp;public&amp;nbsp;String&amp;nbsp;toString()&amp;nbsp;{&lt;br&gt;
+9.&amp;nbsp;return&amp;nbsp;t.toString();&lt;br&gt;
+10.&amp;nbsp;}&lt;br&gt;
+11.&lt;br&gt;
+12.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+13.&amp;nbsp;System.out.print(new&amp;nbsp;Hello&amp;nbsp;&lt;&amp;nbsp;String&amp;nbsp;&gt;&amp;nbsp;(&amp;#8220;hi&amp;#8221;));&lt;br&gt;
+14.&amp;nbsp;System.out.print(new&amp;nbsp;Hello(&amp;#8220;there&amp;#8221;));&lt;br&gt;
+15.&amp;nbsp;}&lt;br&gt;
+16.&amp;nbsp;}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;hi&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;hi&amp;nbsp;followed&amp;nbsp;by&amp;nbsp;a&amp;nbsp;runtime&amp;nbsp;exception&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;hithere&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;Compiler&amp;nbsp;error&amp;nbsp;on&amp;nbsp;line&amp;nbsp;9&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2&lt;br&gt;
+Line&amp;nbsp;14&amp;nbsp;does&amp;nbsp;cause&amp;nbsp;a&lt;br&gt;
+“&amp;nbsp;Note&amp;nbsp;”&amp;nbsp;from&amp;nbsp;the&amp;nbsp;compiler&amp;nbsp;about&amp;nbsp;using&amp;nbsp;“&amp;nbsp;unchecked&amp;nbsp;or&amp;nbsp;unsafe&lt;br&gt;
+operations,&amp;nbsp;”&amp;nbsp;but&amp;nbsp;it&amp;nbsp;is&amp;nbsp;not&amp;nbsp;a&amp;nbsp;compiler&amp;nbsp;error.&amp;nbsp;The&amp;nbsp;compiler&amp;nbsp;has&amp;nbsp;to&lt;br&gt;
+deduce&amp;nbsp;that&amp;nbsp;“&amp;nbsp;T&amp;nbsp;”&amp;nbsp;is&amp;nbsp;of&amp;nbsp;type&amp;nbsp;String&amp;nbsp;for&amp;nbsp;the&amp;nbsp;Hello&lt;br&gt;
+object&amp;nbsp;on&amp;nbsp;line&amp;nbsp;14,&amp;nbsp;which&amp;nbsp;it&amp;nbsp;successfully&amp;nbsp;does.&amp;nbsp;Line&amp;nbsp;9&amp;nbsp;compiles&amp;nbsp;fine&lt;br&gt;
+because&amp;nbsp;all&amp;nbsp;objects&amp;nbsp;have&amp;nbsp;a&amp;nbsp;toString&amp;nbsp;method.</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:11" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Given&amp;nbsp;the&amp;nbsp;following&amp;nbsp;class&amp;nbsp;definition:&lt;br&gt;
+1.&amp;nbsp;import&amp;nbsp;java.io.*;&lt;br&gt;
+2.&lt;br&gt;
+3.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Helper&amp;nbsp;{&lt;br&gt;
+4.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;&lt;&amp;nbsp;U&amp;nbsp;extends&amp;nbsp;Exception&amp;nbsp;&gt;&amp;nbsp;void&lt;br&gt;
+printException(U&amp;nbsp;u)&amp;nbsp;{&lt;br&gt;
+5.&amp;nbsp;System.out.println(u.getMessage());&lt;br&gt;
+6.&amp;nbsp;}&lt;br&gt;
+7.&lt;br&gt;
+8.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+9.&amp;nbsp;___________________&lt;br&gt;
+10.&amp;nbsp;}&lt;br&gt;
+11.&amp;nbsp;}&lt;br&gt;
+which&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;statements&amp;nbsp;can&amp;nbsp;appear&amp;nbsp;on&amp;nbsp;line&amp;nbsp;9&amp;nbsp;so&amp;nbsp;that&amp;nbsp;the&amp;nbsp;Helper&amp;nbsp;class&lt;br&gt;
+compiles&amp;nbsp;successfully?&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;Helper.&amp;nbsp;&lt;&amp;nbsp;Throwable&amp;nbsp;&gt;&amp;nbsp;printException(new&amp;nbsp;Exception(&amp;nbsp;&amp;quot;C&amp;quot;&amp;nbsp;));&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;Helper.&amp;nbsp;&lt;&amp;nbsp;NullPointerException&amp;nbsp;&gt;&amp;nbsp;printException(new&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;NullPointerException&lt;br&gt;
+(&amp;nbsp;&amp;quot;D&amp;quot;));&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;Helper.printException(new&amp;nbsp;Throwable(&amp;nbsp;&amp;quot;E&amp;quot;));&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:12" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Given&amp;nbsp;the&amp;nbsp;following&amp;nbsp;class&amp;nbsp;definition:&lt;br&gt;
+1.&amp;nbsp;import&amp;nbsp;java.util.*;&lt;br&gt;
+2.&lt;br&gt;
+3.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;Wildcard&amp;nbsp;{&lt;br&gt;
+4.&amp;nbsp;public&amp;nbsp;void&amp;nbsp;showSize(List&amp;nbsp;&lt;&amp;nbsp;?&amp;nbsp;&gt;&amp;nbsp;list)&amp;nbsp;{&lt;br&gt;
+5.&amp;nbsp;System.out.println(list.size());&lt;br&gt;
+6.&amp;nbsp;}&lt;br&gt;
+7.&lt;br&gt;
+8.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+9.&amp;nbsp;Wildcard&amp;nbsp;card&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Wildcard();&lt;br&gt;
+10.&amp;nbsp;___________________&lt;br&gt;
+11.&amp;nbsp;card.showSize(list);&lt;br&gt;
+12.&amp;nbsp;}&lt;br&gt;
+13.&amp;nbsp;}&lt;br&gt;
+which&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;statements&amp;nbsp;can&amp;nbsp;appear&amp;nbsp;on&amp;nbsp;line&amp;nbsp;10&amp;nbsp;so&amp;nbsp;that&amp;nbsp;the&amp;nbsp;Wildcard&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;class&lt;br&gt;
+compiles&amp;nbsp;successfully?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;Stack&amp;nbsp;&lt;&amp;nbsp;?&amp;nbsp;&gt;&amp;nbsp;list&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Stack&amp;nbsp;&lt;&amp;nbsp;?&amp;nbsp;&gt;&amp;nbsp;();&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;List&amp;nbsp;&lt;&amp;nbsp;Exception&amp;nbsp;&gt;&amp;nbsp;list&amp;nbsp;=&amp;nbsp;new&amp;nbsp;LinkedList&amp;nbsp;&lt;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;java.io.IOException&amp;nbsp;&gt;&amp;nbsp;();&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;List&amp;nbsp;&lt;&amp;nbsp;?&amp;nbsp;&gt;&amp;nbsp;list&amp;nbsp;=&amp;nbsp;new&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ArrayList&amp;nbsp;&lt;&amp;nbsp;String&amp;nbsp;&gt;&amp;nbsp;();&amp;nbsp;$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2&lt;br&gt;
+A&amp;nbsp;is&amp;nbsp;not&amp;nbsp;a&amp;nbsp;valid&amp;nbsp;statement&amp;nbsp;(regardless&amp;nbsp;of&amp;nbsp;the&amp;nbsp;showSize&amp;nbsp;method)&lt;br&gt;
+because&amp;nbsp;when&amp;nbsp;you&amp;nbsp;instantiate&amp;nbsp;a&amp;nbsp;generic&amp;nbsp;type,&amp;nbsp;you&amp;nbsp;cannot&lt;br&gt;
+use&amp;nbsp;a&amp;nbsp;wildcard&amp;nbsp;in&amp;nbsp;the&amp;nbsp;new&amp;nbsp;statement.&lt;br&gt;
+&lt;br&gt;
+B&amp;nbsp;is&amp;nbsp;not&amp;nbsp;a&amp;nbsp;valid&amp;nbsp;statement&amp;nbsp;either&amp;nbsp;(regardless&amp;nbsp;of&amp;nbsp;the&amp;nbsp;showSize&amp;nbsp;method);&lt;br&gt;
+&lt;&amp;nbsp;IOException&amp;nbsp;&gt;&amp;nbsp;and&amp;nbsp;&lt;&amp;nbsp;Exception&amp;nbsp;&gt;&amp;nbsp;are&amp;nbsp;not&amp;nbsp;compatible.</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:13" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Fill&amp;nbsp;in&amp;nbsp;the&amp;nbsp;code&amp;nbsp;in&amp;nbsp;Comparable______&amp;nbsp;c&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Date();&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;String&gt;&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&lt;?&gt;&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&lt;Date&gt;&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;E&gt;&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:14" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Which&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;statements&amp;nbsp;is&amp;nbsp;correct?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Comparable&lt;String&gt;&amp;nbsp;c&amp;nbsp;=&amp;nbsp;&amp;quot;abc&amp;quot;;&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Comparable&lt;String&gt;&amp;nbsp;c&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Date();&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Comparable&lt;Object&gt;&amp;nbsp;c&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Date();&amp;nbsp;$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:15" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Is&amp;nbsp;ArrayList&lt;Integer&gt;&amp;nbsp;a&amp;nbsp;subclass&amp;nbsp;of&amp;nbsp;ArrayList&lt;Object&gt;?&amp;nbsp;&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Yes&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;No&amp;nbsp;$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:16" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Fill&amp;nbsp;in&amp;nbsp;the&amp;nbsp;most&amp;nbsp;appropriate&amp;nbsp;code&amp;nbsp;in&amp;nbsp;the&amp;nbsp;blanks&amp;nbsp;in&amp;nbsp;the&amp;nbsp;MyInt&amp;nbsp;class?&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;MyInt&amp;nbsp;implements&amp;nbsp;_______&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;int&amp;nbsp;id;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;public&amp;nbsp;MyInt(int&amp;nbsp;id)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;this.id&amp;nbsp;=&amp;nbsp;id;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;toString()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;String.valueOf(id);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;public&amp;nbsp;int&amp;nbsp;compareTo(_______&amp;nbsp;arg0)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if&amp;nbsp;(id&amp;nbsp;&gt;&amp;nbsp;arg0.id)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;1;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;else&amp;nbsp;if&amp;nbsp;(id&amp;nbsp;&lt;&amp;nbsp;arg0.id)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;-1;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;else&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;0;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;Comparable&amp;nbsp;/&amp;nbsp;Object&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;Comparable&lt;MyInt&gt;&amp;nbsp;/&amp;nbsp;MyInt&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;Comparable&lt;MyInt&gt;&amp;nbsp;/&amp;nbsp;Object&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Comparable&amp;nbsp;/&amp;nbsp;MyInt&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:17" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;E&amp;nbsp;is&amp;nbsp;a&amp;nbsp;generic&amp;nbsp;type&amp;nbsp;for&amp;nbsp;a&amp;nbsp;class,&amp;nbsp;can&amp;nbsp;E&amp;nbsp;be&amp;nbsp;referenced&amp;nbsp;from&amp;nbsp;a&amp;nbsp;static&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;method?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;Yes&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;No&amp;nbsp;$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:18" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Will&amp;nbsp;this&amp;nbsp;code&amp;nbsp;compile&amp;nbsp;successfully?&lt;br&gt;
+class&amp;nbsp;Test&amp;nbsp;&lt;T&gt;&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;T[]&amp;nbsp;array&amp;nbsp;=&amp;nbsp;new&amp;nbsp;T[7];&lt;br&gt;
+}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;Yes&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;No&amp;nbsp;$v1end$&lt;br&gt;
+$v2$$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:19" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Which&amp;nbsp;statements&amp;nbsp;can&amp;nbsp;be&amp;nbsp;inserted&amp;nbsp;at&amp;nbsp;(1)&amp;nbsp;without&amp;nbsp;the&amp;nbsp;compiler&amp;nbsp;reporting&amp;nbsp;any&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;errors?&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;RQ100_05&amp;nbsp;{&lt;br&gt;
+public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+List&lt;?&gt;&amp;nbsp;lst&amp;nbsp;=&amp;nbsp;new&amp;nbsp;ArrayList&lt;String&gt;();&lt;br&gt;
+&amp;nbsp;//&amp;nbsp;(1)&amp;nbsp;INSERT&amp;nbsp;HERE&lt;br&gt;
+&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;lst.add(&amp;quot;OK&amp;quot;);&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;lst.add(2007);&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;String&amp;nbsp;v1&amp;nbsp;=&amp;nbsp;lst.get(0);&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;Object&amp;nbsp;v2&amp;nbsp;=&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;lst.get(0);&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>3&lt;br&gt;
+We&amp;nbsp;cant&amp;nbsp;add&amp;nbsp;value&amp;nbsp;to&amp;nbsp;vildcard&amp;nbsp;generics&amp;nbsp;!!!!!!!</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:20" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;will&amp;nbsp;be&amp;nbsp;the&amp;nbsp;result&amp;nbsp;of&amp;nbsp;attempting&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;and&amp;nbsp;run&amp;nbsp;the&amp;nbsp;following&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;code?&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;RQ100_50&amp;nbsp;{&lt;br&gt;
+public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+List&lt;Integer&gt;&amp;nbsp;lst&amp;nbsp;=&amp;nbsp;new&amp;nbsp;ArrayList&lt;Integer&gt;();&amp;nbsp;//&amp;nbsp;(1)&lt;br&gt;
+lst.add(2007);&lt;br&gt;
+lst.add(2008);&lt;br&gt;
+List&lt;Number&gt;&amp;nbsp;numList&amp;nbsp;=&amp;nbsp;lst;&amp;nbsp;//&amp;nbsp;(2)&lt;br&gt;
+for(Number&amp;nbsp;n&amp;nbsp;:&amp;nbsp;numList)&amp;nbsp;//&amp;nbsp;(3)&lt;br&gt;
+System.out.println(n&amp;nbsp;+&amp;nbsp;&amp;quot;&amp;nbsp;&amp;quot;);&lt;br&gt;
+}&lt;br&gt;
+}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;The&amp;nbsp;code&amp;nbsp;will&amp;nbsp;fail&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;because&amp;nbsp;of&amp;nbsp;an&amp;nbsp;error&amp;nbsp;in&amp;nbsp;(1).&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;The&amp;nbsp;code&amp;nbsp;will&amp;nbsp;fail&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;because&amp;nbsp;of&amp;nbsp;an&amp;nbsp;error&amp;nbsp;in&amp;nbsp;(2).&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;The&amp;nbsp;code&amp;nbsp;will&amp;nbsp;fail&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;because&amp;nbsp;of&amp;nbsp;an&amp;nbsp;error&amp;nbsp;in&amp;nbsp;(3).&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&amp;nbsp;The&amp;nbsp;code&amp;nbsp;will&amp;nbsp;compile&amp;nbsp;and&amp;nbsp;execute&amp;nbsp;normally&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1&lt;br&gt;
+The&amp;nbsp;type&amp;nbsp;of&amp;nbsp;lst&amp;nbsp;is&amp;nbsp;List&amp;nbsp;of&amp;nbsp;Integer&amp;nbsp;and&amp;nbsp;the&amp;nbsp;type&amp;nbsp;of&amp;nbsp;numList&amp;nbsp;is&amp;nbsp;List&amp;nbsp;of&amp;nbsp;Number.&lt;br&gt;
+The&amp;nbsp;compiler&amp;nbsp;issues&amp;nbsp;an&amp;nbsp;error&amp;nbsp;because&amp;nbsp;List&lt;Integer&gt;&amp;nbsp;is&amp;nbsp;not&amp;nbsp;a&amp;nbsp;subtype&lt;br&gt;
+of&amp;nbsp;List&lt;Number&gt;.</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:21" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;will&amp;nbsp;be&amp;nbsp;the&amp;nbsp;result&amp;nbsp;of&amp;nbsp;attempting&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;and&amp;nbsp;run&amp;nbsp;the&amp;nbsp;following&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;code?&lt;br&gt;
+class&amp;nbsp;Fruit&amp;nbsp;{}&lt;br&gt;
+class&amp;nbsp;Apple&amp;nbsp;extends&amp;nbsp;Fruit&amp;nbsp;{}&lt;br&gt;
+class&amp;nbsp;Orange&amp;nbsp;extends&amp;nbsp;Fruit&amp;nbsp;{}&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;RQ100_60&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;ArrayList&lt;Apple&gt;&amp;nbsp;aList&amp;nbsp;=&amp;nbsp;new&amp;nbsp;ArrayList&lt;Apple&gt;();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;aList.add(new&amp;nbsp;Apple());&lt;br&gt;
+&amp;nbsp;&amp;nbsp;ArrayList&amp;nbsp;bList&amp;nbsp;=&amp;nbsp;aList;&amp;nbsp;//&amp;nbsp;(1)&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;ArrayList&lt;Orange&gt;&amp;nbsp;oList&amp;nbsp;=&amp;nbsp;bList;&amp;nbsp;//&amp;nbsp;(2)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;oList.add(new&amp;nbsp;Orange());&lt;br&gt;
+&amp;nbsp;&amp;nbsp;System.out.println(aList);&lt;br&gt;
+&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;The&amp;nbsp;code&amp;nbsp;will&amp;nbsp;fail&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;because&amp;nbsp;of&amp;nbsp;errors&amp;nbsp;in&amp;nbsp;(1)&amp;nbsp;and&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(2).&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;The&amp;nbsp;code&amp;nbsp;will&amp;nbsp;fail&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;because&amp;nbsp;of&amp;nbsp;an&amp;nbsp;error&amp;nbsp;in&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(1).&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;The&amp;nbsp;code&amp;nbsp;will&amp;nbsp;fail&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;because&amp;nbsp;of&amp;nbsp;an&amp;nbsp;error&amp;nbsp;in&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(2).&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;The&amp;nbsp;code&amp;nbsp;will&amp;nbsp;compile&amp;nbsp;with&amp;nbsp;an&amp;nbsp;unchecked&amp;nbsp;warning&amp;nbsp;in&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(2).&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:22" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;will&amp;nbsp;be&amp;nbsp;the&amp;nbsp;result&amp;nbsp;of&amp;nbsp;attempting&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;and&amp;nbsp;run&amp;nbsp;the&amp;nbsp;following&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;code?&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;RQ100_40&amp;nbsp;{&lt;br&gt;
+public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+List&amp;nbsp;&lt;?&amp;nbsp;super&amp;nbsp;Integer&gt;&amp;nbsp;sList&amp;nbsp;=&amp;nbsp;new&amp;nbsp;ArrayList&lt;Number&gt;();&amp;nbsp;//(1)&lt;br&gt;
+int&amp;nbsp;i&amp;nbsp;=&amp;nbsp;2007;&lt;br&gt;
+sList.add(i);&lt;br&gt;
+sList.add(++i);&amp;nbsp;//(2)&lt;br&gt;
+Number&amp;nbsp;num&amp;nbsp;=&amp;nbsp;sList.get(0);&amp;nbsp;//(3)&lt;br&gt;
+}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;The&amp;nbsp;code&amp;nbsp;will&amp;nbsp;fail&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;because&amp;nbsp;of&amp;nbsp;an&amp;nbsp;error&amp;nbsp;in&amp;nbsp;(1).&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;The&amp;nbsp;code&amp;nbsp;will&amp;nbsp;fail&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;because&amp;nbsp;of&amp;nbsp;an&amp;nbsp;error&amp;nbsp;in&amp;nbsp;(2).&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;The&amp;nbsp;code&amp;nbsp;will&amp;nbsp;fail&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;because&amp;nbsp;of&amp;nbsp;an&amp;nbsp;error&amp;nbsp;in&amp;nbsp;(3).&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v2end$&lt;br&gt;
+$v3$The&amp;nbsp;code&amp;nbsp;will&amp;nbsp;compile,&amp;nbsp;but&amp;nbsp;throw&amp;nbsp;a&amp;nbsp;ClassCastException&amp;nbsp;at&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;runtime&amp;nbsp;at&amp;nbsp;(3).$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2&lt;br&gt;
+Need&amp;nbsp;cast.</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:23" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Which&amp;nbsp;occurrences&amp;nbsp;of&amp;nbsp;the&amp;nbsp;type&amp;nbsp;parameter&amp;nbsp;T&amp;nbsp;is&amp;nbsp;illegal?&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;Box&lt;T&gt;&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;private&amp;nbsp;T&amp;nbsp;item;&amp;nbsp;//&amp;nbsp;(1)&lt;br&gt;
+&amp;nbsp;private&amp;nbsp;static&amp;nbsp;T[]&amp;nbsp;storage&amp;nbsp;=&amp;nbsp;new&amp;nbsp;T[100];&amp;nbsp;//&amp;nbsp;(2)&lt;br&gt;
+&amp;nbsp;public&amp;nbsp;Box(T&amp;nbsp;item)&amp;nbsp;{&amp;nbsp;this.item&amp;nbsp;=&amp;nbsp;item;&amp;nbsp;}&amp;nbsp;//&amp;nbsp;(3)&lt;br&gt;
+&amp;nbsp;public&amp;nbsp;T&amp;nbsp;getItem()&amp;nbsp;{&amp;nbsp;return&amp;nbsp;item;&amp;nbsp;}&amp;nbsp;//&amp;nbsp;(4)&lt;br&gt;
+&amp;nbsp;public&amp;nbsp;void&amp;nbsp;setItem(T&amp;nbsp;newItem)&amp;nbsp;{&amp;nbsp;item&amp;nbsp;=&amp;nbsp;newItem;&amp;nbsp;}&amp;nbsp;//&amp;nbsp;(5)&lt;br&gt;
+&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;getAllItems(T&amp;nbsp;newItem)&amp;nbsp;{&amp;nbsp;//&amp;nbsp;(6)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;T&amp;nbsp;temp;&amp;nbsp;//&amp;nbsp;(7)&lt;br&gt;
+&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;Occurrence&amp;nbsp;of&amp;nbsp;the&amp;nbsp;type&amp;nbsp;parameter&amp;nbsp;T&amp;nbsp;in&amp;nbsp;(1).&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Occurrence&amp;nbsp;of&amp;nbsp;the&amp;nbsp;type&amp;nbsp;parameter&amp;nbsp;T&amp;nbsp;in&amp;nbsp;(3).&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;Occurrence&amp;nbsp;of&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;type&amp;nbsp;parameter&amp;nbsp;T&amp;nbsp;in&amp;nbsp;(4).&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;Occurrence&amp;nbsp;of&amp;nbsp;the&amp;nbsp;type&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;parameter&amp;nbsp;T&amp;nbsp;in&amp;nbsp;(6).&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>3&lt;br&gt;
+Static&amp;nbsp;context&amp;nbsp;!!!!&amp;nbsp;Cant&amp;nbsp;use&amp;nbsp;T&amp;nbsp;in&amp;nbsp;static&amp;nbsp;context</questionanswer>
+  </question>
+  <question id="1_0_0_2_0:24" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Which&amp;nbsp;statements&amp;nbsp;are&amp;nbsp;true&amp;nbsp;about&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code?&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;RQ100_14&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;List&amp;nbsp;legacyList&amp;nbsp;=&amp;nbsp;new&amp;nbsp;ArrayList&lt;Integer&gt;();&amp;nbsp;//&amp;nbsp;(1)&lt;br&gt;
+&amp;nbsp;List&lt;?&gt;&amp;nbsp;anyList&amp;nbsp;=&amp;nbsp;legacyList;&amp;nbsp;//&amp;nbsp;(2)&lt;br&gt;
+&amp;nbsp;legacyList&amp;nbsp;=&amp;nbsp;anyList;&amp;nbsp;//&amp;nbsp;(3)&lt;br&gt;
+&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;The&amp;nbsp;compiler&amp;nbsp;will&amp;nbsp;report&amp;nbsp;errors&amp;nbsp;in&amp;nbsp;the&amp;nbsp;code.&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Exception&amp;nbsp;in&amp;nbsp;Runtime&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;The&amp;nbsp;code&amp;nbsp;will&amp;nbsp;compile&amp;nbsp;without&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;unchecked&amp;nbsp;warnings.&amp;nbsp;$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2&amp;nbsp;&lt;br&gt;
+=)</questionanswer>
   </question>
 </questions>
