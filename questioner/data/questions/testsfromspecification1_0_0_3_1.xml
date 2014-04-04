@@ -1,2 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_3_1" name="TestsFromSpecification" nofquestions="0" nofsubcategories="0" filename="testsfromspecification1_0_0_3_1.xml" />
+<questions id="1_0_0_3_1" name="TestsFromSpecification" nofquestions="6" nofsubcategories="0" filename="testsfromspecification1_0_0_3_1.xml">
+  <question id="1_0_0_3_1:0" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;following&amp;nbsp;block&amp;nbsp;of&amp;nbsp;code&amp;nbsp;creates&amp;nbsp;a&amp;nbsp;Thread&amp;nbsp;using&amp;nbsp;a&amp;nbsp;Runnable&amp;nbsp;target:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Runnable&amp;nbsp;target&amp;nbsp;=&amp;nbsp;new&amp;nbsp;MyRunnable();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Thread&amp;nbsp;myThread&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Thread(target);&lt;br&gt;
+&lt;br&gt;
+Which&amp;nbsp;of&amp;nbsp;the&amp;nbsp;following&amp;nbsp;classes&amp;nbsp;can&amp;nbsp;be&amp;nbsp;used&amp;nbsp;to&amp;nbsp;create&amp;nbsp;the&amp;nbsp;target,&amp;nbsp;so&amp;nbsp;that&amp;nbsp;the&lt;br&gt;
+preceding&amp;nbsp;code&amp;nbsp;compiles&amp;nbsp;correctly?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;public&amp;nbsp;class&amp;nbsp;MyRunnable&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;extends&amp;nbsp;Runnable{public&amp;nbsp;void&amp;nbsp;run(){}}&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;public&amp;nbsp;class&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MyRunnable&amp;nbsp;extends&amp;nbsp;Object{public&amp;nbsp;void&amp;nbsp;run(){}}&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;public&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;class&amp;nbsp;MyRunnable&amp;nbsp;implements&amp;nbsp;Runnable{public&amp;nbsp;void&amp;nbsp;run(){}}&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;class&amp;nbsp;MyRunnable&amp;nbsp;implements&amp;nbsp;Runnable{void&amp;nbsp;run(){}}&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_0_0_3_1:1" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Given:&lt;br&gt;
+&lt;br&gt;
+3.&amp;nbsp;class&amp;nbsp;MyThread&amp;nbsp;extends&amp;nbsp;Thread&amp;nbsp;{&lt;br&gt;
+4.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+5.&amp;nbsp;MyThread&amp;nbsp;t&amp;nbsp;=&amp;nbsp;new&amp;nbsp;MyThread();&lt;br&gt;
+6.&amp;nbsp;Thread&amp;nbsp;x&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Thread(t);&lt;br&gt;
+7.&amp;nbsp;x.start();&lt;br&gt;
+8.&amp;nbsp;}&lt;br&gt;
+9.&amp;nbsp;public&amp;nbsp;void&amp;nbsp;run()&amp;nbsp;{&lt;br&gt;
+10.&amp;nbsp;for(int&amp;nbsp;i=0;i&lt;3;++i)&amp;nbsp;{&lt;br&gt;
+11.&amp;nbsp;System.out.print(i&amp;nbsp;+&amp;nbsp;&amp;quot;..&amp;quot;);&lt;br&gt;
+12.&amp;nbsp;}&lt;br&gt;
+13.&amp;nbsp;}&lt;br&gt;
+14.&amp;nbsp;}&lt;br&gt;
+What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result&amp;nbsp;of&amp;nbsp;this&amp;nbsp;code&amp;nbsp;?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;Compilation&amp;nbsp;fails&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1..2..3..&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;0..1..2..3..&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;0..1..2..&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_0_0_3_1:2" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Given:&lt;br&gt;
+3.&amp;nbsp;class&amp;nbsp;Test&amp;nbsp;{&lt;br&gt;
+4.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+5.&amp;nbsp;printAll(args);&lt;br&gt;
+6.&amp;nbsp;}&lt;br&gt;
+7.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;printAll(String[]&amp;nbsp;lines)&amp;nbsp;{&lt;br&gt;
+8.&amp;nbsp;&amp;nbsp;for(int&amp;nbsp;i=0;i&lt;lines.length;i++){&lt;br&gt;
+9.&amp;nbsp;&amp;nbsp;System.out.println(lines[i]);&lt;br&gt;
+10.&amp;nbsp;Thread.currentThread().sleep(1000);&lt;br&gt;
+11.&amp;nbsp;}&lt;br&gt;
+12.&amp;nbsp;}&lt;br&gt;
+13.&amp;nbsp;}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;Each&amp;nbsp;String&amp;nbsp;in&amp;nbsp;the&amp;nbsp;array&amp;nbsp;lines&amp;nbsp;will&amp;nbsp;output,&amp;nbsp;with&amp;nbsp;a&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1-second&amp;nbsp;pause&amp;nbsp;between&amp;nbsp;lines&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;Each&amp;nbsp;String&amp;nbsp;in&amp;nbsp;the&amp;nbsp;array&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;lines&amp;nbsp;will&amp;nbsp;output,&amp;nbsp;with&amp;nbsp;no&amp;nbsp;pause&amp;nbsp;in&amp;nbsp;between&amp;nbsp;because&amp;nbsp;this&amp;nbsp;method&lt;br&gt;
+is&amp;nbsp;not&amp;nbsp;executed&amp;nbsp;in&amp;nbsp;a&amp;nbsp;Thread&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;Each&amp;nbsp;String&amp;nbsp;in&amp;nbsp;the&amp;nbsp;array&amp;nbsp;lines&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;will&amp;nbsp;output,&amp;nbsp;and&amp;nbsp;there&amp;nbsp;is&amp;nbsp;no&amp;nbsp;guarantee&amp;nbsp;there&amp;nbsp;will&amp;nbsp;be&amp;nbsp;a&amp;nbsp;pause&lt;br&gt;
+because&amp;nbsp;currentThread()&amp;nbsp;may&amp;nbsp;not&amp;nbsp;retrieve&amp;nbsp;this&amp;nbsp;thread&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;This&amp;nbsp;code&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;will&amp;nbsp;not&amp;nbsp;compile&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>3&lt;br&gt;
+D&amp;nbsp;is&amp;nbsp;correct.&amp;nbsp;The&amp;nbsp;sleep()&amp;nbsp;method&amp;nbsp;must&amp;nbsp;be&amp;nbsp;enclosed&amp;nbsp;in&amp;nbsp;a&amp;nbsp;try/catch&amp;nbsp;block,&lt;br&gt;
+or&amp;nbsp;the&amp;nbsp;method&amp;nbsp;printAll()&amp;nbsp;must&amp;nbsp;declare&amp;nbsp;it&amp;nbsp;throws&amp;nbsp;the&amp;nbsp;InterruptedException.</questionanswer>
+  </question>
+  <question id="1_0_0_3_1:3" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Given:&lt;br&gt;
+1.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;WaitTest&amp;nbsp;{&lt;br&gt;
+2.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+3.&amp;nbsp;System.out.print(&amp;quot;1&amp;nbsp;&amp;quot;);&lt;br&gt;
+4.&amp;nbsp;synchronized(args){&lt;br&gt;
+5.&amp;nbsp;System.out.print(&amp;quot;2&amp;nbsp;&amp;quot;);&lt;br&gt;
+6.&amp;nbsp;try&amp;nbsp;{&lt;br&gt;
+7.&amp;nbsp;args.wait();&lt;br&gt;
+8.&amp;nbsp;}&lt;br&gt;
+9.&amp;nbsp;catch(InterruptedException&amp;nbsp;e){}&lt;br&gt;
+10.&amp;nbsp;}&lt;br&gt;
+11.&amp;nbsp;System.out.print(&amp;quot;3&amp;nbsp;&amp;quot;);&lt;br&gt;
+12.&amp;nbsp;}&lt;br&gt;
+13.&amp;nbsp;}&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;It&amp;nbsp;fails&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;because&amp;nbsp;the&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IllegalMonitorStateException&amp;nbsp;of&amp;nbsp;wait()&amp;nbsp;is&amp;nbsp;not&amp;nbsp;dealt&lt;br&gt;
+with&amp;nbsp;in&amp;nbsp;line&amp;nbsp;7&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;1&amp;nbsp;2&amp;nbsp;3&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;1&amp;nbsp;3&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;1&amp;nbsp;2&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_0_0_3_1:4" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Assume&amp;nbsp;the&amp;nbsp;following&amp;nbsp;method&amp;nbsp;is&amp;nbsp;properly&amp;nbsp;synchronized&amp;nbsp;and&amp;nbsp;called&amp;nbsp;from&amp;nbsp;a&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;thread&amp;nbsp;A&lt;br&gt;
+on&amp;nbsp;an&amp;nbsp;object&amp;nbsp;B:&lt;br&gt;
+wait(2000);&lt;br&gt;
+After&amp;nbsp;calling&amp;nbsp;this&amp;nbsp;method,&amp;nbsp;when&amp;nbsp;will&amp;nbsp;the&amp;nbsp;thread&amp;nbsp;A&amp;nbsp;become&amp;nbsp;a&amp;nbsp;candidate&amp;nbsp;to&amp;nbsp;get&lt;br&gt;
+another&amp;nbsp;turn&amp;nbsp;at&amp;nbsp;the&amp;nbsp;CPU?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;After&amp;nbsp;object&amp;nbsp;B&amp;nbsp;is&amp;nbsp;notified,&amp;nbsp;or&amp;nbsp;after&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;two&amp;nbsp;seconds&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;After&amp;nbsp;the&amp;nbsp;lock&amp;nbsp;on&amp;nbsp;B&amp;nbsp;is&amp;nbsp;released,&amp;nbsp;or&amp;nbsp;after&amp;nbsp;two&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;seconds&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;Two&amp;nbsp;seconds&amp;nbsp;after&amp;nbsp;object&amp;nbsp;B&amp;nbsp;is&amp;nbsp;notified&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Two&amp;nbsp;seconds&amp;nbsp;after&amp;nbsp;lock&amp;nbsp;B&amp;nbsp;is&amp;nbsp;released&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>0</questionanswer>
+  </question>
+</questions>

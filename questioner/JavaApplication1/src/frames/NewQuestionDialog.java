@@ -262,9 +262,10 @@ public class NewQuestionDialog extends javax.swing.JDialog {
                 .replaceAll("&gt;", ">"));
 
 
-        String questionAnswer=this.questionAnswerTextPane.getText();
-        this.questionAnswerTextPane.setContentType("text/html");
-        this.questionAnswerTextPane.setText(questionAnswer.replaceAll("\n", "&lt;br&gt;").replaceAll("&lt;", "<").replaceAll("&gt;", ">") );
+        // Disable Preview of answer 
+        //String questionAnswer=this.questionAnswerTextPane.getText();
+        //this.questionAnswerTextPane.setContentType("text/html");
+        //this.questionAnswerTextPane.setText(questionAnswer.replaceAll("\n", "&lt;br&gt;").replaceAll("&lt;", "<").replaceAll("&gt;", ">") );
         
         // display preview for 5 seconds
         Timer  t = new Timer(5000, new ActionListener() {

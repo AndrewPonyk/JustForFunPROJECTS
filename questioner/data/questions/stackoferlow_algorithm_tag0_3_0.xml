@@ -1,2 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="0" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml" />
+<questions id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="2" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml">
+  <question id="0_3_0:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Basic&amp;nbsp;Algorithms&amp;nbsp;:&amp;nbsp;Matrix&amp;nbsp;Multiplying&amp;nbsp;,&amp;nbsp;write&amp;nbsp;code&amp;nbsp;.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>static&amp;nbsp;Matrix&amp;nbsp;multiply(Matrix&amp;nbsp;a,&amp;nbsp;Matrix&amp;nbsp;b){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if(a.getCols()&amp;nbsp;!=&amp;nbsp;b.getRows())&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;throw&amp;nbsp;new&amp;nbsp;IllegalArgumentException("Wrong&amp;nbsp;matrixes&amp;nbsp;:&amp;nbsp;a.getCols()&amp;nbsp;should&amp;nbsp;be&amp;nbsp;equal&amp;nbsp;to&amp;nbsp;b.getRows()");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Matrix&amp;nbsp;result&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Matrix(a.getRows(),&amp;nbsp;b.getCols());&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for&amp;nbsp;(int&amp;nbsp;i&amp;nbsp;=&amp;nbsp;0;&amp;nbsp;i&amp;nbsp;&lt;&amp;nbsp;a.getRows();&amp;nbsp;i++)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for&amp;nbsp;(int&amp;nbsp;j&amp;nbsp;=&amp;nbsp;0;&amp;nbsp;j&amp;nbsp;&lt;&amp;nbsp;b.getCols();&amp;nbsp;j++){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for&amp;nbsp;(int&amp;nbsp;k&amp;nbsp;=&amp;nbsp;0;&amp;nbsp;k&amp;nbsp;&lt;&amp;nbsp;a.getCols();&amp;nbsp;k++)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;result.setValue(i,&amp;nbsp;j,&amp;nbsp;result.getValue(i,&amp;nbsp;j)+a.getValue(i,&amp;nbsp;k)*&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;b.getValue(k,&amp;nbsp;j));&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;result;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+========&lt;br&gt;
+Computer&amp;nbsp;scientists&amp;nbsp;classify&amp;nbsp;this&amp;nbsp;algorithm&amp;nbsp;as&amp;nbsp;O(n3),&amp;nbsp;which&amp;nbsp;is&amp;nbsp;read&amp;nbsp;“big-oh&lt;br&gt;
+of&amp;nbsp;n-cubed”&amp;nbsp;or&amp;nbsp;“approximately&amp;nbsp;n-cubed.”&amp;nbsp;This&amp;nbsp;notation&amp;nbsp;is&amp;nbsp;an&amp;nbsp;abstract&amp;nbsp;way&lt;br&gt;
+of&amp;nbsp;classifying&amp;nbsp;the&amp;nbsp;algorithm’s&amp;nbsp;performance&amp;nbsp;(without&amp;nbsp;being&amp;nbsp;bogged&amp;nbsp;down&amp;nbsp;in&lt;br&gt;
+specific&amp;nbsp;details&amp;nbsp;such&amp;nbsp;as&amp;nbsp;microprocessor&amp;nbsp;speed).&amp;nbsp;A&amp;nbsp;O(n3)&amp;nbsp;classification&lt;br&gt;
+indicates&amp;nbsp;very&amp;nbsp;poor&amp;nbsp;performance,&amp;nbsp;and&amp;nbsp;this&amp;nbsp;performance&amp;nbsp;worsens&amp;nbsp;as&amp;nbsp;the&lt;br&gt;
+sizes&amp;nbsp;of&amp;nbsp;the&amp;nbsp;matrixes&amp;nbsp;being&amp;nbsp;multiplied&amp;nbsp;increase.&lt;br&gt;
+&lt;br&gt;</questionanswer>
+  </question>
+  <question id="0_3_0:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Basic&amp;nbsp;Algorithm&amp;nbsp;:&amp;nbsp;Fibonacci&amp;nbsp;numbers&amp;nbsp;,&amp;nbsp;write&amp;nbsp;method(n)&amp;nbsp;which&amp;nbsp;will&amp;nbsp;calculate&lt;br&gt;
+n-th&amp;nbsp;Fibonacci&amp;nbsp;number.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Recursive&amp;nbsp;way&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;int&amp;nbsp;fib(int&amp;nbsp;n){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if&amp;nbsp;(n&amp;nbsp;&lt;&amp;nbsp;0)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;throw&amp;nbsp;new&amp;nbsp;IllegalArgumentException("n&amp;nbsp;must&amp;nbsp;be&amp;nbsp;&gt;&amp;nbsp;0");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if&amp;nbsp;(n&amp;nbsp;==&amp;nbsp;1&amp;nbsp;||&amp;nbsp;n&amp;nbsp;==&amp;nbsp;0)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;n;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}else&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;fib(n&amp;nbsp;-&amp;nbsp;1)&amp;nbsp;+&amp;nbsp;fib(n&amp;nbsp;-&amp;nbsp;2);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+====================================================&lt;br&gt;
+Non&amp;nbsp;recursive&amp;nbsp;way&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//the&amp;nbsp;recursive&amp;nbsp;Fibonacci&amp;nbsp;algorithm&amp;nbsp;is&amp;nbsp;extremely&amp;nbsp;expensive,&amp;nbsp;requiring&amp;nbsp;time&amp;nbsp;O(2^n)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//It&amp;nbsp;also&amp;nbsp;performs&amp;nbsp;a&amp;nbsp;huge&amp;nbsp;amount&amp;nbsp;of&amp;nbsp;redundant&amp;nbsp;work&amp;nbsp;because&amp;nbsp;it&amp;nbsp;computes&amp;nbsp;many&amp;nbsp;Fibonnaci&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//values&amp;nbsp;from&amp;nbsp;scratch&amp;nbsp;many&amp;nbsp;times.&amp;nbsp;A&amp;nbsp;simple&amp;nbsp;linear-time&amp;nbsp;iterative&amp;nbsp;approach&amp;nbsp;which&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//calculates&amp;nbsp;each&amp;nbsp;value&amp;nbsp;of&amp;nbsp;fib&amp;nbsp;successively&amp;nbsp;can&amp;nbsp;avoid&amp;nbsp;these&amp;nbsp;issues:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;int&amp;nbsp;fibNonRecursive(int&amp;nbsp;n)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;int&amp;nbsp;prev1=0,&amp;nbsp;prev2=1;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for&amp;nbsp;(int&amp;nbsp;i&amp;nbsp;=&amp;nbsp;0;&amp;nbsp;i&amp;nbsp;&lt;&amp;nbsp;n;&amp;nbsp;i++)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;int&amp;nbsp;savePrev1&amp;nbsp;=&amp;nbsp;prev1;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;prev1&amp;nbsp;=&amp;nbsp;prev2;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;prev2&amp;nbsp;=&amp;nbsp;savePrev1&amp;nbsp;+&amp;nbsp;prev2;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;prev1;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;</questionanswer>
+  </question>
+</questions>
