@@ -71,9 +71,9 @@
       <category id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="2" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="326" nofsubcategories="5">
-    <category id="1_0" name="Java" nofquestions="291" nofsubcategories="4">
-      <category id="1_0_0" name="Java CORE" nofquestions="177" nofsubcategories="11">
+  <class id="1" name="Programming" nofquestions="333" nofsubcategories="5">
+    <category id="1_0" name="Java" nofquestions="298" nofsubcategories="4">
+      <category id="1_0_0" name="Java CORE" nofquestions="184" nofsubcategories="12">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="87" nofsubcategories="1">
           <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="87" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
         </category>
@@ -87,7 +87,10 @@
           <category id="1_0_0_3_0" name="Multhithreading_LearningJava4thEdition" nofquestions="31" nofsubcategories="0" filename="multhithreading_learningjava4thedition1_0_0_3_0.xml" />
           <category id="1_0_0_3_1" name="TestsFromSpecification" nofquestions="5" nofsubcategories="0" filename="testsfromspecification1_0_0_3_1.xml" />
         </category>
-        <category id="1_0_0_4" name="IO_and_Serialization" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_0_4" name="IO_and_Serialization" nofquestions="7" nofsubcategories="2">
+          <category id="1_0_0_4_0" name="Io_and_Serialization_ApressBEGINNING_Java7" nofquestions="5" nofsubcategories="0" filename="io_and_serialization_apressbeginning_java71_0_0_4_0.xml" />
+          <category id="1_0_0_4_1" name="JavaIO_and_Serialization_tests" nofquestions="2" nofsubcategories="0" filename="javaio_and_serialization_tests1_0_0_4_1.xml" />
+        </category>
         <category id="1_0_0_5" name="XML" nofquestions="0" nofsubcategories="0" />
         <category id="1_0_0_6" name="Exceptions" nofquestions="0" nofsubcategories="0" />
         <category id="1_0_0_7" name="Net" nofquestions="0" nofsubcategories="0" />
@@ -98,6 +101,7 @@
         </category>
         <category id="1_0_0_9" name="JVM" nofquestions="0" nofsubcategories="0" />
         <category id="1_0_0_10" name="JavaCore_Security" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_0_11" name="Java8_new_Features" nofquestions="0" nofsubcategories="0" />
       </category>
       <category id="1_0_1" name="Java EE" nofquestions="114" nofsubcategories="12">
         <category id="1_0_1_0" name="Java EE JNDI" nofquestions="0" nofsubcategories="0" filename="javaeejndi.xml" />

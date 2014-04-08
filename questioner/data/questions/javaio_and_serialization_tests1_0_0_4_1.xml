@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="1_0_0_4_1" name="JavaIO_and_Serialization_tests" nofquestions="2" nofsubcategories="0" filename="javaio_and_serialization_tests1_0_0_4_1.xml">
+  <question id="1_0_0_4_1:0" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Given:&lt;br&gt;
+import&amp;nbsp;java.io.*;&lt;br&gt;
+class&amp;nbsp;Player&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Player()&amp;nbsp;{&amp;nbsp;System.out.print(&amp;quot;p&amp;quot;);&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+class&amp;nbsp;CardPlayer&amp;nbsp;extends&amp;nbsp;Player&amp;nbsp;implements&amp;nbsp;Serializable&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;CardPlayer()&amp;nbsp;{&amp;nbsp;System.out.print(&amp;quot;c&amp;quot;);&amp;nbsp;&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;CardPlayer&amp;nbsp;c1&amp;nbsp;=&amp;nbsp;new&amp;nbsp;CardPlayer();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;try&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FileOutputStream&amp;nbsp;fos&amp;nbsp;=&amp;nbsp;new&amp;nbsp;FileOutputStream(&amp;quot;play.txt&amp;quot;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ObjectOutputStream&amp;nbsp;os&amp;nbsp;=&amp;nbsp;new&amp;nbsp;ObjectOutputStream(fos);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;os.writeObject(c1);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;os.close();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FileInputStream&amp;nbsp;fis&amp;nbsp;=&amp;nbsp;new&amp;nbsp;FileInputStream(&amp;quot;play.txt&amp;quot;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ObjectInputStream&amp;nbsp;is&amp;nbsp;=&amp;nbsp;new&amp;nbsp;ObjectInputStream(fis);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CardPlayer&amp;nbsp;c2&amp;nbsp;=&amp;nbsp;(CardPlayer)&amp;nbsp;is.readObject();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;is.close();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;catch&amp;nbsp;(Exception&amp;nbsp;x&amp;nbsp;)&amp;nbsp;{&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;pcc&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;pcp&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;pcpc&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;An&amp;nbsp;exception&amp;nbsp;is&amp;nbsp;thrown&amp;nbsp;at&amp;nbsp;runtime&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1&lt;br&gt;
+It's&amp;nbsp;okay&amp;nbsp;for&amp;nbsp;a&amp;nbsp;class&amp;nbsp;to&amp;nbsp;implement&amp;nbsp;Serializable&amp;nbsp;even&amp;nbsp;if&amp;nbsp;its&amp;nbsp;superclass&amp;nbsp;doesn't.&lt;br&gt;
+However,&amp;nbsp;when&amp;nbsp;you&amp;nbsp;deserialize&amp;nbsp;such&amp;nbsp;an&amp;nbsp;object,&amp;nbsp;the&amp;nbsp;non-serializable&amp;nbsp;superclass&amp;nbsp;must&amp;nbsp;run&amp;nbsp;its&lt;br&gt;
+constructor.&amp;nbsp;Remember,&amp;nbsp;constructors&amp;nbsp;don't&amp;nbsp;run&amp;nbsp;on&amp;nbsp;deserialized&amp;nbsp;classes&amp;nbsp;that&amp;nbsp;implement&lt;br&gt;
+Serializable.</questionanswer>
+  </question>
+  <question id="1_0_0_4_1:1" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Given:&lt;br&gt;
+3.&amp;nbsp;import&amp;nbsp;java.io.*;&lt;br&gt;
+4.&amp;nbsp;public&amp;nbsp;class&amp;nbsp;ReadingFor&amp;nbsp;{&lt;br&gt;
+5.&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+6.&amp;nbsp;String&amp;nbsp;s;&lt;br&gt;
+7.&amp;nbsp;try&amp;nbsp;{&lt;br&gt;
+8.&amp;nbsp;&amp;nbsp;FileReader&amp;nbsp;fr&amp;nbsp;=&amp;nbsp;new&amp;nbsp;FileReader(&amp;quot;myfile.txt&amp;quot;);&lt;br&gt;
+9.&amp;nbsp;&amp;nbsp;BufferedReader&amp;nbsp;br&amp;nbsp;=&amp;nbsp;new&amp;nbsp;BufferedReader(fr);&lt;br&gt;
+&lt;br&gt;
+10.&amp;nbsp;&amp;nbsp;while((s&amp;nbsp;=&amp;nbsp;br.readLine())&amp;nbsp;!=&amp;nbsp;null)&lt;br&gt;
+11.&amp;nbsp;&amp;nbsp;System.out.println(s);&lt;br&gt;
+12.&amp;nbsp;&amp;nbsp;br.flush();&lt;br&gt;
+&lt;br&gt;
+13.&amp;nbsp;}&amp;nbsp;catch&amp;nbsp;(IOException&amp;nbsp;e)&amp;nbsp;{&amp;nbsp;System.out.println(&amp;quot;io&amp;nbsp;error&amp;quot;);&amp;nbsp;}&lt;br&gt;
+16.&amp;nbsp;}&lt;br&gt;
+17.&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+And&amp;nbsp;given&amp;nbsp;that&amp;nbsp;myfile.txt&amp;nbsp;contains&amp;nbsp;the&amp;nbsp;following&amp;nbsp;two&amp;nbsp;lines&amp;nbsp;of&amp;nbsp;data:&lt;br&gt;
+ab&lt;br&gt;
+cd&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;ab&lt;br&gt;
+cd&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;a&lt;br&gt;
+b&lt;br&gt;
+c&lt;br&gt;
+d&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;Compilation&amp;nbsp;fails&amp;nbsp;$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2&lt;br&gt;
+You&amp;nbsp;need&amp;nbsp;to&amp;nbsp;call&amp;nbsp;flush()&amp;nbsp;only&amp;nbsp;when&amp;nbsp;you're&amp;nbsp;writing&amp;nbsp;data.&amp;nbsp;Readers&amp;nbsp;don't&amp;nbsp;have&lt;br&gt;
+flush()&amp;nbsp;methods.&lt;br&gt;
+&lt;br&gt;
+If&amp;nbsp;not&amp;nbsp;for&amp;nbsp;the&amp;nbsp;call&amp;nbsp;to&amp;nbsp;flush(),&amp;nbsp;answer&amp;nbsp;0&amp;nbsp;would&amp;nbsp;be&amp;nbsp;correct</questionanswer>
+  </question>
+</questions>
