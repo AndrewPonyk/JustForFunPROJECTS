@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_6_5_0" name="CreationalPatterns" nofquestions="9" nofsubcategories="0" filename="creationalpatterns2_6_5_0.xml">
+<questions id="2_6_5_0" name="CreationalPatterns" nofquestions="10" nofsubcategories="0" filename="creationalpatterns2_6_5_0.xml">
   <question id="2_6_5_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;GOF&amp;nbsp;&amp;nbsp;patterns,&amp;nbsp;&amp;nbsp;you&amp;nbsp;know&amp;nbsp;?&lt;br&gt;
@@ -1245,5 +1245,83 @@ Provide&amp;nbsp;example.&amp;nbsp;&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;===&lt;br&gt;
 
 &amp;nbsp;&amp;nbsp;</questionanswer>
+  </question>
+  <question id="2_6_5_0:8" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;difference&amp;nbsp;between&amp;nbsp;Monostate&amp;nbsp;and&amp;nbsp;Singleton&amp;nbsp;,&amp;nbsp;and&amp;nbsp;&lt;br&gt;
+between&amp;nbsp;Static&amp;nbsp;Class&amp;nbsp;and&amp;nbsp;Singleton&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1)&lt;br&gt;
+monostate&amp;nbsp;and&amp;nbsp;singleton&amp;nbsp;are&amp;nbsp;two&amp;nbsp;faces&amp;nbsp;of&amp;nbsp;the&amp;nbsp;same&amp;nbsp;medal&amp;nbsp;(global&amp;nbsp;state):&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;monostate&amp;nbsp;forces&amp;nbsp;a&amp;nbsp;behaviour&amp;nbsp;(only&amp;nbsp;one&amp;nbsp;value&amp;nbsp;along&amp;nbsp;all&amp;nbsp;class&amp;nbsp;instances&amp;nbsp;using&amp;nbsp;static)&lt;br&gt;
+-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;singleton&amp;nbsp;forces&amp;nbsp;a&amp;nbsp;structural&amp;nbsp;constraint&amp;nbsp;(only&amp;nbsp;one&amp;nbsp;instance)&lt;br&gt;
+&lt;br&gt;
+singleton&amp;nbsp;usage&amp;nbsp;is&amp;nbsp;not&amp;nbsp;transparent&lt;br&gt;
+&lt;br&gt;
+i.e.:&lt;br&gt;
+&lt;br&gt;
+Singleton&amp;nbsp;singleton&amp;nbsp;=&amp;nbsp;Singleton.getInstance();&lt;br&gt;
+&lt;br&gt;
+monostate&amp;nbsp;usage&amp;nbsp;is&amp;nbsp;transparent&lt;br&gt;
+&lt;br&gt;
+i.e.:&lt;br&gt;
+&lt;br&gt;
+MonoState&amp;nbsp;m1&amp;nbsp;=&amp;nbsp;new&amp;nbsp;MonoState();&lt;br&gt;
+MonoState&amp;nbsp;m2&amp;nbsp;=&amp;nbsp;new&amp;nbsp;MonoState();&amp;nbsp;//&amp;nbsp;same&amp;nbsp;state&amp;nbsp;of&amp;nbsp;m1&lt;br&gt;
+&lt;br&gt;
+====&lt;br&gt;
+&amp;nbsp;--&gt;&gt;&amp;nbsp;Not&amp;nbsp;one&amp;nbsp;instance,&amp;nbsp;but&amp;nbsp;multiple&amp;nbsp;instances&amp;nbsp;of&amp;nbsp;a&amp;nbsp;single&amp;nbsp;state&amp;nbsp;"-&amp;nbsp;a&amp;nbsp;shift&lt;br&gt;
+class&amp;nbsp;gives&amp;nbsp;additional&amp;nbsp;flexibility.&amp;nbsp;Always&amp;nbsp;possible&amp;nbsp;to&amp;nbsp;add&amp;nbsp;non-static&amp;nbsp;Membury&amp;nbsp;,&lt;br&gt;
+making&amp;nbsp;copies&amp;nbsp;of&amp;nbsp;distinct&amp;nbsp;and&amp;nbsp;unique&amp;nbsp;,&amp;nbsp;and&amp;nbsp;vice&amp;nbsp;versa.&amp;nbsp;Technically,&amp;nbsp;the&lt;br&gt;
+difference&amp;nbsp;between"&amp;nbsp;monostate&amp;nbsp;"and"&amp;nbsp;regular&amp;nbsp;class&amp;nbsp;"&amp;nbsp;is&amp;nbsp;minimal.&lt;br&gt;
+Additional&amp;nbsp;convenience&amp;nbsp;is&amp;nbsp;that&amp;nbsp;changing&amp;nbsp;the&amp;nbsp;implementation&amp;nbsp;of&amp;nbsp;the&amp;nbsp;regular&lt;br&gt;
+classroom&amp;nbsp;for&amp;nbsp;MonoState,&amp;nbsp;no&amp;nbsp;need&amp;nbsp;to&amp;nbsp;change&amp;nbsp;the&amp;nbsp;code&amp;nbsp;using&amp;nbsp;it&amp;nbsp;.&lt;br&gt;
+&lt;br&gt;
+An&amp;nbsp;important&amp;nbsp;point&amp;nbsp;not&amp;nbsp;mentioned&amp;nbsp;in&amp;nbsp;the&amp;nbsp;definition&amp;nbsp;MonoState.&amp;nbsp;Monostate&lt;br&gt;
+must&amp;nbsp;&amp;nbsp;---&gt;&gt;&gt;&amp;nbsp;contain&amp;nbsp;static&amp;nbsp;member&amp;nbsp;instance_count,&amp;nbsp;the&amp;nbsp;value&amp;nbsp;of&amp;nbsp;which&amp;nbsp;determines&lt;br&gt;
+whether&amp;nbsp;the&amp;nbsp;constructor&amp;nbsp;and&amp;nbsp;destructor&amp;nbsp;to&amp;nbsp;perform&amp;nbsp;their&amp;nbsp;tasks.&lt;br&gt;
+&lt;br&gt;
+====================&lt;br&gt;
+2)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Singleton&amp;nbsp;object&amp;nbsp;stores&amp;nbsp;in&amp;nbsp;Heap&amp;nbsp;but,&amp;nbsp;static&amp;nbsp;object&amp;nbsp;stores&amp;nbsp;in&amp;nbsp;stack&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;We&amp;nbsp;can&amp;nbsp;clone&amp;nbsp;the&amp;nbsp;object&amp;nbsp;of&amp;nbsp;Singleton&amp;nbsp;but,&amp;nbsp;we&amp;nbsp;can&amp;nbsp;not&amp;nbsp;clone&amp;nbsp;the&amp;nbsp;static&amp;nbsp;class&amp;nbsp;object&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Singleton&amp;nbsp;class&amp;nbsp;follow&amp;nbsp;the&amp;nbsp;OOP(object&amp;nbsp;oriented&amp;nbsp;principles)&amp;nbsp;but&amp;nbsp;not&amp;nbsp;static&amp;nbsp;class&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;we&amp;nbsp;can&amp;nbsp;implement&amp;nbsp;interface&amp;nbsp;with&amp;nbsp;Singleton&amp;nbsp;class&amp;nbsp;but&amp;nbsp;not&amp;nbsp;with&amp;nbsp;Static&amp;nbsp;class.&lt;br&gt;
+&lt;br&gt;
+====&lt;br&gt;
+and&amp;nbsp;one&amp;nbsp;more&amp;nbsp;answer&amp;nbsp;from&amp;nbsp;stackoverflov:&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+static&amp;nbsp;classes&amp;nbsp;should&amp;nbsp;not&amp;nbsp;do&amp;nbsp;anything&amp;nbsp;need&amp;nbsp;state,&amp;nbsp;it&amp;nbsp;is&amp;nbsp;useful&amp;nbsp;for&amp;nbsp;putting&amp;nbsp;bunch&amp;nbsp;of&lt;br&gt;
+functions&amp;nbsp;together&amp;nbsp;i.e&amp;nbsp;Math&amp;nbsp;(or&amp;nbsp;Utils&amp;nbsp;in&amp;nbsp;projects).&amp;nbsp;So&amp;nbsp;the&amp;nbsp;class&amp;nbsp;name&amp;nbsp;just&amp;nbsp;give&amp;nbsp;us&lt;br&gt;
+a&amp;nbsp;clue&amp;nbsp;where&amp;nbsp;we&amp;nbsp;can&amp;nbsp;find&amp;nbsp;the&amp;nbsp;functions&amp;nbsp;and&amp;nbsp;there's&amp;nbsp;nothing&amp;nbsp;more.&lt;br&gt;
+&lt;br&gt;
+Singleton&amp;nbsp;is&amp;nbsp;my&amp;nbsp;favorite&amp;nbsp;pattern&amp;nbsp;and&amp;nbsp;use&amp;nbsp;it&amp;nbsp;to&amp;nbsp;manage&amp;nbsp;something&amp;nbsp;at&amp;nbsp;a&amp;nbsp;single&amp;nbsp;point.&lt;br&gt;
+It's&amp;nbsp;more&amp;nbsp;flexible&amp;nbsp;than&amp;nbsp;static&amp;nbsp;classes&amp;nbsp;and&amp;nbsp;can&amp;nbsp;maintain&amp;nbsp;state.&amp;nbsp;It&amp;nbsp;can&amp;nbsp;implement&lt;br&gt;
+interfaces,&amp;nbsp;inherit&amp;nbsp;from&amp;nbsp;other&amp;nbsp;classes&amp;nbsp;and&amp;nbsp;allow&amp;nbsp;inheritance.&lt;br&gt;
+&lt;br&gt;
+My&amp;nbsp;rule&amp;nbsp;for&amp;nbsp;choosing&amp;nbsp;between&amp;nbsp;static&amp;nbsp;and&amp;nbsp;singleton:&lt;br&gt;
+&lt;br&gt;
+If&amp;nbsp;there&amp;nbsp;are&amp;nbsp;bunch&amp;nbsp;of&amp;nbsp;functions&amp;nbsp;should&amp;nbsp;be&amp;nbsp;kept&amp;nbsp;together,&amp;nbsp;then&amp;nbsp;static&amp;nbsp;is&amp;nbsp;the&lt;br&gt;
+choice.&amp;nbsp;Anything&amp;nbsp;else&amp;nbsp;which&amp;nbsp;needs&amp;nbsp;single&amp;nbsp;access&amp;nbsp;to&amp;nbsp;some&amp;nbsp;resources,&amp;nbsp;could&lt;br&gt;
+be&amp;nbsp;implemented&amp;nbsp;singleton.&lt;br&gt;
+==========================================&lt;br&gt;
+Monostate&amp;nbsp;CODE&amp;nbsp;&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;Monostate{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;static&amp;nbsp;int&amp;nbsp;x;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;int&amp;nbsp;X&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;get&amp;nbsp;{&amp;nbsp;return&amp;nbsp;x;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;set&amp;nbsp;{&amp;nbsp;x&amp;nbsp;=&amp;nbsp;value;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+Regardless&amp;nbsp;of&amp;nbsp;the&amp;nbsp;number&amp;nbsp;of&amp;nbsp;times&amp;nbsp;you&amp;nbsp;will&amp;nbsp;create&amp;nbsp;or&amp;nbsp;destroy&amp;nbsp;an&amp;nbsp;instance&amp;nbsp;of&amp;nbsp;this&lt;br&gt;
+class,&amp;nbsp;there&amp;nbsp;will&amp;nbsp;only&amp;nbsp;be&amp;nbsp;one&amp;nbsp;value&amp;nbsp;of&amp;nbsp;X,&amp;nbsp;shared&amp;nbsp;across&amp;nbsp;all&amp;nbsp;threads&amp;nbsp;of&amp;nbsp;your&lt;br&gt;
+application.&amp;nbsp;In&amp;nbsp;other&amp;nbsp;words,&amp;nbsp;changes&amp;nbsp;made&amp;nbsp;in&amp;nbsp;one&amp;nbsp;of&amp;nbsp;your&amp;nbsp;threads&amp;nbsp;are&lt;br&gt;
+immediately&amp;nbsp;and&amp;nbsp;instantaneously&amp;nbsp;visible&amp;nbsp;in&amp;nbsp;all&amp;nbsp;other&amp;nbsp;threads.&amp;nbsp;"Big&amp;nbsp;Deal!"&amp;nbsp;you&lt;br&gt;
+say,&amp;nbsp;but&amp;nbsp;it&amp;nbsp;gets&amp;nbsp;much&amp;nbsp;more&amp;nbsp;interesting,&amp;nbsp;once&amp;nbsp;we&amp;nbsp;incorporate&amp;nbsp;Generics&amp;nbsp;and&lt;br&gt;
+Concurrent&amp;nbsp;Collections:</questionanswer>
   </question>
 </questions>
