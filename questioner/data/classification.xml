@@ -71,9 +71,9 @@
       <category id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="2" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="340" nofsubcategories="5">
-    <category id="1_0" name="Java" nofquestions="305" nofsubcategories="4">
-      <category id="1_0_0" name="Java CORE" nofquestions="191" nofsubcategories="12">
+  <class id="1" name="Programming" nofquestions="356" nofsubcategories="5">
+    <category id="1_0" name="Java" nofquestions="321" nofsubcategories="4">
+      <category id="1_0_0" name="Java CORE" nofquestions="207" nofsubcategories="12">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="87" nofsubcategories="1">
           <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="87" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
         </category>
@@ -96,9 +96,9 @@
           <category id="1_0_0_5_1" name="Java_XML_Learning_Java" nofquestions="0" nofsubcategories="0" filename="java_xml_learning_java1_0_0_5_1.xml" />
           <category id="1_0_0_5_2" name="Java_JSON_parsing" nofquestions="0" nofsubcategories="0" />
         </category>
-        <category id="1_0_0_6" name="Exceptions" nofquestions="0" nofsubcategories="2">
-          <category id="1_0_0_6_2" name="Exceptions_tests" nofquestions="0" nofsubcategories="0" filename="exceptions_tests1_0_0_6_2.xml" />
-          <category id="1_0_0_6_3" name="docs.oracle.com_and_LearningJava4ed_Exceptions" nofquestions="0" nofsubcategories="0" filename="docs.oracle.com_and_learningjava4ed_exceptions1_0_0_6_3.xml" />
+        <category id="1_0_0_6" name="Exceptions" nofquestions="16" nofsubcategories="2">
+          <category id="1_0_0_6_2" name="Exceptions_tests" nofquestions="6" nofsubcategories="0" filename="exceptions_tests1_0_0_6_2.xml" />
+          <category id="1_0_0_6_3" name="docs.oracle.com_and_LearningJava4ed_Exceptions" nofquestions="10" nofsubcategories="0" filename="docs.oracle.com_and_learningjava4ed_exceptions1_0_0_6_3.xml" />
         </category>
         <category id="1_0_0_7" name="Net" nofquestions="0" nofsubcategories="2">
           <category id="1_0_0_7_0" name="Java_Network_Programming_4ed2014" nofquestions="0" nofsubcategories="0" />

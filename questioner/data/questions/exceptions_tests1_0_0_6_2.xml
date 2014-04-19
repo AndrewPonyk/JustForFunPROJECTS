@@ -1,2 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_6_2" name="Exceptions_tests" nofquestions="0" nofsubcategories="0" filename="exceptions_tests1_0_0_6_2.xml" />
+<questions id="1_0_0_6_2" name="Exceptions_tests" nofquestions="6" nofsubcategories="0" filename="exceptions_tests1_0_0_6_2.xml">
+  <question id="1_0_0_6_2:0" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Given&amp;nbsp;:&lt;br&gt;
+&lt;br&gt;
+class&amp;nbsp;Plane&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;static&amp;nbsp;String&amp;nbsp;s&amp;nbsp;=&amp;nbsp;&amp;quot;-&amp;quot;;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;new&amp;nbsp;Plane().s1();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(s);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;void&amp;nbsp;s1()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;try&amp;nbsp;{&amp;nbsp;s2();&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;catch&amp;nbsp;(Exception&amp;nbsp;e)&amp;nbsp;{&amp;nbsp;s&amp;nbsp;+=&amp;nbsp;&amp;quot;c&amp;quot;;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;void&amp;nbsp;s2()&amp;nbsp;throws&amp;nbsp;Exception&amp;nbsp;&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;s3();&amp;nbsp;&amp;nbsp;s&amp;nbsp;+=&amp;nbsp;&amp;quot;2&amp;quot;;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;s3();&amp;nbsp;&amp;nbsp;s&amp;nbsp;+=&amp;nbsp;&amp;quot;2b&amp;quot;;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;void&amp;nbsp;s3()&amp;nbsp;throws&amp;nbsp;Exception&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;throw&amp;nbsp;new&amp;nbsp;Exception();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result&amp;nbsp;?&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;-&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;-c&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-c2$v2end$&lt;br&gt;
+$v3$&amp;nbsp;Compilation&amp;nbsp;fails&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_0_0_6_2:1" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Given&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+class&amp;nbsp;Emu&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;static&amp;nbsp;String&amp;nbsp;s&amp;nbsp;=&amp;nbsp;&amp;quot;-&amp;quot;;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;try&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;throw&amp;nbsp;new&amp;nbsp;Exception();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;catch&amp;nbsp;(Exception&amp;nbsp;e)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;try&amp;nbsp;{&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;try&amp;nbsp;{&amp;nbsp;throw&amp;nbsp;new&amp;nbsp;Exception();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;catch&amp;nbsp;(Exception&amp;nbsp;ex)&amp;nbsp;{&amp;nbsp;s&amp;nbsp;+=&amp;nbsp;&amp;quot;ic&amp;nbsp;&amp;quot;;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;throw&amp;nbsp;new&amp;nbsp;Exception();&amp;nbsp;}&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;catch&amp;nbsp;(Exception&amp;nbsp;x)&amp;nbsp;{&amp;nbsp;s&amp;nbsp;+=&amp;nbsp;&amp;quot;mc&amp;nbsp;&amp;quot;;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;finally&amp;nbsp;{&amp;nbsp;s&amp;nbsp;+=&amp;nbsp;&amp;quot;mf&amp;nbsp;&amp;quot;;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;finally&amp;nbsp;{&amp;nbsp;s&amp;nbsp;+=&amp;nbsp;&amp;quot;of&amp;nbsp;&amp;quot;;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(s);&lt;br&gt;
+}&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;-ic&amp;nbsp;of&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;-ic&amp;nbsp;mf&amp;nbsp;of&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;-ic&amp;nbsp;mc&amp;nbsp;mf&amp;nbsp;of&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;-ic&amp;nbsp;mc&amp;nbsp;of&amp;nbsp;mf&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+  <question id="1_0_0_6_2:2" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Which&amp;nbsp;digits,&amp;nbsp;and&amp;nbsp;in&amp;nbsp;what&amp;nbsp;order,&amp;nbsp;will&amp;nbsp;be&amp;nbsp;printed&amp;nbsp;when&amp;nbsp;the&amp;nbsp;following&lt;br&gt;
+program&amp;nbsp;is&amp;nbsp;run?&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;MyClass&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;int&amp;nbsp;k=0;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;try&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;int&amp;nbsp;i&amp;nbsp;=&amp;nbsp;5/k;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;catch&amp;nbsp;(ArithmeticException&amp;nbsp;e)&amp;nbsp;{&lt;br&gt;
+System.out.println(&amp;quot;1&amp;quot;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;catch&amp;nbsp;(RuntimeException&amp;nbsp;e)&amp;nbsp;{&lt;br&gt;
+System.out.println(&amp;quot;2&amp;quot;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;catch&amp;nbsp;(Exception&amp;nbsp;e)&amp;nbsp;{&lt;br&gt;
+System.out.println(&amp;quot;3&amp;quot;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;finally&amp;nbsp;{&lt;br&gt;
+System.out.println(&amp;quot;4&amp;quot;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(&amp;quot;5&amp;quot;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;The&amp;nbsp;program&amp;nbsp;will&amp;nbsp;only&amp;nbsp;print&amp;nbsp;&amp;nbsp;5.&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;The&amp;nbsp;program&amp;nbsp;will&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;only&amp;nbsp;print&amp;nbsp;&amp;nbsp;1&amp;nbsp;and&amp;nbsp;4,&amp;nbsp;in&amp;nbsp;that&amp;nbsp;order.&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;The&amp;nbsp;program&amp;nbsp;will&amp;nbsp;only&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;print&amp;nbsp;&amp;nbsp;1,&amp;nbsp;2,&amp;nbsp;and&amp;nbsp;&amp;nbsp;4,&amp;nbsp;in&amp;nbsp;that&amp;nbsp;order.&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;The&amp;nbsp;program&amp;nbsp;will&amp;nbsp;only&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;print&amp;nbsp;&amp;nbsp;1,&amp;nbsp;4,&amp;nbsp;and&amp;nbsp;&amp;nbsp;5,&amp;nbsp;in&amp;nbsp;that&amp;nbsp;order&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>3</questionanswer>
+  </question>
+  <question id="1_0_0_6_2:3" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;will&amp;nbsp;be&amp;nbsp;the&amp;nbsp;result&amp;nbsp;of&amp;nbsp;attempting&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;and&amp;nbsp;run&amp;nbsp;the&lt;br&gt;
+following&amp;nbsp;program?&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;MyClass&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;RuntimeException&amp;nbsp;re&amp;nbsp;=&amp;nbsp;null;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;throw&amp;nbsp;re;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;The&amp;nbsp;code&amp;nbsp;will&amp;nbsp;fail&amp;nbsp;to&amp;nbsp;compile&amp;nbsp;because&amp;nbsp;the&amp;nbsp;main()&amp;nbsp;method&amp;nbsp;does&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;not&amp;nbsp;declare&amp;nbsp;that&lt;br&gt;
+it&amp;nbsp;throws&amp;nbsp;RuntimeException&amp;nbsp;in&amp;nbsp;its&amp;nbsp;declaration.&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&amp;nbsp;The&amp;nbsp;program&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;will&amp;nbsp;compile&amp;nbsp;without&amp;nbsp;error&amp;nbsp;and&amp;nbsp;will&amp;nbsp;throw&amp;nbsp;&amp;nbsp;java.lang.Null-PointerException&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;when&amp;nbsp;run.&amp;nbsp;$v1end$&lt;br&gt;
+$v2$The&amp;nbsp;program&amp;nbsp;will&amp;nbsp;compile&amp;nbsp;without&amp;nbsp;error&amp;nbsp;and&amp;nbsp;will&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;run&amp;nbsp;and&amp;nbsp;terminate&amp;nbsp;without&lt;br&gt;
+any&amp;nbsp;output.&amp;nbsp;$v2end$&lt;br&gt;
+$v3$$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_0_0_6_2:4" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;wrong&amp;nbsp;with&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code?&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;MyClass&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;throws&amp;nbsp;A&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;try&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;f();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;finally&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(&amp;quot;Done.&amp;quot;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;catch&amp;nbsp;(A&amp;nbsp;e)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;throw&amp;nbsp;e;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;f()&amp;nbsp;throws&amp;nbsp;B&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;throw&amp;nbsp;new&amp;nbsp;B();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+class&amp;nbsp;A&amp;nbsp;extends&amp;nbsp;Throwable&amp;nbsp;{}&lt;br&gt;
+class&amp;nbsp;B&amp;nbsp;extends&amp;nbsp;A&amp;nbsp;{}&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;The&amp;nbsp;&amp;nbsp;main()&amp;nbsp;method&amp;nbsp;must&amp;nbsp;declare&amp;nbsp;that&amp;nbsp;it&amp;nbsp;throws&amp;nbsp;B.&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;&amp;nbsp;finally&amp;nbsp;block&amp;nbsp;must&amp;nbsp;follow&amp;nbsp;the&amp;nbsp;catch&amp;nbsp;&amp;nbsp;block&amp;nbsp;in&amp;nbsp;the&amp;nbsp;&amp;nbsp;main()&amp;nbsp;method.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;The&amp;nbsp;&amp;nbsp;catch&amp;nbsp;&amp;nbsp;block&amp;nbsp;in&amp;nbsp;the&amp;nbsp;main()&amp;nbsp;method&amp;nbsp;must&amp;nbsp;declare&amp;nbsp;that&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;it&amp;nbsp;catches&amp;nbsp;B&amp;nbsp;rather&lt;br&gt;
+than&amp;nbsp;A&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;A&amp;nbsp;single&amp;nbsp;&amp;nbsp;try&amp;nbsp;&amp;nbsp;block&amp;nbsp;cannot&amp;nbsp;be&amp;nbsp;followed&amp;nbsp;by&amp;nbsp;both&amp;nbsp;a&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;finally&amp;nbsp;and&amp;nbsp;a&amp;nbsp;&amp;nbsp;catch&amp;nbsp;&amp;nbsp;block&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1</questionanswer>
+  </question>
+  <question id="1_0_0_6_2:5" type="0">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;Exceptions&amp;nbsp;:&amp;nbsp;What,&amp;nbsp;if&amp;nbsp;anything,&amp;nbsp;would&amp;nbsp;cause&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code&amp;nbsp;not&amp;nbsp;to&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;compile?&lt;br&gt;
+&lt;br&gt;
+class&amp;nbsp;A&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;void&amp;nbsp;f()&amp;nbsp;throws&amp;nbsp;ArithmeticException&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//...&lt;br&gt;
+&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;MyClass&amp;nbsp;extends&amp;nbsp;A&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;A&amp;nbsp;obj&amp;nbsp;=&amp;nbsp;new&amp;nbsp;MyClass();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;try&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;obj.f();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;catch&amp;nbsp;(ArithmeticException&amp;nbsp;e)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&amp;nbsp;catch&amp;nbsp;(Exception&amp;nbsp;e)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(e);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;throw&amp;nbsp;new&amp;nbsp;RuntimeException(&amp;quot;Something&amp;nbsp;wrong&amp;nbsp;here&amp;quot;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;//&amp;nbsp;InterruptedException&amp;nbsp;is&amp;nbsp;a&amp;nbsp;direct&amp;nbsp;subclass&amp;nbsp;of&amp;nbsp;Exception.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;void&amp;nbsp;f()&amp;nbsp;throws&amp;nbsp;InterruptedException&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//...&lt;br&gt;
+&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+$v$&lt;br&gt;
+$v0$&amp;nbsp;The&amp;nbsp;&amp;nbsp;main()&amp;nbsp;method&amp;nbsp;must&amp;nbsp;declare&amp;nbsp;that&amp;nbsp;it&amp;nbsp;throws&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;RuntimeException.&amp;nbsp;$v0end$&lt;br&gt;
+$v1$&amp;nbsp;The&amp;nbsp;overriding&amp;nbsp;&amp;nbsp;f()&amp;nbsp;&amp;nbsp;method&amp;nbsp;in&amp;nbsp;MyClass&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;must&amp;nbsp;declare&amp;nbsp;that&amp;nbsp;it&amp;nbsp;throws&amp;nbsp;&amp;nbsp;Arithmetic-Exception,&amp;nbsp;since&amp;nbsp;the&amp;nbsp;&amp;nbsp;f()&amp;nbsp;&amp;nbsp;method&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;in&amp;nbsp;class&amp;nbsp;&amp;nbsp;A&amp;nbsp;declares&amp;nbsp;that&amp;nbsp;it&amp;nbsp;does&amp;nbsp;$v1end$&lt;br&gt;
+$v2$&amp;nbsp;The&amp;nbsp;overriding&amp;nbsp;&amp;nbsp;f()&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;method&amp;nbsp;in&amp;nbsp;&amp;nbsp;MyClass&amp;nbsp;is&amp;nbsp;not&amp;nbsp;allowed&amp;nbsp;to&amp;nbsp;throw&amp;nbsp;&amp;nbsp;Interrupted-Exception,&amp;nbsp;since&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;the&amp;nbsp;&amp;nbsp;f()&amp;nbsp;&amp;nbsp;method&amp;nbsp;in&amp;nbsp;class&amp;nbsp;&amp;nbsp;A&amp;nbsp;does&amp;nbsp;not&amp;nbsp;throw&amp;nbsp;this&amp;nbsp;exception.&amp;nbsp;$v2end$&lt;br&gt;
+$v3$&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;compiler&amp;nbsp;will&amp;nbsp;complain&amp;nbsp;that&amp;nbsp;the&amp;nbsp;&amp;nbsp;catch(ArithmeticException)&amp;nbsp;block&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;shad-ows&amp;nbsp;the&amp;nbsp;&amp;nbsp;catch(Exception)&amp;nbsp;block&amp;nbsp;$v3end$&lt;br&gt;
+$vend$&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>2</questionanswer>
+  </question>
+</questions>
