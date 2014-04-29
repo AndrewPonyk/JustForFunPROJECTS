@@ -318,7 +318,11 @@
       <category id="2_6_6" name="DesignPatternsTAGonStackOverflow" nofquestions="0" nofsubcategories="0" filename="designpatternstagonstackoverflow2_6_6.xml" />
     </category>
     <category id="2_7" name="Interviews" nofquestions="0" nofsubcategories="0" />
-    <category id="2_8" name="Protocols" nofquestions="0" nofsubcategories="0" />
+    <category id="2_8" name="Protocols" nofquestions="0" nofsubcategories="3">
+      <category id="2_8_0" name="HTTP" nofquestions="0" nofsubcategories="0" />
+      <category id="2_8_1" name="OAuth1_and_2" nofquestions="0" nofsubcategories="0" />
+      <category id="2_8_2" name="FTP" nofquestions="0" nofsubcategories="0" />
+    </category>
   </class>
   <class id="3" name="Operating.Systems" nofquestions="0" nofsubcategories="2">
     <category id="3_0" name="Windows" nofquestions="0" nofsubcategories="0" />
