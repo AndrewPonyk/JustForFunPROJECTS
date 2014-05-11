@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_9_1" name="JVM_Options" nofquestions="2" nofsubcategories="0" filename="jvm_options1_0_0_9_1.xml">
+<questions id="1_0_0_9_1" name="JVM_Options" nofquestions="3" nofsubcategories="0" filename="jvm_options1_0_0_9_1.xml">
   <question id="1_0_0_9_1:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;JVM&amp;nbsp;:&amp;nbsp;Command&amp;nbsp;Line&amp;nbsp;Flags&amp;nbsp;for&amp;nbsp;the&amp;nbsp;JVM,&amp;nbsp;describe.&lt;br&gt;
@@ -226,5 +226,50 @@ and&amp;nbsp;then&amp;nbsp;compare&amp;nbsp;files&amp;nbsp;(here&amp;nbsp;are&am
 &lt;img&amp;nbsp;width='1000'&amp;nbsp;height='600'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/javaClientServerDiff.JPG'/&gt;&lt;br&gt;
 &lt;br&gt;
 &lt;img&amp;nbsp;width='1000'&amp;nbsp;height='600'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/javaClientServerDiff2.JPG'/&gt;</questionanswer>
+  </question>
+  <question id="1_0_0_9_1:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;JVM&amp;nbsp;:&amp;nbsp;describe&amp;nbsp;JVM&amp;nbsp;architecture&amp;nbsp;,&amp;nbsp;what&amp;nbsp;are&amp;nbsp;main&amp;nbsp;parts&amp;nbsp;of&amp;nbsp;JVM&amp;nbsp;?&lt;br&gt;
+What&amp;nbsp;is&amp;nbsp;Java&amp;nbsp;Classloader&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Hotspot&amp;nbsp;Architecture&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='500'&amp;nbsp;height='360'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/JVM_Architecture.PNG'/&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;key&amp;nbsp;components&amp;nbsp;of&amp;nbsp;the&amp;nbsp;JVM&amp;nbsp;that&amp;nbsp;relate&amp;nbsp;to&amp;nbsp;performance&amp;nbsp;are&amp;nbsp;highlighted&amp;nbsp;in&amp;nbsp;the&amp;nbsp;following&amp;nbsp;image.&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='500'&amp;nbsp;height='360'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/JVM_Key_Components.PNG'/&gt;&lt;br&gt;
+&lt;br&gt;
+There&amp;nbsp;are&amp;nbsp;three&amp;nbsp;components&amp;nbsp;of&amp;nbsp;the&amp;nbsp;JVM&amp;nbsp;that&amp;nbsp;are&amp;nbsp;focused&amp;nbsp;on&amp;nbsp;when&amp;nbsp;tuning&amp;nbsp;performance.&amp;nbsp;The&amp;nbsp;heap&amp;nbsp;is&amp;nbsp;where&amp;nbsp;your&lt;br&gt;
+object&amp;nbsp;data&amp;nbsp;is&amp;nbsp;stored.&amp;nbsp;This&amp;nbsp;area&amp;nbsp;is&amp;nbsp;then&amp;nbsp;managed&amp;nbsp;by&amp;nbsp;the&amp;nbsp;garbage&amp;nbsp;collector&amp;nbsp;selected&amp;nbsp;at&amp;nbsp;startup.&amp;nbsp;Most&amp;nbsp;tuning&lt;br&gt;
+options&amp;nbsp;relate&amp;nbsp;to&amp;nbsp;sizing&amp;nbsp;the&amp;nbsp;heap&amp;nbsp;and&amp;nbsp;choosing&amp;nbsp;the&amp;nbsp;most&amp;nbsp;appropriate&amp;nbsp;garbage&amp;nbsp;collector&amp;nbsp;for&amp;nbsp;your&amp;nbsp;situation.&amp;nbsp;The&amp;nbsp;JIT&lt;br&gt;
+compiler&amp;nbsp;also&amp;nbsp;has&amp;nbsp;a&amp;nbsp;big&amp;nbsp;impact&amp;nbsp;on&amp;nbsp;performance&amp;nbsp;but&amp;nbsp;rarely&amp;nbsp;requires&amp;nbsp;tuning&amp;nbsp;with&amp;nbsp;the&amp;nbsp;newer&amp;nbsp;versions&amp;nbsp;of&amp;nbsp;the&amp;nbsp;JVM.&lt;br&gt;
+&lt;br&gt;
+===============================================================&lt;br&gt;
+prmpt&gt;java&amp;nbsp;-verbose:class&amp;nbsp;HelloApp&amp;nbsp;-&amp;nbsp;display&amp;nbsp;when&amp;nbsp;classes&amp;nbsp;are&amp;nbsp;loaded&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+What&amp;nbsp;is&amp;nbsp;a&amp;nbsp;java&amp;nbsp;ClassLoader?&lt;br&gt;
+Applications&amp;nbsp;written&amp;nbsp;in&amp;nbsp;statically&amp;nbsp;compiled&amp;nbsp;programming&amp;nbsp;languages,&amp;nbsp;such&amp;nbsp;as&amp;nbsp;C&amp;nbsp;and&amp;nbsp;C++,&amp;nbsp;are&amp;nbsp;compiled&amp;nbsp;into&amp;nbsp;native,&lt;br&gt;
+machine-specific&amp;nbsp;instructions&amp;nbsp;and&amp;nbsp;saved&amp;nbsp;as&amp;nbsp;an&amp;nbsp;executable&amp;nbsp;file.&amp;nbsp;The&amp;nbsp;process&amp;nbsp;of&amp;nbsp;combining&amp;nbsp;the&amp;nbsp;code&amp;nbsp;into&amp;nbsp;an&lt;br&gt;
+executable&amp;nbsp;native&amp;nbsp;code&amp;nbsp;is&amp;nbsp;called&amp;nbsp;linking&amp;nbsp;-&amp;nbsp;the&amp;nbsp;merging&amp;nbsp;of&amp;nbsp;separately&amp;nbsp;compiled&amp;nbsp;code&amp;nbsp;with&amp;nbsp;shared&amp;nbsp;library&amp;nbsp;code&amp;nbsp;to&lt;br&gt;
+create&amp;nbsp;an&amp;nbsp;executable&amp;nbsp;application.&amp;nbsp;This&amp;nbsp;is&amp;nbsp;different&amp;nbsp;in&amp;nbsp;dynamically&amp;nbsp;compiled&amp;nbsp;programming&amp;nbsp;languages&amp;nbsp;such&amp;nbsp;as&amp;nbsp;Java.&lt;br&gt;
+In&amp;nbsp;Java,&amp;nbsp;the&amp;nbsp;.class&amp;nbsp;files&amp;nbsp;generated&amp;nbsp;by&amp;nbsp;the&amp;nbsp;Java&amp;nbsp;compiler&amp;nbsp;remain&amp;nbsp;as-is&amp;nbsp;until&amp;nbsp;loaded&amp;nbsp;into&amp;nbsp;the&amp;nbsp;Java&amp;nbsp;Virtual&amp;nbsp;Machine&amp;nbsp;(JVM)&lt;br&gt;
+--&amp;nbsp;in&amp;nbsp;other&amp;nbsp;words,&amp;nbsp;the&amp;nbsp;linking&amp;nbsp;process&amp;nbsp;is&amp;nbsp;performed&amp;nbsp;by&amp;nbsp;the&amp;nbsp;JVM&amp;nbsp;at&amp;nbsp;runtime&amp;nbsp;&lt;&lt;---.&amp;nbsp;Classes&amp;nbsp;are&amp;nbsp;loaded&amp;nbsp;into&amp;nbsp;the&amp;nbsp;JVM&amp;nbsp;on&lt;br&gt;
+an&amp;nbsp;'as&amp;nbsp;needed'&amp;nbsp;basis.&amp;nbsp;And&amp;nbsp;when&amp;nbsp;a&amp;nbsp;loaded&amp;nbsp;class&amp;nbsp;depends&amp;nbsp;on&amp;nbsp;another&amp;nbsp;class,&amp;nbsp;then&amp;nbsp;that&amp;nbsp;class&amp;nbsp;is&amp;nbsp;loaded&amp;nbsp;as&amp;nbsp;well.&lt;br&gt;
+&lt;br&gt;
+When&amp;nbsp;a&amp;nbsp;Java&amp;nbsp;application&amp;nbsp;is&amp;nbsp;launched,&amp;nbsp;the&amp;nbsp;first&amp;nbsp;class&amp;nbsp;to&amp;nbsp;run&amp;nbsp;(or&amp;nbsp;the&amp;nbsp;entry&amp;nbsp;point&amp;nbsp;into&amp;nbsp;the&amp;nbsp;application)&amp;nbsp;is&amp;nbsp;the&amp;nbsp;one&amp;nbsp;with&lt;br&gt;
+public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;method&amp;nbsp;called&amp;nbsp;main().&amp;nbsp;This&amp;nbsp;class&amp;nbsp;usually&amp;nbsp;has&amp;nbsp;references&amp;nbsp;to&amp;nbsp;other&amp;nbsp;classes,&amp;nbsp;and&amp;nbsp;all&amp;nbsp;attempts&amp;nbsp;to&amp;nbsp;load&lt;br&gt;
+the&amp;nbsp;referenced&amp;nbsp;classes&amp;nbsp;are&amp;nbsp;carried&amp;nbsp;out&amp;nbsp;by&amp;nbsp;the&amp;nbsp;class&amp;nbsp;loader.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+--------------------------------------------------------------------------------------&lt;br&gt;
+Loading&amp;nbsp;&amp;nbsp;a&amp;nbsp;jar&amp;nbsp;file&amp;nbsp;at&amp;nbsp;runtime&lt;br&gt;
+File&amp;nbsp;file&amp;nbsp;&amp;nbsp;=&amp;nbsp;new&amp;nbsp;File("c:\\myjar.jar");&lt;br&gt;
+&amp;nbsp;URL&amp;nbsp;url&amp;nbsp;=&amp;nbsp;file.toURL();&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;URL[]&amp;nbsp;urls&amp;nbsp;=&amp;nbsp;new&amp;nbsp;URL[]{url};&lt;br&gt;
+&amp;nbsp;ClassLoader&amp;nbsp;cl&amp;nbsp;=&amp;nbsp;new&amp;nbsp;URLClassLoader(urls);&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;Class&amp;nbsp;cls&amp;nbsp;=&amp;nbsp;cl.loadClass("com.mypackage.myclass");&lt;br&gt;</questionanswer>
   </question>
 </questions>

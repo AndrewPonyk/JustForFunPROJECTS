@@ -71,9 +71,9 @@
       <category id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="2" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="390" nofsubcategories="5">
-    <category id="1_0" name="Java" nofquestions="355" nofsubcategories="4">
-      <category id="1_0_0" name="Java CORE" nofquestions="241" nofsubcategories="12">
+  <class id="1" name="Programming" nofquestions="395" nofsubcategories="5">
+    <category id="1_0" name="Java" nofquestions="360" nofsubcategories="4">
+      <category id="1_0_0" name="Java CORE" nofquestions="246" nofsubcategories="12">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="89" nofsubcategories="1">
           <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="89" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
         </category>
@@ -113,7 +113,7 @@
             <category id="1_0_0_8_2_0" name="docsOracle_and_journaldevcom" nofquestions="2" nofsubcategories="0" filename="docsoracle_and_journaldevcom1_0_0_8_2_0.xml" />
           </category>
         </category>
-        <category id="1_0_0_9" name="JVM" nofquestions="10" nofsubcategories="4">
+        <category id="1_0_0_9" name="JVM" nofquestions="13" nofsubcategories="4">
           <category id="1_0_0_9_0" name="JavaPerformanceBook2012" nofquestions="0" nofsubcategories="6">
             <category id="1_0_0_9_0_0" name="Chap3_HotSpot_Overview" nofquestions="0" nofsubcategories="0" filename="chap3_hotspot_overview1_0_0_9_0_0.xml" />
             <category id="1_0_0_9_0_1" name="Chap4_JVM_Performance_Monitoring" nofquestions="0" nofsubcategories="0" filename="chap4_jvm_performance_monitoring1_0_0_9_0_1.xml" />
@@ -122,12 +122,12 @@
             <category id="1_0_0_9_0_4" name="Chap7_Tuning_the_JVM_Step_by_Step" nofquestions="0" nofsubcategories="0" filename="chap7_tuning_the_jvm_step_by_step1_0_0_9_0_4.xml" />
             <category id="1_0_0_9_0_5" name="AppA_HotSpot_VM_Command_Line_Options_of_Interest" nofquestions="0" nofsubcategories="0" filename="appa_hotspot_vm_command_line_options_of_interest1_0_0_9_0_5.xml" />
           </category>
-          <category id="1_0_0_9_1" name="JVM_Options" nofquestions="2" nofsubcategories="0" filename="jvm_options1_0_0_9_1.xml" />
+          <category id="1_0_0_9_1" name="JVM_Architecture_and_Options" nofquestions="3" nofsubcategories="0" filename="jvm_options1_0_0_9_1.xml" />
           <category id="1_0_0_9_2" name="ByteCode_fund_WIKI_JamesBloom_archipov" nofquestions="6" nofsubcategories="0" filename="bytecode_fund_wiki_jamesbloom_archipov1_0_0_9_2.xml" />
-          <category id="1_0_0_9_3" name="GC_Oracledoc_cubridorg_javaworld_infoq" nofquestions="2" nofsubcategories="0" filename="gc_oracledoc_cubridorg_javaworld_infoq1_0_0_9_3.xml" />
+          <category id="1_0_0_9_3" name="GC_Oracledoc_cubridorg_javaworld_infoq" nofquestions="4" nofsubcategories="0" filename="gc_oracledoc_cubridorg_javaworld_infoq1_0_0_9_3.xml" />
         </category>
-        <category id="1_0_0_10" name="JavaCore_Security" nofquestions="0" nofsubcategories="1">
-          <category id="1_0_0_10_0" name="Java_SE_Security_oracle.com" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_0_10" name="JavaCore_Security" nofquestions="2" nofsubcategories="1">
+          <category id="1_0_0_10_0" name="JavaSESecurity_oracledotcom" nofquestions="2" nofsubcategories="0" filename="javasesecurity_oracledotcom1_0_0_10_0.xml" />
         </category>
         <category id="1_0_0_11" name="Java8_new_Features" nofquestions="0" nofsubcategories="0" />
       </category>
@@ -340,7 +340,7 @@
     <category id="3_0" name="Windows" nofquestions="0" nofsubcategories="0" />
     <category id="3_1" name="Linux" nofquestions="0" nofsubcategories="0" />
   </class>
-  <class id="4" name="Languages" nofquestions="2" nofsubcategories="3">
+  <class id="4" name="Languages" nofquestions="0" nofsubcategories="2">
     <category id="4_0" name="English" nofquestions="0" nofsubcategories="1">
       <category id="4_0_0" name="How English Works BOOK" nofquestions="0" nofsubcategories="0" />
     </category>
@@ -349,9 +349,6 @@
         <category id="4_1_0_0" name="Tom1" nofquestions="0" nofsubcategories="0" />
         <category id="4_1_0_1" name="Tom2" nofquestions="0" nofsubcategories="0" />
       </category>
-    </category>
-    <category id="4_2" name="head" nofquestions="2" nofsubcategories="1" filename="head4_2.xml">
-      <category id="4_2_0" name="body" nofquestions="0" nofsubcategories="0" filename="body4_2_0.xml" />
     </category>
   </class>
 </classification>
