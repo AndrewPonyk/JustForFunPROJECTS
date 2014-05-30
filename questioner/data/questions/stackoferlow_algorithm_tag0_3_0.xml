@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="2" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml">
+<questions id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="3" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml">
   <question id="0_3_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Basic&amp;nbsp;Algorithms&amp;nbsp;:&amp;nbsp;Matrix&amp;nbsp;Multiplying&amp;nbsp;,&amp;nbsp;write&amp;nbsp;code&amp;nbsp;.&lt;br&gt;
@@ -22,9 +22,9 @@
 &lt;br&gt;
 &lt;br&gt;
 ========&lt;br&gt;
-Computer&amp;nbsp;scientists&amp;nbsp;classify&amp;nbsp;this&amp;nbsp;algorithm&amp;nbsp;as&amp;nbsp;O(n3),&amp;nbsp;which&amp;nbsp;is&amp;nbsp;read&amp;nbsp;‚Äúbig-oh&lt;br&gt;
-of&amp;nbsp;n-cubed‚Äù&amp;nbsp;or&amp;nbsp;‚Äúapproximately&amp;nbsp;n-cubed.‚Äù&amp;nbsp;This&amp;nbsp;notation&amp;nbsp;is&amp;nbsp;an&amp;nbsp;abstract&amp;nbsp;way&lt;br&gt;
-of&amp;nbsp;classifying&amp;nbsp;the&amp;nbsp;algorithm‚Äôs&amp;nbsp;performance&amp;nbsp;(without&amp;nbsp;being&amp;nbsp;bogged&amp;nbsp;down&amp;nbsp;in&lt;br&gt;
+Computer&amp;nbsp;scientists&amp;nbsp;classify&amp;nbsp;this&amp;nbsp;algorithm&amp;nbsp;as&amp;nbsp;O(n3),&amp;nbsp;which&amp;nbsp;is&amp;nbsp;read&amp;nbsp;ìbig-oh&lt;br&gt;
+of&amp;nbsp;n-cubedî&amp;nbsp;or&amp;nbsp;ìapproximately&amp;nbsp;n-cubed.î&amp;nbsp;This&amp;nbsp;notation&amp;nbsp;is&amp;nbsp;an&amp;nbsp;abstract&amp;nbsp;way&lt;br&gt;
+of&amp;nbsp;classifying&amp;nbsp;the&amp;nbsp;algorithmís&amp;nbsp;performance&amp;nbsp;(without&amp;nbsp;being&amp;nbsp;bogged&amp;nbsp;down&amp;nbsp;in&lt;br&gt;
 specific&amp;nbsp;details&amp;nbsp;such&amp;nbsp;as&amp;nbsp;microprocessor&amp;nbsp;speed).&amp;nbsp;A&amp;nbsp;O(n3)&amp;nbsp;classification&lt;br&gt;
 indicates&amp;nbsp;very&amp;nbsp;poor&amp;nbsp;performance,&amp;nbsp;and&amp;nbsp;this&amp;nbsp;performance&amp;nbsp;worsens&amp;nbsp;as&amp;nbsp;the&lt;br&gt;
 sizes&amp;nbsp;of&amp;nbsp;the&amp;nbsp;matrixes&amp;nbsp;being&amp;nbsp;multiplied&amp;nbsp;increase.&lt;br&gt;
@@ -64,5 +64,33 @@ Non&amp;nbsp;recursive&amp;nbsp;way&amp;nbsp;:&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;prev1;&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;</questionanswer>
+  </question>
+  <question id="0_3_0:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;we&amp;nbsp;can&amp;nbsp;find&amp;nbsp;Maximum&amp;nbsp;subarray&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>public&amp;nbsp;class&amp;nbsp;HelloWorld{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]args){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("Hello&amp;nbsp;World");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;int&amp;nbsp;[]&amp;nbsp;mas&amp;nbsp;=&amp;nbsp;{1,3,-4,2,8,-3,5};&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(maxSub(mas));&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;int&amp;nbsp;maxSub(int[]&amp;nbsp;mas){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;int&amp;nbsp;[]&amp;nbsp;sum&amp;nbsp;=&amp;nbsp;new&amp;nbsp;int[mas.length];&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;sum[0]&amp;nbsp;=&amp;nbsp;mas[0];&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;int&amp;nbsp;max&amp;nbsp;=&amp;nbsp;mas[0];&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for(int&amp;nbsp;i=1;i&lt;mas.length;i++){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;sum[i]&amp;nbsp;=&amp;nbsp;Math.max(mas[i],&amp;nbsp;mas[i]&amp;nbsp;+&amp;nbsp;mas[i-1]);/////!&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;max&amp;nbsp;=&amp;nbsp;Math.max(max,&amp;nbsp;sum[i]);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;max;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}</questionanswer>
   </question>
 </questions>
