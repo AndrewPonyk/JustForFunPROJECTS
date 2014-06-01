@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="0_0_1_0_0_0" name="3Selectors" nofquestions="6" nofsubcategories="0" filename="3selectors0_0_1_0_0_0.xml">
+  <question id="0_0_1_0_0_0:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Css&amp;nbsp;core&amp;nbsp;:&amp;nbsp;&amp;nbsp;adding&amp;nbsp;CSS&amp;nbsp;to&amp;nbsp;HTML,&amp;nbsp;describe&amp;nbsp;(4&amp;nbsp;ways).&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+1&amp;nbsp;Linking&amp;nbsp;to&amp;nbsp;a&amp;nbsp;separate&amp;nbsp;CSS&amp;nbsp;file&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;link&amp;nbsp;rel="stylesheet"&amp;nbsp;type="text/css"&amp;nbsp;href="mystyles.css"&amp;nbsp;media="screen"&amp;nbsp;/&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+2&amp;nbsp;Embedding&amp;nbsp;CSS&amp;nbsp;into&amp;nbsp;the&amp;nbsp;HTML&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;style&amp;nbsp;media="screen"&amp;nbsp;type="text/css"&gt;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Add&amp;nbsp;style&amp;nbsp;rules&amp;nbsp;here&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/style&gt;&lt;br&gt;
+&lt;br&gt;
+3&amp;nbsp;Adding&amp;nbsp;Inline&amp;nbsp;CSS&amp;nbsp;to&amp;nbsp;HTML&amp;nbsp;tags&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;h2&amp;nbsp;style="color:red;background:black;"&gt;This&amp;nbsp;is&amp;nbsp;a&amp;nbsp;red&amp;nbsp;heading&amp;nbsp;with&amp;nbsp;a&amp;nbsp;black&amp;nbsp;background&lt;/h2&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+4&amp;nbsp;Importing&amp;nbsp;a&amp;nbsp;CSS&amp;nbsp;file&amp;nbsp;from&amp;nbsp;within&amp;nbsp;CSS&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@import&amp;nbsp;"newstyles.css";</questionanswer>
+  </question>
+  <question id="0_0_1_0_0_0:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Css&amp;nbsp;core&amp;nbsp;:&amp;nbsp;what&amp;nbsp;is&amp;nbsp;the&amp;nbsp;difference&amp;nbsp;between&amp;nbsp;'ul#navlink'&amp;nbsp;and&amp;nbsp;&amp;nbsp;'ul&amp;nbsp;#navlink'&amp;nbsp;?&lt;br&gt;
+Are&amp;nbsp;CSS&amp;nbsp;selectors&amp;nbsp;case-sensitive&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;difference&amp;nbsp;between&amp;nbsp;'ul#navlink'&amp;nbsp;and&amp;nbsp;&amp;nbsp;'ul&amp;nbsp;#navlink'&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;-ul#navlink&amp;nbsp;&amp;nbsp;apply&amp;nbsp;to&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&lt;ul&amp;nbsp;id="navlink"&gt;&amp;nbsp;...&lt;/ul&gt;&lt;br&gt;
+&lt;br&gt;
+-ul&amp;nbsp;#navlink&amp;nbsp;apply&amp;nbsp;to&amp;nbsp;&amp;nbsp;element&amp;nbsp;with&amp;nbsp;id&amp;nbsp;navlink:&lt;br&gt;
+&amp;nbsp;&lt;ul&gt;&amp;nbsp;&lt;li&amp;nbsp;id="navlink"&gt;...&lt;/li&gt;&amp;nbsp;&lt;/ul&gt;&lt;br&gt;
+------------------------------------------------------------------------------------------------------------------&lt;br&gt;
+2&amp;nbsp;Are&amp;nbsp;CSS&amp;nbsp;selectors&amp;nbsp;case-sensitive&amp;nbsp;?&lt;br&gt;
+Answer&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;Class&amp;nbsp;and&amp;nbsp;ID&amp;nbsp;attributes&amp;nbsp;are&amp;nbsp;case&amp;nbsp;sensitive&amp;nbsp;!!!</questionanswer>
+  </question>
+  <question id="0_0_1_0_0_0:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CSS&amp;nbsp;core&amp;nbsp;:&amp;nbsp;&amp;nbsp;Selectors,&amp;nbsp;describe.&amp;nbsp;What&amp;nbsp;are&amp;nbsp;new&amp;nbsp;selectors&amp;nbsp;coming&amp;nbsp;with&amp;nbsp;CSS3&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Selector&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Example&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Example&amp;nbsp;description&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CSS&lt;br&gt;
+&lt;br&gt;
+.class&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;.intro&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;elements&amp;nbsp;with&amp;nbsp;class="intro"&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&lt;br&gt;
+#id&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#firstname&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;the&amp;nbsp;element&amp;nbsp;with&amp;nbsp;id="firstname"&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&lt;br&gt;
+*&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;elements&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2&lt;br&gt;
+element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;&lt;p&gt;&amp;nbsp;elements&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&lt;br&gt;
+element,element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;div,p&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;&lt;div&gt;&amp;nbsp;elements&amp;nbsp;and&amp;nbsp;all&amp;nbsp;&lt;p&gt;&amp;nbsp;elements&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&lt;br&gt;
+element&amp;nbsp;element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;div&amp;nbsp;p&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;&lt;p&gt;&amp;nbsp;elements&amp;nbsp;inside&amp;nbsp;&lt;div&gt;&amp;nbsp;elements&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&lt;br&gt;
+element&gt;element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;div&gt;p&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;&lt;p&gt;&amp;nbsp;elements&amp;nbsp;where&amp;nbsp;the&amp;nbsp;parent&amp;nbsp;is&amp;nbsp;a&amp;nbsp;&lt;div&gt;&amp;nbsp;element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2&lt;br&gt;
+element+element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;div+p&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;&lt;p&gt;&amp;nbsp;elements&amp;nbsp;that&amp;nbsp;are&amp;nbsp;placed&amp;nbsp;immediately&amp;nbsp;after&amp;nbsp;&lt;div&gt;&amp;nbsp;elements&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2&lt;br&gt;
+element1~element2&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p~ul&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;ul&gt;&amp;nbsp;element&amp;nbsp;that&amp;nbsp;are&amp;nbsp;preceded&amp;nbsp;by&amp;nbsp;a&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+[attribute]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;[target]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;elements&amp;nbsp;with&amp;nbsp;a&amp;nbsp;target&amp;nbsp;attribute&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2&lt;br&gt;
+[attribute=value]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;[target=_blank]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;elements&amp;nbsp;with&amp;nbsp;target="_blank"&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2&lt;br&gt;
+[attribute~=value]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;[title~=flower]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;elements&amp;nbsp;with&amp;nbsp;a&amp;nbsp;title&amp;nbsp;attribute&amp;nbsp;containing&amp;nbsp;the&amp;nbsp;word&amp;nbsp;"flower"&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2&lt;br&gt;
+[attribute|=value]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;[lang|=en]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;elements&amp;nbsp;with&amp;nbsp;a&amp;nbsp;lang&amp;nbsp;attribute&amp;nbsp;value&amp;nbsp;starting&amp;nbsp;with&amp;nbsp;"en"&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2&lt;br&gt;
+[attribute^=value]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;a[src^="https"]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;a&gt;&amp;nbsp;element&amp;nbsp;whose&amp;nbsp;src&amp;nbsp;attribute&amp;nbsp;value&amp;nbsp;begins&amp;nbsp;with&amp;nbsp;"https"&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+[attribute$=value]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;a[src$=".pdf"]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;a&gt;&amp;nbsp;element&amp;nbsp;whose&amp;nbsp;src&amp;nbsp;attribute&amp;nbsp;value&amp;nbsp;ends&amp;nbsp;with&amp;nbsp;".pdf"&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+[attribute*=value]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;a[src*="w3schools"]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;a&gt;&amp;nbsp;element&amp;nbsp;whose&amp;nbsp;src&amp;nbsp;attribute&amp;nbsp;value&amp;nbsp;contains&amp;nbsp;the&amp;nbsp;substring&amp;nbsp;"w3schools"&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:active&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;a:active&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;the&amp;nbsp;active&amp;nbsp;link&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&lt;br&gt;
+::after&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p::after&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Insert&amp;nbsp;content&amp;nbsp;after&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2&lt;br&gt;
+::before&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p::before&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Insert&amp;nbsp;content&amp;nbsp;before&amp;nbsp;&amp;nbsp;the&amp;nbsp;content&amp;nbsp;of&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2&lt;br&gt;
+:checked&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input:checked&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;checked&amp;nbsp;&lt;input&gt;&amp;nbsp;element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:disabled&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input:disabled&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;disabled&amp;nbsp;&lt;input&gt;&amp;nbsp;element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:empty&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p:empty&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;that&amp;nbsp;has&amp;nbsp;no&amp;nbsp;children&amp;nbsp;(including&amp;nbsp;text&amp;nbsp;nodes)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:enabled&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input:enabled&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;enabled&amp;nbsp;&lt;input&gt;&amp;nbsp;element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:first-child&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p:first-child&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;that&amp;nbsp;is&amp;nbsp;the&amp;nbsp;first&amp;nbsp;child&amp;nbsp;of&amp;nbsp;its&amp;nbsp;parent&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2&lt;br&gt;
+::first-letter&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p::first-letter&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;the&amp;nbsp;first&amp;nbsp;letter&amp;nbsp;of&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&lt;br&gt;
+::first-line&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p::first-line&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;the&amp;nbsp;first&amp;nbsp;line&amp;nbsp;of&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&lt;br&gt;
+:first-of-type&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p:first-of-type&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;that&amp;nbsp;is&amp;nbsp;the&amp;nbsp;first&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;of&amp;nbsp;its&amp;nbsp;parent&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:focus&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input:focus&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;the&amp;nbsp;input&amp;nbsp;element&amp;nbsp;which&amp;nbsp;has&amp;nbsp;focus&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2&lt;br&gt;
+:hover&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;a:hover&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;links&amp;nbsp;on&amp;nbsp;mouse&amp;nbsp;over&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&lt;br&gt;
+:in-range&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input:in-range&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;input&amp;nbsp;elements&amp;nbsp;with&amp;nbsp;a&amp;nbsp;value&amp;nbsp;within&amp;nbsp;a&amp;nbsp;specified&amp;nbsp;range&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:invalid&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input:invalid&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;input&amp;nbsp;elemets&amp;nbsp;with&amp;nbsp;an&amp;nbsp;invalid&amp;nbsp;value&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:lang(language)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p:lang(it)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;with&amp;nbsp;a&amp;nbsp;lang&amp;nbsp;attribute&amp;nbsp;equal&amp;nbsp;to&amp;nbsp;"it"&amp;nbsp;(Italian)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2&lt;br&gt;
+:last-child&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p:last-child&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;that&amp;nbsp;is&amp;nbsp;the&amp;nbsp;last&amp;nbsp;child&amp;nbsp;of&amp;nbsp;its&amp;nbsp;parent&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:last-of-type&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p:last-of-type&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;that&amp;nbsp;is&amp;nbsp;the&amp;nbsp;last&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;of&amp;nbsp;its&amp;nbsp;parent&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:link&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;a:link&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;unvisited&amp;nbsp;links&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&lt;br&gt;
+:not(selector)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;:not(p)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;element&amp;nbsp;that&amp;nbsp;is&amp;nbsp;not&amp;nbsp;a&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:nth-child(n)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p:nth-child(2)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;that&amp;nbsp;is&amp;nbsp;the&amp;nbsp;second&amp;nbsp;child&amp;nbsp;of&amp;nbsp;its&amp;nbsp;parent&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:nth-last-child(n)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p:nth-last-child(2)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;that&amp;nbsp;is&amp;nbsp;the&amp;nbsp;second&amp;nbsp;child&amp;nbsp;of&amp;nbsp;its&amp;nbsp;parent,&amp;nbsp;counting&amp;nbsp;from&amp;nbsp;the&amp;nbsp;last&amp;nbsp;child&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:nth-last-of-type(n)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p:nth-last-of-type(2)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;that&amp;nbsp;is&amp;nbsp;the&amp;nbsp;second&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;of&amp;nbsp;its&amp;nbsp;parent,&amp;nbsp;counting&amp;nbsp;from&amp;nbsp;the&amp;nbsp;last&amp;nbsp;child&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:nth-of-type(n)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p:nth-of-type(2)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;that&amp;nbsp;is&amp;nbsp;the&amp;nbsp;second&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;of&amp;nbsp;its&amp;nbsp;parent&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:only-of-type&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p:only-of-type&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;that&amp;nbsp;is&amp;nbsp;the&amp;nbsp;only&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;of&amp;nbsp;its&amp;nbsp;parent&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:only-child&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p:only-child&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;every&amp;nbsp;&lt;p&gt;&amp;nbsp;element&amp;nbsp;that&amp;nbsp;is&amp;nbsp;the&amp;nbsp;only&amp;nbsp;child&amp;nbsp;of&amp;nbsp;its&amp;nbsp;parent&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:optional&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input:optional&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;input&amp;nbsp;elements&amp;nbsp;with&amp;nbsp;no&amp;nbsp;"required"&amp;nbsp;attribute&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:out-of-range&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input:out-of-range&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;input&amp;nbsp;elements&amp;nbsp;with&amp;nbsp;a&amp;nbsp;value&amp;nbsp;outside&amp;nbsp;a&amp;nbsp;specified&amp;nbsp;range&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:read-only&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input:read-only&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;input&amp;nbsp;elements&amp;nbsp;with&amp;nbsp;the&amp;nbsp;"readonly"&amp;nbsp;attribute&amp;nbsp;specified&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:read-write&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input:read-write&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;input&amp;nbsp;elements&amp;nbsp;with&amp;nbsp;the&amp;nbsp;"readonly"&amp;nbsp;attribute&amp;nbsp;NOT&amp;nbsp;specified&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:required&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input:required&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;input&amp;nbsp;elements&amp;nbsp;with&amp;nbsp;the&amp;nbsp;"required"&amp;nbsp;attribute&amp;nbsp;specified&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:root&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;:root&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;the&amp;nbsp;document's&amp;nbsp;root&amp;nbsp;element&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+::selection&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;::selection&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;the&amp;nbsp;portion&amp;nbsp;of&amp;nbsp;an&amp;nbsp;element&amp;nbsp;that&amp;nbsp;is&amp;nbsp;selected&amp;nbsp;by&amp;nbsp;a&amp;nbsp;user&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+:target&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#news:target&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;the&amp;nbsp;current&amp;nbsp;active&amp;nbsp;#news&amp;nbsp;element&amp;nbsp;(clicked&amp;nbsp;on&amp;nbsp;a&amp;nbsp;URL&amp;nbsp;containing&amp;nbsp;that&amp;nbsp;anchor&amp;nbsp;name)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:valid&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;input:valid&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;input&amp;nbsp;elements&amp;nbsp;with&amp;nbsp;a&amp;nbsp;valid&amp;nbsp;value&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3&lt;br&gt;
+:visited&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;a:visited&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;all&amp;nbsp;visited&amp;nbsp;links&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1&lt;br&gt;
+&lt;br&gt;
+Nice&amp;nbsp;examples&amp;nbsp;:&lt;br&gt;
+http://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048&lt;br&gt;
+&lt;br&gt;
+----------------------------------&lt;br&gt;
+Example&amp;nbsp;:&amp;nbsp;Table&amp;nbsp;with&amp;nbsp;different&amp;nbsp;odd&amp;nbsp;and&amp;nbsp;even&amp;nbsp;rows&amp;nbsp;:&lt;br&gt;
+&lt;table&gt;...&lt;/table&gt;&lt;br&gt;
+&lt;br&gt;
+css&amp;nbsp;:&lt;br&gt;
+tr:nth-child(2n){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background:&amp;nbsp;#CCC;&lt;br&gt;
+}&lt;br&gt;
+&amp;nbsp;Compatibility&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;IE9+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Firefox&amp;nbsp;3.5+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Chrome&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Safari&lt;br&gt;
+-------------------------------------------</questionanswer>
+  </question>
+  <question id="0_0_1_0_0_0:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CSS&amp;nbsp;Core&amp;nbsp;:&amp;nbsp;CSS&amp;nbsp;Rule&amp;nbsp;Priorities,&amp;nbsp;describe&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>When&amp;nbsp;creating&amp;nbsp;a&amp;nbsp;CSS&amp;nbsp;document,&amp;nbsp;the&amp;nbsp;following&amp;nbsp;rules&amp;nbsp;apply:&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;When&amp;nbsp;more&amp;nbsp;than&amp;nbsp;1&amp;nbsp;overlapping&amp;nbsp;styles&amp;nbsp;are&amp;nbsp;applied&amp;nbsp;to&amp;nbsp;the&amp;nbsp;same&amp;nbsp;element,&amp;nbsp;only&amp;nbsp;the&amp;nbsp;last&amp;nbsp;style&amp;nbsp;is&amp;nbsp;visible:&amp;nbsp;&lt;br&gt;
+p&amp;nbsp;{color:&amp;nbsp;red}&lt;br&gt;
+p&amp;nbsp;{color:&amp;nbsp;blue}&lt;br&gt;
+/*&amp;nbsp;Blue&amp;nbsp;color&amp;nbsp;is&amp;nbsp;applied&amp;nbsp;*/&lt;br&gt;
+&lt;br&gt;
+---------------------------------------------------------------------------------------------&lt;br&gt;
+-&amp;nbsp;The&amp;nbsp;style&amp;nbsp;applied&amp;nbsp;in&amp;nbsp;the&amp;nbsp;parent&amp;nbsp;node&amp;nbsp;at&amp;nbsp;the&amp;nbsp;DOM&amp;nbsp;tree&amp;nbsp;is&amp;nbsp;inherited.&amp;nbsp;For&amp;nbsp;more&amp;nbsp;information,&amp;nbsp;see&lt;br&gt;
+W3C&amp;nbsp;inheritance&amp;nbsp;documentation.&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+-----------------------------------------------------------------------------------------------&lt;br&gt;
+-&amp;nbsp;The&amp;nbsp;style&amp;nbsp;that&amp;nbsp;has&amp;nbsp;the&amp;nbsp;highest&amp;nbsp;CSS&amp;nbsp;specificity&amp;nbsp;is&amp;nbsp;applied.&amp;nbsp;The&amp;nbsp;specificity&amp;nbsp;of&amp;nbsp;different&amp;nbsp;elements&amp;nbsp;is&amp;nbsp;defined&amp;nbsp;as&amp;nbsp;follows:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ID&amp;nbsp;attribute&amp;nbsp;=&amp;nbsp;100&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Class&amp;nbsp;attribute&amp;nbsp;=&amp;nbsp;10&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Element&amp;nbsp;=&amp;nbsp;1&lt;br&gt;
+&lt;br&gt;
+...&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;p#target&amp;nbsp;{color:&amp;nbsp;black}&amp;nbsp;/*&amp;nbsp;Specificity:&amp;nbsp;101&amp;nbsp;*/&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;p#target&amp;nbsp;{color:&amp;nbsp;red}&amp;nbsp;/*&amp;nbsp;Specificity:&amp;nbsp;101&amp;nbsp;*/&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;p.target&amp;nbsp;{color:&amp;nbsp;blue}&amp;nbsp;/*&amp;nbsp;Specificity:&amp;nbsp;11&amp;nbsp;*/&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;p&amp;nbsp;{color:&amp;nbsp;tomato}&amp;nbsp;/*&amp;nbsp;Specificity:&amp;nbsp;1&amp;nbsp;*/&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;/*&amp;nbsp;Red&amp;nbsp;color&amp;nbsp;is&amp;nbsp;applied&amp;nbsp;*/&lt;br&gt;
+&lt;/style&gt;&lt;br&gt;
+-------------------------------------------------------------------------------------------------&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;When&amp;nbsp;the&amp;nbsp;!important&amp;nbsp;attribute&amp;nbsp;is&amp;nbsp;used,&amp;nbsp;it&amp;nbsp;has&amp;nbsp;the&amp;nbsp;highest&amp;nbsp;priority:&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+========================================================&lt;br&gt;
+&lt;br&gt;
+In&amp;nbsp;the&amp;nbsp;following&amp;nbsp;example,&amp;nbsp;the&amp;nbsp;applied&amp;nbsp;order&amp;nbsp;of&amp;nbsp;the&amp;nbsp;CSS&amp;nbsp;elements&amp;nbsp;is&amp;nbsp;as&amp;nbsp;follows:&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;link&gt;&amp;nbsp;tag&amp;nbsp;in&amp;nbsp;the&amp;nbsp;&lt;head&gt;&amp;nbsp;element&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;style&gt;&amp;nbsp;tag&amp;nbsp;in&amp;nbsp;the&amp;nbsp;&lt;head&gt;&amp;nbsp;element&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@import&amp;nbsp;attribute&amp;nbsp;in&amp;nbsp;the&amp;nbsp;CSS&amp;nbsp;area&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;style&amp;nbsp;attribute&amp;nbsp;in&amp;nbsp;a&amp;nbsp;HTML&amp;nbsp;element&lt;br&gt;
+&lt;br&gt;</questionanswer>
+  </question>
+  <question id="0_0_1_0_0_0:4" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CSS&amp;nbsp;core&amp;nbsp;:&amp;nbsp;inheritance&amp;nbsp;and&amp;nbsp;!important,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;body{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;color:&amp;nbsp;orange&amp;nbsp;!important;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;div&amp;nbsp;p{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;color:&amp;nbsp;blue;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;...&lt;br&gt;
+body&lt;br&gt;
+&lt;br&gt;
+&lt;div&gt;&lt;br&gt;
+&lt;p&gt;1&lt;/p&gt;&lt;br&gt;
+&lt;p&gt;2&lt;/p&gt;&lt;br&gt;
+&lt;/div&gt;&lt;br&gt;
+/body&lt;br&gt;
+What&amp;nbsp;will&amp;nbsp;be&amp;nbsp;a&amp;nbsp;color&amp;nbsp;of&amp;nbsp;&amp;nbsp;'p'&amp;nbsp;elements&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Answer&amp;nbsp;:&amp;nbsp;blue.</questionanswer>
+  </question>
+</questions>
