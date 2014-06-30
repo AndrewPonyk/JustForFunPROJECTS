@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="0_0_1_0_0_5" name="9_Styling_For_print" nofquestions="1" nofsubcategories="0" filename="9_styling_for_print0_0_1_0_0_5.xml">
+  <question id="0_0_1_0_0_5:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Css&amp;nbsp;core&amp;nbsp;:&amp;nbsp;what&amp;nbsp;are&amp;nbsp;media&amp;nbsp;types&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+How&amp;nbsp;to&amp;nbsp;style&amp;nbsp;document&amp;nbsp;for&amp;nbsp;printing&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Media&amp;nbsp;Types&lt;br&gt;
+&lt;br&gt;
+Some&amp;nbsp;CSS&amp;nbsp;properties&amp;nbsp;are&amp;nbsp;only&amp;nbsp;designed&amp;nbsp;for&amp;nbsp;a&amp;nbsp;certain&amp;nbsp;media.&amp;nbsp;For&amp;nbsp;example&amp;nbsp;the&amp;nbsp;"voice-family"&amp;nbsp;property&amp;nbsp;is&amp;nbsp;designed&amp;nbsp;for&lt;br&gt;
+aural&amp;nbsp;user&amp;nbsp;agents.&amp;nbsp;Some&amp;nbsp;other&amp;nbsp;properties&amp;nbsp;can&amp;nbsp;be&amp;nbsp;used&amp;nbsp;for&amp;nbsp;different&amp;nbsp;media&amp;nbsp;types.&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;the&amp;nbsp;"font-size"&amp;nbsp;property&lt;br&gt;
+can&amp;nbsp;be&amp;nbsp;used&amp;nbsp;for&amp;nbsp;both&amp;nbsp;screen&amp;nbsp;and&amp;nbsp;print&amp;nbsp;media,&amp;nbsp;but&amp;nbsp;perhaps&amp;nbsp;with&amp;nbsp;different&amp;nbsp;values.&amp;nbsp;A&amp;nbsp;document&amp;nbsp;usually&amp;nbsp;needs&amp;nbsp;a&amp;nbsp;larger&amp;nbsp;font-size&lt;br&gt;
+on&amp;nbsp;a&amp;nbsp;screen&amp;nbsp;than&amp;nbsp;on&amp;nbsp;paper,&amp;nbsp;and&amp;nbsp;sans-serif&amp;nbsp;fonts&amp;nbsp;are&amp;nbsp;easier&amp;nbsp;to&amp;nbsp;read&amp;nbsp;on&amp;nbsp;the&amp;nbsp;screen,&amp;nbsp;while&amp;nbsp;serif&amp;nbsp;fonts&amp;nbsp;are&amp;nbsp;easier&amp;nbsp;to&amp;nbsp;read&lt;br&gt;
+on&amp;nbsp;paper.&lt;br&gt;
+&lt;br&gt;
+Other&amp;nbsp;Media&amp;nbsp;Types&lt;br&gt;
+Media&amp;nbsp;Type&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Description&lt;br&gt;
+all&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Used&amp;nbsp;for&amp;nbsp;all&amp;nbsp;media&amp;nbsp;type&amp;nbsp;devices&lt;br&gt;
+aural&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Used&amp;nbsp;for&amp;nbsp;speech&amp;nbsp;and&amp;nbsp;sound&amp;nbsp;synthesizers&lt;br&gt;
+braille&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Used&amp;nbsp;for&amp;nbsp;braille&amp;nbsp;tactile&amp;nbsp;feedback&amp;nbsp;devices&lt;br&gt;
+embossed&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Used&amp;nbsp;for&amp;nbsp;paged&amp;nbsp;braille&amp;nbsp;printers&lt;br&gt;
+handheld&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Used&amp;nbsp;for&amp;nbsp;small&amp;nbsp;or&amp;nbsp;handheld&amp;nbsp;devices&lt;br&gt;
+print&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Used&amp;nbsp;for&amp;nbsp;printers&lt;br&gt;
+projection&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Used&amp;nbsp;for&amp;nbsp;projected&amp;nbsp;presentations,&amp;nbsp;like&amp;nbsp;slides&lt;br&gt;
+screen&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Used&amp;nbsp;for&amp;nbsp;computer&amp;nbsp;screens&lt;br&gt;
+tty&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Used&amp;nbsp;for&amp;nbsp;media&amp;nbsp;using&amp;nbsp;a&amp;nbsp;fixed-pitch&amp;nbsp;character&amp;nbsp;grid,&amp;nbsp;like&amp;nbsp;teletypes&amp;nbsp;and&amp;nbsp;terminals&lt;br&gt;
+tv&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Used&amp;nbsp;for&amp;nbsp;television-type&amp;nbsp;devices&lt;br&gt;
+==============================================&lt;br&gt;
+Example&amp;nbsp;1&amp;nbsp;:&lt;br&gt;
+@media&amp;nbsp;screen&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-family:&amp;nbsp;verdana,sans-serif;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-size:&amp;nbsp;14px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+@media&amp;nbsp;print&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;p&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-size:&amp;nbsp;20px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;color:&amp;nbsp;red;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+---&lt;br&gt;
+Example&amp;nbsp;2&amp;nbsp;:&amp;nbsp;(hide&amp;nbsp;footer&amp;nbsp;when&amp;nbsp;print)&lt;br&gt;
+&lt;br&gt;
+style&amp;nbsp;type="text/css"&amp;nbsp;media="screen"&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;.header{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-size:&amp;nbsp;40px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-weight:&amp;nbsp;bold;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;height:&amp;nbsp;150px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;.content{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-size:&amp;nbsp;14px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width:&amp;nbsp;800px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;margin:&amp;nbsp;0&amp;nbsp;auto;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;.footer{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-size:&amp;nbsp;20px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;height:&amp;nbsp;100px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/style&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;style&amp;nbsp;type="text/css"&amp;nbsp;media="print"&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;.header{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-size:&amp;nbsp;15px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;height:&amp;nbsp;40px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;.footer{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;display:&amp;nbsp;none;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/style&gt;</questionanswer>
+  </question>
+</questions>
