@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classification>
-  <class id="0" name="Programming Foundation" nofquestions="31" nofsubcategories="4">
-    <category id="0_0" name="Web Design and XML" nofquestions="28" nofsubcategories="3">
+  <class id="0" name="Programming Foundation" nofquestions="35" nofsubcategories="4">
+    <category id="0_0" name="Web Design and XML" nofquestions="32" nofsubcategories="3">
       <category id="0_0_0" name="HTML5" nofquestions="3" nofsubcategories="0" filename="html5.xml" />
-      <category id="0_0_1" name="CSS and Frameworks" nofquestions="22" nofsubcategories="4">
-        <category id="0_0_1_0" name="Css3_Core" nofquestions="22" nofsubcategories="2" filename="css3_core0_0_1_0.xml">
+      <category id="0_0_1" name="CSS and Frameworks" nofquestions="26" nofsubcategories="4">
+        <category id="0_0_1_0" name="Css3_Core" nofquestions="26" nofsubcategories="3" filename="css3_core0_0_1_0.xml">
           <category id="0_0_1_0_0" name="Lynda_Css_WebSite_Design" nofquestions="17" nofsubcategories="6">
             <category id="0_0_1_0_0_0" name="3Selectors" nofquestions="5" nofsubcategories="0" filename="3selectors0_0_1_0_0_0.xml" />
             <category id="0_0_1_0_0_1" name="4Layout" nofquestions="3" nofsubcategories="0" filename="4layout0_0_1_0_0_1.xml" />
@@ -13,7 +13,8 @@
             <category id="0_0_1_0_0_4" name="7Margin_and_Padding" nofquestions="2" nofsubcategories="0" filename="7margin_and_padding0_0_1_0_0_4.xml" />
             <category id="0_0_1_0_0_5" name="9_Styling_For_print" nofquestions="1" nofsubcategories="0" filename="9_styling_for_print0_0_1_0_0_5.xml" />
           </category>
-          <category id="0_0_1_0_1" name="CssGeneral_and_Tricks" nofquestions="5" nofsubcategories="0" filename="cssgeneral_and_tricks0_0_1_0_1.xml" />
+          <category id="0_0_1_0_1" name="CssGeneral_and_Tricks" nofquestions="9" nofsubcategories="0" filename="cssgeneral_and_tricks0_0_1_0_1.xml" />
+          <category id="0_0_1_0_2" name="CSS_properties_LIST_with_examples" nofquestions="0" nofsubcategories="0" filename="css_properties_list_with_examples0_0_1_0_2.xml" />
         </category>
         <category id="0_0_1_1" name="Css_Frameworks" nofquestions="0" nofsubcategories="2">
           <category id="0_0_1_1_0" name="Bootstrap" nofquestions="0" nofsubcategories="0" filename="bootstrap0_0_1_1_0.xml" />

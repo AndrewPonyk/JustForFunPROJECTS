@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="0_0_1_0_1" name="CssGeneral_and_Tricks" nofquestions="7" nofsubcategories="0" filename="cssgeneral_and_tricks0_0_1_0_1.xml">
+<questions id="0_0_1_0_1" name="CssGeneral_and_Tricks" nofquestions="11" nofsubcategories="0" filename="cssgeneral_and_tricks0_0_1_0_1.xml">
   <question id="0_0_1_0_1:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Css&amp;nbsp;tips&amp;nbsp;:&amp;nbsp;List&amp;nbsp;main&amp;nbsp;css&amp;nbsp;properties,&amp;nbsp;which&amp;nbsp;properties&amp;nbsp;are&amp;nbsp;new&amp;nbsp;in&amp;nbsp;css3&amp;nbsp;?&lt;br&gt;
@@ -481,5 +481,147 @@ a&amp;nbsp;href="asfasf"&amp;nbsp;style="outline:&amp;nbsp;none;&amp;nbsp;"&gt;&
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
 div&amp;nbsp;style="background:&amp;nbsp;orange;width:&amp;nbsp;100px;height:&amp;nbsp;100px;outline:&amp;nbsp;5px&amp;nbsp;solid"&gt;/div&gt;&lt;br&gt;
 div&amp;nbsp;style="background:&amp;nbsp;green;width:&amp;nbsp;150px;height:&amp;nbsp;100px;outline:&amp;nbsp;5px&amp;nbsp;solid&amp;nbsp;red"&gt;/div&gt;</questionanswer>
+  </question>
+  <question id="0_0_1_0_1:5" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Css&amp;nbsp;core&amp;nbsp;:&amp;nbsp;vertical&amp;nbsp;centering&amp;nbsp;in&amp;nbsp;css,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://www.vanseodesign.com/css/vertical-centering/&lt;br&gt;
+http://stackoverflow.com/questions/396145/whats-the-best-way-of-centering-a-div-vertically-with-css&lt;br&gt;
+=========================================&lt;br&gt;
+Vertical&amp;nbsp;align&amp;nbsp;using&amp;nbsp;display:table-cell&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#child&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;display:&amp;nbsp;table-cell;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;vertical-align:&amp;nbsp;middle;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+=======&lt;br&gt;
+Old&amp;nbsp;and&amp;nbsp;'good'&amp;nbsp;method&amp;nbsp;for&amp;nbsp;vertical&amp;nbsp;align&amp;nbsp;:&amp;nbsp;position:50%&amp;nbsp;and&amp;nbsp;negative&amp;nbsp;margin&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#oldandgoodParent{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background:&amp;nbsp;blue;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width:&amp;nbsp;400px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;height:&amp;nbsp;300px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;position:&amp;nbsp;relative;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#oldandgoodChild{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width:&amp;nbsp;200px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;height:&amp;nbsp;100px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background:&amp;nbsp;yellow;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;position:&amp;nbsp;absolute;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;top:&amp;nbsp;50%;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;margin-top:&amp;nbsp;-50px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+====================&lt;br&gt;
+Interesting&amp;nbsp;way&amp;nbsp;to&amp;nbsp;center&amp;nbsp;div&lt;br&gt;
+&lt;br&gt;
+.div1{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;position:relative;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width:&amp;nbsp;300px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;height:&amp;nbsp;200px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color:&amp;nbsp;orange;&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+.div2&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;height:&amp;nbsp;100px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width:100px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color:&amp;nbsp;red;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;margin:&amp;nbsp;auto&amp;nbsp;0;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;position:&amp;nbsp;absolute;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;top:&amp;nbsp;0;&amp;nbsp;left:&amp;nbsp;0;&amp;nbsp;bottom:&amp;nbsp;0;&amp;nbsp;right:&amp;nbsp;0;&lt;br&gt;
+}&lt;br&gt;
+===================================&lt;br&gt;
+Also&amp;nbsp;if&amp;nbsp;you&amp;nbsp;want&amp;nbsp;vertical&amp;nbsp;align&amp;nbsp;of&amp;nbsp;single&amp;nbsp;text&amp;nbsp;line&amp;nbsp;-&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&amp;nbsp;'line-height'&amp;nbsp;property&lt;br&gt;</questionanswer>
+  </question>
+  <question id="0_0_1_0_1:6" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Css&amp;nbsp;core&amp;nbsp;:&amp;nbsp;how&amp;nbsp;to&amp;nbsp;draw&amp;nbsp;triangle&amp;nbsp;and&amp;nbsp;circle&amp;nbsp;using&amp;nbsp;CSS&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Triangles&amp;nbsp;in&amp;nbsp;css&amp;nbsp;(works&amp;nbsp;in&amp;nbsp;ie8)&lt;br&gt;
+Main&amp;nbsp;idea&amp;nbsp;:&amp;nbsp;make&amp;nbsp;two&amp;nbsp;borders&amp;nbsp;transparent&amp;nbsp;and&amp;nbsp;set&amp;nbsp;color&amp;nbsp;to&amp;nbsp;another&amp;nbsp;border&amp;nbsp;and&amp;nbsp;set&amp;nbsp;width&amp;nbsp;and&amp;nbsp;height&amp;nbsp;to&amp;nbsp;0.&lt;br&gt;
+&lt;br&gt;
+Example&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#triangle1{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width:&amp;nbsp;0;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;height:&amp;nbsp;0;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;border-left:&amp;nbsp;25px&amp;nbsp;solid&amp;nbsp;transparent;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;border-right:&amp;nbsp;25px&amp;nbsp;solid&amp;nbsp;&amp;nbsp;transparent;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;border-bottom:&amp;nbsp;25px&amp;nbsp;solid&amp;nbsp;orange;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='450'&amp;nbsp;height='300'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/trianglesdiagram.gif'/&gt;&lt;br&gt;
+===================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Circles&amp;nbsp;in&amp;nbsp;css&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(if&amp;nbsp;you&amp;nbsp;want&amp;nbsp;circle&amp;nbsp;in&amp;nbsp;ie8&amp;nbsp;you&amp;nbsp;will&amp;nbsp;need&amp;nbsp;pie.htc)&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#circle1{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width:&amp;nbsp;50px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;height:&amp;nbsp;50px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;border-radius:&amp;nbsp;25px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color:&amp;nbsp;black;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}</questionanswer>
+  </question>
+  <question id="0_0_1_0_1:7" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Css&amp;nbsp;core&amp;nbsp;:&amp;nbsp;how&amp;nbsp;to&amp;nbsp;implement&amp;nbsp;'back&amp;nbsp;to&amp;nbsp;top'&amp;nbsp;button&amp;nbsp;using&amp;nbsp;css&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>You&amp;nbsp;will&amp;nbsp;need&amp;nbsp;position:&amp;nbsp;fixed&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;div&amp;nbsp;class="back"&gt;a&amp;nbsp;href="#top"&gt;Top/a&gt;/div&gt;&lt;br&gt;
+and&amp;nbsp;css&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;.back{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;opacity:&amp;nbsp;0.4;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;filter:&amp;nbsp;alpha(opacity=40);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color:&amp;nbsp;#000;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;display:&amp;nbsp;inline-block;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;padding:&amp;nbsp;10px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;position:&amp;nbsp;fixed;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;bottom:&amp;nbsp;40px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;right:&amp;nbsp;40px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;.back&amp;nbsp;a{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-style:&amp;nbsp;sans-serif;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;color:&amp;nbsp;white;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;text-decoration:&amp;nbsp;none;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-weight:&amp;nbsp;bold;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;text-transform:&amp;nbsp;uppercase;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-size:&amp;nbsp;12px;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}</questionanswer>
+  </question>
+  <question id="0_0_1_0_1:8" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Css&amp;nbsp;core&amp;nbsp;:&amp;nbsp;how&amp;nbsp;to&amp;nbsp;apply&amp;nbsp;custom&amp;nbsp;styles&amp;nbsp;for&amp;nbsp;event&amp;nbsp;and&amp;nbsp;odd&amp;nbsp;Table&amp;nbsp;rows&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+What&amp;nbsp;about&amp;nbsp;ie8&amp;nbsp;issues&amp;nbsp;with&amp;nbsp;event&amp;nbsp;and&amp;nbsp;odd&amp;nbsp;rows&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Example&amp;nbsp;:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;table{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;border:&amp;nbsp;2px&amp;nbsp;solid&amp;nbsp;#eaeaea;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;border-collapse:&amp;nbsp;collapse;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;border-spacing:&amp;nbsp;0;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;td,&amp;nbsp;th{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;border:&amp;nbsp;1px&amp;nbsp;solid&amp;nbsp;#eaeaea;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;padding:&amp;nbsp;0.8em;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;th{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;text-align:&amp;nbsp;left;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;table&amp;nbsp;tr:nth-child(even){&amp;nbsp;/*&amp;nbsp;doesnt&amp;nbsp;work&amp;nbsp;in&amp;nbsp;ie8*/&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color:&amp;nbsp;#fafafa;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+'nth-child'&amp;nbsp;-&amp;nbsp;doesnt&amp;nbsp;work&amp;nbsp;in&amp;nbsp;ie&amp;nbsp;8&amp;nbsp;,&amp;nbsp;to&amp;nbsp;fix&amp;nbsp;it&amp;nbsp;use&amp;nbsp;&lt;br&gt;
+!--[if&amp;nbsp;lt&amp;nbsp;IE&amp;nbsp;9]&gt;&lt;br&gt;
+script&amp;nbsp;src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"&gt;&lt;/script&gt;&lt;br&gt;
+![endif]--&gt;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;</questionanswer>
   </question>
 </questions>
