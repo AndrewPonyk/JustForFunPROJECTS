@@ -1,0 +1,207 @@
+<html>
+<head>
+<title>Numbers Sum</title>
+<link rel="stylesheet" href="styles/style.css" type="text/css" />
+<script type="text/javascript" src="scripts/jquery-1.6.min.js">
+
+</script>
+<script type="text/javascript">alert("jak");
+	$(function(){
+		NumbersSum.clean();
+		$("#numbers_start").click(function(){
+			NumbersSum.start();
+			NumbersSum.generateRandomsAndDraw($("#numbers_count").val(), $("#digits_in_number_select").val(),
+				$("#round_numbers_checkbox").is(":checked"));
+			$("#submit_result_button").click(function(){
+				NumbersSum.checkResult();
+			});
+		});
+	});
+	
+	var NumbersSum = {};
+	
+	NumbersSum.correctSum = 0;
+	
+	NumbersSum.roundsCompleted = 0;
+	
+	NumbersSum.timeSpent = 0;
+	
+	NumbersSum.currentTimer = null;
+	
+	NumbersSum.clean = function(){
+		$("#settings").show();
+		$("#numbers_area").hide();
+		$("#user_input").hide();
+		$("#final_results").hide();
+		$("#timer").hide();
+	};
+	
+	NumbersSum.start = function(){
+		$("#settings").hide();
+		$("#numbers_area").show();
+		$("#user_input").show();
+		$("#timer").show();
+		NumbersSum.startTimer(20);
+	};
+	
+	NumbersSum.startNewAttempt = function() {
+		if( this.roundsCompleted < 2 ){ // 3 attemps
+			$("#answer_correct").text("");
+			this.startTimer(20);
+			this.generateRandomsAndDraw($("#numbers_count").val(), $(
+					"#digits_in_number_select").val(), $("#round_numbers_checkbox")
+					.is(":checked"));
+			/*$("#submit_result_button").click(function() {
+				this.checkResult();
+			});*/
+		}else{
+			console.log("finita : " + this.timeSpent);
+			this.finishAndShowFinalResult();
+		}
+	}
+
+	NumbersSum.generateRandomsAndDraw = function(count, digits, round) {
+		var result = [], max = (digits == 2) ? 100 : 1000, sumOfRandoms = 0;
+
+		for (i = 0; i < count; i++) {
+			number = 0;
+			var number = Math.floor(Math.random() * (max + 1));
+
+			if (round) {
+				number = number - number % 5;
+			}
+			result.push(number);
+			sumOfRandoms += number;
+		}
+
+		this.correctSum = sumOfRandoms;
+		this.drawRandoms(result);
+	};
+
+	NumbersSum.drawRandoms = function(randoms) {
+		var numberCanvas = $("#number_canvas");
+		numberCanvas.text("");
+
+		for (i = 0; i < randoms.length; i++) {
+			randomX = Math.floor(Math.random() * (400 + 1));
+			randomY = Math.floor(Math.random() * (400 + 1));
+			//console.log(randoms[i]);
+
+			numberElement = $('<span>');
+			numberElement.text(randoms[i]);
+			numberElement.css("position", "absolute");
+			numberElement.css("top", randomX + "px");
+			numberElement.css("left", randomY + "px");
+
+			numberCanvas.append(numberElement);
+		}
+	};
+
+	NumbersSum.checkResult = function() {
+		if (this.correctSum == $("#user_sum_input").val()) {
+			this.timeSpent = this.timeSpent + ( 20 - $("#timer").text() );
+			console.log(":");
+			console.log( $("#timer").text() );
+			
+			this.showAttemtsResultLabel(true);
+			this.startNewAttempt();
+			this.roundsCompleted++;
+			
+		} else {
+			this.showAttemtsResultLabel(false);
+		}
+	};
+
+	NumbersSum.startTimer = function(time) {
+		clearInterval(this.currentTimer);
+		var interval = setInterval(function() {
+			$("#timer").text(--time);
+			if (time <= 0) {
+				$("#timer").text("Time finish");
+				clearInterval(interval);
+				NumbersSum.startNewAttempt();
+				NumbersSum.timeSpent = NumbersSum.timeSpent + 20;
+			}
+		}, 1000);
+		
+		this.currentTimer = interval;
+	}
+
+	NumbersSum.showAttemtsResultLabel = function(value) {
+		if (value) {
+			//correct
+			$("#answer_correct").text("correct");
+			$("#answer_correct").css("color","green");
+		} else {
+			//incorrect
+			$("#answer_correct").text("incorrect");
+			$("#answer_correct").css("color","red");
+		}
+	}
+	
+	NumbersSum.finishAndShowFinalResult = function(){
+		$("#final_results").show();
+		$("#final_results").append (this.timeSpent);
+		
+		$("#settings").hide();
+		$("#numbers_area").hide();
+		$("#user_input").hide();
+		$("#timer").hide();
+		
+		console.log( "Time spent" + this.timeSpent);
+		
+	}
+</script>
+</head>
+<body>
+	<a href="index.html">Back to main</a>
+	<span class="title">Sum of numbers</span>
+	
+	<div id="timer">
+		20
+	</div>
+	
+	<div id="settings" >
+		<span class="section_title">Settings:</span>
+		<div>
+			<span>Digits in Number</span>
+			<select id="digits_in_number_select">
+				<option value="2">2</option>
+				<option value="3">3</option>
+			</select>
+		</div>
+		<div>
+			<span>Round numbers : </span>
+			<input  type="checkbox" id="round_numbers_checkbox" checked="checked"/>
+		</div>
+		<div>
+			<span >Numbers count</span>
+			<input id="numbers_count"  value="6" />
+		</div>
+		<div>
+			<span>Time for one attempt</span>
+			<input type="text" value="20" disabled="disabled" />
+		</div>
+		<div id="controls_div">
+			<button id="numbers_start">Start</button>
+		</div>
+	</div>
+	
+	<div id="user_input">
+		<span>Type sum:</span>
+		<input  id="user_sum_input"/>
+		<button id="submit_result_button">Sumbit answer</button>
+		<label id="answer_correct"></label>
+	</div>
+	
+	<div id="numbers_area">
+		<span>Sum these Numbers:</span>
+		<div id="number_canvas">
+		</div>
+	</div>
+	
+	<div id="final_results">
+		<span>Your result:</span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+1 Sum of numbers
+2 Pairs of pictures
+3 Remember order of words
+4 6 digit numbers remembering
+5 
