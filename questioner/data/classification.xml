@@ -80,8 +80,9 @@
         </category>
       </category>
     </category>
-    <category id="0_3" name="Algorithms(huge)" nofquestions="3" nofsubcategories="1">
+    <category id="0_3" name="Algorithms(huge)" nofquestions="3" nofsubcategories="2">
       <category id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="3" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml" />
+      <category id="0_3_1" name="programcreek.com___Algorithms_for_Coding_Interview(more_than_100_algorightms)" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
   <class id="1" name="Programming" nofquestions="399" nofsubcategories="5">
@@ -205,7 +206,9 @@
           <category id="1_0_1_4_2" name="Struts" nofquestions="0" nofsubcategories="1">
             <category id="1_0_1_4_2_0" name="Struts2" nofquestions="0" nofsubcategories="0" />
           </category>
-          <category id="1_0_1_4_3" name="GWT" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_1_4_3" name="GWT" nofquestions="0" nofsubcategories="1">
+            <category id="1_0_1_4_3_0" name="Gwt_In_ACTION_2ed" nofquestions="0" nofsubcategories="0" />
+          </category>
         </category>
         <category id="1_0_1_5" name="Application Servers" nofquestions="0" nofsubcategories="2">
           <category id="1_0_1_5_0" name="JBoss" nofquestions="0" nofsubcategories="0" />
@@ -220,7 +223,10 @@
         <category id="1_0_1_8" name="Testing" nofquestions="0" nofsubcategories="3">
           <category id="1_0_1_8_0" name="JUnit" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_1_8_1" name="TestNG" nofquestions="0" nofsubcategories="0" />
-          <category id="1_0_1_8_2" name="MockFrameworks" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_1_8_2" name="MockFrameworks" nofquestions="0" nofsubcategories="2">
+            <category id="1_0_1_8_2_0" name="Mockito" nofquestions="0" nofsubcategories="0" />
+            <category id="1_0_1_8_2_1" name="JMock" nofquestions="0" nofsubcategories="0" />
+          </category>
         </category>
         <category id="1_0_1_9" name="Eclipse" nofquestions="0" nofsubcategories="2">
           <category id="1_0_1_9_0" name="EclipseTips" nofquestions="0" nofsubcategories="0" filename="eclipsetips1_0_1_9_0.xml" />
