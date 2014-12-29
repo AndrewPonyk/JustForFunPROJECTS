@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="1_0_1_3_1_2_3" name="chap6EL" nofquestions="2" nofsubcategories="0" filename="chap6el1_0_1_3_1_2_3.xml">
+  <question id="1_0_1_3_1_2_3:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What's&amp;nbsp;new&amp;nbsp;in&amp;nbsp;EL&amp;nbsp;3.0&amp;nbsp;(part&amp;nbsp;of&amp;nbsp;JEE&amp;nbsp;7)&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>A&amp;nbsp;lot&amp;nbsp;of&amp;nbsp;new&amp;nbsp;features&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;Access&amp;nbsp;to&amp;nbsp;public&amp;nbsp;static&amp;nbsp;fields&amp;nbsp;and&amp;nbsp;methods&amp;nbsp;,&amp;nbsp;for&amp;nbsp;example&amp;nbsp;:&amp;nbsp;${java.lang.Integer.MAX_VALUE}&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;Semicolon&amp;nbsp;in&amp;nbsp;expressions&amp;nbsp;&lt;br&gt;
+The&amp;nbsp;final&amp;nbsp;operator&amp;nbsp;that&amp;nbsp;the&amp;nbsp;EL&amp;nbsp;engine&amp;nbsp;evaluates&amp;nbsp;is&amp;nbsp;the&amp;nbsp;semicolon&amp;nbsp;(;)&amp;nbsp;operator,&amp;nbsp;also&amp;nbsp;a&amp;nbsp;new&amp;nbsp;feature&amp;nbsp;in&lt;br&gt;
+EL&amp;nbsp;3.0.&amp;nbsp;This&amp;nbsp;operator&amp;nbsp;mimics&amp;nbsp;the&amp;nbsp;comma&amp;nbsp;(,)&amp;nbsp;operator&amp;nbsp;in&amp;nbsp;C,&amp;nbsp;allowing&amp;nbsp;the&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;several&lt;br&gt;
+expressions&amp;nbsp;with&amp;nbsp;the&amp;nbsp;values&amp;nbsp;of&amp;nbsp;all&amp;nbsp;but&amp;nbsp;the&amp;nbsp;last&amp;nbsp;expression&amp;nbsp;being&amp;nbsp;discarded.&amp;nbsp;To&amp;nbsp;understand&amp;nbsp;this,&amp;nbsp;refer&lt;br&gt;
+to&amp;nbsp;the&amp;nbsp;following&amp;nbsp;expression.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;${x&amp;nbsp;=&amp;nbsp;y&amp;nbsp;+&amp;nbsp;3;&amp;nbsp;object.callMethod(x);&amp;nbsp;'Hello,&amp;nbsp;World!'}&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;result&amp;nbsp;of&amp;nbsp;this&amp;nbsp;expression&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result&amp;nbsp;of&lt;br&gt;
+the&amp;nbsp;expression&amp;nbsp;after&amp;nbsp;the&amp;nbsp;last&amp;nbsp;semicolon&amp;nbsp;only:&amp;nbsp;“Hello,&amp;nbsp;World!”&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;Lambda&amp;nbsp;expressions&amp;nbsp;in&amp;nbsp;EL&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;&amp;nbsp;'+='&amp;nbsp;operator&amp;nbsp;for&amp;nbsp;String&amp;nbsp;concatenation&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_3_1_2_3:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Access&amp;nbsp;to&amp;nbsp;public&amp;nbsp;field&amp;nbsp;in&amp;nbsp;EL&amp;nbsp;,&amp;nbsp;describe.&lt;br&gt;
+Can&amp;nbsp;we&amp;nbsp;use&amp;nbsp;variables&amp;nbsp;from&amp;nbsp;scriptlets&amp;nbsp;in&amp;nbsp;EL&amp;nbsp;expressions&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Access&amp;nbsp;to&amp;nbsp;public&amp;nbsp;field&amp;nbsp;in&amp;nbsp;EL&amp;nbsp;,&amp;nbsp;describe.&lt;br&gt;
+&lt;br&gt;
+We&amp;nbsp;CAN'T&amp;nbsp;use&amp;nbsp;public&amp;nbsp;variables&amp;nbsp;in&amp;nbsp;EL&amp;nbsp;expression,&amp;nbsp;public&amp;nbsp;variable&amp;nbsp;must&amp;nbsp;have&amp;nbsp;&lt;br&gt;
+getters&amp;nbsp;and&amp;nbsp;setters&amp;nbsp;to&amp;nbsp;use&amp;nbsp;in&amp;nbsp;EL.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+=============================================&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Can&amp;nbsp;we&amp;nbsp;use&amp;nbsp;variables&amp;nbsp;from&amp;nbsp;scriptlets&amp;nbsp;in&amp;nbsp;EL&amp;nbsp;expressions&amp;nbsp;?&lt;br&gt;
+&lt;br&gt;
+Simply&amp;nbsp;put,&amp;nbsp;EL&amp;nbsp;expressions&amp;nbsp;can&amp;nbsp;be&amp;nbsp;used&amp;nbsp;just&amp;nbsp;about&amp;nbsp;anywhere&amp;nbsp;in&amp;nbsp;a&amp;nbsp;JSP,&amp;nbsp;with&amp;nbsp;a&amp;nbsp;few&amp;nbsp;minor&amp;nbsp;exceptions.&lt;br&gt;
+To&amp;nbsp;start,&amp;nbsp;EL&amp;nbsp;expressions&amp;nbsp;cannot&amp;nbsp;be&amp;nbsp;used&amp;nbsp;within&amp;nbsp;any&amp;nbsp;directives,&amp;nbsp;so&amp;nbsp;don’t&amp;nbsp;even&amp;nbsp;try&amp;nbsp;it.&amp;nbsp;Directives&lt;br&gt;
+(&lt;%@&amp;nbsp;page&amp;nbsp;%&gt;,&amp;nbsp;&lt;%@&amp;nbsp;include&amp;nbsp;%&gt;,&amp;nbsp;and&amp;nbsp;&lt;%@&amp;nbsp;taglib&amp;nbsp;%&gt;)&amp;nbsp;are&amp;nbsp;evaluated&amp;nbsp;when&amp;nbsp;the&amp;nbsp;JSP&amp;nbsp;is&amp;nbsp;compiled,&amp;nbsp;but&lt;br&gt;
+EL&amp;nbsp;expressions&amp;nbsp;are&amp;nbsp;evaluated&amp;nbsp;later&amp;nbsp;when&amp;nbsp;the&amp;nbsp;JSP&amp;nbsp;is&amp;nbsp;rendered,&amp;nbsp;so&amp;nbsp;it&amp;nbsp;cannot&amp;nbsp;work.&amp;nbsp;Also,&amp;nbsp;EL&amp;nbsp;expressions&lt;br&gt;
+are&amp;nbsp;not&amp;nbsp;valid&amp;nbsp;within&amp;nbsp;JSP&amp;nbsp;declarations&amp;nbsp;(&lt;%!&amp;nbsp;%&gt;),&amp;nbsp;scriptlets&amp;nbsp;(&lt;%&amp;nbsp;%&gt;),&amp;nbsp;or&amp;nbsp;expressions&amp;nbsp;(&lt;%=&amp;nbsp;%&gt;).&amp;nbsp;If&amp;nbsp;used&lt;br&gt;
+within&amp;nbsp;any&amp;nbsp;of&amp;nbsp;these,&amp;nbsp;an&amp;nbsp;EL&amp;nbsp;expression&amp;nbsp;will&amp;nbsp;simply&amp;nbsp;be&amp;nbsp;ignored&amp;nbsp;or,&amp;nbsp;worse,&amp;nbsp;could&amp;nbsp;result&amp;nbsp;in&amp;nbsp;a&amp;nbsp;syntax&amp;nbsp;error&lt;br&gt;
+&lt;br&gt;</questionanswer>
+  </question>
+</questions>
