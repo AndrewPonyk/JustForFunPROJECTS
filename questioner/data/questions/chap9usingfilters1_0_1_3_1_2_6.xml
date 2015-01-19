@@ -1,2 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_3_1_2_6" name="chap9UsingFilters" nofquestions="0" nofsubcategories="0" filename="chap9usingfilters1_0_1_3_1_2_6.xml" />
+<questions id="1_0_1_3_1_2_6" name="chap9UsingFilters" nofquestions="3" nofsubcategories="0" filename="chap9usingfilters1_0_1_3_1_2_6.xml">
+  <question id="1_0_1_3_1_2_6:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;filter&amp;nbsp;in&amp;nbsp;Java&amp;nbsp;web&amp;nbsp;app&amp;nbsp;?&amp;nbsp;Describe&amp;nbsp;purposes&amp;nbsp;of&amp;nbsp;filters.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Filters&amp;nbsp;are&amp;nbsp;application&amp;nbsp;components&amp;nbsp;that&amp;nbsp;can&amp;nbsp;intercept&amp;nbsp;requests&amp;nbsp;to&amp;nbsp;resources,&amp;nbsp;responses&amp;nbsp;from&lt;br&gt;
+resources,&amp;nbsp;or&amp;nbsp;both,&amp;nbsp;and&amp;nbsp;act&amp;nbsp;on&amp;nbsp;those&amp;nbsp;requests&amp;nbsp;or&amp;nbsp;responses&amp;nbsp;in&amp;nbsp;some&amp;nbsp;manner.&amp;nbsp;Filters&amp;nbsp;can&amp;nbsp;inspect&amp;nbsp;and&lt;br&gt;
+modify&amp;nbsp;requests&amp;nbsp;and&amp;nbsp;responses,&amp;nbsp;and&amp;nbsp;they&amp;nbsp;can&amp;nbsp;even&amp;nbsp;reject,&amp;nbsp;redirect,&amp;nbsp;or&amp;nbsp;forward&amp;nbsp;requests.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Purposes&amp;nbsp;:&lt;br&gt;
+-&amp;nbsp;Logging&amp;nbsp;Filters&lt;br&gt;
+Usually&amp;nbsp;the&amp;nbsp;web&amp;nbsp;container&amp;nbsp;provides&amp;nbsp;facilities&lt;br&gt;
+for&amp;nbsp;request&amp;nbsp;logging,&amp;nbsp;but&amp;nbsp;if&amp;nbsp;you&amp;nbsp;need&amp;nbsp;proprietary&amp;nbsp;information&amp;nbsp;displayed&amp;nbsp;in&amp;nbsp;your&amp;nbsp;request&amp;nbsp;log,&amp;nbsp;you&amp;nbsp;can&lt;br&gt;
+use&amp;nbsp;a&amp;nbsp;filter&amp;nbsp;to&amp;nbsp;log&amp;nbsp;requests&amp;nbsp;instead.&amp;nbsp;You&amp;nbsp;can&amp;nbsp;also&amp;nbsp;use&amp;nbsp;filters&amp;nbsp;to&amp;nbsp;add&amp;nbsp;tracking&amp;nbsp;information&amp;nbsp;that&amp;nbsp;will&lt;br&gt;
+be&amp;nbsp;used&amp;nbsp;for&amp;nbsp;all&amp;nbsp;logging&amp;nbsp;operations&amp;nbsp;for&amp;nbsp;the&amp;nbsp;request.&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;Authentication&amp;nbsp;Filters&lt;br&gt;
+When&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;ensure&amp;nbsp;that&amp;nbsp;only&amp;nbsp;authorized&amp;nbsp;people&amp;nbsp;access&amp;nbsp;your&amp;nbsp;application,&amp;nbsp;this&amp;nbsp;typically&amp;nbsp;involves&lt;br&gt;
+performing&amp;nbsp;a&amp;nbsp;check&amp;nbsp;on&amp;nbsp;each&amp;nbsp;request&amp;nbsp;to&amp;nbsp;ensure&amp;nbsp;the&amp;nbsp;user&amp;nbsp;is&amp;nbsp;“logged&amp;nbsp;in.”&amp;nbsp;The&amp;nbsp;meaning&amp;nbsp;of&amp;nbsp;that&amp;nbsp;term&lt;br&gt;
+may&amp;nbsp;vary&amp;nbsp;from&amp;nbsp;application&amp;nbsp;to&amp;nbsp;application,&amp;nbsp;but&amp;nbsp;the&amp;nbsp;tedium&amp;nbsp;of&amp;nbsp;performing&amp;nbsp;this&amp;nbsp;check&amp;nbsp;in&amp;nbsp;every&amp;nbsp;Servlet&lt;br&gt;
+is&amp;nbsp;universal.&amp;nbsp;Filters&amp;nbsp;can&amp;nbsp;make&amp;nbsp;the&amp;nbsp;job&amp;nbsp;easier&amp;nbsp;by&amp;nbsp;centralizing&amp;nbsp;authentication&amp;nbsp;and&amp;nbsp;authorization&amp;nbsp;checks&lt;br&gt;
+into&amp;nbsp;one&amp;nbsp;location&amp;nbsp;that&amp;nbsp;intercepts&amp;nbsp;all&amp;nbsp;secured&amp;nbsp;requests.&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;Compression&amp;nbsp;and&amp;nbsp;Encryption&amp;nbsp;Filters&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;Error&amp;nbsp;Handling&amp;nbsp;Filters</questionanswer>
+  </question>
+  <question id="1_0_1_3_1_2_6:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Describe&amp;nbsp;how&amp;nbsp;to&amp;nbsp;implement&amp;nbsp;simple&amp;nbsp;filter&amp;nbsp;in&amp;nbsp;java&amp;nbsp;Web&amp;nbsp;app.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1)&amp;nbsp;You&amp;nbsp;need&amp;nbsp;class&amp;nbsp;which&amp;nbsp;implements&amp;nbsp;Filter&amp;nbsp;interface&lt;br&gt;
+&lt;br&gt;
+package&amp;nbsp;filters;&lt;br&gt;
+&lt;br&gt;
+import&amp;nbsp;java.io.IOException;&lt;br&gt;
+&lt;br&gt;
+import&amp;nbsp;javax.servlet.Filter;&lt;br&gt;
+import&amp;nbsp;javax.servlet.FilterChain;&lt;br&gt;
+import&amp;nbsp;javax.servlet.FilterConfig;&lt;br&gt;
+import&amp;nbsp;javax.servlet.ServletException;&lt;br&gt;
+import&amp;nbsp;javax.servlet.ServletRequest;&lt;br&gt;
+import&amp;nbsp;javax.servlet.ServletResponse;&lt;br&gt;
+import&amp;nbsp;javax.servlet.annotation.WebFilter;&lt;br&gt;
+import&amp;nbsp;javax.servlet.http.HttpServletRequest;&lt;br&gt;
+import&amp;nbsp;javax.servlet.http.HttpServletResponse;&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;LoggingFilter&amp;nbsp;implements&amp;nbsp;Filter{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;doFilter(ServletRequest&amp;nbsp;req,&amp;nbsp;ServletResponse&amp;nbsp;resp,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FilterChain&amp;nbsp;chain)&amp;nbsp;throws&amp;nbsp;IOException,&amp;nbsp;ServletException&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;HttpServletRequest&amp;nbsp;request&amp;nbsp;=&amp;nbsp;(HttpServletRequest)&amp;nbsp;req;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;HttpServletResponse&amp;nbsp;response&amp;nbsp;=&amp;nbsp;(HttpServletResponse)&amp;nbsp;resp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;response.setHeader("Event&amp;nbsp;tracker&amp;nbsp;event&amp;nbsp;sended",&amp;nbsp;"Page&amp;nbsp;loaded&amp;nbsp;:&amp;nbsp;"&amp;nbsp;+&amp;nbsp;request.getRequestURL().toString()+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"?"&amp;nbsp;+request.getQueryString());&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("Logging&amp;nbsp;filter&amp;nbsp;doFilter()&amp;nbsp;begin&amp;nbsp;executed");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;chain.doFilter(req,resp);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("Logging&amp;nbsp;filter&amp;nbsp;doFilter()&amp;nbsp;end&amp;nbsp;executed");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;init(FilterConfig&amp;nbsp;filterConfig)&amp;nbsp;throws&amp;nbsp;ServletException&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;destroy()&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+====&lt;br&gt;
+2)&amp;nbsp;You&amp;nbsp;need&amp;nbsp;filter&amp;nbsp;mapping&amp;nbsp;(mapping&amp;nbsp;and&amp;nbsp;filter&amp;nbsp;execution&amp;nbsp;ordering&amp;nbsp;is&amp;nbsp;another&amp;nbsp;interesting&amp;nbsp;thing)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;filter&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;filter-name&gt;LoggingFilter&lt;/filter-name&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;filter-class&gt;filters.LoggingFilter&lt;/filter-class&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/filter&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;filter-mapping&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;filter-name&gt;LoggingFilter&lt;/filter-name&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;url-pattern&gt;/*&lt;/url-pattern&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/filter-mapping&gt;&lt;br&gt;
+&lt;br&gt;
+=======&lt;br&gt;
+And&amp;nbsp;now&amp;nbsp;every&amp;nbsp;request&amp;nbsp;(because&amp;nbsp;of&amp;nbsp;/*)&amp;nbsp;will&amp;nbsp;be&amp;nbsp;processed&amp;nbsp;by&amp;nbsp;LoggingFilter.&lt;br&gt;
+&lt;br&gt;
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&lt;br&gt;
+!!!!&amp;nbsp;Always&amp;nbsp;in&amp;nbsp;filter&amp;nbsp;use&amp;nbsp;&amp;nbsp;'chain.doFilter(req,resp);'&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;without&amp;nbsp;this&amp;nbsp;request&amp;nbsp;will&amp;nbsp;not&amp;nbsp;go&amp;nbsp;to&amp;nbsp;the&amp;nbsp;requested&amp;nbsp;resource&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_3_1_2_6:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Servlet&amp;nbsp;filters,&amp;nbsp;what&amp;nbsp;is&amp;nbsp;filters&amp;nbsp;stack&amp;nbsp;?&amp;nbsp;How&amp;nbsp;to&amp;nbsp;control&amp;nbsp;filter&amp;nbsp;executing&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;order&amp;nbsp;(when&amp;nbsp;we&amp;nbsp;have&amp;nbsp;two&amp;nbsp;or&amp;nbsp;more&amp;nbsp;filters&amp;nbsp;)?&lt;br&gt;
+What&amp;nbsp;is&amp;nbsp;'chain.doFilter(req,resp)'&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Simple&amp;nbsp;example&amp;nbsp;,&amp;nbsp;we&amp;nbsp;have&amp;nbsp;filter&amp;nbsp;and&amp;nbsp;servlet&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+!!!&lt;br&gt;
+P.S&amp;nbsp;:&amp;nbsp;main&amp;nbsp;part&amp;nbsp;in&amp;nbsp;filter&amp;nbsp;is&amp;nbsp;chain.doFilter(req,resp);&lt;br&gt;
+Code&amp;nbsp;before&amp;nbsp;this&amp;nbsp;part&amp;nbsp;is&amp;nbsp;executed&amp;nbsp;before&amp;nbsp;serlvet&amp;nbsp;code,&amp;nbsp;&lt;br&gt;
+and&amp;nbsp;code&amp;nbsp;after&amp;nbsp;this&amp;nbsp;part&amp;nbsp;is&amp;nbsp;executed&amp;nbsp;after&amp;nbsp;servlet&amp;nbsp;code.&lt;br&gt;
+!!&lt;br&gt;
+&lt;br&gt;
+!!&lt;br&gt;
+Always&amp;nbsp;in&amp;nbsp;filter&amp;nbsp;code&amp;nbsp;you&amp;nbsp;need&amp;nbsp;chain.doFilter(req,resp);,&amp;nbsp;without&amp;nbsp;it&amp;nbsp;request&amp;nbsp;will&amp;nbsp;not&amp;nbsp;go&amp;nbsp;to&amp;nbsp;serlvet&amp;nbsp;&lt;br&gt;
+!!&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;LoggingFilter&amp;nbsp;implements&amp;nbsp;Filter{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;doFilter(ServletRequest&amp;nbsp;req,&amp;nbsp;ServletResponse&amp;nbsp;resp,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;FilterChain&amp;nbsp;chain)&amp;nbsp;throws&amp;nbsp;IOException,&amp;nbsp;ServletException&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("Logging&amp;nbsp;filter&amp;nbsp;doFilter()&amp;nbsp;begin&amp;nbsp;executed");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;chain.doFilter(req,resp);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("Logging&amp;nbsp;filter&amp;nbsp;doFilter()&amp;nbsp;end&amp;nbsp;executed");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+....&lt;br&gt;
+&lt;br&gt;
+=====&lt;br&gt;
+Servlet&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;HomeServlet&amp;nbsp;extends&amp;nbsp;HttpServlet&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;static&amp;nbsp;final&amp;nbsp;long&amp;nbsp;serialVersionUID&amp;nbsp;=&amp;nbsp;1L;&lt;br&gt;
+...&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;protected&amp;nbsp;void&amp;nbsp;doGet(HttpServletRequest&amp;nbsp;request,&amp;nbsp;HttpServletResponse&amp;nbsp;response)&amp;nbsp;throws&amp;nbsp;ServletException,&amp;nbsp;IOException&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("HOME&amp;nbsp;SERVLET&amp;nbsp;DOGET()");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;request.getRequestDispatcher("/index.jsp").forward(request,&amp;nbsp;response);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+....&lt;br&gt;
+======&lt;br&gt;
+&lt;br&gt;
+Imagine&amp;nbsp;filter&amp;nbsp;intercepts&amp;nbsp;request&amp;nbsp;to&amp;nbsp;servlet&amp;nbsp;&lt;br&gt;
+So,&amp;nbsp;output&amp;nbsp;will&amp;nbsp;be&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Logging&amp;nbsp;filter&amp;nbsp;doFilter()&amp;nbsp;begin&amp;nbsp;executed&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;HOME&amp;nbsp;SERVLET&amp;nbsp;DOGET()&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Logging&amp;nbsp;filter&amp;nbsp;doFilter()&amp;nbsp;end&amp;nbsp;executed&lt;br&gt;
+=============================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Control&amp;nbsp;filter&amp;nbsp;executing&amp;nbsp;&amp;nbsp;order&amp;nbsp;(when&amp;nbsp;we&amp;nbsp;have&amp;nbsp;two&amp;nbsp;or&amp;nbsp;more&amp;nbsp;filters&amp;nbsp;)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+So&amp;nbsp;far&amp;nbsp;throughout&amp;nbsp;this&amp;nbsp;chapter,&amp;nbsp;you&amp;nbsp;have&amp;nbsp;seen&amp;nbsp;several&amp;nbsp;references&amp;nbsp;to&amp;nbsp;the&amp;nbsp;filter&amp;nbsp;order,&amp;nbsp;but&amp;nbsp;you&amp;nbsp;are&lt;br&gt;
+undoubtedly&amp;nbsp;wondering&amp;nbsp;what&amp;nbsp;exactly&amp;nbsp;that&amp;nbsp;is.&amp;nbsp;Filter&amp;nbsp;order&amp;nbsp;determines&amp;nbsp;where&amp;nbsp;in&amp;nbsp;the&amp;nbsp;filter&amp;nbsp;chain&amp;nbsp;a&amp;nbsp;filter&lt;br&gt;
+appears,&amp;nbsp;which&amp;nbsp;in&amp;nbsp;turn&amp;nbsp;determines&amp;nbsp;when&amp;nbsp;one&amp;nbsp;filter&amp;nbsp;processes&amp;nbsp;a&amp;nbsp;request&amp;nbsp;in&amp;nbsp;relation&amp;nbsp;to&amp;nbsp;other&amp;nbsp;filters.&amp;nbsp;In&lt;br&gt;
+some&amp;nbsp;cases&amp;nbsp;it&amp;nbsp;does&amp;nbsp;not&amp;nbsp;matter&amp;nbsp;what&amp;nbsp;order&amp;nbsp;your&amp;nbsp;filters&amp;nbsp;process&amp;nbsp;requests;&amp;nbsp;in&amp;nbsp;other&amp;nbsp;cases,&amp;nbsp;however,&amp;nbsp;it&lt;br&gt;
+can&amp;nbsp;be&amp;nbsp;critical&amp;nbsp;—&amp;nbsp;it&amp;nbsp;completely&amp;nbsp;depends&amp;nbsp;on&amp;nbsp;how&amp;nbsp;you&amp;nbsp;are&amp;nbsp;using&amp;nbsp;filters.&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;a&amp;nbsp;filter&amp;nbsp;that&amp;nbsp;sets&lt;br&gt;
+up&amp;nbsp;logging&amp;nbsp;information&amp;nbsp;for&amp;nbsp;a&amp;nbsp;request&amp;nbsp;(or&amp;nbsp;enters&amp;nbsp;the&amp;nbsp;request&amp;nbsp;in&amp;nbsp;a&amp;nbsp;log)&amp;nbsp;should&amp;nbsp;probably&amp;nbsp;come&amp;nbsp;before&lt;br&gt;
+any&amp;nbsp;other&amp;nbsp;filters&amp;nbsp;because&amp;nbsp;other&amp;nbsp;filters&amp;nbsp;might&amp;nbsp;alter&amp;nbsp;the&amp;nbsp;fate&amp;nbsp;of&amp;nbsp;the&amp;nbsp;request.&amp;nbsp;As&amp;nbsp;discussed&amp;nbsp;earlier,&amp;nbsp;you&lt;br&gt;
+cannot&amp;nbsp;order&amp;nbsp;filters&amp;nbsp;declared&amp;nbsp;using&amp;nbsp;annotations,&amp;nbsp;making&amp;nbsp;them&amp;nbsp;virtually&amp;nbsp;useless&amp;nbsp;for&amp;nbsp;most&amp;nbsp;enterprise&lt;br&gt;
+applications.&lt;br&gt;
+&lt;br&gt;
+You&amp;nbsp;will&amp;nbsp;use&amp;nbsp;the&amp;nbsp;deployment&amp;nbsp;descriptor&amp;nbsp;or&amp;nbsp;programmatic&amp;nbsp;configuration&amp;nbsp;extensively,&amp;nbsp;but&lt;br&gt;
+you&amp;nbsp;will&amp;nbsp;probably&amp;nbsp;never&amp;nbsp;use&amp;nbsp;annotations&amp;nbsp;for&amp;nbsp;configuring&amp;nbsp;filters.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+!!!!!!&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So,&amp;nbsp;about&amp;nbsp;order&amp;nbsp;of&amp;nbsp;filters&amp;nbsp;:&amp;nbsp;&amp;nbsp;IT&amp;nbsp;IS&amp;nbsp;ORDER&amp;nbsp;DEFINED&amp;nbsp;in&amp;nbsp;web.xml&amp;nbsp;(so&amp;nbsp;if&amp;nbsp;filter1&amp;nbsp;mapping&amp;nbsp;appears&amp;nbsp;in&amp;nbsp;web.xml&lt;br&gt;
+before&amp;nbsp;fitler2&amp;nbsp;mapping&amp;nbsp;,&amp;nbsp;filter1&amp;nbsp;is&amp;nbsp;executed&amp;nbsp;firt)&lt;br&gt;
+&lt;br&gt;
+!!!!!&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;URL&amp;nbsp;mappings&amp;nbsp;always&amp;nbsp;come&amp;nbsp;before&amp;nbsp;Servlet-name&amp;nbsp;mappings.&lt;br&gt;
+If&amp;nbsp;the&amp;nbsp;request&amp;nbsp;is&amp;nbsp;a&amp;nbsp;forward,&amp;nbsp;include,&amp;nbsp;error&amp;nbsp;dispatch,&amp;nbsp;or&amp;nbsp;asynchronous&amp;nbsp;dispatch,&amp;nbsp;it&amp;nbsp;will&amp;nbsp;not&amp;nbsp;match&amp;nbsp;any&lt;br&gt;
+of&amp;nbsp;these&amp;nbsp;filters,&amp;nbsp;because&amp;nbsp;the&amp;nbsp;mappings&amp;nbsp;do&amp;nbsp;not&amp;nbsp;specify&amp;nbsp;any&amp;nbsp;&lt;dispatcher&gt;s&amp;nbsp;explicitly.&lt;br&gt;
+&lt;br&gt;
+========================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Filters&amp;nbsp;Stack&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='670'&amp;nbsp;height='190'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/Selection_015.png'/&gt;&lt;br&gt;</questionanswer>
+  </question>
+</questions>
