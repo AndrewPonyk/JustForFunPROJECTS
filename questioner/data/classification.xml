@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classification>
-  <class id="0" name="Programming Foundation" nofquestions="35" nofsubcategories="4">
+  <class id="0" name="Programming Foundation" nofquestions="52" nofsubcategories="4">
     <category id="0_0" name="Web Design and XML" nofquestions="32" nofsubcategories="3">
       <category id="0_0_0" name="HTML5" nofquestions="3" nofsubcategories="0" filename="html5.xml" />
       <category id="0_0_1" name="CSS and Frameworks" nofquestions="26" nofsubcategories="4">
@@ -35,17 +35,24 @@
         <category id="0_0_2_8" name="XML SCHEMA" nofquestions="0" nofsubcategories="0" filename="xmlschema.xml" />
       </category>
     </category>
-    <category id="0_1" name="DataBases" nofquestions="0" nofsubcategories="5">
+    <category id="0_1" name="DataBases" nofquestions="17" nofsubcategories="6">
       <category id="0_1_0" name="Relational_Theory" nofquestions="0" nofsubcategories="0" />
       <category id="0_1_1" name="Oracle" nofquestions="0" nofsubcategories="0" />
-      <category id="0_1_2" name="Mysql" nofquestions="0" nofsubcategories="3">
-        <category id="0_1_2_0" name="MySQL_Database_Usage_and_Administration" nofquestions="0" nofsubcategories="0" />
+      <category id="0_1_2" name="Mysql" nofquestions="17" nofsubcategories="3">
+        <category id="0_1_2_0" name="MySQL_Database_Usage_and_Administration" nofquestions="17" nofsubcategories="3">
+          <category id="0_1_2_0_0" name="chap1_IntroToMysql" nofquestions="3" nofsubcategories="0" filename="chap1_introtomysql0_1_2_0_0.xml" />
+          <category id="0_1_2_0_1" name="chap2_BasicCommands" nofquestions="14" nofsubcategories="0" filename="chap2_basiccommands0_1_2_0_1.xml" />
+          <category id="0_1_2_0_2" name="chap3_createDesignDecisions" nofquestions="0" nofsubcategories="0" filename="chap3_createdesigndecisions0_1_2_0_2.xml" />
+        </category>
         <category id="0_1_2_1" name="MuRach_Mysql2012" nofquestions="0" nofsubcategories="0" />
         <category id="0_1_2_2" name="SQL_Exercises_wikiBook" nofquestions="0" nofsubcategories="0" />
       </category>
       <category id="0_1_3" name="SqlServer" nofquestions="0" nofsubcategories="0" />
       <category id="0_1_4" name="NOSql" nofquestions="0" nofsubcategories="1">
         <category id="0_1_4_0" name="MongoDB" nofquestions="0" nofsubcategories="0" />
+      </category>
+      <category id="0_1_5" name="SQL_language" nofquestions="0" nofsubcategories="1">
+        <category id="0_1_5_0" name="SQL_Cookbook" nofquestions="0" nofsubcategories="0" />
       </category>
     </category>
     <category id="0_2" name="Javascript" nofquestions="0" nofsubcategories="2">
