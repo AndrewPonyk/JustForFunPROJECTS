@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="0_1_2_0_7" name="chap8_WorkingWithDataInDIfferentFormats" nofquestions="2" nofsubcategories="0" filename="chap8_workingwithdataindifferentformats0_1_2_0_7.xml">
+  <question id="0_1_2_0_7:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MySQL&amp;nbsp;CSV&amp;nbsp;files&amp;nbsp;(export&amp;nbsp;and&amp;nbsp;import),&amp;nbsp;describe.&amp;nbsp;&lt;br&gt;
+(not&amp;nbsp;only&amp;nbsp;CSV&amp;nbsp;,&amp;nbsp;we&amp;nbsp;can&amp;nbsp;use&amp;nbsp;different&amp;nbsp;delmiters.)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://zetcode.com/databases/mysqltutorial/exportimport/&lt;br&gt;
+&lt;br&gt;
+============================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Example&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+drop&amp;nbsp;table&amp;nbsp;if&amp;nbsp;exists&amp;nbsp;test.fromandto_text_file;&lt;br&gt;
+create&amp;nbsp;table&amp;nbsp;test.fromandto_text_file(&lt;br&gt;
+id&amp;nbsp;int&amp;nbsp;primary&amp;nbsp;key&amp;nbsp;auto_increment,&lt;br&gt;
+firstname&amp;nbsp;varchar(20),&lt;br&gt;
+lastname&amp;nbsp;varchar&amp;nbsp;(20),&lt;br&gt;
+year&amp;nbsp;int);&lt;br&gt;
+&lt;br&gt;
+--&lt;br&gt;
+select&amp;nbsp;*&amp;nbsp;from&amp;nbsp;test.fromandto_text_file;&lt;br&gt;
+&lt;br&gt;
+insert&amp;nbsp;into&amp;nbsp;test.fromandto_text_file&amp;nbsp;values&amp;nbsp;(1,&amp;nbsp;'a'&amp;nbsp;,&amp;nbsp;'aa',1992),&lt;br&gt;
+(2,&amp;nbsp;'b'&amp;nbsp;,&amp;nbsp;'bb',1993);&lt;br&gt;
+&lt;br&gt;
+--&amp;nbsp;perform&amp;nbsp;export&amp;nbsp;to&amp;nbsp;CSV&amp;nbsp;file&lt;br&gt;
+select&amp;nbsp;*&amp;nbsp;from&amp;nbsp;test.fromandto_text_file&lt;br&gt;
+into&amp;nbsp;outfile&amp;nbsp;'/tmp/fromandto_text_file.txt'&amp;nbsp;&amp;nbsp;--&amp;nbsp;ON&amp;nbsp;UBUNTU&amp;nbsp;works&amp;nbsp;only&amp;nbsp;to&amp;nbsp;/tmp&amp;nbsp;dir&amp;nbsp;&amp;nbsp;=)&lt;br&gt;
+fields&amp;nbsp;terminated&amp;nbsp;by&amp;nbsp;','&lt;br&gt;
+enclosed&amp;nbsp;by&amp;nbsp;'"'&lt;br&gt;
+lines&amp;nbsp;terminated&amp;nbsp;by&amp;nbsp;'\r\n';&lt;br&gt;
+&lt;br&gt;
+--&amp;nbsp;perform&amp;nbsp;import&amp;nbsp;from&amp;nbsp;file&amp;nbsp;&lt;br&gt;
+truncate&amp;nbsp;table&amp;nbsp;test.fromandto_text_file;&lt;br&gt;
+&lt;br&gt;
+load&amp;nbsp;data&amp;nbsp;infile&amp;nbsp;'/tmp/fromandto_text_file.txt'&lt;br&gt;
+into&amp;nbsp;table&amp;nbsp;test.fromandto_text_file&lt;br&gt;
+fields&amp;nbsp;terminated&amp;nbsp;by&amp;nbsp;','&lt;br&gt;
+enclosed&amp;nbsp;by&amp;nbsp;'"'&lt;br&gt;
+lines&amp;nbsp;terminated&amp;nbsp;by&amp;nbsp;'\r\n';&lt;br&gt;
+&lt;br&gt;
+select&amp;nbsp;*&amp;nbsp;from&amp;nbsp;test.fromandto_text_file;</questionanswer>
+  </question>
+  <question id="0_1_2_0_7:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MySQL&amp;nbsp;and&amp;nbsp;XML&amp;nbsp;(export&amp;nbsp;and&amp;nbsp;import)&amp;nbsp;describe.&lt;br&gt;
+What&amp;nbsp;is&amp;nbsp;mysql&amp;nbsp;&amp;nbsp;'--xml'&amp;nbsp;parameter&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+--xml&amp;nbsp;parameter&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+Note&lt;br&gt;
+It&amp;nbsp;is&amp;nbsp;possible&amp;nbsp;to&amp;nbsp;obtain&amp;nbsp;XML-formatted&amp;nbsp;output&amp;nbsp;from&amp;nbsp;MySQL&amp;nbsp;in&amp;nbsp;the&amp;nbsp;mysql&amp;nbsp;and&amp;nbsp;mysqldump&amp;nbsp;clients&amp;nbsp;by&lt;br&gt;
+invoking&amp;nbsp;them&amp;nbsp;with&amp;nbsp;the&amp;nbsp;--xml&amp;nbsp;option.&amp;nbsp;See&amp;nbsp;Section&amp;nbsp;4.5.1,&amp;nbsp;“mysql&amp;nbsp;—&amp;nbsp;The&amp;nbsp;MySQL&amp;nbsp;Command-Line&amp;nbsp;Tool”,&amp;nbsp;and&lt;br&gt;
+Section&amp;nbsp;4.5.4,&amp;nbsp;“mysqldump&amp;nbsp;—&amp;nbsp;A&amp;nbsp;Database&amp;nbsp;Backup&amp;nbsp;Program”.&lt;br&gt;
+===================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Example&amp;nbsp;&amp;nbsp;:&lt;br&gt;
+&lt;br&gt;
+select&amp;nbsp;*&amp;nbsp;from&amp;nbsp;test.mysql_xml;&lt;br&gt;
+&lt;br&gt;
+create&amp;nbsp;table&amp;nbsp;test.mysql_xml(&lt;br&gt;
+id&amp;nbsp;int&amp;nbsp;primary&amp;nbsp;key&amp;nbsp;auto_increment,&lt;br&gt;
+firstname&amp;nbsp;varchar(20),&lt;br&gt;
+lastname&amp;nbsp;varchar&amp;nbsp;(20),&lt;br&gt;
+year&amp;nbsp;int);&lt;br&gt;
+&lt;br&gt;
+insert&amp;nbsp;into&amp;nbsp;test.mysql_xml&amp;nbsp;values&amp;nbsp;(1,&amp;nbsp;'a'&amp;nbsp;,&amp;nbsp;'aa',1992),&lt;br&gt;
+(2,&amp;nbsp;'b'&amp;nbsp;,&amp;nbsp;'bb',1993);&lt;br&gt;
+&lt;br&gt;
+--&amp;nbsp;==================================&lt;br&gt;
+--&amp;nbsp;export&amp;nbsp;xml&amp;nbsp;from&amp;nbsp;db&lt;br&gt;
+&lt;br&gt;
+--&amp;nbsp;Exporting&amp;nbsp;XML&lt;br&gt;
+--&amp;nbsp;When&amp;nbsp;it&amp;nbsp;comes&amp;nbsp;to&amp;nbsp;exporting&amp;nbsp;XML,&amp;nbsp;MySQL&amp;nbsp;currently&amp;nbsp;lacks&amp;nbsp;an&amp;nbsp;equivalent&amp;nbsp;to&amp;nbsp;the&amp;nbsp;SELECT&amp;nbsp;...&lt;br&gt;
+--&amp;nbsp;INTO&amp;nbsp;OUTFILE&amp;nbsp;statement,&amp;nbsp;so&amp;nbsp;XML-based&amp;nbsp;export&amp;nbsp;can&amp;nbsp;only&amp;nbsp;be&amp;nbsp;accomplished&amp;nbsp;using&amp;nbsp;either&lt;br&gt;
+--&amp;nbsp;the&amp;nbsp;mysql&amp;nbsp;or&amp;nbsp;mysqldump&amp;nbsp;command-line&amp;nbsp;tools.&lt;br&gt;
+--&amp;nbsp;To&amp;nbsp;export&amp;nbsp;the&amp;nbsp;contents&amp;nbsp;of&amp;nbsp;a&amp;nbsp;table&amp;nbsp;using&amp;nbsp;mysqldump,&amp;nbsp;pass&amp;nbsp;it&amp;nbsp;the&amp;nbsp;--xml&amp;nbsp;command-line&lt;br&gt;
+--&amp;nbsp;option,&amp;nbsp;together&amp;nbsp;with&amp;nbsp;other&amp;nbsp;connection-specific&amp;nbsp;parameters.&amp;nbsp;Here’s&amp;nbsp;an&amp;nbsp;example,&amp;nbsp;which&lt;br&gt;
+--&amp;nbsp;generates&amp;nbsp;an&amp;nbsp;XML&amp;nbsp;file&amp;nbsp;containing&amp;nbsp;airport&amp;nbsp;records:&lt;br&gt;
+--&amp;nbsp;[user@host]&amp;nbsp;mysqldump&amp;nbsp;--xml&amp;nbsp;-u&amp;nbsp;root&amp;nbsp;-p&amp;nbsp;db1&amp;nbsp;airport&amp;nbsp;&gt;&amp;nbsp;/tmp/airport.xml&lt;br&gt;
+--&amp;nbsp;Password:&amp;nbsp;******&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+--&amp;nbsp;mysqldump&amp;nbsp;--xml&amp;nbsp;-u&amp;nbsp;root&amp;nbsp;-p&amp;nbsp;test&amp;nbsp;mysql_xml&amp;nbsp;&gt;&amp;nbsp;/tmp/mysql_and_xml.xml&amp;nbsp;--&amp;nbsp;works&amp;nbsp;fine&lt;br&gt;
+&lt;br&gt;
+--&amp;nbsp;================================================&lt;br&gt;
+--&amp;nbsp;import&amp;nbsp;xml&amp;nbsp;from&amp;nbsp;file&amp;nbsp;into&amp;nbsp;db&amp;nbsp;,&amp;nbsp;works&amp;nbsp;only&amp;nbsp;in&amp;nbsp;mysql&amp;nbsp;CONSOLE&amp;nbsp;!!!!!!!!!&lt;br&gt;
+truncate&amp;nbsp;table&amp;nbsp;test.mysql_xml;&lt;br&gt;
+select&amp;nbsp;*&amp;nbsp;from&amp;nbsp;test.mysql_xml;&lt;br&gt;
+LOAD&amp;nbsp;XML&amp;nbsp;INFILE&amp;nbsp;'/tmp/mysql_and_xml.xml'&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;--&amp;nbsp;WE&amp;nbsp;CANT&amp;nbsp;USE&amp;nbsp;DATA&amp;nbsp;FROM&amp;nbsp;mysqldump,&amp;nbsp;it&amp;nbsp;is&amp;nbsp;limited&amp;nbsp;way&lt;br&gt;
+INTO&amp;nbsp;TABLE&amp;nbsp;test.mysql_xml;&lt;br&gt;</questionanswer>
+  </question>
+</questions>

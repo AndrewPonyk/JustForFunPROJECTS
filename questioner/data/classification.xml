@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classification>
-  <class id="0" name="Programming Foundation" nofquestions="52" nofsubcategories="4">
+  <class id="0" name="Programming Foundation" nofquestions="82" nofsubcategories="4">
     <category id="0_0" name="Web Design and XML" nofquestions="32" nofsubcategories="3">
       <category id="0_0_0" name="HTML5" nofquestions="3" nofsubcategories="0" filename="html5.xml" />
       <category id="0_0_1" name="CSS and Frameworks" nofquestions="26" nofsubcategories="4">
@@ -35,14 +35,20 @@
         <category id="0_0_2_8" name="XML SCHEMA" nofquestions="0" nofsubcategories="0" filename="xmlschema.xml" />
       </category>
     </category>
-    <category id="0_1" name="DataBases" nofquestions="17" nofsubcategories="6">
+    <category id="0_1" name="DataBases" nofquestions="47" nofsubcategories="7">
       <category id="0_1_0" name="Relational_Theory" nofquestions="0" nofsubcategories="0" />
       <category id="0_1_1" name="Oracle" nofquestions="0" nofsubcategories="0" />
-      <category id="0_1_2" name="Mysql" nofquestions="17" nofsubcategories="3">
-        <category id="0_1_2_0" name="MySQL_Database_Usage_and_Administration" nofquestions="17" nofsubcategories="3">
+      <category id="0_1_2" name="Mysql" nofquestions="47" nofsubcategories="3">
+        <category id="0_1_2_0" name="MySQL_Database_Usage_and_Administration" nofquestions="47" nofsubcategories="9">
           <category id="0_1_2_0_0" name="chap1_IntroToMysql" nofquestions="3" nofsubcategories="0" filename="chap1_introtomysql0_1_2_0_0.xml" />
-          <category id="0_1_2_0_1" name="chap2_BasicCommands" nofquestions="14" nofsubcategories="0" filename="chap2_basiccommands0_1_2_0_1.xml" />
-          <category id="0_1_2_0_2" name="chap3_createDesignDecisions" nofquestions="0" nofsubcategories="0" filename="chap3_createdesigndecisions0_1_2_0_2.xml" />
+          <category id="0_1_2_0_1" name="chap2_BasicCommands" nofquestions="16" nofsubcategories="0" filename="chap2_basiccommands0_1_2_0_1.xml" />
+          <category id="0_1_2_0_2" name="chap3_createDesignDecisions" nofquestions="9" nofsubcategories="0" filename="chap3_createdesigndecisions0_1_2_0_2.xml" />
+          <category id="0_1_2_0_3" name="chap4_JoinsSubqueries_Views" nofquestions="7" nofsubcategories="0" filename="chap4_joinssubqueries_views0_1_2_0_3.xml" />
+          <category id="0_1_2_0_4" name="chap5_Transactions" nofquestions="3" nofsubcategories="0" filename="chap5_transactions0_1_2_0_4.xml" />
+          <category id="0_1_2_0_5" name="chap6_StoredProceduresAndFunctions" nofquestions="4" nofsubcategories="0" filename="chap6_storedproceduresandfunctions0_1_2_0_5.xml" />
+          <category id="0_1_2_0_6" name="chap7_TriggersAndEvents" nofquestions="3" nofsubcategories="0" filename="chap7_triggersandevents0_1_2_0_6.xml" />
+          <category id="0_1_2_0_7" name="chap8_WorkingWithDataInDIfferentFormats" nofquestions="2" nofsubcategories="0" filename="chap8_workingwithdataindifferentformats0_1_2_0_7.xml" />
+          <category id="0_1_2_0_8" name="chap9_OptimizingPerformance" nofquestions="0" nofsubcategories="0" filename="chap9_optimizingperformance0_1_2_0_8.xml" />
         </category>
         <category id="0_1_2_1" name="MuRach_Mysql2012" nofquestions="0" nofsubcategories="0" />
         <category id="0_1_2_2" name="SQL_Exercises_wikiBook" nofquestions="0" nofsubcategories="0" />
@@ -51,9 +57,11 @@
       <category id="0_1_4" name="NOSql" nofquestions="0" nofsubcategories="1">
         <category id="0_1_4_0" name="MongoDB" nofquestions="0" nofsubcategories="0" />
       </category>
-      <category id="0_1_5" name="SQL_language" nofquestions="0" nofsubcategories="1">
+      <category id="0_1_5" name="SQL_language" nofquestions="0" nofsubcategories="2">
         <category id="0_1_5_0" name="SQL_Cookbook" nofquestions="0" nofsubcategories="0" />
+        <category id="0_1_5_1" name="SQL_StackOverflow_topN" nofquestions="0" nofsubcategories="0" filename="sql_stackoverflow_topn0_1_5_1.xml" />
       </category>
+      <category id="0_1_6" name="PostgreSQL" nofquestions="0" nofsubcategories="0" />
     </category>
     <category id="0_2" name="Javascript" nofquestions="0" nofsubcategories="2">
       <category id="0_2_0" name="Javascript Core" nofquestions="0" nofsubcategories="4">
@@ -98,9 +106,9 @@
       <category id="0_3_1" name="programcreek.com___Algorithms_for_Coding_Interview(more_than_100_algorightms)" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="464" nofsubcategories="5">
-    <category id="1_0" name="Java" nofquestions="429" nofsubcategories="4">
-      <category id="1_0_0" name="Java CORE" nofquestions="246" nofsubcategories="12">
+  <class id="1" name="Programming" nofquestions="465" nofsubcategories="5">
+    <category id="1_0" name="Java" nofquestions="430" nofsubcategories="4">
+      <category id="1_0_0" name="Java CORE" nofquestions="247" nofsubcategories="12">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="89" nofsubcategories="1">
           <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="89" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
         </category>
@@ -140,7 +148,7 @@
             <category id="1_0_0_8_2_0" name="docsOracle_and_journaldevcom" nofquestions="2" nofsubcategories="0" filename="docsoracle_and_journaldevcom1_0_0_8_2_0.xml" />
           </category>
         </category>
-        <category id="1_0_0_9" name="JVM" nofquestions="13" nofsubcategories="4">
+        <category id="1_0_0_9" name="JVM" nofquestions="14" nofsubcategories="5">
           <category id="1_0_0_9_0" name="JavaPerformanceBook2012" nofquestions="0" nofsubcategories="6">
             <category id="1_0_0_9_0_0" name="Chap3_HotSpot_Overview" nofquestions="0" nofsubcategories="0" filename="chap3_hotspot_overview1_0_0_9_0_0.xml" />
             <category id="1_0_0_9_0_1" name="Chap4_JVM_Performance_Monitoring" nofquestions="0" nofsubcategories="0" filename="chap4_jvm_performance_monitoring1_0_0_9_0_1.xml" />
@@ -152,6 +160,7 @@
           <category id="1_0_0_9_1" name="JVM_Architecture_and_Options" nofquestions="3" nofsubcategories="0" filename="jvm_options1_0_0_9_1.xml" />
           <category id="1_0_0_9_2" name="ByteCode_fund_WIKI_JamesBloom_archipov" nofquestions="6" nofsubcategories="0" filename="bytecode_fund_wiki_jamesbloom_archipov1_0_0_9_2.xml" />
           <category id="1_0_0_9_3" name="GC_Oracledoc_cubridorg_javaworld_infoq" nofquestions="4" nofsubcategories="0" filename="gc_oracledoc_cubridorg_javaworld_infoq1_0_0_9_3.xml" />
+          <category id="1_0_0_9_4" name="Jar_Files_ClassPath_Path_etc" nofquestions="1" nofsubcategories="0" filename="jar_files_classpath_path_etc1_0_0_9_4.xml" />
         </category>
         <category id="1_0_0_10" name="JavaCore_Security" nofquestions="2" nofsubcategories="1">
           <category id="1_0_0_10_0" name="JavaSESecurity_oracledotcom" nofquestions="2" nofsubcategories="0" filename="javasesecurity_oracledotcom1_0_0_10_0.xml" />
@@ -263,13 +272,14 @@
           </category>
           <category id="1_0_1_7_6" name="Pluralsight_SpringFundamentals" nofquestions="1" nofsubcategories="0" filename="pluralsight_springfundamentals1_0_1_7_6.xml" />
         </category>
-        <category id="1_0_1_8" name="Testing" nofquestions="0" nofsubcategories="3">
+        <category id="1_0_1_8" name="Testing" nofquestions="0" nofsubcategories="4">
           <category id="1_0_1_8_0" name="JUnit" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_1_8_1" name="TestNG" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_1_8_2" name="MockFrameworks" nofquestions="0" nofsubcategories="2">
             <category id="1_0_1_8_2_0" name="Mockito" nofquestions="0" nofsubcategories="0" />
             <category id="1_0_1_8_2_1" name="JMock" nofquestions="0" nofsubcategories="0" />
           </category>
+          <category id="1_0_1_8_3" name="DBUnit" nofquestions="0" nofsubcategories="0" />
         </category>
         <category id="1_0_1_9" name="Eclipse" nofquestions="0" nofsubcategories="2">
           <category id="1_0_1_9_0" name="EclipseTips" nofquestions="0" nofsubcategories="0" filename="eclipsetips1_0_1_9_0.xml" />

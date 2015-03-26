@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="0_1_2_0_1" name="chap2_BasicCommands" nofquestions="15" nofsubcategories="0" filename="chap2_basiccommands0_1_2_0_1.xml">
+<questions id="0_1_2_0_1" name="chap2_BasicCommands" nofquestions="17" nofsubcategories="0" filename="chap2_basiccommands0_1_2_0_1.xml">
   <question id="0_1_2_0_1:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MySQL&amp;nbsp;how&amp;nbsp;to&amp;nbsp;show&amp;nbsp;all&amp;nbsp;config&amp;nbsp;values&amp;nbsp;?&amp;nbsp;What&amp;nbsp;are&amp;nbsp;main&amp;nbsp;storage&amp;nbsp;engines&amp;nbsp;in&amp;nbsp;&lt;br&gt;
@@ -645,5 +645,58 @@ on&amp;nbsp;server&amp;nbsp;uptime,&amp;nbsp;number&amp;nbsp;of&amp;nbsp;queries
 in&amp;nbsp;a&amp;nbsp;database&amp;nbsp;(including&amp;nbsp;information&amp;nbsp;on&amp;nbsp;the&amp;nbsp;table&amp;nbsp;type,&amp;nbsp;the&amp;nbsp;number&amp;nbsp;of&amp;nbsp;rows,&amp;nbsp;the&lt;br&gt;
 date&amp;nbsp;and&amp;nbsp;time&amp;nbsp;of&amp;nbsp;the&amp;nbsp;last&amp;nbsp;table&amp;nbsp;update,&amp;nbsp;and&amp;nbsp;the&amp;nbsp;lengths&amp;nbsp;of&amp;nbsp;indexes&amp;nbsp;and&amp;nbsp;rows).&lt;br&gt;
 -&amp;nbsp;The&amp;nbsp;SHOW&amp;nbsp;CHARACTER&amp;nbsp;SET&amp;nbsp;statement&amp;nbsp;displays&amp;nbsp;a&amp;nbsp;list&amp;nbsp;of&amp;nbsp;available&amp;nbsp;character&amp;nbsp;sets.</questionanswer>
+  </question>
+  <question id="0_1_2_0_1:14" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Mysql&amp;nbsp;show&amp;nbsp;Table&amp;nbsp;and&amp;nbsp;Database&amp;nbsp;character&amp;nbsp;set,&amp;nbsp;describe.&amp;nbsp;How&amp;nbsp;to&amp;nbsp;create&amp;nbsp;table&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;with&amp;nbsp;custom&amp;nbsp;charset&amp;nbsp;?&amp;nbsp;What&amp;nbsp;are&amp;nbsp;two&amp;nbsp;main&amp;nbsp;charsets&amp;nbsp;in&amp;nbsp;MySQL&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Two&amp;nbsp;main&amp;nbsp;charsets&amp;nbsp;are&amp;nbsp;:&amp;nbsp;latin1&amp;nbsp;and&amp;nbsp;utf8&amp;nbsp;,&amp;nbsp;(utf8&amp;nbsp;supports&amp;nbsp;currylic&amp;nbsp;for&amp;nbsp;example)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Getting&amp;nbsp;charset&amp;nbsp;using&amp;nbsp;in&amp;nbsp;tables:&lt;br&gt;
+SHOW&amp;nbsp;TABLE&amp;nbsp;STATUS&amp;nbsp;FROM&amp;nbsp;test;&lt;br&gt;
+&lt;br&gt;
+It&amp;nbsp;will&amp;nbsp;display&amp;nbsp;full&amp;nbsp;info&amp;nbsp;about&amp;nbsp;all&amp;nbsp;tables&amp;nbsp;from&amp;nbsp;schema&amp;nbsp;'test'&lt;br&gt;
+----&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Getting&amp;nbsp;charset&amp;nbsp;using&amp;nbsp;in&amp;nbsp;Database:&lt;br&gt;
+SELECT&amp;nbsp;default_character_set_name&amp;nbsp;FROM&amp;nbsp;information_schema.SCHEMATA&amp;nbsp;S&lt;br&gt;
+WHERE&amp;nbsp;schema_name&amp;nbsp;=&amp;nbsp;"schemaname";&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='720'&amp;nbsp;height='520'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/Selection_006.png'/&gt;&lt;br&gt;
+===========================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Creating&amp;nbsp;table&amp;nbsp;with&amp;nbsp;custrom&amp;nbsp;charset&amp;nbsp;&lt;br&gt;
+Ex1:&lt;br&gt;
+create&amp;nbsp;table&amp;nbsp;test_cyrrulic_with_latin_charset(id&amp;nbsp;int&amp;nbsp;primary&amp;nbsp;key,&amp;nbsp;&lt;br&gt;
+name&amp;nbsp;varchar(100))&amp;nbsp;default&amp;nbsp;character&amp;nbsp;set&amp;nbsp;latin1;&lt;br&gt;
+&lt;br&gt;
+Ex2:&lt;br&gt;
+create&amp;nbsp;table&amp;nbsp;test_cyrrulic_with_latin_charset(id&amp;nbsp;int&amp;nbsp;primary&amp;nbsp;key,&amp;nbsp;&lt;br&gt;
+name&amp;nbsp;varchar(100))&amp;nbsp;default&amp;nbsp;character&amp;nbsp;set&amp;nbsp;utf8;</questionanswer>
+  </question>
+  <question id="0_1_2_0_1:15" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Describe&amp;nbsp;main&amp;nbsp;MySQL&amp;nbsp;functions.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://dev.mysql.com/doc/refman/5.0/en/func-op-summary-ref.html&lt;br&gt;
+&lt;br&gt;
+http://www.mysqltutorial.org/mysql-functions.aspx&lt;br&gt;
+&lt;br&gt;
+Useful&amp;nbsp;functions&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+-&amp;nbsp;concat()&lt;br&gt;
+-&amp;nbsp;concat_ws()&lt;br&gt;
+-&amp;nbsp;NOW()&lt;br&gt;
+-&amp;nbsp;DATE()&lt;br&gt;
+-&amp;nbsp;STR_TO_DATE()&lt;br&gt;
+-&amp;nbsp;DATEDIFF()&lt;br&gt;
+-&amp;nbsp;SUBSTRING()&lt;br&gt;
+-&amp;nbsp;REPLCACE()&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='1000'&amp;nbsp;height='10000'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/dev.mysql.com-doc-refman-5.0-en-func-op-summary-ref.html_008.png'/&gt;&lt;br&gt;
+==========================================&lt;br&gt;</questionanswer>
   </question>
 </questions>

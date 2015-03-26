@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="1_0_0_9_4" name="Jar_Files_ClassPath_Path_etc" nofquestions="1" nofsubcategories="0" filename="jar_files_classpath_path_etc1_0_0_9_4.xml">
+  <question id="1_0_0_9_4:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;We&amp;nbsp;have&amp;nbsp;runnable&amp;nbsp;jar&amp;nbsp;file.&amp;nbsp;We&amp;nbsp;want&amp;nbsp;to&amp;nbsp;run&amp;nbsp;it&amp;nbsp;from&amp;nbsp;command&amp;nbsp;line&amp;nbsp;(java&amp;nbsp;-jar&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;runnablejar.jar),&lt;br&gt;
+how&amp;nbsp;to&amp;nbsp;setup&amp;nbsp;classpath&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>If&amp;nbsp;we&amp;nbsp;want&amp;nbsp;run&amp;nbsp;runnable&amp;nbsp;jar&amp;nbsp;we&amp;nbsp;cant&amp;nbsp;use&amp;nbsp;'-cp'&amp;nbsp;,&amp;nbsp;we&amp;nbsp;only&amp;nbsp;can&amp;nbsp;have&amp;nbsp;path&amp;nbsp;inside&amp;nbsp;.jar&amp;nbsp;file&amp;nbsp;in&amp;nbsp;MANIFEST.MF&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Example&amp;nbsp;of&amp;nbsp;MANIFEST.MF&amp;nbsp;:&lt;br&gt;
+Manifest-Version:&amp;nbsp;1.0&lt;br&gt;
+Class-Path:&amp;nbsp;lib/RandomGeneratorInterfaceContract.jar&lt;br&gt;
+Built-By:&amp;nbsp;andrew&lt;br&gt;
+Build-Jdk:&amp;nbsp;1.7.0_51&lt;br&gt;
+Created-By:&amp;nbsp;Apache&amp;nbsp;Maven&amp;nbsp;3.0.5&lt;br&gt;
+Main-Class:&amp;nbsp;ss.randomgenerator.RandomGeneratorProgram&lt;br&gt;
+Archiver-Version:&amp;nbsp;Plexus&amp;nbsp;Archiver&lt;br&gt;
+&lt;br&gt;
+p.s.&amp;nbsp;We&amp;nbsp;CAN'T&amp;nbsp;use&amp;nbsp;wildcards&amp;nbsp;in&amp;nbsp;Class-Path.&lt;br&gt;
+lib&amp;nbsp;folder&amp;nbsp;is&amp;nbsp;the&amp;nbsp;same&amp;nbsp;folder&amp;nbsp;as&amp;nbsp;jar.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Creating&amp;nbsp;executables&amp;nbsp;files&amp;nbsp;in&amp;nbsp;Eclipse&amp;nbsp;is&amp;nbsp;Simple&amp;nbsp;=)&amp;nbsp;&amp;nbsp;&lt;br&gt;
+===================================================================&lt;br&gt;
+&lt;br&gt;
+In&amp;nbsp;maven&amp;nbsp;we&amp;nbsp;can&amp;nbsp;add&amp;nbsp;custom&amp;nbsp;manifest&amp;nbsp;file&amp;nbsp;:&lt;br&gt;
+&lt;build&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;plugins&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;plugin&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;version&gt;2.5&lt;/version&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;configuration&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;archive&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;manifest&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;addClasspath&gt;true&lt;/addClasspath&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;classpathPrefix&gt;lib/&lt;/classpathPrefix&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;mainClass&gt;ss.randomgenerator.RandomGeneratorProgram&lt;/mainClass&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/manifest&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;manifestFile&gt;src/main/resources/META-INF/MANIFEST.MF&lt;/manifestFile&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/archive&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/configuration&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/plugin&gt;&lt;br&gt;
+.....</questionanswer>
+  </question>
+</questions>
