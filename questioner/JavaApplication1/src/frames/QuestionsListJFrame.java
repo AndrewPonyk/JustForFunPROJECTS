@@ -10,8 +10,18 @@ import com.ap.logic.QuizClasses.Question;
 import com.ap.logic.QuizClasses.Quiz;
 import com.ap.logic.xml.ReadWriteClassificationXML;
 import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.*;
 /**
@@ -33,6 +43,43 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
     
     public QuestionerJFrame parentFrame ;
     public boolean  questionsListChanged = false;
+    
+    private KeyListener clipboardKeyListener = new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                  
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if ((e.getKeyCode() == KeyEvent.VK_C) && ((e.getModifiers() & KeyEvent.CTRL_MASK) != 0)) {
+                        try {
+                            Toolkit toolkit = Toolkit.getDefaultToolkit();
+                            Clipboard clipboard = toolkit.getSystemClipboard();
+                            String result = (String) clipboard.getData(DataFlavor.stringFlavor);
+                            
+                            result = result.replaceAll(" ", "\r\n");
+                            result = result.replace((char)160, ' ');
+                            
+                            setStringToClipboard(result);
+                        } catch (UnsupportedFlavorException ex) {
+                            Logger.getLogger(QuestionsListJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (IOException ex) {
+                            Logger.getLogger(QuestionsListJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                }
+            }
+            
+              // This method writes a string to the clipboard.
+            public void setStringToClipboard(String stringContent) {
+                StringSelection stringSelection = new StringSelection(stringContent);
+                Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+            }
+        };
     
     public QuestionsListJFrame(){
         initComponents();     
@@ -77,14 +124,15 @@ public class QuestionsListJFrame extends javax.swing.JFrame {
         JTextPane questionContent = new JTextPane();
         JScrollPane scroll = new JScrollPane();
 
-        String questionText = this.questionsList[selectedIndex].getQuestionText();
-        String questionAnswer = this.questionsList[selectedIndex].getQuestionAnswer();
-        
-        
         // !!! bug , if i copy answer text into some editor it has bad format !!!
         //questionAnswer = questionAnswer.replaceAll("&#160;", " ");
         //questionAnswer = questionAnswer.replaceAll("&nbsp;&nbsp;&nbsp;", "\t");
         //questionAnswer = questionAnswer.replaceAll("&nbsp;", " ");
+        // RESOLVED IN "clipboardKeyListener"
+        questionContent.addKeyListener(clipboardKeyListener);
+        
+        String questionText = this.questionsList[selectedIndex].getQuestionText();
+        String questionAnswer = this.questionsList[selectedIndex].getQuestionAnswer();
         
         questionContent.setContentType("text/html");
         questionContent.setText( questionText +
