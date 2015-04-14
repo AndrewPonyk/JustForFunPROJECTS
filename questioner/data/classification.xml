@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classification>
-  <class id="0" name="Programming Foundation" nofquestions="82" nofsubcategories="4">
+  <class id="0" name="Programming Foundation" nofquestions="89" nofsubcategories="4">
     <category id="0_0" name="Web Design and XML" nofquestions="32" nofsubcategories="3">
       <category id="0_0_0" name="HTML5" nofquestions="3" nofsubcategories="0" filename="html5.xml" />
       <category id="0_0_1" name="CSS and Frameworks" nofquestions="26" nofsubcategories="4">
@@ -35,11 +35,11 @@
         <category id="0_0_2_8" name="XML SCHEMA" nofquestions="0" nofsubcategories="0" filename="xmlschema.xml" />
       </category>
     </category>
-    <category id="0_1" name="DataBases" nofquestions="47" nofsubcategories="7">
+    <category id="0_1" name="DataBases" nofquestions="54" nofsubcategories="7">
       <category id="0_1_0" name="Relational_Theory" nofquestions="0" nofsubcategories="0" />
       <category id="0_1_1" name="Oracle" nofquestions="0" nofsubcategories="0" />
-      <category id="0_1_2" name="Mysql" nofquestions="47" nofsubcategories="3">
-        <category id="0_1_2_0" name="MySQL_Database_Usage_and_Administration" nofquestions="47" nofsubcategories="9">
+      <category id="0_1_2" name="Mysql" nofquestions="54" nofsubcategories="3">
+        <category id="0_1_2_0" name="MySQL_Database_Usage_and_Administration" nofquestions="54" nofsubcategories="13">
           <category id="0_1_2_0_0" name="chap1_IntroToMysql" nofquestions="3" nofsubcategories="0" filename="chap1_introtomysql0_1_2_0_0.xml" />
           <category id="0_1_2_0_1" name="chap2_BasicCommands" nofquestions="16" nofsubcategories="0" filename="chap2_basiccommands0_1_2_0_1.xml" />
           <category id="0_1_2_0_2" name="chap3_createDesignDecisions" nofquestions="9" nofsubcategories="0" filename="chap3_createdesigndecisions0_1_2_0_2.xml" />
@@ -49,6 +49,10 @@
           <category id="0_1_2_0_6" name="chap7_TriggersAndEvents" nofquestions="3" nofsubcategories="0" filename="chap7_triggersandevents0_1_2_0_6.xml" />
           <category id="0_1_2_0_7" name="chap8_WorkingWithDataInDIfferentFormats" nofquestions="2" nofsubcategories="0" filename="chap8_workingwithdataindifferentformats0_1_2_0_7.xml" />
           <category id="0_1_2_0_8" name="chap9_OptimizingPerformance" nofquestions="0" nofsubcategories="0" filename="chap9_optimizingperformance0_1_2_0_8.xml" />
+          <category id="0_1_2_0_9" name="chap10_BasicServerAdministration" nofquestions="1" nofsubcategories="0" filename="chap10_basicserveradministration0_1_2_0_9.xml" />
+          <category id="0_1_2_0_10" name="chap11_ManagingUsersAndConrollAccess" nofquestions="4" nofsubcategories="0" filename="chap11_managingusersandconrollaccess0_1_2_0_10.xml" />
+          <category id="0_1_2_0_11" name="Chap12_Maintenance_Backup_Recovery" nofquestions="2" nofsubcategories="0" filename="chap12_maintenance_backup_recovery0_1_2_0_11.xml" />
+          <category id="0_1_2_0_12" name="chap13_Replicating_Data" nofquestions="0" nofsubcategories="0" filename="chap13_replicating_data0_1_2_0_12.xml" />
         </category>
         <category id="0_1_2_1" name="MuRach_Mysql2012" nofquestions="0" nofsubcategories="0" />
         <category id="0_1_2_2" name="SQL_Exercises_wikiBook" nofquestions="0" nofsubcategories="0" />
@@ -108,7 +112,7 @@
   </class>
   <class id="1" name="Programming" nofquestions="465" nofsubcategories="5">
     <category id="1_0" name="Java" nofquestions="430" nofsubcategories="4">
-      <category id="1_0_0" name="Java CORE" nofquestions="247" nofsubcategories="12">
+      <category id="1_0_0" name="Java CORE" nofquestions="247" nofsubcategories="13">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="89" nofsubcategories="1">
           <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="89" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
         </category>
@@ -166,6 +170,7 @@
           <category id="1_0_0_10_0" name="JavaSESecurity_oracledotcom" nofquestions="2" nofsubcategories="0" filename="javasesecurity_oracledotcom1_0_0_10_0.xml" />
         </category>
         <category id="1_0_0_11" name="Java8_new_Features" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_0_12" name="JavaCore_Other_Tutorials" nofquestions="0" nofsubcategories="0" filename="javacore_other_tutorials1_0_0_12.xml" />
       </category>
       <category id="1_0_1" name="Java EE" nofquestions="183" nofsubcategories="15">
         <category id="1_0_1_0" name="Java EE JNDI" nofquestions="0" nofsubcategories="0" filename="javaeejndi.xml" />
@@ -251,8 +256,9 @@
           <category id="1_0_1_4_2" name="Struts" nofquestions="0" nofsubcategories="1">
             <category id="1_0_1_4_2_0" name="Struts2" nofquestions="0" nofsubcategories="0" />
           </category>
-          <category id="1_0_1_4_3" name="GWT" nofquestions="0" nofsubcategories="1">
+          <category id="1_0_1_4_3" name="GWT" nofquestions="0" nofsubcategories="2">
             <category id="1_0_1_4_3_0" name="Gwt_In_ACTION_2ed" nofquestions="0" nofsubcategories="0" />
+            <category id="1_0_1_4_3_1" name="Gwt_Other_Tutorials" nofquestions="0" nofsubcategories="0" filename="gwt_other_tutorials1_0_1_4_3_1.xml" />
           </category>
         </category>
         <category id="1_0_1_5" name="Application Servers" nofquestions="0" nofsubcategories="2">
@@ -426,7 +432,16 @@
   </class>
   <class id="3" name="Operating.Systems" nofquestions="0" nofsubcategories="2">
     <category id="3_0" name="Windows" nofquestions="0" nofsubcategories="0" />
-    <category id="3_1" name="Linux" nofquestions="0" nofsubcategories="0" />
+    <category id="3_1" name="Linux" nofquestions="0" nofsubcategories="3">
+      <category id="3_1_0" name="LinuxCore" nofquestions="0" nofsubcategories="0" />
+      <category id="3_1_1" name="Ubuntu" nofquestions="0" nofsubcategories="0" />
+      <category id="3_1_2" name="UbuntuUtilsAndPrograms" nofquestions="0" nofsubcategories="4">
+        <category id="3_1_2_0" name="curl" nofquestions="0" nofsubcategories="0" filename="curl3_1_2_0.xml" />
+        <category id="3_1_2_1" name="wget" nofquestions="0" nofsubcategories="0" filename="wget3_1_2_1.xml" />
+        <category id="3_1_2_2" name="nmap" nofquestions="0" nofsubcategories="0" filename="nmap3_1_2_2.xml" />
+        <category id="3_1_2_3" name="ShellTextEditors" nofquestions="0" nofsubcategories="0" />
+      </category>
+    </category>
   </class>
   <class id="4" name="Languages" nofquestions="0" nofsubcategories="3">
     <category id="4_0" name="English" nofquestions="0" nofsubcategories="3">

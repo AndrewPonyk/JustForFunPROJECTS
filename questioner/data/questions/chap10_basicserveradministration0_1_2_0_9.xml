@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="0_1_2_0_9" name="chap10_BasicServerAdministration" nofquestions="1" nofsubcategories="0" filename="chap10_basicserveradministration0_1_2_0_9.xml">
+  <question id="0_1_2_0_9:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MySQL&amp;nbsp;folder&amp;nbsp;structure,&amp;nbsp;describe.&lt;br&gt;
+(structure&amp;nbsp;is&amp;nbsp;different&amp;nbsp;in&amp;nbsp;different&amp;nbsp;OS)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>WIndows&lt;br&gt;
+&lt;br&gt;
+For&amp;nbsp;MySQL&amp;nbsp;5.0&amp;nbsp;on&amp;nbsp;Windows,&amp;nbsp;the&amp;nbsp;default&amp;nbsp;installation&amp;nbsp;directory&amp;nbsp;is&lt;br&gt;
+C:\Program&amp;nbsp;Files\MySQL\MySQL&amp;nbsp;Server&amp;nbsp;5.0.&amp;nbsp;(Some&amp;nbsp;Windows&amp;nbsp;users&amp;nbsp;prefer&amp;nbsp;to&amp;nbsp;install&amp;nbsp;in&lt;br&gt;
+C:\mysql,&amp;nbsp;the&amp;nbsp;directory&amp;nbsp;that&amp;nbsp;formerly&amp;nbsp;was&amp;nbsp;used&amp;nbsp;as&amp;nbsp;the&amp;nbsp;default.&amp;nbsp;However,&amp;nbsp;the&amp;nbsp;layout&amp;nbsp;of&amp;nbsp;the&lt;br&gt;
+subdirectories&amp;nbsp;remains&amp;nbsp;the&amp;nbsp;same.)&amp;nbsp;The&amp;nbsp;installation&amp;nbsp;directory&amp;nbsp;has&amp;nbsp;the&amp;nbsp;following&amp;nbsp;subdirectories:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+Directory&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Contents&amp;nbsp;of&amp;nbsp;Directory&lt;br&gt;
+bin&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Client&amp;nbsp;programs&amp;nbsp;and&amp;nbsp;the&amp;nbsp;mysqld&amp;nbsp;server&lt;br&gt;
+data&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Log&amp;nbsp;files,&amp;nbsp;databases&lt;br&gt;
+examples&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Example&amp;nbsp;programs&amp;nbsp;and&amp;nbsp;scripts&lt;br&gt;
+include&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Include&amp;nbsp;(header)&amp;nbsp;files&lt;br&gt;
+lib&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Libraries&lt;br&gt;
+scripts&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Utility&amp;nbsp;scripts&lt;br&gt;
+share&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Miscellaneous&amp;nbsp;support&amp;nbsp;files,&amp;nbsp;including&amp;nbsp;error&amp;nbsp;messages,&amp;nbsp;character&amp;nbsp;set&amp;nbsp;files,&amp;nbsp;sample&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;configuration&amp;nbsp;files,&amp;nbsp;SQL&amp;nbsp;for&amp;nbsp;database&amp;nbsp;installation&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+========================================================&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Linux&amp;nbsp;RPM&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MySQL&amp;nbsp;Installation&amp;nbsp;Layout&amp;nbsp;for&amp;nbsp;Linux&amp;nbsp;RPM&amp;nbsp;Packages&lt;br&gt;
+&lt;br&gt;
+Directory&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Contents&amp;nbsp;of&amp;nbsp;Directory&lt;br&gt;
+/usr/bin&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Client&amp;nbsp;programs&amp;nbsp;and&amp;nbsp;scripts&lt;br&gt;
+/usr/sbin&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;mysqld&amp;nbsp;server&lt;br&gt;
+/var/lib/mysql&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Log&amp;nbsp;files,&amp;nbsp;databases&lt;br&gt;
+/usr/share/info&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MySQL&amp;nbsp;manual&amp;nbsp;in&amp;nbsp;Info&amp;nbsp;format&lt;br&gt;
+/usr/share/man&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Unix&amp;nbsp;man&amp;nbsp;pages&lt;br&gt;
+/usr/include/mysql&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Include&amp;nbsp;(header)&amp;nbsp;files&lt;br&gt;
+/usr/lib/mysql&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Libraries&lt;br&gt;
+/usr/share/mysql&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Miscellaneous&amp;nbsp;support&amp;nbsp;files,&amp;nbsp;including&amp;nbsp;error&amp;nbsp;messages,&amp;nbsp;character&amp;nbsp;set&amp;nbsp;files,&amp;nbsp;sample&amp;nbsp;configuration&amp;nbsp;files,&amp;nbsp;SQL&amp;nbsp;for&amp;nbsp;database&amp;nbsp;installation&lt;br&gt;
+/usr/share/sql-bench&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Benchmarks&lt;br&gt;
+&lt;br&gt;
+================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Linux&amp;nbsp;Binary&lt;br&gt;
+&lt;br&gt;
+On&amp;nbsp;Unix,&amp;nbsp;a&amp;nbsp;tar&amp;nbsp;file&amp;nbsp;binary&amp;nbsp;distribution&amp;nbsp;is&amp;nbsp;installed&amp;nbsp;by&amp;nbsp;unpacking&amp;nbsp;it&amp;nbsp;at&amp;nbsp;the&amp;nbsp;installation&amp;nbsp;location&amp;nbsp;you&lt;br&gt;
+choose&amp;nbsp;(typically&amp;nbsp;/usr/local/mysql)&amp;nbsp;and&amp;nbsp;creates&amp;nbsp;the&amp;nbsp;following&amp;nbsp;directories&amp;nbsp;in&amp;nbsp;that&amp;nbsp;location&lt;br&gt;
+&lt;br&gt;
+MySQL&amp;nbsp;Installation&amp;nbsp;Layout&amp;nbsp;for&amp;nbsp;Generic&amp;nbsp;Unix/Linux&amp;nbsp;Binary&amp;nbsp;Package&lt;br&gt;
+&lt;br&gt;
+Directory&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Contents&amp;nbsp;of&amp;nbsp;Directory&lt;br&gt;
+bin&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Client&amp;nbsp;programs&amp;nbsp;and&amp;nbsp;the&amp;nbsp;mysqld&amp;nbsp;server&lt;br&gt;
+data&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Log&amp;nbsp;files,&amp;nbsp;databases&lt;br&gt;
+docs&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MySQL&amp;nbsp;manual&amp;nbsp;in&amp;nbsp;Info&amp;nbsp;format&lt;br&gt;
+man&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Unix&amp;nbsp;manual&amp;nbsp;pages&lt;br&gt;
+include&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Include&amp;nbsp;(header)&amp;nbsp;files&lt;br&gt;
+lib&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Libraries&lt;br&gt;
+scripts&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mysql_install_db&lt;br&gt;
+share/mysql&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Miscellaneous&amp;nbsp;support&amp;nbsp;files,&amp;nbsp;including&amp;nbsp;error&amp;nbsp;messages,&amp;nbsp;character&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;set&amp;nbsp;files,&amp;nbsp;sample&amp;nbsp;configuration&amp;nbsp;files,&amp;nbsp;SQL&amp;nbsp;for&amp;nbsp;database&amp;nbsp;installation&lt;br&gt;
+sql-bench&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Benchmarks&lt;br&gt;
+&lt;br&gt;
+=================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MySQL&amp;nbsp;Layout&amp;nbsp;for&amp;nbsp;Installation&amp;nbsp;from&amp;nbsp;Source&lt;br&gt;
+&lt;br&gt;
+Directory&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Contents&amp;nbsp;of&amp;nbsp;Directory&lt;br&gt;
+bin&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Client&amp;nbsp;programs&amp;nbsp;and&amp;nbsp;scripts&lt;br&gt;
+include/mysql&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Include&amp;nbsp;(header)&amp;nbsp;files&lt;br&gt;
+Docs&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MySQL&amp;nbsp;manual&amp;nbsp;in&amp;nbsp;Info&amp;nbsp;format&lt;br&gt;
+man&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Unix&amp;nbsp;manual&amp;nbsp;pages&lt;br&gt;
+lib/mysql&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Libraries&lt;br&gt;
+libexec&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;mysqld&amp;nbsp;server&lt;br&gt;
+share/mysql&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Miscellaneous&amp;nbsp;support&amp;nbsp;files,&amp;nbsp;including&amp;nbsp;error&amp;nbsp;messages,&amp;nbsp;character&amp;nbsp;set&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;files,&amp;nbsp;sample&amp;nbsp;configuration&amp;nbsp;files,&amp;nbsp;SQL&amp;nbsp;for&amp;nbsp;database&amp;nbsp;installation&lt;br&gt;
+sql-bench&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Benchmarks&lt;br&gt;
+var&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Log&amp;nbsp;files,&amp;nbsp;databases&lt;br&gt;
+----------------------------------------------------------&lt;br&gt;</questionanswer>
+  </question>
+</questions>

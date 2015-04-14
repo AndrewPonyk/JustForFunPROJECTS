@@ -48,7 +48,7 @@ public class NewQuestionDialog extends javax.swing.JDialog {
        initComponents();
        
        jButton1.setVisible(false);
-       addSourceButton.setVisible(false);
+       addSourceButton.setVisible(true);
        
     }
 
@@ -155,7 +155,6 @@ public class NewQuestionDialog extends javax.swing.JDialog {
         });
 
         addSourceButton.setText("Add Source");
-        addSourceButton.setEnabled(false);
         addSourceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addSourceButtonActionPerformed(evt);
@@ -389,7 +388,6 @@ public class NewQuestionDialog extends javax.swing.JDialog {
 
     private void addImageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addImageButtonActionPerformed
         StyledDocument doc = this.questionTextTextPane.getStyledDocument();   
-        
         
         // can be url and can be from file system
         JFileChooser chooser=new JFileChooser();
