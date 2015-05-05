@@ -1,0 +1,2 @@
+serviceClass: com.ap.questinerwebapp.client.GreetingService
+path: 5B7E02896FA76107C9626B72EB6CA0D5.gwt.rpc
