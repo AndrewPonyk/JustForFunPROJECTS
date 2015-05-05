@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="1_0_1_4_3_2_0" name="Tutorial_sample_ajax_i118_junit_gae" nofquestions="1" nofsubcategories="0" filename="tutorial_sample_ajax_i118_junit_gae1_0_1_4_3_2_0.xml">
+  <question id="1_0_1_4_3_2_0:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GWT&amp;nbsp;application&amp;nbsp;creating&amp;nbsp;and&amp;nbsp;running&amp;nbsp;from&amp;nbsp;command&amp;nbsp;line,&amp;nbsp;describe.&lt;br&gt;
+GWT&amp;nbsp;SDK&amp;nbsp;main&amp;nbsp;parts,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Prerequisites&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;You&amp;nbsp;will&amp;nbsp;need&amp;nbsp;the&amp;nbsp;Java&amp;nbsp;SDK&amp;nbsp;version&amp;nbsp;1.6&amp;nbsp;or&amp;nbsp;later.&amp;nbsp;If&amp;nbsp;necessary,&amp;nbsp;download&amp;nbsp;and&amp;nbsp;install&amp;nbsp;the&lt;br&gt;
+Java&amp;nbsp;SE&amp;nbsp;Development&amp;nbsp;Kit&amp;nbsp;(JDK)&amp;nbsp;for&amp;nbsp;your&amp;nbsp;platform.&amp;nbsp;Mac&amp;nbsp;users,&amp;nbsp;see&amp;nbsp;Apple’s&amp;nbsp;Java&amp;nbsp;developer&amp;nbsp;site&lt;br&gt;
+to&amp;nbsp;download&amp;nbsp;and&amp;nbsp;install&amp;nbsp;the&amp;nbsp;latest&amp;nbsp;version&amp;nbsp;of&amp;nbsp;the&amp;nbsp;Java&amp;nbsp;Developer&amp;nbsp;Kit&amp;nbsp;available&amp;nbsp;for&amp;nbsp;Mac&amp;nbsp;OS&amp;nbsp;X.&lt;br&gt;
+-&amp;nbsp;Apache&amp;nbsp;Ant&amp;nbsp;is&amp;nbsp;also&amp;nbsp;necessary&amp;nbsp;to&amp;nbsp;run&amp;nbsp;command&amp;nbsp;line&amp;nbsp;arguments.&amp;nbsp;If&amp;nbsp;you&amp;nbsp;don’t&amp;nbsp;already&amp;nbsp;have&amp;nbsp;it,&amp;nbsp;install&amp;nbsp;Apache&amp;nbsp;Ant.&lt;br&gt;
+===============================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Download&amp;nbsp;and&amp;nbsp;Install&amp;nbsp;the&amp;nbsp;GWT&amp;nbsp;SDK&lt;br&gt;
+On&amp;nbsp;Windows,&amp;nbsp;extract&amp;nbsp;the&amp;nbsp;files&amp;nbsp;from&amp;nbsp;the&amp;nbsp;compressed&amp;nbsp;folder&amp;nbsp;gwt-2.7.0.zip.&amp;nbsp;On&amp;nbsp;Mac&amp;nbsp;or&amp;nbsp;Linux,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;unpack&amp;nbsp;the&amp;nbsp;package&amp;nbsp;with&amp;nbsp;a&amp;nbsp;command&amp;nbsp;like:&lt;br&gt;
+unzip&amp;nbsp;gwt-2.7.0.zip&lt;br&gt;
+The&amp;nbsp;GWT&amp;nbsp;SDK&amp;nbsp;doesn’t&amp;nbsp;have&amp;nbsp;an&amp;nbsp;installer&amp;nbsp;application.&amp;nbsp;All&amp;nbsp;the&amp;nbsp;files&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;run&amp;nbsp;and&amp;nbsp;use&amp;nbsp;the&amp;nbsp;SDK&amp;nbsp;are&amp;nbsp;located&amp;nbsp;in&amp;nbsp;the&amp;nbsp;extracted&amp;nbsp;directory.&lt;br&gt;
+&lt;br&gt;
+=================================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Create&amp;nbsp;your&amp;nbsp;first&amp;nbsp;web&amp;nbsp;application&amp;nbsp;(without&amp;nbsp;IDE)&lt;br&gt;
+Windows&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cd&amp;nbsp;gwt-2.7.0&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;webAppCreator&amp;nbsp;-out&amp;nbsp;MyWebApp&amp;nbsp;com.mycompany.mywebapp.MyWebApp&lt;br&gt;
+&lt;br&gt;
+Mac&amp;nbsp;or&amp;nbsp;Linux&amp;nbsp;-&amp;nbsp;you&amp;nbsp;may&amp;nbsp;need&amp;nbsp;to&amp;nbsp;make&amp;nbsp;the&amp;nbsp;script&amp;nbsp;executable:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cd&amp;nbsp;gwt-2.7.0&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;chmod&amp;nbsp;u+x&amp;nbsp;webAppCreator&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;./webAppCreator&amp;nbsp;-out&amp;nbsp;MyWebApp&amp;nbsp;com.mycompany.mywebapp.MyWebApp&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;webAppCreator&amp;nbsp;script&amp;nbsp;will&amp;nbsp;generate&amp;nbsp;a&amp;nbsp;number&amp;nbsp;of&amp;nbsp;files&amp;nbsp;in&amp;nbsp;MyWebApp/,&amp;nbsp;including&amp;nbsp;some&amp;nbsp;basic&lt;br&gt;
+“Hello,&amp;nbsp;world”&amp;nbsp;functionality&amp;nbsp;in&amp;nbsp;the&amp;nbsp;class&amp;nbsp;MyWebApp/src/com/mycompany/mywebapp/client/MyWebApp.java.&lt;br&gt;
+The&amp;nbsp;script&amp;nbsp;also&amp;nbsp;generates&amp;nbsp;an&amp;nbsp;Ant&amp;nbsp;build&amp;nbsp;script&amp;nbsp;MyWebApp/build.xml.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Run&amp;nbsp;locally&amp;nbsp;in&amp;nbsp;development&amp;nbsp;mode&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;To&amp;nbsp;run&amp;nbsp;your&amp;nbsp;newly&amp;nbsp;created&amp;nbsp;application&amp;nbsp;in&amp;nbsp;development&amp;nbsp;mode:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cd&amp;nbsp;MyWebApp/&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ant&amp;nbsp;devmode&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+=================================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Compile&amp;nbsp;and&amp;nbsp;run&amp;nbsp;in&amp;nbsp;production&amp;nbsp;mode&lt;br&gt;
+To&amp;nbsp;run&amp;nbsp;the&amp;nbsp;application&amp;nbsp;as&amp;nbsp;JavaScript&amp;nbsp;in&amp;nbsp;what&amp;nbsp;GWT&amp;nbsp;calls&amp;nbsp;“production&amp;nbsp;mode”,&amp;nbsp;compile&amp;nbsp;the&amp;nbsp;application&amp;nbsp;by&amp;nbsp;executing:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ant&amp;nbsp;build&lt;br&gt;
+&lt;br&gt;
+=================================================================&lt;br&gt;
+=================================================================&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GWT&amp;nbsp;SDK&lt;br&gt;
+&lt;br&gt;
+With&amp;nbsp;the&amp;nbsp;GWT&amp;nbsp;SDK,&amp;nbsp;you&amp;nbsp;write&amp;nbsp;your&amp;nbsp;AJAX&amp;nbsp;front-end&amp;nbsp;in&amp;nbsp;the&amp;nbsp;Java&amp;nbsp;programming&amp;nbsp;language&amp;nbsp;which&amp;nbsp;GWT&amp;nbsp;then&lt;br&gt;
+cross-compiles&amp;nbsp;into&amp;nbsp;optimized&amp;nbsp;JavaScript&amp;nbsp;that&amp;nbsp;automatically&amp;nbsp;works&amp;nbsp;across&amp;nbsp;all&amp;nbsp;major&amp;nbsp;browsers.&amp;nbsp;During&lt;br&gt;
+development,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;iterate&amp;nbsp;quickly&amp;nbsp;in&amp;nbsp;the&amp;nbsp;same&amp;nbsp;“edit&amp;nbsp;-&amp;nbsp;refresh&amp;nbsp;-&amp;nbsp;view”&amp;nbsp;cycle&amp;nbsp;you’re&amp;nbsp;accustomed&amp;nbsp;to&lt;br&gt;
+with&amp;nbsp;JavaScript,&amp;nbsp;with&amp;nbsp;the&amp;nbsp;added&amp;nbsp;benefit&amp;nbsp;of&amp;nbsp;being&amp;nbsp;able&amp;nbsp;to&amp;nbsp;debug&amp;nbsp;and&amp;nbsp;step&amp;nbsp;through&amp;nbsp;your&amp;nbsp;Java&amp;nbsp;code&amp;nbsp;line&amp;nbsp;by&amp;nbsp;line.&lt;br&gt;
+When&amp;nbsp;you’re&amp;nbsp;ready&amp;nbsp;to&amp;nbsp;deploy,&amp;nbsp;the&amp;nbsp;GWT&amp;nbsp;compiler&amp;nbsp;compiles&amp;nbsp;your&amp;nbsp;Java&amp;nbsp;source&amp;nbsp;code&amp;nbsp;into&amp;nbsp;optimized,&lt;br&gt;
+standalone&amp;nbsp;JavaScript&amp;nbsp;files.&lt;br&gt;
+&lt;br&gt;
+Write&amp;nbsp;AJAX&amp;nbsp;apps&amp;nbsp;in&amp;nbsp;the&amp;nbsp;Java&amp;nbsp;language,&amp;nbsp;then&amp;nbsp;compile&amp;nbsp;to&amp;nbsp;optimized&amp;nbsp;JavaScript&lt;br&gt;
+&lt;br&gt;
+Unlike&amp;nbsp;JavaScript&amp;nbsp;minifiers&amp;nbsp;that&amp;nbsp;work&amp;nbsp;only&amp;nbsp;at&amp;nbsp;a&amp;nbsp;textual&amp;nbsp;level,&amp;nbsp;the&amp;nbsp;GWT&amp;nbsp;compiler&amp;nbsp;performs&amp;nbsp;comprehensive&amp;nbsp;static&lt;br&gt;
+analysis&amp;nbsp;and&amp;nbsp;optimizations&amp;nbsp;across&amp;nbsp;your&amp;nbsp;entire&amp;nbsp;GWT&amp;nbsp;codebase,&amp;nbsp;often&amp;nbsp;producing&amp;nbsp;JavaScript&amp;nbsp;that&lt;br&gt;
+loads&amp;nbsp;and&amp;nbsp;executes&amp;nbsp;faster&amp;nbsp;than&amp;nbsp;equivalent&amp;nbsp;handwritten&amp;nbsp;JavaScript.&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;the&amp;nbsp;GWT&amp;nbsp;compiler&amp;nbsp;safely&lt;br&gt;
+eliminates&amp;nbsp;dead&amp;nbsp;code&amp;nbsp;–&amp;nbsp;aggressively&amp;nbsp;pruning&amp;nbsp;unused&amp;nbsp;classes,&amp;nbsp;methods,&amp;nbsp;fields,&amp;nbsp;and&amp;nbsp;even&amp;nbsp;method&lt;br&gt;
+parameters&amp;nbsp;–&amp;nbsp;to&amp;nbsp;ensure&amp;nbsp;that&amp;nbsp;your&amp;nbsp;compiled&amp;nbsp;script&amp;nbsp;is&amp;nbsp;the&amp;nbsp;smallest&amp;nbsp;it&amp;nbsp;can&amp;nbsp;possibly&amp;nbsp;be.&amp;nbsp;Another&amp;nbsp;example:&lt;br&gt;
+the&amp;nbsp;GWT&amp;nbsp;compiler&amp;nbsp;selectively&amp;nbsp;inlines&amp;nbsp;methods,&amp;nbsp;eliminating&amp;nbsp;the&amp;nbsp;performance&amp;nbsp;overhead&amp;nbsp;of&amp;nbsp;method&amp;nbsp;calls.&lt;br&gt;
+&lt;br&gt;
+P.S.&lt;br&gt;
+In&amp;nbsp;the&amp;nbsp;end,&amp;nbsp;it’s&amp;nbsp;just&amp;nbsp;JavaScript&lt;br&gt;
+The&amp;nbsp;GWT&amp;nbsp;SDK&amp;nbsp;provides&amp;nbsp;a&amp;nbsp;core&amp;nbsp;set&amp;nbsp;of&amp;nbsp;Java&amp;nbsp;APIs&amp;nbsp;and&amp;nbsp;libraries&amp;nbsp;that&amp;nbsp;allow&amp;nbsp;you&amp;nbsp;to&amp;nbsp;productively&amp;nbsp;build&amp;nbsp;user&lt;br&gt;
+interfaces&amp;nbsp;and&amp;nbsp;logic&amp;nbsp;for&amp;nbsp;the&amp;nbsp;browser&amp;nbsp;client.&amp;nbsp;You&amp;nbsp;then&amp;nbsp;compile&amp;nbsp;that&amp;nbsp;source&amp;nbsp;code&amp;nbsp;to&amp;nbsp;JavaScript.&amp;nbsp;All&amp;nbsp;that&lt;br&gt;
+runs&amp;nbsp;in&amp;nbsp;the&amp;nbsp;end&amp;nbsp;is&amp;nbsp;plain&amp;nbsp;ol’&amp;nbsp;JavaScript&amp;nbsp;in&amp;nbsp;the&amp;nbsp;browser.&amp;nbsp;Oh,&amp;nbsp;and&amp;nbsp;you&amp;nbsp;can&lt;br&gt;
+mix&amp;nbsp;in&amp;nbsp;and&amp;nbsp;interoperate&amp;nbsp;with&amp;nbsp;JavaScript&amp;nbsp;in&amp;nbsp;your&amp;nbsp;source&amp;nbsp;code&amp;nbsp;as&amp;nbsp;well.</questionanswer>
+  </question>
+</questions>

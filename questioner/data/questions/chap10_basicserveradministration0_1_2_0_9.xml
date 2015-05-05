@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="0_1_2_0_9" name="chap10_BasicServerAdministration" nofquestions="1" nofsubcategories="0" filename="chap10_basicserveradministration0_1_2_0_9.xml">
+<questions id="0_1_2_0_9" name="chap10_BasicServerAdministration" nofquestions="3" nofsubcategories="0" filename="chap10_basicserveradministration0_1_2_0_9.xml">
   <question id="0_1_2_0_9:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MySQL&amp;nbsp;folder&amp;nbsp;structure,&amp;nbsp;describe.&lt;br&gt;
@@ -73,5 +73,67 @@ share/mysql&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Miscellaneous&amp;nbsp;suppor
 sql-bench&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Benchmarks&lt;br&gt;
 var&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Log&amp;nbsp;files,&amp;nbsp;databases&lt;br&gt;
 ----------------------------------------------------------&lt;br&gt;</questionanswer>
+  </question>
+  <question id="0_1_2_0_9:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;best&amp;nbsp;way&amp;nbsp;to&amp;nbsp;stop&amp;nbsp;and&amp;nbsp;start&amp;nbsp;MySQL&amp;nbsp;in&amp;nbsp;Linux&amp;nbsp;&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>sudo&amp;nbsp;/etc/init.d/mysql&amp;nbsp;start&lt;br&gt;
+&lt;br&gt;
+sudo&amp;nbsp;/etc/init.d/mysql&amp;nbsp;stop&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+sudo&amp;nbsp;/etc/init.d/mysql&amp;nbsp;restart&lt;br&gt;
+&lt;br&gt;
+=====&lt;br&gt;
+&lt;br&gt;
+To&amp;nbsp;check&amp;nbsp;if&amp;nbsp;MySQL&amp;nbsp;is&amp;nbsp;running&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;netstat&amp;nbsp;-tnpl&lt;br&gt;
+(if&amp;nbsp;port&amp;nbsp;3306&amp;nbsp;is&amp;nbsp;used,&amp;nbsp;mysql&amp;nbsp;is&amp;nbsp;running&amp;nbsp;)</questionanswer>
+  </question>
+  <question id="0_1_2_0_9:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;MySQL&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;db&amp;nbsp;,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Tables&amp;nbsp;&amp;nbsp;:&lt;br&gt;
+19.1&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;CHARACTER_SETS&amp;nbsp;Table&lt;br&gt;
+19.2&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;COLLATIONS&amp;nbsp;Table&lt;br&gt;
+19.3&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;COLLATION_CHARACTER_SET_APPLICABILITY&amp;nbsp;Table&lt;br&gt;
+19.4&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;COLUMNS&amp;nbsp;Table&lt;br&gt;
+19.5&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;COLUMN_PRIVILEGES&amp;nbsp;Table&lt;br&gt;
+19.6&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;KEY_COLUMN_USAGE&amp;nbsp;Table&lt;br&gt;
+19.7&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;PROFILING&amp;nbsp;Table&lt;br&gt;
+19.8&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;ROUTINES&amp;nbsp;Table&lt;br&gt;
+19.9&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;SCHEMATA&amp;nbsp;Table&lt;br&gt;
+19.10&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;SCHEMA_PRIVILEGES&amp;nbsp;Table&lt;br&gt;
+19.11&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;STATISTICS&amp;nbsp;Table&lt;br&gt;
+19.12&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;TABLES&amp;nbsp;Table&lt;br&gt;
+19.13&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;TABLE_CONSTRAINTS&amp;nbsp;Table&lt;br&gt;
+19.14&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;TABLE_PRIVILEGES&amp;nbsp;Table&lt;br&gt;
+19.15&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;TRIGGERS&amp;nbsp;Table&lt;br&gt;
+19.16&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;USER_PRIVILEGES&amp;nbsp;Table&lt;br&gt;
+19.17&amp;nbsp;The&amp;nbsp;INFORMATION_SCHEMA&amp;nbsp;VIEWS&amp;nbsp;Table&lt;br&gt;
+19.18&amp;nbsp;Extensions&amp;nbsp;to&amp;nbsp;SHOW&amp;nbsp;Statements&lt;br&gt;
+&lt;br&gt;
+=============&lt;br&gt;
+http://www.thegeekstuff.com/2008/11/overview-of-mysql-information_schema-database-with-practical-examples/&lt;br&gt;
+&lt;br&gt;
+Example&amp;nbsp;&amp;nbsp;:&lt;br&gt;
+2.&amp;nbsp;Query&amp;nbsp;to&amp;nbsp;display&amp;nbsp;tables&amp;nbsp;with&amp;nbsp;more&amp;nbsp;than&amp;nbsp;1000&amp;nbsp;rows&lt;br&gt;
+&lt;br&gt;
+Using&amp;nbsp;the&amp;nbsp;above&amp;nbsp;mentioned&amp;nbsp;information_schema&amp;nbsp;tables&amp;nbsp;you&amp;nbsp;can&amp;nbsp;build&amp;nbsp;your&amp;nbsp;own&amp;nbsp;query&amp;nbsp;to&amp;nbsp;get&amp;nbsp;metadata&lt;br&gt;
+information.&amp;nbsp;This&amp;nbsp;example&amp;nbsp;displays&amp;nbsp;the&amp;nbsp;MySQL&amp;nbsp;tables&amp;nbsp;that&amp;nbsp;have&amp;nbsp;more&amp;nbsp;than&amp;nbsp;1000&amp;nbsp;rows.&lt;br&gt;
+&lt;br&gt;
+mysql&gt;&amp;nbsp;select&amp;nbsp;concat(table_schema,'.',table_name)&amp;nbsp;as&amp;nbsp;table_name,table_rows&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&gt;&amp;nbsp;from&amp;nbsp;information_schema.tables&amp;nbsp;where&amp;nbsp;table_rows&amp;nbsp;&gt;&amp;nbsp;1000&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&gt;&amp;nbsp;order&amp;nbsp;by&amp;nbsp;table_rows&amp;nbsp;desc;&lt;br&gt;
+&lt;br&gt;
++----------------------------------+------------+&lt;br&gt;
+|&amp;nbsp;table_name&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;table_rows&amp;nbsp;|&lt;br&gt;
++----------------------------------+------------+&lt;br&gt;
+|&amp;nbsp;bugs.series_data&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;52778&amp;nbsp;|&lt;br&gt;
+|&amp;nbsp;bugs.bugs_activity&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;26436&amp;nbsp;|&lt;br&gt;
+|&amp;nbsp;bugs.longdescs&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;21473&amp;nbsp;|&lt;br&gt;
+......&lt;br&gt;
+....</questionanswer>
   </question>
 </questions>

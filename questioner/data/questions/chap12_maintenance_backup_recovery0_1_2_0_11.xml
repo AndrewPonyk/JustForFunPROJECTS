@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="0_1_2_0_11" name="Chap12_Maintenance_Backup_Recovery" nofquestions="2" nofsubcategories="0" filename="chap12_maintenance_backup_recovery0_1_2_0_11.xml">
+<questions id="0_1_2_0_11" name="Chap12_Maintenance_Backup_Recovery" nofquestions="4" nofsubcategories="0" filename="chap12_maintenance_backup_recovery0_1_2_0_11.xml">
   <question id="0_1_2_0_11:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;types&amp;nbsp;of&amp;nbsp;logging&amp;nbsp;are&amp;nbsp;available&amp;nbsp;in&amp;nbsp;MySQL&amp;nbsp;?&amp;nbsp;&lt;br&gt;
@@ -149,5 +149,120 @@ innodb_file_per_table&amp;nbsp;disabled,&amp;nbsp;Data/Index&amp;nbsp;Pages&amp;
 =======&lt;br&gt;
 !!!&amp;nbsp;Also&amp;nbsp;look&amp;nbsp;at&amp;nbsp;innodbchecksum&amp;nbsp;application&lt;br&gt;
 http://dev.mysql.com/doc/refman/5.1/en/innochecksum.html</questionanswer>
+  </question>
+  <question id="0_1_2_0_11:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;'analyze&amp;nbsp;table'&amp;nbsp;and&amp;nbsp;'check&amp;nbsp;table'&amp;nbsp;commands&amp;nbsp;in&amp;nbsp;MySQL,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>12.4.2&amp;nbsp;Table&amp;nbsp;Maintenance&amp;nbsp;Statements&lt;br&gt;
+[+/-]&lt;br&gt;
+&lt;br&gt;
+12.4.2.1&amp;nbsp;ANALYZE&amp;nbsp;TABLE&amp;nbsp;Syntax&lt;br&gt;
+12.4.2.2&amp;nbsp;BACKUP&amp;nbsp;TABLE&amp;nbsp;Syntax&lt;br&gt;
+12.4.2.3&amp;nbsp;CHECK&amp;nbsp;TABLE&amp;nbsp;Syntax&lt;br&gt;
+12.4.2.4&amp;nbsp;CHECKSUM&amp;nbsp;TABLE&amp;nbsp;Syntax&lt;br&gt;
+12.4.2.5&amp;nbsp;OPTIMIZE&amp;nbsp;TABLE&amp;nbsp;Syntax&lt;br&gt;
+12.4.2.6&amp;nbsp;REPAIR&amp;nbsp;TABLE&amp;nbsp;Syntax&lt;br&gt;
+12.4.2.7&amp;nbsp;RESTORE&amp;nbsp;TABLE&amp;nbsp;Syntax&lt;br&gt;
+===============================================&lt;br&gt;
+https://dev.mysql.com/doc/refman/4.1/en/check-table.html&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CHECK&amp;nbsp;TABLE&amp;nbsp;Syntax&lt;br&gt;
+CHECK&amp;nbsp;TABLE&amp;nbsp;tbl_name&amp;nbsp;[,&amp;nbsp;tbl_name]&amp;nbsp;...&amp;nbsp;[option]&amp;nbsp;...&lt;br&gt;
+&lt;br&gt;
+option&amp;nbsp;=&amp;nbsp;{QUICK&amp;nbsp;|&amp;nbsp;FAST&amp;nbsp;|&amp;nbsp;MEDIUM&amp;nbsp;|&amp;nbsp;EXTENDED&amp;nbsp;|&amp;nbsp;CHANGED}&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+CHECK&amp;nbsp;TABLE&amp;nbsp;checks&amp;nbsp;a&amp;nbsp;table&amp;nbsp;or&amp;nbsp;tables&amp;nbsp;for&amp;nbsp;errors.&amp;nbsp;CHECK&amp;nbsp;TABLE&amp;nbsp;works&amp;nbsp;for&amp;nbsp;MyISAM&amp;nbsp;and&amp;nbsp;InnoDB&lt;br&gt;
+tables.&amp;nbsp;For&amp;nbsp;MyISAM&amp;nbsp;tables,&amp;nbsp;the&amp;nbsp;key&amp;nbsp;statistics&amp;nbsp;are&amp;nbsp;updated&amp;nbsp;as&amp;nbsp;well.&lt;br&gt;
+&lt;br&gt;
+CHECK&amp;nbsp;TABLE&amp;nbsp;returns&amp;nbsp;a&amp;nbsp;result&amp;nbsp;set&amp;nbsp;with&amp;nbsp;the&amp;nbsp;following&amp;nbsp;columns.&lt;br&gt;
+&lt;br&gt;
+Column&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Value&lt;br&gt;
+Table&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;table&amp;nbsp;name&lt;br&gt;
+Op&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Always&amp;nbsp;check&lt;br&gt;
+Msg_type&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;status,&amp;nbsp;error,&amp;nbsp;info,&amp;nbsp;note,&amp;nbsp;or&amp;nbsp;warning&lt;br&gt;
+Msg_text&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;An&amp;nbsp;informational&amp;nbsp;message&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Note&amp;nbsp;!&amp;nbsp;that&amp;nbsp;the&amp;nbsp;statement&amp;nbsp;might&amp;nbsp;produce&amp;nbsp;many&amp;nbsp;rows&amp;nbsp;of&amp;nbsp;information&amp;nbsp;for&amp;nbsp;each&amp;nbsp;checked&amp;nbsp;table.&amp;nbsp;The&lt;br&gt;
+last&amp;nbsp;row&amp;nbsp;has&amp;nbsp;a&amp;nbsp;Msg_type&amp;nbsp;value&amp;nbsp;of&amp;nbsp;status&amp;nbsp;and&amp;nbsp;the&amp;nbsp;Msg_text&amp;nbsp;normally&amp;nbsp;should&amp;nbsp;be&amp;nbsp;OK.&amp;nbsp;If&amp;nbsp;you&amp;nbsp;don't&amp;nbsp;get&amp;nbsp;OK,&lt;br&gt;
+or&amp;nbsp;Table&amp;nbsp;is&amp;nbsp;already&amp;nbsp;up&amp;nbsp;to&amp;nbsp;date&amp;nbsp;you&amp;nbsp;should&amp;nbsp;normally&amp;nbsp;run&amp;nbsp;a&amp;nbsp;repair&amp;nbsp;of&amp;nbsp;the&amp;nbsp;table.&amp;nbsp;See&amp;nbsp;Section&amp;nbsp;6.6,&lt;br&gt;
+“MyISAM&amp;nbsp;Table&amp;nbsp;Maintenance&amp;nbsp;and&amp;nbsp;Crash&amp;nbsp;Recovery”.&amp;nbsp;Table&amp;nbsp;is&amp;nbsp;already&amp;nbsp;up&amp;nbsp;to&amp;nbsp;date&amp;nbsp;means&amp;nbsp;that&amp;nbsp;the&amp;nbsp;storage&lt;br&gt;
+engine&amp;nbsp;for&amp;nbsp;the&amp;nbsp;table&amp;nbsp;indicated&amp;nbsp;that&amp;nbsp;there&amp;nbsp;was&amp;nbsp;no&amp;nbsp;need&amp;nbsp;to&amp;nbsp;check&amp;nbsp;the&amp;nbsp;table.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;different&amp;nbsp;check&amp;nbsp;options&amp;nbsp;that&amp;nbsp;can&amp;nbsp;be&amp;nbsp;given&amp;nbsp;are&amp;nbsp;shown&amp;nbsp;in&amp;nbsp;the&amp;nbsp;following&amp;nbsp;table.&amp;nbsp;These&amp;nbsp;options&amp;nbsp;are&amp;nbsp;passed&amp;nbsp;to&amp;nbsp;&lt;br&gt;
+the&amp;nbsp;storage&amp;nbsp;engine,&amp;nbsp;which&amp;nbsp;may&amp;nbsp;use&amp;nbsp;them&amp;nbsp;or&amp;nbsp;not.&amp;nbsp;MyISAM&amp;nbsp;uses&amp;nbsp;them;&amp;nbsp;they&amp;nbsp;are&amp;nbsp;ignored&amp;nbsp;for&amp;nbsp;InnoDB&amp;nbsp;tables.&lt;br&gt;
+&lt;br&gt;
+Type&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Meaning&lt;br&gt;
+QUICK&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Do&amp;nbsp;not&amp;nbsp;scan&amp;nbsp;the&amp;nbsp;rows&amp;nbsp;to&amp;nbsp;check&amp;nbsp;for&amp;nbsp;incorrect&amp;nbsp;links.&lt;br&gt;
+FAST&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Check&amp;nbsp;only&amp;nbsp;tables&amp;nbsp;that&amp;nbsp;have&amp;nbsp;not&amp;nbsp;been&amp;nbsp;closed&amp;nbsp;properly.&lt;br&gt;
+CHANGED&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Check&amp;nbsp;only&amp;nbsp;tables&amp;nbsp;that&amp;nbsp;have&amp;nbsp;been&amp;nbsp;changed&amp;nbsp;since&amp;nbsp;the&amp;nbsp;last&amp;nbsp;check&amp;nbsp;or&amp;nbsp;that&amp;nbsp;have&amp;nbsp;not&amp;nbsp;been&amp;nbsp;closed&amp;nbsp;properly.&lt;br&gt;
+MEDIUM&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Scan&amp;nbsp;rows&amp;nbsp;to&amp;nbsp;verify&amp;nbsp;that&amp;nbsp;deleted&amp;nbsp;links&amp;nbsp;are&amp;nbsp;valid.&amp;nbsp;This&amp;nbsp;also&amp;nbsp;calculates&amp;nbsp;a&amp;nbsp;key&amp;nbsp;checksum&amp;nbsp;for&amp;nbsp;the&lt;br&gt;
+rows&amp;nbsp;and&amp;nbsp;verifies&amp;nbsp;this&amp;nbsp;with&amp;nbsp;a&amp;nbsp;calculated&amp;nbsp;checksum&amp;nbsp;for&amp;nbsp;the&amp;nbsp;keys.&lt;br&gt;
+EXTENDED&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Do&amp;nbsp;a&amp;nbsp;full&amp;nbsp;key&amp;nbsp;lookup&amp;nbsp;for&amp;nbsp;all&amp;nbsp;keys&amp;nbsp;for&amp;nbsp;each&amp;nbsp;row.&amp;nbsp;This&amp;nbsp;ensures&amp;nbsp;that&amp;nbsp;the&amp;nbsp;table&amp;nbsp;is&amp;nbsp;100%&amp;nbsp;consistent,&amp;nbsp;but&amp;nbsp;takes&amp;nbsp;a&amp;nbsp;long&amp;nbsp;time.&lt;br&gt;
+&lt;br&gt;
+==================================================&lt;br&gt;
+https://dev.mysql.com/doc/refman/5.0/en/analyze-table.html&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ANALYZE&amp;nbsp;TABLE&amp;nbsp;Syntax&lt;br&gt;
+ANALYZE&amp;nbsp;[NO_WRITE_TO_BINLOG&amp;nbsp;|&amp;nbsp;LOCAL]&amp;nbsp;TABLE&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;tbl_name&amp;nbsp;[,&amp;nbsp;tbl_name]&amp;nbsp;...&lt;br&gt;
+&lt;br&gt;
+ANALYZE&amp;nbsp;TABLE&amp;nbsp;analyzes&amp;nbsp;and&amp;nbsp;stores&amp;nbsp;the&amp;nbsp;key&amp;nbsp;distribution&amp;nbsp;for&amp;nbsp;a&amp;nbsp;table.&amp;nbsp;During&amp;nbsp;the&amp;nbsp;analysis,&amp;nbsp;the&amp;nbsp;table&amp;nbsp;is&amp;nbsp;locked&lt;br&gt;
+with&amp;nbsp;a&amp;nbsp;read&amp;nbsp;lock&amp;nbsp;for&amp;nbsp;MyISAM,&amp;nbsp;BDB,&amp;nbsp;and&amp;nbsp;InnoDB.&amp;nbsp;This&amp;nbsp;statement&amp;nbsp;works&amp;nbsp;with&amp;nbsp;MyISAM,&amp;nbsp;BDB,&amp;nbsp;InnoDB,&amp;nbsp;and&amp;nbsp;NDB&amp;nbsp;tables.&lt;br&gt;
+For&amp;nbsp;MyISAM&amp;nbsp;tables,&amp;nbsp;this&amp;nbsp;statement&amp;nbsp;is&amp;nbsp;equivalent&amp;nbsp;to&amp;nbsp;using&amp;nbsp;myisamchk&amp;nbsp;--analyze-&lt;br&gt;
+&lt;br&gt;</questionanswer>
+  </question>
+  <question id="0_1_2_0_11:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Backup&amp;nbsp;and&amp;nbsp;Restore&amp;nbsp;MySQL&amp;nbsp;database,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Backup&amp;nbsp;Using&amp;nbsp;mysldump&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$&amp;nbsp;mysqldump&amp;nbsp;--opt&amp;nbsp;-u&amp;nbsp;[uname]&amp;nbsp;-p[pass]&amp;nbsp;[dbname]&amp;nbsp;&gt;&amp;nbsp;[backupfile.sql]&lt;br&gt;
+&lt;br&gt;
+-----&lt;br&gt;
+Restoring&amp;nbsp;your&amp;nbsp;MySQL&amp;nbsp;Database&lt;br&gt;
+&lt;br&gt;
+$&amp;nbsp;mysql&amp;nbsp;-u&amp;nbsp;[uname]&amp;nbsp;-p[pass]&amp;nbsp;[db_to_restore]&amp;nbsp;&lt;&amp;nbsp;[backupfile.sql]&lt;br&gt;
+&lt;br&gt;
+=============================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Backing&amp;nbsp;Up&amp;nbsp;Table&amp;nbsp;Structures&lt;br&gt;
+&lt;br&gt;
+What&amp;nbsp;if&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;create&amp;nbsp;a&amp;nbsp;table&amp;nbsp;with&amp;nbsp;the&amp;nbsp;same&amp;nbsp;structure&amp;nbsp;but&amp;nbsp;different&amp;nbsp;data&amp;nbsp;from&amp;nbsp;the&lt;br&gt;
+one&amp;nbsp;you&amp;nbsp;have?&amp;nbsp;Again,&amp;nbsp;the&amp;nbsp;mysqldump&amp;nbsp;utility&amp;nbsp;comes&amp;nbsp;to&amp;nbsp;the&amp;nbsp;rescue.&amp;nbsp;The&amp;nbsp;--no-data&amp;nbsp;option&lt;br&gt;
+produces&amp;nbsp;the&amp;nbsp;same&amp;nbsp;table&amp;nbsp;in&amp;nbsp;form,&amp;nbsp;but&amp;nbsp;empty&amp;nbsp;of&amp;nbsp;content.&amp;nbsp;To&amp;nbsp;see&amp;nbsp;this&amp;nbsp;in&amp;nbsp;action,&amp;nbsp;try&amp;nbsp;the&lt;br&gt;
+following&amp;nbsp;command:&lt;br&gt;
+&lt;br&gt;
+[user@host]#&amp;nbsp;/usr/local/mysql/bin/mysqldump&amp;nbsp;--user=john&amp;nbsp;--password=hoonose&lt;br&gt;
+--no-data&amp;nbsp;db1&amp;nbsp;airport&amp;nbsp;&gt;&amp;nbsp;airport.sql&lt;br&gt;
+==========================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Backing&amp;nbsp;Up&amp;nbsp;Table&amp;nbsp;Contents&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;other&amp;nbsp;side&amp;nbsp;of&amp;nbsp;the&amp;nbsp;coin&amp;nbsp;is&amp;nbsp;a&amp;nbsp;situation&amp;nbsp;where&amp;nbsp;you&amp;nbsp;only&amp;nbsp;need&amp;nbsp;the&amp;nbsp;contents&amp;nbsp;of&amp;nbsp;a&amp;nbsp;table—&lt;br&gt;
+for&amp;nbsp;example,&amp;nbsp;to&amp;nbsp;dump&amp;nbsp;them&amp;nbsp;into&amp;nbsp;a&amp;nbsp;different&amp;nbsp;table.&amp;nbsp;Again&amp;nbsp;you&amp;nbsp;use&amp;nbsp;mysqldump,&amp;nbsp;but&amp;nbsp;with&lt;br&gt;
+the&amp;nbsp;--no-create-info&amp;nbsp;option.&amp;nbsp;This&amp;nbsp;yields&amp;nbsp;a&amp;nbsp;file&amp;nbsp;containing&amp;nbsp;all&amp;nbsp;the&amp;nbsp;INSERT&amp;nbsp;statements&amp;nbsp;that&lt;br&gt;
+have&amp;nbsp;been&amp;nbsp;executed&amp;nbsp;on&amp;nbsp;the&amp;nbsp;table.&amp;nbsp;What&amp;nbsp;doesn’t&amp;nbsp;get&amp;nbsp;duplicated&amp;nbsp;are&amp;nbsp;the&amp;nbsp;instructions&amp;nbsp;for&lt;br&gt;
+creating&amp;nbsp;the&amp;nbsp;table.&lt;br&gt;
+Here’s&amp;nbsp;an&amp;nbsp;example:&lt;br&gt;
+&lt;br&gt;
+[user@host]#&amp;nbsp;/usr/local/mysql/bin/mysqldump&amp;nbsp;--user=john&amp;nbsp;--password=hoonose&lt;br&gt;
+--no-create-info&amp;nbsp;db1&amp;nbsp;flight&amp;nbsp;&gt;&amp;nbsp;flight.sql&lt;br&gt;
+==================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Backing&amp;nbsp;Up&amp;nbsp;Other&amp;nbsp;Database&amp;nbsp;Objects&lt;br&gt;
+&lt;br&gt;
+It’s&amp;nbsp;worth&amp;nbsp;noting&amp;nbsp;that,&amp;nbsp;by&amp;nbsp;default,&amp;nbsp;mysqldump&amp;nbsp;does&amp;nbsp;not&amp;nbsp;back&amp;nbsp;up&amp;nbsp;database&amp;nbsp;events&amp;nbsp;or&amp;nbsp;stored&lt;br&gt;
+routines.&amp;nbsp;To&amp;nbsp;add&amp;nbsp;these&amp;nbsp;database&amp;nbsp;objects&amp;nbsp;to&amp;nbsp;the&amp;nbsp;output&amp;nbsp;of&amp;nbsp;a&amp;nbsp;mysqldump&amp;nbsp;run,&amp;nbsp;add&amp;nbsp;the&amp;nbsp;--events&lt;br&gt;
+and&amp;nbsp;--routines&amp;nbsp;options,&amp;nbsp;as&amp;nbsp;shown:&lt;br&gt;
+&lt;br&gt;
+[user@host]#&amp;nbsp;/usr/local/mysql/bin/mysqldump&amp;nbsp;--user=john&amp;nbsp;--password=hoonose&lt;br&gt;
+--events&amp;nbsp;--routines&amp;nbsp;db1&amp;nbsp;&gt;&amp;nbsp;db1.sql&lt;br&gt;
+&lt;br&gt;
+Triggers&amp;nbsp;and&amp;nbsp;views&amp;nbsp;are,&amp;nbsp;however,&amp;nbsp;automatically&amp;nbsp;included&amp;nbsp;in&amp;nbsp;the&amp;nbsp;output&amp;nbsp;of&amp;nbsp;mysqldump.&lt;br&gt;
+To&amp;nbsp;skip&amp;nbsp;these,&amp;nbsp;use&amp;nbsp;the&amp;nbsp;--skip-triggers&amp;nbsp;and&amp;nbsp;--ignore-table&amp;nbsp;options,&amp;nbsp;as&amp;nbsp;shown:&lt;br&gt;
+&lt;br&gt;
+[user@host]#&amp;nbsp;/usr/local/mysql/bin/mysqldump&amp;nbsp;--user=john&amp;nbsp;--password=hoonose&lt;br&gt;
+--skip-triggers&amp;nbsp;--ignore-table=db1.v_small_airports_gb&amp;nbsp;db1&amp;nbsp;&gt;&amp;nbsp;db1.sql</questionanswer>
   </question>
 </questions>
