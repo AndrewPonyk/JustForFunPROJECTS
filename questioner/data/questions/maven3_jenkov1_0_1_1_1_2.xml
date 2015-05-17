@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_1_1_2" name="Maven3_Jenkov" nofquestions="4" nofsubcategories="0" filename="maven3_jenkov1_0_1_1_1_2.xml">
+<questions id="1_0_1_1_1_2" name="Maven3_Jenkov" nofquestions="5" nofsubcategories="0" filename="maven3_jenkov1_0_1_1_1_2.xml">
   <question id="1_0_1_1_1_2:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;maven&amp;nbsp;?&amp;nbsp;What&amp;nbsp;is&amp;nbsp;pom.xml&amp;nbsp;?&lt;br&gt;
@@ -350,5 +350,99 @@ http://tomcat.apache.org/maven-plugin-2.0/tomcat7-maven-plugin/usage.html&lt;br&
 HOT&amp;nbsp;DEPLOY&amp;nbsp;Eclipse&amp;nbsp;+&amp;nbsp;TOmcat&amp;nbsp;:&lt;br&gt;
 !!!!!&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;tomcat7:run&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Runs&amp;nbsp;the&amp;nbsp;current&amp;nbsp;project&amp;nbsp;as&amp;nbsp;a&amp;nbsp;dynamic&amp;nbsp;web&amp;nbsp;application&amp;nbsp;using&amp;nbsp;an&amp;nbsp;embedded&amp;nbsp;Tomcat&amp;nbsp;server.&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;(in&amp;nbsp;this&amp;nbsp;case&amp;nbsp;you&amp;nbsp;only&amp;nbsp;change&amp;nbsp;jsp&amp;nbsp;,&amp;nbsp;and&amp;nbsp;refresh&amp;nbsp;page&amp;nbsp;and&amp;nbsp;you&amp;nbsp;see&amp;nbsp;result&amp;nbsp;=))</questionanswer>
+  </question>
+  <question id="1_0_1_1_1_2:4" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Maven&amp;nbsp;:&amp;nbsp;getting&amp;nbsp;available&amp;nbsp;plugin&amp;nbsp;goals,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://maven.apache.org/plugins/maven-help-plugin/examples/describe-configuration.html&lt;br&gt;
+================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Example&amp;nbsp;&lt;br&gt;
+Getting&amp;nbsp;available&amp;nbsp;jobs&amp;nbsp;from&amp;nbsp;Maven&amp;nbsp;GWT&amp;nbsp;Plugin&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$&amp;nbsp;mvn&amp;nbsp;help:describe&amp;nbsp;-Dplugin=org.codehaus.mojo:gwt-maven-plugin:2.7.0&lt;br&gt;
+&lt;br&gt;
+Output&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+Name:&amp;nbsp;Maven&amp;nbsp;GWT&amp;nbsp;Plugin&lt;br&gt;
+Description:&amp;nbsp;Maven&amp;nbsp;plugin&amp;nbsp;for&amp;nbsp;the&amp;nbsp;Google&amp;nbsp;Web&amp;nbsp;Toolkit.&lt;br&gt;
+Group&amp;nbsp;Id:&amp;nbsp;org.codehaus.mojo&lt;br&gt;
+Artifact&amp;nbsp;Id:&amp;nbsp;gwt-maven-plugin&lt;br&gt;
+Version:&amp;nbsp;2.7.0&lt;br&gt;
+Goal&amp;nbsp;Prefix:&amp;nbsp;gwt&lt;br&gt;
+&lt;br&gt;
+This&amp;nbsp;plugin&amp;nbsp;has&amp;nbsp;16&amp;nbsp;goals:&lt;br&gt;
+&lt;br&gt;
+gwt:clean&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Cleanup&amp;nbsp;the&amp;nbsp;webapp&amp;nbsp;directory&amp;nbsp;for&amp;nbsp;GWT&amp;nbsp;module&amp;nbsp;compilation&amp;nbsp;output&lt;br&gt;
+&lt;br&gt;
+gwt:compile&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Invokes&amp;nbsp;the&amp;nbsp;GWT&amp;nbsp;Compiler&amp;nbsp;for&amp;nbsp;the&amp;nbsp;project&amp;nbsp;source.&amp;nbsp;See&amp;nbsp;compiler&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;options&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://www.gwtproject.org/doc/latest/DevGuideCompilingAndDebugging.html#DevGuideCompilerOptions&lt;br&gt;
+&lt;br&gt;
+gwt:compile-report&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;see&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://code.google.com/webtoolkit/doc/latest/DevGuideCompileReport.html#Usage&lt;br&gt;
+&lt;br&gt;
+gwt:css&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Creates&amp;nbsp;CSS&amp;nbsp;interfaces&amp;nbsp;for&amp;nbsp;css&amp;nbsp;files.&amp;nbsp;Will&amp;nbsp;use&amp;nbsp;the&amp;nbsp;utility&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;tool&amp;nbsp;provided&amp;nbsp;in&amp;nbsp;gwt&amp;nbsp;sdk&amp;nbsp;which&amp;nbsp;create&amp;nbsp;a&amp;nbsp;corresponding&amp;nbsp;Java&amp;nbsp;interface&amp;nbsp;for&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;accessing&amp;nbsp;the&amp;nbsp;classnames&amp;nbsp;used&amp;nbsp;in&amp;nbsp;the&amp;nbsp;file.&lt;br&gt;
+&lt;br&gt;
+gwt:debug&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Runs&amp;nbsp;the&amp;nbsp;project&amp;nbsp;with&amp;nbsp;a&amp;nbsp;debugger&amp;nbsp;port&amp;nbsp;hook&amp;nbsp;(optionally&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;suspended).&lt;br&gt;
+&lt;br&gt;
+gwt:eclipse&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Goal&amp;nbsp;which&amp;nbsp;creates&amp;nbsp;Eclipse&amp;nbsp;lauch&amp;nbsp;configurations&amp;nbsp;for&amp;nbsp;GWT&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;modules.&lt;br&gt;
+&lt;br&gt;
+gwt:eclipseTest&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Goal&amp;nbsp;which&amp;nbsp;creates&amp;nbsp;Eclipse&amp;nbsp;lauch&amp;nbsp;configurations&amp;nbsp;for&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GWTTestCases.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Deprecated.&amp;nbsp;use&amp;nbsp;google&amp;nbsp;eclipse&amp;nbsp;plugin&lt;br&gt;
+&amp;nbsp;&amp;nbsp;http://code.google.com/intl/fr-FR/eclipse/docs/users_guide.html&lt;br&gt;
+&lt;br&gt;
+gwt:generateAsync&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Goal&amp;nbsp;which&amp;nbsp;generate&amp;nbsp;Async&amp;nbsp;interface.&lt;br&gt;
+&lt;br&gt;
+gwt:help&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Display&amp;nbsp;help&amp;nbsp;information&amp;nbsp;on&amp;nbsp;gwt-maven-plugin.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Call&amp;nbsp;mvn&amp;nbsp;gwt:help&amp;nbsp;-Ddetail=true&amp;nbsp;-Dgoal=&lt;goal-name&gt;&amp;nbsp;to&amp;nbsp;display&amp;nbsp;parameter&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;details.&lt;br&gt;
+&lt;br&gt;
+gwt:i18n&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Creates&amp;nbsp;I18N&amp;nbsp;interfaces&amp;nbsp;for&amp;nbsp;constants&amp;nbsp;and&amp;nbsp;messages&amp;nbsp;files.&lt;br&gt;
+&lt;br&gt;
+gwt:mergewebxml&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Merges&amp;nbsp;GWT&amp;nbsp;servlet&amp;nbsp;elements&amp;nbsp;into&amp;nbsp;deployment&amp;nbsp;descriptor&amp;nbsp;(and&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;non&amp;nbsp;GWT&amp;nbsp;servlets&amp;nbsp;into&amp;nbsp;shell).&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;use&amp;nbsp;scanRemoteServiceRelativePathAnnotation&amp;nbsp;you&amp;nbsp;must&amp;nbsp;bind&amp;nbsp;this&amp;nbsp;mojo&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;at&amp;nbsp;least&amp;nbsp;compile&amp;nbsp;phase&amp;nbsp;Because&amp;nbsp;the&amp;nbsp;classpath&amp;nbsp;scanner&amp;nbsp;need&amp;nbsp;to&amp;nbsp;see&amp;nbsp;compile&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;classes&lt;br&gt;
+&lt;br&gt;
+gwt:resources&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Copy&amp;nbsp;GWT&amp;nbsp;java&amp;nbsp;source&amp;nbsp;code&amp;nbsp;and&amp;nbsp;module&amp;nbsp;descriptor&amp;nbsp;as&amp;nbsp;resources&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;in&amp;nbsp;the&amp;nbsp;build&amp;nbsp;outputDirectory.&amp;nbsp;Alternative&amp;nbsp;to&amp;nbsp;declaring&amp;nbsp;a&amp;nbsp;&lt;resource&gt;&amp;nbsp;in&amp;nbsp;the&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;POM&amp;nbsp;with&amp;nbsp;finer&amp;nbsp;filtering&amp;nbsp;as&amp;nbsp;the&amp;nbsp;module&amp;nbsp;descriptor&amp;nbsp;is&amp;nbsp;read&amp;nbsp;to&amp;nbsp;detect&amp;nbsp;sources&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;to&amp;nbsp;be&amp;nbsp;copied.&lt;br&gt;
+&lt;br&gt;
+gwt:run&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Runs&amp;nbsp;the&amp;nbsp;project&amp;nbsp;in&amp;nbsp;the&amp;nbsp;GWT&amp;nbsp;(Classic&amp;nbsp;or&amp;nbsp;Super)&amp;nbsp;Dev&amp;nbsp;Mode&amp;nbsp;for&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;development.&lt;br&gt;
+&lt;br&gt;
+gwt:run-codeserver&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Runs&amp;nbsp;GWT&amp;nbsp;modules&amp;nbsp;with&amp;nbsp;Super&amp;nbsp;Dev&amp;nbsp;Mode.&lt;br&gt;
+&lt;br&gt;
+gwt:source-jar&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Add&amp;nbsp;GWT&amp;nbsp;java&amp;nbsp;source&amp;nbsp;code&amp;nbsp;and&amp;nbsp;module&amp;nbsp;descriptor&amp;nbsp;as&amp;nbsp;resources&amp;nbsp;to&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;project&amp;nbsp;jar.&amp;nbsp;Alternative&amp;nbsp;to&amp;nbsp;gwt:resources&amp;nbsp;for&amp;nbsp;better&amp;nbsp;Eclipse&amp;nbsp;projects&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;synchronization.&lt;br&gt;
+&lt;br&gt;
+gwt:test&lt;br&gt;
+&amp;nbsp;&amp;nbsp;Description:&amp;nbsp;Mimic&amp;nbsp;surefire&amp;nbsp;to&amp;nbsp;run&amp;nbsp;GWTTestCases&amp;nbsp;during&amp;nbsp;integration-test&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;phase,&amp;nbsp;until&amp;nbsp;SUREFIRE-508&amp;nbsp;is&amp;nbsp;fixed&lt;br&gt;
+&lt;br&gt;
+For&amp;nbsp;more&amp;nbsp;information,&amp;nbsp;run&amp;nbsp;'mvn&amp;nbsp;help:describe&amp;nbsp;[...]&amp;nbsp;-Ddetail'&lt;br&gt;</questionanswer>
   </question>
 </questions>

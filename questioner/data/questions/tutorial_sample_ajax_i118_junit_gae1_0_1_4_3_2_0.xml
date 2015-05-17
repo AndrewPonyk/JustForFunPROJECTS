@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_3_2_0" name="Tutorial_sample_ajax_i118_junit_gae" nofquestions="1" nofsubcategories="0" filename="tutorial_sample_ajax_i118_junit_gae1_0_1_4_3_2_0.xml">
+<questions id="1_0_1_4_3_2_0" name="Tutorial_sample_ajax_i118_junit_gae" nofquestions="4" nofsubcategories="0" filename="tutorial_sample_ajax_i118_junit_gae1_0_1_4_3_2_0.xml">
   <question id="1_0_1_4_3_2_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GWT&amp;nbsp;application&amp;nbsp;creating&amp;nbsp;and&amp;nbsp;running&amp;nbsp;from&amp;nbsp;command&amp;nbsp;line,&amp;nbsp;describe.&lt;br&gt;
@@ -70,5 +70,152 @@ The&amp;nbsp;GWT&amp;nbsp;SDK&amp;nbsp;provides&amp;nbsp;a&amp;nbsp;core&amp;nbs
 interfaces&amp;nbsp;and&amp;nbsp;logic&amp;nbsp;for&amp;nbsp;the&amp;nbsp;browser&amp;nbsp;client.&amp;nbsp;You&amp;nbsp;then&amp;nbsp;compile&amp;nbsp;that&amp;nbsp;source&amp;nbsp;code&amp;nbsp;to&amp;nbsp;JavaScript.&amp;nbsp;All&amp;nbsp;that&lt;br&gt;
 runs&amp;nbsp;in&amp;nbsp;the&amp;nbsp;end&amp;nbsp;is&amp;nbsp;plain&amp;nbsp;ol’&amp;nbsp;JavaScript&amp;nbsp;in&amp;nbsp;the&amp;nbsp;browser.&amp;nbsp;Oh,&amp;nbsp;and&amp;nbsp;you&amp;nbsp;can&lt;br&gt;
 mix&amp;nbsp;in&amp;nbsp;and&amp;nbsp;interoperate&amp;nbsp;with&amp;nbsp;JavaScript&amp;nbsp;in&amp;nbsp;your&amp;nbsp;source&amp;nbsp;code&amp;nbsp;as&amp;nbsp;well.</questionanswer>
+  </question>
+  <question id="1_0_1_4_3_2_0:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;difference&amp;nbsp;between&amp;nbsp;production&amp;nbsp;and&amp;nbsp;dev&amp;nbsp;mode&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Example&amp;nbsp;of&amp;nbsp;devmode&amp;nbsp;URL&amp;nbsp;:&lt;br&gt;
+127.0.0.1:8888/questionerwebapp.html?gwt.codesvr=127.0.0.1:9997&lt;br&gt;
+=============================================&lt;br&gt;
+&lt;br&gt;
+Simple&amp;nbsp;demonstration&amp;nbsp;of&amp;nbsp;difference&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='750'&amp;nbsp;height='450'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/DevModeTypical.jpg'/&gt;&lt;br&gt;
+&lt;br&gt;
+=======&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Net&amp;nbsp;TAB&amp;nbsp;in&amp;nbsp;browser&amp;nbsp;in&amp;nbsp;prod&amp;nbsp;and&amp;nbsp;dev&amp;nbsp;mode&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;dev&amp;nbsp;mode&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://127.0.0.1:8888/questionerwebapp.html?gwt.codesvr=127.0.0.1:9997&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://127.0.0.1:8888/questionerwebapp.css&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://127.0.0.1:8888/questionerwebapp/questionerwebapp.nocache.js&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://127.0.0.1:8888/questionerwebapp/questionerwebapp.devmode.js&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;prod&amp;nbsp;mode&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://127.0.0.1:8888/questionerwebapp.html&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://127.0.0.1:8888/questionerwebapp.css&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://127.0.0.1:8888/questionerwebapp/questionerwebapp.nocache.js&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://127.0.0.1:8888/questionerwebapp/9AC70AC171E7E45A323EA372AB95DC61.cache.js&lt;br&gt;
+&lt;br&gt;
+P.S&amp;nbsp;So&amp;nbsp;as&amp;nbsp;you&amp;nbsp;can&amp;nbsp;see&amp;nbsp;difference&amp;nbsp;is&amp;nbsp;in&amp;nbsp;the&amp;nbsp;last&amp;nbsp;item,&amp;nbsp;in&amp;nbsp;dev&amp;nbsp;mode&amp;nbsp;*.nocache.js&amp;nbsp;loads&amp;nbsp;*.devmode.js,&lt;br&gt;
+and&amp;nbsp;in&amp;nbsp;prod&amp;nbsp;mode&amp;nbsp;*.nocache.js&amp;nbsp;loads&amp;nbsp;9AC70AC171E7E45A323EA372AB95DC61.cache.js&amp;nbsp;(&amp;nbsp;which&amp;nbsp;is&amp;nbsp;compiled&amp;nbsp;version)&lt;br&gt;
+&lt;br&gt;
+9AC70AC171E7E45A323EA372AB95DC61.cache.js&amp;nbsp;-&amp;nbsp;is&amp;nbsp;file&amp;nbsp;for&amp;nbsp;firefox&amp;nbsp;(9AC70AC171E7E45A323EA372AB95DC61&amp;nbsp;-&amp;nbsp;is&amp;nbsp;client&amp;nbsp;js&amp;nbsp;for&amp;nbsp;firefox),&lt;br&gt;
+if&amp;nbsp;you&amp;nbsp;load&amp;nbsp;&amp;nbsp;http://127.0.0.1:8888/questionerwebapp.html&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;in&amp;nbsp;chrome&amp;nbsp;another&amp;nbsp;file&amp;nbsp;will&amp;nbsp;be&amp;nbsp;loaded&amp;nbsp;&lt;br&gt;
+(in&amp;nbsp;my&amp;nbsp;case&amp;nbsp;8458924CCBE39C081C8EA2C0CCEA7F8C.cache.js)&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_4_3_2_0:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GWT&amp;nbsp;command&amp;nbsp;line&amp;nbsp;tools,&amp;nbsp;desribe.&lt;br&gt;
+What&amp;nbsp;are&amp;nbsp;main&amp;nbsp;parameters&amp;nbsp;of&amp;nbsp;:&amp;nbsp;webAppCreator,&amp;nbsp;DevMode,&amp;nbsp;GwtCompiler&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://www.gwtproject.org/doc/latest/RefCommandLineTools.html&lt;br&gt;
+------------------------------------------------&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;webAppCreator&lt;br&gt;
+A&amp;nbsp;command-line&amp;nbsp;tool&amp;nbsp;that&amp;nbsp;generates&amp;nbsp;a&amp;nbsp;starter&amp;nbsp;application&amp;nbsp;and&amp;nbsp;scripts&amp;nbsp;for&amp;nbsp;launching&amp;nbsp;development&lt;br&gt;
+mode&amp;nbsp;and&amp;nbsp;compiling&amp;nbsp;to&amp;nbsp;JavaScript.&amp;nbsp;Use&amp;nbsp;the&amp;nbsp;files&amp;nbsp;generated&amp;nbsp;by&amp;nbsp;these&amp;nbsp;scripts&amp;nbsp;as&amp;nbsp;a&amp;nbsp;starting&amp;nbsp;point&amp;nbsp;for&lt;br&gt;
+building&amp;nbsp;your&amp;nbsp;own&amp;nbsp;project.&lt;br&gt;
+&lt;br&gt;
+webAppCreator&amp;nbsp;[-overwrite]&amp;nbsp;[-ignore]&amp;nbsp;[-out&amp;nbsp;dir]&amp;nbsp;[-junit&amp;nbsp;jar]&amp;nbsp;[-XnoEclipse&amp;nbsp;|&amp;nbsp;-XonlyEclipse]&amp;nbsp;moduleName&lt;br&gt;
+==============================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DevMode&lt;br&gt;
+There&amp;nbsp;are&amp;nbsp;many&amp;nbsp;options&amp;nbsp;you&amp;nbsp;can&amp;nbsp;pass&amp;nbsp;to&amp;nbsp;the&amp;nbsp;development&amp;nbsp;mode&amp;nbsp;process&amp;nbsp;to&amp;nbsp;control&amp;nbsp;how&amp;nbsp;you&amp;nbsp;want&lt;br&gt;
+to&amp;nbsp;start&amp;nbsp;up&amp;nbsp;the&amp;nbsp;development&amp;nbsp;mode&amp;nbsp;browser.&amp;nbsp;These&amp;nbsp;options&amp;nbsp;can&amp;nbsp;differ&amp;nbsp;slightly&amp;nbsp;from&amp;nbsp;version&lt;br&gt;
+to&amp;nbsp;version,&amp;nbsp;but&amp;nbsp;will&amp;nbsp;generally&amp;nbsp;include&amp;nbsp;the&amp;nbsp;options&amp;nbsp;shown&amp;nbsp;in&amp;nbsp;the&amp;nbsp;command-line&amp;nbsp;help&amp;nbsp;text&amp;nbsp;below:&lt;br&gt;
+&lt;br&gt;
+$&amp;nbsp;java&amp;nbsp;-cp&amp;nbsp;gwt-dev.jar&amp;nbsp;com.google.gwt.dev.DevMode&lt;br&gt;
+Missing&amp;nbsp;required&amp;nbsp;argument&amp;nbsp;'module[s]'&lt;br&gt;
+&lt;b&gt;Google&amp;nbsp;Web&amp;nbsp;Toolkit&amp;nbsp;2.6.1&lt;/b&gt;&lt;br&gt;
+DevMode&amp;nbsp;[-[no]startServer]&amp;nbsp;[-port&amp;nbsp;port-number&amp;nbsp;|&amp;nbsp;"auto"]&amp;nbsp;[-whitelist&amp;nbsp;whitelist-string]&amp;nbsp;[-blacklist&amp;nbsp;blacklist-string]&amp;nbsp;[-logdir&amp;nbsp;directory]&amp;nbsp;[-logLevel&amp;nbsp;level]&amp;nbsp;[-gen&amp;nbsp;dir]&amp;nbsp;[-bindAddress&amp;nbsp;host-name-or-address]&amp;nbsp;[-codeServerPort&amp;nbsp;port-number&amp;nbsp;|&amp;nbsp;"auto"]&amp;nbsp;[-server&amp;nbsp;servletContainerLauncher[:args]]&amp;nbsp;[-startupUrl&amp;nbsp;url]&amp;nbsp;[-war&amp;nbsp;dir]&amp;nbsp;[-deploy&amp;nbsp;dir]&amp;nbsp;[-extra&amp;nbsp;dir]&amp;nbsp;[-workDir&amp;nbsp;dir]&amp;nbsp;[-sourceLevel&amp;nbsp;[auto,&amp;nbsp;1.6,&amp;nbsp;1.7]]&amp;nbsp;module[s]&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+where&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-[no]startServer&amp;nbsp;&amp;nbsp;Starts&amp;nbsp;a&amp;nbsp;servlet&amp;nbsp;container&amp;nbsp;serving&amp;nbsp;the&amp;nbsp;directory&amp;nbsp;specified&amp;nbsp;by&amp;nbsp;the&amp;nbsp;-war&amp;nbsp;flag.&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;ON)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-port&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Specifies&amp;nbsp;the&amp;nbsp;TCP&amp;nbsp;port&amp;nbsp;for&amp;nbsp;the&amp;nbsp;embedded&amp;nbsp;web&amp;nbsp;server&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;8888)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-whitelist&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Allows&amp;nbsp;the&amp;nbsp;user&amp;nbsp;to&amp;nbsp;browse&amp;nbsp;URLs&amp;nbsp;that&amp;nbsp;match&amp;nbsp;the&amp;nbsp;specified&amp;nbsp;regexes&amp;nbsp;(comma&amp;nbsp;or&amp;nbsp;space&amp;nbsp;separated)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-blacklist&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Prevents&amp;nbsp;the&amp;nbsp;user&amp;nbsp;browsing&amp;nbsp;URLs&amp;nbsp;that&amp;nbsp;match&amp;nbsp;the&amp;nbsp;specified&amp;nbsp;regexes&amp;nbsp;(comma&amp;nbsp;or&amp;nbsp;space&amp;nbsp;separated)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-logdir&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Logs&amp;nbsp;to&amp;nbsp;a&amp;nbsp;file&amp;nbsp;in&amp;nbsp;the&amp;nbsp;given&amp;nbsp;directory,&amp;nbsp;as&amp;nbsp;well&amp;nbsp;as&amp;nbsp;graphically&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-logLevel&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;level&amp;nbsp;of&amp;nbsp;logging&amp;nbsp;detail:&amp;nbsp;ERROR,&amp;nbsp;WARN,&amp;nbsp;INFO,&amp;nbsp;TRACE,&amp;nbsp;DEBUG,&amp;nbsp;SPAM,&amp;nbsp;or&amp;nbsp;ALL&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-gen&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Debugging:&amp;nbsp;causes&amp;nbsp;normally-transient&amp;nbsp;generated&amp;nbsp;types&amp;nbsp;to&amp;nbsp;be&amp;nbsp;saved&amp;nbsp;in&amp;nbsp;the&amp;nbsp;specified&amp;nbsp;directory&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-bindAddress&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Specifies&amp;nbsp;the&amp;nbsp;bind&amp;nbsp;address&amp;nbsp;for&amp;nbsp;the&amp;nbsp;code&amp;nbsp;server&amp;nbsp;and&amp;nbsp;web&amp;nbsp;server&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;127.0.0.1)&amp;nbsp;!!!&amp;nbsp;(0.0.0.0&amp;nbsp;to&amp;nbsp;debug&amp;nbsp;from&amp;nbsp;any&amp;nbsp;server)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-codeServerPort&amp;nbsp;&amp;nbsp;&amp;nbsp;Specifies&amp;nbsp;the&amp;nbsp;TCP&amp;nbsp;port&amp;nbsp;for&amp;nbsp;the&amp;nbsp;code&amp;nbsp;server&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;9997)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-nosuperDevMode&amp;nbsp;when&amp;nbsp;you&amp;nbsp;dont&amp;nbsp;want&amp;nbsp;super&amp;nbsp;dev&amp;nbsp;mode&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-server&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Specify&amp;nbsp;a&amp;nbsp;different&amp;nbsp;embedded&amp;nbsp;web&amp;nbsp;server&amp;nbsp;to&amp;nbsp;run&amp;nbsp;(must&amp;nbsp;implement&amp;nbsp;ServletContainerLauncher)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-startupUrl&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Automatically&amp;nbsp;launches&amp;nbsp;the&amp;nbsp;specified&amp;nbsp;URL&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-war&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;directory&amp;nbsp;into&amp;nbsp;which&amp;nbsp;deployable&amp;nbsp;output&amp;nbsp;files&amp;nbsp;will&amp;nbsp;be&amp;nbsp;written&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;'war')&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-deploy&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;directory&amp;nbsp;into&amp;nbsp;which&amp;nbsp;deployable&amp;nbsp;but&amp;nbsp;not&amp;nbsp;servable&amp;nbsp;output&amp;nbsp;files&amp;nbsp;will&amp;nbsp;be&amp;nbsp;written&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;'WEB-INF/deploy'&amp;nbsp;under&amp;nbsp;the&amp;nbsp;-war&amp;nbsp;directory/jar,&amp;nbsp;and&amp;nbsp;may&amp;nbsp;be&amp;nbsp;the&amp;nbsp;same&amp;nbsp;as&amp;nbsp;the&amp;nbsp;-extra&amp;nbsp;directory/jar)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-extra&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;directory&amp;nbsp;into&amp;nbsp;which&amp;nbsp;extra&amp;nbsp;files,&amp;nbsp;not&amp;nbsp;intended&amp;nbsp;for&amp;nbsp;deployment,&amp;nbsp;will&amp;nbsp;be&amp;nbsp;written&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-workDir&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;compiler's&amp;nbsp;working&amp;nbsp;directory&amp;nbsp;for&amp;nbsp;internal&amp;nbsp;use&amp;nbsp;(must&amp;nbsp;be&amp;nbsp;writeable;&amp;nbsp;defaults&amp;nbsp;to&amp;nbsp;a&amp;nbsp;system&amp;nbsp;temp&amp;nbsp;dir)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-sourceLevel&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Specifies&amp;nbsp;Java&amp;nbsp;source&amp;nbsp;level&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;auto:1.7)&lt;br&gt;
+and&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;module[s]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Specifies&amp;nbsp;the&amp;nbsp;name(s)&amp;nbsp;of&amp;nbsp;the&amp;nbsp;module(s)&amp;nbsp;to&amp;nbsp;host&lt;br&gt;
+&lt;br&gt;
+================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GWT&amp;nbsp;Compiler&amp;nbsp;Options&lt;br&gt;
+&lt;br&gt;
+There&amp;nbsp;are&amp;nbsp;many&amp;nbsp;options&amp;nbsp;you&amp;nbsp;can&amp;nbsp;pass&amp;nbsp;to&amp;nbsp;the&amp;nbsp;GWT&amp;nbsp;compiler&amp;nbsp;process&amp;nbsp;to&amp;nbsp;control&amp;nbsp;how&amp;nbsp;you&amp;nbsp;want&lt;br&gt;
+to&amp;nbsp;compile&amp;nbsp;your&amp;nbsp;GWT&amp;nbsp;application&amp;nbsp;and&amp;nbsp;where&amp;nbsp;you&amp;nbsp;want&amp;nbsp;the&amp;nbsp;output&amp;nbsp;to&amp;nbsp;be&amp;nbsp;generated.&amp;nbsp;These&amp;nbsp;options&amp;nbsp;can&lt;br&gt;
+differ&amp;nbsp;slightly&amp;nbsp;from&amp;nbsp;version&amp;nbsp;to&amp;nbsp;version,&amp;nbsp;but&amp;nbsp;will&amp;nbsp;generally&amp;nbsp;include&amp;nbsp;the&amp;nbsp;options&amp;nbsp;shown&amp;nbsp;in&amp;nbsp;the&lt;br&gt;
+command-line&amp;nbsp;help&amp;nbsp;text&amp;nbsp;below:&lt;br&gt;
+&lt;br&gt;
+java&amp;nbsp;-cp&amp;nbsp;gwt-dev.jar&amp;nbsp;com.google.gwt.dev.Compiler&lt;br&gt;
+Missing&amp;nbsp;required&amp;nbsp;argument&amp;nbsp;'module[s]'&lt;br&gt;
+&lt;b&gt;Google&amp;nbsp;Web&amp;nbsp;Toolkit&amp;nbsp;2.6.1&lt;/b&gt;&lt;br&gt;
+Compiler&amp;nbsp;[-logLevel&amp;nbsp;level]&amp;nbsp;[-workDir&amp;nbsp;dir]&amp;nbsp;[-[no]compileReport]&amp;nbsp;[-X[no]checkCasts]&amp;nbsp;[-X[no]classMetadata]&amp;nbsp;[-[no]draftCompile]&amp;nbsp;[-[no]checkAssertions]&amp;nbsp;[-X[no]closureCompiler]&amp;nbsp;[-XfragmentCount&amp;nbsp;numFragments]&amp;nbsp;[-XfragmentMerge&amp;nbsp;numFragments]&amp;nbsp;[-gen&amp;nbsp;dir]&amp;nbsp;[-optimize&amp;nbsp;level]&amp;nbsp;[-[no]saveSource]&amp;nbsp;[-style&amp;nbsp;style]&amp;nbsp;[-[no]failOnError]&amp;nbsp;[-X[no]enforceStrictResources]&amp;nbsp;[-[no]validateOnly]&amp;nbsp;[-sourceLevel&amp;nbsp;[auto,&amp;nbsp;1.6,&amp;nbsp;1.7]]&amp;nbsp;[-localWorkers&amp;nbsp;count]&amp;nbsp;[-war&amp;nbsp;dir]&amp;nbsp;[-deploy&amp;nbsp;dir]&amp;nbsp;[-extra&amp;nbsp;dir]&amp;nbsp;[-saveSourceOutput&amp;nbsp;dir]&amp;nbsp;module[s]&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+where&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-logLevel&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;level&amp;nbsp;of&amp;nbsp;logging&amp;nbsp;detail:&amp;nbsp;ERROR,&amp;nbsp;WARN,&amp;nbsp;INFO,&amp;nbsp;TRACE,&amp;nbsp;DEBUG,&amp;nbsp;SPAM,&amp;nbsp;or&amp;nbsp;ALL&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-workDir&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;compiler's&amp;nbsp;working&amp;nbsp;directory&amp;nbsp;for&amp;nbsp;internal&amp;nbsp;use&amp;nbsp;(must&amp;nbsp;be&amp;nbsp;writeable;&amp;nbsp;defaults&amp;nbsp;to&amp;nbsp;a&amp;nbsp;system&amp;nbsp;temp&amp;nbsp;dir)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-[no]compileReport&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Compile&amp;nbsp;a&amp;nbsp;report&amp;nbsp;that&amp;nbsp;tells&amp;nbsp;the&amp;nbsp;"Story&amp;nbsp;of&amp;nbsp;Your&amp;nbsp;Compile".&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;OFF)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-X[no]checkCasts&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;EXPERIMENTAL:&amp;nbsp;Insert&amp;nbsp;run-time&amp;nbsp;checking&amp;nbsp;of&amp;nbsp;cast&amp;nbsp;operations.&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;ON)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-X[no]classMetadata&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;EXPERIMENTAL:&amp;nbsp;Include&amp;nbsp;metadata&amp;nbsp;for&amp;nbsp;some&amp;nbsp;java.lang.Class&amp;nbsp;methods&amp;nbsp;(e.g.&amp;nbsp;getName()).&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;ON)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-[no]draftCompile&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Compile&amp;nbsp;quickly&amp;nbsp;with&amp;nbsp;minimal&amp;nbsp;optimizations.&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;OFF)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-[no]checkAssertions&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Include&amp;nbsp;assert&amp;nbsp;statements&amp;nbsp;in&amp;nbsp;compiled&amp;nbsp;output.&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;OFF)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-X[no]closureCompiler&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;EXPERIMENTAL:&amp;nbsp;Compile&amp;nbsp;output&amp;nbsp;Javascript&amp;nbsp;with&amp;nbsp;the&amp;nbsp;Closure&amp;nbsp;compiler&amp;nbsp;for&amp;nbsp;even&amp;nbsp;further&amp;nbsp;optimizations.&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;OFF)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-XfragmentCount&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;EXPERIMENTAL:&amp;nbsp;Limits&amp;nbsp;of&amp;nbsp;number&amp;nbsp;of&amp;nbsp;fragments&amp;nbsp;using&amp;nbsp;a&amp;nbsp;code&amp;nbsp;splitter&amp;nbsp;that&amp;nbsp;merges&amp;nbsp;split&amp;nbsp;points.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-XfragmentMerge&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DEPRECATED&amp;nbsp;(use&amp;nbsp;-XfragmentCount&amp;nbsp;instead):&amp;nbsp;Enables&amp;nbsp;Fragment&amp;nbsp;merging&amp;nbsp;code&amp;nbsp;splitter.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-gen&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Debugging:&amp;nbsp;causes&amp;nbsp;normally-transient&amp;nbsp;generated&amp;nbsp;types&amp;nbsp;to&amp;nbsp;be&amp;nbsp;saved&amp;nbsp;in&amp;nbsp;the&amp;nbsp;specified&amp;nbsp;directory&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-optimize&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Sets&amp;nbsp;the&amp;nbsp;optimization&amp;nbsp;level&amp;nbsp;used&amp;nbsp;by&amp;nbsp;the&amp;nbsp;compiler.&amp;nbsp;&amp;nbsp;0=none&amp;nbsp;9=maximum.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-[no]saveSource&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Enables&amp;nbsp;saving&amp;nbsp;source&amp;nbsp;code&amp;nbsp;needed&amp;nbsp;by&amp;nbsp;debuggers.&amp;nbsp;Also&amp;nbsp;see&amp;nbsp;-debugDir.&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;OFF)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-style&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Script&amp;nbsp;output&amp;nbsp;style:&amp;nbsp;OBF[USCATED],&amp;nbsp;PRETTY,&amp;nbsp;or&amp;nbsp;DETAILED&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;OBF)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-[no]failOnError&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Fail&amp;nbsp;compilation&amp;nbsp;if&amp;nbsp;any&amp;nbsp;input&amp;nbsp;file&amp;nbsp;contains&amp;nbsp;an&amp;nbsp;error.&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;OFF)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-X[no]enforceStrictResources&amp;nbsp;&amp;nbsp;EXPERIMENTAL:&amp;nbsp;Avoid&amp;nbsp;adding&amp;nbsp;implicit&amp;nbsp;dependencies&amp;nbsp;on&amp;nbsp;"client"&amp;nbsp;and&amp;nbsp;"public"&amp;nbsp;for&amp;nbsp;modules&lt;br&gt;
+that&amp;nbsp;don't&amp;nbsp;define&amp;nbsp;any&amp;nbsp;dependencies.&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;OFF)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-[no]validateOnly&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Validate&amp;nbsp;all&amp;nbsp;source&amp;nbsp;code,&amp;nbsp;but&amp;nbsp;do&amp;nbsp;not&amp;nbsp;compile.&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;OFF)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-sourceLevel&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Specifies&amp;nbsp;Java&amp;nbsp;source&amp;nbsp;level&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;auto:1.7)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-localWorkers&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;number&amp;nbsp;of&amp;nbsp;local&amp;nbsp;workers&amp;nbsp;to&amp;nbsp;use&amp;nbsp;when&amp;nbsp;compiling&amp;nbsp;permutations&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-war&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;directory&amp;nbsp;into&amp;nbsp;which&amp;nbsp;deployable&amp;nbsp;output&amp;nbsp;files&amp;nbsp;will&amp;nbsp;be&amp;nbsp;written&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;'war')&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-deploy&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;directory&amp;nbsp;into&amp;nbsp;which&amp;nbsp;deployable&amp;nbsp;but&amp;nbsp;not&amp;nbsp;servable&amp;nbsp;output&amp;nbsp;files&amp;nbsp;will&amp;nbsp;be&amp;nbsp;written&amp;nbsp;(defaults&amp;nbsp;to&amp;nbsp;'WEB-INF/deploy'&amp;nbsp;under&amp;nbsp;the&amp;nbsp;-war&amp;nbsp;directory/jar,&amp;nbsp;and&amp;nbsp;may&amp;nbsp;be&amp;nbsp;the&amp;nbsp;same&amp;nbsp;as&amp;nbsp;the&amp;nbsp;-extra&amp;nbsp;directory/jar)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-extra&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;directory&amp;nbsp;into&amp;nbsp;which&amp;nbsp;extra&amp;nbsp;files,&amp;nbsp;not&amp;nbsp;intended&amp;nbsp;for&amp;nbsp;deployment,&amp;nbsp;will&amp;nbsp;be&amp;nbsp;written&lt;br&gt;
+&amp;nbsp;&amp;nbsp;-saveSourceOutput&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Overrides&amp;nbsp;where&amp;nbsp;source&amp;nbsp;files&amp;nbsp;useful&amp;nbsp;to&amp;nbsp;debuggers&amp;nbsp;will&amp;nbsp;be&amp;nbsp;written.&amp;nbsp;Default:&amp;nbsp;saved&amp;nbsp;with&amp;nbsp;extras.&lt;br&gt;
+and&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;module[s]&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Specifies&amp;nbsp;the&amp;nbsp;name(s)&amp;nbsp;of&amp;nbsp;the&amp;nbsp;module(s)&amp;nbsp;to&amp;nbsp;compile</questionanswer>
+  </question>
+  <question id="1_0_1_4_3_2_0:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Imagine&amp;nbsp;situation&amp;nbsp;:&amp;nbsp;&amp;nbsp;&lt;br&gt;
+-&amp;nbsp;we&amp;nbsp;have&amp;nbsp;questionerwebapp&amp;nbsp;application&amp;nbsp;packaged&amp;nbsp;as&amp;nbsp;war&amp;nbsp;and&amp;nbsp;deployed&amp;nbsp;to&amp;nbsp;remote&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;tomcat&amp;nbsp;(on&amp;nbsp;remotehost)&lt;br&gt;
+-&amp;nbsp;We&amp;nbsp;want&amp;nbsp;to&amp;nbsp;DEBUG&amp;nbsp;this&amp;nbsp;remote&amp;nbsp;application&amp;nbsp;but&amp;nbsp;with&amp;nbsp;LOCAL&amp;nbsp;code,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;DO&amp;nbsp;it&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>-&amp;nbsp;We&amp;nbsp;have&amp;nbsp;application&amp;nbsp;questionerwebapp&amp;nbsp;on&amp;nbsp;GAE&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://questionerwebapp.appspot.com&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;We&amp;nbsp;have&amp;nbsp;code&amp;nbsp;of&amp;nbsp;this&amp;nbsp;application&amp;nbsp;and&amp;nbsp;want&amp;nbsp;to&amp;nbsp;debug&amp;nbsp;it&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1)&amp;nbsp;first&amp;nbsp;run&amp;nbsp;'sh&amp;nbsp;degug.sh'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Content&amp;nbsp;of&amp;nbsp;debug.sh&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;'mvn&amp;nbsp;gwt:debug&amp;nbsp;-Dgwt.codeServerPort=9997&amp;nbsp;-Dgwt.superDevMode=false&amp;nbsp;-Dgwt.copyWebapp=true&amp;nbsp;-Dgwt.module=com.ap.questinerwebapp.questionerwebapp'&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2)&amp;nbsp;Connect&amp;nbsp;to&amp;nbsp;debug&amp;nbsp;port&amp;nbsp;8000&amp;nbsp;from&amp;nbsp;your&amp;nbsp;IDE&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3)&amp;nbsp;You&amp;nbsp;need&amp;nbsp;browser&amp;nbsp;with&amp;nbsp;GWT&amp;nbsp;Plugin&amp;nbsp;installed&amp;nbsp;(i&amp;nbsp;used&amp;nbsp;Firefox)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Open&amp;nbsp;questionerwebapp.appspot.com/?gwt.codesvr=127.0.0.1:9997&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and&amp;nbsp;vuala&amp;nbsp;your&amp;nbsp;local&amp;nbsp;code&amp;nbsp;is&amp;nbsp;compiled&amp;nbsp;and&amp;nbsp;runs.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+P.S&amp;nbsp;You&amp;nbsp;can&amp;nbsp;debug&amp;nbsp;only&amp;nbsp;client&amp;nbsp;code&amp;nbsp;,&amp;nbsp;not&amp;nbsp;YOUR&amp;nbsp;RPC&amp;nbsp;!!!!</questionanswer>
   </question>
 </questions>

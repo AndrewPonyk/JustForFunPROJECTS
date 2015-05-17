@@ -6,14 +6,15 @@
 <web-app>
 
   <!-- Servlets -->
+
   <servlet>
-    <servlet-name>greetServlet</servlet-name>
-    <servlet-class>com.ap.questinerwebapp.server.GreetingServiceImpl</servlet-class>
+    <servlet-name>contactsServiceServlet</servlet-name>
+    <servlet-class>com.ap.questinerwebapp.server.ContactsServiceImpl</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>greetServlet</servlet-name>
-    <url-pattern>/questionerwebapp/greet</url-pattern>
+    <servlet-name>contactsServiceServlet</servlet-name>
+    <url-pattern>/questionerwebapp/contactsService</url-pattern>
   </servlet-mapping>
 
   <!-- Default page to serve -->

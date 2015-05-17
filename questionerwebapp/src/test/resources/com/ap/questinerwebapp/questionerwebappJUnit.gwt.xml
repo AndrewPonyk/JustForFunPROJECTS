@@ -4,6 +4,5 @@
   <inherits name='com.ap.questinerwebapp.questionerwebapp' />
 
   <!-- Specify the path to any remote services.                   -->
-  <servlet path="/questionerwebapp/greet" class="com.ap.questinerwebapp.server.GreetingServiceImpl" />
 
 </module>

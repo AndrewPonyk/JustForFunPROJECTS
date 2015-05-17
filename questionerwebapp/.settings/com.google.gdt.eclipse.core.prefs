@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
-lastWarOutDir=/home/andrew/Programs/gwt-2.7.0/questionerwebapp/target/questionerwebapp-1.0-SNAPSHOT
+jarsExcludedFromWebInfLib=
+lastWarOutDir=/home/andrew/git/JustForFunPROJECTS/questionerwebapp/target/questionerwebapp-1.0-SNAPSHOT
 warSrcDir=src/main/webapp
 warSrcDirIsOutput=false
