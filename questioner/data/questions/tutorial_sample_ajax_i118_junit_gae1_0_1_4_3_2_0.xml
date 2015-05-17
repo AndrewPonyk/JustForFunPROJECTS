@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_4_3_2_0" name="Tutorial_sample_ajax_i118_junit_gae" nofquestions="4" nofsubcategories="0" filename="tutorial_sample_ajax_i118_junit_gae1_0_1_4_3_2_0.xml">
+<questions id="1_0_1_4_3_2_0" name="Tutorial_sample_ajax_i118_junit_gae" nofquestions="5" nofsubcategories="0" filename="tutorial_sample_ajax_i118_junit_gae1_0_1_4_3_2_0.xml">
   <question id="1_0_1_4_3_2_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GWT&amp;nbsp;application&amp;nbsp;creating&amp;nbsp;and&amp;nbsp;running&amp;nbsp;from&amp;nbsp;command&amp;nbsp;line,&amp;nbsp;describe.&lt;br&gt;
@@ -217,5 +217,40 @@ and&amp;nbsp;&lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
 P.S&amp;nbsp;You&amp;nbsp;can&amp;nbsp;debug&amp;nbsp;only&amp;nbsp;client&amp;nbsp;code&amp;nbsp;,&amp;nbsp;not&amp;nbsp;YOUR&amp;nbsp;RPC&amp;nbsp;!!!!</questionanswer>
+  </question>
+  <question id="1_0_1_4_3_2_0:4" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;GWT&amp;nbsp;creating&amp;nbsp;project&amp;nbsp;and&amp;nbsp;debugging&amp;nbsp;process,&amp;nbsp;describe.&lt;br&gt;
+(Used&amp;nbsp;maven)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1)&amp;nbsp;Create&amp;nbsp;project&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Needed&amp;nbsp;archetype:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;org.codehaus.mojo:gwt-maven-plugin&amp;nbsp;(Maven&amp;nbsp;plugin&amp;nbsp;for&amp;nbsp;the&amp;nbsp;Google&amp;nbsp;Web&amp;nbsp;Toolkit.)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Create&amp;nbsp;project&amp;nbsp;using&amp;nbsp;mvn&amp;nbsp;archetype:generate&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;or&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mvn&amp;nbsp;archetype:generate&amp;nbsp;\&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-DarchetypeGroupId=org.codehaus.mojo&amp;nbsp;\&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-DarchetypeArtifactId=gwt-maven-plugin&amp;nbsp;\&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-DarchetypeVersion=2.7.0&lt;br&gt;
+2)&amp;nbsp;Create&amp;nbsp;run&amp;nbsp;and&amp;nbsp;debug&amp;nbsp;scripts&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;I&amp;nbsp;used&amp;nbsp;two&amp;nbsp;scripts&amp;nbsp;startServer.sh&amp;nbsp;and&amp;nbsp;debug.sh&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+startServer.sh&lt;br&gt;
+mvn&amp;nbsp;gwt:run&amp;nbsp;-Dgwt.codeServerPort=9997&amp;nbsp;-Dgwt.superDevMode=false&amp;nbsp;-Dgwt.module=com.ap.questinerwebapp.questionerwebapp&amp;nbsp;-X&lt;br&gt;
+&lt;br&gt;
+debug.sh&lt;br&gt;
+mvn&amp;nbsp;gwt:debug&amp;nbsp;-Dgwt.codeServerPort=9997&amp;nbsp;-Dgwt.superDevMode=false&amp;nbsp;-Dgwt.copyWebapp=true&amp;nbsp;-Dgwt.module=com.ap.questinerwebapp.questionerwebapp&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+3)&amp;nbsp;Running&lt;br&gt;
+&lt;br&gt;
+For&amp;nbsp;running&amp;nbsp;app&amp;nbsp;just&amp;nbsp;do&amp;nbsp;:&amp;nbsp;sh&amp;nbsp;startServer.sh&lt;br&gt;
+and&amp;nbsp;open&amp;nbsp;URL&amp;nbsp;&lt;br&gt;
+127.0.0.1:8888/questionerwebapp.html?gwt.codesvr=127.0.0.1:9997&lt;br&gt;
+&lt;br&gt;
+If&amp;nbsp;you&amp;nbsp;want&amp;nbsp;debug&amp;nbsp;your&amp;nbsp;app:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;sh&amp;nbsp;debug.sh&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Connect&amp;nbsp;from&amp;nbsp;your&amp;nbsp;ide&amp;nbsp;to&amp;nbsp;DEBUG&amp;nbsp;port&amp;nbsp;8000&amp;nbsp;(easy&amp;nbsp;step&amp;nbsp;)))&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Set&amp;nbsp;breakpoints&amp;nbsp;and&amp;nbsp;debug,&amp;nbsp;debug,&amp;nbsp;debug....</questionanswer>
   </question>
 </questions>

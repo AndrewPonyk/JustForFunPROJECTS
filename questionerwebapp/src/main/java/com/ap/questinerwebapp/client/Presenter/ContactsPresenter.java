@@ -3,12 +3,15 @@ package com.ap.questinerwebapp.client.Presenter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ap.questinerwebapp.client.event.AddContactEvent;
+import com.ap.questinerwebapp.client.event.AddContactEventHandler;
 import com.ap.questinerwebapp.client.rpc.Contact.ContactServiceAsync;
 import com.ap.questinerwebapp.shared.ContactDetails;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerManager;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasWidgets;
@@ -41,30 +44,9 @@ public class ContactsPresenter implements Presenter{
 	@Override
 	public void go(HasWidgets container) {
 		bind();
-		//container.clear();
-
+		container.clear();
 		container.add(display.asWidget());
 		fetchContactDetails();
-	}
-
-	private void fetchContactDetails() {
-		rpcService.getContactDetails(new AsyncCallback<ArrayList<ContactDetails>>() {
-					public void onSuccess(ArrayList<ContactDetails> result) {
-						contactDetails = result;
-						sortContactDetails();
-						List<String> data = new ArrayList<String>();
-
-						for (int i = 0; i < result.size(); ++i) {
-							data.add(contactDetails.get(i).getDisplayName());
-						}
-
-						display.setData(data);
-					}
-
-					public void onFailure(Throwable caught) {
-						Window.alert("Error fetching contact details");
-					}
-				});
 	}
 
 	// most interesting method in Presenter
@@ -74,6 +56,57 @@ public class ContactsPresenter implements Presenter{
 				deleteSelectedContacts();
 			}
 		});
+
+		eventBus.addHandler(AddContactEvent.TYPE,
+				new AddContactEventHandler() {
+					public void onAddContact(AddContactEvent event) {
+						doAddNewContact();
+					}
+				});
+
+
+		display.getAddButton().addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				eventBus.fireEvent(new AddContactEvent());
+			}
+		});
+
+		display.getList().addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				int selectedRow = display.getClickedRow(event);
+
+				if (selectedRow >= 0) {
+					String id = contactDetails.get(selectedRow).getId();
+					//			eventBus.fireEvent(new EditContactEvent(id));
+					Window.alert("firing edit event on row = " + contactDetails.get(selectedRow).getDisplayName());
+				}
+			}
+		});
+
+	}
+
+	private void doAddNewContact() {
+		History.newItem("add");
+	}
+
+	private void fetchContactDetails() {
+		rpcService.getContactDetails(new AsyncCallback<ArrayList<ContactDetails>>() {
+			public void onSuccess(ArrayList<ContactDetails> result) {
+				contactDetails = result;
+				sortContactDetails();
+				List<String> data = new ArrayList<String>();
+
+				for (int i = 0; i < result.size(); ++i) {
+					data.add(contactDetails.get(i).getDisplayName());
+						}
+
+						display.setData(data);
+					}
+
+					public void onFailure(Throwable caught) {
+						Window.alert("Error fetching contact details");
+					}
+				});
 	}
 
 	public void sortContactDetails() {

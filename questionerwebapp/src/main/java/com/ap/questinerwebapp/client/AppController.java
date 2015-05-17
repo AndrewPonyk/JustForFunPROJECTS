@@ -1,8 +1,12 @@
 package com.ap.questinerwebapp.client;
 
 import com.ap.questinerwebapp.client.Presenter.ContactsPresenter;
+import com.ap.questinerwebapp.client.Presenter.EditContactPresenter;
 import com.ap.questinerwebapp.client.Presenter.Presenter;
 import com.ap.questinerwebapp.client.View.ContactsView;
+import com.ap.questinerwebapp.client.View.EditContactView;
+import com.ap.questinerwebapp.client.event.AddContactEvent;
+import com.ap.questinerwebapp.client.event.AddContactEventHandler;
 import com.ap.questinerwebapp.client.rpc.Contact.ContactServiceAsync;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
@@ -25,8 +29,9 @@ public class AppController implements Presenter, ValueChangeHandler<String> {
 
 	private void bind() {
 		History.addValueChangeHandler(this);
-
 	}
+
+
 
 	@Override
 	public void go(HasWidgets container) {
@@ -49,6 +54,10 @@ public class AppController implements Presenter, ValueChangeHandler<String> {
 			case "list":
 				presenter = new ContactsPresenter(rpcService, eventBus, new ContactsView());
 				break;
+			case "add":
+				presenter = new EditContactPresenter(rpcService, eventBus, new EditContactView());
+				break;
+
 			}
 
 			if(presenter != null){
