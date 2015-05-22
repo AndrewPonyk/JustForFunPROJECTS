@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 filesCopiedToWebInfLib=
+gaeDatanucleusEnabled=false
 gaeDeployDialogSettings=
 gaeLaunchAppInBrowser=true
 googleCloudSqlEnabled=false

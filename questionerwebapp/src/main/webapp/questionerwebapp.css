@@ -32,3 +32,37 @@ h1 {
 #closeButton {
   margin: 15px 6px 6px;
 }
+
+#treePanel{
+  background: #EEE;
+  border: 1px solid #DDDDDD;
+  border-radius: 7px;
+}
+
+img{
+	border: 1px solid black !important;
+}
+
+
+#questionsClassificationContainer {
+	display: inline-block;
+	font-size: 0.8em;
+	max-width: 450px;
+	overflow: scroll;
+}
+
+#questionsList{
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid #BBB;
+	font-size: 0.8em;
+}
+
+#questionItemContainer{
+	border: 1px solid black;
+}
+
+#questionsContainer{
+    display: inline-flex;
+
+}

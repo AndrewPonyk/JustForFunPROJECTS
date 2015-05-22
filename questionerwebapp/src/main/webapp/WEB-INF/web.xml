@@ -12,9 +12,19 @@
     <servlet-class>com.ap.questinerwebapp.server.ContactsServiceImpl</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>questionerServiceServlet</servlet-name>
+    <servlet-class>com.ap.questinerwebapp.server.QuestionerRPCImpl</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>contactsServiceServlet</servlet-name>
     <url-pattern>/questionerwebapp/contactsService</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>questionerServiceServlet</servlet-name>
+    <url-pattern>/questionerwebapp/questionerService</url-pattern>
   </servlet-mapping>
 
   <!-- Default page to serve -->
