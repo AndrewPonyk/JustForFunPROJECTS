@@ -46,21 +46,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="questionerwebapp.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="questionerwebapp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ap/questinerwebapp/client/questionerwebapp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="100" column="30" selection-start-line="100" selection-start-column="30" selection-end-line="100" selection-end-column="30" />
-              <folding />
+            <state vertical-scroll-proportion="0.44444445">
+              <caret line="158" column="43" selection-start-line="158" selection-start-column="43" selection-end-line="158" selection-end-column="43" />
+              <folding>
+                <marker date="1432562093111" expanded="true" signature="8544:8580" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="questionerwebapp.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="questionerwebapp.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/questionerwebapp.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63237774">
-              <caret line="47" column="15" selection-start-line="47" selection-start-column="15" selection-end-line="47" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -142,8 +144,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ap/questinerwebapp/client/AppController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ap/questinerwebapp/client/Presenter/ContactsPresenter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ap/questinerwebapp/client/Presenter/EditContactPresenter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ap/questinerwebapp/client/questionerwebapp.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/questionerwebapp.css" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ap/questinerwebapp/client/questionerwebapp.java" />
       </list>
     </option>
   </component>
@@ -722,12 +724,12 @@
       <workItem from="1431898196184" duration="469000" />
       <workItem from="1432069705485" duration="90000" />
       <workItem from="1432144197312" duration="20000" />
-      <workItem from="1432561608642" duration="95000" />
+      <workItem from="1432561608642" duration="489000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13517000" />
+    <option name="totallyTimeSpent" value="13911000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -750,7 +752,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29514718" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29514718" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -831,7 +833,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="78" column="44" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
-          <folding />
+          <folding>
+            <marker date="1432562093111" expanded="true" signature="8544:8580" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -909,7 +913,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="78" column="44" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
-          <folding />
+          <folding>
+            <marker date="1432562093111" expanded="true" signature="8544:8580" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -987,7 +993,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="77" column="44" selection-start-line="77" selection-start-column="44" selection-end-line="77" selection-end-column="44" />
-          <folding />
+          <folding>
+            <marker date="1432562093111" expanded="true" signature="8544:8580" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1065,7 +1073,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="77" column="44" selection-start-line="77" selection-start-column="44" selection-end-line="77" selection-end-column="44" />
-          <folding />
+          <folding>
+            <marker date="1432562093111" expanded="true" signature="8544:8580" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1249,19 +1259,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ap/questinerwebapp/client/questionerwebapp.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/questionerwebapp.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="100" column="30" selection-start-line="100" selection-start-column="30" selection-end-line="100" selection-end-column="30" />
+          <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/questionerwebapp.css">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ap/questinerwebapp/client/questionerwebapp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63237774">
-          <caret line="47" column="15" selection-start-line="47" selection-start-column="15" selection-end-line="47" selection-end-column="15" />
-          <folding />
+        <state vertical-scroll-proportion="0.44444445">
+          <caret line="158" column="43" selection-start-line="158" selection-start-column="43" selection-end-line="158" selection-end-column="43" />
+          <folding>
+            <marker date="1432562093111" expanded="true" signature="8544:8580" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

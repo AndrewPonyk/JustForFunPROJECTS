@@ -157,7 +157,7 @@ public class questionerwebapp implements EntryPoint {
 				Document messageDom = XMLParser.parse(result);
 				questionsDocumentRoot = messageDom.getChildNodes().item(0);
 				consoleLog("After parsing");
-				consoleLog("DOM :" + messageDom.toString());
+
 				Node rootItem = messageDom.getChildNodes().item(0);
 				RootPanel.get("questionsList").clear();
 				for(int i = 0; i<rootItem.getChildNodes().getLength() ; i++){
