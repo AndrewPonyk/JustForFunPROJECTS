@@ -280,7 +280,7 @@
           <category id="1_0_1_5_1" name="WebLogic" nofquestions="0" nofsubcategories="0" filename="weblogic.xml" />
         </category>
         <category id="1_0_1_6" name="WebServices" nofquestions="0" nofsubcategories="0" />
-        <category id="1_0_1_7" name="SPRING" nofquestions="1" nofsubcategories="7">
+        <category id="1_0_1_7" name="SPRING" nofquestions="1" nofsubcategories="8">
           <category id="1_0_1_7_0" name="Spring3_TutorialsPoint" nofquestions="0" nofsubcategories="0" filename="spring3_tutorialspoint1_0_1_7_0.xml" />
           <category id="1_0_1_7_2" name="ProSpring3_Appress" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_1_7_3" name="SpringMVC" nofquestions="0" nofsubcategories="1">
@@ -292,6 +292,7 @@
           </category>
           <category id="1_0_1_7_6" name="Pluralsight_SpringFundamentals" nofquestions="1" nofsubcategories="0" filename="pluralsight_springfundamentals1_0_1_7_6.xml" />
           <category id="1_0_1_7_7" name="Wrox_Beginning_Spring_2015" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_1_7_8" name="PacktLearnSpringApplicationDevelopment2015" nofquestions="0" nofsubcategories="0" />
         </category>
         <category id="1_0_1_8" name="Testing" nofquestions="0" nofsubcategories="4">
           <category id="1_0_1_8_0" name="JUnit" nofquestions="0" nofsubcategories="0" />

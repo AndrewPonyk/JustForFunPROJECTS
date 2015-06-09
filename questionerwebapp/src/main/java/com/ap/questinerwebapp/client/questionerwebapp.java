@@ -169,6 +169,7 @@ public class questionerwebapp implements EntryPoint {
 						final InlineHTML q = new InlineHTML();
 						q.getElement().setAttribute("questionId", questionId);
 						q.setHTML(elem.getChildNodes().item(0).getNodeValue());
+						q.setStyleName("questionItem");
 						q.addClickHandler(new ClickHandler() {
 
 							@Override
@@ -183,6 +184,7 @@ public class questionerwebapp implements EntryPoint {
 						RootPanel.get("questionsList").add(q);
 					}
 				}
+				RootPanel.get("questionsList").getElement().focus();
 			}
 
 			@Override

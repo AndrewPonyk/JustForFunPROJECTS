@@ -64,5 +64,10 @@ img{
 
 #questionsContainer{
     display: inline-flex;
+}
 
+.questionItem{
+	border: 1px solid grey;
+	padding: 3px;
+	display: block;
 }
