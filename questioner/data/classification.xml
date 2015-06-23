@@ -110,9 +110,9 @@
       <category id="0_3_1" name="programcreek.com___Algorithms_for_Coding_Interview(more_than_100_algorightms)" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="471" nofsubcategories="5">
-    <category id="1_0" name="Java" nofquestions="436" nofsubcategories="4">
-      <category id="1_0_0" name="Java CORE" nofquestions="247" nofsubcategories="13">
+  <class id="1" name="Programming" nofquestions="472" nofsubcategories="5">
+    <category id="1_0" name="Java" nofquestions="437" nofsubcategories="4">
+      <category id="1_0_0" name="Java CORE" nofquestions="248" nofsubcategories="13">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="89" nofsubcategories="1">
           <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="89" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
         </category>
@@ -152,7 +152,7 @@
             <category id="1_0_0_8_2_0" name="docsOracle_and_journaldevcom" nofquestions="2" nofsubcategories="0" filename="docsoracle_and_journaldevcom1_0_0_8_2_0.xml" />
           </category>
         </category>
-        <category id="1_0_0_9" name="JVM" nofquestions="14" nofsubcategories="5">
+        <category id="1_0_0_9" name="JVM" nofquestions="15" nofsubcategories="5">
           <category id="1_0_0_9_0" name="JavaPerformanceBook2012" nofquestions="0" nofsubcategories="6">
             <category id="1_0_0_9_0_0" name="Chap3_HotSpot_Overview" nofquestions="0" nofsubcategories="0" filename="chap3_hotspot_overview1_0_0_9_0_0.xml" />
             <category id="1_0_0_9_0_1" name="Chap4_JVM_Performance_Monitoring" nofquestions="0" nofsubcategories="0" filename="chap4_jvm_performance_monitoring1_0_0_9_0_1.xml" />
@@ -161,7 +161,7 @@
             <category id="1_0_0_9_0_4" name="Chap7_Tuning_the_JVM_Step_by_Step" nofquestions="0" nofsubcategories="0" filename="chap7_tuning_the_jvm_step_by_step1_0_0_9_0_4.xml" />
             <category id="1_0_0_9_0_5" name="AppA_HotSpot_VM_Command_Line_Options_of_Interest" nofquestions="0" nofsubcategories="0" filename="appa_hotspot_vm_command_line_options_of_interest1_0_0_9_0_5.xml" />
           </category>
-          <category id="1_0_0_9_1" name="JVM_Architecture_and_Options" nofquestions="3" nofsubcategories="0" filename="jvm_options1_0_0_9_1.xml" />
+          <category id="1_0_0_9_1" name="JVM_Architecture_and_Options" nofquestions="4" nofsubcategories="0" filename="jvm_options1_0_0_9_1.xml" />
           <category id="1_0_0_9_2" name="ByteCode_fund_WIKI_JamesBloom_archipov" nofquestions="6" nofsubcategories="0" filename="bytecode_fund_wiki_jamesbloom_archipov1_0_0_9_2.xml" />
           <category id="1_0_0_9_3" name="GC_Oracledoc_cubridorg_javaworld_infoq" nofquestions="4" nofsubcategories="0" filename="gc_oracledoc_cubridorg_javaworld_infoq1_0_0_9_3.xml" />
           <category id="1_0_0_9_4" name="Jar_Files_ClassPath_Path_etc" nofquestions="1" nofsubcategories="0" filename="jar_files_classpath_path_etc1_0_0_9_4.xml" />
