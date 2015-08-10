@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="2_8_3_0" name="SSH_Other_Tutorials" nofquestions="2" nofsubcategories="0" filename="ssh_other_tutorials2_8_3_0.xml">
+  <question id="2_8_3_0:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;does&amp;nbsp;'-i'&amp;nbsp;means&amp;nbsp;in&amp;nbsp;such&amp;nbsp;command&amp;nbsp;:&lt;br&gt;
+ssh&amp;nbsp;-i&amp;nbsp;demo-key.pem&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ec2-user@ec2-54-188-181-255.us-west-2.compute.amazonaws.com?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://linuxcommand.org/man_pages/ssh1.html&lt;br&gt;
+======================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;-i&amp;nbsp;identity_file&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Selects&amp;nbsp;a&amp;nbsp;file&amp;nbsp;from&amp;nbsp;which&amp;nbsp;the&amp;nbsp;identity&amp;nbsp;(private&amp;nbsp;key)&amp;nbsp;for&amp;nbsp;RSA&amp;nbsp;or&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DSA&amp;nbsp;authentication&amp;nbsp;is&amp;nbsp;read.&amp;nbsp;&amp;nbsp;The&amp;nbsp;default&amp;nbsp;is&amp;nbsp;~/.ssh/identity&amp;nbsp;for&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;protocol&amp;nbsp;version&amp;nbsp;1,&amp;nbsp;and&amp;nbsp;~/.ssh/id_rsa&amp;nbsp;and&amp;nbsp;~/.ssh/id_dsa&amp;nbsp;for&amp;nbsp;pro-&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;tocol&amp;nbsp;version&amp;nbsp;2.&amp;nbsp;&amp;nbsp;Identity&amp;nbsp;files&amp;nbsp;may&amp;nbsp;also&amp;nbsp;be&amp;nbsp;specified&amp;nbsp;on&amp;nbsp;a&amp;nbsp;per-&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;host&amp;nbsp;basis&amp;nbsp;in&amp;nbsp;the&amp;nbsp;configuration&amp;nbsp;file.&amp;nbsp;&amp;nbsp;It&amp;nbsp;is&amp;nbsp;possible&amp;nbsp;to&amp;nbsp;have&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;multiple&amp;nbsp;-i&amp;nbsp;options&amp;nbsp;(and&amp;nbsp;multiple&amp;nbsp;identities&amp;nbsp;specified&amp;nbsp;in&amp;nbsp;config-&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;uration&amp;nbsp;files).</questionanswer>
+  </question>
+</questions>

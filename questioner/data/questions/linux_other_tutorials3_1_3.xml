@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="3_1_3" name="Linux_Other_Tutorials" nofquestions="1" nofsubcategories="0" filename="linux_other_tutorials3_1_3.xml">
+  <question id="3_1_3:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;difference&amp;nbsp;between&amp;nbsp;yum,&amp;nbsp;apt-get,&amp;nbsp;rpm,&amp;nbsp;./configure&amp;nbsp;&amp;amp;&amp;amp;&amp;nbsp;make&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;install&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://superuser.com/questions/125933/what-is-the-difference-between-yum-apt-get-rpm-configure-make-install&lt;br&gt;
+================================================&lt;br&gt;
+These&amp;nbsp;tools&amp;nbsp;all&amp;nbsp;install&amp;nbsp;software&amp;nbsp;into&amp;nbsp;your&amp;nbsp;system,&amp;nbsp;but&amp;nbsp;are&amp;nbsp;working&amp;nbsp;on&amp;nbsp;different&amp;nbsp;levels.&lt;br&gt;
+-----&lt;br&gt;
+./configure&amp;nbsp;&amp;&amp;&amp;nbsp;make&amp;nbsp;install&lt;br&gt;
+&lt;br&gt;
+Running&amp;nbsp;./configure&amp;nbsp;&amp;&amp;&amp;nbsp;make&amp;nbsp;install&amp;nbsp;builds&amp;nbsp;and&amp;nbsp;installs&amp;nbsp;the&amp;nbsp;libraries&amp;nbsp;or&amp;nbsp;executables&amp;nbsp;directly&amp;nbsp;from&amp;nbsp;the&amp;nbsp;source&amp;nbsp;code.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;make&amp;nbsp;install&amp;nbsp;step&amp;nbsp;basically&amp;nbsp;just&amp;nbsp;copies&amp;nbsp;the&amp;nbsp;final&amp;nbsp;files&amp;nbsp;into&amp;nbsp;your&amp;nbsp;system.&amp;nbsp;Many&amp;nbsp;sources&amp;nbsp;come&amp;nbsp;with&amp;nbsp;a&amp;nbsp;special&amp;nbsp;make&lt;br&gt;
+uninstall&amp;nbsp;rule&amp;nbsp;to&amp;nbsp;remove&amp;nbsp;them&amp;nbsp;again,&amp;nbsp;but&amp;nbsp;this&amp;nbsp;is&amp;nbsp;not&amp;nbsp;guaranteed&amp;nbsp;and&amp;nbsp;of&amp;nbsp;course&amp;nbsp;only&amp;nbsp;works&amp;nbsp;as&amp;nbsp;long&amp;nbsp;as&amp;nbsp;you&amp;nbsp;have&lt;br&gt;
+the&amp;nbsp;configured&amp;nbsp;sources&amp;nbsp;around.&amp;nbsp;Also,&amp;nbsp;this&amp;nbsp;does&amp;nbsp;not&amp;nbsp;take&amp;nbsp;care&amp;nbsp;of&amp;nbsp;required&amp;nbsp;dependencies.&lt;br&gt;
+&lt;br&gt;
+Often&amp;nbsp;there&amp;nbsp;is&amp;nbsp;only&amp;nbsp;the&amp;nbsp;source&amp;nbsp;code&amp;nbsp;available&amp;nbsp;for&amp;nbsp;a&amp;nbsp;certain&amp;nbsp;package,&amp;nbsp;so&amp;nbsp;this&amp;nbsp;is&amp;nbsp;the&amp;nbsp;only&amp;nbsp;way&amp;nbsp;to&amp;nbsp;go.&amp;nbsp;Also,&lt;br&gt;
+./configure&amp;nbsp;usually&amp;nbsp;accepts&amp;nbsp;lots&amp;nbsp;of&amp;nbsp;options&amp;nbsp;allowing&amp;nbsp;you&amp;nbsp;to&amp;nbsp;tailor&amp;nbsp;your&amp;nbsp;package.&lt;br&gt;
+&lt;br&gt;
+Not&amp;nbsp;being&amp;nbsp;able&amp;nbsp;to&amp;nbsp;find&amp;nbsp;out&amp;nbsp;what&amp;nbsp;software&amp;nbsp;installed&amp;nbsp;which&amp;nbsp;file,&amp;nbsp;and&amp;nbsp;the&amp;nbsp;lack&amp;nbsp;of&amp;nbsp;a&amp;nbsp;reliable&amp;nbsp;way&amp;nbsp;to&amp;nbsp;remove&amp;nbsp;them&lt;br&gt;
+from&amp;nbsp;the&amp;nbsp;system&amp;nbsp;are&amp;nbsp;major&amp;nbsp;shortcomings&amp;nbsp;of&amp;nbsp;this&amp;nbsp;approach.&lt;br&gt;
+&lt;br&gt;
+-----&lt;br&gt;
+RPM&amp;nbsp;(Redhat&amp;nbsp;Package&amp;nbsp;Manager)&lt;br&gt;
+&lt;br&gt;
+rpm&amp;nbsp;installs&amp;nbsp;already&amp;nbsp;configured&amp;nbsp;and&amp;nbsp;compiled&amp;nbsp;software&amp;nbsp;in&amp;nbsp;your&amp;nbsp;system&amp;nbsp;and&amp;nbsp;it&amp;nbsp;also&amp;nbsp;comes&amp;nbsp;with&amp;nbsp;a&amp;nbsp;uninstall&amp;nbsp;to&lt;br&gt;
+get&amp;nbsp;rid&amp;nbsp;of&amp;nbsp;it&amp;nbsp;again.&amp;nbsp;The&amp;nbsp;packages&amp;nbsp;have&amp;nbsp;to&amp;nbsp;be&amp;nbsp;created&amp;nbsp;by&amp;nbsp;somebody.&amp;nbsp;This&amp;nbsp;person&amp;nbsp;already&amp;nbsp;decided&amp;nbsp;on&amp;nbsp;what&lt;br&gt;
+features&amp;nbsp;to&amp;nbsp;include&amp;nbsp;and&amp;nbsp;how&amp;nbsp;to&amp;nbsp;best&amp;nbsp;integrate&amp;nbsp;the&amp;nbsp;package&amp;nbsp;into&amp;nbsp;your&amp;nbsp;system&amp;nbsp;layout.&amp;nbsp;It&amp;nbsp;also&amp;nbsp;comes&amp;nbsp;with&amp;nbsp;a&lt;br&gt;
+list&amp;nbsp;of&amp;nbsp;dependencies.&lt;br&gt;
+&lt;br&gt;
+Since&amp;nbsp;rpms&amp;nbsp;are&amp;nbsp;used&amp;nbsp;for&amp;nbsp;many&amp;nbsp;distributions&amp;nbsp;there,&amp;nbsp;you&amp;nbsp;will&amp;nbsp;often&amp;nbsp;want&amp;nbsp;to&amp;nbsp;make&amp;nbsp;sure&amp;nbsp;that&amp;nbsp;this&amp;nbsp;rpm&amp;nbsp;was&amp;nbsp;written&amp;nbsp;for&lt;br&gt;
+your&amp;nbsp;distribution&amp;nbsp;so&amp;nbsp;that&amp;nbsp;install&amp;nbsp;paths,&amp;nbsp;dependencies&amp;nbsp;and&amp;nbsp;other&amp;nbsp;housekeeping&amp;nbsp;things&amp;nbsp;integrate&amp;nbsp;well.&lt;br&gt;
+&lt;br&gt;
+On&amp;nbsp;Debian&amp;nbsp;systems,&amp;nbsp;the&amp;nbsp;equivalent&amp;nbsp;package&amp;nbsp;format&amp;nbsp;is&amp;nbsp;.deb&amp;nbsp;and&amp;nbsp;the&amp;nbsp;installation&amp;nbsp;and&amp;nbsp;database&amp;nbsp;is&amp;nbsp;handled&amp;nbsp;by&amp;nbsp;the&amp;nbsp;dpkg&amp;nbsp;tool.&lt;br&gt;
+-----&lt;br&gt;
+Yum&lt;br&gt;
+&lt;br&gt;
+yum&amp;nbsp;is&amp;nbsp;an&amp;nbsp;additional&amp;nbsp;wrapper&amp;nbsp;around&amp;nbsp;rpm.&amp;nbsp;It&amp;nbsp;keeps&amp;nbsp;its&amp;nbsp;own&amp;nbsp;database&amp;nbsp;of&amp;nbsp;rpm&amp;nbsp;files&amp;nbsp;available&amp;nbsp;for&amp;nbsp;your&amp;nbsp;distribution,&lt;br&gt;
+generally&amp;nbsp;in&amp;nbsp;online&amp;nbsp;repositories.&amp;nbsp;For&amp;nbsp;the&amp;nbsp;stable&amp;nbsp;versions&amp;nbsp;of&amp;nbsp;most&amp;nbsp;distributions&amp;nbsp;all&amp;nbsp;packages&amp;nbsp;inside&amp;nbsp;that&amp;nbsp;database&lt;br&gt;
+will&amp;nbsp;play&amp;nbsp;well&amp;nbsp;with&amp;nbsp;each&amp;nbsp;other.&amp;nbsp;This&amp;nbsp;database&amp;nbsp;can&amp;nbsp;be&amp;nbsp;searched&amp;nbsp;(e.g.&amp;nbsp;with&amp;nbsp;yum&amp;nbsp;search&amp;nbsp;some_name).&lt;br&gt;
+&lt;br&gt;
+It&amp;nbsp;will&amp;nbsp;also&amp;nbsp;automatically&amp;nbsp;resolve&amp;nbsp;dependencies&amp;nbsp;for&amp;nbsp;you.&amp;nbsp;Packages&amp;nbsp;(and&amp;nbsp;with&amp;nbsp;some&amp;nbsp;extra&amp;nbsp;help&amp;nbsp;their&amp;nbsp;dependencies)&amp;nbsp;can&amp;nbsp;be&amp;nbsp;easily&amp;nbsp;uninstalled&amp;nbsp;as&amp;nbsp;well.&lt;br&gt;
+&lt;br&gt;
+!!!&amp;nbsp;On&amp;nbsp;Debian&amp;nbsp;systems,&amp;nbsp;the&amp;nbsp;equivalent&amp;nbsp;repository&amp;nbsp;and&amp;nbsp;dependency-resolution&amp;nbsp;tools&amp;nbsp;are&amp;nbsp;provided&amp;nbsp;by&amp;nbsp;&lt;b&gt;Apt&lt;/b&gt;&amp;nbsp;(apt-get&amp;nbsp;and&amp;nbsp;aptitude).&lt;br&gt;
+&lt;br&gt;
+So&amp;nbsp;to&amp;nbsp;sum&amp;nbsp;it&amp;nbsp;up:&amp;nbsp;if&amp;nbsp;you&amp;nbsp;just&amp;nbsp;want&amp;nbsp;some&amp;nbsp;software&amp;nbsp;try&amp;nbsp;yum&amp;nbsp;first.&amp;nbsp;If&amp;nbsp;it&amp;nbsp;is&amp;nbsp;not&amp;nbsp;available&amp;nbsp;there,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;try&amp;nbsp;to&amp;nbsp;find&amp;nbsp;an&amp;nbsp;existing&lt;br&gt;
+rpm&amp;nbsp;package.&amp;nbsp;If&amp;nbsp;there&amp;nbsp;is&amp;nbsp;none&amp;nbsp;or&amp;nbsp;you&amp;nbsp;have&amp;nbsp;some&amp;nbsp;special&amp;nbsp;requirements,&amp;nbsp;build&amp;nbsp;from&amp;nbsp;source.&lt;br&gt;
+&lt;br&gt;</questionanswer>
+  </question>
+</questions>

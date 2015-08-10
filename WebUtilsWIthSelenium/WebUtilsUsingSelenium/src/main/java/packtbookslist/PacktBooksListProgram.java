@@ -11,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class PacktBooksListProgram {
 
 	public static void main(String[] args) {
-		//new PacktBooksListProgram().runApp();
+		new PacktBooksListProgram().runApp();
 		System.out.println(new Date().toString());
 	}
 
