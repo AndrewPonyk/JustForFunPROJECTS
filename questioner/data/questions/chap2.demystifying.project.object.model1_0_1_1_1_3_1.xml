@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="1_0_1_1_1_3_1" name="chap2.Demystifying.Project.Object.Model" nofquestions="1" nofsubcategories="0" filename="chap2.demystifying.project.object.model1_0_1_1_1_3_1.xml">
+  <question id="1_0_1_1_1_3_1:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Maven:&amp;nbsp;POM&amp;nbsp;vs&amp;nbsp;Super&amp;nbsp;Pom&amp;nbsp;vs&amp;nbsp;Effective&amp;nbsp;Pom,&amp;nbsp;describe.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Effective&amp;nbsp;POM&amp;nbsp;is&amp;nbsp;composed&amp;nbsp;of&amp;nbsp;Super&amp;nbsp;POM&amp;nbsp;+&amp;nbsp;Application&amp;nbsp;POM(s)&amp;nbsp;+&amp;nbsp;settings.xml&amp;nbsp;contents&amp;nbsp;+&amp;nbsp;plugins&lt;br&gt;
+bound&amp;nbsp;to&amp;nbsp;the&amp;nbsp;lifecycle&amp;nbsp;by&amp;nbsp;default&amp;nbsp;based&amp;nbsp;on&amp;nbsp;the&amp;nbsp;packaging&amp;nbsp;type&amp;nbsp;chosen&amp;nbsp;(thus,&amp;nbsp;based&amp;nbsp;on&amp;nbsp;one&amp;nbsp;element&lt;br&gt;
+in&amp;nbsp;the&amp;nbsp;Application&amp;nbsp;POM).&lt;br&gt;
+&lt;br&gt;
+You&amp;nbsp;asked&amp;nbsp;about&amp;nbsp;maven-jar-plugin&amp;nbsp;and&amp;nbsp;maven-compiler-plugin.&amp;nbsp;These&amp;nbsp;are&amp;nbsp;bound&amp;nbsp;to&amp;nbsp;the&amp;nbsp;lifecycle&lt;br&gt;
+by&amp;nbsp;default&amp;nbsp;because&amp;nbsp;your&amp;nbsp;application&amp;nbsp;POM&amp;nbsp;specifies&amp;nbsp;jar&amp;nbsp;packaging.&lt;br&gt;
+&lt;br&gt;
+You&amp;nbsp;can&amp;nbsp;see&amp;nbsp;the&amp;nbsp;default&amp;nbsp;bindings&amp;nbsp;in&lt;br&gt;
+$YOUR_REPO_LOCATION\org\apache\maven\maven-core\3.0.x\maven-core-3.0.x.jar\META-INF\plexus\components.xml&amp;nbsp;or&lt;br&gt;
+in&amp;nbsp;the&amp;nbsp;documentation.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='630'&amp;nbsp;height='600'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/Selection_034m.png'/&gt;</questionanswer>
+  </question>
+</questions>

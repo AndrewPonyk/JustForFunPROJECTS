@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="1_0_1_1_1_3_0" name="chap1.Maven.QuickStart" nofquestions="5" nofsubcategories="0" filename="chap1.maven.quickstart1_0_1_1_1_3_0.xml">
+  <question id="1_0_1_1_1_3_0:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;folder&amp;nbsp;structure&amp;nbsp;of&amp;nbsp;Maven&amp;nbsp;on&amp;nbsp;Ubuntu.&amp;nbsp;(After&amp;nbsp;apt-get&amp;nbsp;installation)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Run&amp;nbsp;the&amp;nbsp;following&amp;nbsp;apt-get&amp;nbsp;command&amp;nbsp;in&amp;nbsp;the&amp;nbsp;command&amp;nbsp;prompt;&amp;nbsp;you&amp;nbsp;need&lt;br&gt;
+to&amp;nbsp;have&amp;nbsp;the&amp;nbsp;sudo&amp;nbsp;privileges&amp;nbsp;to&amp;nbsp;execute&amp;nbsp;this:&lt;br&gt;
+$&amp;nbsp;sudo&amp;nbsp;apt-get&amp;nbsp;install&amp;nbsp;maven&lt;br&gt;
+==========================================&lt;br&gt;
+You&amp;nbsp;should&amp;nbsp;get&amp;nbsp;an&amp;nbsp;output&amp;nbsp;similar&amp;nbsp;to&amp;nbsp;the&amp;nbsp;following&amp;nbsp;one&amp;nbsp;if&amp;nbsp;Apache&amp;nbsp;Maven&amp;nbsp;has&lt;br&gt;
+been&amp;nbsp;installed&amp;nbsp;successfully:&lt;br&gt;
+$&amp;nbsp;mvn&amp;nbsp;-version&lt;br&gt;
+Apache&amp;nbsp;Maven&amp;nbsp;3.2.3&lt;br&gt;
+Maven&amp;nbsp;home:&amp;nbsp;/usr/share/maven&lt;br&gt;
+Java&amp;nbsp;version:&amp;nbsp;1.7.0_60,&amp;nbsp;vendor:&amp;nbsp;Oracle&amp;nbsp;Corporation&lt;br&gt;
+Java&amp;nbsp;home:&amp;nbsp;/usr/lib/jvm/java-7-oracle/jre&lt;br&gt;
+Default&amp;nbsp;locale:&amp;nbsp;en_US,&amp;nbsp;platform&amp;nbsp;encoding:&amp;nbsp;UTF-8&lt;br&gt;
+OS&amp;nbsp;name:&amp;nbsp;"linux",&amp;nbsp;version:&amp;nbsp;"3.13.0-24-generic",&amp;nbsp;arch:&amp;nbsp;"amd64",&lt;br&gt;
+family:&amp;nbsp;"unix"&lt;br&gt;
+&lt;br&gt;
+====================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!!!!!!!!!!&lt;br&gt;
+Maven&amp;nbsp;is&amp;nbsp;installed&amp;nbsp;under&amp;nbsp;the&amp;nbsp;/usr/share/maven&amp;nbsp;directory.&amp;nbsp;To&amp;nbsp;check&lt;br&gt;
+the&amp;nbsp;directory&amp;nbsp;structure&amp;nbsp;behind&amp;nbsp;the&amp;nbsp;Maven&amp;nbsp;installation&amp;nbsp;directory,&amp;nbsp;use&amp;nbsp;the&lt;br&gt;
+following&amp;nbsp;command:&lt;br&gt;
+$&amp;nbsp;ls&amp;nbsp;/usr/share/maven&lt;br&gt;
+bin&amp;nbsp;boot&amp;nbsp;conf&amp;nbsp;lib&amp;nbsp;man&lt;br&gt;
+&lt;br&gt;
+==================&lt;br&gt;
+Maven&amp;nbsp;configuration&amp;nbsp;files&amp;nbsp;can&amp;nbsp;be&amp;nbsp;found&amp;nbsp;under&amp;nbsp;the&amp;nbsp;/etc/maven&amp;nbsp;directory&lt;br&gt;
+using&amp;nbsp;the&amp;nbsp;following&amp;nbsp;command:&lt;br&gt;
+$&amp;nbsp;ls&amp;nbsp;/etc/maven&lt;br&gt;
+m2.conf&amp;nbsp;settings.xml&lt;br&gt;
+&lt;br&gt;
+==============================================&lt;br&gt;
+==============================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If&amp;nbsp;you&amp;nbsp;have&amp;nbsp;multiple&amp;nbsp;versions&amp;nbsp;of&amp;nbsp;maven&amp;nbsp;you&amp;nbsp;can&lt;br&gt;
+use&amp;nbsp;"update-alternatives"&amp;nbsp;command&amp;nbsp;to&amp;nbsp;change&amp;nbsp;version.</questionanswer>
+  </question>
+  <question id="1_0_1_1_1_3_0:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Maven&amp;nbsp;Remote&amp;nbsp;debugging,&amp;nbsp;describe.&lt;br&gt;
+(When&amp;nbsp;run&amp;nbsp;'mvn&amp;nbsp;clean&amp;nbsp;install'&amp;nbsp;you&amp;nbsp;can&amp;nbsp;debug&amp;nbsp;your&amp;nbsp;tests&amp;nbsp;in&amp;nbsp;Eclipse)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>To&amp;nbsp;debug&amp;nbsp;your&amp;nbsp;tests&amp;nbsp;in&amp;nbsp;Eclipse&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+1)&amp;nbsp;$&amp;nbsp;mvn&amp;nbsp;clean&amp;nbsp;install&amp;nbsp;-Dmaven.surefire.debug&lt;br&gt;
+2)&amp;nbsp;Connect&amp;nbsp;to&amp;nbsp;port&amp;nbsp;5005&amp;nbsp;from&amp;nbsp;Eclipse&amp;nbsp;and&amp;nbsp;put&amp;nbsp;breakpoints&amp;nbsp;in&amp;nbsp;tests.&lt;br&gt;
+&lt;br&gt;
+============================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;P.S.&lt;br&gt;
+To&amp;nbsp;get&amp;nbsp;full&amp;nbsp;control&amp;nbsp;over&amp;nbsp;the&amp;nbsp;debugging&lt;br&gt;
+options,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&amp;nbsp;the&amp;nbsp;following&amp;nbsp;command:&lt;br&gt;
+$&amp;nbsp;mvn&amp;nbsp;clean&amp;nbsp;install&amp;nbsp;-Dmaven.surefire.debug="-Xdebug&amp;nbsp;-&lt;br&gt;
+Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000&amp;nbsp;-&lt;br&gt;
+Xnoagent&amp;nbsp;-Djava.compiler=NONE"</questionanswer>
+  </question>
+  <question id="1_0_1_1_1_3_0:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Describe&amp;nbsp;structure&amp;nbsp;of&amp;nbsp;Maven&amp;nbsp;Project&amp;nbsp;(source&amp;nbsp;folder,tests&amp;nbsp;folder&amp;nbsp;....)&amp;nbsp;and&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;structure&lt;br&gt;
+or&amp;nbsp;Pom&amp;nbsp;File.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Convention&amp;nbsp;over&amp;nbsp;configuration&lt;br&gt;
+Convention&amp;nbsp;over&amp;nbsp;configuration&amp;nbsp;is&amp;nbsp;one&amp;nbsp;of&amp;nbsp;the&amp;nbsp;main&amp;nbsp;design&amp;nbsp;philosophies&amp;nbsp;behind&amp;nbsp;Apache&lt;br&gt;
+Maven.&amp;nbsp;Let's&amp;nbsp;go&amp;nbsp;through&amp;nbsp;a&amp;nbsp;few&amp;nbsp;examples.&lt;br&gt;
+A&amp;nbsp;complete&amp;nbsp;Maven&amp;nbsp;project&amp;nbsp;can&amp;nbsp;be&amp;nbsp;created&amp;nbsp;using&amp;nbsp;the&amp;nbsp;following&amp;nbsp;code&amp;nbsp;snippet&amp;nbsp;in&lt;br&gt;
+pom.xml&amp;nbsp;file:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;project&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;groupId&gt;com.packt&lt;/groupId&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;artifactId&gt;sample-one&lt;/artifactId&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;version&gt;1.0.0&lt;/version&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/project&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+====================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Project&amp;nbsp;Structure&amp;nbsp;:&lt;br&gt;
+&lt;br&gt;
+This&amp;nbsp;little&amp;nbsp;configuration&amp;nbsp;is&amp;nbsp;tied&amp;nbsp;up&amp;nbsp;with&amp;nbsp;many&amp;nbsp;conventions:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;The&amp;nbsp;Java&amp;nbsp;source&amp;nbsp;code&amp;nbsp;is&amp;nbsp;available&amp;nbsp;at&amp;nbsp;{base-dir}/src/main/java&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Test&amp;nbsp;cases&amp;nbsp;are&amp;nbsp;available&amp;nbsp;at&amp;nbsp;{base-dir}/src/test/java&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;A&amp;nbsp;JAR&amp;nbsp;file&amp;nbsp;type&amp;nbsp;of&amp;nbsp;artifact&amp;nbsp;is&amp;nbsp;produced&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Compiled&amp;nbsp;class&amp;nbsp;files&amp;nbsp;are&amp;nbsp;copied&amp;nbsp;into&amp;nbsp;{base-dir}/target/classes&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;The&amp;nbsp;final&amp;nbsp;artifact&amp;nbsp;is&amp;nbsp;copied&amp;nbsp;into&amp;nbsp;{base-dir}/target&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;The&amp;nbsp;link&amp;nbsp;http://repo.maven.apache.org/maven2&amp;nbsp;is&amp;nbsp;used&amp;nbsp;as&amp;nbsp;the&amp;nbsp;repository&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+If&amp;nbsp;someone&amp;nbsp;needs&amp;nbsp;to&amp;nbsp;override&amp;nbsp;the&amp;nbsp;default,&amp;nbsp;conventional&amp;nbsp;behavior&amp;nbsp;of&amp;nbsp;Maven,&amp;nbsp;that&amp;nbsp;is&lt;br&gt;
+possible&amp;nbsp;too.&amp;nbsp;The&amp;nbsp;following&amp;nbsp;sample&amp;nbsp;pom.xml&amp;nbsp;file&amp;nbsp;shows&amp;nbsp;how&amp;nbsp;to&amp;nbsp;override&amp;nbsp;some&amp;nbsp;of&lt;br&gt;
+the&amp;nbsp;preceding&amp;nbsp;default&amp;nbsp;values:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;project&gt;&lt;br&gt;
+&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;&lt;br&gt;
+&lt;groupId&gt;com.packt&lt;/groupId&gt;&lt;br&gt;
+&lt;artifactId&gt;sample-one&lt;/artifactId&gt;&lt;br&gt;
+&lt;version&gt;1.0.0&lt;/version&gt;&lt;br&gt;
+&lt;packaging&gt;jar&lt;/packaging&gt;&lt;br&gt;
+&lt;build&gt;&lt;br&gt;
+&lt;sourceDirectory&gt;${basedir}/src/main/java&lt;/sourceDirectory&gt;&lt;br&gt;
+&lt;testSourceDirectory&gt;${basedir}/src/test/java&lt;br&gt;
+&lt;/testSourceDirectory&gt;&lt;br&gt;
+&lt;outputDirectory&gt;${basedir}/target/classes&lt;br&gt;
+&lt;/outputDirectory&gt;&lt;br&gt;
+&lt;/build&gt;&lt;br&gt;
+&lt;/project&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+P.S.&amp;nbsp;For&amp;nbsp;example&amp;nbsp;if&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;change&amp;nbsp;'target'&amp;nbsp;folder&amp;nbsp;name&amp;nbsp;just&amp;nbsp;put&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;directory&gt;TARGETTT&lt;/directory&gt;&amp;nbsp;&lt;!--&amp;nbsp;Insted&amp;nbsp;of&amp;nbsp;targer&amp;nbsp;dir&amp;nbsp;--&gt;&lt;br&gt;
+====================================================</questionanswer>
+  </question>
+  <question id="1_0_1_1_1_3_0:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;does&amp;nbsp;this&amp;nbsp;'mvn&amp;nbsp;clean&amp;nbsp;install&amp;nbsp;&amp;#8211;X'&amp;nbsp;command&amp;nbsp;mean?&lt;br&gt;
+Building&amp;nbsp;dependency&amp;nbsp;tree&amp;nbsp;of&amp;nbsp;project,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1)&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Once&amp;nbsp;Maven&amp;nbsp;debug&amp;nbsp;level&amp;nbsp;logging&amp;nbsp;is&amp;nbsp;enabled,&amp;nbsp;it&amp;nbsp;will&amp;nbsp;print&amp;nbsp;all&amp;nbsp;the&amp;nbsp;actions&amp;nbsp;it&amp;nbsp;takes&amp;nbsp;during&lt;br&gt;
+the&amp;nbsp;build&amp;nbsp;process.&amp;nbsp;To&amp;nbsp;enable&amp;nbsp;debug&amp;nbsp;level&amp;nbsp;logging,&amp;nbsp;use&amp;nbsp;the&amp;nbsp;following&amp;nbsp;command:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$&amp;nbsp;mvn&amp;nbsp;clean&amp;nbsp;install&amp;nbsp;–X&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+===========================================&lt;br&gt;
+2)&amp;nbsp;If&amp;nbsp;you&amp;nbsp;find&amp;nbsp;any&amp;nbsp;issues&amp;nbsp;with&amp;nbsp;any&amp;nbsp;dependencies&amp;nbsp;in&amp;nbsp;your&amp;nbsp;Maven&amp;nbsp;project,&amp;nbsp;the&amp;nbsp;first&amp;nbsp;step&lt;br&gt;
+is&amp;nbsp;to&amp;nbsp;build&amp;nbsp;a&amp;nbsp;dependency&amp;nbsp;tree&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$&amp;nbsp;mvn&amp;nbsp;dependency:tree&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Example&amp;nbsp;output&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+[INFO]&amp;nbsp;---&amp;nbsp;maven-dependency-plugin:2.1:tree&amp;nbsp;(default-cli)&amp;nbsp;@&amp;nbsp;ramparttrust&lt;br&gt;
+---&lt;br&gt;
+[INFO]&amp;nbsp;org.apache.rampart:rampart-trust:jar:1.6.1-wso2v12&lt;br&gt;
+[INFO]&amp;nbsp;+-&amp;nbsp;org.apache.rampart:rampart-policy:jar:1.6.1-wso2v12:compile&lt;br&gt;
+[INFO]&amp;nbsp;+-&amp;nbsp;org.apache.axis2:axis2-kernel:jar:1.6.1-wso2v10:compile&lt;br&gt;
+[INFO]&amp;nbsp;|&amp;nbsp;+-&amp;nbsp;org.apache.ws.commons.axiom:axiom-api:jar:1.2.11-&lt;br&gt;
+wso2v4:compile&amp;nbsp;(version&amp;nbsp;managed&amp;nbsp;from&amp;nbsp;1.2.11)&lt;br&gt;
+[INFO]&amp;nbsp;|&amp;nbsp;|&amp;nbsp;\-&amp;nbsp;jaxen:jaxen:jar:1.1.1:compile&lt;br&gt;
+&lt;br&gt;
+===============================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Viewing&amp;nbsp;the&amp;nbsp;dependency&amp;nbsp;classpath&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;following&amp;nbsp;command&amp;nbsp;lists&amp;nbsp;all&amp;nbsp;the&amp;nbsp;JAR&amp;nbsp;files&amp;nbsp;and&amp;nbsp;directories&amp;nbsp;in&amp;nbsp;the&amp;nbsp;build&amp;nbsp;classpath:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$&amp;nbsp;mvn&amp;nbsp;dependency:build-classpath&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;following&amp;nbsp;result&amp;nbsp;shows&amp;nbsp;the&amp;nbsp;truncated&amp;nbsp;output&amp;nbsp;of&amp;nbsp;the&amp;nbsp;previous&amp;nbsp;command,&amp;nbsp;executed&lt;br&gt;
+against&amp;nbsp;the&amp;nbsp;Apache&amp;nbsp;Rampart&amp;nbsp;project:&lt;br&gt;
+[INFO]&amp;nbsp;--------------------------------------------------------------&lt;br&gt;
+[INFO]&amp;nbsp;Building&amp;nbsp;Rampart&amp;nbsp;-&amp;nbsp;Trust&amp;nbsp;1.6.1-wso2v12&lt;br&gt;
+[INFO]&amp;nbsp;--------------------------------------------------------------&lt;br&gt;
+[INFO]&lt;br&gt;
+[INFO]&amp;nbsp;---&amp;nbsp;maven-dependency-plugin:2.1:build-classpath&amp;nbsp;(default-cli)&lt;br&gt;
+@&amp;nbsp;rampart-trust&amp;nbsp;---&lt;br&gt;
+[INFO]&amp;nbsp;Dependencies&amp;nbsp;classpath:&lt;br&gt;
+/Users/prabath/.m2/repository/bouncycastle/bcprov-jdk14/140/bcprovjdk14-&lt;br&gt;
+140.jar:/Users/prabath/.m2/repository/commons-cli/commonscli/&lt;br&gt;
+1.0/commons-cli-1.0.jar:/Users/prabath/.m2/repository/commonscodec/&lt;br&gt;
+commons-codec/1.2/commons-codec-&lt;br&gt;
+1.2.jar:/Users/prabath/.m2/repository/commons-collections/commonscollections/&lt;br&gt;
+3.1/commons-collections-3.1.jar&lt;br&gt;
+===============================================&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;P.S.&amp;nbsp;&lt;br&gt;
+&amp;nbsp;Maven&amp;nbsp;has&amp;nbsp;a&amp;nbsp;lot&amp;nbsp;of&amp;nbsp;goals&amp;nbsp;and&amp;nbsp;commands&amp;nbsp;,&amp;nbsp;on&amp;nbsp;Ubuntu&amp;nbsp;it&amp;nbsp;also&amp;nbsp;has&amp;nbsp;TAB-completion&amp;nbsp;(Great)</questionanswer>
+  </question>
+  <question id="1_0_1_1_1_3_0:4" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;Effective&amp;nbsp;POM&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Maven&amp;nbsp;uses&amp;nbsp;default&amp;nbsp;values&amp;nbsp;for&amp;nbsp;the&amp;nbsp;configuration&amp;nbsp;parameters&amp;nbsp;when&amp;nbsp;those&amp;nbsp;are&amp;nbsp;not&lt;br&gt;
+overridden&amp;nbsp;at&amp;nbsp;the&amp;nbsp;project&amp;nbsp;level&amp;nbsp;configuration.&amp;nbsp;This&amp;nbsp;is&amp;nbsp;exactly&amp;nbsp;what&amp;nbsp;we&amp;nbsp;discussed&lt;br&gt;
+under&amp;nbsp;the&amp;nbsp;convention&amp;nbsp;over&amp;nbsp;configuration&amp;nbsp;section.&amp;nbsp;If&amp;nbsp;we&amp;nbsp;take&amp;nbsp;the&amp;nbsp;same&amp;nbsp;sample&amp;nbsp;POM&lt;br&gt;
+file&amp;nbsp;we&amp;nbsp;used&amp;nbsp;before&amp;nbsp;in&amp;nbsp;this&amp;nbsp;chapter,&amp;nbsp;we&amp;nbsp;can&amp;nbsp;see&amp;nbsp;how&amp;nbsp;the&amp;nbsp;effective&amp;nbsp;POM&amp;nbsp;file&amp;nbsp;would&lt;br&gt;
+look&amp;nbsp;using&amp;nbsp;the&amp;nbsp;following&amp;nbsp;command&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$&amp;nbsp;mvn&amp;nbsp;help:effective-pom&lt;br&gt;
+&lt;br&gt;
+SO&amp;nbsp;Effective&amp;nbsp;POM&amp;nbsp;it&amp;nbsp;is&amp;nbsp;pom&amp;nbsp;file&amp;nbsp;with&amp;nbsp;all&amp;nbsp;default&amp;nbsp;properties.&lt;br&gt;
+We&amp;nbsp;can&amp;nbsp;easy&amp;nbsp;see&amp;nbsp;Effective&amp;nbsp;pom&amp;nbsp;in&amp;nbsp;ECLIPSE.</questionanswer>
+  </question>
+</questions>
