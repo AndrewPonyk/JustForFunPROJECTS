@@ -175,6 +175,7 @@ public class questionerwebapp implements EntryPoint {
 							@Override
 							public void onClick(ClickEvent event) {
 								InlineHTML questionAnswer = new InlineHTML();
+
 								questionAnswer.setHTML(getQuestionAnswerById(questionsDocumentRoot, questionId));
 
 								RootPanel.get("questionItemContainer").clear();

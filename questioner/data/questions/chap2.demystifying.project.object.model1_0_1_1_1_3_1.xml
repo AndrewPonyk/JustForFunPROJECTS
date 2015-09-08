@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_1_1_3_1" name="chap2.Demystifying.Project.Object.Model" nofquestions="1" nofsubcategories="0" filename="chap2.demystifying.project.object.model1_0_1_1_1_3_1.xml">
+<questions id="1_0_1_1_1_3_1" name="chap2.Demystifying.Project.Object.Model" nofquestions="2" nofsubcategories="0" filename="chap2.demystifying.project.object.model1_0_1_1_1_3_1.xml">
   <question id="1_0_1_1_1_3_1:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Maven:&amp;nbsp;POM&amp;nbsp;vs&amp;nbsp;Super&amp;nbsp;Pom&amp;nbsp;vs&amp;nbsp;Effective&amp;nbsp;Pom,&amp;nbsp;describe.&amp;nbsp;&lt;br&gt;
@@ -18,5 +18,22 @@ in&amp;nbsp;the&amp;nbsp;documentation.&lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
 &lt;img&amp;nbsp;width='630'&amp;nbsp;height='600'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/Selection_034m.png'/&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_1_1_3_1:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;are&amp;nbsp;possible&amp;nbsp;values&amp;nbsp;of&amp;nbsp;'packaging'&amp;nbsp;section&amp;nbsp;in&amp;nbsp;POM&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+The&amp;nbsp;current&amp;nbsp;core&amp;nbsp;packaging&amp;nbsp;values&amp;nbsp;are:&lt;br&gt;
+-&amp;nbsp;pom&lt;br&gt;
+-&amp;nbsp;jar&lt;br&gt;
+-&amp;nbsp;maven-plugin&lt;br&gt;
+-&amp;nbsp;ejb&lt;br&gt;
+-&amp;nbsp;war&lt;br&gt;
+-&amp;nbsp;ear&lt;br&gt;
+-&amp;nbsp;rar&lt;br&gt;
+-&amp;nbsp;par&lt;br&gt;
+&lt;br&gt;
+If&amp;nbsp;no&amp;nbsp;packaging&amp;nbsp;value&amp;nbsp;has&amp;nbsp;been&amp;nbsp;specified,&amp;nbsp;it&amp;nbsp;will&amp;nbsp;default&amp;nbsp;to&amp;nbsp;jar.</questionanswer>
   </question>
 </questions>

@@ -1,6 +1,5 @@
 /** Add css rules here for your application. */
 
-
 /** Example rules used by the template application (remove for your app) */
 h1 {
   font-size: 2em;
@@ -43,11 +42,10 @@ img{
 	border: 1px solid black !important;
 }
 
-
 #questionsClassificationContainer {
 	display: inline-block;
 	font-size: 0.8em;
-	max-width: 450px;
+	max-width: 600px;
 	overflow: scroll;
 }
 
@@ -56,14 +54,18 @@ img{
 	vertical-align: top;
 	border: 1px solid #BBB;
 	font-size: 0.8em;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
 #questionItemContainer{
 	border: 1px solid black;
+	max-width: 750px;
 }
 
 #questionsContainer{
-    display: inline-flex;
+    /* display: inline-flex; */
 }
 
 .questionItem{
