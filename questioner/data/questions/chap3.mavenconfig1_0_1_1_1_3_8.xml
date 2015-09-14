@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="1_0_1_1_1_3_8" name="chap3.MavenConfig" nofquestions="1" nofsubcategories="0" filename="chap3.mavenconfig1_0_1_1_1_3_8.xml">
+  <question id="1_0_1_1_1_3_8:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Storing&amp;nbsp;username&amp;nbsp;and&amp;nbsp;pass&amp;nbsp;for&amp;nbsp;example&amp;nbsp;for&amp;nbsp;Tomcat&amp;nbsp;in&amp;nbsp;settings.xml&amp;nbsp;is&amp;nbsp;not&amp;nbsp;a&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;good&amp;nbsp;idea.&lt;br&gt;
+Which&amp;nbsp;approach&amp;nbsp;insted&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&amp;nbsp;in&amp;nbsp;maven&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Maven&amp;nbsp;keeps&amp;nbsp;confidential&amp;nbsp;data&amp;nbsp;such&amp;nbsp;as&amp;nbsp;passwords&amp;nbsp;in&amp;nbsp;settings.xml.&amp;nbsp;For&amp;nbsp;example,&lt;br&gt;
+in&amp;nbsp;the&amp;nbsp;previous&amp;nbsp;two&amp;nbsp;sections,&amp;nbsp;the&amp;nbsp;passwords&amp;nbsp;for&amp;nbsp;the&amp;nbsp;proxy&amp;nbsp;server&amp;nbsp;and&amp;nbsp;the&amp;nbsp;repository&lt;br&gt;
+are&amp;nbsp;kept&amp;nbsp;in&amp;nbsp;cleartext.&amp;nbsp;The&amp;nbsp;following&amp;nbsp;configuration&amp;nbsp;repeats&amp;nbsp;the&amp;nbsp;server&amp;nbsp;configuration&lt;br&gt;
+of&amp;nbsp;a&amp;nbsp;repository&amp;nbsp;secured&amp;nbsp;with&amp;nbsp;HTTP&amp;nbsp;Basic&amp;nbsp;authentication:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;server&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;id&gt;central&lt;/id&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;username&gt;my_username&lt;/username&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;password&gt;my_password&lt;/password&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/server&gt;&lt;br&gt;
+&lt;br&gt;
+---------&lt;br&gt;
+Keeping&amp;nbsp;confidential&amp;nbsp;data&amp;nbsp;in&amp;nbsp;configuration&amp;nbsp;files&amp;nbsp;in&amp;nbsp;cleartext&amp;nbsp;is&amp;nbsp;a&amp;nbsp;security&amp;nbsp;threat&lt;br&gt;
+that&amp;nbsp;must&amp;nbsp;be&amp;nbsp;avoided.&amp;nbsp;Maven&amp;nbsp;provides&amp;nbsp;a&amp;nbsp;way&amp;nbsp;to&amp;nbsp;encrypt&amp;nbsp;configuration&amp;nbsp;data&amp;nbsp;in&lt;br&gt;
+settings.xml,&amp;nbsp;which&amp;nbsp;is&amp;nbsp;as&amp;nbsp;follows:&lt;br&gt;
+1&amp;nbsp;)&amp;nbsp;First,&amp;nbsp;we&amp;nbsp;need&amp;nbsp;to&amp;nbsp;create&amp;nbsp;a&amp;nbsp;master&amp;nbsp;encryption&amp;nbsp;key&amp;nbsp;by&amp;nbsp;using&amp;nbsp;the&lt;br&gt;
+following&amp;nbsp;command:&lt;br&gt;
+$&amp;nbsp;mvn&amp;nbsp;-emp&amp;nbsp;mymasterpassword&lt;br&gt;
+{lJ1MrCQRnngHIpSadxoyEKyt2zIGbm3Yl0ClKdTtRR6TleNaEfGOEoJaxNc&lt;br&gt;
+dMr+G}&lt;br&gt;
+&lt;br&gt;
+2)&amp;nbsp;With&amp;nbsp;the&amp;nbsp;output&amp;nbsp;from&amp;nbsp;the&amp;nbsp;previous&amp;nbsp;command,&amp;nbsp;we&amp;nbsp;need&amp;nbsp;to&amp;nbsp;create&amp;nbsp;a&amp;nbsp;file&amp;nbsp;called&lt;br&gt;
+settings-security.xml&amp;nbsp;under&amp;nbsp;USER_HOME/.m2/&amp;nbsp;and&amp;nbsp;add&amp;nbsp;the&amp;nbsp;encrypted&lt;br&gt;
+master&amp;nbsp;password&amp;nbsp;there&amp;nbsp;as&amp;nbsp;shown&amp;nbsp;here:&lt;br&gt;
+&lt;settingsSecurity&gt;&lt;br&gt;
+&lt;master&gt;&lt;br&gt;
+{lJ1MrCQRnngHIpSadxoyEKyt2zIGbm3Yl0ClKdTtRR6TleNaEfGOEoJaxN&lt;br&gt;
+cdMr+G}&lt;br&gt;
+&lt;/master&gt;&lt;br&gt;
+&lt;/settingsSecurity&gt;&lt;br&gt;
+&lt;br&gt;
+3)&amp;nbsp;Once&amp;nbsp;the&amp;nbsp;master&amp;nbsp;password&amp;nbsp;is&amp;nbsp;configured&amp;nbsp;properly,&amp;nbsp;we&amp;nbsp;can&amp;nbsp;start&amp;nbsp;encrypting&lt;br&gt;
+rest&amp;nbsp;of&amp;nbsp;the&amp;nbsp;confidential&amp;nbsp;data&amp;nbsp;in&amp;nbsp;settings.xml.&amp;nbsp;Let's&amp;nbsp;see&amp;nbsp;how&amp;nbsp;to&amp;nbsp;encrypt&amp;nbsp;the&lt;br&gt;
+SERVER&amp;nbsp;password.&amp;nbsp;First,&amp;nbsp;we&amp;nbsp;need&amp;nbsp;to&amp;nbsp;generate&amp;nbsp;the&amp;nbsp;encrypted&amp;nbsp;password&amp;nbsp;for&amp;nbsp;the&lt;br&gt;
+cleartext&amp;nbsp;one&amp;nbsp;using&amp;nbsp;the&amp;nbsp;following&amp;nbsp;command.&amp;nbsp;Note&amp;nbsp;that,&amp;nbsp;earlier&amp;nbsp;we&amp;nbsp;used&amp;nbsp;emp&lt;br&gt;
+(encrypt&amp;nbsp;master&amp;nbsp;password)&amp;nbsp;and&amp;nbsp;now&amp;nbsp;we&amp;nbsp;are&amp;nbsp;using&amp;nbsp;ep&amp;nbsp;(encrypt&amp;nbsp;password):&lt;br&gt;
+$&amp;nbsp;mvn&amp;nbsp;-ep&amp;nbsp;my_password&lt;br&gt;
+{PbYw8YaLb3cHA34/5EdHzoUsmmw/u/nWOwb9e+x6Hbs=}&lt;br&gt;
+&lt;br&gt;
+4)&amp;nbsp;Copy&amp;nbsp;the&amp;nbsp;value&amp;nbsp;of&amp;nbsp;the&amp;nbsp;encrypted&amp;nbsp;password&amp;nbsp;and&amp;nbsp;replace&amp;nbsp;the&amp;nbsp;corresponding&lt;br&gt;
+value&amp;nbsp;in&amp;nbsp;the&amp;nbsp;settings.xml&amp;nbsp;file,&amp;nbsp;as&amp;nbsp;shown&amp;nbsp;here:&lt;br&gt;
+&lt;server&gt;&lt;br&gt;
+&lt;id&gt;central&lt;/id&gt;&lt;br&gt;
+&lt;username&gt;my_username&lt;/username&gt;&lt;br&gt;
+&lt;password&gt;&lt;br&gt;
+{PbYw8YaLb3cHA34/5EdHzoUsmmw/u/nWOwb9e+x6Hbs=}&lt;br&gt;
+&lt;/password&gt;&lt;br&gt;
+&lt;/server&gt;&lt;br&gt;
+&lt;br&gt;
+5&amp;nbsp;))&amp;nbsp;computer&amp;nbsp;itself,&amp;nbsp;use&amp;nbsp;the&amp;nbsp;following&amp;nbsp;approach&amp;nbsp;to&amp;nbsp;remove&amp;nbsp;it&amp;nbsp;from&amp;nbsp;the&amp;nbsp;computer&lt;br&gt;
+and&amp;nbsp;take&amp;nbsp;it&amp;nbsp;with&amp;nbsp;you&amp;nbsp;in&amp;nbsp;a&amp;nbsp;USB&amp;nbsp;stick.&amp;nbsp;However,&amp;nbsp;the&amp;nbsp;disadvantage&amp;nbsp;in&amp;nbsp;this&lt;br&gt;
+approach&amp;nbsp;is&amp;nbsp;that&amp;nbsp;to&amp;nbsp;trigger&amp;nbsp;a&amp;nbsp;build,&amp;nbsp;Maven&amp;nbsp;always&amp;nbsp;looks&amp;nbsp;for&amp;nbsp;your&amp;nbsp;USB&amp;nbsp;stick,&amp;nbsp;and&lt;br&gt;
+this&amp;nbsp;will&amp;nbsp;prevent&amp;nbsp;any&amp;nbsp;scheduled&amp;nbsp;online&amp;nbsp;builds.&amp;nbsp;To&amp;nbsp;read&amp;nbsp;the&amp;nbsp;master&amp;nbsp;key&amp;nbsp;from&amp;nbsp;the&lt;br&gt;
+USB&amp;nbsp;stick,&amp;nbsp;use&amp;nbsp;the&amp;nbsp;following&amp;nbsp;configuration&amp;nbsp;in&amp;nbsp;settings-security.xml&amp;nbsp;under&lt;br&gt;
+USER_HOME/.m2/:&lt;br&gt;
+&lt;settingsSecurity&gt;&lt;br&gt;
+&lt;relocation&gt;&lt;br&gt;
+/Volumes/MyUSBPEN/settings-security.xml&lt;br&gt;
+&lt;/relocation&gt;&lt;br&gt;
+&lt;/settingsSecurity&gt;</questionanswer>
+  </question>
+</questions>
