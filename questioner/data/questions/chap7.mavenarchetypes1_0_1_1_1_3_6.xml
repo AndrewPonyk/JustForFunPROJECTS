@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_1_1_3_6" name="chap7.MavenArchetypes" nofquestions="0" nofsubcategories="0" filename="chap7.mavenarchetypes1_0_1_1_1_3_6.xml" />
+<questions id="1_0_1_1_1_3_6" name="chap7.MavenArchetypes" nofquestions="1" nofsubcategories="0" filename="chap7.mavenarchetypes1_0_1_1_1_3_6.xml">
+  <question id="1_0_1_1_1_3_6:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Create&amp;nbsp;custom&amp;nbsp;archetype&amp;nbsp;in&amp;nbsp;maven,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1)&amp;nbsp;Create&amp;nbsp;simple&amp;nbsp;maven&amp;nbsp;project&lt;br&gt;
+&lt;br&gt;
+2)&amp;nbsp;Change&amp;nbsp;structure&amp;nbsp;of&amp;nbsp;your&amp;nbsp;project&amp;nbsp;(add&amp;nbsp;some&amp;nbsp;packages&amp;nbsp;some&amp;nbsp;classes,&lt;br&gt;
+some&amp;nbsp;tests&amp;nbsp;,&amp;nbsp;folders&amp;nbsp;...)&lt;br&gt;
+&lt;br&gt;
+3)&amp;nbsp;Run&amp;nbsp;mvn&amp;nbsp;archetype:create-from-project&lt;br&gt;
+&lt;br&gt;
+4)&amp;nbsp;To&amp;nbsp;install&amp;nbsp;the&amp;nbsp;archetype&amp;nbsp;into&amp;nbsp;the&amp;nbsp;local&amp;nbsp;repository,&amp;nbsp;just&amp;nbsp;type&amp;nbsp;mvn&amp;nbsp;install&amp;nbsp;in&lt;br&gt;
+the&amp;nbsp;command-line&amp;nbsp;from&amp;nbsp;{your&amp;nbsp;project}/target/generated-sources/archetype.&lt;br&gt;
+&lt;br&gt;
+5)&amp;nbsp;And&amp;nbsp;it&amp;nbsp;is&amp;nbsp;all&amp;nbsp;your&amp;nbsp;archetype&amp;nbsp;is&amp;nbsp;in&amp;nbsp;local&amp;nbsp;repo,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&amp;nbsp;it.&lt;br&gt;
+(The&amp;nbsp;name&amp;nbsp;of&amp;nbsp;archetype&amp;nbsp;will&amp;nbsp;be&amp;nbsp;-DarchetypeArtifactId={name&amp;nbsp;of&amp;nbsp;project&amp;nbsp;from&amp;nbsp;1&amp;nbsp;step}-archetype)&lt;br&gt;
+&lt;br&gt;
+or&amp;nbsp;in&amp;nbsp;interactive&amp;nbsp;mode&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+mvn&amp;nbsp;archetype:generate&amp;nbsp;,&amp;nbsp;you&amp;nbsp;will&amp;nbsp;see&amp;nbsp;your&amp;nbsp;archetype&amp;nbsp;in&amp;nbsp;list.</questionanswer>
+  </question>
+</questions>

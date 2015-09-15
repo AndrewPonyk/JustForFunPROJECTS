@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_1_1_3_1" name="chap2.Demystifying.Project.Object.Model" nofquestions="3" nofsubcategories="0" filename="chap2.demystifying.project.object.model1_0_1_1_1_3_1.xml">
+<questions id="1_0_1_1_1_3_1" name="chap2.Demystifying.Project.Object.Model" nofquestions="4" nofsubcategories="0" filename="chap2.demystifying.project.object.model1_0_1_1_1_3_1.xml">
   <question id="1_0_1_1_1_3_1:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Maven:&amp;nbsp;POM&amp;nbsp;vs&amp;nbsp;Super&amp;nbsp;Pom&amp;nbsp;vs&amp;nbsp;Effective&amp;nbsp;Pom,&amp;nbsp;describe.&amp;nbsp;&lt;br&gt;
@@ -157,5 +157,43 @@ see&amp;nbsp;the&amp;nbsp;dependencies&amp;nbsp;from&amp;nbsp;before&amp;nbsp;ar
 &lt;/dependencies&gt;&lt;br&gt;
 &lt;/dependencyManagement&gt;&lt;br&gt;
 &lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_1_1_3_1:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Maven&amp;nbsp;Dependency&amp;nbsp;Exclusion,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Since&amp;nbsp;maven&amp;nbsp;2.x&amp;nbsp;resolves&amp;nbsp;dependencies&amp;nbsp;transitively,&amp;nbsp;it&amp;nbsp;is&amp;nbsp;possible&amp;nbsp;for&amp;nbsp;unwanted&amp;nbsp;dependencies&amp;nbsp;to&lt;br&gt;
+be&amp;nbsp;included&amp;nbsp;in&amp;nbsp;your&amp;nbsp;project's&amp;nbsp;classpath.&amp;nbsp;Projects&amp;nbsp;that&amp;nbsp;you&amp;nbsp;depend&amp;nbsp;on&amp;nbsp;may&amp;nbsp;not&amp;nbsp;have&amp;nbsp;declared&amp;nbsp;their&lt;br&gt;
+set&amp;nbsp;of&amp;nbsp;dependencies&amp;nbsp;correctly,&amp;nbsp;for&amp;nbsp;example.&amp;nbsp;In&amp;nbsp;order&amp;nbsp;to&amp;nbsp;address&amp;nbsp;this&amp;nbsp;special&amp;nbsp;situtation,&amp;nbsp;maven&amp;nbsp;2.x&amp;nbsp;has&lt;br&gt;
+incorporated&amp;nbsp;the&amp;nbsp;notion&amp;nbsp;of&amp;nbsp;explicit&amp;nbsp;dependency&amp;nbsp;exclusion.&amp;nbsp;Exclusions&amp;nbsp;are&amp;nbsp;set&amp;nbsp;on&amp;nbsp;a&amp;nbsp;specific&lt;br&gt;
+dependency&amp;nbsp;in&amp;nbsp;your&amp;nbsp;POM,&amp;nbsp;and&amp;nbsp;are&amp;nbsp;targeted&amp;nbsp;at&amp;nbsp;a&amp;nbsp;specific&amp;nbsp;groupId&amp;nbsp;and&amp;nbsp;artifactId.&lt;br&gt;
+When&amp;nbsp;you&amp;nbsp;build&amp;nbsp;your&amp;nbsp;project,&amp;nbsp;that&amp;nbsp;artifact&amp;nbsp;will&amp;nbsp;not&amp;nbsp;be&amp;nbsp;added&amp;nbsp;to&amp;nbsp;your&amp;nbsp;project's&amp;nbsp;classpath&amp;nbsp;by&amp;nbsp;way&amp;nbsp;of&amp;nbsp;the&lt;br&gt;
+dependency&amp;nbsp;in&amp;nbsp;which&amp;nbsp;the&amp;nbsp;exclusion&amp;nbsp;was&amp;nbsp;declared.&lt;br&gt;
+&lt;br&gt;
+We&amp;nbsp;add&amp;nbsp;the&amp;nbsp;&lt;exclusions&gt;&amp;nbsp;tag&amp;nbsp;under&amp;nbsp;the&amp;nbsp;&lt;dependency&gt;&amp;nbsp;section&amp;nbsp;of&amp;nbsp;the&amp;nbsp;pom.&lt;br&gt;
+&lt;br&gt;
+&lt;project&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;...&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&lt;dependencies&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;dependency&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;groupId&gt;sample.ProjectA&lt;/groupId&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;artifactId&gt;Project-A&lt;/artifactId&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;version&gt;1.0&lt;/version&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;scope&gt;compile&lt;/scope&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;exclusions&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;exclusion&gt;&amp;nbsp;&amp;nbsp;&lt;!--&amp;nbsp;declare&amp;nbsp;the&amp;nbsp;exclusion&amp;nbsp;here&amp;nbsp;--&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;groupId&gt;sample.ProjectB&lt;/groupId&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;artifactId&gt;Project-B&lt;/artifactId&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/exclusion&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/exclusions&gt;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/dependency&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&lt;/dependencies&gt;&lt;br&gt;
+&lt;/project&gt;&lt;br&gt;
+&lt;br&gt;
+Excluded&amp;nbsp;dependencies&amp;nbsp;-&amp;nbsp;If&amp;nbsp;project&amp;nbsp;X&amp;nbsp;depends&amp;nbsp;on&amp;nbsp;project&amp;nbsp;Y,&amp;nbsp;and&amp;nbsp;project&amp;nbsp;Y&amp;nbsp;depends&amp;nbsp;on&amp;nbsp;project&amp;nbsp;Z,&amp;nbsp;the&amp;nbsp;owner&amp;nbsp;of&lt;br&gt;
+project&amp;nbsp;X&amp;nbsp;can&amp;nbsp;explicitly&amp;nbsp;exclude&amp;nbsp;project&amp;nbsp;Z&amp;nbsp;as&amp;nbsp;a&amp;nbsp;dependency,&amp;nbsp;using&amp;nbsp;the&amp;nbsp;"exclusion"&amp;nbsp;element.&lt;br&gt;
+&lt;br&gt;
+For&amp;nbsp;details&amp;nbsp;::&lt;br&gt;
+https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html</questionanswer>
   </question>
 </questions>
