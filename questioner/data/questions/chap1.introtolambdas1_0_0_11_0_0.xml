@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_11_0_0" name="chap1.IntroToLambdas" nofquestions="1" nofsubcategories="0" filename="chap1.introtolambdas1_0_0_11_0_0.xml">
+<questions id="1_0_0_11_0_0" name="chap1.IntroToLambdas" nofquestions="4" nofsubcategories="0" filename="chap1.introtolambdas1_0_0_11_0_0.xml">
   <question id="1_0_0_11_0_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;Lambda&amp;nbsp;Expression&amp;nbsp;?&amp;nbsp;&lt;br&gt;
@@ -41,5 +41,146 @@ public&amp;nbsp;class&amp;nbsp;FirstLambdaExpression&amp;nbsp;{&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
 }&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_0_11_0_0:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;Lambdas&amp;nbsp;:&amp;nbsp;provide&amp;nbsp;examples&amp;nbsp;with&amp;nbsp;Runnable&amp;nbsp;and&amp;nbsp;&lt;br&gt;
+Comparator.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>package&amp;nbsp;part1Lambdas;&lt;br&gt;
+&lt;br&gt;
+import&amp;nbsp;java.util.Arrays;&lt;br&gt;
+import&amp;nbsp;java.util.Collections;&lt;br&gt;
+import&amp;nbsp;java.util.Comparator;&lt;br&gt;
+import&amp;nbsp;java.util.List;&lt;br&gt;
+&lt;br&gt;
+/**&lt;br&gt;
+&amp;nbsp;*&amp;nbsp;Created&amp;nbsp;by&amp;nbsp;andrew&amp;nbsp;on&amp;nbsp;17.09.15.&lt;br&gt;
+&amp;nbsp;*/&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;ExampleWithRunnableAndComparator&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;throws&amp;nbsp;InterruptedException&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("Runnable&amp;nbsp;and&amp;nbsp;Comparator");&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Runnable&amp;nbsp;runnableLambda&amp;nbsp;=&amp;nbsp;()-&gt;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for(int&amp;nbsp;i&amp;nbsp;=0;&amp;nbsp;i&amp;nbsp;&lt;&amp;nbsp;3&amp;nbsp;;&amp;nbsp;i++&amp;nbsp;){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("Hello&amp;nbsp;from&amp;nbsp;thread"&amp;nbsp;+&amp;nbsp;Thread.currentThread().getName());&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;};&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Thread&amp;nbsp;t&amp;nbsp;=&amp;nbsp;new&amp;nbsp;Thread(runnableLambda);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;t.start();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;t.join();&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/////////////////////////&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;String&gt;&amp;nbsp;list&amp;nbsp;=&amp;nbsp;Arrays.asList("***",&amp;nbsp;"**",&amp;nbsp;"****",&amp;nbsp;"*");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Comparator&lt;?&amp;nbsp;super&amp;nbsp;String&gt;&amp;nbsp;comp&amp;nbsp;=&amp;nbsp;(o1,&amp;nbsp;o2)&amp;nbsp;-&gt;&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//return&amp;nbsp;Integer.compare(o1.length(),&amp;nbsp;o2.length());&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;o1.length()&amp;nbsp;-&amp;nbsp;o2.length();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;-1&amp;nbsp;if&amp;nbsp;first&amp;nbsp;argument&amp;nbsp;is&amp;nbsp;less&amp;nbsp;,0&amp;nbsp;when&amp;nbsp;equals&amp;nbsp;,&amp;nbsp;1&amp;nbsp;when&amp;nbsp;greater&amp;nbsp;than&amp;nbsp;second&amp;nbsp;argument&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;};&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Collections.sort(list,&amp;nbsp;comp);&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for(String&amp;nbsp;item&amp;nbsp;:&amp;nbsp;list){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(item);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_0_11_0_0:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;type&amp;nbsp;of&amp;nbsp;lambda&amp;nbsp;expression&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+Is&amp;nbsp;lambda&amp;nbsp;expression&amp;nbsp;an&amp;nbsp;object&amp;nbsp;in&amp;nbsp;Java&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1)&amp;nbsp;Answer&amp;nbsp;:&amp;nbsp;Functional&amp;nbsp;Interface&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Functional&amp;nbsp;Interface&amp;nbsp;is&amp;nbsp;"Interface&amp;nbsp;with&amp;nbsp;ONE&amp;nbsp;abstract&amp;nbsp;method&amp;nbsp;"&amp;nbsp;&lt;br&gt;
+And&amp;nbsp;Must&amp;nbsp;Be&amp;nbsp;marked&amp;nbsp;with&amp;nbsp;@FunctionalInterface&lt;br&gt;
+&lt;br&gt;
+===================================&lt;br&gt;
+2)&lt;br&gt;
+It&amp;nbsp;is&amp;nbsp;equivalent&amp;nbsp;but&amp;nbsp;not&amp;nbsp;identical.&amp;nbsp;Simply&amp;nbsp;said,&amp;nbsp;if&amp;nbsp;a&amp;nbsp;lambda&amp;nbsp;expression&amp;nbsp;does&amp;nbsp;not&amp;nbsp;captures&lt;br&gt;
+values,&amp;nbsp;it&amp;nbsp;will&amp;nbsp;be&amp;nbsp;a&amp;nbsp;singleton&amp;nbsp;that&amp;nbsp;is&amp;nbsp;re-used&amp;nbsp;on&amp;nbsp;every&amp;nbsp;invocation.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;behavior&amp;nbsp;is&amp;nbsp;not&amp;nbsp;exactly&amp;nbsp;specified.&amp;nbsp;The&amp;nbsp;JVM&amp;nbsp;is&amp;nbsp;given&amp;nbsp;a&amp;nbsp;big&amp;nbsp;freedom&amp;nbsp;how&amp;nbsp;to&amp;nbsp;implement&lt;br&gt;
+it.&amp;nbsp;Currently,&amp;nbsp;Oracle’s&amp;nbsp;JVM&amp;nbsp;creates&amp;nbsp;(at&amp;nbsp;least)&amp;nbsp;one&amp;nbsp;instance&amp;nbsp;per&amp;nbsp;lambda&amp;nbsp;expression&amp;nbsp;(i.e.&lt;br&gt;
+doesn’t&amp;nbsp;share&amp;nbsp;instance&amp;nbsp;between&amp;nbsp;different&amp;nbsp;identical&amp;nbsp;expressions)&amp;nbsp;but&amp;nbsp;creates&amp;nbsp;singleton&lt;br&gt;
+for&amp;nbsp;all&amp;nbsp;expression&amp;nbsp;which&amp;nbsp;don’t&amp;nbsp;capture&amp;nbsp;values.&lt;br&gt;
+&lt;br&gt;
+You&amp;nbsp;may&amp;nbsp;read&amp;nbsp;this&amp;nbsp;answer&amp;nbsp;for&amp;nbsp;more&amp;nbsp;details.&amp;nbsp;There,&amp;nbsp;I&amp;nbsp;not&amp;nbsp;only&amp;nbsp;gave&amp;nbsp;a&amp;nbsp;more&amp;nbsp;detailed&lt;br&gt;
+description&amp;nbsp;but&amp;nbsp;also&amp;nbsp;testing&amp;nbsp;code&amp;nbsp;to&amp;nbsp;observe&amp;nbsp;the&amp;nbsp;current&amp;nbsp;behavior.</questionanswer>
+  </question>
+  <question id="1_0_0_11_0_0:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Describe&amp;nbsp;java.util.function&amp;nbsp;package.&lt;br&gt;
+What&amp;nbsp;does&amp;nbsp;such&amp;nbsp;code&amp;nbsp;do&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Consumer&lt;String&gt;&amp;nbsp;myPrint&amp;nbsp;=&amp;nbsp;System.out::println;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;myPrint.accept(&amp;quot;Hello&amp;nbsp;world&amp;quot;);&lt;br&gt;
+?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>java.util.function&amp;nbsp;package&lt;br&gt;
+Contains&amp;nbsp;Functional&amp;nbsp;interfaces&amp;nbsp;provide&amp;nbsp;target&amp;nbsp;types&amp;nbsp;for&amp;nbsp;lambda&amp;nbsp;expressions&amp;nbsp;and&lt;br&gt;
+method&amp;nbsp;references.&lt;br&gt;
+&lt;br&gt;
+Functional&amp;nbsp;Interfaces&amp;nbsp;can&amp;nbsp;be&amp;nbsp;categoriezed&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Consumers&amp;nbsp;..&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Suppliers...&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Functions&amp;nbsp;...&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-&amp;nbsp;Predicates&lt;br&gt;
+&lt;br&gt;
+For&amp;nbsp;example&amp;nbsp;Supplier&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+@FunctionalInterface&lt;br&gt;
+public&amp;nbsp;interface&amp;nbsp;Supplier&lt;T&gt;&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/**&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Gets&amp;nbsp;a&amp;nbsp;result.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;@return&amp;nbsp;a&amp;nbsp;result&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*/&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;T&amp;nbsp;get();&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+Predicate&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+@FunctionalInterface&lt;br&gt;
+public&amp;nbsp;interface&amp;nbsp;Predicate&lt;T&gt;&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/**&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;Evaluates&amp;nbsp;this&amp;nbsp;predicate&amp;nbsp;on&amp;nbsp;the&amp;nbsp;given&amp;nbsp;argument.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;@param&amp;nbsp;t&amp;nbsp;the&amp;nbsp;input&amp;nbsp;argument&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;@return&amp;nbsp;{@code&amp;nbsp;true}&amp;nbsp;if&amp;nbsp;the&amp;nbsp;input&amp;nbsp;argument&amp;nbsp;matches&amp;nbsp;the&amp;nbsp;predicate,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;otherwise&amp;nbsp;{@code&amp;nbsp;false}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*/&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;boolean&amp;nbsp;test(T&amp;nbsp;t);&lt;br&gt;
+}&lt;br&gt;
+==========================================&lt;br&gt;
+&lt;br&gt;
+Example&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+package&amp;nbsp;part1Lambdas;&lt;br&gt;
+&lt;br&gt;
+import&amp;nbsp;java.util.function.Consumer;&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;ExploreJavaUtilFunctionPackage&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;&amp;nbsp;static&amp;nbsp;&amp;nbsp;void&amp;nbsp;sayHello(){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("HELLO...");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;arg){&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Consumer&lt;String&gt;&amp;nbsp;myPrint&amp;nbsp;=&amp;nbsp;System.out::println;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;myPrint.accept("Hello&amp;nbsp;world");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//=========================================&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Runnable&amp;nbsp;r&amp;nbsp;=&amp;nbsp;ExploreJavaUtilFunctionPackage::sayHello;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;The&amp;nbsp;SAME&amp;nbsp;code&amp;nbsp;without&amp;nbsp;method&amp;nbsp;reference&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Runnable&amp;nbsp;rr&amp;nbsp;=&amp;nbsp;()-&gt;{ExploreJavaUtilFunctionPackage.sayHello();};&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;rr.run();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+OUTPUT&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+Hello&amp;nbsp;world&lt;br&gt;
+HELLO...</questionanswer>
   </question>
 </questions>

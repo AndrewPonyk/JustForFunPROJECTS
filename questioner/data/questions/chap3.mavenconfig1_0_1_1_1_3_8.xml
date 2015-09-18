@@ -6,7 +6,7 @@
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;good&amp;nbsp;idea.&lt;br&gt;
 Which&amp;nbsp;approach&amp;nbsp;insted&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&amp;nbsp;in&amp;nbsp;maven&amp;nbsp;?&lt;br&gt;
 &amp;nbsp;&amp;nbsp;</questiontext>
-    <questionanswer> [inlineText]Maven&amp;nbsp;keeps&amp;nbsp;confidential&amp;nbsp;data&amp;nbsp;such&amp;nbsp;as&amp;nbsp;passwords&amp;nbsp;in&amp;nbsp;settings.xml.&amp;nbsp;For&amp;nbsp;example,&lt;br&gt;
+    <questionanswer> Maven&amp;nbsp;keeps&amp;nbsp;confidential&amp;nbsp;data&amp;nbsp;such&amp;nbsp;as&amp;nbsp;passwords&amp;nbsp;in&amp;nbsp;settings.xml.&amp;nbsp;For&amp;nbsp;example,&lt;br&gt;
 in&amp;nbsp;the&amp;nbsp;previous&amp;nbsp;two&amp;nbsp;sections,&amp;nbsp;the&amp;nbsp;passwords&amp;nbsp;for&amp;nbsp;the&amp;nbsp;proxy&amp;nbsp;server&amp;nbsp;and&amp;nbsp;the&amp;nbsp;repository&lt;br&gt;
 are&amp;nbsp;kept&amp;nbsp;in&amp;nbsp;cleartext.&amp;nbsp;The&amp;nbsp;following&amp;nbsp;configuration&amp;nbsp;repeats&amp;nbsp;the&amp;nbsp;server&amp;nbsp;configuration&lt;br&gt;
 of&amp;nbsp;a&amp;nbsp;repository&amp;nbsp;secured&amp;nbsp;with&amp;nbsp;HTTP&amp;nbsp;Basic&amp;nbsp;authentication:&lt;br&gt;
