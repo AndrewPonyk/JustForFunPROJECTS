@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_11_0_0" name="chap1.IntroToLambdas" nofquestions="4" nofsubcategories="0" filename="chap1.introtolambdas1_0_0_11_0_0.xml">
+<questions id="1_0_0_11_0_0" name="chap1.IntroToLambdas" nofquestions="6" nofsubcategories="0" filename="chap1.introtolambdas1_0_0_11_0_0.xml">
   <question id="1_0_0_11_0_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;Lambda&amp;nbsp;Expression&amp;nbsp;?&amp;nbsp;&lt;br&gt;
@@ -182,5 +182,103 @@ public&amp;nbsp;class&amp;nbsp;ExploreJavaUtilFunctionPackage&amp;nbsp;{&lt;br&g
 OUTPUT&amp;nbsp;:&amp;nbsp;&lt;br&gt;
 Hello&amp;nbsp;world&lt;br&gt;
 HELLO...</questionanswer>
+  </question>
+  <question id="1_0_0_11_0_0:4" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;8&amp;nbsp;Method&amp;nbsp;references,&amp;nbsp;describe.&amp;nbsp;Provide&amp;nbsp;example&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>https://blog.idrsolutions.com/2015/02/java-8-method-references-explained-5-minutes/&lt;br&gt;
+=====================================&lt;br&gt;
+&lt;br&gt;
+What&amp;nbsp;is&amp;nbsp;Method&amp;nbsp;References?&lt;br&gt;
+It&amp;nbsp;is&amp;nbsp;a&amp;nbsp;feature&amp;nbsp;which&amp;nbsp;is&amp;nbsp;related&amp;nbsp;to&amp;nbsp;Lambda&amp;nbsp;Expression.&amp;nbsp;It&amp;nbsp;allows&amp;nbsp;us&amp;nbsp;to&amp;nbsp;reference&amp;nbsp;constructors&lt;br&gt;
+or&amp;nbsp;methods&amp;nbsp;without&amp;nbsp;executing&amp;nbsp;them.&amp;nbsp;Method&amp;nbsp;references&amp;nbsp;and&amp;nbsp;Lambda&amp;nbsp;are&amp;nbsp;similar&amp;nbsp;in&amp;nbsp;that&lt;br&gt;
+they&amp;nbsp;both&amp;nbsp;require&amp;nbsp;a&amp;nbsp;target&amp;nbsp;type&amp;nbsp;that&amp;nbsp;consist&amp;nbsp;of&amp;nbsp;a&amp;nbsp;compatible&amp;nbsp;functional&amp;nbsp;interface.&lt;br&gt;
+&lt;br&gt;
+------------------------&lt;br&gt;
+Example&amp;nbsp;&amp;nbsp;:&lt;br&gt;
+&lt;br&gt;
+package&amp;nbsp;part1Lambdas;&lt;br&gt;
+import&amp;nbsp;java.util.Arrays;&lt;br&gt;
+import&amp;nbsp;java.util.List;&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;MethodReferences&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;https://blog.idrsolutions.com/2015/02/java-8-method-references-explained-5-minutes/&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;arg){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("Method&amp;nbsp;references");&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;String&gt;&amp;nbsp;customers&amp;nbsp;=&amp;nbsp;Arrays.asList("WDS",&amp;nbsp;"Xerox",&amp;nbsp;"Nokia");&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//next&amp;nbsp;strings&amp;nbsp;are&amp;nbsp;equals&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;customers.forEach(&amp;nbsp;(String&amp;nbsp;e)&amp;nbsp;-&gt;&amp;nbsp;{&amp;nbsp;System.out.printf(e&amp;nbsp;+&amp;nbsp;"3310\n");&amp;nbsp;}&amp;nbsp;);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;customers.forEach(&amp;nbsp;System.out::println);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+================================&lt;br&gt;
+2.&amp;nbsp;Reference&amp;nbsp;To&amp;nbsp;Constructor&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;ReferenceToConstructor&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;/**&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*&amp;nbsp;@param&amp;nbsp;args&amp;nbsp;the&amp;nbsp;command&amp;nbsp;line&amp;nbsp;arguments&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;*/&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;TODO&amp;nbsp;code&amp;nbsp;application&amp;nbsp;logic&amp;nbsp;here&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&amp;nbsp;&amp;nbsp;numbers&amp;nbsp;=&amp;nbsp;Arrays.asList(4,9,16,25,36);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&amp;nbsp;squaredNumbers&amp;nbsp;=&amp;nbsp;ReferenceToConstructor.findSquareRoot(numbers,Double::new);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("Square&amp;nbsp;root&amp;nbsp;of&amp;nbsp;numbers&amp;nbsp;=&amp;nbsp;"+squaredNumbers);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;static&amp;nbsp;List&amp;nbsp;findSquareRoot(List&amp;nbsp;list,&amp;nbsp;Function&lt;double,double&gt;&amp;nbsp;f){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&amp;nbsp;result&amp;nbsp;=&amp;nbsp;new&amp;nbsp;ArrayList();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;list.forEach(x&amp;nbsp;-&gt;&amp;nbsp;result.add(f.apply(Math.sqrt(x))));&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;result;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}</questionanswer>
+  </question>
+  <question id="1_0_0_11_0_0:5" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;to&amp;nbsp;create&amp;nbsp;your&amp;nbsp;own&amp;nbsp;Functional&amp;nbsp;Interface&amp;nbsp;in&amp;nbsp;java&amp;nbsp;8&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Example&amp;nbsp;:&amp;nbsp;package&amp;nbsp;part1Lambdas;&lt;br&gt;
+&lt;br&gt;
+import&amp;nbsp;java.util.Objects;&lt;br&gt;
+import&amp;nbsp;java.util.function.Function;&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;OwnFunctionalInterfaces&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;arg)&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;int&amp;nbsp;multipleBy2&amp;nbsp;=&amp;nbsp;calculation(10,&amp;nbsp;e&amp;nbsp;-&gt;&amp;nbsp;e&amp;nbsp;*&amp;nbsp;2);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;int&amp;nbsp;square&amp;nbsp;=&amp;nbsp;calculation(10,&amp;nbsp;OwnFunctionalInterfaces::square);&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(multipleBy2);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(square);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;int&amp;nbsp;square(Integer&amp;nbsp;n)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;n&amp;nbsp;*&amp;nbsp;n;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;int&amp;nbsp;calculation(int&amp;nbsp;n,&amp;nbsp;Multiple&amp;nbsp;operation)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Objects.requireNonNull(operation);&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;operation.mult(n);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+@FunctionalInterface&lt;br&gt;
+interface&amp;nbsp;Multiple&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Integer&amp;nbsp;mult(Integer&amp;nbsp;k);&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+OUTPUT&amp;nbsp;:&lt;br&gt;
+&lt;br&gt;
+20&lt;br&gt;
+100</questionanswer>
   </question>
 </questions>
