@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="2_11_0" name="Crypto_Other_Resources" nofquestions="1" nofsubcategories="0" filename="crypto_other_resources2_11_0.xml">
+  <question id="2_11_0:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Describe&amp;nbsp;RSA&amp;nbsp;Algorithm,&amp;nbsp;provide&amp;nbsp;example&amp;nbsp;of&amp;nbsp;encruption.&lt;br&gt;
+List&amp;nbsp;first&amp;nbsp;20&amp;nbsp;Primary&amp;nbsp;numbers.&amp;nbsp;Is&amp;nbsp;&amp;quot;1&amp;quot;&amp;nbsp;a&amp;nbsp;prime&amp;nbsp;number&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>"1"&amp;nbsp;is&amp;nbsp;not&amp;nbsp;prime&amp;nbsp;number&amp;nbsp;&lt;br&gt;
+A&amp;nbsp;prime&amp;nbsp;number&amp;nbsp;(or&amp;nbsp;a&amp;nbsp;prime)&amp;nbsp;is&amp;nbsp;a&amp;nbsp;natural&amp;nbsp;number&amp;nbsp;greater&amp;nbsp;than&amp;nbsp;1&amp;nbsp;that&amp;nbsp;has&amp;nbsp;no&amp;nbsp;positive&amp;nbsp;divisors&lt;br&gt;
+other&amp;nbsp;than&amp;nbsp;1&amp;nbsp;and&amp;nbsp;itself.&amp;nbsp;A&amp;nbsp;natural&amp;nbsp;number&amp;nbsp;greater&amp;nbsp;than&amp;nbsp;1&amp;nbsp;that&amp;nbsp;is&amp;nbsp;not&amp;nbsp;a&amp;nbsp;prime&amp;nbsp;number&amp;nbsp;is&amp;nbsp;called&lt;br&gt;
+a&amp;nbsp;composite&amp;nbsp;number.&lt;br&gt;
+==================&lt;br&gt;
+https://en.wikipedia.org/wiki/RSA_(cryptosystem)&lt;br&gt;
+&lt;br&gt;
+Example&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+1)Choose&amp;nbsp;p&amp;nbsp;=&amp;nbsp;3&amp;nbsp;and&amp;nbsp;q&amp;nbsp;=&amp;nbsp;11&lt;br&gt;
+2)Compute&amp;nbsp;n&amp;nbsp;=&amp;nbsp;p&amp;nbsp;*&amp;nbsp;q&amp;nbsp;=&amp;nbsp;3&amp;nbsp;*&amp;nbsp;11&amp;nbsp;=&amp;nbsp;33&lt;br&gt;
+3)&amp;nbsp;Compute&amp;nbsp;φ(n)&amp;nbsp;=&amp;nbsp;(p&amp;nbsp;-&amp;nbsp;1)&amp;nbsp;*&amp;nbsp;(q&amp;nbsp;-&amp;nbsp;1)&amp;nbsp;=&amp;nbsp;2&amp;nbsp;*&amp;nbsp;10&amp;nbsp;=&amp;nbsp;20&lt;br&gt;
+4)Choose&amp;nbsp;e&amp;nbsp;such&amp;nbsp;that&amp;nbsp;1&amp;nbsp;&lt;&amp;nbsp;e&amp;nbsp;&lt;&amp;nbsp;φ(n)&amp;nbsp;and&amp;nbsp;e&amp;nbsp;and&amp;nbsp;n&amp;nbsp;are&amp;nbsp;COPRIME.&amp;nbsp;Let&amp;nbsp;e&amp;nbsp;=&amp;nbsp;7&lt;br&gt;
+5)&amp;nbsp;Compute&amp;nbsp;a&amp;nbsp;value&amp;nbsp;for&amp;nbsp;d&amp;nbsp;such&amp;nbsp;that&amp;nbsp;(d&amp;nbsp;*&amp;nbsp;e)&amp;nbsp;%&amp;nbsp;φ(n)&amp;nbsp;=&amp;nbsp;1.&amp;nbsp;One&amp;nbsp;solution&amp;nbsp;is&amp;nbsp;d&amp;nbsp;=&amp;nbsp;3&amp;nbsp;[(3&amp;nbsp;*&amp;nbsp;7)&amp;nbsp;%&amp;nbsp;20&amp;nbsp;=&amp;nbsp;1]&lt;br&gt;
+6)&lt;br&gt;
+Public&amp;nbsp;key&amp;nbsp;is&amp;nbsp;(e,&amp;nbsp;n)&amp;nbsp;=&gt;&amp;nbsp;(7,&amp;nbsp;33)&lt;br&gt;
+Private&amp;nbsp;key&amp;nbsp;is&amp;nbsp;(d,&amp;nbsp;n)&amp;nbsp;=&gt;&amp;nbsp;(3,&amp;nbsp;33)&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;encryption&amp;nbsp;of&amp;nbsp;m&amp;nbsp;=&amp;nbsp;2&amp;nbsp;is&amp;nbsp;c&amp;nbsp;=&amp;nbsp;27&amp;nbsp;%&amp;nbsp;33&amp;nbsp;=&amp;nbsp;29&lt;br&gt;
+The&amp;nbsp;decryption&amp;nbsp;of&amp;nbsp;c&amp;nbsp;=&amp;nbsp;29&amp;nbsp;is&amp;nbsp;m&amp;nbsp;=&amp;nbsp;293&amp;nbsp;%&amp;nbsp;33&amp;nbsp;=&amp;nbsp;2&lt;br&gt;
+&lt;br&gt;
+=========================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Prime&amp;nbsp;numbers&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+2&lt;br&gt;
+3&lt;br&gt;
+5&lt;br&gt;
+7&lt;br&gt;
+11&lt;br&gt;
+13&lt;br&gt;
+17&lt;br&gt;
+19&lt;br&gt;
+23&lt;br&gt;
+29&lt;br&gt;
+31&lt;br&gt;
+37&lt;br&gt;
+41&lt;br&gt;
+43&lt;br&gt;
+47&lt;br&gt;
+53&lt;br&gt;
+59&lt;br&gt;
+61&lt;br&gt;
+67&lt;br&gt;
+71&lt;br&gt;
+73&lt;br&gt;
+79&lt;br&gt;
+83&lt;br&gt;
+89&lt;br&gt;
+97&lt;br&gt;
+101&amp;nbsp;103&amp;nbsp;107&amp;nbsp;109&amp;nbsp;113&amp;nbsp;127&amp;nbsp;131&amp;nbsp;137&amp;nbsp;139&amp;nbsp;149&amp;nbsp;151&amp;nbsp;157&amp;nbsp;163&amp;nbsp;167&lt;br&gt;
+173&amp;nbsp;179&amp;nbsp;181&amp;nbsp;191&amp;nbsp;193&amp;nbsp;197&amp;nbsp;199&amp;nbsp;211&amp;nbsp;223&amp;nbsp;227</questionanswer>
+  </question>
+</questions>

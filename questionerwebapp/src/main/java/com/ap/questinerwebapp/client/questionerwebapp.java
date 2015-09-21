@@ -176,7 +176,15 @@ public class questionerwebapp implements EntryPoint {
 							public void onClick(ClickEvent event) {
 								InlineHTML questionAnswer = new InlineHTML();
 
-								questionAnswer.setHTML(getQuestionAnswerById(questionsDocumentRoot, questionId));
+								String questionAnswerText = getQuestionAnswerById(questionsDocumentRoot, questionId);
+
+								questionAnswerText = questionAnswerText.replaceAll("(<)(\\w+)(>)","&lt;$2$3");
+								questionAnswerText = questionAnswerText.replaceAll("(<)(/\\w+)(>)","&lt;$2$3");
+
+								questionAnswerText = questionAnswerText.replaceAll("&lt;br>","<br>");
+								questionAnswerText = questionAnswerText.replaceAll("&lt;/br>","</br>");
+
+								questionAnswer.setHTML(questionAnswerText);
 
 								RootPanel.get("questionItemContainer").clear();
 								RootPanel.get("questionItemContainer").add(questionAnswer);
