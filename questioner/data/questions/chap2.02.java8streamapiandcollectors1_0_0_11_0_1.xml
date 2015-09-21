@@ -1,2 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_11_0_1" name="chap2.02.Java8StreamAPIandCollectors" nofquestions="0" nofsubcategories="0" filename="chap2.02.java8streamapiandcollectors1_0_0_11_0_1.xml" />
+<questions id="1_0_0_11_0_1" name="chap2.02.Java8StreamAPIandCollectors" nofquestions="1" nofsubcategories="0" filename="chap2.02.java8streamapiandcollectors1_0_0_11_0_1.xml">
+  <question id="1_0_0_11_0_1:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;Stream&amp;nbsp;in&amp;nbsp;Java&amp;nbsp;8.&lt;br&gt;
+Using&amp;nbsp;stream&amp;nbsp;display&amp;nbsp;all&amp;nbsp;values&amp;nbsp;from&amp;nbsp;List&amp;nbsp;of&amp;nbsp;String.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>What&amp;nbsp;are&amp;nbsp;streams?&lt;br&gt;
+&lt;br&gt;
+A&amp;nbsp;Stream&amp;nbsp;is&amp;nbsp;a&amp;nbsp;free&amp;nbsp;flowing&amp;nbsp;sequence&amp;nbsp;of&amp;nbsp;elements.&amp;nbsp;They&amp;nbsp;do&amp;nbsp;not&amp;nbsp;hold&amp;nbsp;any&amp;nbsp;storage&amp;nbsp;as&amp;nbsp;that&lt;br&gt;
+responsibility&amp;nbsp;lies&amp;nbsp;with&amp;nbsp;collections&amp;nbsp;such&amp;nbsp;as&amp;nbsp;arrays,&amp;nbsp;lists&amp;nbsp;and&amp;nbsp;sets.&amp;nbsp;Every&amp;nbsp;stream&amp;nbsp;starts&amp;nbsp;with&lt;br&gt;
+a&amp;nbsp;source&amp;nbsp;of&amp;nbsp;data,&amp;nbsp;sets&amp;nbsp;up&amp;nbsp;a&amp;nbsp;pipeline,&amp;nbsp;processes&amp;nbsp;the&amp;nbsp;elements&amp;nbsp;through&amp;nbsp;a&amp;nbsp;pipeline&lt;br&gt;
+and&amp;nbsp;finishes&amp;nbsp;with&amp;nbsp;a&amp;nbsp;TERMINAL&amp;nbsp;operation.&amp;nbsp;They&amp;nbsp;allow&amp;nbsp;us&amp;nbsp;to&amp;nbsp;parallelize&amp;nbsp;the&amp;nbsp;load&amp;nbsp;that&amp;nbsp;comes&lt;br&gt;
+with&amp;nbsp;heavy&amp;nbsp;operations&amp;nbsp;without&amp;nbsp;having&amp;nbsp;to&amp;nbsp;write&amp;nbsp;any&amp;nbsp;parallel&amp;nbsp;code.&lt;br&gt;
+A&amp;nbsp;new&amp;nbsp;package&amp;nbsp;java.util.stream&amp;nbsp;was&amp;nbsp;introduced&amp;nbsp;in&amp;nbsp;Java&amp;nbsp;8&amp;nbsp;to&amp;nbsp;deal&amp;nbsp;with&amp;nbsp;this&amp;nbsp;feature.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;Streams&amp;nbsp;can&amp;nbsp;be&amp;nbsp;obtained&amp;nbsp;in&amp;nbsp;a&amp;nbsp;number&amp;nbsp;of&amp;nbsp;ways.&amp;nbsp;Some&amp;nbsp;examples&amp;nbsp;include:&lt;br&gt;
+-&amp;nbsp;From&amp;nbsp;a&amp;nbsp;Collection&amp;nbsp;via&amp;nbsp;the&amp;nbsp;stream()&amp;nbsp;and&amp;nbsp;parallelStream()&amp;nbsp;methods;&lt;br&gt;
+-&amp;nbsp;From&amp;nbsp;an&amp;nbsp;array&amp;nbsp;via&amp;nbsp;Arrays.stream(Object[]);&lt;br&gt;
+-&amp;nbsp;From&amp;nbsp;static&amp;nbsp;factory&amp;nbsp;methods&amp;nbsp;on&amp;nbsp;the&amp;nbsp;stream&amp;nbsp;classes,&amp;nbsp;such&amp;nbsp;as&amp;nbsp;Stream.of(Object[]),&amp;nbsp;IntStream.range(int,&amp;nbsp;int)&amp;nbsp;or&amp;nbsp;Stream.iterate(Object,&amp;nbsp;UnaryOperator);&lt;br&gt;
+-&amp;nbsp;The&amp;nbsp;lines&amp;nbsp;of&amp;nbsp;a&amp;nbsp;file&amp;nbsp;can&amp;nbsp;be&amp;nbsp;obtained&amp;nbsp;from&amp;nbsp;BufferedReader.lines();&lt;br&gt;
+-&amp;nbsp;Streams&amp;nbsp;of&amp;nbsp;file&amp;nbsp;paths&amp;nbsp;can&amp;nbsp;be&amp;nbsp;obtained&amp;nbsp;from&amp;nbsp;methods&amp;nbsp;in&amp;nbsp;Files;&lt;br&gt;
+-&amp;nbsp;Streams&amp;nbsp;of&amp;nbsp;random&amp;nbsp;numbers&amp;nbsp;can&amp;nbsp;be&amp;nbsp;obtained&amp;nbsp;from&amp;nbsp;Random.ints();&lt;br&gt;
+-&amp;nbsp;Numerous&amp;nbsp;other&amp;nbsp;stream-bearing&amp;nbsp;methods&amp;nbsp;in&amp;nbsp;the&amp;nbsp;JDK,&amp;nbsp;including&amp;nbsp;BitSet.stream(),&amp;nbsp;Pattern.splitAsStream(java.lang.CharSequence),&amp;nbsp;and&amp;nbsp;JarFile.stream().&lt;br&gt;
+&lt;br&gt;
+-------------------------------&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Package&amp;nbsp;java.util.stream&lt;br&gt;
+&lt;br&gt;
+Classes&amp;nbsp;to&amp;nbsp;support&amp;nbsp;functional-style&amp;nbsp;operations&amp;nbsp;on&amp;nbsp;streams&amp;nbsp;of&amp;nbsp;elements,&amp;nbsp;such&amp;nbsp;as&lt;br&gt;
+MAP-REDUCE&amp;nbsp;transformations&amp;nbsp;on&amp;nbsp;collections.&lt;br&gt;
+&lt;br&gt;
+https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html&lt;br&gt;
+===============================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Display&amp;nbsp;all&amp;nbsp;values&amp;nbsp;from&amp;nbsp;List&amp;nbsp;using&amp;nbsp;Stream&lt;br&gt;
+import&amp;nbsp;java.util.Arrays;&lt;br&gt;
+import&amp;nbsp;java.util.HashMap;&lt;br&gt;
+import&amp;nbsp;java.util.List;&lt;br&gt;
+import&amp;nbsp;java.util.Map;&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;FirstStreamExample&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;&amp;nbsp;void&amp;nbsp;main(String&amp;nbsp;[]arg){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("First&amp;nbsp;STREAM&amp;nbsp;example");&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;String&gt;&amp;nbsp;cities&amp;nbsp;=&amp;nbsp;Arrays.asList("Lviv",&amp;nbsp;"Poltava",&amp;nbsp;"Kyiv",&amp;nbsp;"Odesa");&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cities.replaceAll(e&amp;nbsp;-&gt;&amp;nbsp;e.replaceAll("v",&amp;nbsp;"V"));//&amp;nbsp;great&amp;nbsp;thing&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cities.forEach(System.out::println);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+OUTPUT&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&lt;br&gt;
+First&amp;nbsp;STREAM&amp;nbsp;example&lt;br&gt;
+LViV&lt;br&gt;
+PoltaVa&lt;br&gt;
+KyiV&lt;br&gt;
+Odesa&lt;br&gt;
+===============================================</questionanswer>
+  </question>
+</questions>

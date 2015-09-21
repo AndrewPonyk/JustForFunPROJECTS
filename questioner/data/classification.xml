@@ -107,12 +107,23 @@
     </category>
     <category id="0_3" name="Algorithms(huge)" nofquestions="3" nofsubcategories="2">
       <category id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="3" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml" />
-      <category id="0_3_1" name="programcreek.com___Algorithms_for_Coding_Interview(more_than_100_algorightms)" nofquestions="0" nofsubcategories="0" />
+      <category id="0_3_1" name="programcreek.com___Algorithms_for_Coding_Interview(more_than_100_algorightms)" nofquestions="0" nofsubcategories="10">
+        <category id="0_3_1_0" name="1StringArray" nofquestions="0" nofsubcategories="0" filename="1stringarray0_3_1_0.xml" />
+        <category id="0_3_1_1" name="2Matrix" nofquestions="0" nofsubcategories="0" filename="2matrix0_3_1_1.xml" />
+        <category id="0_3_1_2" name="3LinkedList" nofquestions="0" nofsubcategories="0" filename="3linkedlist0_3_1_2.xml" />
+        <category id="0_3_1_3" name="4TreeHeap" nofquestions="0" nofsubcategories="0" filename="4treeheap0_3_1_3.xml" />
+        <category id="0_3_1_4" name="5Graph" nofquestions="0" nofsubcategories="0" filename="5graph0_3_1_4.xml" />
+        <category id="0_3_1_5" name="6Sorting" nofquestions="0" nofsubcategories="0" filename="6sorting0_3_1_5.xml" />
+        <category id="0_3_1_6" name="7DynamicProgramming" nofquestions="0" nofsubcategories="0" filename="7dynamicprogramming0_3_1_6.xml" />
+        <category id="0_3_1_7" name="8BitManipulation" nofquestions="0" nofsubcategories="0" filename="8bitmanipulation0_3_1_7.xml" />
+        <category id="0_3_1_8" name="9CombinationsandPermutations" nofquestions="0" nofsubcategories="0" filename="9combinationsandpermutations0_3_1_8.xml" />
+        <category id="0_3_1_9" name="10Math" nofquestions="0" nofsubcategories="0" filename="10math0_3_1_9.xml" />
+      </category>
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="495" nofsubcategories="5">
-    <category id="1_0" name="Java" nofquestions="460" nofsubcategories="4">
-      <category id="1_0_0" name="Java CORE" nofquestions="255" nofsubcategories="13">
+  <class id="1" name="Programming" nofquestions="496" nofsubcategories="5">
+    <category id="1_0" name="Java" nofquestions="461" nofsubcategories="4">
+      <category id="1_0_0" name="Java CORE" nofquestions="256" nofsubcategories="13">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="89" nofsubcategories="1">
           <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="89" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
         </category>
@@ -169,10 +180,10 @@
         <category id="1_0_0_10" name="JavaCore_Security" nofquestions="2" nofsubcategories="1">
           <category id="1_0_0_10_0" name="JavaSESecurity_oracledotcom" nofquestions="2" nofsubcategories="0" filename="javasesecurity_oracledotcom1_0_0_10_0.xml" />
         </category>
-        <category id="1_0_0_11" name="Java8_new_Features" nofquestions="7" nofsubcategories="1">
-          <category id="1_0_0_11_0" name="Pluralsight.Whats.New.In.Java8" nofquestions="7" nofsubcategories="6">
+        <category id="1_0_0_11" name="Java8_new_Features" nofquestions="8" nofsubcategories="1">
+          <category id="1_0_0_11_0" name="Pluralsight.Whats.New.In.Java8" nofquestions="8" nofsubcategories="6">
             <category id="1_0_0_11_0_0" name="chap1.IntroToLambdas" nofquestions="7" nofsubcategories="0" filename="chap1.introtolambdas1_0_0_11_0_0.xml" />
-            <category id="1_0_0_11_0_1" name="chap2.02.Java8StreamAPIandCollectors" nofquestions="0" nofsubcategories="0" filename="chap2.02.java8streamapiandcollectors1_0_0_11_0_1.xml" />
+            <category id="1_0_0_11_0_1" name="chap2.02.Java8StreamAPIandCollectors" nofquestions="1" nofsubcategories="0" filename="chap2.02.java8streamapiandcollectors1_0_0_11_0_1.xml" />
             <category id="1_0_0_11_0_2" name="chap3.Java8DateAndTimeAPI" nofquestions="0" nofsubcategories="0" filename="chap3.java8dateandtimeapi1_0_0_11_0_2.xml" />
             <category id="1_0_0_11_0_3" name="chap4.StringIOandBitsAndPieces" nofquestions="0" nofsubcategories="0" filename="chap4.stringioandbitsandpieces1_0_0_11_0_3.xml" />
             <category id="1_0_0_11_0_4" name="chap5.Java8FX" nofquestions="0" nofsubcategories="0" filename="chap5.java8fx1_0_0_11_0_4.xml" />
@@ -215,7 +226,12 @@
           <category id="1_0_1_2_1" name="JDBC" nofquestions="0" nofsubcategories="0" />
         </category>
         <category id="1_0_1_3" name="Tomcat+JSP+Servlets+JSTL" nofquestions="63" nofsubcategories="2">
-          <category id="1_0_1_3_0" name="Tomcat" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_1_3_0" name="Tomcat" nofquestions="0" nofsubcategories="1">
+            <category id="1_0_1_3_0_0" name="Oreily.Tomcat.Definitive2008" nofquestions="0" nofsubcategories="2">
+              <category id="1_0_1_3_0_0_0" name="chap1GettingStartedWithTomcat" nofquestions="0" nofsubcategories="0" filename="chap1gettingstartedwithtomcat1_0_1_3_0_0_0.xml" />
+              <category id="1_0_1_3_0_0_1" name="chap2ConfigTomcat" nofquestions="0" nofsubcategories="0" filename="chap2configtomcat1_0_1_3_0_0_1.xml" />
+            </category>
+          </category>
           <category id="1_0_1_3_1" name="JSP" nofquestions="63" nofsubcategories="4">
             <category id="1_0_1_3_1_0" name="Pluralsight.JavaWebFundamentals" nofquestions="0" nofsubcategories="0" />
             <category id="1_0_1_3_1_1" name="Apress.JavaForWebDev_JSP_Part" nofquestions="20" nofsubcategories="3">
