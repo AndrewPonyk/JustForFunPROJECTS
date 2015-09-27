@@ -1,2 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_11_0_4" name="chap5.Java8FX" nofquestions="0" nofsubcategories="0" filename="chap5.java8fx1_0_0_11_0_4.xml" />
+<questions id="1_0_0_11_0_4" name="chap5.Java8FX" nofquestions="1" nofsubcategories="0" filename="chap5.java8fx1_0_0_11_0_4.xml">
+  <question id="1_0_0_11_0_4:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;Java&amp;nbsp;FX&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Stable&amp;nbsp;release&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;8[1]&amp;nbsp;/&amp;nbsp;March&amp;nbsp;18,&amp;nbsp;2014&lt;br&gt;
+&lt;br&gt;
+JavaFX&amp;nbsp;is&amp;nbsp;a&amp;nbsp;software&amp;nbsp;platform&amp;nbsp;for&amp;nbsp;creating&amp;nbsp;and&amp;nbsp;delivering&amp;nbsp;desktop&amp;nbsp;applications,&amp;nbsp;as&amp;nbsp;well&lt;br&gt;
+as&amp;nbsp;rich&amp;nbsp;internet&amp;nbsp;applications&amp;nbsp;(RIAs)&amp;nbsp;that&amp;nbsp;can&amp;nbsp;run&amp;nbsp;across&amp;nbsp;a&amp;nbsp;wide&amp;nbsp;variety&amp;nbsp;of&amp;nbsp;devices.&lt;br&gt;
+&lt;br&gt;
+JavaFX&amp;nbsp;is&amp;nbsp;intended&amp;nbsp;to&amp;nbsp;replace&amp;nbsp;Swing&amp;nbsp;as&amp;nbsp;the&amp;nbsp;standard&amp;nbsp;GUI&amp;nbsp;library&amp;nbsp;for&amp;nbsp;Java&amp;nbsp;SE,&amp;nbsp;but&amp;nbsp;both&amp;nbsp;will&amp;nbsp;be&lt;br&gt;
+included&amp;nbsp;for&amp;nbsp;the&amp;nbsp;foreseeable&amp;nbsp;future.[3]&amp;nbsp;JavaFX&amp;nbsp;has&amp;nbsp;support&amp;nbsp;for&amp;nbsp;desktop&amp;nbsp;computers&lt;br&gt;
+and&amp;nbsp;web&amp;nbsp;browsers&amp;nbsp;on&amp;nbsp;Microsoft&amp;nbsp;Windows,&amp;nbsp;Linux,&amp;nbsp;and&amp;nbsp;Mac&amp;nbsp;OS&amp;nbsp;X.&lt;br&gt;
+========================================================&lt;br&gt;
+&lt;br&gt;</questionanswer>
+  </question>
+</questions>
