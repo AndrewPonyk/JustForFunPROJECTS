@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_11_0_3" name="chap4.StringIOandBitsAndPieces" nofquestions="4" nofsubcategories="0" filename="chap4.stringioandbitsandpieces1_0_0_11_0_3.xml">
+<questions id="1_0_0_11_0_3" name="chap4.StringIOandBitsAndPieces" nofquestions="5" nofsubcategories="0" filename="chap4.stringioandbitsandpieces1_0_0_11_0_3.xml">
   <question id="1_0_0_11_0_3:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;8&amp;nbsp;read&amp;nbsp;files&amp;nbsp;with&amp;nbsp;BufferReader.lines()&amp;nbsp;method,&lt;br&gt;
@@ -229,5 +229,73 @@ Aby-Dabi:1000000&lt;br&gt;
 Sorting&amp;nbsp;map&amp;nbsp;by&amp;nbsp;value&lt;br&gt;
 Lviv:800000&lt;br&gt;
 Aby-Dabi:1000000&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_0_11_0_3:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;8&amp;nbsp;Comparators&amp;nbsp;enhancements,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Example&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+package&amp;nbsp;part4StringsBitsAndOther;&lt;br&gt;
+&lt;br&gt;
+import&amp;nbsp;java.util.*;&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;ComparatorsInJava8&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("Comparator&amp;nbsp;API&amp;nbsp;in&amp;nbsp;Java&amp;nbsp;8");&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;sorting&amp;nbsp;list,&amp;nbsp;also&amp;nbsp;we&amp;nbsp;assume&amp;nbsp;that&amp;nbsp;can&amp;nbsp;be&amp;nbsp;nulls&amp;nbsp;inside&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;comparing&amp;nbsp;length&amp;nbsp;of&amp;nbsp;string&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;and&amp;nbsp;if&amp;nbsp;length&amp;nbsp;if&amp;nbsp;equal&amp;nbsp;compare&amp;nbsp;count&amp;nbsp;of&amp;nbsp;letter&amp;nbsp;'x'&amp;nbsp;inside&amp;nbsp;strings&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Comparator&lt;String&gt;&amp;nbsp;comp&amp;nbsp;=&amp;nbsp;Comparator.nullsFirst(Comparator.comparing(String::length).thenComparing((e1,e2)-&gt;{&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;long&amp;nbsp;xCount1&amp;nbsp;=&amp;nbsp;e1.chars().filter(e-&gt;&amp;nbsp;e==&amp;nbsp;'x').count();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;long&amp;nbsp;xCount2&amp;nbsp;=&amp;nbsp;e2.chars().filter(e-&gt;&amp;nbsp;e==&amp;nbsp;'x').count();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;(int)(xCount1&amp;nbsp;-&amp;nbsp;xCount2);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}));&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;List&lt;String&gt;&amp;nbsp;strings&amp;nbsp;=&amp;nbsp;Arrays.asList("xxx",&amp;nbsp;"one",&amp;nbsp;"twelve",&amp;nbsp;"three",&amp;nbsp;"six",&amp;nbsp;null);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;strings.sort(comp);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;strings.forEach(System.out::println);&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;sorting&amp;nbsp;map&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Map&lt;String,&amp;nbsp;Integer&gt;&amp;nbsp;cities&amp;nbsp;=&amp;nbsp;new&amp;nbsp;HashMap&lt;&gt;();&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+OUTPUT&amp;nbsp;&amp;nbsp;:&lt;br&gt;
+null&lt;br&gt;
+one&lt;br&gt;
+six&lt;br&gt;
+xxx&lt;br&gt;
+three&lt;br&gt;
+twelve&lt;br&gt;
+==================================&lt;br&gt;
+&lt;br&gt;
+P.S&amp;nbsp;Method&amp;nbsp;to&amp;nbsp;sort&amp;nbsp;map&amp;nbsp;by&amp;nbsp;value&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;java&amp;nbsp;8&amp;nbsp;sorting&amp;nbsp;map&amp;nbsp;by&amp;nbsp;value&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;&lt;K,&amp;nbsp;V&amp;nbsp;extends&amp;nbsp;Comparable&lt;?&amp;nbsp;super&amp;nbsp;V&gt;&gt;&amp;nbsp;Map&lt;K,&amp;nbsp;V&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;sortByValue(Map&lt;K,&amp;nbsp;V&gt;&amp;nbsp;map)&amp;nbsp;{&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Map&lt;K,&amp;nbsp;V&gt;&amp;nbsp;result&amp;nbsp;=&amp;nbsp;new&amp;nbsp;HashMap&lt;&gt;();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Stream&lt;Map.Entry&lt;K,&amp;nbsp;V&gt;&gt;&amp;nbsp;st&amp;nbsp;=&amp;nbsp;map.entrySet().stream();&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;st.sorted&amp;nbsp;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&amp;nbsp;it&amp;nbsp;is&amp;nbsp;cool&amp;nbsp;feature&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;st.sorted(Comparator.comparing(e&amp;nbsp;-&gt;&amp;nbsp;e.getValue()))&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;.forEach(e&amp;nbsp;-&gt;&amp;nbsp;result.put(e.getKey(),&amp;nbsp;e.getValue()));&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;result;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+and&amp;nbsp;usage&amp;nbsp;&amp;nbsp;:&lt;br&gt;
+//&amp;nbsp;LOOK&amp;nbsp;at&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;sorting&amp;nbsp;map&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("\nSorting&amp;nbsp;map&amp;nbsp;by&amp;nbsp;value");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Map&lt;String,&amp;nbsp;Integer&gt;&amp;nbsp;sortedCities&amp;nbsp;=&amp;nbsp;sortByValue(map);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;map.entrySet().forEach(entry&amp;nbsp;-&gt;&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(entry.getKey()&amp;nbsp;+&amp;nbsp;":"&amp;nbsp;+&amp;nbsp;entry.getValue());&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;});&lt;br&gt;</questionanswer>
   </question>
 </questions>
