@@ -122,9 +122,9 @@
       <category id="0_3_2" name="BitsManipulation" nofquestions="0" nofsubcategories="0" filename="bitsmanipulation0_3_2.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="511" nofsubcategories="5">
-    <category id="1_0" name="Java" nofquestions="476" nofsubcategories="4">
-      <category id="1_0_0" name="Java CORE" nofquestions="271" nofsubcategories="13">
+  <class id="1" name="Programming" nofquestions="513" nofsubcategories="5">
+    <category id="1_0" name="Java" nofquestions="478" nofsubcategories="4">
+      <category id="1_0_0" name="Java CORE" nofquestions="273" nofsubcategories="13">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="89" nofsubcategories="1">
           <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="89" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
         </category>
@@ -183,14 +183,14 @@
         <category id="1_0_0_10" name="JavaCore_Security" nofquestions="2" nofsubcategories="1">
           <category id="1_0_0_10_0" name="JavaSESecurity_oracledotcom" nofquestions="2" nofsubcategories="0" filename="javasesecurity_oracledotcom1_0_0_10_0.xml" />
         </category>
-        <category id="1_0_0_11" name="Java8_new_Features" nofquestions="23" nofsubcategories="1">
-          <category id="1_0_0_11_0" name="Pluralsight.Whats.New.In.Java8" nofquestions="23" nofsubcategories="6">
+        <category id="1_0_0_11" name="Java8_new_Features" nofquestions="25" nofsubcategories="1">
+          <category id="1_0_0_11_0" name="Pluralsight.Whats.New.In.Java8" nofquestions="25" nofsubcategories="6">
             <category id="1_0_0_11_0_0" name="chap1.IntroToLambdas" nofquestions="7" nofsubcategories="0" filename="chap1.introtolambdas1_0_0_11_0_0.xml" />
             <category id="1_0_0_11_0_1" name="chap2.02.Java8StreamAPIandCollectors" nofquestions="8" nofsubcategories="0" filename="chap2.02.java8streamapiandcollectors1_0_0_11_0_1.xml" />
             <category id="1_0_0_11_0_2" name="chap3.Java8DateAndTimeAPI" nofquestions="3" nofsubcategories="0" filename="chap3.java8dateandtimeapi1_0_0_11_0_2.xml" />
             <category id="1_0_0_11_0_3" name="chap4.StringIOandBitsAndPieces" nofquestions="4" nofsubcategories="0" filename="chap4.stringioandbitsandpieces1_0_0_11_0_3.xml" />
-            <category id="1_0_0_11_0_4" name="chap5.Java8FX" nofquestions="1" nofsubcategories="0" filename="chap5.java8fx1_0_0_11_0_4.xml" />
-            <category id="1_0_0_11_0_5" name="chap6.Nashorn" nofquestions="0" nofsubcategories="0" filename="chap6.nashorn1_0_0_11_0_5.xml" />
+            <category id="1_0_0_11_0_4" name="chap5.Java8FX" nofquestions="2" nofsubcategories="0" filename="chap5.java8fx1_0_0_11_0_4.xml" />
+            <category id="1_0_0_11_0_5" name="chap6.Nashorn" nofquestions="1" nofsubcategories="0" filename="chap6.nashorn1_0_0_11_0_5.xml" />
           </category>
         </category>
         <category id="1_0_0_12" name="JavaCore_Other_Tutorials" nofquestions="0" nofsubcategories="0" filename="javacore_other_tutorials1_0_0_12.xml" />

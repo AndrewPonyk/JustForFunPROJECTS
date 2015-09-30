@@ -1,2 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_11_0_5" name="chap6.Nashorn" nofquestions="0" nofsubcategories="0" filename="chap6.nashorn1_0_0_11_0_5.xml" />
+<questions id="1_0_0_11_0_5" name="chap6.Nashorn" nofquestions="1" nofsubcategories="0" filename="chap6.nashorn1_0_0_11_0_5.xml">
+  <question id="1_0_0_11_0_5:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;Nashort&amp;nbsp;in&amp;nbsp;Java&amp;nbsp;8.&lt;br&gt;
+Advantages&amp;nbsp;of&amp;nbsp;using&amp;nbsp;scripting&amp;nbsp;languages&amp;nbsp;in&amp;nbsp;java,&amp;nbsp;describe.&lt;br&gt;
+Provide&amp;nbsp;examples.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://winterbe.com/posts/2014/04/05/java8-nashorn-tutorial/&lt;br&gt;
+https://en.wikipedia.org/wiki/Nashorn_(JavaScript_engine)&lt;br&gt;
+https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/nashorn/&lt;br&gt;
+-------------------------------------------------------------------&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;Nashorn&amp;nbsp;Javascript&amp;nbsp;Engine&amp;nbsp;is&amp;nbsp;part&amp;nbsp;of&amp;nbsp;Java&amp;nbsp;SE&amp;nbsp;8&amp;nbsp;and&amp;nbsp;competes&amp;nbsp;with&amp;nbsp;other&amp;nbsp;standalone&lt;br&gt;
+engines&amp;nbsp;like&amp;nbsp;Google&amp;nbsp;V8&amp;nbsp;(the&amp;nbsp;engine&amp;nbsp;that&amp;nbsp;powers&amp;nbsp;Google&amp;nbsp;Chrome&amp;nbsp;and&amp;nbsp;Node.js).&lt;br&gt;
+Nashorn&amp;nbsp;extends&amp;nbsp;Javas&amp;nbsp;capabilities&amp;nbsp;by&amp;nbsp;running&amp;nbsp;dynamic&amp;nbsp;javascript&amp;nbsp;code&amp;nbsp;natively&amp;nbsp;on&amp;nbsp;the&amp;nbsp;JVM.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Using&amp;nbsp;Nashorn&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;Nashorn&amp;nbsp;javascript&amp;nbsp;engine&amp;nbsp;can&amp;nbsp;either&amp;nbsp;be&amp;nbsp;used&amp;nbsp;programmatically&amp;nbsp;from&amp;nbsp;java&amp;nbsp;programs&amp;nbsp;or&amp;nbsp;by&lt;br&gt;
+utilizing&amp;nbsp;the&amp;nbsp;command&amp;nbsp;line&amp;nbsp;tool&amp;nbsp;jjs,&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$&amp;nbsp;jjs&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;jjs&gt;&amp;nbsp;print('Hello&amp;nbsp;World');&lt;br&gt;
+=================================================&lt;br&gt;
+Example&amp;nbsp;:&amp;nbsp;call&amp;nbsp;javascript&amp;nbsp;from&amp;nbsp;java,&amp;nbsp;and&amp;nbsp;pass&amp;nbsp;values&amp;nbsp;between&amp;nbsp;them:&lt;br&gt;
+package&amp;nbsp;part6Nashorn;&lt;br&gt;
+&lt;br&gt;
+import&amp;nbsp;javax.script.ScriptEngine;&lt;br&gt;
+import&amp;nbsp;javax.script.ScriptEngineManager;&lt;br&gt;
+import&amp;nbsp;javax.script.ScriptException;&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;HelloNashorn&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;arg)&amp;nbsp;throws&amp;nbsp;ScriptException&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println("Hello&amp;nbsp;world&amp;nbsp;Nashorn");&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ScriptEngineManager&amp;nbsp;engineManager&amp;nbsp;=&amp;nbsp;new&amp;nbsp;ScriptEngineManager();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ScriptEngine&amp;nbsp;engine&amp;nbsp;=&amp;nbsp;engineManager.getEngineByName("nashorn");&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;engine.eval("function&amp;nbsp;p(s)&amp;nbsp;{&amp;nbsp;print(s)&amp;nbsp;}");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;engine.eval("p('Hello&amp;nbsp;Nashorn');");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;engine.eval("var&amp;nbsp;mas&amp;nbsp;=&amp;nbsp;[1,2,3,4,5]");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;engine.eval("var&amp;nbsp;spliced=mas.splice(1,3)");&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;jdk.nashorn.api.scripting.ScriptObjectMirror&amp;nbsp;mas&amp;nbsp;=&amp;nbsp;(jdk.nashorn.api.scripting.ScriptObjectMirror)engine.get("mas");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;jdk.nashorn.api.scripting.ScriptObjectMirror&amp;nbsp;spliced&amp;nbsp;=&amp;nbsp;(jdk.nashorn.api.scripting.ScriptObjectMirror)engine.get("spliced");&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;[1,5]&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;mas.entrySet().forEach(e-&gt;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(e.getValue());&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;});&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println();&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;[2,3,4]&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;spliced.entrySet().forEach(e-&gt;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(e);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;});&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}&lt;br&gt;
+&lt;br&gt;
+OUTPUT&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+Hello&amp;nbsp;world&amp;nbsp;Nashorn&lt;br&gt;
+Hello&amp;nbsp;Nashorn&lt;br&gt;
+1&lt;br&gt;
+5&lt;br&gt;
+&lt;br&gt;
+0=2&lt;br&gt;
+1=3&lt;br&gt;
+2=4&lt;br&gt;</questionanswer>
+  </question>
+</questions>
