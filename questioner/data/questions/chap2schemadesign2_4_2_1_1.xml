@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="2_4_2_1_1" name="chap2SchemaDesign" nofquestions="2" nofsubcategories="0" filename="chap2schemadesign2_4_2_1_1.xml">
+  <question id="2_4_2_1_1:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;to&amp;nbsp;delete&amp;nbsp;documents&amp;nbsp;from&amp;nbsp;Solr.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Delete&amp;nbsp;all&amp;nbsp;documents&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+curl&amp;nbsp;http://localhost:8983/solr/musicbrainz/update?commit=true&amp;nbsp;-H&amp;nbsp;"Content-Type:&amp;nbsp;text/xml"&amp;nbsp;--data-binary&amp;nbsp;'&lt;delete&gt;&lt;query&gt;*:*&lt;/query&gt;&lt;/delete&gt;'&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+Delete&amp;nbsp;documents&amp;nbsp;with&amp;nbsp;'1'&amp;nbsp;in&amp;nbsp;field&amp;nbsp;'text'&lt;br&gt;
+curl&amp;nbsp;http://localhost:8983/solr/musicbrainz/update?commit=true&amp;nbsp;-H&amp;nbsp;"Content-Type:&amp;nbsp;text/xml"&amp;nbsp;--data-binary&amp;nbsp;'&lt;delete&gt;&lt;query&gt;text:*1*&lt;/query&gt;&lt;/delete&gt;'&lt;br&gt;
+-----------&lt;br&gt;
+P.S.&amp;nbsp;&lt;br&gt;
+http://stackoverflow.com/questions/7815628/most-simple-way-url-to-trigger-solr-commit-of-all-pending-docs</questionanswer>
+  </question>
+  <question id="2_4_2_1_1:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;solr&amp;nbsp;CORE&amp;nbsp;and&amp;nbsp;COLLECTION&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://stackoverflow.com/questions/17044640/solr-collection-vs-cores&lt;br&gt;
+==========&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Core&lt;br&gt;
+In&amp;nbsp;Solr,&amp;nbsp;a&amp;nbsp;core&amp;nbsp;is&amp;nbsp;composed&amp;nbsp;of&amp;nbsp;a&amp;nbsp;set&amp;nbsp;of&amp;nbsp;configuration&amp;nbsp;files,&amp;nbsp;Lucene&amp;nbsp;index&amp;nbsp;files,&amp;nbsp;and&amp;nbsp;Solr’s&amp;nbsp;transaction&amp;nbsp;log.&lt;br&gt;
+&lt;br&gt;
+a&amp;nbsp;Solr&amp;nbsp;core&amp;nbsp;is&amp;nbsp;a&amp;nbsp;uniquely&amp;nbsp;named,&amp;nbsp;managed,&amp;nbsp;and&amp;nbsp;configured&amp;nbsp;index&amp;nbsp;running&amp;nbsp;in&amp;nbsp;a&lt;br&gt;
+Solr&amp;nbsp;server;&amp;nbsp;a&amp;nbsp;Solr&amp;nbsp;server&amp;nbsp;can&amp;nbsp;host&amp;nbsp;one&amp;nbsp;or&amp;nbsp;more&amp;nbsp;cores.&lt;br&gt;
+&lt;br&gt;
+A&amp;nbsp;core&amp;nbsp;is&amp;nbsp;typically&amp;nbsp;used&amp;nbsp;to&amp;nbsp;separate&amp;nbsp;documents&amp;nbsp;that&amp;nbsp;have&amp;nbsp;different&amp;nbsp;schemas&lt;br&gt;
+---------------------------&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Collection&lt;br&gt;
+&lt;br&gt;
+Solr&amp;nbsp;also&amp;nbsp;uses&amp;nbsp;the&amp;nbsp;term&amp;nbsp;collection,&amp;nbsp;which&amp;nbsp;only&amp;nbsp;has&amp;nbsp;meaning&amp;nbsp;in&amp;nbsp;the&amp;nbsp;context&amp;nbsp;of&amp;nbsp;a&amp;nbsp;Solr&amp;nbsp;cluster&amp;nbsp;in&lt;br&gt;
+which&amp;nbsp;a&amp;nbsp;single&amp;nbsp;index&amp;nbsp;is&amp;nbsp;distributed&amp;nbsp;across&amp;nbsp;multiple&amp;nbsp;servers.&lt;br&gt;
+&lt;br&gt;
+SolrCloud&amp;nbsp;introduces&amp;nbsp;the&amp;nbsp;concept&amp;nbsp;of&amp;nbsp;a&amp;nbsp;collection,&amp;nbsp;which&amp;nbsp;extends&amp;nbsp;the&amp;nbsp;concept&amp;nbsp;of&lt;br&gt;
+a&amp;nbsp;uniquely&amp;nbsp;named,&amp;nbsp;managed,&amp;nbsp;and&amp;nbsp;configured&amp;nbsp;index&amp;nbsp;to&amp;nbsp;one&amp;nbsp;that&amp;nbsp;is&amp;nbsp;split&amp;nbsp;into&amp;nbsp;shards&lt;br&gt;
+and&amp;nbsp;distributed&amp;nbsp;across&amp;nbsp;multiple&amp;nbsp;servers.</questionanswer>
+  </question>
+</questions>

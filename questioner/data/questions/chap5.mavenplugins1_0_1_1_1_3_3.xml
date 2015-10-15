@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_1_1_3_3" name="chap5.MavenPlugins" nofquestions="1" nofsubcategories="0" filename="chap5.mavenplugins1_0_1_1_1_3_3.xml">
+<questions id="1_0_1_1_1_3_3" name="chap5.MavenPlugins" nofquestions="2" nofsubcategories="0" filename="chap5.mavenplugins1_0_1_1_1_3_3.xml">
   <question id="1_0_1_1_1_3_3:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;MOJO&amp;nbsp;?&amp;nbsp;List&amp;nbsp;some&amp;nbsp;basic&amp;nbsp;maven&amp;nbsp;plugins,&amp;nbsp;and&amp;nbsp;describe.&lt;br&gt;
@@ -143,5 +143,96 @@ By&amp;nbsp;default&amp;nbsp;to&amp;nbsp;execute&amp;nbsp;your&amp;nbsp;plugin&a
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/plugin&gt;&lt;br&gt;
 &lt;br&gt;
 And&amp;nbsp;in&amp;nbsp;you&amp;nbsp;project&amp;nbsp;,&amp;nbsp;when&amp;nbsp;you&amp;nbsp;perform&amp;nbsp;'mvn&amp;nbsp;clean',&amp;nbsp;your&amp;nbsp;plagin&amp;nbsp;will&amp;nbsp;be&amp;nbsp;executed</questionanswer>
+  </question>
+  <question id="1_0_1_1_1_3_3:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;to&amp;nbsp;run&amp;nbsp;junit&amp;nbsp;test&amp;nbsp;on&amp;nbsp;'test'&amp;nbsp;phase&amp;nbsp;and&amp;nbsp;integration&amp;nbsp;tests&amp;nbsp;on&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;'integration-test'&amp;nbsp;phase&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+What&amp;nbsp;are&amp;nbsp;'maven-surefire-plugin'&amp;nbsp;and&amp;nbsp;'maven-failsafe-plugin'&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Maven&amp;nbsp;Failsafe&amp;nbsp;Plugin&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;https://maven.apache.org/surefire/maven-failsafe-plugin/&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;Failsafe&amp;nbsp;Plugin&amp;nbsp;is&amp;nbsp;designed&amp;nbsp;to&amp;nbsp;run&amp;nbsp;integration&amp;nbsp;tests&amp;nbsp;while&amp;nbsp;the&amp;nbsp;Surefire&amp;nbsp;Plugin&amp;nbsp;is&amp;nbsp;designed&amp;nbsp;to&lt;br&gt;
+run&amp;nbsp;unit&amp;nbsp;tests.&amp;nbsp;The&amp;nbsp;name&amp;nbsp;(failsafe)&amp;nbsp;was&amp;nbsp;chosen&amp;nbsp;both&amp;nbsp;because&amp;nbsp;it&amp;nbsp;is&amp;nbsp;a&amp;nbsp;synonym&amp;nbsp;of&amp;nbsp;surefire&amp;nbsp;and&lt;br&gt;
+because&amp;nbsp;it&amp;nbsp;implies&amp;nbsp;that&amp;nbsp;when&amp;nbsp;it&amp;nbsp;fails,&amp;nbsp;it&amp;nbsp;does&amp;nbsp;so&amp;nbsp;in&amp;nbsp;a&amp;nbsp;safe&amp;nbsp;way.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;Maven&amp;nbsp;lifecycle&amp;nbsp;has&amp;nbsp;four&amp;nbsp;phases&amp;nbsp;for&amp;nbsp;running&amp;nbsp;integration&amp;nbsp;tests:&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;pre-integration-test&amp;nbsp;for&amp;nbsp;setting&amp;nbsp;up&amp;nbsp;the&amp;nbsp;integration&amp;nbsp;test&amp;nbsp;environment.&lt;br&gt;
+-&amp;nbsp;integration-test&amp;nbsp;for&amp;nbsp;running&amp;nbsp;the&amp;nbsp;integration&amp;nbsp;tests.&lt;br&gt;
+-&amp;nbsp;post-integration-test&amp;nbsp;for&amp;nbsp;tearing&amp;nbsp;down&amp;nbsp;the&amp;nbsp;integration&amp;nbsp;test&amp;nbsp;environment.&lt;br&gt;
+-&amp;nbsp;verify&amp;nbsp;for&amp;nbsp;checking&amp;nbsp;the&amp;nbsp;results&amp;nbsp;of&amp;nbsp;the&amp;nbsp;integration&amp;nbsp;tests.&lt;br&gt;
+&lt;br&gt;
+If&amp;nbsp;you&amp;nbsp;use&amp;nbsp;the&amp;nbsp;Surefire&amp;nbsp;Plugin&amp;nbsp;for&amp;nbsp;running&amp;nbsp;tests,&amp;nbsp;then&amp;nbsp;when&amp;nbsp;you&amp;nbsp;have&amp;nbsp;a&amp;nbsp;test&amp;nbsp;failure,&amp;nbsp;the&amp;nbsp;build&amp;nbsp;will&lt;br&gt;
+stop&amp;nbsp;at&amp;nbsp;the&amp;nbsp;integration-test&amp;nbsp;phase&amp;nbsp;and&amp;nbsp;your&amp;nbsp;integration&amp;nbsp;test&amp;nbsp;environment&amp;nbsp;will&amp;nbsp;not&amp;nbsp;have&lt;br&gt;
+been&amp;nbsp;torn&amp;nbsp;down&amp;nbsp;correctly.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;Failsafe&amp;nbsp;Plugin&amp;nbsp;is&amp;nbsp;used&amp;nbsp;during&amp;nbsp;the&amp;nbsp;integration-test&amp;nbsp;and&amp;nbsp;verify&amp;nbsp;phases&amp;nbsp;of&amp;nbsp;the&amp;nbsp;build&amp;nbsp;lifecycle&amp;nbsp;to&lt;br&gt;
+execute&amp;nbsp;the&amp;nbsp;integration&amp;nbsp;tests&amp;nbsp;of&amp;nbsp;an&amp;nbsp;application.&amp;nbsp;The&amp;nbsp;Failsafe&amp;nbsp;Plugin&amp;nbsp;will&amp;nbsp;not&amp;nbsp;fail&amp;nbsp;the&amp;nbsp;build&amp;nbsp;during&amp;nbsp;the&lt;br&gt;
+integration-test&amp;nbsp;phase,&amp;nbsp;thus&amp;nbsp;enabling&amp;nbsp;the&amp;nbsp;post-integration-test&amp;nbsp;phase&amp;nbsp;to&amp;nbsp;execute.&lt;br&gt;
+&lt;br&gt;
+NOTE:&amp;nbsp;when&amp;nbsp;running&amp;nbsp;integration&amp;nbsp;tests,&amp;nbsp;you&amp;nbsp;should&amp;nbsp;invoke&amp;nbsp;Maven&amp;nbsp;with&amp;nbsp;the&amp;nbsp;(shorter&amp;nbsp;to&amp;nbsp;type&amp;nbsp;too)&lt;br&gt;
+&lt;br&gt;
+mvn&amp;nbsp;verify&lt;br&gt;
+&lt;br&gt;
+By&amp;nbsp;default,&amp;nbsp;the&amp;nbsp;Failsafe&amp;nbsp;Plugin&amp;nbsp;will&amp;nbsp;automatically&amp;nbsp;include&amp;nbsp;all&amp;nbsp;test&amp;nbsp;classes&amp;nbsp;with&amp;nbsp;the&amp;nbsp;following&amp;nbsp;wildcard&amp;nbsp;patterns:&lt;br&gt;
+"**/IT*.java"&amp;nbsp;-&amp;nbsp;includes&amp;nbsp;all&amp;nbsp;of&amp;nbsp;its&amp;nbsp;subdirectories&amp;nbsp;and&amp;nbsp;all&amp;nbsp;Java&amp;nbsp;filenames&amp;nbsp;that&amp;nbsp;start&amp;nbsp;with&amp;nbsp;"IT".&lt;br&gt;
+"**/*IT.java"&amp;nbsp;-&amp;nbsp;includes&amp;nbsp;all&amp;nbsp;of&amp;nbsp;its&amp;nbsp;subdirectories&amp;nbsp;and&amp;nbsp;all&amp;nbsp;Java&amp;nbsp;filenames&amp;nbsp;that&amp;nbsp;end&amp;nbsp;with&amp;nbsp;"IT".&lt;br&gt;
+"**/*ITCase.java"&amp;nbsp;-&amp;nbsp;includes&amp;nbsp;all&amp;nbsp;of&amp;nbsp;its&amp;nbsp;subdirectories&amp;nbsp;and&amp;nbsp;all&amp;nbsp;Java&amp;nbsp;filenames&amp;nbsp;that&amp;nbsp;end&amp;nbsp;with&amp;nbsp;"ITCase".&lt;br&gt;
+&lt;br&gt;
+----------------------------------------------------------------------------&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Maven&amp;nbsp;Surefire&amp;nbsp;Plugin&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;https://maven.apache.org/surefire/maven-surefire-plugin/&lt;br&gt;
+The&amp;nbsp;Surefire&amp;nbsp;Plugin&amp;nbsp;is&amp;nbsp;used&amp;nbsp;during&amp;nbsp;the&amp;nbsp;test&amp;nbsp;phase&amp;nbsp;of&amp;nbsp;the&amp;nbsp;build&amp;nbsp;lifecycle&amp;nbsp;to&amp;nbsp;execute&amp;nbsp;the&amp;nbsp;unit&lt;br&gt;
+tests&amp;nbsp;of&amp;nbsp;an&amp;nbsp;application.&amp;nbsp;It&amp;nbsp;generates&amp;nbsp;reports&amp;nbsp;in&amp;nbsp;two&amp;nbsp;different&amp;nbsp;file&amp;nbsp;formats:&lt;br&gt;
+&lt;br&gt;
+By&amp;nbsp;default,&amp;nbsp;the&amp;nbsp;Surefire&amp;nbsp;Plugin&amp;nbsp;will&amp;nbsp;automatically&amp;nbsp;include&amp;nbsp;all&amp;nbsp;test&amp;nbsp;classes&amp;nbsp;with&amp;nbsp;the&amp;nbsp;following&amp;nbsp;wildcard&amp;nbsp;patterns:&lt;br&gt;
+"**/Test*.java"&amp;nbsp;-&amp;nbsp;includes&amp;nbsp;all&amp;nbsp;of&amp;nbsp;its&amp;nbsp;subdirectories&amp;nbsp;and&amp;nbsp;all&amp;nbsp;Java&amp;nbsp;filenames&amp;nbsp;that&amp;nbsp;start&amp;nbsp;with&amp;nbsp;"Test".&lt;br&gt;
+"**/*Test.java"&amp;nbsp;-&amp;nbsp;includes&amp;nbsp;all&amp;nbsp;of&amp;nbsp;its&amp;nbsp;subdirectories&amp;nbsp;and&amp;nbsp;all&amp;nbsp;Java&amp;nbsp;filenames&amp;nbsp;that&amp;nbsp;end&amp;nbsp;with&amp;nbsp;"Test".&lt;br&gt;
+"**/*TestCase.java"&amp;nbsp;-&amp;nbsp;includes&amp;nbsp;all&amp;nbsp;of&amp;nbsp;its&amp;nbsp;subdirectories&amp;nbsp;and&amp;nbsp;all&amp;nbsp;Java&amp;nbsp;filenames&amp;nbsp;that&amp;nbsp;end&amp;nbsp;with&amp;nbsp;"TestCase".&lt;br&gt;
+&lt;br&gt;
+=================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;to&amp;nbsp;run&amp;nbsp;junit&amp;nbsp;test&amp;nbsp;on&amp;nbsp;'test'&amp;nbsp;phase&amp;nbsp;and&amp;nbsp;integration&amp;nbsp;tests&amp;nbsp;on&amp;nbsp;'integration-test'&amp;nbsp;phase&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+1)&amp;nbsp;Better&amp;nbsp;solution&amp;nbsp;&lt;br&gt;
+You&amp;nbsp;should&amp;nbsp;use&amp;nbsp;the&amp;nbsp;Fail-safe&amp;nbsp;plugin&amp;nbsp;for&amp;nbsp;integration&amp;nbsp;testing,&amp;nbsp;not&amp;nbsp;the&amp;nbsp;sure-fire&amp;nbsp;plugin.&amp;nbsp;It&amp;nbsp;won't&amp;nbsp;fail&amp;nbsp;the&amp;nbsp;build&lt;br&gt;
+until&amp;nbsp;after&amp;nbsp;the&amp;nbsp;post-integration&amp;nbsp;phase&amp;nbsp;is&amp;nbsp;complete;&amp;nbsp;allowing&amp;nbsp;you&amp;nbsp;to&amp;nbsp;tear&amp;nbsp;down&amp;nbsp;test&amp;nbsp;resources&amp;nbsp;(a&amp;nbsp;web&amp;nbsp;server,&lt;br&gt;
+for&amp;nbsp;example)&amp;nbsp;before&amp;nbsp;the&amp;nbsp;build&amp;nbsp;is&amp;nbsp;failed.&amp;nbsp;Hence,&amp;nbsp;fail-safe.&amp;nbsp;–&amp;nbsp;&amp;nbsp;John&amp;nbsp;Gordon&amp;nbsp;Mar&amp;nbsp;19&amp;nbsp;'12&amp;nbsp;at&amp;nbsp;19:12&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+2)&amp;nbsp;Another&amp;nbsp;solution&lt;br&gt;
+Use&amp;nbsp;only&amp;nbsp;Surefire&amp;nbsp;plugin&amp;nbsp;with&amp;nbsp;such&amp;nbsp;config&amp;nbsp;in&amp;nbsp;pom.xml&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;plugin&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;configuration&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;excludes&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;exclude&gt;**/*IntegrationTest.java&lt;/exclude&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/excludes&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/configuration&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;executions&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;execution&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;id&gt;integration-test&lt;/id&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;goals&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;goal&gt;test&lt;/goal&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/goals&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;phase&gt;integration-test&lt;/phase&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;configuration&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;excludes&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;exclude&gt;none&lt;/exclude&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/excludes&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;includes&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;include&gt;**/*IntegrationTest.java&lt;/include&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/includes&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/configuration&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/execution&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/executions&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/plugin&gt;&lt;br&gt;
+---------------------&lt;br&gt;
+&lt;br&gt;
+P.S.&amp;nbsp;ON&amp;nbsp;pre-integration-test&amp;nbsp;phase&amp;nbsp;run&amp;nbsp;SOME&amp;nbsp;SERVER&amp;nbsp;(using&amp;nbsp;t7&amp;nbsp;plugin&amp;nbsp;or&amp;nbsp;Cargo&amp;nbsp;api)&lt;br&gt;
+and&amp;nbsp;after&amp;nbsp;tests&amp;nbsp;finished&amp;nbsp;,&amp;nbsp;on&amp;nbsp;post-integration-phase&amp;nbsp;just&amp;nbsp;stop&amp;nbsp;SERVER.</questionanswer>
   </question>
 </questions>
