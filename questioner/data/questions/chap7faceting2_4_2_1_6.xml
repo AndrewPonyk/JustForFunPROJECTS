@@ -1,2 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_4_2_1_6" name="chap7Faceting" nofquestions="0" nofsubcategories="0" filename="chap7faceting2_4_2_1_6.xml" />
+<questions id="2_4_2_1_6" name="chap7Faceting" nofquestions="1" nofsubcategories="0" filename="chap7faceting2_4_2_1_6.xml">
+  <question id="2_4_2_1_6:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;Facet&amp;nbsp;in&amp;nbsp;SOLR&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Facet&amp;nbsp;is&amp;nbsp;usefull&amp;nbsp;and&amp;nbsp;simple&amp;nbsp;thing,&amp;nbsp;it&amp;nbsp;is&amp;nbsp;just&amp;nbsp;way&amp;nbsp;to&amp;nbsp;group&amp;nbsp;field&amp;nbsp;by&amp;nbsp;count&amp;nbsp;.&lt;br&gt;
+(Like&amp;nbsp;in&amp;nbsp;Web&amp;nbsp;Store&amp;nbsp;you&amp;nbsp;query&amp;nbsp;all&amp;nbsp;devices&amp;nbsp;and&amp;nbsp;set&amp;nbsp;facet.field='OS'&amp;nbsp;and&amp;nbsp;has&amp;nbsp;such&amp;nbsp;response&amp;nbsp;&lt;br&gt;
+docs{&lt;br&gt;
+&amp;nbsp;{deviceId...,&amp;nbsp;deviceName...,&amp;nbsp;OS:android},&lt;br&gt;
+{deviceId...,&amp;nbsp;deviceName...,&amp;nbsp;OS:android},&lt;br&gt;
+{deviceId...,&amp;nbsp;deviceName...,&amp;nbsp;OS:symbian},&amp;nbsp;&lt;br&gt;
+}&lt;br&gt;
+facet:&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;'android':2,&lt;br&gt;
+symbian:&amp;nbsp;1&lt;br&gt;
+}&lt;br&gt;
+)&lt;br&gt;
+&lt;br&gt;
+So&amp;nbsp;we&amp;nbsp;just&amp;nbsp;group&amp;nbsp;OS&amp;nbsp;by&amp;nbsp;count&amp;nbsp;in&amp;nbsp;devices.&lt;br&gt;
+&lt;br&gt;
+======================================&lt;br&gt;
+Example&amp;nbsp;From&amp;nbsp;solr&amp;nbsp;(we&amp;nbsp;have&amp;nbsp;3&amp;nbsp;documents&amp;nbsp;in&amp;nbsp;collection)&lt;br&gt;
+we&amp;nbsp;have&lt;br&gt;
+http://localhost:8983/solr/musicbrainz/select?q=*%3A*&amp;wt=json&amp;facet=true&amp;facet.field=text&lt;br&gt;
+&lt;br&gt;
+{&lt;br&gt;
+"responseHeader":&amp;nbsp;{&lt;br&gt;
+"status":&amp;nbsp;0,&lt;br&gt;
+"QTime":&amp;nbsp;4,&lt;br&gt;
+"params":&amp;nbsp;{&lt;br&gt;
+"facet":&amp;nbsp;"true",&lt;br&gt;
+"q":&amp;nbsp;"*:*",&lt;br&gt;
+"facet.field":&amp;nbsp;"text",&lt;br&gt;
+"wt":&amp;nbsp;"json"&lt;br&gt;
+}&lt;br&gt;
+},&lt;br&gt;
+"response":&amp;nbsp;{&lt;br&gt;
+"numFound":&amp;nbsp;3,&lt;br&gt;
+"start":&amp;nbsp;0,&lt;br&gt;
+"docs":&amp;nbsp;[&lt;br&gt;
+{&lt;br&gt;
+"id":&amp;nbsp;"2",&lt;br&gt;
+"text":&amp;nbsp;[&lt;br&gt;
+"aaa"&lt;br&gt;
+],&lt;br&gt;
+"_version_":&amp;nbsp;1515310179433840600&lt;br&gt;
+},&lt;br&gt;
+{&lt;br&gt;
+"id":&amp;nbsp;"3",&lt;br&gt;
+"text":&amp;nbsp;[&lt;br&gt;
+"aaa"&lt;br&gt;
+],&lt;br&gt;
+"_version_":&amp;nbsp;1515310184189132800&lt;br&gt;
+},&lt;br&gt;
+{&lt;br&gt;
+"id":&amp;nbsp;"1",&lt;br&gt;
+"text":&amp;nbsp;[&lt;br&gt;
+"bbb"&lt;br&gt;
+],&lt;br&gt;
+"_version_":&amp;nbsp;1515310205571694600&lt;br&gt;
+}&lt;br&gt;
+]&lt;br&gt;
+},&lt;br&gt;
+"facet_counts":&amp;nbsp;{&lt;br&gt;
+"facet_queries":&amp;nbsp;{},&lt;br&gt;
+"facet_fields":&amp;nbsp;{&lt;br&gt;
+"text":&amp;nbsp;[&lt;br&gt;
+"aaa",&lt;br&gt;
+2,&lt;br&gt;
+"bbb",&lt;br&gt;
+1&lt;br&gt;
+]&lt;br&gt;
+},&lt;br&gt;
+"facet_dates":&amp;nbsp;{},&lt;br&gt;
+"facet_ranges":&amp;nbsp;{},&lt;br&gt;
+"facet_intervals":&amp;nbsp;{}&lt;br&gt;
+}&lt;br&gt;
+}</questionanswer>
+  </question>
+</questions>

@@ -1,0 +1,32 @@
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <title>Accessing SQLite database using SQuirrel SQL Client</title>
+</head>
+<body>
+<h1>Accessing SQLites database using SQuirrel SQL Client<br>
+</h1>
+<ul>
+  <li>Download and install <a href="http://www.squirrelsql.org/">SQuirrel
+SQL Client</a> <br>
+  </li>
+  <li>Download <a href="http://www.zentus.com/sqlitejdbc/">SQLiteJDBC</a>
+(tested v054 for SQLite 3.6.3) and copy the JAR in the lib directory of
+SQuirrel </li>
+  <li>Start SQuirrel and create a new driver with the following
+settings:
+    <ul>
+      <li>Name: <em>SQLite</em> </li>
+      <li>Example URL: <code>jdbc:sqlite://DRIVE:/dirA/dirB/db.sqlite</code>
+      </li>
+      <li>Website URL: <code><a
+ href="http://www.zentus.com/sqlitejdbc/">http://www.zentus.com/sqlitejdbc/</a>
+        </code></li>
+      <li>Class Name: <code>org.sqlite.JDBC</code> </li>
+    </ul>
+  </li>
+  <li>Create an Alias using the SQLite driver created in the previous
+step.</li>
+</ul>
+</body>
+</html>
