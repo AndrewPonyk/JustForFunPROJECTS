@@ -22,14 +22,14 @@ public class RutrackerPages {
 		//List<TorrentItem> programmingVideos = retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1565&start=", 2950); // Programming videos
 		//persistTorrentsList(programmingVideos, "ProgrammingVideos");
 
-		//List<TorrentItem> webDesignVideos = retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1564&start=", 1000); // Web Design videos
-		//persistTorrentsList(webDesignVideos, "WebDesignVideos");
+		List<TorrentItem> webDesignVideos = retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1564&start=", 1000); // Web Design videos
+		persistTorrentsList(webDesignVideos, "WebDesignVideos");
 
 		//retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1426&start=", 3200); // Programming books
 		//retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1425&start=", 1950); // Web design and programming books
 
 		// ---------------------------- Conditional searches
-		retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1426&start=", 3200, " r "); // R books
+		//retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1426&start=", 3200, " r "); // R books
 		//retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1426&start=", 3200, "assembly"); // Assembly books
 		//retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1426&start=", 3200, "machine", "learning"); // Artificial books
 		//retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1426&start=", 3200, "hibernate"); // Hibernate books

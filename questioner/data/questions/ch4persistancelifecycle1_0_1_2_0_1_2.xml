@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="1_0_1_2_0_1_2" name="ch4PersistanceLifecycle" nofquestions="4" nofsubcategories="0" filename="ch4persistancelifecycle1_0_1_2_0_1_2.xml">
+  <question id="1_0_1_2_0_1_2:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;are&amp;nbsp;the&amp;nbsp;differences&amp;nbsp;between&amp;nbsp;the&amp;nbsp;different&amp;nbsp;saving&amp;nbsp;methods&amp;nbsp;in&amp;nbsp;Hibernate?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Here's&amp;nbsp;my&amp;nbsp;understanding&amp;nbsp;of&amp;nbsp;the&amp;nbsp;methods.&amp;nbsp;Mainly&amp;nbsp;these&amp;nbsp;are&amp;nbsp;based&amp;nbsp;on&amp;nbsp;the&amp;nbsp;API&amp;nbsp;though&amp;nbsp;as&amp;nbsp;I&amp;nbsp;don't&amp;nbsp;use&lt;br&gt;
+all&amp;nbsp;of&amp;nbsp;these&amp;nbsp;in&amp;nbsp;practice.&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;saveOrUpdate&amp;nbsp;Calls&amp;nbsp;either&amp;nbsp;save&amp;nbsp;or&amp;nbsp;update&amp;nbsp;depending&amp;nbsp;on&amp;nbsp;some&amp;nbsp;checks.&amp;nbsp;E.g.&amp;nbsp;if&amp;nbsp;no&amp;nbsp;identifier&amp;nbsp;exists,&lt;br&gt;
+save&amp;nbsp;is&amp;nbsp;called.&amp;nbsp;Otherwise&amp;nbsp;update&amp;nbsp;is&amp;nbsp;called.&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;save&amp;nbsp;Persists&amp;nbsp;an&amp;nbsp;entity.&amp;nbsp;Will&amp;nbsp;assign&amp;nbsp;an&amp;nbsp;identifier&amp;nbsp;if&amp;nbsp;one&amp;nbsp;doesn't&amp;nbsp;exist.&amp;nbsp;If&amp;nbsp;one&amp;nbsp;does,&amp;nbsp;it's&amp;nbsp;essentially&lt;br&gt;
+doing&amp;nbsp;an&amp;nbsp;update.&amp;nbsp;!!!&amp;nbsp;Returns&amp;nbsp;the&amp;nbsp;generated&amp;nbsp;ID&amp;nbsp;of&amp;nbsp;the&amp;nbsp;entity.&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;update&amp;nbsp;Attempts&amp;nbsp;to&amp;nbsp;persist&amp;nbsp;the&amp;nbsp;entity&amp;nbsp;using&amp;nbsp;an&amp;nbsp;existing&amp;nbsp;identifier.&amp;nbsp;If&amp;nbsp;no&amp;nbsp;identifier&amp;nbsp;exists,&amp;nbsp;I&amp;nbsp;believe&amp;nbsp;an&amp;nbsp;exception&amp;nbsp;is&amp;nbsp;thrown.&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;saveOrUpdateCopy&amp;nbsp;This&amp;nbsp;is&amp;nbsp;deprecated&amp;nbsp;and&amp;nbsp;should&amp;nbsp;no&amp;nbsp;longer&amp;nbsp;be&amp;nbsp;used.&amp;nbsp;Instead&amp;nbsp;there&amp;nbsp;is...&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;merge&amp;nbsp;Now&amp;nbsp;this&amp;nbsp;is&amp;nbsp;where&amp;nbsp;my&amp;nbsp;knowledge&amp;nbsp;starts&amp;nbsp;to&amp;nbsp;falter.&amp;nbsp;The&amp;nbsp;important&amp;nbsp;thing&amp;nbsp;here&amp;nbsp;is&amp;nbsp;the&amp;nbsp;difference&amp;nbsp;between&amp;nbsp;transient,&amp;nbsp;detached&amp;nbsp;and&amp;nbsp;persistent&amp;nbsp;entities.&amp;nbsp;For&amp;nbsp;more&amp;nbsp;info&amp;nbsp;on&amp;nbsp;the&amp;nbsp;object&amp;nbsp;states,&amp;nbsp;take&amp;nbsp;a&amp;nbsp;look&amp;nbsp;here.&amp;nbsp;With&amp;nbsp;save&amp;nbsp;&amp;&amp;nbsp;update,&amp;nbsp;you&amp;nbsp;are&amp;nbsp;dealing&amp;nbsp;with&amp;nbsp;persistent&amp;nbsp;objects.&amp;nbsp;They&amp;nbsp;are&amp;nbsp;linked&amp;nbsp;to&amp;nbsp;a&amp;nbsp;Session&amp;nbsp;so&amp;nbsp;Hibernate&amp;nbsp;knows&amp;nbsp;what&amp;nbsp;has&amp;nbsp;changed.&amp;nbsp;But&amp;nbsp;when&amp;nbsp;you&amp;nbsp;have&amp;nbsp;a&amp;nbsp;transient&amp;nbsp;object,&amp;nbsp;there&amp;nbsp;is&amp;nbsp;no&amp;nbsp;session&amp;nbsp;involved.&amp;nbsp;In&amp;nbsp;these&amp;nbsp;cases&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;use&amp;nbsp;merge&amp;nbsp;for&amp;nbsp;updates&amp;nbsp;and&amp;nbsp;persist&amp;nbsp;for&amp;nbsp;saving.&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;persist&amp;nbsp;As&amp;nbsp;mentioned&amp;nbsp;above,&amp;nbsp;this&amp;nbsp;is&amp;nbsp;used&amp;nbsp;on&amp;nbsp;transient&amp;nbsp;objects.&amp;nbsp;It&amp;nbsp;does&amp;nbsp;not&amp;nbsp;return&amp;nbsp;the&amp;nbsp;generated&amp;nbsp;ID.&lt;br&gt;
+====================================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Another&amp;nbsp;great&amp;nbsp;explanation&lt;br&gt;
+&lt;br&gt;
+╔══════════════╦═══════════════════════════════╦════════════════════════════════╗&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;METHOD&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;TRANSIENT&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DETACHED&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+╠══════════════╬═══════════════════════════════╬════════════════════════════════╣&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;sets&amp;nbsp;id&amp;nbsp;if&amp;nbsp;doesn't&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;sets&amp;nbsp;new&amp;nbsp;id&amp;nbsp;even&amp;nbsp;if&amp;nbsp;object&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;save()&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;exist,&amp;nbsp;persists&amp;nbsp;to&amp;nbsp;db,&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;already&amp;nbsp;has&amp;nbsp;it,&amp;nbsp;persists&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;returns&amp;nbsp;attached&amp;nbsp;object&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;to&amp;nbsp;DB,&amp;nbsp;returns&amp;nbsp;attached&amp;nbsp;object&amp;nbsp;║&lt;br&gt;
+╠══════════════╬═══════════════════════════════╬════════════════════════════════╣&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;sets&amp;nbsp;id&amp;nbsp;on&amp;nbsp;object&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;throws&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;persist()&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;persists&amp;nbsp;object&amp;nbsp;to&amp;nbsp;DB&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;PersistenceException&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+╠══════════════╬═══════════════════════════════╬════════════════════════════════╣&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;update()&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Exception&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;persists&amp;nbsp;and&amp;nbsp;reattaches&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+╠══════════════╬═══════════════════════════════╬════════════════════════════════╣&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;copy&amp;nbsp;the&amp;nbsp;state&amp;nbsp;of&amp;nbsp;object&amp;nbsp;in&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;copy&amp;nbsp;the&amp;nbsp;state&amp;nbsp;of&amp;nbsp;obj&amp;nbsp;in&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;merge()&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DB,&amp;nbsp;doesn't&amp;nbsp;attach&amp;nbsp;it,&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;DB,&amp;nbsp;doesn't&amp;nbsp;attach&amp;nbsp;it,&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;returns&amp;nbsp;attached&amp;nbsp;object&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;returns&amp;nbsp;attached&amp;nbsp;object&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+╠══════════════╬═══════════════════════════════╬════════════════════════════════╣&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+║saveOrUpdate()║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;as&amp;nbsp;save()&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;as&amp;nbsp;update()&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;║&lt;br&gt;
+╚══════════════╩═══════════════════════════════╩════════════════════════════════╝&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_2_0_1_2:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Imagine&amp;nbsp;situation,&amp;nbsp;we&amp;nbsp;have&amp;nbsp;transient&amp;nbsp;entity&amp;nbsp;p1,&amp;nbsp;and&amp;nbsp;perform&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;session.save(p1);&amp;nbsp;session.save(p1).&lt;br&gt;
+What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result&amp;nbsp;?&lt;br&gt;
+Second&amp;nbsp;situation,&amp;nbsp;we&amp;nbsp;have&amp;nbsp;transient&amp;nbsp;entity&amp;nbsp;p2&amp;nbsp;and&amp;nbsp;perform&amp;nbsp;session.save(p2).&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;result&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>In&amp;nbsp;first&amp;nbsp;case&amp;nbsp;p1&amp;nbsp;is&amp;nbsp;saved&amp;nbsp;to&amp;nbsp;DB,&amp;nbsp;no&amp;nbsp;error,&amp;nbsp;no&amp;nbsp;exception.&lt;br&gt;
+&lt;br&gt;
+In&amp;nbsp;second&amp;nbsp;case&amp;nbsp;we&amp;nbsp;got&amp;nbsp;Exception.&amp;nbsp;(TransientObjectException:&amp;nbsp;The&amp;nbsp;given&amp;nbsp;object&amp;nbsp;has&amp;nbsp;a&amp;nbsp;null&amp;nbsp;identifier)</questionanswer>
+  </question>
+  <question id="1_0_1_2_0_1_2:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;JPA/Hibernate&amp;nbsp;entity&amp;nbsp;state&amp;nbsp;transitions.&amp;nbsp;(Transient,&amp;nbsp;persistent...)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://vladmihalcea.com/2014/07/30/a-beginners-guide-to-jpahibernate-entity-state-transitions/&lt;br&gt;
+===================&lt;br&gt;
+The&amp;nbsp;entity&amp;nbsp;states&lt;br&gt;
+&lt;br&gt;
+As&amp;nbsp;I&amp;nbsp;previously&amp;nbsp;mentioned,&amp;nbsp;Hibernate&amp;nbsp;monitors&amp;nbsp;currently&amp;nbsp;attached&amp;nbsp;entities.&lt;br&gt;
+But&amp;nbsp;for&amp;nbsp;an&amp;nbsp;entity&amp;nbsp;to&amp;nbsp;become&amp;nbsp;managed,&amp;nbsp;it&amp;nbsp;must&amp;nbsp;be&amp;nbsp;in&amp;nbsp;the&amp;nbsp;right&amp;nbsp;entity&amp;nbsp;state.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;First&amp;nbsp;we&amp;nbsp;must&amp;nbsp;define&amp;nbsp;all&amp;nbsp;entity&amp;nbsp;states:&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;New&amp;nbsp;(Transient)&lt;br&gt;
+A&amp;nbsp;newly&amp;nbsp;created&amp;nbsp;object&amp;nbsp;that&amp;nbsp;hasn’t&amp;nbsp;ever&amp;nbsp;been&amp;nbsp;associated&amp;nbsp;with&amp;nbsp;a&amp;nbsp;Hibernate&amp;nbsp;Session&lt;br&gt;
+(a.k.a&amp;nbsp;Persistence&amp;nbsp;Context)&amp;nbsp;and&amp;nbsp;is&amp;nbsp;not&amp;nbsp;mapped&amp;nbsp;to&amp;nbsp;any&amp;nbsp;database&amp;nbsp;table&amp;nbsp;row&amp;nbsp;is&amp;nbsp;considered&amp;nbsp;to&amp;nbsp;be&amp;nbsp;in&amp;nbsp;the&amp;nbsp;New&amp;nbsp;(Transient)&amp;nbsp;state.&lt;br&gt;
+&lt;br&gt;
+To&amp;nbsp;become&amp;nbsp;persisted&amp;nbsp;we&amp;nbsp;need&amp;nbsp;to&amp;nbsp;either&amp;nbsp;explicitly&amp;nbsp;call&amp;nbsp;the&amp;nbsp;EntityManager#persist&amp;nbsp;method&amp;nbsp;or&amp;nbsp;make&amp;nbsp;use&amp;nbsp;of&amp;nbsp;the&amp;nbsp;transitive&amp;nbsp;persistence&amp;nbsp;mechanism.&lt;br&gt;
+&lt;br&gt;
+-Persistent&amp;nbsp;(Managed)&lt;br&gt;
+A&amp;nbsp;persistent&amp;nbsp;entity&amp;nbsp;has&amp;nbsp;been&amp;nbsp;associated&amp;nbsp;with&amp;nbsp;a&amp;nbsp;database&amp;nbsp;table&amp;nbsp;row&amp;nbsp;and&amp;nbsp;it’s&amp;nbsp;being&amp;nbsp;managed&amp;nbsp;by&amp;nbsp;the&amp;nbsp;current&lt;br&gt;
+running&amp;nbsp;Persistence&amp;nbsp;Context.&amp;nbsp;Any&amp;nbsp;change&amp;nbsp;made&amp;nbsp;to&amp;nbsp;such&amp;nbsp;entity&amp;nbsp;is&amp;nbsp;going&amp;nbsp;to&amp;nbsp;be&amp;nbsp;detected&amp;nbsp;and&lt;br&gt;
+propagated&amp;nbsp;to&amp;nbsp;the&amp;nbsp;database&amp;nbsp;(during&amp;nbsp;the&amp;nbsp;Session&amp;nbsp;flush-time).&amp;nbsp;With&amp;nbsp;Hibernate,&amp;nbsp;we&amp;nbsp;no&amp;nbsp;longer&lt;br&gt;
+have&amp;nbsp;to&amp;nbsp;execute&amp;nbsp;INSERT/UPDATE/DELETE&amp;nbsp;statements.&amp;nbsp;Hibernate&amp;nbsp;employs&amp;nbsp;a&amp;nbsp;transactional&amp;nbsp;write-behind&lt;br&gt;
+working&amp;nbsp;style&amp;nbsp;and&amp;nbsp;changes&amp;nbsp;are&amp;nbsp;synchronized&amp;nbsp;at&amp;nbsp;the&amp;nbsp;very&amp;nbsp;last&amp;nbsp;responsible&amp;nbsp;moment,&lt;br&gt;
+during&amp;nbsp;the&amp;nbsp;current&amp;nbsp;Session&amp;nbsp;flush-time&amp;nbsp;&lt;&lt;&lt;&lt;.&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;Detached&lt;br&gt;
+Once&amp;nbsp;the&amp;nbsp;current&amp;nbsp;running&amp;nbsp;Persistence&amp;nbsp;Context&amp;nbsp;is&amp;nbsp;closed&amp;nbsp;all&amp;nbsp;the&amp;nbsp;previously&amp;nbsp;managed&lt;br&gt;
+entities&amp;nbsp;become&amp;nbsp;detached.&amp;nbsp;Successive&amp;nbsp;changes&amp;nbsp;will&amp;nbsp;no&amp;nbsp;longer&amp;nbsp;be&amp;nbsp;tracked&amp;nbsp;and&amp;nbsp;no&amp;nbsp;automatic&lt;br&gt;
+database&amp;nbsp;synchronization&amp;nbsp;is&amp;nbsp;going&amp;nbsp;to&amp;nbsp;happen.&lt;br&gt;
+&lt;br&gt;
+Reattaching&lt;br&gt;
+Hibernate&amp;nbsp;(but&amp;nbsp;not&amp;nbsp;JPA&amp;nbsp;2.1)&amp;nbsp;supports&amp;nbsp;reattaching&amp;nbsp;through&amp;nbsp;the&amp;nbsp;Session#update&amp;nbsp;method.&lt;br&gt;
+&lt;br&gt;
+A&amp;nbsp;Hibernate&amp;nbsp;Session&amp;nbsp;can&amp;nbsp;only&amp;nbsp;associate&amp;nbsp;one&amp;nbsp;Entity&amp;nbsp;object&amp;nbsp;for&amp;nbsp;a&amp;nbsp;given&amp;nbsp;database&amp;nbsp;row.&lt;br&gt;
+This&amp;nbsp;is&amp;nbsp;because&amp;nbsp;the&amp;nbsp;Persistence&amp;nbsp;Context&amp;nbsp;acts&amp;nbsp;as&amp;nbsp;an&amp;nbsp;in-memory&amp;nbsp;cache&amp;nbsp;(first&amp;nbsp;level&amp;nbsp;cache)&amp;nbsp;and&amp;nbsp;only&amp;nbsp;one&amp;nbsp;value&amp;nbsp;(entity)&amp;nbsp;is&amp;nbsp;associated&amp;nbsp;to&amp;nbsp;a&amp;nbsp;given&amp;nbsp;key&amp;nbsp;(entity&amp;nbsp;type&amp;nbsp;and&amp;nbsp;database&amp;nbsp;identifier).&lt;br&gt;
+&lt;br&gt;
+An&amp;nbsp;entity&amp;nbsp;can&amp;nbsp;be&amp;nbsp;reattached&amp;nbsp;only&amp;nbsp;if&amp;nbsp;there&amp;nbsp;is&amp;nbsp;no&amp;nbsp;other&amp;nbsp;JVM&amp;nbsp;object&amp;nbsp;(matching&amp;nbsp;the&amp;nbsp;same&amp;nbsp;database&amp;nbsp;row)&lt;br&gt;
+already&amp;nbsp;associated&amp;nbsp;to&amp;nbsp;the&amp;nbsp;current&amp;nbsp;Hibernate&amp;nbsp;Session.&lt;br&gt;
+Merging&lt;br&gt;
+The&amp;nbsp;merge&amp;nbsp;is&amp;nbsp;going&amp;nbsp;to&amp;nbsp;copy&amp;nbsp;the&amp;nbsp;detached&amp;nbsp;entity&amp;nbsp;state&amp;nbsp;(source)&amp;nbsp;to&amp;nbsp;a&amp;nbsp;managed&amp;nbsp;entity&amp;nbsp;instance&amp;nbsp;(destination).&amp;nbsp;If&amp;nbsp;the&amp;nbsp;merging&amp;nbsp;entity&amp;nbsp;has&amp;nbsp;no&amp;nbsp;equivalent&amp;nbsp;in&amp;nbsp;the&amp;nbsp;current&amp;nbsp;Session,&amp;nbsp;one&amp;nbsp;will&amp;nbsp;be&amp;nbsp;fetched&amp;nbsp;from&amp;nbsp;the&amp;nbsp;database.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;detached&amp;nbsp;object&amp;nbsp;instance&amp;nbsp;will&amp;nbsp;continue&amp;nbsp;to&amp;nbsp;remain&amp;nbsp;detached&amp;nbsp;even&amp;nbsp;after&amp;nbsp;the&amp;nbsp;merge&amp;nbsp;operation.&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;Removed&lt;br&gt;
+Although&amp;nbsp;JPA&amp;nbsp;demands&amp;nbsp;that&amp;nbsp;managed&amp;nbsp;entities&amp;nbsp;only&amp;nbsp;are&amp;nbsp;allowed&amp;nbsp;to&amp;nbsp;be&amp;nbsp;removed,&lt;br&gt;
+Hibernate&amp;nbsp;can&amp;nbsp;also&amp;nbsp;delete&amp;nbsp;detached&amp;nbsp;entities&amp;nbsp;(but&amp;nbsp;only&amp;nbsp;through&amp;nbsp;a&amp;nbsp;Session#delete&amp;nbsp;method&amp;nbsp;call).&lt;br&gt;
+&lt;br&gt;
+A&amp;nbsp;removed&amp;nbsp;entity&amp;nbsp;is&amp;nbsp;only&amp;nbsp;scheduled&amp;nbsp;for&amp;nbsp;deletion&amp;nbsp;and&amp;nbsp;the&amp;nbsp;actual&amp;nbsp;database&amp;nbsp;DELETE&lt;br&gt;
+statement&amp;nbsp;will&amp;nbsp;be&amp;nbsp;executed&amp;nbsp;during&amp;nbsp;Session&amp;nbsp;flush-time.&lt;br&gt;
+&lt;br&gt;
+===========================================&lt;br&gt;
+NICE&amp;nbsp;IMAGE&amp;nbsp;Explanation&amp;nbsp;&lt;br&gt;
+*&amp;nbsp;EntityManager&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='670'&amp;nbsp;height='380'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/jpaentitystatesem.png'/&gt;&lt;br&gt;
+*&amp;nbsp;Session&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='670'&amp;nbsp;height='380'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/hibernateentitystates1.png'/&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_2_0_1_2:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hibernate&amp;nbsp;&amp;nbsp;load()&amp;nbsp;vs&amp;nbsp;get()&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>&lt;br&gt;
+&lt;img&amp;nbsp;width='605'&amp;nbsp;height='160'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/8jVve.jpg'/&gt;&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;one&amp;nbsp;difference&amp;nbsp;between&amp;nbsp;get()&amp;nbsp;and&amp;nbsp;load()&amp;nbsp;is&amp;nbsp;how&amp;nbsp;they&amp;nbsp;indicate&amp;nbsp;that&amp;nbsp;the&amp;nbsp;instance&amp;nbsp;could&amp;nbsp;not&amp;nbsp;be&amp;nbsp;found.&amp;nbsp;If&amp;nbsp;no&amp;nbsp;row&amp;nbsp;with&amp;nbsp;the&amp;nbsp;given&amp;nbsp;identifier&amp;nbsp;value&amp;nbsp;exists&amp;nbsp;in&amp;nbsp;the&amp;nbsp;database,&amp;nbsp;get()&amp;nbsp;returns&amp;nbsp;null.&amp;nbsp;The&amp;nbsp;load()&amp;nbsp;method&amp;nbsp;throws&amp;nbsp;an&amp;nbsp;ObjectNotFoundException.&amp;nbsp;It’s&amp;nbsp;your&amp;nbsp;choice&amp;nbsp;what&amp;nbsp;error-handling&amp;nbsp;you&amp;nbsp;prefer.&lt;br&gt;
+&lt;br&gt;
+More&amp;nbsp;important,&amp;nbsp;the&amp;nbsp;load()&amp;nbsp;method&amp;nbsp;may&amp;nbsp;return&amp;nbsp;a&amp;nbsp;proxy,&amp;nbsp;a&amp;nbsp;placeholder,&amp;nbsp;without&amp;nbsp;hitting&amp;nbsp;the&amp;nbsp;database.&amp;nbsp;A&amp;nbsp;consequence&amp;nbsp;of&amp;nbsp;this&amp;nbsp;is&amp;nbsp;that&amp;nbsp;you&amp;nbsp;may&amp;nbsp;get&amp;nbsp;an&amp;nbsp;ObjectNotFoundException&amp;nbsp;later,&amp;nbsp;as&amp;nbsp;soon&amp;nbsp;as&amp;nbsp;you&amp;nbsp;try&amp;nbsp;to&amp;nbsp;access&amp;nbsp;the&amp;nbsp;returned&amp;nbsp;placeholder&amp;nbsp;and&amp;nbsp;force&amp;nbsp;its&amp;nbsp;initialization&amp;nbsp;(this&amp;nbsp;is&amp;nbsp;also&amp;nbsp;called&amp;nbsp;lazy&amp;nbsp;loading;&amp;nbsp;we&amp;nbsp;discuss&amp;nbsp;load&amp;nbsp;optimization&amp;nbsp;in&amp;nbsp;later&amp;nbsp;chapters.)&amp;nbsp;The&amp;nbsp;load()&amp;nbsp;method&amp;nbsp;always&amp;nbsp;tries&amp;nbsp;to&amp;nbsp;return&amp;nbsp;a&amp;nbsp;proxy,&amp;nbsp;and&amp;nbsp;only&amp;nbsp;returns&amp;nbsp;an&amp;nbsp;initialized&amp;nbsp;object&amp;nbsp;instance&amp;nbsp;if&amp;nbsp;it’s&amp;nbsp;already&amp;nbsp;managed&amp;nbsp;by&amp;nbsp;the&amp;nbsp;current&amp;nbsp;persistence&amp;nbsp;context.&amp;nbsp;In&amp;nbsp;the&amp;nbsp;example&amp;nbsp;shown&amp;nbsp;earlier,&amp;nbsp;no&amp;nbsp;database&amp;nbsp;hit&amp;nbsp;occurs&amp;nbsp;at&amp;nbsp;all!&amp;nbsp;The&amp;nbsp;get()&amp;nbsp;method&amp;nbsp;on&amp;nbsp;the&amp;nbsp;other&amp;nbsp;hand&amp;nbsp;never&amp;nbsp;returns&amp;nbsp;a&amp;nbsp;proxy,&amp;nbsp;it&amp;nbsp;always&amp;nbsp;hits&amp;nbsp;the&amp;nbsp;database.&lt;br&gt;
+&lt;br&gt;
+You&amp;nbsp;may&amp;nbsp;ask&amp;nbsp;why&amp;nbsp;this&amp;nbsp;option&amp;nbsp;is&amp;nbsp;useful—after&amp;nbsp;all,&amp;nbsp;you&amp;nbsp;retrieve&amp;nbsp;an&amp;nbsp;object&amp;nbsp;to&amp;nbsp;access&amp;nbsp;it.&amp;nbsp;It’s&amp;nbsp;common&amp;nbsp;to&amp;nbsp;obtain&amp;nbsp;a&amp;nbsp;persistent&amp;nbsp;instance&amp;nbsp;to&amp;nbsp;assign&amp;nbsp;it&amp;nbsp;as&amp;nbsp;a&amp;nbsp;reference&amp;nbsp;to&amp;nbsp;another&amp;nbsp;instance.&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;imagine&amp;nbsp;that&amp;nbsp;you&amp;nbsp;need&amp;nbsp;the&amp;nbsp;item&amp;nbsp;only&amp;nbsp;for&amp;nbsp;a&amp;nbsp;single&amp;nbsp;purpose:&amp;nbsp;to&amp;nbsp;set&amp;nbsp;an&amp;nbsp;association&amp;nbsp;with&amp;nbsp;a&amp;nbsp;Comment:&amp;nbsp;aComment.setForAuction(item).&amp;nbsp;If&amp;nbsp;this&amp;nbsp;is&amp;nbsp;all&amp;nbsp;you&amp;nbsp;plan&amp;nbsp;to&amp;nbsp;do&amp;nbsp;with&amp;nbsp;the&amp;nbsp;item,&amp;nbsp;a&amp;nbsp;proxy&amp;nbsp;will&amp;nbsp;do&amp;nbsp;fine;&amp;nbsp;there&amp;nbsp;is&amp;nbsp;no&amp;nbsp;need&amp;nbsp;to&amp;nbsp;hit&amp;nbsp;the&amp;nbsp;database.&amp;nbsp;In&amp;nbsp;other&amp;nbsp;words,&amp;nbsp;when&amp;nbsp;the&amp;nbsp;Comment&amp;nbsp;is&amp;nbsp;saved,&amp;nbsp;you&amp;nbsp;need&amp;nbsp;the&amp;nbsp;foreign&amp;nbsp;key&amp;nbsp;value&amp;nbsp;of&amp;nbsp;an&amp;nbsp;item&amp;nbsp;inserted&amp;nbsp;into&amp;nbsp;the&amp;nbsp;COMMENT&amp;nbsp;table.&amp;nbsp;The&amp;nbsp;proxy&amp;nbsp;of&amp;nbsp;an&amp;nbsp;Item&amp;nbsp;provides&amp;nbsp;just&amp;nbsp;that:&amp;nbsp;an&amp;nbsp;identifier&amp;nbsp;value&amp;nbsp;wrapped&amp;nbsp;in&amp;nbsp;a&amp;nbsp;placeholder&amp;nbsp;that&amp;nbsp;looks&amp;nbsp;like&amp;nbsp;the&amp;nbsp;real&amp;nbsp;thing.&lt;br&gt;
+-=====================&lt;br&gt;
+&lt;br&gt;
+P.S&amp;nbsp;&lt;br&gt;
+Use&amp;nbsp;get()&amp;nbsp;when&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;load&amp;nbsp;an&amp;nbsp;object&lt;br&gt;
+&lt;br&gt;
+Use&amp;nbsp;load()&amp;nbsp;when&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;obtain&amp;nbsp;a&amp;nbsp;reference&amp;nbsp;to&amp;nbsp;the&amp;nbsp;object&amp;nbsp;without&amp;nbsp;issuing&lt;br&gt;
+extra&amp;nbsp;SQL&amp;nbsp;queries,&amp;nbsp;for&amp;nbsp;example,&amp;nbsp;to&amp;nbsp;create&amp;nbsp;a&amp;nbsp;relationship&amp;nbsp;with&amp;nbsp;another&amp;nbsp;object:&lt;br&gt;
+&lt;br&gt;</questionanswer>
+  </question>
+</questions>
