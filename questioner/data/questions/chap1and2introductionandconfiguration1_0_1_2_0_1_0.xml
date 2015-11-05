@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_2_0_1_0" name="chap1and2IntroductionAndConfiguration" nofquestions="4" nofsubcategories="0" filename="chap1and2introductionandconfiguration1_0_1_2_0_1_0.xml">
+<questions id="1_0_1_2_0_1_0" name="chap1and2IntroductionAndConfiguration" nofquestions="5" nofsubcategories="0" filename="chap1and2introductionandconfiguration1_0_1_2_0_1_0.xml">
   <question id="1_0_1_2_0_1_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Advantages&amp;nbsp;of&amp;nbsp;using&amp;nbsp;ORM,&amp;nbsp;describe.&lt;br&gt;
@@ -302,5 +302,54 @@ you&amp;nbsp;probably&amp;nbsp;want&amp;nbsp;this&amp;nbsp;for&amp;nbsp;producti
 &lt;br&gt;
 -&amp;nbsp;create-drop:&amp;nbsp;create&amp;nbsp;the&amp;nbsp;schema&amp;nbsp;as&amp;nbsp;in&amp;nbsp;create&amp;nbsp;above,&amp;nbsp;but&amp;nbsp;also&amp;nbsp;drop&amp;nbsp;the&amp;nbsp;schema&amp;nbsp;at&amp;nbsp;the&amp;nbsp;end&amp;nbsp;of&amp;nbsp;the&amp;nbsp;session.&lt;br&gt;
 This&amp;nbsp;is&amp;nbsp;great&amp;nbsp;in&amp;nbsp;early&amp;nbsp;development&amp;nbsp;or&amp;nbsp;for&amp;nbsp;testing.&amp;nbsp;(!!!&amp;nbsp;Destroy&amp;nbsp;data&amp;nbsp;only&amp;nbsp;when&amp;nbsp;close&amp;nbsp;Session&amp;nbsp;Factory&amp;nbsp;,&amp;nbsp;"factory.close();")&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_1_2_0_1_0:4" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Can&amp;nbsp;Hibernate&amp;nbsp;Entity&amp;nbsp;be&amp;nbsp;an&amp;nbsp;Inner&amp;nbsp;class&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Yes&amp;nbsp;it&amp;nbsp;can&amp;nbsp;be.&lt;br&gt;
+&lt;br&gt;
+BUT&amp;nbsp;THIS&amp;nbsp;INNER&amp;nbsp;CLASS&amp;nbsp;SHOULD&amp;nbsp;HAVE&amp;nbsp;DEFAULT&amp;nbsp;CONSTRUCTOR&amp;nbsp;(manyally&amp;nbsp;defined)&amp;nbsp;!!!!&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+IN&amp;nbsp;hibernate.cfg.xml&lt;br&gt;
+...&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;mapping&amp;nbsp;class="ch4.Programch4$PersonInner"/&gt;&lt;br&gt;
+...&lt;br&gt;
+&lt;br&gt;
+And&amp;nbsp;example&amp;nbsp;of&amp;nbsp;inner&amp;nbsp;class&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;Programch4&amp;nbsp;{&lt;br&gt;
+...&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@Entity&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;class&amp;nbsp;PersonInner{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@Id&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@GeneratedValue(strategy&amp;nbsp;=&amp;nbsp;GenerationType.IDENTITY)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;Long&amp;nbsp;id;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;@Column&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;private&amp;nbsp;String&amp;nbsp;name;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;PersonInner(){&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;Long&amp;nbsp;getId()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;id;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;setId(Long&amp;nbsp;id)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;this.id&amp;nbsp;=&amp;nbsp;id;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;String&amp;nbsp;getName()&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;name;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;void&amp;nbsp;setName(String&amp;nbsp;name)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;this.name&amp;nbsp;=&amp;nbsp;name;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}</questionanswer>
   </question>
 </questions>
