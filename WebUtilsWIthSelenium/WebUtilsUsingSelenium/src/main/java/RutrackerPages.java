@@ -10,6 +10,7 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 
@@ -19,15 +20,14 @@ public class RutrackerPages {
 	public static String dbFile = projectDir + "/rutracker.db";
 
 	public static void main(String[] args) {
-		//List<TorrentItem> programmingVideos = retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1565&start=", 2950); // Programming videos
-		//persistTorrentsList(programmingVideos, "ProgrammingVideos");
+		List<TorrentItem> programmingVideos = retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1565&start=", 3000); // Programming videos
+		persistTorrentsList(programmingVideos, "ProgrammingVideos");
 
 		//List<TorrentItem> webDesignVideos = retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1564&start=", 1000); // Web Design videos
 		//persistTorrentsList(webDesignVideos, "WebDesignVideos");
 
-		List<TorrentItem> webDesignVideos = retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1426&start=", 3200); // Programming books
-		persistTorrentsList(webDesignVideos, "ProgrammingBooks");
-
+		//List<TorrentItem> webDesignVideos = retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1426&start=", 3200); // Programming books
+		//persistTorrentsList(webDesignVideos, "ProgrammingBooks");
 
 		//
 
@@ -41,9 +41,7 @@ public class RutrackerPages {
 		//retrieveAndPrintTorrents("http://rutracker.org/forum/viewforum.php?f=1565&start=", 2900, "c#"); // Programming videos
 
 
-
 		//---------------------------------------------------------------
-
 	}
 
 	public static void persistTorrentsList(List<TorrentItem> items, String tableName){
@@ -118,9 +116,16 @@ public class RutrackerPages {
 		System.out.println("Rutracker pages retriewer");
 
 		WebDriver driver = new HtmlUnitDriver();
+		//WebDriver driver = new FirefoxDriver();
 		int page = 1, counter = 1, offset = 0;
 		List<String> items = new ArrayList<String>();
 		List<TorrentItem> result = new ArrayList<TorrentItem>();
+
+//		driver.get("http://rutracker.org/forum/index.php");
+//		driver.findElement(By.xpath("//*[@id=\"page_header\"]/div[4]/table/tbody/tr/td/span[1]")).click();
+//		driver.findElement(By.id("top-login-uname")).sendKeys("andrewlviv");
+//		driver.findElement(By.id("top-login-pwd")).sendKeys("ekzyrf");
+//		driver.findElement(By.id("top-login-btn")).click();
 
 		while(offset <= count){
 			if(containsConditions.length ==0){
@@ -134,6 +139,10 @@ public class RutrackerPages {
 					String title = elem.findElements(By.cssSelector("a")).get(0).getText();
 					String size = elem.findElements(By.cssSelector("td")).get(2).getText();
 
+					// WHEN LOGIN
+					//String title = elem.findElements(By.cssSelector("a")).get(1).getText();
+					//String size = elem.findElements(By.cssSelector("td")).get(2).findElements(By.cssSelector("div div")).get(2).getText()
+
 						boolean print = true;
 
 						for(String stopWord : stopEquals){
@@ -146,7 +155,9 @@ public class RutrackerPages {
 								print = false;
 							}
 						}
-						if(print){
+					if (print) {
+						//elem.findElements(By.cssSelector("a")).get(0).click();
+
 							title = title.replaceAll("'", "\"");
 							TorrentItem item = new TorrentItem().setId(counter).setTitle(title).setSize(size).setFlag(0).setOther("");
 							if(items.contains(title)){
