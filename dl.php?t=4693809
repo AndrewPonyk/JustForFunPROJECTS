@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="windows-1251">
+<title>rutracker.org</title>
+<base href="http://rutracker.org/forum/">
+
+<link rel="shortcut icon" href="http://static.rutracker.org/favicon.ico" type="image/x-icon">
+<link rel="search" type="application/opensearchdescription+xml" title="Поиск на RuTracker.org" href="http://static.rutracker.org/opensearch.xml">
+
+<script>
+window.encURL = encodeURIComponent;
+window.BB = {
+	rand_num   : Math.round(Math.random() * 1000000000),
+	referrer   : document.referrer || 'unknown',
+	form_token : '',
+	opt_js     : {},
+
+	ajax_url         : "http://login.rutracker.org/forum/ajax.php",
+	begun_iframe_src : "http://195.82.146.52/iframe/begun-1.html",
+
+	IS_GUEST       : !!'1',
+	BB_SCRIPT      : 'login',
+	BB_URL         : 'http://rutracker.org/forum',
+	IMG_URL        : 'http://static.rutracker.org/templates/v1/images',
+	SMILES_URL     : 'http://static.rutracker.org/smiles',
+	POST_URL_FULL  : 'http://rutracker.org/forum/viewtopic.php?p=',
+	FORUM_URL_FULL : 'http://rutracker.org/forum/viewforum.php?f=',
+	
+	cookie_defaults : {
+		domain : ".rutracker.org",
+		path   : "/forum/",
+		secure : !!0,
+	},
+};
+</script>
+<link href="http://static.rutracker.org/templates/v1/min/b6b487767b7d3e5695f945eab5969049.all.min.css" rel="stylesheet">
+<script src="http://static.rutracker.org/templates/v1/min/e8f8d23438e8f2fd707a818d88eb9164.all.min.js"></script>
+
+
+
+<style>
+.invisible-el {
+	/* @include element-invisible(); */
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+}
+.hidden, .menu-sub, #ajax-loading, #ajax-error, var.ajax-params, #modal-blocker, .q-post {
+	display: none;
+}
+.branding #page_container {
+	background-image: url("http://195.82.146.52/brand/vulkan/background.jpg");
+}
+/* temp */
+
+#poll {
+	padding: 10px 10% 0;
+}
+#poll-results-block td {
+	padding: 0;
+}
+#poll-results-block td.poll-vote-pics {
+	padding: 2px 8px;
+}
+.poll-vote-pics img {
+	vertical-align: middle;
+}
+#poll-votes-block td {
+	padding: 2px;
+}
+#poll-votes-block input[type="radio"] {
+	vertical-align: middle;
+}
+#poll-votes-block label {
+	margin-bottom: 1px;
+}
+#vote-btn-input {
+	margin: 10px 0 14px;
+	text-align: center;#
+}
+
+/* temp end */
+</style>
+
+<noscript>
+	<style>
+	.sp-body { display: block; } /* for bots */
+	</style>
+</noscript>
+
+
+
+</head>
+
+<body class="">
+
+
+<div id="invisible-heap" class="invisible-el"></div>
+<div id="preload" class="invisible-el"></div>
+
+<div id="cse-form-holder" style="display: none;">
+	<form id="cse-search-box" action="http://rutracker.org/forum/search_cse.php" accept-charset="utf-8">
+		<input type="hidden" name="cx" value="014434608714260776013:ggcq1kovlga">
+		<input type="hidden" name="cof" value="FORID:9">
+		<input type="hidden" name="ie" value="utf-8">
+		<input id="cse-text-match" type="text" name="q" size="60" value="">
+		<input id="cse-submit-btn" type="submit" name="sa" value="Поиск в Google">
+	</form>
+</div>
+
+
+
+
+
+<div id="body_container">
+
+		<script>
+	if ( top != self && !self.location.hostname.match(BB.allowed_translator_hosts) ) {
+		$(function() {
+			$('body').html('<center><h1><br><br>Похоже вас пытаются обмануть<br>frame\'s hostname: ' + self.location.hostname + '</h1></center>');
+			throw new Error('in frame');
+		});
+	}
+	</script>
+
+	<div id="page_container">
+
+		
+		<div id="page_header">
+
+			<div id="old-browser-warn" style="display: none;"></div>
+			<script>
+			(function(){
+				if ( (typeof(window.opera) != "undefined" && window.opera.version() < 12.10) || (window.attachEvent && !window.addEventListener) /* IE < 9 */ ) {
+					var el = document.getElementById('old-browser-warn');
+					el.innerHTML = 'Вы используете устаревший браузер. Сайт может отображаться некорректно.';
+					el.style.display = '';
+				}
+			})();
+			</script>
+
+			<div id="main-nav">
+				<table class="w100">
+				<tr>
+					<td class="nowrap">
+						<div>
+							<a href="http://rutracker.org/forum/index.php"><b>Главная</b></a>&#0183;
+							<a href="http://rutracker.org/forum/tracker.php"><b>Трекер</b></a>&#0183;
+							<a href="http://rutracker.org/forum/search.php"><b>Поиск</b></a>&#0183;
+							<a href="http://rutracker.org/forum/viewtopic.php?t=1045"><b>Правила</b></a>&#0183;
+							<a href="http://rutracker.wiki/" target="_blank"><b>FAQ</b></a>&#0183;
+							<a href="http://rutracker.org/forum/groupcp.php"><b>Группы</b></a>&#0183;
+							<a href="http://rutracker.news"><b>Блог</b></a>&#0183;
+							<a href="http://rutracker.org/forum/info.php?show=copyright_holders" target="_blank"><b>Для правообладателей</b></a>
+						</div>
+					</td>
+					<td id="nav-natz" class="nowrap tRight">
+						<div>
+							<a href="http://kz.rutracker.org/forum/"><img alt="KZ" title="Казахстанский раздел" src="http://static.rutracker.org/flags/89.gif"></a>
+							<a href="http://ua.rutracker.org/forum/"><img alt="UA" title="Украинский раздел" src="http://static.rutracker.org/flags/180.gif"></a>
+							<a href="http://by.rutracker.org/forum/"><img alt="BY" title="Белорусский раздел" src="http://static.rutracker.org/flags/17.gif"></a>
+						</div>
+					</td>
+				</tr>
+				</table>
+			</div>
+			<!--/main-nav-->
+
+			
+			<div id="logo">
+				<table>
+				<tr>
+					<td style="padding: 5px 0 3px 6px;">
+						<a href="http://rutracker.org/forum/index.php" class="site-logo-link">
+														<img class="site-logo" src="http://195.82.146.52/logo/logo.gif" alt="logo">
+													</a>
+					</td>
+					<td class="tCenter w100" style="padding: 0 4px;">
+
+												
+												<div id="a49dbc05" name="a49dbc05" style="padding: 2px 0 0;"></div>
+<script>
+$(function(){
+	$('#a49dbc05').injectIFrame("http://ad2.spadsmedia.com/www/delivery/afr.php", {
+		width  : '728px',
+		height : '90px',
+	}, {
+		zoneid : 101,
+		target : '_blank',
+		ct0    : '{'+ 'clickurl' +'}',
+	});
+});
+</script>
+						
+						
+					</td>
+				</tr>
+				</table>
+			</div>
+			<!--/logo-->
+
+			<div class="topmenu">
+				<table class="w100">
+				<tr>
+					
+					<td class="tCenter pad_2">
+												<script>
+						BB.toggle_top_login = function() {
+							$('#quick-search-guest').toggle();
+							$('#top-login-form').toggle();
+							$('#top-login-uname').focus();
+						}
+						$(function(){
+							$('#top-login-form').hide().appendTo('#top-login-box');
+							$('#search-text-guest').keypress(function(e){
+								if ( e.which == 13 /*Enter*/ ) {
+									$('#cse-search-btn-top').click();
+								}
+							});
+						});
+						</script>
+
+						<a href="http://rutracker.org/forum/profile.php?mode=register"><b>Регистрация</b></a>
+						&nbsp;&#0183;&nbsp;
+						<span class="a-like bold" onclick="BB.toggle_top_login();">Вход</span>
+
+						<span id="top-login-box">
+							<span id="quick-search-guest">
+								<input id="search-text-guest" type="text" name="nm" value="" tabindex="1" accesskey="q">
+								<input id="cse-search-btn-top" type="button" value="поиск" data-query_input_id="search-text-guest" tabindex="2">
+							</span>
+							<div class="invisible-el">
+								<form id="top-login-form" method="post" action="http://login.rutracker.org/forum/login.php">
+																		<input type="hidden" name="redirect" value="viewtopic.php?t=4693809">
+																		<input id="top-login-uname" type="text" name="login_username" tabindex="1" accesskey="l" placeholder="имя">
+									<input id="top-login-pwd" type="password" name="login_password" tabindex="2" placeholder="пароль">
+									<input id="top-login-btn" type="submit" name="login" value="вход" tabindex="3">
+								</form>
+							</div>
+						</span>
+
+						<a href="http://rutracker.org/forum/profile.php?mode=sendpassword">Забыли имя или пароль?</a>
+
+											</td>
+
+					
+				</tr>
+				</table>
+			</div><!--/topmenu-->
+
+			
+		</div>
+		<!--/page_header-->
+
+				
+		<div id="page_content">
+			<table style="width: 100%; border: none;">
+			<tr>
+
+				
+				<td id="main_content">
+					<div id="main_content_wrap">
+
+						
+						
+						
+						
+						<!--/page_header.tpl-->
+
+<script>
+$(function(){
+	var tab_idx = 100;
+	$('input,select,textarea', '#login-form').not(':hidden').each(function(){
+		$(this).attr({ tabindex: ++tab_idx });
+	});
+});
+</script>
+
+<h1 class="pagetitle">Вход</h1>
+
+<form id="login-form" action="http://login.rutracker.org/forum/login.php" method="post">
+
+<input type="hidden" name="redirect" value="viewtopic.php?t=4693809">
+
+<p class="nav"><a href="http://rutracker.org/forum/index.php">Список форумов rutracker.org</a></p>
+
+<table class="forumline brand-fg">
+<tr>
+	<th>Вход</th>
+</tr>
+<tr>
+	<td class="row1">
+
+		<h4 class="tCenter mrg_16">Введите ваше имя и пароль</h4>
+	
+	<div class="mrg_16">
+	<table class="borderless bCenter">
+	<tr>
+		<td style="width: 31%;" class="tRight">Имя:</td>
+		<td style="width: 69%;"><input type="text" name="login_username" size="25" maxlength="30" value="" ></td>
+	</tr>
+	<tr>
+		<td class="tRight">Пароль:</td>
+		<td><input type="password" name="login_password" size="25" maxlength="32" value=""></td>
+	</tr>
+		<tr>
+		<td colspan="2" class="tCenter pad_8"><input type="submit" name="login" class="bold long" value="Вход"></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="tCenter med">В вашем браузере должны быть включены куки и JavaScript!</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="tCenter"><a href="profile.php?mode=sendpassword" class="med">Забыли имя или пароль?</a></td>
+	</tr>
+	</table>
+	</div>
+
+	</td>
+</tr>
+</table>
+
+</form>
+
+
+	</div><!--/main_content_wrap-->
+	</td><!--/main_content-->
+
+	</tr></table>
+	</div>
+	<!--/page_content-->
+
+	<!--page_footer-->
+	<div id="page_footer">
+
+<div id="bn-bot-wrap" style="margin: 12px;">
+
+	
+	<div style="margin: 6px 10px; padding: 8px; border: 1px solid #B7C0C5;">
+				<div id="mg-informers" style="margin-top: 6px;"></div>
+<script type="text/javascript">
+$(function(){
+	$('#mg-informers').injectIFrame('http://mg.dt00.net/public/informers/torrents.2ru.html', {
+		width  : '95%',
+		height : '173px',
+	});
+});
+</script>	</div>
+
+</div><!--/bn-bot-wrap-->
+
+<div class="clear"></div>
+
+<nav id="footer-info-links">
+	<div>
+		<a href="http://rutracker.org/forum/info.php?show=user_agreement">Условия использования</a>
+		&middot;
+		<a href="http://rutracker.org/forum/info.php?show=advert">Реклама на сайте</a>
+		&middot;
+		<a href="http://rutracker.org/forum/info.php?show=copyright_holders">Для правообладателей</a>
+		&middot;
+		<a href="http://rutracker.org/forum/info.php?show=press">Для прессы</a>
+		&middot;
+		<a href="http://rutracker.org/forum/viewtopic.php?t=2234744">Для провайдеров</a>
+		&middot;
+		<a href="http://rutracker.news">Блог</a>
+		&middot;
+		<a href="http://rutracker.wiki">Торрентопедия</a>
+		&middot;
+		<a href="http://rutracker.org/go/8">Кому задать вопрос</a>
+	</div>
+	<div>
+		<a href="http://rutracker.org/forum/viewtopic.php?t=4903496">Rutracker Online</a>
+		&middot;
+		<a href="http://rutracker.org/forum/viewforum.php?f=1538">Авторские раздачи</a>
+		&middot;
+		<a href="http://rutracker.org/forum/viewforum.php?f=1289">Конкурсы</a>
+		&middot;
+		<a href="http://rutracker.org/forum/viewforum.php?f=489">Новости в сети</a>
+		&middot;
+		<a href="http://rutracker.org/forum/viewforum.php?f=2332">Новости &quot;Хранителей&quot; и &quot;Антикваров&quot;</a>
+		&middot;
+		<a href="http://rutracker.org/forum/index.php?closed=1">Закрытые раздачи</a>
+		&middot;
+		<a href="#" onclick="return post2url('http://rutracker.org/forum/torrent.php', {rand_rel: 1});">Случайная раздача</a>
+	</div>
+</nav>
+
+
+<div class="tCenter nowrap" style="margin: 18px 4px 4px 4px;">
+
+	<a href="http://rutracker.org/go/23" target="_blank"><img src="http://static.rutracker.org/images/ddos-guard-4.png" alt="Защита от DDoS" width="88" height="31" style="width: 88px; height: 31px; border: 1px solid #A5A5A5;"></a>
+
+	<!--LiveInternet-->
+	<script>
+	window.LI_title = '';
+	document.write(
+		"<a href='http://www.liveinternet.ru/stat/rutracker.org/' "+ "target=_blank><img src='http://counter.yadro.ru/hit?t16.2;r"+encURL(BB.referrer)+((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+";h"+escape(LI_title.substring(0,80))+";"+Math.random()+"' alt='' "+"border='0' width='88' height='31'><\/a>"
+	);
+	</script>
+
+	<!--rambler-->
+	<a href="http://top100.rambler.ru/cgi-bin/stats_top100.cgi?1467197" target="_blank"><img src="http://top100-images.rambler.ru/top100/banner-88x31-rambler-gray2.gif" alt="" width="88" height="31" style="border: none;"></a>
+	<script>
+	$(function(){
+		setTimeout(function() {
+			$('#invisible-heap').append(
+				sprintf(
+					'<img src="http://counter.rambler.ru/top100.scn?1467197&rn=%s" style="width: 1px; height: 1px;" alt="">',
+					BB.rand_num
+				)
+			);
+		}, 200);
+	});
+	</script>
+
+	<!--openstat-->
+	<a href="http://rating.openstat.ru/site/3058772" target="_blank"><img src="https://openstat.net/i/87.gif?tc=c3c3c3" alt="" width="88" height="31" style="border: none;"></a>
+	<script>
+	$(function(){
+		setTimeout(function() {
+			$('#invisible-heap').append(
+				sprintf(
+					'<img src="http://openstat.net/cnt?cid=3058772&rnd=%s" style="width: 1px; height: 1px;" alt="">',
+					BB.rand_num
+				)
+			);
+		}, 200);
+	});
+	</script>
+
+	<!--<a href="https://casino.ru/?utm_source=rutracker.org&amp;utm_medium=mini&amp;utm_campaign=forum" target="_blank"><img src="http://static.rutracker.org/images/casino-2.gif" alt="Лучшие казино online 2015" width="88" height="31" style="border: none;"></a>-->
+
+</div>
+
+<table class="bCenter w99">
+<tr>
+
+	<td class="nowrap w50">
+		<div class="copyright">
+			<a href="http://rutracker.org/forum/groupcp.php?g=104792">Администрация</a>
+			&nbsp;&middot;&nbsp;
+			<a href="http://rutracker.org/forum/groupcp.php?g=104787">Модераторы</a>
+			&nbsp;&middot;&nbsp;
+			<a href="http://rutracker.org/forum/groupcp.php?g=104841">Техническая помощь</a>
+			&nbsp;&middot;&nbsp;
+			<a href="http://rutracker.org/forum/groupcp.php?g=105539">Редакторы Wiki</a>
+			&nbsp;&middot;&nbsp;
+			<a href="http://rutracker.org/forum/viewtopic.php?t=224697">IRC канал</a>
+		</div>
+	</td>
+	<td class="tRight nowrap w50">
+		<div class="copyright">
+					</div>
+	</td>
+
+</tr>
+</table>
+
+	</div><!--/page_footer-->
+	</div><!--/page_container-->
+
+
+
+<div id="ajax-loading"><b>Loading...</b></div>
+<div id="ajax-error"><b>Error</b></div>
+<style>
+#bb-alert-box { width: auto; max-width: 800px; line-height: 18px; display: none; }
+#bb-alert-msg { min-width: 400px; max-height: 400px; margin: 50px 20px; padding: 10px; overflow: auto; text-align: center; }
+.bb-alert-err { color: #7E0000; background: #FFEEEE; box-shadow: 0 0 20px #B85353; font-weight: bold; }
+</style>
+<div id="bb-alert-box"><div id="bb-alert-msg"></div></div>
+<div id="modal-blocker"></div>
+
+
+	</div><!--/body_container-->
+
+</body>
+</html>
