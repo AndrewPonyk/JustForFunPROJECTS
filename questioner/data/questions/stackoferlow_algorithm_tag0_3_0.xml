@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="3" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml">
+<questions id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="4" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml">
   <question id="0_3_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Basic&amp;nbsp;Algorithms&amp;nbsp;:&amp;nbsp;Matrix&amp;nbsp;Multiplying&amp;nbsp;,&amp;nbsp;write&amp;nbsp;code&amp;nbsp;.&lt;br&gt;
@@ -22,9 +22,9 @@
 &lt;br&gt;
 &lt;br&gt;
 ========&lt;br&gt;
-Computer&amp;nbsp;scientists&amp;nbsp;classify&amp;nbsp;this&amp;nbsp;algorithm&amp;nbsp;as&amp;nbsp;O(n3),&amp;nbsp;which&amp;nbsp;is&amp;nbsp;read&amp;nbsp;“big-oh&lt;br&gt;
-of&amp;nbsp;n-cubed”&amp;nbsp;or&amp;nbsp;“approximately&amp;nbsp;n-cubed.”&amp;nbsp;This&amp;nbsp;notation&amp;nbsp;is&amp;nbsp;an&amp;nbsp;abstract&amp;nbsp;way&lt;br&gt;
-of&amp;nbsp;classifying&amp;nbsp;the&amp;nbsp;algorithm’s&amp;nbsp;performance&amp;nbsp;(without&amp;nbsp;being&amp;nbsp;bogged&amp;nbsp;down&amp;nbsp;in&lt;br&gt;
+Computer&amp;nbsp;scientists&amp;nbsp;classify&amp;nbsp;this&amp;nbsp;algorithm&amp;nbsp;as&amp;nbsp;O(n3),&amp;nbsp;which&amp;nbsp;is&amp;nbsp;read&amp;nbsp;ï¿½big-oh&lt;br&gt;
+of&amp;nbsp;n-cubedï¿½&amp;nbsp;or&amp;nbsp;ï¿½approximately&amp;nbsp;n-cubed.ï¿½&amp;nbsp;This&amp;nbsp;notation&amp;nbsp;is&amp;nbsp;an&amp;nbsp;abstract&amp;nbsp;way&lt;br&gt;
+of&amp;nbsp;classifying&amp;nbsp;the&amp;nbsp;algorithmï¿½s&amp;nbsp;performance&amp;nbsp;(without&amp;nbsp;being&amp;nbsp;bogged&amp;nbsp;down&amp;nbsp;in&lt;br&gt;
 specific&amp;nbsp;details&amp;nbsp;such&amp;nbsp;as&amp;nbsp;microprocessor&amp;nbsp;speed).&amp;nbsp;A&amp;nbsp;O(n3)&amp;nbsp;classification&lt;br&gt;
 indicates&amp;nbsp;very&amp;nbsp;poor&amp;nbsp;performance,&amp;nbsp;and&amp;nbsp;this&amp;nbsp;performance&amp;nbsp;worsens&amp;nbsp;as&amp;nbsp;the&lt;br&gt;
 sizes&amp;nbsp;of&amp;nbsp;the&amp;nbsp;matrixes&amp;nbsp;being&amp;nbsp;multiplied&amp;nbsp;increase.&lt;br&gt;
@@ -92,5 +92,16 @@ Non&amp;nbsp;recursive&amp;nbsp;way&amp;nbsp;:&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;max;&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
 }</questionanswer>
+  </question>
+  <question id="0_3_0:3" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Swap&amp;nbsp;two&amp;nbsp;integers&amp;nbsp;without&amp;nbsp;temporary&amp;nbsp;variable,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>a=a+b;&lt;br&gt;
+b=a-b;&lt;br&gt;
+a=a-b;&lt;br&gt;
+This&amp;nbsp;is&amp;nbsp;simple&amp;nbsp;yet&amp;nbsp;effective....&lt;br&gt;
+==========================&lt;br&gt;
+https://en.wikipedia.org/wiki/XOR_swap_algorithm</questionanswer>
   </question>
 </questions>

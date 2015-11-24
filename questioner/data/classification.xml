@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classification>
-  <class id="0" name="Programming Foundation" nofquestions="98" nofsubcategories="4">
+  <class id="0" name="Programming Foundation" nofquestions="103" nofsubcategories="4">
     <category id="0_0" name="Web Design and XML" nofquestions="32" nofsubcategories="3">
       <category id="0_0_0" name="HTML5" nofquestions="3" nofsubcategories="0" filename="html5.xml" />
       <category id="0_0_1" name="CSS and Frameworks" nofquestions="26" nofsubcategories="4">
@@ -68,11 +68,11 @@
       </category>
       <category id="0_1_6" name="PostgreSQL" nofquestions="0" nofsubcategories="0" />
     </category>
-    <category id="0_2" name="Javascript" nofquestions="1" nofsubcategories="2">
-      <category id="0_2_0" name="Javascript Core" nofquestions="1" nofsubcategories="4">
+    <category id="0_2" name="Javascript" nofquestions="5" nofsubcategories="2">
+      <category id="0_2_0" name="Javascript Core" nofquestions="5" nofsubcategories="4">
         <category id="0_2_0_0" name="BasicSyntaxDataTypesETC" nofquestions="0" nofsubcategories="0" filename="basicsyntaxdatatypesetc0_2_0_0.xml" />
-        <category id="0_2_0_1" name="OopInJavascript" nofquestions="1" nofsubcategories="1" filename="oopinjavascript0_2_0_1.xml">
-          <category id="0_2_0_1_0" name="LearnJSOOP_From_Articles" nofquestions="1" nofsubcategories="0" filename="learnjsoop_from_articles0_2_0_1_0.xml" />
+        <category id="0_2_0_1" name="OopInJavascript" nofquestions="5" nofsubcategories="1" filename="oopinjavascript0_2_0_1.xml">
+          <category id="0_2_0_1_0" name="LearnJSOOP_From_Articles" nofquestions="5" nofsubcategories="0" filename="learnjsoop_from_articles0_2_0_1_0.xml" />
         </category>
         <category id="0_2_0_2" name="Ajax" nofquestions="0" nofsubcategories="0" />
         <category id="0_2_0_3" name="RealTIme_things_comet_longpolling_chunkedencoding_etc" nofquestions="0" nofsubcategories="0" />
@@ -108,8 +108,8 @@
         </category>
       </category>
     </category>
-    <category id="0_3" name="Algorithms(huge)" nofquestions="3" nofsubcategories="3">
-      <category id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="3" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml" />
+    <category id="0_3" name="Algorithms(huge)" nofquestions="4" nofsubcategories="3">
+      <category id="0_3_0" name="StackOferlow_Algorithm_Tag" nofquestions="4" nofsubcategories="0" filename="stackoferlow_algorithm_tag0_3_0.xml" />
       <category id="0_3_1" name="programcreek.com___Algorithms_for_Coding_Interview(more_than_100_algorightms)" nofquestions="0" nofsubcategories="10">
         <category id="0_3_1_0" name="1StringArray" nofquestions="0" nofsubcategories="0" filename="1stringarray0_3_1_0.xml" />
         <category id="0_3_1_1" name="2Matrix" nofquestions="0" nofsubcategories="0" filename="2matrix0_3_1_1.xml" />
