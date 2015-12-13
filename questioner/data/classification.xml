@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classification>
-  <class id="0" name="Programming Foundation" nofquestions="103" nofsubcategories="4">
+  <class id="0" name="Programming Foundation" nofquestions="113" nofsubcategories="4">
     <category id="0_0" name="Web Design and XML" nofquestions="32" nofsubcategories="3">
       <category id="0_0_0" name="HTML5" nofquestions="3" nofsubcategories="0" filename="html5.xml" />
       <category id="0_0_1" name="CSS and Frameworks" nofquestions="26" nofsubcategories="4">
@@ -68,20 +68,28 @@
       </category>
       <category id="0_1_6" name="PostgreSQL" nofquestions="0" nofsubcategories="0" />
     </category>
-    <category id="0_2" name="Javascript" nofquestions="5" nofsubcategories="2">
-      <category id="0_2_0" name="Javascript Core" nofquestions="5" nofsubcategories="4">
+    <category id="0_2" name="Javascript" nofquestions="15" nofsubcategories="2">
+      <category id="0_2_0" name="Javascript Core" nofquestions="12" nofsubcategories="4">
         <category id="0_2_0_0" name="BasicSyntaxDataTypesETC" nofquestions="0" nofsubcategories="0" filename="basicsyntaxdatatypesetc0_2_0_0.xml" />
-        <category id="0_2_0_1" name="OopInJavascript" nofquestions="5" nofsubcategories="1" filename="oopinjavascript0_2_0_1.xml">
-          <category id="0_2_0_1_0" name="LearnJSOOP_From_Articles" nofquestions="5" nofsubcategories="0" filename="learnjsoop_from_articles0_2_0_1_0.xml" />
+        <category id="0_2_0_1" name="OopInJavascript" nofquestions="12" nofsubcategories="2" filename="oopinjavascript0_2_0_1.xml">
+          <category id="0_2_0_1_0" name="LearnJSOOP_From_Articles" nofquestions="10" nofsubcategories="0" filename="learnjsoop_from_articles0_2_0_1_0.xml" />
+          <category id="0_2_0_1_1" name="TutsPlus_OOP_in_Js_2012" nofquestions="2" nofsubcategories="0" filename="tutsplus_oop_in_js_20120_2_0_1_1.xml" />
         </category>
         <category id="0_2_0_2" name="Ajax" nofquestions="0" nofsubcategories="0" />
         <category id="0_2_0_3" name="RealTIme_things_comet_longpolling_chunkedencoding_etc" nofquestions="0" nofsubcategories="0" />
       </category>
-      <category id="0_2_1" name="Javascript EE" nofquestions="0" nofsubcategories="5">
-        <category id="0_2_1_0" name="Frameworks" nofquestions="0" nofsubcategories="5">
+      <category id="0_2_1" name="Javascript EE" nofquestions="3" nofsubcategories="5">
+        <category id="0_2_1_0" name="Frameworks" nofquestions="3" nofsubcategories="5">
           <category id="0_2_1_0_0" name="JQuery" nofquestions="0" nofsubcategories="0" />
-          <category id="0_2_1_0_1" name="MVC_Frameworks" nofquestions="0" nofsubcategories="3">
-            <category id="0_2_1_0_1_0" name="AngularJS" nofquestions="0" nofsubcategories="0" />
+          <category id="0_2_1_0_1" name="MVC_Frameworks" nofquestions="3" nofsubcategories="3">
+            <category id="0_2_1_0_1_0" name="AngularJS" nofquestions="3" nofsubcategories="1">
+              <category id="0_2_1_0_1_0_0" name="PacktPub_Intro_to_Angular" nofquestions="3" nofsubcategories="4">
+                <category id="0_2_1_0_1_0_0_0" name="p123ControllersDataBindTemplates" nofquestions="3" nofsubcategories="0" filename="p123controllersdatabindtemplates0_2_1_0_1_0_0_0.xml" />
+                <category id="0_2_1_0_1_0_0_1" name="p4AppROUTING" nofquestions="0" nofsubcategories="0" filename="p4approuting0_2_1_0_1_0_0_1.xml" />
+                <category id="0_2_1_0_1_0_0_2" name="p5LoadExternalData" nofquestions="0" nofsubcategories="0" filename="p5loadexternaldata0_2_1_0_1_0_0_2.xml" />
+                <category id="0_2_1_0_1_0_0_3" name="p6Intro_to_Services" nofquestions="0" nofsubcategories="0" filename="p6intro_to_services0_2_1_0_1_0_0_3.xml" />
+              </category>
+            </category>
             <category id="0_2_1_0_1_1" name="KnockoutJS" nofquestions="0" nofsubcategories="0" />
             <category id="0_2_1_0_1_2" name="Backbone" nofquestions="0" nofsubcategories="0" />
           </category>
@@ -345,7 +353,21 @@
             <category id="1_0_1_7_5_0" name="Pluralsight.Spring_Security" nofquestions="0" nofsubcategories="0" />
           </category>
           <category id="1_0_1_7_6" name="Pluralsight_SpringFundamentals" nofquestions="1" nofsubcategories="0" filename="pluralsight_springfundamentals1_0_1_7_6.xml" />
-          <category id="1_0_1_7_7" name="Wrox_Beginning_Spring_2015" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_1_7_7" name="Wrox_Beginning_Spring_2015" nofquestions="0" nofsubcategories="13">
+            <category id="1_0_1_7_7_0" name="chap1_POJOModel_LightContainers_IoC" nofquestions="0" nofsubcategories="0" filename="chap1_pojomodel_lightcontainers_ioc1_0_1_7_7_0.xml" />
+            <category id="1_0_1_7_7_1" name="chap2DI_with_Spring" nofquestions="0" nofsubcategories="0" filename="chap2di_with_spring1_0_1_7_7_1.xml" />
+            <category id="1_0_1_7_7_2" name="chap3Build_web_apps_with_SpringMVC" nofquestions="0" nofsubcategories="0" filename="chap3build_web_apps_with_springmvc1_0_1_7_7_2.xml" />
+            <category id="1_0_1_7_7_3" name="chap4JDBC_with_Spring" nofquestions="0" nofsubcategories="0" filename="chap4jdbc_with_spring1_0_1_7_7_3.xml" />
+            <category id="1_0_1_7_7_4" name="chap5Jpa_with_Spring" nofquestions="0" nofsubcategories="0" filename="chap5jpa_with_spring1_0_1_7_7_4.xml" />
+            <category id="1_0_1_7_7_5" name="chap6Transactions_in_Spring" nofquestions="0" nofsubcategories="0" filename="chap6transactions_in_spring1_0_1_7_7_5.xml" />
+            <category id="1_0_1_7_7_6" name="chap7TDD_with_Spring" nofquestions="0" nofsubcategories="0" filename="chap7tdd_with_spring1_0_1_7_7_6.xml" />
+            <category id="1_0_1_7_7_7" name="chap8AOP_with_Spring" nofquestions="0" nofsubcategories="0" filename="chap8aop_with_spring1_0_1_7_7_7.xml" />
+            <category id="1_0_1_7_7_8" name="chap9Spring_EL_Language" nofquestions="0" nofsubcategories="0" filename="chap9spring_el_language1_0_1_7_7_8.xml" />
+            <category id="1_0_1_7_7_9" name="chap10Caching" nofquestions="0" nofsubcategories="0" filename="chap10caching1_0_1_7_7_9.xml" />
+            <category id="1_0_1_7_7_10" name="chap11_REST_With_Spring" nofquestions="0" nofsubcategories="0" filename="chap11_rest_with_spring1_0_1_7_7_10.xml" />
+            <category id="1_0_1_7_7_11" name="chap12Spring_Security" nofquestions="0" nofsubcategories="0" filename="chap12spring_security1_0_1_7_7_11.xml" />
+            <category id="1_0_1_7_7_12" name="chap13Next_Spring4" nofquestions="0" nofsubcategories="0" filename="chap13next_spring41_0_1_7_7_12.xml" />
+          </category>
           <category id="1_0_1_7_8" name="PacktLearnSpringApplicationDevelopment2015" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_1_7_9" name="SpringBOOT" nofquestions="0" nofsubcategories="0" />
         </category>
@@ -571,5 +593,8 @@
     <category id="5_2" name="DifferentialEquations" nofquestions="0" nofsubcategories="0" />
     <category id="5_3" name="Algebra" nofquestions="0" nofsubcategories="0" />
     <category id="5_4" name="NumericalAnalysis" nofquestions="0" nofsubcategories="0" />
+  </class>
+  <class id="6" name="DriveLicenceUkrainian2016" nofquestions="0" nofsubcategories="6">
+    <category id="6_0" name="vodiy_ua_Site" nofquestions="0" nofsubcategories="0" filename="vodiy_ua_site6_0.xml" />
   </class>
 </classification>
