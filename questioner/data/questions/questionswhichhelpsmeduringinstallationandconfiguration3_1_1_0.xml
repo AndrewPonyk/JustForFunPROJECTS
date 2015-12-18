@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="3_1_1_0" name="QuestionsWhichHelpsMeDuringInstallationAndConfiguration" nofquestions="1" nofsubcategories="0" filename="questionswhichhelpsmeduringinstallationandconfiguration3_1_1_0.xml">
+  <question id="3_1_1_0:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;After&amp;nbsp;installation&amp;nbsp;of&amp;nbsp;Acrobat&amp;nbsp;Reader&amp;nbsp;on&amp;nbsp;Ubuntu&amp;nbsp;15.10&amp;nbsp;(from&amp;nbsp;deb&amp;nbsp;package),&amp;nbsp;i&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;can&amp;nbsp;open&amp;nbsp;acrobat&amp;nbsp;using&amp;nbsp;&amp;quot;acroread&amp;quot;&amp;nbsp;command,&lt;br&gt;
+but&amp;nbsp;i&amp;nbsp;cant&amp;nbsp;open&amp;nbsp;file&amp;nbsp;using&amp;nbsp;&amp;quot;open&amp;nbsp;with&amp;nbsp;&amp;quot;&amp;nbsp;menu,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;add&amp;nbsp;AcrobatReader&amp;nbsp;to&amp;nbsp;list&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;of&amp;nbsp;applications&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://ubuntuforums.org/showthread.php?t=2140457&lt;br&gt;
+=========&lt;br&gt;
+Add&amp;nbsp;a&amp;nbsp;%U&amp;nbsp;to&amp;nbsp;the&amp;nbsp;end&amp;nbsp;of&amp;nbsp;Exec=&amp;nbsp;line&amp;nbsp;in&amp;nbsp;the&amp;nbsp;AdobeReader.desktop,&amp;nbsp;like&amp;nbsp;-&amp;nbsp;&lt;br&gt;
+Code:&lt;br&gt;
+Exec=acroread&amp;nbsp;%U&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Thank&amp;nbsp;you.&amp;nbsp;That&amp;nbsp;fixed&amp;nbsp;it&amp;nbsp;immediately.&amp;nbsp;To&amp;nbsp;set&amp;nbsp;the&amp;nbsp;record&amp;nbsp;straight,&amp;nbsp;after&amp;nbsp;posting,&amp;nbsp;I&amp;nbsp;discovered&amp;nbsp;that&amp;nbsp;a&amp;nbsp;symbolic&lt;br&gt;
+link&amp;nbsp;to&amp;nbsp;/opt/Adobe/Reader9/Resource/Support/AdobeReader.desktop&amp;nbsp;already&amp;nbsp;existed&amp;nbsp;in&amp;nbsp;/usr/share/applications,&amp;nbsp;named&amp;nbsp;acroread.desktop.&lt;br&gt;
+It&amp;nbsp;had&amp;nbsp;been&amp;nbsp;installed&amp;nbsp;as&amp;nbsp;part&amp;nbsp;of&amp;nbsp;the&amp;nbsp;package.&amp;nbsp;So&amp;nbsp;I&amp;nbsp;replaced&amp;nbsp;the&amp;nbsp;symlink&amp;nbsp;with&amp;nbsp;a&amp;nbsp;copy&amp;nbsp;and&amp;nbsp;edited&amp;nbsp;it&amp;nbsp;as&amp;nbsp;you&amp;nbsp;suggested.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+-----&amp;nbsp;&lt;br&gt;
+/usr/share/applications&amp;nbsp;&amp;nbsp;-&amp;nbsp;&amp;nbsp;folder&amp;nbsp;with&amp;nbsp;links&amp;nbsp;to&amp;nbsp;applications</questionanswer>
+  </question>
+</questions>

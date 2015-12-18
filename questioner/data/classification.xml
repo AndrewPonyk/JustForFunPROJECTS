@@ -559,11 +559,13 @@
       <category id="2_12_1" name="GameEngines" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="3" name="Operating.Systems" nofquestions="1" nofsubcategories="2">
+  <class id="3" name="Operating.Systems" nofquestions="2" nofsubcategories="2">
     <category id="3_0" name="Windows" nofquestions="0" nofsubcategories="0" />
-    <category id="3_1" name="Linux" nofquestions="1" nofsubcategories="4">
+    <category id="3_1" name="Linux" nofquestions="2" nofsubcategories="4">
       <category id="3_1_0" name="LinuxCore" nofquestions="0" nofsubcategories="0" />
-      <category id="3_1_1" name="Ubuntu" nofquestions="0" nofsubcategories="0" />
+      <category id="3_1_1" name="Ubuntu" nofquestions="1" nofsubcategories="1">
+        <category id="3_1_1_0" name="QuestionsWhichHelpsMeDuringInstallationAndConfiguration" nofquestions="1" nofsubcategories="0" filename="questionswhichhelpsmeduringinstallationandconfiguration3_1_1_0.xml" />
+      </category>
       <category id="3_1_2" name="UbuntuUtilsAndPrograms" nofquestions="0" nofsubcategories="4">
         <category id="3_1_2_0" name="curl" nofquestions="0" nofsubcategories="0" filename="curl3_1_2_0.xml" />
         <category id="3_1_2_1" name="wget" nofquestions="0" nofsubcategories="0" filename="wget3_1_2_1.xml" />
