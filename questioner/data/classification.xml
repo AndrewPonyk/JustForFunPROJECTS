@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classification>
-  <class id="0" name="Programming Foundation" nofquestions="113" nofsubcategories="4">
+  <class id="0" name="Programming Foundation" nofquestions="114" nofsubcategories="4">
     <category id="0_0" name="Web Design and XML" nofquestions="32" nofsubcategories="3">
       <category id="0_0_0" name="HTML5" nofquestions="3" nofsubcategories="0" filename="html5.xml" />
       <category id="0_0_1" name="CSS and Frameworks" nofquestions="26" nofsubcategories="4">
@@ -37,7 +37,11 @@
     </category>
     <category id="0_1" name="DataBases" nofquestions="62" nofsubcategories="7">
       <category id="0_1_0" name="Relational_Theory" nofquestions="0" nofsubcategories="0" />
-      <category id="0_1_1" name="Oracle" nofquestions="0" nofsubcategories="0" />
+      <category id="0_1_1" name="Oracle" nofquestions="0" nofsubcategories="3">
+        <category id="0_1_1_0" name="PluralsightPLSQL_Part1" nofquestions="0" nofsubcategories="0" />
+        <category id="0_1_1_1" name="PluralsightPLSQL_Part2" nofquestions="0" nofsubcategories="0" />
+        <category id="0_1_1_2" name="SomeBasicInterestingQuestions" nofquestions="0" nofsubcategories="0" filename="somebasicinterestingquestions0_1_1_2.xml" />
+      </category>
       <category id="0_1_2" name="Mysql" nofquestions="62" nofsubcategories="3">
         <category id="0_1_2_0" name="MySQL_Database_Usage_and_Administration" nofquestions="62" nofsubcategories="13">
           <category id="0_1_2_0_0" name="chap1_IntroToMysql" nofquestions="3" nofsubcategories="0" filename="chap1_introtomysql0_1_2_0_0.xml" />
@@ -68,7 +72,7 @@
       </category>
       <category id="0_1_6" name="PostgreSQL" nofquestions="0" nofsubcategories="0" />
     </category>
-    <category id="0_2" name="Javascript" nofquestions="15" nofsubcategories="2">
+    <category id="0_2" name="Javascript" nofquestions="16" nofsubcategories="2">
       <category id="0_2_0" name="Javascript Core" nofquestions="12" nofsubcategories="4">
         <category id="0_2_0_0" name="BasicSyntaxDataTypesETC" nofquestions="0" nofsubcategories="0" filename="basicsyntaxdatatypesetc0_2_0_0.xml" />
         <category id="0_2_0_1" name="OopInJavascript" nofquestions="12" nofsubcategories="2" filename="oopinjavascript0_2_0_1.xml">
@@ -78,16 +82,16 @@
         <category id="0_2_0_2" name="Ajax" nofquestions="0" nofsubcategories="0" />
         <category id="0_2_0_3" name="RealTIme_things_comet_longpolling_chunkedencoding_etc" nofquestions="0" nofsubcategories="0" />
       </category>
-      <category id="0_2_1" name="Javascript EE" nofquestions="3" nofsubcategories="5">
-        <category id="0_2_1_0" name="Frameworks" nofquestions="3" nofsubcategories="5">
+      <category id="0_2_1" name="Javascript EE" nofquestions="4" nofsubcategories="5">
+        <category id="0_2_1_0" name="Frameworks" nofquestions="4" nofsubcategories="5">
           <category id="0_2_1_0_0" name="JQuery" nofquestions="0" nofsubcategories="0" />
-          <category id="0_2_1_0_1" name="MVC_Frameworks" nofquestions="3" nofsubcategories="3">
-            <category id="0_2_1_0_1_0" name="AngularJS" nofquestions="3" nofsubcategories="1">
-              <category id="0_2_1_0_1_0_0" name="PacktPub_Intro_to_Angular" nofquestions="3" nofsubcategories="4">
+          <category id="0_2_1_0_1" name="MVC_Frameworks" nofquestions="4" nofsubcategories="3">
+            <category id="0_2_1_0_1_0" name="AngularJS" nofquestions="4" nofsubcategories="1">
+              <category id="0_2_1_0_1_0_0" name="PacktPub_Intro_to_Angular" nofquestions="4" nofsubcategories="4">
                 <category id="0_2_1_0_1_0_0_0" name="p123ControllersDataBindTemplates" nofquestions="3" nofsubcategories="0" filename="p123controllersdatabindtemplates0_2_1_0_1_0_0_0.xml" />
                 <category id="0_2_1_0_1_0_0_1" name="p4AppROUTING" nofquestions="0" nofsubcategories="0" filename="p4approuting0_2_1_0_1_0_0_1.xml" />
                 <category id="0_2_1_0_1_0_0_2" name="p5LoadExternalData" nofquestions="0" nofsubcategories="0" filename="p5loadexternaldata0_2_1_0_1_0_0_2.xml" />
-                <category id="0_2_1_0_1_0_0_3" name="p6Intro_to_Services" nofquestions="0" nofsubcategories="0" filename="p6intro_to_services0_2_1_0_1_0_0_3.xml" />
+                <category id="0_2_1_0_1_0_0_3" name="p6Intro_to_Services" nofquestions="1" nofsubcategories="0" filename="p6intro_to_services0_2_1_0_1_0_0_3.xml" />
               </category>
             </category>
             <category id="0_2_1_0_1_1" name="KnockoutJS" nofquestions="0" nofsubcategories="0" />

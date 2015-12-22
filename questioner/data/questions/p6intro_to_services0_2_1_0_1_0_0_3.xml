@@ -1,2 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="0_2_1_0_1_0_0_3" name="p6Intro_to_Services" nofquestions="0" nofsubcategories="0" filename="p6intro_to_services0_2_1_0_1_0_0_3.xml" />
+<questions id="0_2_1_0_1_0_0_3" name="p6Intro_to_Services" nofquestions="1" nofsubcategories="0" filename="p6intro_to_services0_2_1_0_1_0_0_3.xml">
+  <question id="0_2_1_0_1_0_0_3:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;AngularJS:&amp;nbsp;Service&amp;nbsp;vs&amp;nbsp;provider&amp;nbsp;vs&amp;nbsp;factory,&amp;nbsp;describe.&amp;nbsp;Provide&amp;nbsp;example.&lt;br&gt;
+How&amp;nbsp;would&amp;nbsp;you&amp;nbsp;realize&amp;nbsp;&amp;nbsp;your&amp;nbsp;own&amp;nbsp;'http&amp;nbsp;service&amp;nbsp;to&amp;nbsp;get&amp;nbsp;json&amp;nbsp;from&amp;nbsp;some&amp;nbsp;api'&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://stackoverflow.com/questions/15666048/angularjs-service-vs-provider-vs-factory&lt;br&gt;
+=========================================================&lt;br&gt;
+&lt;br&gt;
+Services&amp;nbsp;&lt;br&gt;
+Syntax:&amp;nbsp;module.service(&amp;nbsp;'serviceName',&amp;nbsp;function&amp;nbsp;);&amp;nbsp;Result:&amp;nbsp;When&amp;nbsp;declaring&amp;nbsp;serviceName&amp;nbsp;as&amp;nbsp;an&amp;nbsp;injectable&amp;nbsp;argument&amp;nbsp;you&lt;br&gt;
+will&amp;nbsp;be&amp;nbsp;provided&amp;nbsp;with&amp;nbsp;an&amp;nbsp;instance&amp;nbsp;of&amp;nbsp;the&amp;nbsp;function.&amp;nbsp;In&amp;nbsp;other&amp;nbsp;words&amp;nbsp;new&amp;nbsp;FunctionYouPassedToService().&lt;br&gt;
+&lt;br&gt;
+Factories&amp;nbsp;Syntax:&amp;nbsp;module.factory(&amp;nbsp;'factoryName',&amp;nbsp;function&amp;nbsp;);&amp;nbsp;Result:&amp;nbsp;When&amp;nbsp;declaring&amp;nbsp;factoryName&amp;nbsp;as&amp;nbsp;an&amp;nbsp;injectable&lt;br&gt;
+argument&amp;nbsp;you&amp;nbsp;will&amp;nbsp;be&amp;nbsp;provided&amp;nbsp;with&amp;nbsp;the&amp;nbsp;value&amp;nbsp;that&amp;nbsp;is&amp;nbsp;returned&amp;nbsp;by&amp;nbsp;invoking&amp;nbsp;the&amp;nbsp;function&amp;nbsp;reference&amp;nbsp;passed&amp;nbsp;to&amp;nbsp;module.factory.&lt;br&gt;
+&lt;br&gt;
+Providers&amp;nbsp;Syntax:&amp;nbsp;module.provider(&amp;nbsp;'providerName',&amp;nbsp;function&amp;nbsp;);&amp;nbsp;Result:&amp;nbsp;When&amp;nbsp;declaring&amp;nbsp;providerName&amp;nbsp;as&amp;nbsp;an&amp;nbsp;injectable&lt;br&gt;
+argument&amp;nbsp;you&amp;nbsp;will&amp;nbsp;be&amp;nbsp;provided&amp;nbsp;with&amp;nbsp;(new&amp;nbsp;ProviderFunction()).$get().&amp;nbsp;The&amp;nbsp;constructor&amp;nbsp;function&lt;br&gt;
+is&amp;nbsp;instantiated&amp;nbsp;before&amp;nbsp;the&amp;nbsp;$get&amp;nbsp;method&amp;nbsp;is&amp;nbsp;called&amp;nbsp;-&amp;nbsp;ProviderFunction&amp;nbsp;is&amp;nbsp;the&amp;nbsp;function&amp;nbsp;reference&amp;nbsp;passed&amp;nbsp;to&amp;nbsp;module.provider.&lt;br&gt;
+Providers&amp;nbsp;have&amp;nbsp;the&amp;nbsp;advantage&amp;nbsp;that&amp;nbsp;they&amp;nbsp;can&amp;nbsp;be&amp;nbsp;configured&amp;nbsp;during&amp;nbsp;the&amp;nbsp;module&amp;nbsp;configuration&amp;nbsp;phase.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;=============&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Little&amp;nbsp;example&amp;nbsp;(hello&amp;nbsp;world&amp;nbsp;service&amp;nbsp;,&amp;nbsp;and&amp;nbsp;factory&amp;nbsp;which&amp;nbsp;returns&amp;nbsp;object&amp;nbsp;with&amp;nbsp;one&amp;nbsp;method&amp;nbsp;which&amp;nbsp;get&amp;nbsp;data&amp;nbsp;from&amp;nbsp;json&amp;nbsp;enpoint)&lt;br&gt;
+Take&amp;nbsp;a&amp;nbsp;look&amp;nbsp;how&amp;nbsp;we&amp;nbsp;get&amp;nbsp;ajax&amp;nbsp;,&amp;nbsp;we&amp;nbsp;return&amp;nbsp;PROMISE&amp;nbsp;from&amp;nbsp;service&amp;nbsp;method&amp;nbsp;and&amp;nbsp;then&amp;nbsp;in&amp;nbsp;controller&amp;nbsp;get&amp;nbsp;value&amp;nbsp;in&amp;nbsp;callback&amp;nbsp;!!!!!!!&lt;br&gt;
+&lt;br&gt;
+!DOCTYPE&amp;nbsp;html&gt;&lt;br&gt;
+html&gt;&lt;br&gt;
+head&amp;nbsp;lang="en"&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;meta&amp;nbsp;charset="UTF-8"&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;title&gt;Hello&amp;nbsp;services&lt;/title&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;script&amp;nbsp;src="../cdn/angular.min.1.4.7.js"&gt;&lt;/script&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;script&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;var&amp;nbsp;app&amp;nbsp;=&amp;nbsp;angular.module("helloAngularService",&amp;nbsp;[]);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;app.service("helloService",&amp;nbsp;function(){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;this.sayHello&amp;nbsp;=&amp;nbsp;function(name){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;console.log("Hello,&amp;nbsp;"&amp;nbsp;+&amp;nbsp;name);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;});&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;app.factory("ajaxFactory",&amp;nbsp;function($http){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;load&amp;nbsp;:&amp;nbsp;function(){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;$http.get("http://jsonplaceholder.typicode.com/posts/1");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;};&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;})&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;app.controller("mainCtrl",&amp;nbsp;function($scope,&amp;nbsp;helloService,&amp;nbsp;ajaxFactory){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$scope.title&amp;nbsp;=&amp;nbsp;"Hello&amp;nbsp;angular&amp;nbsp;service";&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;helloService.sayHello("Message&amp;nbsp;from&amp;nbsp;helloService&amp;nbsp;Ivan");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ajaxFactory.load().then(function(promise){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$scope.userId&amp;nbsp;=&amp;nbsp;promise.data.userId;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;$scope.body&amp;nbsp;=&amp;nbsp;promise.data.body;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;})&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;});&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/script&gt;&lt;br&gt;
+&lt;/head&gt;&lt;br&gt;
+body&amp;nbsp;ng-app="helloAngularService"&gt;&lt;br&gt;
+http://stackoverflow.com/questions/15666048/angularjs-service-vs-provider-vs-factory&lt;br&gt;
+&lt;hr&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;div&amp;nbsp;ng-controller="mainCtrl"&amp;nbsp;style="border:2px&amp;nbsp;solid;&amp;nbsp;padding:20px"&amp;nbsp;title="Main&amp;nbsp;Controller"&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;i&gt;Getting&amp;nbsp;data&amp;nbsp;from&amp;nbsp;such&amp;nbsp;endpoint&amp;nbsp;:&amp;nbsp;"http://jsonplaceholder.typicode.com/posts/1"&amp;nbsp;(is&amp;nbsp;is&amp;nbsp;free&amp;nbsp;json&amp;nbsp;enpoint)&lt;/i&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{{title}}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;h5&gt;UserId&amp;nbsp;:&amp;nbsp;{{userId}}&lt;/h5&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;h2&gt;Body&amp;nbsp;of&amp;nbsp;http&amp;nbsp;response&amp;nbsp;:&amp;nbsp;'{{body}}'&lt;/h2&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;hr&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+/body&gt;&lt;br&gt;
+/html&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+-----&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;As&amp;nbsp;output&amp;nbsp;we&amp;nbsp;get&amp;nbsp;hello&amp;nbsp;message&amp;nbsp;in&amp;nbsp;console&amp;nbsp;from&amp;nbsp;hello&amp;nbsp;service,&amp;nbsp;&lt;br&gt;
+and&amp;nbsp;userId&amp;nbsp;and&amp;nbsp;body&amp;nbsp;variables&amp;nbsp;from&amp;nbsp;json&amp;nbsp;endpoint.&lt;br&gt;
+&lt;br&gt;</questionanswer>
+  </question>
+</questions>

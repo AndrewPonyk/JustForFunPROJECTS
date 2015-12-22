@@ -1,2 +1,4 @@
 # Module questionerwebapp
 # RPC service class, partial path of RPC policy file
+com.ap.questinerwebapp.client.rpc.Contact.ContactService, CA30F37C5012829BD6885D62B3CB696E.gwt.rpc
+com.ap.questinerwebapp.client.rpc.questionerwebapprpc.QuestionerService, 8D766120B54A01EE2705873882E59BDE.gwt.rpc

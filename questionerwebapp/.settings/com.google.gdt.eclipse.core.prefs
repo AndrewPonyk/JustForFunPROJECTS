@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
 jarsExcludedFromWebInfLib=
-lastWarOutDir=/home/andrew/git/JustForFunPROJECTS/questionerwebapp/target/questionerwebapp-1.0-SNAPSHOT
+lastWarOutDir=/home/andrii/git/JustForFunPROJECTS/questionerwebapp/src/main/webapp
 warSrcDir=src/main/webapp
 warSrcDirIsOutput=false

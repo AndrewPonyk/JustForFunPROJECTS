@@ -45,7 +45,10 @@ public class questionerwebapp implements EntryPoint {
 	private QuestionerServiceAsync questionerRPC = GWT
 			.create(QuestionerService.class);
 
+
+	
 	public void onModuleLoad() {
+		consoleLog("new nout, 18.12.15");
 		// Window.alert("It will be questionerwebapp.This is devMode");
 		ContactServiceAsync contactServiceAsync = GWT
 				.create(ContactService.class);
@@ -259,4 +262,5 @@ public class questionerwebapp implements EntryPoint {
 	native void consoleLog(String message) /*-{
 		console.log("me:" + message);
 	}-*/;
+
 }

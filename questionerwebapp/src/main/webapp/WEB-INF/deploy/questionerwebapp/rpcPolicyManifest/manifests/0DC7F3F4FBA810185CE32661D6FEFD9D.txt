@@ -1,0 +1,2 @@
+serviceClass: com.ap.questinerwebapp.client.rpc.Contact.ContactService
+path: CA30F37C5012829BD6885D62B3CB696E.gwt.rpc

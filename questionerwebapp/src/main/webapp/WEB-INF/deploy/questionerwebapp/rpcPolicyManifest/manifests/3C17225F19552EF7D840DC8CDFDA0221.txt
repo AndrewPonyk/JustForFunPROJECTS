@@ -1,0 +1,2 @@
+serviceClass: com.ap.questinerwebapp.client.rpc.questionerwebapprpc.QuestionerService
+path: 8D766120B54A01EE2705873882E59BDE.gwt.rpc
