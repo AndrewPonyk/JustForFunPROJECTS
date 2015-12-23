@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classification>
-  <class id="0" name="Programming Foundation" nofquestions="114" nofsubcategories="4">
+  <class id="0" name="Programming Foundation" nofquestions="115" nofsubcategories="4">
     <category id="0_0" name="Web Design and XML" nofquestions="32" nofsubcategories="3">
       <category id="0_0_0" name="HTML5" nofquestions="3" nofsubcategories="0" filename="html5.xml" />
       <category id="0_0_1" name="CSS and Frameworks" nofquestions="26" nofsubcategories="4">
@@ -35,12 +35,12 @@
         <category id="0_0_2_8" name="XML SCHEMA" nofquestions="0" nofsubcategories="0" filename="xmlschema.xml" />
       </category>
     </category>
-    <category id="0_1" name="DataBases" nofquestions="62" nofsubcategories="7">
+    <category id="0_1" name="DataBases" nofquestions="63" nofsubcategories="7">
       <category id="0_1_0" name="Relational_Theory" nofquestions="0" nofsubcategories="0" />
-      <category id="0_1_1" name="Oracle" nofquestions="0" nofsubcategories="3">
+      <category id="0_1_1" name="Oracle" nofquestions="1" nofsubcategories="3">
         <category id="0_1_1_0" name="PluralsightPLSQL_Part1" nofquestions="0" nofsubcategories="0" />
         <category id="0_1_1_1" name="PluralsightPLSQL_Part2" nofquestions="0" nofsubcategories="0" />
-        <category id="0_1_1_2" name="SomeBasicInterestingQuestions" nofquestions="0" nofsubcategories="0" filename="somebasicinterestingquestions0_1_1_2.xml" />
+        <category id="0_1_1_2" name="SomeBasicInterestingQuestions" nofquestions="1" nofsubcategories="0" filename="somebasicinterestingquestions0_1_1_2.xml" />
       </category>
       <category id="0_1_2" name="Mysql" nofquestions="62" nofsubcategories="3">
         <category id="0_1_2_0" name="MySQL_Database_Usage_and_Administration" nofquestions="62" nofsubcategories="13">
