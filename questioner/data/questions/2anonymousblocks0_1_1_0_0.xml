@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="0_1_1_0_0" name="2AnonymousBlocks" nofquestions="2" nofsubcategories="0" filename="2anonymousblocks0_1_1_0_0.xml">
+  <question id="0_1_1_0_0:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;dual&amp;nbsp;table&amp;nbsp;in&amp;nbsp;Oracle&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>DUAL&amp;nbsp;is&amp;nbsp;a&amp;nbsp;table&amp;nbsp;automatically&amp;nbsp;created&amp;nbsp;by&amp;nbsp;Oracle&amp;nbsp;Database&amp;nbsp;along&amp;nbsp;with&amp;nbsp;the&amp;nbsp;data&amp;nbsp;dictionary&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+DUAL&amp;nbsp;is&amp;nbsp;in&amp;nbsp;the&amp;nbsp;schema&amp;nbsp;of&amp;nbsp;the&amp;nbsp;user&amp;nbsp;SYS&amp;nbsp;but&amp;nbsp;is&amp;nbsp;accessible&amp;nbsp;by&amp;nbsp;the&amp;nbsp;name&amp;nbsp;DUAL&amp;nbsp;to&amp;nbsp;all&amp;nbsp;users.&lt;br&gt;
+It&amp;nbsp;has&amp;nbsp;one&amp;nbsp;column,&amp;nbsp;DUMMY,&amp;nbsp;defined&amp;nbsp;to&amp;nbsp;be&amp;nbsp;VARCHAR2(1),&amp;nbsp;and&amp;nbsp;contains&amp;nbsp;one&amp;nbsp;row&amp;nbsp;with&amp;nbsp;a&amp;nbsp;value&amp;nbsp;X.&lt;br&gt;
+&lt;br&gt;
+Selecting&amp;nbsp;from&amp;nbsp;the&amp;nbsp;DUAL&amp;nbsp;table&amp;nbsp;is&amp;nbsp;useful&amp;nbsp;for&amp;nbsp;computing&amp;nbsp;a&amp;nbsp;constant&amp;nbsp;expression&amp;nbsp;with&amp;nbsp;the&amp;nbsp;SELECT&amp;nbsp;statement.&lt;br&gt;
+Because&amp;nbsp;DUAL&amp;nbsp;has&amp;nbsp;only&amp;nbsp;one&amp;nbsp;row,&amp;nbsp;the&amp;nbsp;constant&amp;nbsp;is&amp;nbsp;returned&amp;nbsp;only&amp;nbsp;once.&lt;br&gt;
+&lt;br&gt;
+Alternatively,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;select&amp;nbsp;a&amp;nbsp;constant,&amp;nbsp;pseudocolumn,&amp;nbsp;or&amp;nbsp;expression&amp;nbsp;from&amp;nbsp;any&amp;nbsp;table,&amp;nbsp;but&amp;nbsp;the&amp;nbsp;value&amp;nbsp;will&amp;nbsp;be&lt;br&gt;
+returned&amp;nbsp;as&amp;nbsp;many&amp;nbsp;times&amp;nbsp;as&amp;nbsp;there&amp;nbsp;are&amp;nbsp;rows&amp;nbsp;in&amp;nbsp;the&amp;nbsp;table.&lt;br&gt;
+Please&amp;nbsp;refer&amp;nbsp;to&amp;nbsp;"SQL&amp;nbsp;Functions"&amp;nbsp;for&amp;nbsp;many&amp;nbsp;examples&amp;nbsp;of&amp;nbsp;selecting&amp;nbsp;a&amp;nbsp;constant&amp;nbsp;value&amp;nbsp;from&amp;nbsp;DUAL.&lt;br&gt;
+--------------&lt;br&gt;
+Example&lt;br&gt;
+1)&amp;nbsp;Get&amp;nbsp;current&amp;nbsp;date&amp;nbsp;in&amp;nbsp;oracle&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-simple&amp;nbsp;select&amp;nbsp;to&amp;nbsp;get&amp;nbsp;current&amp;nbsp;date&amp;nbsp;&lt;br&gt;
+select&amp;nbsp;sysdate&amp;nbsp;from&amp;nbsp;dual;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-anonymous&amp;nbsp;block&amp;nbsp;to&amp;nbsp;get&amp;nbsp;current&amp;nbsp;date&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select&amp;nbsp;sysdate&amp;nbsp;from&amp;nbsp;dual&lt;br&gt;
+DECLARE&lt;br&gt;
+cur_date&amp;nbsp;date;&lt;br&gt;
+BEGIN&lt;br&gt;
+&amp;nbsp;SELECT&amp;nbsp;SYSDATE&amp;nbsp;INTO&amp;nbsp;cur_date&amp;nbsp;FROM&amp;nbsp;dual;&lt;br&gt;
+&amp;nbsp;dbms_output.put_line(cur_date);&lt;br&gt;
+end;&lt;br&gt;</questionanswer>
+  </question>
+  <question id="0_1_1_0_0:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;to&amp;nbsp;create&amp;nbsp;collection&amp;nbsp;or&amp;nbsp;array&amp;nbsp;&amp;nbsp;in&amp;nbsp;oracle,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;insert&amp;nbsp;values&amp;nbsp;into&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;collection,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>https://docs.oracle.com/cd/B19306_01/appdev.102/b14261/collections.htm&lt;br&gt;
+================================================&lt;br&gt;
+PL/SQL&amp;nbsp;offers&amp;nbsp;these&amp;nbsp;collection&amp;nbsp;types:&lt;br&gt;
+&lt;br&gt;
+Associative&amp;nbsp;arrays,&amp;nbsp;also&amp;nbsp;known&amp;nbsp;as&amp;nbsp;index-by&amp;nbsp;tables,&amp;nbsp;let&amp;nbsp;you&amp;nbsp;look&amp;nbsp;up&amp;nbsp;elements&amp;nbsp;using&amp;nbsp;arbitrary&amp;nbsp;numbers&amp;nbsp;and&lt;br&gt;
+strings&amp;nbsp;for&amp;nbsp;subscript&amp;nbsp;values.&amp;nbsp;These&amp;nbsp;are&amp;nbsp;similar&amp;nbsp;to&amp;nbsp;hash&amp;nbsp;tables&amp;nbsp;in&amp;nbsp;other&amp;nbsp;programming&amp;nbsp;languages.&lt;br&gt;
+&lt;br&gt;
+Nested&amp;nbsp;tables&amp;nbsp;hold&amp;nbsp;an&amp;nbsp;arbitrary&amp;nbsp;number&amp;nbsp;of&amp;nbsp;elements.&amp;nbsp;They&amp;nbsp;use&amp;nbsp;sequential&amp;nbsp;numbers&amp;nbsp;as&amp;nbsp;subscripts.&amp;nbsp;You&amp;nbsp;can&amp;nbsp;define&lt;br&gt;
+equivalent&amp;nbsp;SQL&amp;nbsp;types,&amp;nbsp;allowing&amp;nbsp;nested&amp;nbsp;tables&amp;nbsp;to&amp;nbsp;be&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;database&amp;nbsp;tables&amp;nbsp;and&amp;nbsp;manipulated&amp;nbsp;through&amp;nbsp;SQL.&lt;br&gt;
+&lt;br&gt;
+Varrays&amp;nbsp;(short&amp;nbsp;for&amp;nbsp;variable-size&amp;nbsp;arrays)&amp;nbsp;hold&amp;nbsp;a&amp;nbsp;fixed&amp;nbsp;number&amp;nbsp;of&amp;nbsp;elements&amp;nbsp;(although&amp;nbsp;you&amp;nbsp;can&amp;nbsp;change&amp;nbsp;the&amp;nbsp;number&lt;br&gt;
+of&amp;nbsp;elements&amp;nbsp;at&amp;nbsp;runtime).&amp;nbsp;They&amp;nbsp;use&amp;nbsp;sequential&amp;nbsp;numbers&amp;nbsp;as&amp;nbsp;subscripts.&amp;nbsp;You&amp;nbsp;can&amp;nbsp;define&amp;nbsp;equivalent&amp;nbsp;SQL&amp;nbsp;types,&lt;br&gt;
+allowing&amp;nbsp;varrays&amp;nbsp;to&amp;nbsp;be&amp;nbsp;stored&amp;nbsp;in&amp;nbsp;database&amp;nbsp;tables.&amp;nbsp;They&amp;nbsp;can&amp;nbsp;be&amp;nbsp;stored&amp;nbsp;and&amp;nbsp;retrieved&amp;nbsp;through&amp;nbsp;SQL,&amp;nbsp;but&amp;nbsp;with&amp;nbsp;less&lt;br&gt;
+flexibility&amp;nbsp;than&amp;nbsp;nested&amp;nbsp;tables.&lt;br&gt;
+&lt;br&gt;
+----------------&lt;br&gt;
+--&amp;nbsp;Example&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+--&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;here&amp;nbsp;is&amp;nbsp;the&amp;nbsp;declaration&amp;nbsp;of&amp;nbsp;an&amp;nbsp;associative&amp;nbsp;array&amp;nbsp;type&lt;br&gt;
+DECLARE&lt;br&gt;
+&amp;nbsp;&amp;nbsp;TYPE&amp;nbsp;array_from_test&amp;nbsp;IS&amp;nbsp;TABLE&amp;nbsp;OF&amp;nbsp;VARCHAR(20)&amp;nbsp;INDEX&amp;nbsp;BY&amp;nbsp;PLS_INTEGER&amp;nbsp;;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;arr&amp;nbsp;array_from_test;&lt;br&gt;
+BEGIN&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;FOR&amp;nbsp;item&amp;nbsp;IN&amp;nbsp;(SELECT&amp;nbsp;*&amp;nbsp;FROM&amp;nbsp;TEST)&amp;nbsp;loop&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;arr(item.ID)&amp;nbsp;:=&amp;nbsp;item.name;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;end&amp;nbsp;loop;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;FOR&amp;nbsp;i&amp;nbsp;IN&amp;nbsp;arr.FIRST..arr.LAST&amp;nbsp;loop&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;dbms_output.put_line(arr(i));&lt;br&gt;
+&amp;nbsp;&amp;nbsp;end&amp;nbsp;loop;&lt;br&gt;
+&lt;br&gt;
+end;&lt;br&gt;
+&lt;br&gt;
+OUTPUT&amp;nbsp;(in&amp;nbsp;table&amp;nbsp;test&amp;nbsp;there&amp;nbsp;are&amp;nbsp;two&amp;nbsp;rows&amp;nbsp;):&lt;br&gt;
+&lt;br&gt;
+Some&amp;nbsp;text_0_0_0_0&lt;br&gt;
+second&amp;nbsp;row&amp;nbsp;in&amp;nbsp;test2</questionanswer>
+  </question>
+</questions>

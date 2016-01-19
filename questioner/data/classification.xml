@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classification>
-  <class id="0" name="Programming Foundation" nofquestions="115" nofsubcategories="4">
+  <class id="0" name="Programming Foundation" nofquestions="118" nofsubcategories="4">
     <category id="0_0" name="Web Design and XML" nofquestions="32" nofsubcategories="3">
       <category id="0_0_0" name="HTML5" nofquestions="3" nofsubcategories="0" filename="html5.xml" />
       <category id="0_0_1" name="CSS and Frameworks" nofquestions="26" nofsubcategories="4">
@@ -35,11 +35,28 @@
         <category id="0_0_2_8" name="XML SCHEMA" nofquestions="0" nofsubcategories="0" filename="xmlschema.xml" />
       </category>
     </category>
-    <category id="0_1" name="DataBases" nofquestions="63" nofsubcategories="7">
+    <category id="0_1" name="DataBases" nofquestions="66" nofsubcategories="7">
       <category id="0_1_0" name="Relational_Theory" nofquestions="0" nofsubcategories="0" />
-      <category id="0_1_1" name="Oracle" nofquestions="1" nofsubcategories="3">
-        <category id="0_1_1_0" name="PluralsightPLSQL_Part1" nofquestions="0" nofsubcategories="0" />
-        <category id="0_1_1_1" name="PluralsightPLSQL_Part2" nofquestions="0" nofsubcategories="0" />
+      <category id="0_1_1" name="Oracle" nofquestions="4" nofsubcategories="3">
+        <category id="0_1_1_0" name="PluralsightPLSQL_Part1" nofquestions="3" nofsubcategories="7">
+          <category id="0_1_1_0_0" name="2AnonymousBlocks" nofquestions="2" nofsubcategories="0" filename="2anonymousblocks0_1_1_0_0.xml" />
+          <category id="0_1_1_0_1" name="3PLSQL_datatypes" nofquestions="0" nofsubcategories="0" filename="3plsql_datatypes0_1_1_0_1.xml" />
+          <category id="0_1_1_0_2" name="4Loops" nofquestions="0" nofsubcategories="0" filename="4loops0_1_1_0_2.xml" />
+          <category id="0_1_1_0_3" name="5ConditionalExecution" nofquestions="0" nofsubcategories="0" filename="5conditionalexecution0_1_1_0_3.xml" />
+          <category id="0_1_1_0_4" name="6Cursors" nofquestions="0" nofsubcategories="0" filename="6cursors0_1_1_0_4.xml" />
+          <category id="0_1_1_0_5" name="7Exceptions" nofquestions="0" nofsubcategories="0" filename="7exceptions0_1_1_0_5.xml" />
+          <category id="0_1_1_0_6" name="8Debugging" nofquestions="1" nofsubcategories="0" filename="8debugging0_1_1_0_6.xml" />
+        </category>
+        <category id="0_1_1_1" name="PluralsightPLSQL_Part2" nofquestions="0" nofsubcategories="8">
+          <category id="0_1_1_1_0" name="2Procedures" nofquestions="0" nofsubcategories="0" filename="2procedures0_1_1_1_0.xml" />
+          <category id="0_1_1_1_1" name="3Functions" nofquestions="0" nofsubcategories="0" filename="3functions0_1_1_1_1.xml" />
+          <category id="0_1_1_1_2" name="4ParametersinFunctionsProcedure" nofquestions="0" nofsubcategories="0" filename="4parametersinfunctionsprocedure0_1_1_1_2.xml" />
+          <category id="0_1_1_1_3" name="5LocalSubprograms" nofquestions="0" nofsubcategories="0" filename="5localsubprograms0_1_1_1_3.xml" />
+          <category id="0_1_1_1_4" name="6Package" nofquestions="0" nofsubcategories="0" filename="6package0_1_1_1_4.xml" />
+          <category id="0_1_1_1_5" name="7PackageBody" nofquestions="0" nofsubcategories="0" filename="7packagebody0_1_1_1_5.xml" />
+          <category id="0_1_1_1_6" name="8CallingFunctionsFromSQL" nofquestions="0" nofsubcategories="0" filename="8callingfunctionsfromsql0_1_1_1_6.xml" />
+          <category id="0_1_1_1_7" name="9RolesAndPrivilegesWithSubPrograms" nofquestions="0" nofsubcategories="0" filename="9rolesandprivilegeswithsubprograms0_1_1_1_7.xml" />
+        </category>
         <category id="0_1_1_2" name="SomeBasicInterestingQuestions" nofquestions="1" nofsubcategories="0" filename="somebasicinterestingquestions0_1_1_2.xml" />
       </category>
       <category id="0_1_2" name="Mysql" nofquestions="62" nofsubcategories="3">
@@ -411,7 +428,16 @@
         </category>
       </category>
       <category id="1_0_2" name="Android" nofquestions="0" nofsubcategories="0" />
-      <category id="1_0_3" name="Other_Resources" nofquestions="0" nofsubcategories="0" />
+      <category id="1_0_3" name="Other_Resources" nofquestions="0" nofsubcategories="1">
+        <category id="1_0_3_0" name="Conferences" nofquestions="0" nofsubcategories="1">
+          <category id="1_0_3_0_0" name="JavaOne" nofquestions="0" nofsubcategories="4">
+            <category id="1_0_3_0_0_0" name="2012" nofquestions="0" nofsubcategories="0" />
+            <category id="1_0_3_0_0_1" name="2013" nofquestions="0" nofsubcategories="0" />
+            <category id="1_0_3_0_0_2" name="2014" nofquestions="0" nofsubcategories="0" />
+            <category id="1_0_3_0_0_3" name="2015" nofquestions="0" nofsubcategories="0" />
+          </category>
+        </category>
+      </category>
     </category>
     <category id="1_1" name=".Net" nofquestions="35" nofsubcategories="3">
       <category id="1_1_0" name="C# CORE" nofquestions="0" nofsubcategories="9">
@@ -581,7 +607,28 @@
   </class>
   <class id="4" name="Languages" nofquestions="0" nofsubcategories="3">
     <category id="4_0" name="English" nofquestions="0" nofsubcategories="3">
-      <category id="4_0_0" name="How English Works BOOK" nofquestions="0" nofsubcategories="0" />
+      <category id="4_0_0" name="How English Works BOOK" nofquestions="0" nofsubcategories="20">
+        <category id="4_0_0_0" name="InitialTest" nofquestions="0" nofsubcategories="0" filename="initialtest4_0_0_0.xml" />
+        <category id="4_0_0_1" name="Determiners_articles_possesives_demonstatives" nofquestions="0" nofsubcategories="0" filename="determiners_articles_possesives_demonstatives4_0_0_1.xml" />
+        <category id="4_0_0_2" name="Other_determiners" nofquestions="0" nofsubcategories="0" filename="other_determiners4_0_0_2.xml" />
+        <category id="4_0_0_3" name="3_Pronouns_nouns" nofquestions="0" nofsubcategories="0" filename="3_pronouns_nouns4_0_0_3.xml" />
+        <category id="4_0_0_4" name="4_Adjectives_and_Adverbs" nofquestions="0" nofsubcategories="0" filename="4_adjectives_and_adverbs4_0_0_4.xml" />
+        <category id="4_0_0_5" name="5_Comparison_and_Degree" nofquestions="0" nofsubcategories="0" filename="5_comparison_and_degree4_0_0_5.xml" />
+        <category id="4_0_0_6" name="6_Be_Do_and_Have" nofquestions="0" nofsubcategories="0" filename="6_be_do_and_have4_0_0_6.xml" />
+        <category id="4_0_0_7" name="7_Modal_auxillary_verbs" nofquestions="0" nofsubcategories="0" filename="7_modal_auxillary_verbs4_0_0_7.xml" />
+        <category id="4_0_0_8" name="8_Tenses__Future" nofquestions="0" nofsubcategories="0" filename="8_tenses__future4_0_0_8.xml" />
+        <category id="4_0_0_9" name="9_Tenses__Present" nofquestions="0" nofsubcategories="0" filename="9_tenses__present4_0_0_9.xml" />
+        <category id="4_0_0_10" name="10_Tenses__Perfect_and_Past" nofquestions="0" nofsubcategories="0" filename="10_tenses__perfect_and_past4_0_0_10.xml" />
+        <category id="4_0_0_11" name="11_Passives" nofquestions="0" nofsubcategories="0" filename="11_passives4_0_0_11.xml" />
+        <category id="4_0_0_12" name="12_Structures_after_verbs___Adjectives_and_nouns" nofquestions="0" nofsubcategories="0" filename="12_structures_after_verbs___adjectives_and_nouns4_0_0_12.xml" />
+        <category id="4_0_0_13" name="13_Basic_sentence_structures" nofquestions="0" nofsubcategories="0" filename="13_basic_sentence_structures4_0_0_13.xml" />
+        <category id="4_0_0_14" name="14_Conjuctions" nofquestions="0" nofsubcategories="0" filename="14_conjuctions4_0_0_14.xml" />
+        <category id="4_0_0_15" name="15_Indirect_spech" nofquestions="0" nofsubcategories="0" filename="15_indirect_spech4_0_0_15.xml" />
+        <category id="4_0_0_16" name="16_If_unless__in_case" nofquestions="0" nofsubcategories="0" filename="16_if_unless__in_case4_0_0_16.xml" />
+        <category id="4_0_0_17" name="17_Relative_clauses" nofquestions="0" nofsubcategories="0" filename="17_relative_clauses4_0_0_17.xml" />
+        <category id="4_0_0_18" name="18_prepositions" nofquestions="0" nofsubcategories="0" filename="18_prepositions4_0_0_18.xml" />
+        <category id="4_0_0_19" name="19_Miscellaneous" nofquestions="0" nofsubcategories="0" filename="19_miscellaneous4_0_0_19.xml" />
+      </category>
       <category id="4_0_1" name="30Songs" nofquestions="0" nofsubcategories="0" filename="30songs4_0_1.xml" />
       <category id="4_0_2" name="US_President_Speeches" nofquestions="0" nofsubcategories="0" filename="us_president_speeches4_0_2.xml" />
     </category>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="0_1_1_0_6" name="8Debugging" nofquestions="1" nofsubcategories="0" filename="8debugging0_1_1_0_6.xml">
+  <question id="0_1_1_0_6:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;privileges&amp;nbsp;you&amp;nbsp;need&amp;nbsp;to&amp;nbsp;debug&amp;nbsp;procedures/functions&amp;nbsp;in&amp;nbsp;Oracle&amp;nbsp;db&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+Describe&amp;nbsp;debugging&amp;nbsp;process&amp;nbsp;in&amp;nbsp;SQL&amp;nbsp;Developer.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>To&amp;nbsp;debug&amp;nbsp;procedure&amp;nbsp;grant&amp;nbsp;such&amp;nbsp;privileges:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;grant&amp;nbsp;debug&amp;nbsp;connect&amp;nbsp;session&amp;nbsp;to&amp;nbsp;&lt;user&gt;;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;grant&amp;nbsp;debug&amp;nbsp;any&amp;nbsp;procedure&amp;nbsp;to&amp;nbsp;&lt;user&gt;;&lt;br&gt;
+&lt;br&gt;
+=================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Debug&amp;nbsp;process&amp;nbsp;in&amp;nbsp;SQL&amp;nbsp;Developer&amp;nbsp;&lt;br&gt;
+For&amp;nbsp;example&amp;nbsp;you&amp;nbsp;have&amp;nbsp;function&amp;nbsp;'get_emp_count'&lt;br&gt;
+&lt;br&gt;
+1)&amp;nbsp;Make&amp;nbsp;sure&amp;nbsp;that&amp;nbsp;this&amp;nbsp;function&amp;nbsp;is&amp;nbsp;'COMPILED&amp;nbsp;for&amp;nbsp;DEBUG'&lt;br&gt;
+alter&amp;nbsp;function&amp;nbsp;get_emp_count&amp;nbsp;compile&amp;nbsp;debug;&lt;br&gt;
+&lt;br&gt;
+or&amp;nbsp;from&amp;nbsp;SQL&amp;nbsp;developer&amp;nbsp;on&amp;nbsp;context&amp;nbsp;menu&amp;nbsp;click&amp;nbsp;'compile&amp;nbsp;for&amp;nbsp;debug'&lt;br&gt;
+&lt;br&gt;
+2)&amp;nbsp;After&amp;nbsp;this&amp;nbsp;open&amp;nbsp;function&amp;nbsp;by&amp;nbsp;double&amp;nbsp;clicking&amp;nbsp;on&amp;nbsp;it&lt;br&gt;
+&lt;br&gt;
+3)&amp;nbsp;Put&amp;nbsp;some&amp;nbsp;breakpoints&amp;nbsp;inside&amp;nbsp;function&lt;br&gt;
+&lt;br&gt;
+4)&amp;nbsp;Click&amp;nbsp;Debug&amp;nbsp;(bug&amp;nbsp;icon)&amp;nbsp;and&amp;nbsp;ok&lt;br&gt;
+&lt;br&gt;
+5)&amp;nbsp;Now&amp;nbsp;you&amp;nbsp;can&amp;nbsp;inspect&amp;nbsp;variables&amp;nbsp;,&amp;nbsp;stop&amp;nbsp;,&amp;nbsp;continue&amp;nbsp;execution,&amp;nbsp;change&amp;nbsp;variables....</questionanswer>
+  </question>
+</questions>
