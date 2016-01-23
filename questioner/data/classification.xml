@@ -606,7 +606,7 @@
     </category>
   </class>
   <class id="4" name="Languages" nofquestions="0" nofsubcategories="3">
-    <category id="4_0" name="English" nofquestions="0" nofsubcategories="3">
+    <category id="4_0" name="English" nofquestions="0" nofsubcategories="4">
       <category id="4_0_0" name="How English Works BOOK" nofquestions="0" nofsubcategories="20">
         <category id="4_0_0_0" name="InitialTest" nofquestions="0" nofsubcategories="0" filename="initialtest4_0_0_0.xml" />
         <category id="4_0_0_1" name="Determiners_articles_possesives_demonstatives" nofquestions="0" nofsubcategories="0" filename="determiners_articles_possesives_demonstatives4_0_0_1.xml" />
@@ -631,6 +631,11 @@
       </category>
       <category id="4_0_1" name="30Songs" nofquestions="0" nofsubcategories="0" filename="30songs4_0_1.xml" />
       <category id="4_0_2" name="US_President_Speeches" nofquestions="0" nofsubcategories="0" filename="us_president_speeches4_0_2.xml" />
+      <category id="4_0_3" name="EasyEnglish_com" nofquestions="0" nofsubcategories="3">
+        <category id="4_0_3_0" name="easy" nofquestions="0" nofsubcategories="0" filename="easy4_0_3_0.xml" />
+        <category id="4_0_3_1" name="medium" nofquestions="0" nofsubcategories="0" filename="medium4_0_3_1.xml" />
+        <category id="4_0_3_2" name="difficult" nofquestions="0" nofsubcategories="0" filename="difficult4_0_3_2.xml" />
+      </category>
     </category>
     <category id="4_1" name="German" nofquestions="0" nofsubcategories="1">
       <category id="4_1_0" name="Deutsch_ohne_probleme" nofquestions="0" nofsubcategories="2">
