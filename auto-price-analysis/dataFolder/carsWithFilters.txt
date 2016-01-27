@@ -2,8 +2,8 @@
 
 -- Caddy  Год от 2005×Легковые×Львовская×Цена от 4000$ Растаможенные× Дизель×
 -- 406 on 24.01.16
-::Caddy::
-https://auto.ria.com/search/?category_id=1&marka_id=84&model_id=3153&state=5#power_name=1&category_id=1&s_yers[0]=2005&po_yers[0]=0&state[0]=5&currency=1&engineVolumeFrom=&engineVolumeTo=&countpage=100&page=0&search_near_states=1&custom=1&order_by=2&model_id[0]=3153&scrollToAuto=15264997&marka_id[0]=84&price_ot=4000&type[1]=2
+--::Caddy::
+--https://auto.ria.com/search/?category_id=1&marka_id=84&model_id=3153&state=5#power_name=1&category_id=1&s_yers[0]=2005&po_yers[0]=0&state[0]=5&currency=1&engineVolumeFrom=&engineVolumeTo=&countpage=100&page=0&search_near_states=1&custom=1&order_by=2&model_id[0]=3153&scrollToAuto=15264997&marka_id[0]=84&price_ot=4000&type[1]=2
 
 -- Hyundai Tucson :: Цена от 7000$×Искать в соседних регионах×Hyundai×Tucson×Год от 2007×Легковые×Львовская× От дорогих к дешевым× Пробег до 200 тыс/км× Растаможенные× Дизель×
 -- 21 on 24.01.16
@@ -12,5 +12,5 @@ https://auto.ria.com/search/?category_id=1&marka_id=29&model_id=1268&state=5#pow
 
 -- Santa fe Цена от 7000 $×Искать в соседних регионах×Hyundai×Tucson×Год от 2007×Легковые×Львовская× От дорогих к дешевым× Пробег до 200 тыс/км× Растаможенные× Дизель×
 -- 45 on 24.01.16
-::Santa Fe::
-https://auto.ria.com/search/?category_id=1&marka_id=29&model_id=293&state=5#power_name=1&category_id=1&s_yers[0]=2007&po_yers[0]=0&state[0]=5&currency=1&engineVolumeFrom=&engineVolumeTo=&countpage=100&page=0&search_near_states=1&scrollToAuto=16690628&custom=1&raceTo=200&marka_id[0]=29&order_by=3&price_ot=7000&model_id[0]=293&type[1]=2
+--::Santa Fe::
+--https://auto.ria.com/search/?category_id=1&marka_id=29&model_id=293&state=5#power_name=1&category_id=1&s_yers[0]=2007&po_yers[0]=0&state[0]=5&currency=1&engineVolumeFrom=&engineVolumeTo=&countpage=100&page=0&search_near_states=1&scrollToAuto=16690628&custom=1&raceTo=200&marka_id[0]=29&order_by=3&price_ot=7000&model_id[0]=293&type[1]=2
