@@ -1,7 +1,12 @@
 package com.average;
 
+import com.services.FileSystemService;
+import com.services.AverageService;
+import com.services.SeleniumService;
+import com.services.FileSystemServiceImpl;
+import com.services.SeleniumServiceImpl;
+import com.services.AverageServiceImpl;
 import com.dto.Advert;
-import com.general.*;
 
 import java.util.List;
 
@@ -22,7 +27,7 @@ public class AveragePriceProgram {
             allCars.forEach(car->{
                 System.out.println(car);
             });
-            System.out.println("============================================");
+            System.out.println("=====================");
         });
 
     }

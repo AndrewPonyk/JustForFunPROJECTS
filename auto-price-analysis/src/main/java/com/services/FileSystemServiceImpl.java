@@ -1,9 +1,14 @@
-package com.general;
+package com.services;
 
+import com.dto.Advert;
 import org.apache.commons.io.IOUtils;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +20,7 @@ import java.util.Optional;
 public class FileSystemServiceImpl implements FileSystemService {
     private static String projectDir = System.getProperty("user.dir");
     private static String fileWithCars = projectDir + "/dataFolder/carsWithFilters.txt";
-
+    private static String folderWithImages = projectDir + "/dataFolder/images/";
 
     @Override
     public Map<String, String> getCarsAndTheirUrls() {
@@ -42,6 +47,31 @@ public class FileSystemServiceImpl implements FileSystemService {
             });
         }
         return carsAndTheirUrls;
+    }
+    
+    public static void saveImage(Advert advertItem, String imageUrl) {
+        //String destinationFile =  folderWithImages + imageUrl.substring(imageUrl.lastIndexOf("/")+1);
+        String destinationFile =  folderWithImages + advertItem.autoriaId;
+
+        try {
+            URL url = new URL(imageUrl);
+            InputStream is = url.openStream();
+            OutputStream os = new FileOutputStream(destinationFile);
+
+            byte[] b = new byte[2048];
+            int length;
+
+            while ((length = is.read(b)) != -1) {
+                    os.write(b, 0, length);
+            }
+
+            is.close();
+            os.close();   
+            //System.out.println("File saved : " + destinationFile);
+        } catch (Exception e) {
+            System.err.println("Cant save image " + destinationFile + "; " + e.getMessage());
+        }
+        
     }
 }
 

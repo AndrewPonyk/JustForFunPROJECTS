@@ -1,4 +1,4 @@
-package com.general;
+package com.services;
 
 import com.dto.Advert;
 

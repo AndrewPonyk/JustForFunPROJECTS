@@ -1,4 +1,4 @@
-package com.general;
+package com.services;
 
 import com.dto.Advert;
 import org.openqa.selenium.By;
@@ -19,7 +19,8 @@ import java.util.List;
 public class SeleniumServiceImpl implements SeleniumService {
     WebDriver driver = new FirefoxDriver();
     WebDriverWait wait = new WebDriverWait(driver, 15);
-
+    
+    
     private void open(String url) {
          driver.get(url);
     }
@@ -42,18 +43,28 @@ public class SeleniumServiceImpl implements SeleniumService {
 
                 try{
                     if(advert.findElements(By.cssSelector(".item.ticket-title")).size()>0){
-                        allCars.add(new Advert().
-                                        setName(advert.findElements(By.cssSelector(".item.ticket-title")).get(0).getText()).
-                                        setCity(advert.findElements(By.cssSelector(".location a")).get(0).getText()).
-                                        setYear(extractYear(advert.findElements(By.cssSelector(".item.ticket-title")).get(0).getText())).
-                                        setPrice(extractInteger(advert.findElements(By.cssSelector(".price-ticket .size16 strong")).get(0).getText())).
-                                        setMileage(extractInteger(advert.findElements(By.cssSelector(".characteristic .item-char")).get(0).getText())).
-                                        setDescription(advert.findElements(By.cssSelector(".descriptions-ticket")).get(0).getText())
-                        );
-                        System.out.println(allCars.get(allCars.size()-1));
+                        
+                        Advert advertItem = new Advert().
+                            setName(advert.findElements(By.cssSelector(".item.ticket-title")).get(0).getText()).
+                            setCity(advert.findElements(By.cssSelector(".location a")).get(0).getText()).
+                            setYear(extractYear(advert.findElements(By.cssSelector(".item.ticket-title")).get(0).getText())).
+                            setPrice(extractInteger(advert.findElements(By.cssSelector(".price-ticket .size16 strong")).get(0).getText())).
+                            setMileage(extractInteger(advert.findElements(By.cssSelector(".characteristic .item-char")).get(0).getText())).
+                            setDescription(advert.findElements(By.cssSelector(".descriptions-ticket")).get(0).getText()).
+                            setAutoriaId(extractAutoriaId(advert.findElements(By.cssSelector(".ticket-title .address")).get(0).getAttribute("href")));
+                        
+                        
+                                                
+                        
+                        if(!allCars.contains(advertItem) && advertItem.name != null && advertItem.name.length() > 0 ){
+                            FileSystemServiceImpl.saveImage(advertItem, advert.findElements(By.cssSelector(".ticket-photo img")).get(0).getAttribute("src"));
+                            advertItem.imageSaved = true;    
+                            allCars.add(advertItem);                            
+                        }
                     }
                 }catch (Exception e) {
-
+                    //e.printStackTrace();
+                    //System.err.println(e.getMessage() + " For " + advert);
                 }
 
             }
@@ -84,4 +95,12 @@ public class SeleniumServiceImpl implements SeleniumService {
         }
         return 0;
     }
+    
+    public String extractAutoriaId(String str){
+        int beginIndex = str.lastIndexOf("_");
+        int endIndex = str.lastIndexOf(".");
+        
+        return str.substring(beginIndex+1, endIndex);
+    }
+    
 }

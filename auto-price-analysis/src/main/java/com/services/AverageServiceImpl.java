@@ -1,4 +1,4 @@
-package com.general;
+package com.services;
 
 import java.util.Map;
 

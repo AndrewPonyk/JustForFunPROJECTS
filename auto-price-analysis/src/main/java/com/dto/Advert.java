@@ -15,6 +15,8 @@ public class Advert {
     public Integer price;
     public Integer mileage;
     private String hash;
+    public String autoriaId;
+    public boolean imageSaved;
 
     public Advert setName(String name) {
         this.name = name;
@@ -35,6 +37,11 @@ public class Advert {
         this.description = description;
         return this;
     }
+    
+    public Advert setAutoriaId(String autoriaId) {
+        this.autoriaId = autoriaId;
+        return this;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -47,11 +54,12 @@ public class Advert {
 
     @Override
     public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + (city != null ? city.hashCode() : 0);
-        result = 31 * result + (year != null ? year.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        return result;
+//        int result = name.hashCode();
+//        result = 31 * result + (city != null ? city.hashCode() : 0);
+//        result = 31 * result + (year != null ? year.hashCode() : 0);
+//        result = 31 * result + (description != null ? description.hashCode() : 0);
+//        return result;
+        return this.getHash().hashCode();
     }
 
     public Advert setPrice(Integer price) {
@@ -67,7 +75,8 @@ public class Advert {
 
     @Override
     public String toString() {
-        return String.format("{%s}[%s][%s][%s][%s][%s][%s]", getHash(), name, city, price, year, mileage, description);
+        return String.format("{%s}[%s][%s][%s][%s][%s][autoriaId=%s][%s]<ImageSaved=%s>",
+                getHash(), name, city, price, year, mileage, autoriaId, description, imageSaved);
     }
 
     public String getHash(){
