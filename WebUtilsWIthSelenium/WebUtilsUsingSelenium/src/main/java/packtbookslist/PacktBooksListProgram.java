@@ -24,13 +24,17 @@ public class PacktBooksListProgram {
 
 		WebDriver driver = new FirefoxDriver();
 
-		for (int i = 1; i <= 57; i++) {
+		for (int i = 1; i <= 75; i++) {
 
-			System.out.println("Page " + i
-					+ "===============================================");
-			url = "https://www.packtpub.com/all?search=&type_list%5Bbooks%5D=books&offset="
+			System.out.println("Page " + i + "===============================================");
+//			url = "https://www.packtpub.com/all?search=&type_list%5Bbooks%5D=books&offset="
+//					+ offsetCounter
+//					+ "&rows=48&sort=ss_cck_field_date_of_publication+desc"; // ONLY BOOKS
+
+			url = "https://www.packtpub.com/all?search=&offset="+
 					+ offsetCounter
-					+ "&rows=48&sort=ss_cck_field_date_of_publication+desc";
+			+ "&rows=48&sort=ss_cck_field_date_of_publication+desc"; // BOOKS AND VIDEO
+
 			driver.get(url);
 			System.out.println(url);
 			List<WebElement> books = driver

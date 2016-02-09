@@ -16,7 +16,12 @@ public class Advert {
     public Integer mileage;
     private String hash;
     public String autoriaId;
+    public String imageUrl;
     public boolean imageSaved;
+
+    public String model;
+    public Integer averagePriceOnThisDate;
+
 
     public Advert setName(String name) {
         this.name = name;
@@ -40,6 +45,16 @@ public class Advert {
     
     public Advert setAutoriaId(String autoriaId) {
         this.autoriaId = autoriaId;
+        return this;
+    }
+
+    public Advert setImageUrl(String imageUrl){
+        this.imageUrl = imageUrl;
+        return this;
+    }
+
+    public Advert setAveragePriceOnThisDate(Integer price){
+        this.averagePriceOnThisDate = price;
         return this;
     }
 
@@ -73,6 +88,11 @@ public class Advert {
         return this;
     }
 
+    public Advert setModel(String model) {
+        this.model = model;
+        return this;
+    }
+
     @Override
     public String toString() {
         return String.format("{%s}[%s][%s][%s][%s][%s][autoriaId=%s][%s]<ImageSaved=%s>",
@@ -85,7 +105,7 @@ public class Advert {
         }
 
         String descriptionForHash = this.description.length() > 15 ? this.description.substring(0, 15) : this.description;
-        String original = this.name + this.city + this.year + descriptionForHash;
+        String original = this.name + this.city + this.year + this.mileage + descriptionForHash;
         StringBuffer sb = new StringBuffer();
 
         try {
@@ -102,4 +122,5 @@ public class Advert {
         this.hash = sb.toString().substring(0,5); // use first symbols as id of advert
         return hash;
     }
+
 }

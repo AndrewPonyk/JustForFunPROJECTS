@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="1_0_1_6_2" name="GeneralFaqQuestions" nofquestions="1" nofsubcategories="0" filename="generalfaqquestions1_0_1_6_2.xml">
+  <question id="1_0_1_6_2:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Difference&amp;nbsp;between&amp;nbsp;Jax-ws,&amp;nbsp;axis2,&amp;nbsp;cxf,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>The&amp;nbsp;JAX-WS&amp;nbsp;implementation&amp;nbsp;built&amp;nbsp;into&amp;nbsp;the&amp;nbsp;JDK&amp;nbsp;really&amp;nbsp;is&amp;nbsp;just&amp;nbsp;the&amp;nbsp;basic&amp;nbsp;soap&amp;nbsp;stuff.&amp;nbsp;If&amp;nbsp;you&amp;nbsp;need&lt;br&gt;
+any&amp;nbsp;of&amp;nbsp;the&amp;nbsp;more&amp;nbsp;complex&amp;nbsp;WS-*&amp;nbsp;things&amp;nbsp;like&amp;nbsp;WS-Security,&amp;nbsp;WS-RM,&amp;nbsp;WS-Policy,&amp;nbsp;etc...,&amp;nbsp;you&amp;nbsp;need&lt;br&gt;
+to&amp;nbsp;use&amp;nbsp;one&amp;nbsp;of&amp;nbsp;the&amp;nbsp;alternatives&amp;nbsp;like&amp;nbsp;CXF&amp;nbsp;or&amp;nbsp;Metro&amp;nbsp;or&amp;nbsp;Axis2.&amp;nbsp;It&amp;nbsp;can&amp;nbsp;also&amp;nbsp;depend&amp;nbsp;on&amp;nbsp;what&amp;nbsp;you&amp;nbsp;are&lt;br&gt;
+trying&amp;nbsp;to&amp;nbsp;integrate&amp;nbsp;with.&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;CXF&amp;nbsp;has&amp;nbsp;top&amp;nbsp;notch&amp;nbsp;Spring&amp;nbsp;support&amp;nbsp;as&amp;nbsp;well&amp;nbsp;as&amp;nbsp;very&amp;nbsp;good&amp;nbsp;OSGi&amp;nbsp;support.&lt;br&gt;
+&lt;br&gt;
+CXF&amp;nbsp;also&amp;nbsp;has&amp;nbsp;other&amp;nbsp;things&amp;nbsp;besides&amp;nbsp;just&amp;nbsp;JAX-WS.&amp;nbsp;It&amp;nbsp;has&amp;nbsp;a&amp;nbsp;compliant&amp;nbsp;JAX-RS&amp;nbsp;implementation&amp;nbsp;as&amp;nbsp;well&lt;br&gt;
+and&amp;nbsp;supports&amp;nbsp;exposing&amp;nbsp;services&amp;nbsp;as&amp;nbsp;both&amp;nbsp;REST&amp;nbsp;and&amp;nbsp;SOAP&amp;nbsp;very&amp;nbsp;well.&amp;nbsp;Has&amp;nbsp;a&amp;nbsp;W3C&amp;nbsp;compliant&amp;nbsp;SOAP/JMS&lt;br&gt;
+implementation&amp;nbsp;if&amp;nbsp;that&amp;nbsp;type&amp;nbsp;of&amp;nbsp;things&amp;nbsp;is&amp;nbsp;required.&amp;nbsp;Basically,&amp;nbsp;lots&amp;nbsp;of&amp;nbsp;stuff&amp;nbsp;not&amp;nbsp;available&amp;nbsp;from&amp;nbsp;the&amp;nbsp;in-jdk&amp;nbsp;JAX-WS&amp;nbsp;impl.&lt;br&gt;
+&lt;br&gt;
+================================================&lt;br&gt;
+ANOTHER&amp;nbsp;ANSWER&amp;nbsp;:&lt;br&gt;
+Here&amp;nbsp;are&amp;nbsp;the&amp;nbsp;common&amp;nbsp;frameworks,&amp;nbsp;all&amp;nbsp;are&amp;nbsp;rather&amp;nbsp;mature:&lt;br&gt;
+&lt;br&gt;
+Apache&amp;nbsp;CXF&lt;br&gt;
+Apache&amp;nbsp;Axis2&lt;br&gt;
+Spring&amp;nbsp;Web&amp;nbsp;Services&lt;br&gt;
+JAX-WS&amp;nbsp;RI&lt;br&gt;
+All&amp;nbsp;support&amp;nbsp;SOAP.&lt;br&gt;
+&lt;br&gt;
+I've&amp;nbsp;used&amp;nbsp;both&amp;nbsp;CXF&amp;nbsp;and&amp;nbsp;Spring-WS.&amp;nbsp;Both&amp;nbsp;are&amp;nbsp;easy&amp;nbsp;to&amp;nbsp;configure&amp;nbsp;and&amp;nbsp;use.&lt;br&gt;
+&lt;br&gt;
+============================================&lt;br&gt;
+AND&amp;nbsp;ONE&amp;nbsp;ANOTHER&amp;nbsp;ANSWER&amp;nbsp;:&lt;br&gt;
+&lt;br&gt;
+In&amp;nbsp;short.&lt;br&gt;
+&lt;br&gt;
+WSDL&amp;nbsp;WS-*&amp;nbsp;are&amp;nbsp;language-agnostic.&lt;br&gt;
+&lt;br&gt;
+JAX-WS&amp;nbsp;are&amp;nbsp;Java&amp;nbsp;standard&amp;nbsp;to&amp;nbsp;build&amp;nbsp;web&amp;nbsp;service.&lt;br&gt;
+&lt;br&gt;
+Apache&amp;nbsp;CXF&amp;nbsp;and&amp;nbsp;Apache&amp;nbsp;Axis&amp;nbsp;2&amp;nbsp;are&amp;nbsp;two&amp;nbsp;implementations&amp;nbsp;of&amp;nbsp;JAX-WS.&amp;nbsp;They&amp;nbsp;also&amp;nbsp;offer&amp;nbsp;JAX-RS&amp;nbsp;implementations&amp;nbsp;so&amp;nbsp;that&amp;nbsp;you&amp;nbsp;can&amp;nbsp;build&amp;nbsp;Restful&amp;nbsp;services.&lt;br&gt;
+&lt;br&gt;
+CXF&amp;nbsp;has&amp;nbsp;better&amp;nbsp;integration&amp;nbsp;with&amp;nbsp;Spring,&amp;nbsp;and&amp;nbsp;Camel(camel-cxf).&amp;nbsp;And&amp;nbsp;Axis&amp;nbsp;2&amp;nbsp;seems&amp;nbsp;not&amp;nbsp;have&amp;nbsp;a&amp;nbsp;active&amp;nbsp;release.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+https://en.wikipedia.org/wiki/Apache_Axis2&lt;br&gt;
+&lt;br&gt;
+https://en.wikipedia.org/wiki/Apache_CXF</questionanswer>
+  </question>
+</questions>

@@ -12,15 +12,11 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * Created by andrii on 24.01.16.
  */
 public class FileSystemServiceImpl implements FileSystemService {
-    private static String projectDir = System.getProperty("user.dir");
-    private static String fileWithCars = projectDir + "/dataFolder/carsWithFilters.txt";
-    private static String folderWithImages = projectDir + "/dataFolder/images/";
 
     @Override
     public Map<String, String> getCarsAndTheirUrls() {
@@ -29,7 +25,7 @@ public class FileSystemServiceImpl implements FileSystemService {
         Map<String, String> carsAndTheirUrls = new HashMap<>();
 
         try {
-            stringsWithCars = IOUtils.readLines(new FileInputStream(fileWithCars));
+            stringsWithCars = IOUtils.readLines(new FileInputStream(ProjectConfig.fileWithCars));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -48,10 +44,10 @@ public class FileSystemServiceImpl implements FileSystemService {
         }
         return carsAndTheirUrls;
     }
-    
+
     public static void saveImage(Advert advertItem, String imageUrl) {
         //String destinationFile =  folderWithImages + imageUrl.substring(imageUrl.lastIndexOf("/")+1);
-        String destinationFile =  folderWithImages + advertItem.autoriaId;
+        String destinationFile =  ProjectConfig.folderWithImages + advertItem.autoriaId;
 
         try {
             URL url = new URL(imageUrl);
@@ -66,12 +62,12 @@ public class FileSystemServiceImpl implements FileSystemService {
             }
 
             is.close();
-            os.close();   
+            os.close();
             //System.out.println("File saved : " + destinationFile);
         } catch (Exception e) {
             System.err.println("Cant save image " + destinationFile + "; " + e.getMessage());
         }
-        
+
     }
 }
 

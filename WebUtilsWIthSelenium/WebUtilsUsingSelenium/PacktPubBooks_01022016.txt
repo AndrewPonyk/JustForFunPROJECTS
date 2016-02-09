@@ -1,0 +1,3720 @@
+Listing of all packt books
+Page 1===============================================
+https://www.packtpub.com/all?search=&offset=0&rows=48&sort=ss_cck_field_date_of_publication+desc
+1) Game Engine Architecture
+2) Mastering Cloud Penetration Testing
+3) Python Machine Learning Blueprints
+4) Principles of Data Science
+5) Openstack for Architects
+6) Getting Started with Polymer
+7) Learning ArcGIS Runtime SDK for .NET
+8) Apple Pay Essentials
+9) Implementing Microsoft Dynamics NAV - Third Edition
+10) Building a Pentesting Lab for Wireless Networks
+11) OpenGL Game Development By Example
+12) VMware vRealize Configuration Manager Cookbook
+13) Mastering JavaScript Object-Oriented Programming
+14) Learning IoT with Particle Core and Photon
+15) Practical UX Design
+16) Microsoft Identity Manager 2016 Handbook
+17) CISSP in 21 Days - Second Edition
+18) Mobile Device Exploitation Cookbook
+19) Mastering Web Development with AngularJS and Bootstrap
+20) Troubleshooting Docker
+21) Angular 2 Blueprints
+22) Mastering .NET Machine Learning
+23) Mastering Magento PHP Development
+24) Mastering IPython 4.0
+25) Hacking Android
+26) Mastering JBoss Enterprise Application Platform 7
+27) Asynchronous Android Programming
+28) Unreal Engine 4 by Example
+29) Mastering Magento 2 - Second Edition
+30) Mastering Windows Server 2016
+31) Learning PHP 7
+32) Learning Node.js for .NET Developers
+33) Mastering Python Data Analysis
+34) Bootstrap for ASP.NET MVC - Second Edition
+35) Sitecore Cookbook for Developers
+36) AngularJS UI Development Cookbook
+37) Spring MVC Blueprints
+38) Kali Linux Cookbook - Second Edition
+39) ReactJS by Example- Building Modern Web Applications with React
+40) Drupal 8 Development Cookbook
+41) Angular 2 By Example
+42) Learning Python for Forensics
+43) Practical Responsive Typography
+44) Learning Magento 2 Administration
+45) Splunk Essentials - Second Edition
+46) Laravel Reference Guide
+47) Mastering Angular 2 Components
+48) Getting Started with RethinkDB
+Page 2===============================================
+https://www.packtpub.com/all?search=&offset=48&rows=48&sort=ss_cck_field_date_of_publication+desc
+49) Mastering Hibernate
+50) Mastering Web Penetration Testing with Python
+51) Drupal 8 Blueprints
+52) RESTful Web API Design with Node.JS - Second Edition
+53) Microsoft Exchange Server PowerShell Essentials
+54) Social Media Mining with Python
+55) Learning Go Web Development
+56) Learning Embedded Android Programming
+57) Python Data Analysis Cookbook
+58) Nginx Troubleshooting
+59) Mastering FreeSWITCH
+60) R Machine Learning By Example
+61) Raspberry Pi By Example
+62) Apple Watch App Development
+63) Delphi Cookbook - Second Edition
+64) Learning PHP 7 High Performance
+65) Deep Learning with Java
+66) AWS Tools for PowerShell
+67) Learning Proxmox VE
+68) ReactJS Cookbook
+69) Machine Learning in Java
+70) Drupal 8 Module Development
+71) Raspberry Pi Home Automation Blueprints
+72) Mastering Cross-Platform Development with Xamarin
+73) Android Application Development Cookbook - Second Edition
+74) Mastering Python
+75) Unity 5.x By Example
+76) Learning Unreal AI Programming
+77) Ubuntu Server Cookbook
+78) Magento 2 Cookbook
+79) Modular Programming with JavaScript
+80) Pentaho Reporting 5 for Java Developers - Second Edition
+81) Big Data Analytics with Spark and Hadoop
+82) Android Sensor Programming By Example
+83) Extending SaltStack
+84) 3D Game Design with Unreal Engine 4 and Blender
+85) Learning Xero
+86) Blender 3D Incredible Machines
+87) Flask By Example
+88) Learning Modular Java Programming
+89) Multithreading with C# Cookbook - Second Edition
+90) Extending Puppet - Second Edition
+91) Scientific Computing with Scala
+92) Monitoring ElasticSearch
+93) Mastering KVM Virtualization
+94) Web Design Blueprints
+95) Troubleshooting System Center Configuration Manager
+96) HBase High Performance Cookbook
+Page 3===============================================
+https://www.packtpub.com/all?search=&offset=96&rows=48&sort=ss_cck_field_date_of_publication+desc
+97) Apache Solr 5.x Beginner's Guide - Second Edition
+98) Unity 5.x Shaders and Effects Cookbook - Second Edition
+99) Ember.js cookbook
+100) Force.Com Developer Certification Handbook (DEV401) - Second Edition
+101) Kali Linux: Windows Penetration Testing
+102) Using CiviCRM - Second Edition
+103) Learning C# by Developing Games with Unity 3D
+104) Mastering JBoss Drools 6 for Developers
+105) Linux for Digital Forensics
+106) Switching to Angular 2
+107) Learning ArcGIS for Desktop
+108) Learning VMware vSphere
+109) Mastering Bootstrap 4
+110) Canvas Cookbook
+111) Bootstrap By Example
+112) Unity 5.x Game AI Programming Cookbook
+113) ArcGIS for JavaScript developers by Example
+114) Mastering Predictive Analytics with Python
+115) Angular 2 Essentials
+116) Reactive Programming
+117) Real-time Big Data Analytics
+118) Unreal Engine Essentials
+119) Elasticsearch Server - Third Edition
+120) Mastering CoreOS
+121) Swift 2 by Example
+122) Learning Docker Networking
+123) Cisco UCS Cookbook
+124) Distributed Computing with Python
+125) Ceph Cookbook
+126) Mastering Python Machine Learning
+127) Designing Machine Learning Systems with Python
+128) ROS Robotics By Example
+129) Learning Google Apps Script
+130) Python Projects for Kids
+131) Alfresco for Administrators
+132) Scala Design Patterns
+133) Mastering Symfony
+134) Mastering QlikView Data Visualization
+135) Building a Media Center with Raspberry Pi
+136) Raspberry Pi 2 Server Essentials
+137) ASP.NET jQuery Cookbook - Second Edition
+138) Learning ClojureScript
+139) Netscaler Troubleshooting Guide
+140) App Inventor 2 Essentials
+141) Yocto for Raspberry Pi
+142) Learning Linux Binary Analysis
+143) Practical DevOps
+144) Mastering Puppet - Second Edition
+Page 4===============================================
+https://www.packtpub.com/all?search=&offset=144&rows=48&sort=ss_cck_field_date_of_publication+desc
+145) Spring MVC Cookbook
+146) Advanced Penetration Testing for Highly-Secured Environments - Second Edition
+147) Moodle 3 Administration - Third Edition
+148) Angular 2 Components
+149) Unity 2D Game Development Blueprints
+150) Building Apple Watch Projects
+151) Cocos2d Cross-Platform Game Development Cookbook - Second Edition
+152) Learning Cython Programming - Second Edition
+153) Learning VMware vRealize Automation
+154) Web Developers Reference Guide
+155) Oracle Database 12c Security cookbook
+156) Learning Network Forensics
+157) Reactive Programming with Swift
+158) Developing Enterprise-scale AWS Applications
+159) jQuery Design Patterns
+160) Mastering Kali Linux Wireless Pentesting
+161) Mastering the Microsoft Deployment Toolkit 2013
+162) Redmine Cookbook
+163) Mastering Concurrency Programming with Java 8
+164) Learning CoreOS
+165) Sails.js Essentials
+166) Troubleshooting OpenStack
+167) Mastering Parallel Programming with R
+168) Xcode 7 Essentials - Second Edition
+169) Rspec Essentials
+170) Kali Linux Web Penetration Testing Cookbook
+171) Learning Pentaho Ctools
+172) Test-driven development with Swift
+173) Protocol Oriented Programming with Swift
+174) Mastering Clojure
+175) Unity 2D Game Development - Second Edition
+176) QGIS 2 Cookbook
+177) Learning Bootstrap for ASP.NET [Video]
+178) Migrating to Angular 2 [Video]
+179) Mapbox Cookbook
+180) Drupal 8 Theming with Twig
+181) Spring Essentials
+182) Web API Development with Flask [Video]
+183) Introducing Ionic 2 [Video]
+184) Web Development with Node.JS and MongoDB [Video]
+185) Building Telephony Systems with OpenSIPS - Second Edition
+186) Procedural Content Generation for C++ Game Development
+187) Oracle SQL Developer
+188) Practical Machine Learning
+189) CentOS High Performance
+190) Microsoft Team Foundation Server 2015 Cookbook
+191) Geospatial Development By Example with Python
+192) Learning VMware NSX
+Page 5===============================================
+https://www.packtpub.com/all?search=&offset=192&rows=48&sort=ss_cck_field_date_of_publication+desc
+193) D Web Development
+194) jQuery Essentials
+195) Mastering Xamarin.Forms
+196) Learning Drupal 8
+197) Learning Scrapy
+198) Procedural Content Generation for Unity Game Development
+199) Mastering JavaScript
+200) JavaScript Projects for Kids
+201) vSphere High Performance Essentials
+202) Elasticsearch Essentials
+203) Game Programming Using Qt: Beginner's Guide
+204) Web Application Development with R Using Shiny - Second Edition
+205) Learning Predictive Analytics with Python
+206) Alfresco Developer Guide - Second Edition
+207) CentOS 7 Linux Server Cookbook - Second Edition
+208) Reactive Programming with Scala and Akka
+209) Mastering CentOS 7 Linux Server
+210) Getting Started with Nexpose
+211) Babylon.JS Essentials
+212) iOS Forensics Cookbook
+213) Django Project Blueprints
+214) Learning Python Design Patterns - Second Edition
+215) Learning Unreal Engine Game Development
+216) BeagleBone Home Automation Blueprints
+217) OpenStack Trove Essentials
+218) Getting Started with ResearchKit
+219) AWS Administration Guide
+220) Building Clouds with Windows Azure Pack
+221) Mastering Text Mining with R
+222) Mastering PhoneGap Mobile Application Development
+223) Mastering OpenLayers 3
+224) Creating Dynamic UI with Android Fragments - Second Edition
+225) Clojure for Java Developers
+226) Sass and Compass Designer's Cookbook
+227) Apex Design Patterns
+228) Apache Camel Essentials
+229) Bitcoin Essentials
+230) Learning Akka [Video]
+231) Mastering Django Web Development [Video]
+232) Programming the BeagleBone
+233) Mastering Yii
+234) Building an RPG with Unreal
+235) Docker High Performance
+236) Getting Started with NativeScript
+237) Mastering Application Development with Force.com
+238) PySide GUI Application Development - Second Edition
+239) Scala for Data Science
+240) Web Development with Django Cookbook - Second Edition
+Page 6===============================================
+https://www.packtpub.com/all?search=&offset=240&rows=48&sort=ss_cck_field_date_of_publication+desc
+241) OpenStack Administration with Ansible
+242) Object–Oriented Programming with Swift 2
+243) Ionic Framework By Example
+244) Integrating CRM Across Your Organization for Business Success
+245) Splunk Developer's Guide - Second Edition
+246) Swift Essentials - Second Edition
+247) Boost.Asio C++ Network Programming Cookbook
+248) Getting Started with SpriteKit
+249) QlikView Essentials
+250) OpenCV By Example
+251) Mastering React.js
+252) Getting Started with Ionic
+253) Mastering Backbone.js
+254) Neural Network Programming with Java
+255) F# for Machine Learning
+256) R Data Science Essentials
+257) Spring Security Essentials
+258) MongoDB Cookbook - Second Edition
+259) Clojure for Finance
+260) Tableau Dashboard Cookbook
+261) Mastering Git
+262) Learning iOS Penetration Testing
+263) Raspberry Pi Networking Cookbook - Second Edition
+264) Mastering RabbitMQ
+265) Bootstrap Site Blueprints Volume II
+266) Learning Elixir
+267) Building a Recommendation Engine with Scala
+268) Building a Quadcopter with Arduino
+269) Advanced Oracle PL/SQL Developer's Guide - Second Edition
+270) UX Design for Web Developers [Video]
+271) Learning CSS [Video]
+272) Learning Linux Shell Scripting
+273) VMware vRealize Operations Essentials
+274) Learning Geospatial Analysis with Python - Second Edition
+275) Learning Hunk
+276) Banana Pro Blueprints
+277) Xamarin Studio for Android Programming: A C# Cookbook
+278) Android Programming for Beginners
+279) Mastering CSS3 Selectors [Video]
+280) Mastering CSS3 Colors [Video]
+281) Application Development with Swift 2 [Video]
+282) Learning iOS UI Development
+283) Learning Akka
+284) Python Unlocked
+285) Elasticsearch Indexing
+286) Building E-Commerce Solutions with WooCommerce - Second Edition
+287) Learning Apache Thrift
+288) Mastering MeteorJS Application Development
+Page 7===============================================
+https://www.packtpub.com/all?search=&offset=288&rows=48&sort=ss_cck_field_date_of_publication+desc
+289) Mastering HTML5 Canvas [Video]
+290) Go for Web Development [Video]
+291) Learning Application Deployment with Laravel [Video]
+292) Unreal Engine Game Development Blueprints
+293) Mastering Embedded Linux Programming
+294) Pentaho Analytics for MongoDB Cookbook
+295) Scala Functional Programming Patterns
+296) D3.js By Example
+297) Unity UI Cookbook
+298) SFML Game Development By Example
+299) Troubleshooting Citrix XenApp®
+300) Mastering iOS Game Development
+301) Learning Material Design
+302) JavaScript Concurrency
+303) Extending Jenkins
+304) Learning RabbitMQ
+305) Magento 2 Development Cookbook
+306) Mobile Web Performance Optimization
+307) Optimizing Citrix® XenDesktop® for High Performance
+308) Building a Home Security System with Raspberry Pi
+309) GameMaker Programming By Example
+310) Apache Solr for Indexing Data
+311) Learning Qlik Sense®: The Official Guide - Second Edition
+312) Mathematica Data Analysis
+313) Learning Python
+314) wxPython Application Development Cookbook
+315) Spark for Python Developers
+316) Magento 2 Developer's Guide
+317) Mastering Linux Shell Scripting
+318) Mastering Selenium Testing Tools [Video]
+319) GameMaker Cookbook
+320) Gradle Essentials
+321) Red Hat Enterprise Linux Server Cookbook
+322) Building Minecraft Server Modifications - Second Edition
+323) Learning Network Programming with Java
+324) Python Business Intelligence Cookbook
+325) Data Analysis with R
+326) ArcGIS Blueprints
+327) Getting Started with Kubernetes
+328) LibGDX Cross-Platform Development Blueprints
+329) Mastering ROS for Robotics Programming
+330) LLVM Essentials
+331) Scala for Machine Learning
+332) Getting Started with React Native
+333) Test-Driven JavaScript Development
+334) Mastering Docker
+335) OpenCV Android Programming By Example
+336) Monitoring Docker
+Page 8===============================================
+https://www.packtpub.com/all?search=&offset=336&rows=48&sort=ss_cck_field_date_of_publication+desc
+337) Mastering OAuth 2.0
+338) Mastering TypeScript [Video]
+339) Mastering XenApp®
+340) Apache Oozie Essentials
+341) Puppet 4 Essentials - Second Edition
+342) Learning AngularJS Testing [Video]
+343) Python for Secret Agents - Volume II
+344) JavaScript Unlocked
+345) Mastering RStudio – Develop, Communicate, and Collaborate with R
+346) SQL Server 2014 with PowerShell v5 Cookbook
+347) Learning ArcGIS Pro
+348) Packet Analysis with Wireshark
+349) Learning OpenStack High Availability
+350) SAP Data Services 4.x Cookbook
+351) Apache Kafka Cookbook
+352) Unsupervised Learning with R
+353) Android 6 Essentials
+354) Maven Essentials
+355) Building Python Real-Time Applications with Storm
+356) Python GUI Programming Cookbook
+357) Learning Highcharts [Video]
+358) Mastering Meteor: Powerful Reactive Applications with Full-Stack JavaScript [Video]
+359) Learning PostgreSQL
+360) Tkinter GUI Application Development Blueprints
+361) Python Data Visualization Cookbook - Second Edition
+362) AngularJS Directives Cookbook
+363) Learning OpenStack
+364) Django By Example
+365) Python Geospatial Analysis Cookbook
+366) Appcelerator Titanium Smartphone App Development Cookbook - Second Edition
+367) Image Processing with ImageJ - Second Edition
+368) Learning Hadoop 2 [Video]
+369) Building a Game with Unity and Blender
+370) Learning OpenStack Networking (Neutron) - Second Edition
+371) Flask Blueprints
+372) Qlik Sense® Cookbook
+373) Learning D
+374) Test-Driven Machine Learning
+375) Oracle SOA Suite 12c Administrator's Guide
+376) Amazon EC2 Cookbook
+377) ASP.NET Web API Security Essentials
+378) Creating Data Stories with Tableau Public
+379) Ubuntu Server Essentials
+380) Learning Redis [Video]
+381) Learning Flask Framework
+382) Responsive Web Design Patterns
+383) Learning ELK Stack
+384) Data Lake Development with Big Data
+Page 9===============================================
+https://www.packtpub.com/all?search=&offset=384&rows=48&sort=ss_cck_field_date_of_publication+desc
+385) Web Penetration Testing with Kali Linux - Second Edition
+386) DevOps Automation Cookbook
+387) Haxe Game Development Essentials
+388) Mastering LibGDX Game Development
+389) RESTful Web Services with Scala
+390) Learning JavaScript Robotics
+391) Xamarin Mobile Development for Android Cookbook
+392) Mastering Ansible
+393) Web Visualization with HTML5, CSS3, and JavaScript [Video]
+394) Learning Couchbase
+395) Linux Shell Scripting Essentials
+396) Building an E-Commerce Application with MEAN
+397) Learning Azure DocumentDB
+398) Mastering NetScaler VPX™
+399) VMware Horizon View High Availability
+400) Offline First Web Development
+401) Arduino for Secret Agents
+402) Apache Cassandra Essentials
+403) Beginning Docker [Video]
+404) BeagleBone Black Cookbook
+405) Nginx HTTP Server - Third Edition
+406) Python Data Science Cookbook
+407) QlikView Unlocked
+408) Mastering SciPy
+409) Node.js Essentials
+410) OpenCV 3 Blueprints
+411) Haskell Design Patterns
+412) Getting Started with Citrix XenApp® 7.6
+413) iOS 9 Game Development Essentials
+414) Swift High Performance
+415) Unity 5 Game Optimization
+416) Kibana Essentials
+417) Cassandra Design Patterns - Second Edition
+418) Getting Started with Python Data Analysis
+419) Mastering Swift 2
+420) Amazon S3 Essentials
+421) Cocos2d-x Cookbook
+422) PrimeFaces Theme Development
+423) Mastering Linux Network Administration
+424) VMware vSphere Troubleshooting
+425) Learning JavaScript Promises: Practical Applications in ES6 and AngularJS [Video]
+426) Learning JavaScript Data Structures and Algorithms [Video]
+427) Learning Underscore.js
+428) Building an FPS Game with Unity
+429) Learning Bitcoin
+430) Microsoft Dynamics CRM 2015 Application Design
+431) Ionic Cookbook
+432) PhoneGap 4 Mobile Application Development Cookbook
+Page 10===============================================
+https://www.packtpub.com/all?search=&offset=432&rows=48&sort=ss_cck_field_date_of_publication+desc
+433) Learning Node.js for Mobile Application Development
+434) Unreal Engine Game Development Cookbook
+435) Real Time Analytics with SAP HANA
+436) Selenium Testing Tools Cookbook - Second Edition
+437) Mastering Python Forensics
+438) Scala Data Analysis Cookbook
+439) Android Studio Cookbook
+440) Raspberry Pi Robotic Blueprints
+441) Infusionsoft Cookbook
+442) Mastering Android Application Development
+443) Web Development with MongoDB and NodeJS - Second Edition
+444) Mastering Yii 2 [Video]
+445) JavaScript Design Patterns 20 Patterns for Advancing Your JavaScript Skills [Video]
+446) Learning Bayesian Models with R
+447) WordPress Search Engine Optimization - Second Edition
+448) Web Scraping with Python
+449) Data Analysis with Stata
+450) Mastering C# Concurrency
+451) LaTeX Cookbook
+452) Swift 2 Design Patterns
+453) Mastering Machine Learning with R
+454) Mastering ServiceStack
+455) Team Foundation Server 2015 Customization
+456) Mastering Python Data Visualization
+457) Internet of Things with Arduino Blueprints
+458) Troubleshooting Citrix XenDesktop®
+459) Elasticsearch for Hadoop
+460) Windows PowerShell for .NET Developers - Second Edition
+461) Data Analysis and Business Modeling with Excel 2013
+462) OpenStack Orchestration
+463) Mastering Jenkins
+464) Swift 2 Blueprints
+465) MariaDB Essentials
+466) Learning Yii 2 [Video]
+467) Implementing NetScaler VPX™ - Second Edition
+468) Mastering PyCharm
+469) OpenStack Networking Cookbook
+470) Meteor Design Patterns
+471) Learning PowerShell DSC
+472) Learning IPython for Interactive Computing and Data Visualization - Second Edition
+473) Creating Stunning Dashboards with QlikView
+474) Gamification with Moodle
+475) WebStorm Essentials
+476) OpenCV with Python Blueprints
+477) Red Hat Enterprise Linux Troubleshooting Guide
+478) Building Wireless Sensor Networks Using Arduino
+479) Learning Shiny
+480) Mastering PowerCLI
+Page 11===============================================
+https://www.packtpub.com/all?search=&offset=480&rows=48&sort=ss_cck_field_date_of_publication+desc
+481) Socket.IO Cookbook
+482) Building a RESTful Web Service with Spring
+483) Learning Java Functional Programming
+484) Computer Vision for the Web
+485) Production Ready OpenStack - Recipes for Successful Environments
+486) Learning Firefox OS Application Development
+487) Mastering Google App Engine
+488) Apache Mahout Clustering Designs
+489) Unity 5.x Cookbook
+490) Responsive Web Design: Advancing your Design to the Modern Web [Video]
+491) Developing Real Time Applications with WebRTC [Video]
+492) Learning Web Development with the MEAN Stack [Video]
+493) Mastering ReactJS [Video]
+494) Mastering JavaScript Design Patterns: A Practical Introduction to Building Better Applications [Video]
+495) Learning Unity iOS Game Development
+496) KnockoutJS by Example
+497) Arduino iOS Blueprints
+498) Mastering Flask
+499) Mastering Android NDK
+500) Learning Android Google Maps
+501) Oracle API Management 12c Implementation
+502) GitHub Essentials
+503) Digital Java EE 7 Web Application Development
+504) Mastering Apache Spark
+505) Mastering Data Analysis with R
+506) Learning Penetration Testing with Python
+507) Mastering vRealize Automation 6.2
+508) Building a Recommendation System with R
+509) QlikView for Finance
+510) Java EE Development with Eclipse - Second Edition
+511) SignalR – Real-time Application Development - Second Edition
+512) Unity Character Animation with Mecanim
+513) Clojure High Performance Programming - Second Edition
+514) Learning OpenCV 3 Computer Vision with Python - Second Edition
+515) Yii2 By Example
+516) Getting Started with Python and Raspberry Pi
+517) Learning TypeScript
+518) Mastering AndEngine Game Development
+519) Spring Boot Cookbook
+520) Groovy for Domain-specific Languages - Second Edition
+521) Python Game Programming By Example
+522) Manga Studio Ex 5 Cookbook
+523) Unreal Engine Physics Essentials
+524) Learning Real-time Processing with Spark Streaming
+525) Blender 3D By Example
+526) Dart By Example
+527) QGIS Blueprints
+528) DynamoDB Cookbook
+Page 12===============================================
+https://www.packtpub.com/all?search=&offset=528&rows=48&sort=ss_cck_field_date_of_publication+desc
+529) Learning Dart - Second Edition
+530) Troubleshooting Ubuntu Server
+531) Raspberry Pi Android Projects
+532) Learning Predictive Analytics with R
+533) Unity AI Game Programming - Second Edition
+534) VMware vRealize Orchestrator Essentials
+535) Raspberry Pi LED Blueprints
+536) Learning Dynamics NAV Patterns
+537) WordPress 4.0 Site Blueprints - Second Edition
+538) Mastering Social Media Mining with R
+539) Unreal Engine Lighting and Rendering Essentials
+540) Mastering Python Scientific Computing
+541) Python Machine Learning
+542) OpenCV with Python By Example
+543) RESTful Java Web Services - Second Edition
+544) Extending Unity with Editor Scripting
+545) Java Hibernate Cookbook
+546) Mastering ArcGIS Server Development with JavaScript
+547) Microsoft Dynamics AX Implementation Guide
+548) Microsoft Dynamics NAV 2015 Professional Reporting
+549) Boost.Asio C++ Network Programming - Second Edition
+550) Mastering Zabbix - Second Edition
+551) Arduino by Example
+552) Mastering Spring MVC 4
+553) Building Interactive Data Visualizations with D3.js [Video]
+554) Apache Spark Graph Processing
+555) Mastering Python High Performance
+556) Redis Essentials
+557) Symfony2 Essentials
+558) The Professional Woman's Guide to Getting Promoted
+559) PhoneGap Essentials
+560) Clojure for Data Science
+561) SAP Lumira Essentials
+562) Unity Virtual Reality Projects
+563) Windows Malware Analysis Essentials
+564) Building a Home Security System with Arduino
+565) Learning Knockout.JS [Video]
+566) Mastering AngularJS UI Development [Video]
+567) Mastering JavaScript [Video]
+568) Mastering Python for Data Science
+569) VMware Virtual SAN Cookbook
+570) Learning Puppet
+571) Learning RSLogix 5000 Programming
+572) Citrix XenDesktop® Cookbook - Third Edition
+573) Troubleshooting Puppet
+574) Reactive Programming with JavaScript
+575) Learning zANTI2 for Android Pentesting
+576) Learning YARN
+Page 13===============================================
+https://www.packtpub.com/all?search=&offset=576&rows=48&sort=ss_cck_field_date_of_publication+desc
+577) Arduino Wearable Projects
+578) Learning ECMAScript 6
+579) Microsoft Azure Storage Essentials
+580) Proxmox Cookbook
+581) Ext JS 6 By Example
+582) Application Development with Swift
+583) CRYENGINE Game Development Blueprints
+584) Arduino Computer Vision Programming
+585) Mastering NetBeans
+586) Mastering OpenVPN
+587) Liferay Portal 6.2 Enterprise Intranets
+588) Mastering Selenium WebDriver
+589) React.js Essentials
+590) Test-Driven Java Development
+591) Hybrid Cloud Management with Red Hat CloudForms
+592) Getting Started with PowerShell
+593) Testing with JUnit
+594) iOS Game Development By Example
+595) Amazon S3 Cookbook
+596) Working with Odoo
+597) ArcGIS By Example
+598) Cross-platform UI Development with Xamarin.Forms
+599) PhoneGap By Example
+600) LibGDX Game Development By Example
+601) Intel Galileo Networking Cookbook
+602) Learning Phalcon PHP
+603) Python Parallel Programming Cookbook
+604) Learning Backbone.js Testing [Video]
+605) OpenGL Data Visualization Cookbook
+606) Responsive Web Design with HTML5 and CSS3 - Second Edition
+607) Intelligent Document Capture with Ephesoft - Second Edition
+608) Xamarin Mobile Application Development for Android - Second Edition
+609) Learning Puppet for Windows Server
+610) Big Data Forensics – Learning Hadoop Investigations
+611) Mastering Responsive Web Design
+612) Entity Framework Tutorial - Second Edition
+613) Building Dynamics CRM 2015 Dashboards with Power BI
+614) Kivy Cookbook
+615) Python 3 Object-oriented Programming - Second Edition
+616) OpenStack Cloud Computing Cookbook - Third Edition
+617) Clojure Data Structures and Algorithms Cookbook
+618) Node.js High Performance
+619) Mastering SaltStack
+620) Learning ROS for Robotics Programming - Second Edition
+621) Beginning Ionic Hybrid Application Development [Video]
+622) Microsoft Application Virtualization Cookbook
+623) Learning Firebase [Video]
+624) MongoDB for Java Developers
+Page 14===============================================
+https://www.packtpub.com/all?search=&offset=624&rows=48&sort=ss_cck_field_date_of_publication+desc
+625) Designing Hyper-V Solutions
+626) Bootstrap Essentials
+627) Microsoft System Center Orchestrator 2012 R2 Essentials
+628) Ansible Playbook Essentials
+629) Unity 5 for Android Essentials
+630) Axure Prototyping Blueprints
+631) Mastering Probabilistic Graphical Models Using Python
+632) Learning Grunt [Video]
+633) Learning Flask [Video]
+634) Mastering Cassandra [Video]
+635) Learning VMware vCloud Air
+636) Mastering Gradle
+637) Mastering VMware vSphere Storage
+638) JavaScript Domain-Driven Design
+639) Machine Learning with R - Second Edition
+640) Learning NHibernate 4
+641) JavaScript at Scale
+642) Learning Boost C++ Libraries
+643) Learning Ext JS - Fourth Edition
+644) Introducing Dart [Video]
+645) Learning Functional JavaScript [Video]
+646) Mastering Laravel
+647) Learning AWS
+648) Kali Linux Wireless Penetration Testing Essentials
+649) Programming Microsoft Dynamics™ NAV 2015
+650) Learning Embedded Linux Using the Yocto Project
+651) Learning Ionic
+652) Android Wearable Programming
+653) Blender 3D Cookbook
+654) Magento PHP Developer's Guide - Second Edition
+655) Test-Driven Development with Django
+656) Mastering OpenStack
+657) Getting Started with Hazelcast - Second Edition
+658) Practical Web Development
+659) Mastering jQuery Mobile
+660) OpenCV 3.0 Computer Vision with Java
+661) Internet of Things with Intel Galileo
+662) Mastering OpenCV Android Application Programming
+663) Learning Data Mining with Python
+664) Wireshark Network Security
+665) Microsoft Exchange Server PowerShell Cookbook - Third Edition
+666) PhoneGap: Beginner's Guide - Third Edition
+667) Implementing Splunk - Second Edition
+668) Mastering Prezi for Business Presentations - Second Edition
+669) Programming ArcGIS with Python Cookbook - Second Edition
+670) OpenStack Cloud Security
+671) Blueprints Visual Scripting for Unreal Engine
+672) Hadoop Backup and Recovery Solutions
+Page 15===============================================
+https://www.packtpub.com/all?search=&offset=672&rows=48&sort=ss_cck_field_date_of_publication+desc
+673) PostgreSQL Replication - Second Edition
+674) Blend for Visual Studio 2012 by Example: Beginner's Guide
+675) Lua Game Development Cookbook
+676) Salt Cookbook
+677) NLTK Essentials
+678) Cocos2d-x Game Development Blueprints
+679) Neo4j Graph Data Modeling
+680) Android 5 Programming by Example
+681) Sass Essentials
+682) Oracle GoldenGate 12c Implementer's Guide
+683) Learning Laravel's Eloquent
+684) Jenkins Essentials
+685) Spark Cookbook
+686) Mastering JavaScript Promises
+687) Arduino Electronics Blueprints
+688) Elasticsearch Blueprints
+689) WildFly Cookbook
+690) Game Development with Swift
+691) Moodle Administration Essentials
+692) Deploying Node.js
+693) Mastering Julia
+694) FreeSWITCH 1.6 Cookbook
+695) Nginx Essentials
+696) Gradle for Android
+697) Learning Object-Oriented Programming
+698) Building Web Applications with Python and Neo4j
+699) NGINX High Performance
+700) Learning BeagleBone Python Programming
+701) Kanban in 30 Days
+702) Mastering Express Web Application Development [Video]
+703) Learning Django Web Development [Video]
+704) Introducing Grunt: The JavaScript Task Runner [Video]
+705) Building a Responsive Site with Zurb Foundation [Video]
+706) Introducing AngularJS [Video]
+707) Android Game Programming by Example
+708) Mastering Citrix® XenDesktop®
+709) Predictive Analytics Using Rattle and Qlik Sense
+710) Learning Unreal Engine Android Game Development
+711) Zabbix Performance Tuning
+712) Lumion 3D Best Practices
+713) Learning .NET High-performance Programming
+714) Python Essentials
+715) Learning WebRTC
+716) Mastering Android Game Development
+717) VMware vSphere Design Essentials
+718) Using Yocto Project with BeagleBone Black
+719) Mastering AWS Development
+720) SOA Patterns with BizTalk Server 2013 and Microsoft Azure - Second Edition
+Page 16===============================================
+https://www.packtpub.com/all?search=&offset=720&rows=48&sort=ss_cck_field_date_of_publication+desc
+721) Learning Swift
+722) Learning Banana Pi
+723) Mastering Microsoft Dynamics AX 2012 R3 Programming
+724) Getting Started with Meteor.js JavaScript Framework - Second Edition
+725) WordPress Responsive Theme Design
+726) ArchiCAD 19 – The Definitive Guide
+727) Mastering Apache Camel
+728) Banana Pi Cookbook
+729) Design Principles for Process-driven Architectures Using Oracle BPM and SOA Suite 12c
+730) Kivy – Interactive Applications and Games in Python - Second Edition
+731) Apache Mesos Essentials
+732) QGIS By Example
+733) Mastering Swift
+734) Mastering Chef
+735) Learning F# Functional Data Structures and Algorithms
+736) CoreOS Essentials
+737) JavaFX Essentials
+738) Learning SAP BusinessObjects Dashboards
+739) Grunt Cookbook
+740) Learning Docker
+741) OpenCart Theme and Module Development
+742) HTML5 Game Development by Example: Beginner's Guide - Second Edition
+743) Lucene 4 Cookbook
+744) Building Web Applications with Flask
+745) Android Application Programming with OpenCV 3
+746) Learning Redis
+747) Bioinformatics with Python Cookbook
+748) ggplot2 Essentials
+749) Moodle E-Learning Course Development - Third Edition
+750) Intel Galileo Blueprints
+751) JavaScript JSON Cookbook
+752) Oracle E-Business Suite R12.x HRMS – A Functionality Guide
+753) JIRA Agile Essentials
+754) Mastering jBPM6
+755) Unity Animation Essentials
+756) NumPy: Beginner's Guide - Third Edition
+757) Python Web Penetration Testing Cookbook
+758) Learning Reactive Programming with Java 8
+759) Learning RHEL Networking
+760) Troubleshooting CentOS
+761) Python Geospatial Analysis Essentials
+762) Mastering pandas
+763) Learning Django Web Development
+764) Building Levels in Unity
+765) MongoDB Data Modeling
+766) Apache Mahout Essentials
+767) Raspberry Pi Robotics Essentials
+768) Swift by Example
+Page 17===============================================
+https://www.packtpub.com/all?search=&offset=768&rows=48&sort=ss_cck_field_date_of_publication+desc
+769) Microsoft Dynamics AX 2012 R3 Security
+770) Getting Started with MariaDB - Second Edition
+771) Learning Python Network Programming
+772) Gradle Dependency Management
+773) Python Geospatial Development Essentials
+774) Mastering Predictive Analytics with R
+775) Python Requests Essentials
+776) Microsoft Azure Machine Learning
+777) Mastering CSS [Video]
+778) Play Framework Cookbook - Second Edition
+779) Docker Cookbook
+780) Cucumber Cookbook
+781) Learning AngularJS Directives[Video]
+782) Learning Hyper-V
+783) OpenStack Object Storage (Swift) Essentials
+784) LLVM Cookbook
+785) Getting Started with VMware Virtual SAN
+786) OpenGL ES 3.0 Cookbook
+787) Real-world Business Intelligence with Microsoft Dynamics GP
+788) Learning Web Development with Bootstrap and AngularJS
+789) Mastering Spring Application Development
+790) Liferay 6.x Portal Enterprise Intranets Cookbook
+791) Mastering ServiceNow
+792) edX E-Learning Course Development
+793) Sencha Charts Essentials
+794) VMware vCenter Cookbook
+795) Mastering jQuery
+796) Building Responsive Data Visualizations with D3.js [Video]
+797) JavaScript High Performance [Video]
+798) Mastering Kendo UI [Video]
+799) Learning Cascading
+800) Multiplayer Game Development with HTML5
+801) Chef Infrastructure Automation Cookbook - Second Edition
+802) Mastering Play Framework for Scala
+803) Learning iOS 8 Game Development Using Swift
+804) Backbone.js Essentials
+805) LiveCode Mobile Development: Beginner's Guide - Second Edition
+806) Getting Started with Unity 5
+807) Infinispan Data Grid Platform Definitive Guide
+808) VMware vSphere Essentials
+809) Raspberry Pi Computer Vision Programming
+810) PrimeFaces Cookbook - Second Edition
+811) WordPress Web Application Development - Second Edition
+812) SFML Blueprints
+813) Microsoft Azure IaaS Essentials
+814) BeagleBone Essentials
+815) Learning Haskell Data Analysis
+816) Splunk Developer's Guide
+Page 18===============================================
+https://www.packtpub.com/all?search=&offset=816&rows=48&sort=ss_cck_field_date_of_publication+desc
+817) Building Networks and Servers Using BeagleBone
+818) Neo4j Cookbook
+819) JavaScript Regular Expressions
+820) Nmap Essentials
+821) Gephi Cookbook
+822) Meteor Cookbook
+823) Rust Essentials
+824) Ember.js Web Development with Ember CLI
+825) Getting Started with Knockout.js for .NET Developers
+826) Building Web Services with Microsoft Azure
+827) RxJava Essentials
+828) Learning Robotics Using Python
+829) R Data Analysis Cookbook
+830) Kali Linux Web App Testing[Video]
+831) OpenStack Essentials
+832) Apache Solr Enterprise Search Server - Third Edition
+833) Learning Web Component Development
+834) Spring Cookbook
+835) Mastering vRealize Operations Manager
+836) Clean Data
+837) Dart Essentials
+838) Node.js By Example
+839) Mastering pandas for Finance
+840) NW.js Essentials
+841) Mastering JIRA
+842) Express.js Blueprints
+843) Mastering Mobile Test Automation
+844) WebSocket Essentials – Building Apps with HTML5 WebSockets
+845) Workshop in a Box: Communication Skills for IT Professionals
+846) Time Management for New Employees
+847) Learning Git [Video]
+848) Mastering Python [Video]
+849) Mastering D3.js [Video]
+850) Raspberry Pi Robotics Projects - Second Edition
+851) Learning Android Forensics
+852) Microsoft Dynamics AX 2012 R3 Development Cookbook
+853) Hadoop for Finance Essentials
+854) PostgreSQL 9 Administration Cookbook - Second Edition
+855) Swift Cookbook
+856) Less Web Development Essentials - Second Edition
+857) Microsoft System Center Data Protection Manager 2012 R2 Cookbook
+858) Mastering AngularJS for .NET Developers
+859) Learning Spring Application Development
+860) Python Data Science Essentials
+861) OpenFlow Cookbook
+862) Learning Meteor Application Development [Video]
+863) WordPress 4.x Complete
+864) Learning Salesforce Visual Workflow
+Page 19===============================================
+https://www.packtpub.com/all?search=&offset=864&rows=48&sort=ss_cck_field_date_of_publication+desc
+865) Mastering Python for Finance
+866) NumPy Cookbook - Second Edition
+867) Hadoop Essentials
+868) Implementing Cloud Design Patterns for AWS
+869) Test-Driven Python Development
+870) Raspberry Pi Sensors
+871) Git Essentials
+872) Data-oriented Development with AngularJS
+873) Raspberry Pi Projects for Kids - Second Edition
+874) CentOS High Availability
+875) Android NDK: Beginner's Guide - Second Edition
+876) vCenter Troubleshooting
+877) Raspberry Pi Essentials
+878) Microsoft System Center PowerShell Essentials
+879) Learning Unity Android Game Development
+880) Learning Yii Testing
+881) Laravel 5 Essentials
+882) Apache Maven Cookbook
+883) Monitoring Hadoop
+884) Building a Search Server with Elasticsearch [Video]
+885) Creative Greenfoot
+886) Learning Tableau
+887) Ext JS Essentials
+888) Mastering Windows PowerShell Scripting
+889) Stencyl Essentials
+890) Ansible Configuration Management - Second Edition
+891) Data Visualization with D3 and AngularJS
+892) JIRA Essentials - Third Edition
+893) Scaling Big Data with Hadoop and Solr - Second Edition
+894) Learning Force.com Application Development
+895) Jasmine Cookbook
+896) Ext JS Application Development Blueprints
+897) Apache Solr Search Patterns
+898) Learning Raspberry Pi
+899) Arduino Development Cookbook
+900) Jasmine JavaScript Testing - Second Edition
+901) PostGIS Essentials
+902) Performance Testing with JMeter - Second Edition
+903) Mastering Cocos2d Game Development
+904) Mastering MEAN Web Development [Video]
+905) openFrameworks Essentials
+906) Mastering TypeScript
+907) Learning pandas
+908) Responsive Design High Performance
+909) Microsoft System Center 2012 R2 Operations Manager Cookbook
+910) Mastering Go Web Services
+911) Mastering Adobe Captivate 8
+912) Reporting in TFS
+Page 20===============================================
+https://www.packtpub.com/all?search=&offset=912&rows=48&sort=ss_cck_field_date_of_publication+desc
+913) Appium Essentials
+914) Build Your Own PaaS with Docker
+915) Microsoft Azure Security
+916) Prezi Cookbook
+917) Building Business Websites with Squarespace 7
+918) Odoo Development Essentials
+919) Building Applications with Ext JS [Video]
+920) Building Databases with Redis [Video]
+921) Django Design Patterns and Best Practices
+922) Fast Data Processing with Spark - Second Edition
+923) Corona SDK Mobile Game Development: Beginner's Guide - Second Edition
+924) CoffeeScript Application Development Cookbook
+925) Learning Three.js – the JavaScript 3D Library for WebGL - Second Edition
+926) Managing Microsoft Hybrid Clouds
+927) WooCommerce Cookbook
+928) Data Manipulation with R - Second Edition
+929) Elastix Unified Communications Server Cookbook
+930) Learning AirWatch
+931) Rapid Underscore.js [Video]
+932) Docker for Web Developers [Video]
+933) SAP BusinessObjects Dashboards 4.1 Cookbook
+934) Mastering QGIS
+935) Mastering JavaScript High Performance
+936) Building Android Games with Cocos2d-x
+937) Embedded Linux Projects Using Yocto Project Cookbook
+938) Troubleshooting PostgreSQL
+939) PostgreSQL for Data Architects
+940) Home Automation with Intel Galileo
+941) AngularJS Testing Cookbook
+942) Qt 5 Blueprints
+943) Kali Linux Wireless Penetration Testing: Beginner's Guide
+944) Web Development with AngularJS and Bootstrap [Video]
+945) Mastering VMware Horizon 6
+946) Microsoft System Center Reporting Cookbook
+947) Advanced Java® EE Development with WildFly®
+948) Real-time Analytics with Storm and Cassandra
+949) Natural Language Processing with Java
+950) Selenium Essentials
+951) Learning Puppet Security
+952) Microsoft Dynamics AX 2012 R3 Reporting Cookbook
+953) Learning Android Application Testing
+954) QGIS Python Programming Cookbook
+955) Learning Image Processing with OpenCV
+956) Cocos2d-x by Example: Beginner's Guide - Second Edition
+957) Salesforce Reporting and Dashboards
+958) Machine Learning with R Cookbook
+959) GameMaker Essentials
+960) Mastering Apache Cassandra - Second Edition
+Page 21===============================================
+https://www.packtpub.com/all?search=&offset=960&rows=48&sort=ss_cck_field_date_of_publication+desc
+961) Building Machine Learning Systems with Python - Second Edition
+962) Learning Chef
+963) PowerCLI Cookbook
+964) iOS Game Programming Cookbook
+965) Objective-C Memory Management Essentials
+966) Raspberry Pi Blueprints
+967) Functional Programming in JavaScript
+968) RESTful Web API Design with Node.js
+969) Interactive Applications Using Matplotlib
+970) Delivering Time Management for IT Professionals: A Trainer's Manual
+971) Clojure Reactive Programming
+972) Drupal 8 Configuration Management
+973) Zabbix Cookbook
+974) Code-First Development with Entity Framework
+975) Android Application Development with Maven
+976) Automating Microsoft Azure with PowerShell
+977) Creating Development Environments with Vagrant - Second Edition
+978) Alfresco 4 Enterprise Content Management Implementation [Video]
+979) Articulate Storyline Essentials
+980) AngularJS by Example
+981) Mastering R for Quantitative Finance
+982) Learning iOS Forensics
+983) Essential Meeting Blueprints for Managers
+984) Rapid Gulp [Video]
+985) Mastering PrimeFaces [Video]
+986) Neo4j High Performance
+987) Rapid D3.js [Video]
+988) AngularJS Deployment Essentials
+989) VMware vSphere 5.5 Cookbook
+990) Developing Mobile Web ArcGIS Applications
+991) Learning Unreal® Engine iOS Game Development
+992) KnockoutJS Web Development
+993) Xamarin Cross-platform Application Development - Second Edition
+994) PostgreSQL Developer's Guide
+995) FuelPHP Application Development Blueprints
+996) SoapUI Cookbook
+997) Python Programming for Arduino
+998) Learning iOS Security
+999) VMware vRealize Orchestrator Cookbook
+1000) Mastering Elasticsearch - Second Edition
+1001) KnockoutJS Essentials
+1002) Creating Mobile Apps with jQuery Mobile - Second Edition
+1003) Getting Started with Windows Server Security
+1004) ArcPy and ArcGIS – Geospatial Analysis with Python
+1005) Learning Apache Mahout Classification
+1006) Blender Cycles: Materials and Textures Cookbook - Third Edition
+1007) Vagrant Virtual Development Environment Cookbook
+1008) Mastering Entity Framework
+Page 22===============================================
+https://www.packtpub.com/all?search=&offset=1008&rows=48&sort=ss_cck_field_date_of_publication+desc
+1009) Zabbix Network Monitoring Essentials
+1010) PostgreSQL Server Programming - Second Edition
+1011) Raspberry Pi Mechatronics Projects HOTSHOT
+1012) Getting Started with Julia
+1013) Learning Apache Kafka - Second Edition
+1014) Apache Hive Essentials
+1015) Learning SciPy for Numerical and Scientific Computing - Second Edition
+1016) Apache Solr Essentials
+1017) Hadoop MapReduce v2 Cookbook - Second Edition
+1018) Learning Apache Cassandra
+1019) Mockito for Spring
+1020) Couchbase Essentials
+1021) WebRTC Cookbook
+1022) Mastering jQuery UI
+1023) KnockoutJS Blueprints
+1024) SignalR Blueprints
+1025) Raspberry Pi Home Automation with Arduino - Second Edition
+1026) Apache Flume: Distributed Log Collection for Hadoop - Second Edition
+1027) PowerShell for SQL Server Essentials
+1028) Learning C++ by Creating Games with UE4
+1029) Learning Selenium Testing Tools - Third Edition
+1030) Learning System Center App Controller
+1031) Learning Raspbian
+1032) Mastering Ext JS - Second Edition
+1033) Bootstrap for Rails
+1034) Power Up Your PowToon Studio Project
+1035) SFML Essentials
+1036) Intel Galileo Essentials
+1037) Splunk Essentials
+1038) Clojure Web Development Essentials
+1039) Exploring SE for Android
+1040) YARN Essentials
+1041) Arduino Essentials
+1042) Neo4j Essentials
+1043) Learning Heroku Postgres
+1044) Getting Started with UDOO
+1045) Machine Learning with Spark
+1046) Puppet Cookbook - Third Edition
+1047) Spring Integration Essentials
+1048) Raspberry Pi Gaming - Second Edition
+1049) Testing with F#
+1050) TIBCO Spotfire – A Comprehensive Primer
+1051) Elixir Cookbook
+1052) Android for the BeagleBone Black
+1053) Learning Behavior-driven Development with JavaScript
+1054) Mastering the Nmap Scripting Engine
+1055) Unity 2D Game Development Cookbook
+1056) Microsoft Dynamics AX 2012 R3 Financial Management
+Page 23===============================================
+https://www.packtpub.com/all?search=&offset=1056&rows=48&sort=ss_cck_field_date_of_publication+desc
+1057) Learning Hadoop 2
+1058) Learning Qlik® Sense: The Official Guide
+1059) Mastering Prezi [Video]
+1060) Java EE 7 Development with NetBeans 8
+1061) Learning Data Mining with R
+1062) BeagleBone Media Center
+1063) Mastering Scientific Computing with R
+1064) Less Web Development Cookbook
+1065) Functional Python Programming
+1066) Learning Apex Programming
+1067) Learning Axure RP Interactive Prototypes
+1068) Learning NServiceBus - Second Edition
+1069) Unity3D UI Essentials
+1070) PostgreSQL Cookbook
+1071) Learning Axure RP [Video]
+1072) Learning MongoDB [Video]
+1073) Learning Ceph
+1074) Three.js Cookbook
+1075) Jenkins Continuous Integration Cookbook - Second Edition
+1076) Learning NServiceBus Sagas
+1077) WiX Cookbook
+1078) Salesforce CRM – The Definitive Admin Handbook - Third Edition
+1079) OpenJDK Cookbook
+1080) Cocos2d Game Development Blueprints
+1081) GameSalad Essentials
+1082) Mastering Unity Scripting
+1083) Kivy Blueprints
+1084) AngularJS Test-driven Development
+1085) Drush for Developers - Second Edition
+1086) R Data Visualization Cookbook
+1087) R High Performance Programming
+1088) Microsoft Hyper-V PowerShell Automation
+1089) Learning Java by Building Android Games
+1090) Android Studio Essentials
+1091) Apache ZooKeeper Essentials
+1092) Mastering Gephi Network Visualization
+1093) Learning LibGDX Game Development- Second Edition
+1094) OpenCV for Secret Agents
+1095) Mastering Python Design Patterns
+1096) Python Penetration Testing Essentials
+1097) Mastering Hyper-V
+1098) OpenLayers 3: Beginner's Guide
+1099) ElasticSearch Cookbook - Second Edition
+1100) Windows Server 2012 R2 Administrator Cookbook
+1101) Xcode 6 Essentials
+1102) Clojure Data Analysis Cookbook - Second Edition
+1103) Learning LEGO MINDSTORMS EV3
+1104) Lync Server Cookbook
+Page 24===============================================
+https://www.packtpub.com/all?search=&offset=1104&rows=48&sort=ss_cck_field_date_of_publication+desc
+1105) Building Single-page Web Apps with Meteor
+1106) Penetration Testing with Raspberry Pi
+1107) Lo-Dash Essentials
+1108) HDInsight Essentials - Second Edition
+1109) Python for Google App Engine
+1110) Raspberry Pi for Secret Agents - Second Edition
+1111) Learning SaltStack
+1112) Programming Arduino with LabVIEW
+1113) Learning Internet of Things
+1114) Getting Started with Gulp
+1115) Building Real-time Communication Applications Using Twilio [Video]
+1116) Mastering Wireless Penetration Testing for Highly Secured Environments
+1117) Active Directory with PowerShell
+1118) Spring Batch Essentials
+1119) Cocos2D Game Development Essentials
+1120) Learning Highcharts 4
+1121) ServiceStack 4 Cookbook
+1122) Solr Cookbook - Third Edition
+1123) Go Programming Blueprints
+1124) ArcGIS for Desktop Cookbook
+1125) Orchestrating Docker
+1126) CodeIgniter Web Application Blueprints
+1127) Getting Started with Electronic Projects
+1128) Learning Cocos2d-JS Game Development
+1129) Learning Object Oriented JavaScript [Video]
+1130) Rapid SASS [Video]
+1131) Mastering Git [Video]
+1132) Java EE 7 Development with WildFly
+1133) Deploying AngularJS [Video]
+1134) Learning Informatica PowerCenter 9.x
+1135) Learning Selenium Testing Tools with Python
+1136) Building Mapping Applications with QGIS
+1137) Gamification for Employee Engagement
+1138) Node.js Design Patterns
+1139) Penetration Testing with Perl
+1140) Microsoft Dynamics CRM Customization Essentials
+1141) Cassandra High Availability
+1142) Xamarin Essentials
+1143) Learning NGUI for Unity
+1144) Mastering Apache Maven 3
+1145) Mastering Lumion 3D
+1146) Mastering Hadoop
+1147) PhpStorm Cookbook
+1148) Learning D3.js Mapping
+1149) Mastering Citrix® XenServer®
+1150) Learning Express Web Application Development [Video]
+1151) Hyper-V Security
+1152) Learning MS Dynamics AX 2012 Programming
+Page 25===============================================
+https://www.packtpub.com/all?search=&offset=1152&rows=48&sort=ss_cck_field_date_of_publication+desc
+1153) PhoneGap for Enterprise
+1154) AngularJS Web Application Development Cookbook
+1155) Learning R for Geospatial Analysis
+1156) Getting Started with Ghost
+1157) Learning Construct 2
+1158) Mastering SQL Server 2014 Data Mining
+1159) Swift Essentials
+1160) VMware vRealize Operations Performance and Capacity Management
+1161) Responsive Media in HTML5
+1162) Learning Single-page Web Application Development
+1163) Learning BeagleBone
+1164) Learning iOS 8 for Enterprise
+1165) GitLab Cookbook
+1166) Continuous Delivery and DevOps – A Quickstart Guide - Second Edition
+1167) Managing Virtual Infrastructure with Veeam® ONE™
+1168) R for Data Science
+1169) C# Multithreaded and Parallel Programming
+1170) Mastering System Center Configuration Manager
+1171) Cassandra Data Modeling and Analysis
+1172) Twilio Best Practices
+1173) Learning Bootstrap
+1174) HBase Design Patterns
+1175) LibGDX Game Development Essentials
+1176) Learning WebRTC Application Development [Video]
+1177) IntelliJ IDEA Essentials
+1178) Mastering BeagleBone Robotics
+1179) Unity AI Programming Essentials
+1180) Unity Game Development Scripting
+1181) Arduino Android Blueprints
+1182) Rapid Redis [Video]
+1183) Rapid PrimeFaces [Video]
+1184) Mastering Splunk
+1185) Responsive Web Design with AngularJS
+1186) Getting Started with Cubieboard
+1187) Moodle Gradebook - Second Edition
+1188) Building an Application with AngularJS [Video]
+1189) Learning QGIS - Second Edition
+1190) Building Single Page Web Apps with AngularJS [Video]
+1191) Communication Toolkit for Introverts
+1192) StartupPro: How to set up and grow a tech business
+1193) Rapid LESS [Video]
+1194) R Machine Learning Essentials
+1195) Mastering Leap Motion
+1196) Advanced UFT 12 for Test Engineers Cookbook
+1197) Burp Suite Essentials
+1198) Hyper-V Network Virtualization Cookbook
+1199) WildFly Configuration, Deployment, and Administration - Second Edition
+1200) PrestaShop Module Development
+Page 26===============================================
+https://www.packtpub.com/all?search=&offset=1200&rows=48&sort=ss_cck_field_date_of_publication+desc
+1201) Natural Language Processing with Java and LingPipe Cookbook
+1202) Hyper-V Best Practices
+1203) Learning Concurrent Programming in Scala
+1204) MongoDB Cookbook
+1205) PowerShell Troubleshooting Guide
+1206) Learning Game AI Programming with Lua
+1207) Rapid Highcharts [Video]
+1208) Application Development with Qt Creator - Second Edition
+1209) Learning Ansible
+1210) GeoServer Cookbook
+1211) Learning Spring Boot
+1212) Rapid Cassandra [Video]
+1213) Mastering QlikView
+1214) Multimedia Programming Using Max/MSP and TouchDesigner
+1215) Heroku Cookbook
+1216) AWS Development Essentials
+1217) Mastering KnockoutJS
+1218) Learning HBase
+1219) CentOS System Administration Essentials
+1220) Learning iBeacon
+1221) VMware vSphere Security Cookbook
+1222) Mastering GeoServer
+1223) Learning Python Testing
+1224) Rapid Lo-Dash [Video]
+1225) Responsive Web Design by Example : Beginner's Guide - Second Edition
+1226) Puppet Essentials
+1227) JavaScript Security
+1228) Mastering JavaScript Design Patterns
+1229) Flask Framework Cookbook
+1230) IPython Notebook Essentials
+1231) Mastering Dart
+1232) Git Best Practices Guide
+1233) Rapid Flask [Video]
+1234) Building a BeagleBone Black Super Cluster
+1235) Building Web Applications with ArcGIS
+1236) Web App Testing Using Knockout.JS
+1237) HBase Essentials
+1238) Unity Game Development Blueprints
+1239) OpenVZ Essentials
+1240) Learning Alfresco Web Scripts
+1241) Rapid Ghost [Video]
+1242) scikit-learn Cookbook
+1243) Building Web Applications with Spring MVC [Video]
+1244) WCF Multi-layer Services Development with Entity Framework - Fourth Edition
+1245) Implementing Lean Six Sigma in 30 Days
+1246) Lego Mindstorms EV3 Essentials
+1247) WebRTC Integrator's Guide
+1248) Untangle Network Security
+Page 27===============================================
+https://www.packtpub.com/all?search=&offset=1248&rows=48&sort=ss_cck_field_date_of_publication+desc
+1249) PhoneGap and AngularJS for Cross-platform Development
+1250) Splunk Operational Intelligence Cookbook
+1251) Microsoft System Center 2012 R2 Compliance Management Cookbook
+1252) Learning AngularJS Animations
+1253) Proxmox High Availability
+1254) Highcharts Essentials
+1255) concrete5 for Developers
+1256) Managing the New Generation
+1257) Maven Build Customization
+1258) VMware Horizon View 6 Desktop Virtualization Cookbook
+1259) Learning Big Data with Amazon Elastic MapReduce
+1260) JMeter Cookbook
+1261) Learning Unity Physics
+1262) The Professional Woman's Guide to Conflict Management
+1263) OpenShift Cookbook
+1264) Libgdx Cross-platform Game Development Cookbook
+1265) Learning OpenShift
+1266) Mastering Machine Learning with scikit-learn
+1267) Python Data Analysis
+1268) Making Big Data Work for Your Business
+1269) Wireshark Essentials
+1270) Rapid Ember.js [Video]
+1271) VMware Horizon View Essentials
+1272) Learning JavaScript Data Structures and Algorithms
+1273) NetBeans IDE 8 Cookbook
+1274) R Object-oriented Programming
+1275) Dart Cookbook
+1276) Learning Less.js
+1277) AngularJS UI Development
+1278) Mockito Essentials
+1279) TypeScript Essentials
+1280) Citrix XenApp® 7.5 Desktop Virtualization Solutions
+1281) JavaScript Mobile Application Development
+1282) Mastering Ember.js
+1283) Interviewing Engineering Graduates
+1284) Web Development with Django Cookbook
+1285) Learning Microsoft Azure
+1286) PostgreSQL Administration Essentials
+1287) Learning OpenStack Networking (Neutron)
+1288) Tizen Cookbook
+1289) Salesforce Essentials for Administrators
+1290) Oracle Solaris 11 Advanced Administration Cookbook
+1291) The Small Business' Guide to Social CRM
+1292) Building a Rich Internet Application with Vaadin [Video]
+1293) The Manager's Guide to Mediating Conflict
+1294) Conducting a Telephone Interview
+1295) The Manager's Guide to Conducting Interviews
+1296) Running Effective Marketing Meetings
+Page 28===============================================
+https://www.packtpub.com/all?search=&offset=1296&rows=48&sort=ss_cck_field_date_of_publication+desc
+1297) Microsoft Azure Development Cookbook Second Edition
+1298) JavaScript Promises Essentials
+1299) Microsoft System Center Configuration Manager Advanced Deployment
+1300) Mastering Web Application Development with Express
+1301) MEAN Web Development
+1302) IPython Interactive Computing and Visualization Cookbook
+1303) Building Scalable Apps with Redis and Node.js
+1304) Delphi Cookbook
+1305) Web Development with MongoDB and Node.js
+1306) Creating Universes with SAP BusinessObjects
+1307) Oracle BPM Suite 12c Modeling Patterns
+1308) Practical Data Science Cookbook
+1309) Force.com Enterprise Architecture
+1310) Yii Project Blueprints
+1311) Mathematica Data Visualization
+1312) Visual Studio 2013 and .NET 4.5 Expert Cookbook
+1313) Play Framework Essentials
+1314) Web Application Development with Yii 2 and PHP
+1315) Getting Started with Red Hat Enterprise Virtualization
+1316) Chef Essentials
+1317) Mastering MariaDB
+1318) Getting Started with tmux
+1319) MariaDB High Performance
+1320) Learning Cocos2d-x Game Development
+1321) Redis Applied Design Patterns
+1322) BeagleBone for Secret Agents
+1323) SELinux Cookbook
+1324) Selenium Design Patterns and Best Practices
+1325) DynamoDB Applied Design Patterns
+1326) R Graph Essentials
+1327) VMware Horizon 6 Desktop Virtualization Solutions
+1328) Prezi Essentials
+1329) WS-BPEL 2.0 Beginner's Guide
+1330) RESTful Java Patterns and Best Practices
+1331) Microsoft Dynamics NAV 2013 Application Design
+1332) LiveCode Mobile Development Cookbook
+1333) Salesforce.com Customization Handbook
+1334) Rapid PhantomJS [Video]
+1335) Learning AndEngine
+1336) Job Interview Success for Introverts
+1337) Beginning PhoneGap [Video]
+1338) Effective Gradle Implementation [Video]
+1339) Android SQLite Essentials
+1340) Building Multicopter Video Drones
+1341) Mastering DynamoDB
+1342) PrimeFaces Blueprints
+1343) Learning Continuous Integration with TeamCity
+1344) SAP BusinessObjects Reporting Cookbook
+Page 29===============================================
+https://www.packtpub.com/all?search=&offset=1344&rows=48&sort=ss_cck_field_date_of_publication+desc
+1345) Python for Secret Agents
+1346) Mastering Eclipse Plug-in Development
+1347) Mastering Unity 2D Game Development
+1348) Python 3 Text Processing with NLTK 3 Cookbook
+1349) Learning Storm
+1350) Mastering NServiceBus and Persistence
+1351) Learning jqPlot
+1352) Getting Started with LLVM Core Libraries
+1353) Blender 3D Basics Beginner's Guide Second Edition
+1354) OpenCV Computer Vision Application Programming Cookbook Second Edition
+1355) Maven for Eclipse
+1356) Apache Karaf Cookbook
+1357) OpenCV Essentials
+1358) Learning Python Data Visualization
+1359) AngularJS Web Application Development Blueprints
+1360) VMware vCloud Director Essentials
+1361) Canvas LMS Course Design
+1362) Testing and Securing Android Studio Applications
+1363) Mastering D3.js
+1364) Learning Unity 2D Game Development by Example
+1365) E-learning with Camtasia Studio
+1366) Learning Neo4j
+1367) Arduino Networking
+1368) Learning Zurb Foundation
+1369) AngularJS Services
+1370) AngularJS Essentials
+1371) Kali Linux Network Scanning Cookbook
+1372) Learning Xamarin Studio
+1373) Bootstrap for ASP.NET MVC
+1374) Learning Magento Theme Development
+1375) Rapid Bootstrap [Video]
+1376) jBPM6 Developer Guide
+1377) Citrix® XenApp® 7.x Performance Essentials
+1378) Learning Yeoman
+1379) Cocos2d-x Game Development Essentials
+1380) Leaflet.js Essentials
+1381) Arduino Robotic Projects
+1382) Learning AngularJS [Video]
+1383) jMonkeyEngine 3.0 Cookbook
+1384) Applied SOA Patterns on the Oracle Platform
+1385) CakePHP 2 Application Cookbook
+1386) C++ Multithreading Cookbook
+1387) Enterprise Identity Management with Microsoft Forefront Identity Management [Video]
+1388) Laravel Design Patterns and Best Practices
+1389) Unity 4 Game Development HOTSHOT
+1390) RESTful Java Web Services Security
+1391) SQL Server 2014 Development Essentials
+1392) Developing Responsive Web Applications with AJAX and jQuery
+Page 30===============================================
+https://www.packtpub.com/all?search=&offset=1392&rows=48&sort=ss_cck_field_date_of_publication+desc
+1393) Applied Architecture Patterns on the Microsoft Platform (Second Edition)
+1394) Learning AngularJS for .NET Developers
+1395) Practical Maya Programming with Python
+1396) Scaling Apache Solr
+1397) jQuery for Designers Beginner's Guide Second Edition
+1398) Kali Linux CTF Blueprints
+1399) MongoDB High Availability
+1400) Git Version Control Cookbook
+1401) Mastering Concurrency in Go
+1402) Arduino Home Automation Projects
+1403) Learning Karaf Cellar
+1404) Joomla! 3 Beginner's Guide Second Edition
+1405) Building Interactive Dashboards with Tableau [Video]
+1406) Practical Mobile Forensics
+1407) Cloudera Administration Handbook
+1408) PostgreSQL 9 High Availability Cookbook
+1409) Mastering Puppet
+1410) Mastering Unit Testing Using Mockito and JUnit
+1411) Getting Started with Windows VDI
+1412) Mastering Proxmox
+1413) JIRA 6.x Administration Cookbook
+1414) Embedded Linux Development with Yocto Project
+1415) HTML5 Game Development HOTSHOT
+1416) Three.js Essentials
+1417) Building and Managing a Virtual Environment with Hyper-V Server 2012 R2 [Video]
+1418) Building a RepRap 3D Printer [Video]
+1419) Advanced Quantitative Finance with C++
+1420) Configuration Management with Chef-Solo
+1421) Learning ArcGIS Geodatabases
+1422) Sparrow iOS Game Framework Beginner’s Guide
+1423) Kendo UI Cookbook
+1424) System Center 2012 R2 Virtual Machine Manager Cookbook - Second Edition
+1425) Pentaho Business Analytics Cookbook
+1426) WildFly Performance Tuning
+1427) Parallel Programming with Python
+1428) Building Probabilistic Graphical Models with Python
+1429) Programming MapReduce with Scalding
+1430) Construct 2 Game Development by Example
+1431) Learning iPhone Game Development with Cocos2D 3.0
+1432) SAP HCM - A Complete Tutorial
+1433) FL Studio Cookbook
+1434) Haskell Data Analysis Cookbook
+1435) Mastering JavaServer Faces 2.2
+1436) Spring MVC Beginner’s Guide
+1437) Extending Puppet
+1438) Mockito Cookbook
+1439) 3D Printing with RepRap Cookbook
+1440) Mastering Kali Linux for Advanced Penetration Testing
+Page 31===============================================
+https://www.packtpub.com/all?search=&offset=1440&rows=48&sort=ss_cck_field_date_of_publication+desc
+1441) Bioinformatics with R Cookbook
+1442) Java EE 7 Performance Tuning and Optimization
+1443) Django Essentials
+1444) Lumion 3D Cookbook
+1445) Building Virtual Pentesting Labs for Advanced Penetration Testing
+1446) Puppet Reporting and Monitoring
+1447) Building a Web Application with PHP and MariaDB: A Reference Guide
+1448) Mastering AngularJS Directives
+1449) Node.js Blueprints
+1450) Near Field Communication with Android Cookbook
+1451) Learning NumPy Array
+1452) PhantomJS Cookbook
+1453) Building an Architectural Walkthrough Using Unity [Video]
+1454) Building Games with Scratch 2.0 [Video]
+1455) Building an App UI with PrimeFaces [Video]
+1456) PHPUnit Essentials
+1457) Shopify Application Development
+1458) Prototyping Essentials with Axure
+1459) PhoneGap 3.x Mobile Application Development HOTSHOT
+1460) Mastering Clojure Data Analysis
+1461) Penetration Testing with the Bash shell
+1462) SketchUp 2014 for Architectural Visualization
+1463) vSphere Design Best Practices
+1464) WebGL HOTSHOT
+1465) Microsoft SQL Server 2014 Business Intelligence Development Beginner’s Guide
+1466) Mastering Metasploit
+1467) Disaster Recovery using VMware vSphere Replication and vCenter Site Recovery Manager
+1468) D Cookbook
+1469) WildFly: New Features
+1470) iOS Development with Xamarin Cookbook
+1471) Managing Windows Servers with Chef
+1472) Building Hadoop Clusters [Video]
+1473) Magento Site Performance Optimization
+1474) Linux Mint Essentials
+1475) Internet of Things with the Arduino Yún
+1476) 3D Printing with SketchUp
+1477) Force.com Development Blueprints
+1478) OUYA Game Development by Example
+1479) Backbone.js Blueprints
+1480) Application Development in iOS 7
+1481) Implementing Cloud Storage with OpenStack Swift
+1482) HP Vertica Essentials
+1483) WebRTC Blueprints
+1484) Learning Cypher
+1485) Getting Started with OUYA
+1486) Mastering Management Styles: Expert Guidance for Managers
+1487) Learning Anime Studio
+1488) Salesforce CRM: The Definitive Admin [Video]
+Page 32===============================================
+https://www.packtpub.com/all?search=&offset=1488&rows=48&sort=ss_cck_field_date_of_publication+desc
+1489) UDK Game Development [Video]
+1490) Building Web Applications with Clojure [Video]
+1491) RabbitMQ Essentials
+1492) Mastering Grunt
+1493) Scala for Java Developers
+1494) Learning Objective-C by Developing iPhone Games
+1495) Creating Flat Design Websites
+1496) Mastering Magento Theme Design
+1497) Getting Started with SQL Server 2014 Administration
+1498) Python for Finance
+1499) WebGL Game Development
+1500) GameMaker Game Programming with GML
+1501) Prezi HOTSHOT
+1502) Node Cookbook: Second Edition
+1503) Less Web Development Essentials
+1504) Manga Studio 5 Beginner's Guide
+1505) Microsoft Dynamics CRM 2013 Marketing Automation
+1506) Implementing NetScaler VPX™
+1507) Elasticsearch Server: Second Edition
+1508) Clojure for Machine Learning
+1509) Heroku Cloud Application Development
+1510) Designing Moodle Themes [Video]
+1511) SignalR Real-time Application Cookbook
+1512) Getting Started with XenDesktop® 7.x
+1513) Mastering Object-oriented Python
+1514) Rake Task Management Essentials
+1515) Python Tools for Visual Studio
+1516) Learning Veeam® Backup & Replication for VMware vSphere
+1517) Moodle Course Design Best Practices
+1518) Pig Design Patterns
+1519) Raspberry Pi Cookbook for Python Programmers
+1520) Getting Started with SOQL
+1521) Scratch 2.0 Beginner's Guide: Second Edition
+1522) Motivate Your Team in 30 Days
+1523) Mastering CryENGINE
+1524) Gitolite Essentials
+1525) Rails 4 Application Development HOTSHOT
+1526) First Time Firing
+1527) Building a Road using Civil 3D [Video]
+1528) Building a 2D Game with GameMaker: Studio [Video]
+1529) Implementing Samba 4
+1530) Kali Linux – Assuring Security by Penetration Testing
+1531) The IT Professional's Guide to Researching a New Industry
+1532) Building an Application with CoffeeScript [Video]
+1533) Building Interactive Graphs with ggplot2 and Shiny [Video]
+1534) Practical Change Management for IT Projects
+1535) Getting Started with BizTalk Services
+1536) Storm Blueprints: Patterns for Distributed Real-time Computation
+Page 33===============================================
+https://www.packtpub.com/all?search=&offset=1536&rows=48&sort=ss_cck_field_date_of_publication+desc
+1537) Activiti 5.x Business Process Management Beginner's Guide
+1538) Twilio Cookbook: Second Edition
+1539) matplotlib Plotting Cookbook
+1540) Lightning Fast Animation in Element 3D
+1541) Microsoft Dynamics AX 2012 R2 Services
+1542) Java EE 7 with GlassFish 4 Application Server
+1543) Python Network Programming Cookbook
+1544) Learning Pentesting for Android Devices
+1545) VMware ESXi Cookbook
+1546) Learning PrimeFaces Extensions Development
+1547) Web Development with Jade
+1548) Webmin Administrator's Cookbook
+1549) Oracle ADF Faces Cookbook
+1550) The Professional Woman's Guide to Giving Feedback
+1551) Creating E-Learning Games with Unity
+1552) Extending Symfony2 Web Application Framework
+1553) Social Media Mining with R
+1554) Apache Solr High Performance
+1555) Alfresco CMIS
+1556) Raspberry Pi Projects for Kids
+1557) vSphere Virtual Machine Management
+1558) Extending Bootstrap
+1559) Learning Nagios 4
+1560) Getting Started with Clickteam Fusion
+1561) Highcharts Cookbook
+1562) Computer Forensics with FTK
+1563) VMware Horizon Workspace Essentials
+1564) MariaDB Cookbook
+1565) Redmine Plugin Extension and Development
+1566) Photographic Rendering with V-Ray for SketchUp
+1567) Reporting with Microsoft SQL Server 2012
+1568) Unity 2D Game Development
+1569) Visual Studio 2013 Cookbook
+1570) Social Networking in Recruitment
+1571) (MCTS) Microsoft BizTalk Server (70-595) Certification and Assessment Guide: Second Edition
+1572) Building Your First Application with Go [Video]
+1573) RESTful Services with ASP.NET Web API [Video]
+1574) Building a Responsive Website with Bootstrap [Video]
+1575) Instant Getting Started with VMware Fusion
+1576) Raspberry Pi Robotic Projects
+1577) Telerik WPF Controls Tutorial
+1578) Mastering Python Regular Expressions
+1579) Talend for Big Data
+1580) Google Apps Script for Beginners
+1581) SDL Trados Studio - A Practical Guide
+1582) Minitab Cookbook
+1583) Pentaho Analytics for MongoDB
+1584) Bootstrap Site Blueprints
+Page 34===============================================
+https://www.packtpub.com/all?search=&offset=1584&rows=48&sort=ss_cck_field_date_of_publication+desc
+1585) Scratch 2.0 Game Development HOTSHOT
+1586) Optimizing Hadoop for MapReduce
+1587) Getting Started with Review Board
+1588) Source SDK Game Development Essentials
+1589) IBM Worklight Mobile Application Development Essentials
+1590) Mastering Adobe Captivate 7
+1591) jQuery 2.0 Development Cookbook
+1592) Expert Cube Development with SSAS Multidimensional Models
+1593) Penetration Testing with BackBox
+1594) Magento 1.8 Development Cookbook
+1595) Getting Started with CreateJS
+1596) ReSharper Essentials
+1597) Citrix® XenMobile™ Mobile Device Management
+1598) Getting Started with Grunt: The JavaScript Task Runner
+1599) VMware vSphere Resource Management Essentials
+1600) VMware vCenter Operations Manager Essentials
+1601) Microsoft Exchange Server 2013 High Availability
+1602) Oracle ADF Enterprise Application Development – Made Simple: Second Edition
+1603) RESTful Web Services with Dropwizard
+1604) Building Web and Mobile ArcGIS Server Applications with JavaScript
+1605) Xamarin Cross-platform Application Development
+1606) Attracting IT Graduates to Your Business
+1607) Learning PowerCLI
+1608) Mastering Gamification: Customer Engagement in 30 Days
+1609) Raspberry Pi Server Essentials
+1610) Building a Single Page Web Application with Knockout.js [Video]
+1611) Building an E-learning Course with Camtasia Studio 8 [Video]
+1612) Building Android Games with OpenGL ES [Video]
+1613) Instant Testing with CasperJS
+1614) Instant HubSpot Dashboard Customization
+1615) Administering ArcGIS for Server
+1616) Getting Started with Citrix® Provisioning Services 7.0
+1617) Citrix® XenApp® 6.5 Expert Cookbook
+1618) PostGIS Cookbook
+1619) Getting Started with Beautiful Soup
+1620) Cassandra Design Patterns
+1621) Selenium WebDriver Practical Guide
+1622) VMware vSphere 5.x Datacenter Design Cookbook
+1623) Learning Nessus for Penetration Testing
+1624) Citrix® XenDesktop® 7 Cookbook
+1625) Getting Started with Phalcon
+1626) Axure RP Prototyping Cookbook
+1627) Customer Success with Microsoft Dynamics Sure Step
+1628) Backbone.js Patterns and Best Practices
+1629) NGUI for Unity
+1630) Wireframing Essentials
+1631) Pentaho Reporting [Video]
+1632) Oracle Coherence Quickstart [Video]
+Page 35===============================================
+https://www.packtpub.com/all?search=&offset=1632&rows=48&sort=ss_cck_field_date_of_publication+desc
+1633) LabVIEW Graphical Programming Cookbook
+1634) Learning Android Intents
+1635) SharePoint 2013 WCM Advanced Cookbook
+1636) iOS and OS X Network Programming Cookbook
+1637) Team Foundation Server 2013 Customization
+1638) Blender Compositing and Post Processing
+1639) iOS 7 Game Development
+1640) Getting Started with Laravel 4
+1641) Direct3D Rendering Cookbook
+1642) QlikView Server and Publisher
+1643) Learning Windows Azure Mobile Services for Windows 8 and Windows Phone 8
+1644) Packet Tracer Network Simulator
+1645) Windows PowerShell 4.0 for .NET Developers
+1646) Learning Shell Scripting with Zsh
+1647) Data Manipulation with R
+1648) Magento Search Engine Optimization
+1649) The Manager's Guide to Presentations
+1650) Xamarin Mobile Application Development for Android
+1651) The Manager's Guide to Employee Feedback
+1652) Getting Started with Backbone Marionette
+1653) Learning Dart
+1654) Instant PhoneGap
+1655) Building a Data Mart with Pentaho Data Integration [Video]
+1656) HTML5 Game Development [Video]
+1657) iPhone Game Blueprints
+1658) Apache Mahout Cookbook
+1659) Getting Started with Paint.NET
+1660) GLSL Essentials
+1661) Learning Microsoft Windows Server 2012 Dynamic Access Control
+1662) Blender Cycles: Lighting and Rendering Cookbook
+1663) Oracle Fusion Applications Administration Essentials
+1664) Apache Camel Developer's Cookbook
+1665) Nginx Module Extension
+1666) Google Maps JavaScript API Cookbook
+1667) jQuery UI 1.10: The User Interface Library for jQuery
+1668) Implementing Cisco UCS Solutions
+1669) Instant Redis Persistence
+1670) BeagleBone Robotic Projects
+1671) F# for Quantitative Finance
+1672) Apache Solr Beginner’s Guide
+1673) Unity 4.x Game Development by Example: Beginner's Guide
+1674) SQL Server Analysis Services 2012 Cube Development Cookbook
+1675) Starling Game Development Essentials
+1676) Learning Cloudera Impala
+1677) Game Development with SlimDX
+1678) SAP HANA Cookbook
+1679) Magento Responsive Theme Design
+1680) Ext JS Data-driven Application Design
+Page 36===============================================
+https://www.packtpub.com/all?search=&offset=1680&rows=48&sort=ss_cck_field_date_of_publication+desc
+1681) Microsoft Tabular Modeling Cookbook
+1682) Cloud Development and Deployment with CloudBees
+1683) Getting Started with Lumion 3D
+1684) JBoss EAP6 High Availability
+1685) BeagleBone Home Automation
+1686) jQuery 2.0 Animation Techniques: Beginner's Guide
+1687) Kali Linux Social Engineering
+1688) OpenGL 4 Shading Language Cookbook, Second Edition
+1689) Mastering Sublime Text
+1690) Asynchronous Android
+1691) Learning Laravel 4 Application Development
+1692) RabbitMQ Cookbook
+1693) Getting Started with Flurry Analytics
+1694) ElasticSearch Cookbook
+1695) OpenCL Programming by Example
+1696) Android Security Cookbook
+1697) Python High Performance Programming
+1698) Discovering Business Intelligence using MicroStrategy 9
+1699) Network Analysis using Wireshark Cookbook
+1700) VMware Horizon View 5.3 Design Patterns and Best Practices
+1701) Expert Metasploit Penetration Testing [Video]
+1702) Unity Android Game Development by Example Beginner's Guide
+1703) IBM® SmartCloud® Essentials
+1704) Practical Game Design with Unity and Playmaker
+1705) Enterprise Application Development with Ext JS and Spring
+1706) VMware Horizon Mirage Essentials
+1707) Mastering Zabbix
+1708) Unity Multiplayer Games
+1709) ASP.NET Web API: Build RESTful web applications and services on the .NET framework
+1710) Zend Framework 2 Cookbook
+1711) Moodle 2.3 Multimedia [Video]
+1712) Mobile First Bootstrap
+1713) Joomla! 3 Template Essentials
+1714) Marketing Automation with Eloqua
+1715) Persistence in PHP with Doctrine ORM
+1716) Dependency Injection with AngularJS
+1717) Clojure for Domain-specific Languages
+1718) Building a Home Security System with BeagleBone
+1719) TestComplete Cookbook
+1720) IBM Cognos BI v10.2 Administration Essentials
+1721) CodeIgniter 2 Cookbook
+1722) Monitoring with Opsview
+1723) QlikView 11 para Desarrolladores (Espanol)
+1724) Learning Mongoid
+1725) Getting Started with Oracle VM VirtualBox
+1726) Hudson 3 Essentials
+1727) Pentaho Data Integration Cookbook - Second Edition
+1728) CryENGINE SDK Game Programming Essentials [Video]
+Page 37===============================================
+https://www.packtpub.com/all?search=&offset=1728&rows=48&sort=ss_cck_field_date_of_publication+desc
+1729) Build a Network Application with Node [Video]
+1730) Creating Reports with SQL Server 2012 Reporting Services [Video]
+1731) Learning Python Design Patterns
+1732) Instant RubyMine Assimilation
+1733) Augmented Reality for Android Application Development
+1734) Microsoft Dynamics AX 2012 R2 Administration Cookbook
+1735) Developing Applications with Salesforce Chatter
+1736) Exploring Data with RapidMiner
+1737) PowerPivot for Advanced Reporting and Dashboards
+1738) Instant JRebel
+1739) Getting Started with FortiGate
+1740) Learning Android Canvas
+1741) Instant Optimizing Embedded Systems Using BusyBox
+1742) Voice Application Development for Android
+1743) Advanced Express Web Application Development
+1744) Responsive Web Design with jQuery
+1745) Microsoft System Center Configuration Manager
+1746) OAuth 2.0 Identity and Access Management Patterns
+1747) Instant Java Password and Authentication Security
+1748) Getting Started with PhantomJS
+1749) Big Data Analytics with R and Hadoop
+1750) Mapping and Visualization with SuperCollider
+1751) Android NDK Game Development Cookbook
+1752) Learning Cassandra for Administrators
+1753) Hadoop Cluster Deployment
+1754) Getting Started with Memcached
+1755) PrimeFaces Beginner's Guide
+1756) Mobile Prototyping with Axure 7
+1757) Apache Solr PHP Integration
+1758) Learning scikit-learn: Machine Learning in Python
+1759) Liferay 6.2 User Interface Development
+1760) Sencha Touch 2 Mobile JavaScript Framework
+1761) Game Data Analysis – Tools and Methods
+1762) WordPress 3.7 Complete: Third Edition
+1763) Getting Started with Zurb Foundation 4
+1764) Microsoft Visio 2013 Business Process Diagramming and Validation
+1765) Python Data Visualization Cookbook
+1766) Moodle 2.5 Multimedia
+1767) QlikView Scripting
+1768) Pentaho for Big Data Analytics
+1769) Instant Website Touch Integration
+1770) Instant Windows PowerShell Guide
+1771) Working with OpenERP
+1772) Managing IaaS and DBaaS Clouds with Oracle Enterprise Manager Cloud Control 12c
+1773) Multithreading in C# 5.0 Cookbook
+1774) Mastering Node.js
+1775) Securing Hadoop
+1776) Test-Driven Development with Mockito
+Page 38===============================================
+https://www.packtpub.com/all?search=&offset=1776&rows=48&sort=ss_cck_field_date_of_publication+desc
+1777) Mastering HTML5 Forms
+1778) Spring Security 3.x Cookbook
+1779) Introduction to R for Quantitative Finance
+1780) Getting Started with oVirt 3.3
+1781) Learning Bing Maps API
+1782) Ansible Configuration Management
+1783) Building E-Commerce Solutions with WooCommerce
+1784) Microsoft Dynamics AX 2012 Financial Management
+1785) The Professional Woman’s Guide to Managing Men
+1786) Robotium Automated Testing for Android
+1787) Blender 3D Printing Essentials
+1788) CryENGINE Game Programming with C++, C#, and Lua
+1789) Icinga Network Monitoring
+1790) NuGet 2 Essentials
+1791) Learning FuelPHP for Effective PHP Development
+1792) GitLab Repository Management
+1793) 3D Printing for Architects with MakerBot
+1794) Mobile Game Design Essentials
+1795) HTML5 and CSS3 Transition, Transformation, and Animation
+1796) Raspberry Pi Super Cluster
+1797) Developing RESTful Web Services with Jersey 2.0
+1798) SolarWinds Server & Application Monitor: Deployment and Administration
+1799) Designing and Implementing Test Automation Frameworks with QTP
+1800) Application Development with Qt Creator
+1801) Troubleshooting vSphere Storage
+1802) Clojure High Performance Programming
+1803) Java EE 7 First Look
+1804) Implementing AppFog
+1805) iCloud Standard Guide
+1806) Getting Started with LevelDB
+1807) WordPress Web Application Development
+1808) Cassandra Administration [Video]
+1809) Learning Apache Maven 3 [Video]
+1810) Bonita Open Solution 5.x Essentials
+1811) Emgu CV Essentials
+1812) Laravel Application Development Blueprints
+1813) Gideros Mobile Game Development
+1814) jQuery UI Development [Video]
+1815) Oracle Data Integrator Essentials [Video]
+1816) JBoss EAP Configuration, Deployment, and Administration [Video]
+1817) Oracle APEX Cookbook : Second Edition
+1818) Slick2D Game Development
+1819) SQL Server 2012 Reporting Services Blueprints
+1820) Moodle 2.5 Multimedia Cookbook
+1821) Robot Framework Test Automation
+1822) Learning DHTMLX Suite UI
+1823) Debian 7: System Administration Best Practices
+1824) Learning Geospatial Analysis with Python
+Page 39===============================================
+https://www.packtpub.com/all?search=&offset=1824&rows=48&sort=ss_cck_field_date_of_publication+desc
+1825) Tkinter GUI Application Development HOTSHOT
+1826) Instant Kali Linux
+1827) Haskell Financial Data Modeling and Predictive Analytics
+1828) Learning Windows 8 Game Development
+1829) Metasploit Penetration Testing Cookbook, Second Edition
+1830) Instant Premium Drupal Themes
+1831) Building 3D Models with modo 701
+1832) Instant Social Media Marketing with HootSuite
+1833) C++ Application Development with Code::Blocks
+1834) Implementing VMware vCenter Server
+1835) Node Security
+1836) Instant jQuery Flot Visual Data Analysis
+1837) Getting Started with Citrix® CloudPortal™
+1838) Learning Game Physics with Bullet Physics and OpenGL
+1839) Instant Fancybox
+1840) Camtasia Studio 8 – Advanced Editing and Publishing Techniques
+1841) Business Intelligence with MicroStrategy Cookbook
+1842) Getting started with JUCE
+1843) Talend Open Studio Cookbook
+1844) Learning Devise for Rails
+1845) Creating Mobile Apps with Appcelerator Titanium
+1846) Data Visualization with d3.js
+1847) Software Defined Networking with OpenFlow
+1848) Learning Physics Modeling with PhysX
+1849) Mastering Apache Cassandra
+1850) SketchBook Pro Digital Painting Essentials
+1851) Instant Windows PowerShell
+1852) Mastering ElasticSearch
+1853) RESS Essentials
+1854) Rapid BeagleBoard Prototyping with MATLAB and Simulink
+1855) Pro Tools HD: Advanced Techniques and Workflows
+1856) Linux Utilities Cookbook
+1857) Getting Started with OpenCart Module Development
+1858) Zend Framework 2 Application Development
+1859) Apache Maven Dependency Management
+1860) Machine Learning with R
+1861) Laravel Application Development Cookbook
+1862) GNS3 Network Simulation Guide
+1863) Instant Mock Testing with PowerMock
+1864) Instant Sencha Touch
+1865) Leap Motion Development Essentials
+1866) Instant PLC Programming with RSLogix 5000
+1867) Learning Apache Karaf
+1868) Reporting with Visual Studio and Crystal Reports
+1869) Getting Started with Simulink
+1870) Data Visualization with D3.js Cookbook
+1871) Xamarin Mobile Application Development for iOS
+1872) JavaScript and JSON Essentials
+Page 40===============================================
+https://www.packtpub.com/all?search=&offset=1872&rows=48&sort=ss_cck_field_date_of_publication+desc
+1873) Learning Zimbra Server Essentials
+1874) Enterprise Integration with WSO2 ESB
+1875) Game Development with Three.js
+1876) Implementing OpenShift
+1877) Microsoft Dynamics GP 2013 Reporting - Second Edition
+1878) TIBCO Spotfire for Developers
+1879) Pentaho Data Integration Beginner's Guide - Second Edition
+1880) LiveCode Mobile Development HOTSHOT
+1881) VMware vCloud Director Cookbook
+1882) Visualforce Developer’s guide
+1883) Ouya Unity Game Development
+1884) IBM SPSS Modeler Cookbook
+1885) Fast Data Processing with Spark
+1886) VMware vCloud Security
+1887) Getting Started with Greenplum for Big Data Analytics
+1888) Microsoft Hyper-V Cluster Design
+1889) Groovy 2 Cookbook
+1890) Application Development with Parse using iOS SDK
+1891) BuddyPress Theme Development
+1892) Microsoft Dynamics NAV Financial Management
+1893) Practical Data Analysis
+1894) Web Application Development with R Using Shiny
+1895) Getting Started with MariaDB
+1896) Apache Kafka
+1897) OpenStack Cloud Computing Cookbook - Second Edition
+1898) Getting started with IntelliJ IDEA
+1899) Learning Three.js: The JavaScript 3D Library for WebGL
+1900) Kali Linux Cookbook
+1901) Windows Phone 8 Application Development Essentials
+1902) Getting Started with Twitter Flight
+1903) Apache Accumulo for Developers
+1904) Cuckoo Malware Analysis
+1905) KNIME Essentials
+1906) Website Development with PyroCMS
+1907) Administrating Solr
+1908) Developing RESTful Services with JAX-RS 2.0, WebSockets, and JSON
+1909) PySide GUI Application Development
+1910) Android Studio Application Development
+1911) The Complete Guide to DAZ Studio 4
+1912) Microsoft DirectAccess Best Practices and Troubleshooting
+1913) Hyper-V Replica Essentials
+1914) LÖVE for Lua Game Programming
+1915) Moodle for Mobile Learning [Video]
+1916) JIRA 6 Essentials [Video]
+1917) Getting Started with Apache Maven [Video]
+1918) Responsive Web Design – From Concept to Complete Site [Video]
+1919) Getting Started with Magento [Video]
+1920) Instant Raspberry Pi Gaming
+Page 41===============================================
+https://www.packtpub.com/all?search=&offset=1920&rows=48&sort=ss_cck_field_date_of_publication+desc
+1921) Instant typeahead.js
+1922) jQuery Mobile Web Development Essentials - Second Edition
+1923) Instant Edublogs
+1924) Learning Cython Programming
+1925) Instant LEGO MINDSTORMS EV3
+1926) Instant Autodesk AutoCAD 2014 Customization with .NET
+1927) Learning ROS for Robotics Programming
+1928) Moodle for Mobile Learning
+1929) Instant Haml
+1930) Instant IntroJs
+1931) Getting Started with Magento Extension Development
+1932) Instant 960 Grid System
+1933) Instant Slic3r
+1934) Instant VMware Player for Virtualization
+1935) Learning C# by Developing Games with Unity 3D Beginner's Guide
+1936) Instant XenMobile MDM
+1937) Instant Handlebars.js
+1938) Learning Google Guice
+1939) Kivy: Interactive Applications in Python
+1940) Instant Apache Camel Messaging System
+1941) Creating Dynamic UI with Android Fragments
+1942) Instant Google Compute Engine
+1943) Web Penetration Testing with Kali Linux
+1944) Learning QlikView Data Visualization
+1945) Instant Simple Botting with PHP
+1946) Unity for Architectural Visualization
+1947) SproutCore Web Application Development
+1948) Microsoft SharePoint 2013 Disaster Recovery Guide
+1949) Applying and Extending Oracle Spatial
+1950) Developing SSRS Reports for Dynamics AX
+1951) Instant PageSpeed Optimization
+1952) Instant Brainshark
+1953) Getting Started with WebRTC
+1954) Lift Application Development Cookbook
+1955) Instant Node Package Manager
+1956) Learning Perforce SCM
+1957) Integrating Facebook iOS SDK with Your Application
+1958) Social Data Visualization with HTML5 and JavaScript
+1959) Instant Cassandra Query Language
+1960) Android Application Programming with OpenCV
+1961) RestKit for iOS
+1962) Instant Debian – Build a Web Server
+1963) Instant Responsive Web Design
+1964) Instant Buildroot
+1965) Instant Zepto.js
+1966) Building Minecraft Server Modifications
+1967) Mastering Ninject for Dependency Injection
+1968) Oracle Goldengate 11g Complete Cookbook
+Page 42===============================================
+https://www.packtpub.com/all?search=&offset=1968&rows=48&sort=ss_cck_field_date_of_publication+desc
+1969) Instant Zurb Foundation 4
+1970) Instant Nancy Web Development
+1971) Instant Ubuntu
+1972) Instant uTorrent
+1973) Learning Libgdx Game Development
+1974) Learning Software Testing with Test Studio
+1975) Microsoft Dynamics NAV 7 Programming Cookbook
+1976) Developing AR Games for iOS and Android
+1977) Visualforce Development Cookbook
+1978) Network Graph Analysis and Visualization with Gephi
+1979) Getting Started with Drupal Commerce
+1980) SELinux System Administration
+1981) Microsoft Dynamics GP 2013 Implementation
+1982) PhoneGap 3 Beginner's Guide
+1983) Real-time Web Application Development using Vert.x 2.0
+1984) Mobile First Design with HTML5 and CSS3
+1985) Microsoft Dynamics AX 2012 Reporting Cookbook
+1986) Oracle Database 12c Backup and Recovery Survival Guide
+1987) Getting Started with Oracle WebLogic Server 12c: Developer’s Guide
+1988) Mastering Manga Studio 5
+1989) Visual Media Processing Using MATLAB Beginner's Guide
+1990) Application Testing with Capybara
+1991) Programming with CodeIgniter MVC
+1992) Image Processing with ImageJ
+1993) Getting Started with Oracle Public Cloud
+1994) Mastering openFrameworks: Creative Coding Demystified
+1995) HDInsight Essentials
+1996) Build Gamified Websites with PHP and jQuery
+1997) Microsoft Exchange 2013 Cookbook
+1998) Java EE 7 Developer Handbook
+1999) Windows Phone 8 Game Development
+2000) Ext JS 4 Plugin and Extension Development
+2001) Learning AWS OpsWorks
+2002) Building UIs with Wijmo
+2003) Getting Started with SBT for Scala
+2004) Learning OMNeT++
+2005) Twilio Cookbook
+2006) Oracle SOA Governance 11g Implementation
+2007) Learning QGIS 2.0
+2008) BPEL and Java Cookbook
+2009) Getting Started with SQL Server 2012 Cube Development
+2010) Learning Vaadin 7: Second Edition
+2011) Building Mobile Applications Using Kendo UI Mobile and ASP.NET Web API
+2012) Getting Started with Citrix VDI-in-a-Box
+2013) Using OpenRefine
+2014) Mobile Security: How to Secure, Privatize, and Recover Your Devices
+2015) Microsoft Dynamics GP 2013 Financial Management
+2016) Instant Spring Tool Suite
+Page 43===============================================
+https://www.packtpub.com/all?search=&offset=2016&rows=48&sort=ss_cck_field_date_of_publication+desc
+2017) Mastering Magento [Video]
+2018) RavenDB 2.x Beginner’s Guide
+2019) HTML5 Data and Services Cookbook
+2020) Building a Website with Drupal [Video]
+2021) AngularJS Directives
+2022) Learning Gerrit Code Review
+2023) ServiceDesk Plus 8.x Essentials
+2024) Unreal Development Kit Game Programming with UnrealScript [Video]
+2025) Spring Security [Video]
+2026) Zabbix Network Monitoring Essentials [Video]
+2027) Getting Started with Hazelcast
+2028) Microsoft System Center 2012 Orchestrator Cookbook
+2029) Storm Real-time Processing Cookbook
+2030) Oracle APEX 4.2 Reporting
+2031) MDX with SSAS 2012 Cookbook
+2032) Instant HTML5 2D Platformer
+2033) Instant Effective Caching with Ehcache
+2034) DirectX 11.1 Game Programming
+2035) Instant BlueStacks
+2036) Instant OpenCV for iOS
+2037) Instant Apache Camel Message Routing
+2038) Getting Started with Unity
+2039) Instant Vert.x
+2040) WordPress Multisite Administration
+2041) Build a Game with UDK
+2042) RavenDB High Performance
+2043) Instant Audio Processing with Web Audio
+2044) Getting Started with HTML5 WebSocket Programming
+2045) Getting Started with C++ Audio Programming for Game Development
+2046) Agile Project Management with GreenHopper 6 Blueprints
+2047) Instant GSON
+2048) Instant Mockito
+2049) Sencha Touch Cookbook, Second Edition
+2050) Instant Nokogiri
+2051) IBM Cognos 10 Report Studio Cookbook, Second Edition
+2052) Tableau Data Visualization Cookbook
+2053) Learning NServiceBus
+2054) Getting Started with OrientDB
+2055) Instant Apache Sqoop
+2056) Instant EdgeSight for XenApp
+2057) PostgreSQL Replication
+2058) Adobe Captivate 7 for Mobile Learning
+2059) Puppet 3 Cookbook
+2060) Instant Microsoft SQL Server Analysis Services 2012 Dimensions and Cube
+2061) Instant HTML5 Fonts and Typography
+2062) Instant MuseScore
+2063) Instant Zend Framework 2.0
+2064) Instant MDX Queries for SQL Server 2012
+Page 44===============================================
+https://www.packtpub.com/all?search=&offset=2064&rows=48&sort=ss_cck_field_date_of_publication+desc
+2065) Boost C++ Application Development Cookbook
+2066) Getting Started with DraftSight
+2067) Instant Testing with QUnit
+2068) Jasmine JavaScript Testing
+2069) Instant Apache Wicket 6
+2070) Extending Microsoft Dynamics AX 2012 Cookbook
+2071) Open Source Identity Management Patterns and Practices Using OpenAM 10.x
+2072) Mastering Apple Aperture
+2073) Microsoft SQL Server 2012 with Hadoop
+2074) Creating Development Environments with Vagrant
+2075) Scaling Big Data with Hadoop and Solr
+2076) Mongoose for Application Development
+2077) Instant Web Scraping with Java
+2078) Instant Markdown
+2079) Instant Flask Web Development
+2080) OpenCL Parallel Programming Development Cookbook
+2081) Chef Infrastructure Automation Cookbook
+2082) Instant jQuery Selectors
+2083) CoffeeScript Application Development
+2084) Backbone.js Cookbook
+2085) R Graph Essentials [Video]
+2086) Netduino Home Automation Projects
+2087) Developing Web Applications with Oracle ADF Essentials
+2088) Developing Windows Store Apps with HTML5 and JavaScript
+2089) VMware Workstation - No Experience Necessary
+2090) Getting Started with Spiceworks
+2091) Mastering Web Application Development with AngularJS
+2092) 3D Printing Blueprints
+2093) Mule ESB Cookbook
+2094) Instant jQuery Boilerplate for Plugins
+2095) Cinema 4D R14 Cookbook, Second Edition
+2096) Android Application Security Essentials
+2097) Implementing Domain-Specific Languages with Xtext and Xtend
+2098) Pentaho 5.0 Reporting by Example: Beginner’s Guide
+2099) Learning Joomla! 3 Extension Development [Video]
+2100) Citrix XenApp Performance Essentials
+2101) Getting Started with Google Guava
+2102) Advanced Penetration Testing for Highly-Secured Environments [Video]
+2103) Moodle for Training and Professional Development [Video]
+2104) Mastering Unity 4 Scripting [Video]
+2105) HTML5 Animation and Transition [Video]
+2106) Java EE Development with NetBeans 7 [Video]
+2107) CryENGINE 3 SDK Level Design [Video]
+2108) Beginning Yii [Video]
+2109) Instant Apache Stanbol
+2110) Performance Testing with JMeter 2.9
+2111) concrete5 Cookbook
+2112) Building Interactive Queries with LINQPad
+Page 45===============================================
+https://www.packtpub.com/all?search=&offset=2112&rows=48&sort=ss_cck_field_date_of_publication+desc
+2113) Easy Web Development with WaveMaker
+2114) Android Development Tools for Eclipse
+2115) Microsoft BizTalk ESB Toolkit 2.1
+2116) Drupal 7 Media
+2117) VMware View Security Essentials
+2118) Instant Kendo UI Grid
+2119) Instant GLEW
+2120) Learning Joomla! 3 Extension Development-Third Edition
+2121) Instant Highcharts
+2122) Instant SQL Server Analysis Services 2012 Cube Security
+2123) Software Testing using Visual Studio 2012
+2124) Instant Sikuli Test Automation
+2125) Instant AppFog
+2126) Instant XBMC
+2127) Instant Parallel Processing with Gearman
+2128) Instant OSSEC Host-based Intrusion Detection System
+2129) Instant MongoDB
+2130) Instant Lucene.NET
+2131) Instant AutoIt Scripting
+2132) TestNG Beginner's Guide
+2133) Instant Geany IDE
+2134) Instant Pentaho Data Integration Kitchen
+2135) .NET 4.5 Parallel Extensions Cookbook
+2136) vSphere High Performance Cookbook
+2137) Instant Ext.NET Application Development
+2138) Vaadin 7 UI Design By Example: Beginner’s Guide
+2139) Instant Automapper
+2140) Building Machine Learning Systems with Python
+2141) Object-Oriented JavaScript - Second Edition
+2142) OpenNI Cookbook
+2143) Learning Articulate Storyline
+2144) Instant PHP Web Scraping
+2145) HTML5 for Flash Developers
+2146) Instant QlikView 11 Application Development
+2147) Instant Backbone.js Application Development
+2148) bbPress Complete
+2149) Instant jqGrid
+2150) Zend Framework 2.0 by Example: Beginner’s Guide
+2151) Instant Citrix XenApp
+2152) Instant RubyMotion App Development
+2153) Instant Kendo UI Mobile
+2154) Getting Started with ownCloud
+2155) Salesforce CRM: The Definitive Admin Handbook - Second Edition
+2156) Scratch Cookbook
+2157) Hadoop Operations and Cluster Management Cookbook
+2158) R Statistical Application Development by Example Beginner's Guide
+2159) Unity 4.x Game AI Programming
+2160) Learning Metasploit Exploitation and Development
+Page 46===============================================
+https://www.packtpub.com/all?search=&offset=2160&rows=48&sort=ss_cck_field_date_of_publication+desc
+2161) ASP.NET MVC 4 Mobile App Development
+2162) Instant Oracle GoldenGate
+2163) Node Web Development - Second Edition
+2164) Nginx HTTP Server - Second Edition
+2165) jQuery UI Cookbook
+2166) Getting Started with Eclipse Juno
+2167) RubyMotion iOS Development Essentials
+2168) Getting Started with Microsoft Lync Server 2013
+2169) Apache Flume: Distributed Log Collection for Hadoop
+2170) Backbone.js Testing
+2171) JBoss Weld CDI for Java Platform
+2172) Learning Search-driven Application Development with SharePoint 2013
+2173) Oracle SOA Suite 11g Performance Tuning Cookbook
+2174) Augmented Reality with Kinect
+2175) Getting Started with Oracle SOA B2B Integration: A Hands-On Tutorial
+2176) Getting Started with UDK
+2177) Software Development on the SAP HANA Platform
+2178) VMware vSphere 5.1 Cookbook
+2179) Alfresco 4 Enterprise Content Management Implementation
+2180) Multimedia Programming with Pure Data
+2181) Mastering Ext JS
+2182) Sencha Architect App Development
+2183) Play! Framework for Web Application Development [Video]
+2184) Kali Linux - Backtrack Evolved: Assuring Security by Penetration Testing [Video]
+2185) Microsoft SQL Server Analysis Services Demystified [Video]
+2186) Drupal 7 Module Development [Video]
+2187) Instant PrimeFaces Starter
+2188) Learn HTML5 by Creating Fun Games
+2189) Programming Drupal 7 Entities
+2190) BackTrack – Testing Wireless Network Security
+2191) HTML5 Web Application Development By Example : Beginner's guide
+2192) Express Web Application Development
+2193) Microsoft Dynamics CRM 2011 Reporting
+2194) PostgreSQL Server Programming
+2195) jMonkeyEngine 3.0 : Beginner's Guide
+2196) Instant Apache Maven Starter
+2197) OpenGL Development Cookbook
+2198) Instant RSpec Test-Driven Development How-to
+2199) Appcelerator Titanium Business Application Development Cookbook
+2200) Building E-commerce Sites with Drupal Commerce Cookbook
+2201) Blender 2.6 Cycles: Materials and Textures Cookbook
+2202) Learning jQuery - Fourth Edition
+2203) Instant Spring Security Starter
+2204) Advertising on Google: The High Performance Cookbook
+2205) Magento : Beginner's Guide - Second Edition
+2206) Instant Prezi Starter
+2207) SFML Game Development
+2208) SDL Game Development
+Page 47===============================================
+https://www.packtpub.com/all?search=&offset=2208&rows=48&sort=ss_cck_field_date_of_publication+desc
+2209) Oracle Data Guard 11gR2 Administration : Beginner's Guide
+2210) Instant Minecraft: Pi Edition Coding How-to
+2211) Building E-commerce Sites with VirtueMart Cookbook
+2212) Instant Metasploit Starter
+2213) QlikView for Developers Cookbook
+2214) Learning SQL Server Reporting Services 2012
+2215) Instant Heat Maps in R How-to
+2216) JBoss AS 7 Development
+2217) Instant Passbook App Development for iOS How-to
+2218) Instant Weka How-to
+2219) Instant Edmodo How-to
+2220) Instant OpenNMS Starter
+2221) Microsoft System Center Data Protection Manager 2012 SP1
+2222) Eclipse 4 Plug-in Development by Example : Beginner's Guide
+2223) Oracle SOA BPEL Process Manager 11gR1 – A Hands-on Tutorial
+2224) Java Persistence with MyBatis 3
+2225) Implementing Citrix XenServer Quickstarter
+2226) Oracle Business Intelligence 11g R1 Cookbook
+2227) Unity Shaders and Effects Cookbook
+2228) Oracle WebLogic Server 12c Advanced Administration Cookbook
+2229) Unity 4.x Cookbook
+2230) Getting Started with Amazon Redshift
+2231) Corona SDK Application Design
+2232) HLSL Development Cookbook
+2233) Opa Application Development
+2234) Drupal for Education and E-Learning - Second Edition
+2235) Liferay Portal Performance Best Practices
+2236) Atlassian Confluence 5 Essentials
+2237) Instant jsoup How-to
+2238) SignalR: Real-time Application Development
+2239) CiviCRM Cookbook
+2240) Bazaar Version Control
+2241) Getting Started with Unity 4 Scripting [Video]
+2242) Instant CloudFlare Starter
+2243) Instant Yii 1.1 Application Development Starter
+2244) Instant Apache Solr for Indexing Data How-to
+2245) Instant Sinatra Starter
+2246) XNA 3D Toolkit [Video]
+2247) Getting started with Apache Solr Search Server [Video]
+2248) Getting Started with Oracle Tuxedo
+2249) Instant Apache ServiceMix How-to
+2250) Getting Started with nopCommerce
+2251) Microsoft Dynamics CRM 2011 Cookbook
+2252) Instant OpenELEC Starter
+2253) Instant Apache Hive Essentials How-to
+2254) Microsoft Dynamics GP 2013 Cookbook
+2255) Fast Track to Adobe Captivate 6 [Video]
+2256) IBM Cognos 10 Report Studio Fundamentals [Video]
+Page 48===============================================
+https://www.packtpub.com/all?search=&offset=2256&rows=48&sort=ss_cck_field_date_of_publication+desc
+2257) Microsoft Dynamics GP Techniques [Video]
+2258) Getting Started with Citrix XenApp 6.5 [Video]
+2259) Unity 3D Game Development by Example [Video]
+2260) Excel 2013 Dashboard Design [Video]
+2261) OpenCV Computer Vision Application Programming [Video]
+2262) Implementing Microsoft Forefront Unified Access Gateway 2010 [Video]
+2263) Moodle Course Development [Video]
+2264) XNA 3D Game Development By Example [Video]
+2265) BackTrack 5 Wireless Penetration Testing [Video]
+2266) Oracle APEX Techniques [Video]
+2267) World of Warcraft Gold Strategy Guide
+2268) Learning JavaScriptMVC
+2269) Instant OpenCV Starter
+2270) Learning Stencyl 3.x Game Development: Beginner's Guide
+2271) HTML5 iPhone Web Application Development
+2272) Python Geospatial Development - Second Edition
+2273) Apple Motion 5 Cookbook
+2274) Microsoft .NET Framework 4.5 Quickstart Cookbook
+2275) Blackboard Learn Administration
+2276) Drools JBoss Rules 5.X Developer’s Guide
+2277) FreeSWITCH 1.2
+2278) Cinder Creative Coding Cookbook
+2279) Instant Magento Shipping How-to
+2280) Instant jQuery Masonry How-to
+2281) Learning Kendo UI Web Development
+2282) Instant Data Intensive Apps with pandas How-to
+2283) Xcode 4 Cookbook
+2284) Instant Hands-on Testing with PHPUnit How-to
+2285) Getting Started with Dynamics NAV 2013 Application Development
+2286) Instant Redis Optimization How-to
+2287) Instant StyleCop Code Analysis How-to
+2288) Instant Android Systems Development How-to
+2289) Instant SymPy Starter
+2290) Instant Play Framework Starter
+2291) HTML5 and CSS3 Responsive Web Design Cookbook
+2292) Instant jQuery UI Starter
+2293) Instant Node.js Starter
+2294) Instant Apache ActiveMQ Messaging Application Development How-to
+2295) Instant Nagios Starter
+2296) Instant HTML5 Geolocation How-to
+2297) Instant Eclipse 4 RCP Development How-to
+2298) Instant Building Multi-Page Forms with Yii How-to
+2299) Instant Dependency Management with RequireJS How-to
+2300) Instant Interactive Map designs with Leaflet JavaScript Library How-to
+2301) Dreamweaver CS6 Mobile and Web Development with HTML5, CSS3, and jQuery Mobile
+2302) IBM Cognos 10 Framework Manager
+2303) Microsoft Exchange Server 2013 PowerShell Cookbook: Second Edition
+2304) Instant MapReduce Patterns – Hadoop Essentials How-to
+Page 49===============================================
+https://www.packtpub.com/all?search=&offset=2304&rows=48&sort=ss_cck_field_date_of_publication+desc
+2305) Instant Razor View Engine How-to
+2306) Instant RabbitMQ Messaging Application Development How-to
+2307) Corona SDK HOTSHOT
+2308) Linux Shell Scripting Cookbook, Second Edition
+2309) Processing 2: Creative Coding HOTSHOT
+2310) Instant VMware View Virtualization How-to
+2311) Apache CloudStack Cloud Computing
+2312) C Programming for Arduino
+2313) Learning Raphaël JS Vector Graphics
+2314) Implementing VMware Horizon View 5.2
+2315) Oracle Data Integrator 11g Cookbook
+2316) IBM Cognos Business Intelligence
+2317) Instant HTML5 Responsive Table Design How-to
+2318) JIRA 5.x Development Cookbook
+2319) Instant Mercurial Distributed SCM Essentials How-to
+2320) Instant OpenLayers Starter
+2321) Instant E-commerce with OpenCart: Build a Shop
+2322) Instant Creating Data Models with PowerPivot How-to
+2323) Instant Traffic Analysis with Tshark How-to
+2324) jQuery Game Development Essentials
+2325) Sass and Compass for Designers
+2326) Instant FreeMarker Starter
+2327) Instant Rainmeter Desktop Customization Tool How-to
+2328) Instant Cucumber BDD How-to
+2329) Instant .NET 4.5 Extension Methods How-to
+2330) Autodesk AutoCAD 2013 Practical 3D Drafting and Design
+2331) Instant Selenium Testing Tools Starter
+2332) Raspberry Pi for Secret Agents
+2333) Microsoft Lync 2013 Unified Communications: From Telephony to Real Time Communication in the Digital Age
+2334) Creating Mobile Apps with jQuery Mobile
+2335) Cocos2d-X by Example Beginner's Guide
+2336) Instant CakePHP Starter
+2337) Instant Ext JS Starter
+2338) Learning IPython for Interactive Computing and Data Visualization
+2339) Kinect in Motion – Audio and Visual Tracking by Example
+2340) Appcelerator Titanium Application Development by Example Beginner's Guide
+2341) Instant Meteor JavaScript Framework Starter
+2342) Oracle ADF 11gR2 Development Beginner's Guide
+2343) Learning Adobe Connect 9
+2344) NumPy Beginner’s Guide - Second Edition
+2345) PowerShell 3.0 Advanced Administration Handbook
+2346) Instant Nginx Starter
+2347) Yii Application Development Cookbook - Second Edition
+2348) Instant Oracle BPM for Financial Services How-to
+2349) Instant PostgreSQL Starter
+2350) SolarWinds Orion Network Performance Monitor
+2351) Vaadin 7 Cookbook
+2352) PrestaShop 1.5 Beginner’s Guide
+Page 50===============================================
+https://www.packtpub.com/all?search=&offset=2352&rows=48&sort=ss_cck_field_date_of_publication+desc
+2353) Instant R Starter
+2354) Instant Windows 8 C++ Application Development How-to
+2355) Instant Eclipse Application Testing How-to
+2356) concrete5: Beginner's Guide - Second Edition
+2357) OpenCV Computer Vision with Python
+2358) HTML5 Game Development with GameMaker
+2359) The Professional ScrumMaster's Handbook
+2360) Microsoft Dynamics CRM 2011 Applications (MB2-868) Certification Guide
+2361) JIRA 5.2 Essentials
+2362) CentOS 6 Linux Server Cookbook
+2363) Mastering Windows 8 C++ App Development
+2364) Arquillian Testing Guide
+2365) Visual Studio 2012 and .NET 4.5 Expert Development Cookbook
+2366) Puppet 3: Beginner’s Guide
+2367) Learning Pixelmator
+2368) Windows Phone 7.5 Application Development with F#
+2369) Google Visualization API Essentials
+2370) Magento PHP Developer’s Guide
+2371) Creating Mobile Apps with Sencha Touch 2
+2372) Instant Puppet 3 Starter
+2373) ZeroMQ
+2374) Instant Prezi for Education How-to
+2375) HTML5 Game Development with ImpactJS
+2376) Building Dashboards with Microsoft Dynamics GP 2013 and Excel 2013
+2377) Instant Cytoscape Complex Network Analysis How-to
+2378) Joomla! 3 Beginner’s Guide
+2379) Developing Mobile Games with Moai SDK
+2380) Instant Apple Configurator How-to
+2381) Instant PostgreSQL Backup and Restore How-to
+2382) Microsoft System Center Virtual Machine Manager 2012 Cookbook
+2383) Learning Play! Framework 2
+2384) Building Impressive Presentations with impress.js
+2385) Using Node.js for UI Testing
+2386) Instant Drools Starter
+2387) Microsoft Dynamics CRM 2011 Scripting Cookbook
+2388) Hibernate Search by Example
+2389) Instant jQuery Drag-and-Drop Grids How-to
+2390) Instant jQuery 2.0 Table Manipulation How-to
+2391) Instant NetBeans IDE How-to
+2392) PlayStation®Mobile Development Cookbook
+2393) Instant EaselJS Starter
+2394) Instant RESS Implementation How-to
+2395) Instant Liferay Portal 6 Starter
+2396) jQuery HOTSHOT
+2397) Instant KineticJS Starter
+2398) Windows Server 2012 Automation with PowerShell Cookbook
+2399) Instant Windows Powershell 3.0 Windows Management Instrumentation Starter
+2400) Instant Wijmo Widgets How-to
+Page 51===============================================
+https://www.packtpub.com/all?search=&offset=2400&rows=48&sort=ss_cck_field_date_of_publication+desc
+2401) Android Native Development Kit Cookbook
+2402) Instant Minecraft Designs How-to
+2403) Getting Started with Oracle Event Processing 11g
+2404) Getting Started with NoSQL
+2405) Salesforce CRM Admin Cookbook
+2406) Oracle E-Business Suite R12 Integration and OA Framework Development and Extension Cookbook
+2407) Instant Apache Cassandra for Developers Starter
+2408) Instant HTML5 Local Storage How-to
+2409) Windows Server 2012 Hyper-V: Deploying Hyper-V Enterprise Server Virtualization Platform
+2410) Instant Pygame for Python Game Development How-to
+2411) WordPress Theme Development : Beginner's Guide - Third Edition
+2412) Clojure Data Analysis Cookbook
+2413) Instant IBM Lotus Notes 8.5.3 How-to
+2414) Creating Templates with Artisteer
+2415) Implementing Microsoft Dynamics AX 2012 with Sure Step 2012
+2416) Managing Multimedia and Unstructured Data in the Oracle Database
+2417) Mastering UDK Game Development HOTSHOT
+2418) Responsive Web Design by Example : Beginner's Guide
+2419) Mastering Nginx
+2420) Instant Google Map Maker Starter
+2421) Oracle Enterprise Manager 12c Administration Cookbook
+2422) Instant Cinema 4D Starter
+2423) Raspberry Pi Networking Cookbook
+2424) Instant Penetration Testing: Setting Up a Test Lab How-to
+2425) Enterprise Security: A Data-Centric Approach to Securing the Enterprise
+2426) Hadoop Beginner's Guide
+2427) Instant E-Commerce with Magento: Build a Shop
+2428) HTML5 Enterprise Application Development
+2429) Instant Django 1.5 Application Development Starter
+2430) Instant VMware vCloud Starter
+2431) Instant Citrix XenDesktop 5 Starter
+2432) Programming ArcGIS 10.1 with Python Cookbook
+2433) Instant Team Foundation Server 2012 and Project Server 2010 Integration How-to
+2434) Implementing Microsoft Dynamics NAV 2013
+2435) Instant PhpStorm Starter
+2436) Instant SASS CSS How-to
+2437) Instant Hyper-V Server Virtualization Starter
+2438) Socket.IO Real-time Web Application Development
+2439) Boost.Asio C++ Network Programming
+2440) Mastering Adobe Premiere Pro CS6 HOTSHOT
+2441) Getting Started with Lazarus IDE
+2442) Instant HTML5 Presentations How-to
+2443) Instant Apple iBooks How-to
+2444) Programming Microsoft Dynamics® NAV 2013
+2445) Instant Adobe Edge Inspect Starter
+2446) OCA Oracle Database 11g: Database Administration I: A Real-World Certification Guide
+2447) Appcelerator Titanium: Patterns and Best Practices
+2448) Instant ForgedUI Starter
+Page 52===============================================
+https://www.packtpub.com/all?search=&offset=2448&rows=48&sort=ss_cck_field_date_of_publication+desc
+2449) Instant Chef Starter
+2450) Learning SciPy for Numerical and Scientific Computing
+2451) Instant LESS CSS Preprocessor How-to
+2452) ElasticSearch Server
+2453) Cinder – Begin Creative Coding
+2454) Instant Magento Performance Optimization How-to
+2455) GeoServer Beginner’s Guide
+2456) GNOME 3 Application Development Beginner's Guide
+2457) Raspberry Pi Media Center
+2458) Instant AngularJS Starter
+2459) UnrealScript Game Programming Cookbook
+2460) Instant Citrix Security How-to
+2461) Grome Terrain Modeling with Ogre3D, UDK, and Unity3D
+2462) PhoneGap 2.x Mobile Application Development HOTSHOT
+2463) Instant Galleria How-to
+2464) Force.com Tips and Tricks
+2465) Instant Munin Plugin Starter
+2466) Instant LinkedIn Customization How-to
+2467) Instant Ember.js Application Development How-to
+2468) Hadoop Real-World Solutions Cookbook
+2469) Raspberry Pi Home Automation with Arduino
+2470) Instant InnoDB
+2471) Instant Microsoft Forefront UAG Mobile Configuration Starter
+2472) Instant Sublime Text Starter
+2473) Apache Solr 4 Cookbook
+2474) Oracle Solaris 11: First Look
+2475) Instant Netcat Starter
+2476) Instant Autodesk Revit 2013 Customization with .NET How-to
+2477) Instant Burp Suite Starter
+2478) Instant Spring for Android Starter
+2479) Instant Firebug Starter
+2480) Instant RaphaelJS Starter
+2481) Hadoop MapReduce Cookbook
+2482) Mastering Redmine
+2483) Creating Concrete5 Themes
+2484) Instant PhoneGap Social App Development
+2485) Learning Ext JS 4
+2486) Aptana Studio Beginner's Guide
+2487) Nagios Core Administration Cookbook
+2488) Instant New iPad Features in iOS 6 How-to
+2489) Instant Lift Web Applications How-to
+2490) Instant Oracle Database and PowerShell How-to
+2491) Torque 3D Game Development Cookbook
+2492) Instant Varnish Cache How-to
+2493) Instant MinGW Starter
+2494) Instant GIMP Starter
+2495) Instant Wireshark Starter
+2496) Instant Google Drive Starter
+Page 53===============================================
+https://www.packtpub.com/all?search=&offset=2496&rows=48&sort=ss_cck_field_date_of_publication+desc
+2497) Building your First Mobile Game using XNA 4.0
+2498) Citrix XenDesktop 5.6 Cookbook
+2499) Implementing Splunk: Big Data Reporting and Development for Operational Intelligence
+2500) Instant Website Optimization for Retina Displays How-to
+2501) Instant Moodle Quiz Module How-to
+2502) Git: Version Control for Everyone
+2503) Instant OSGi Starter
+2504) Citrix Access Gateway VPX 5.04 Essentials
+2505) Instant Axure RP Starter
+2506) Instant Migration from Windows Server 2008 and 2008 R2 to 2012 How-to
+2507) Instant Migration to HTML5 and CSS3 How-to
+2508) Instant Silverlight 5 Animation
+2509) Instant Adobe Story Starter
+2510) PrimeFaces Cookbook
+2511) Instant Android Fragmentation Management How-to
+2512) Designing Next Generation Web Projects with CSS3
+2513) .Net Framework 4.5 Expert Programming Cookbook
+2514) AndEngine for Android Game Development Cookbook
+2515) JavaScript Unit Testing
+2516) SAP ABAP Advanced Cookbook
+2517) Kinect for Windows SDK Programming Guide
+2518) Developing Microsoft Dynamics GP Business Applications
+2519) KeyShot 3D Rendering
+2520) Oracle SOA Suite 11g Developer's Cookbook
+2521) Windows Server 2012 Unified Remote Access Planning and Deployment
+2522) Aftershot Pro: Non-destructive photo editing and management
+2523) Linux Mint System Administrator’s Beginner's Guide
+2524) Spring Security 3.1
+2525) Getting Started with Meteor.js JavaScript Framework
+2526) TeamCity 7 Continuous Integration Essentials
+2527) Data Visualization: a successful design process
+2528) Yii Rapid Application Development HOTSHOT
+2529) Learning Highcharts
+2530) Java EE Development with Eclipse
+2531) Microsoft Dynamics AX 2012 Services
+2532) Creating Games with cocos2d for iPhone 2
+2533) Learning Modernizr
+2534) Learning RStudio for R Statistical Computing
+2535) C# 5 First Look
+2536) Android 4: New Features for Application Development
+2537) Mac Application Development by Example: Beginner's Guide
+2538) Migrating to Drupal 7
+2539) BackTrack 5 Cookbook
+2540) WCF 4.5 Multi-Layer Services Development with Entity Framework
+2541) SOA Made Simple
+2542) Microsoft Dynamics CRM 2011 Application Design
+2543) Avid Media Composer 6.x Cookbook
+2544) Oracle Enterprise Manager Cloud Control 12c: Managing Data Center Chaos
+Page 54===============================================
+https://www.packtpub.com/all?search=&offset=2544&rows=48&sort=ss_cck_field_date_of_publication+desc
+2545) Oracle CRM On Demand Administration Essentials
+2546) jBPM5 Developer Guide
+2547) WiX 3.6: A Developer's Guide to Windows Installer XML
+2548) CoffeeScript Programming with jQuery, Rails, and Node.js
+2549) Oracle Primavera Contract Management, Business Intelligence Publisher Edition v14
+2550) Mastering OpenCV with Practical Computer Vision Projects
+2551) Box2D for Flash Games
+2552) Nmap 6: Network Exploration and Security Auditing Cookbook
+2553) VMware ThinApp 4.7 Essentials
+2554) Marmalade SDK Mobile Game Development Essentials
+2555) Ext.NET Web Application Development
+2556) Arch Linux Environment Setup How-to
+2557) Magento Mobile How-to
+2558) Team Foundation Server 2012 Starter
+2559) Windows Server 2012 Hyper-V Cookbook
+2560) Learning ShiVa3D Game Development
+2561) Manage Partitions with GParted How-to
+2562) MATLAB Graphics and Data Visualization Cookbook
+2563) Drupal Rules How-to
+2564) Articulate Studio Cookbook
+2565) Network Backup with Bacula How-To
+2566) Securing WebLogic Server 12c
+2567) HTML5 Graphing and Data Visualization Cookbook
+2568) WordPress Mobile Applications with PhoneGap
+2569) Selenium Testing Tools Cookbook
+2570) Desire2Learn for Higher Education Cookbook
+2571) Microsoft Dynamics CRM 2011 Customization & Configuration (MB2-866) Certification Guide
+2572) KnockoutJS Starter
+2573) Circos Data Visualization How-to
+2574) Laravel Starter
+2575) HTML5 Boilerplate Web Development
+2576) ActionScript Graphing Cookbook
+2577) Cinema 4D Beginner's Guide
+2578) SAP HANA Starter
+2579) QlikView 11 for Developers
+2580) Web Application Development with Yii and PHP
+2581) Twitter Bootstrap Web Development How-To
+2582) jQuery Mobile Cookbook
+2583) IBM Cognos Insight
+2584) Sencha MVC Architecture
+2585) Teaching with iPad How-To
+2586) GateIn Cookbook
+2587) Getting Started with Talend Open Studio for Data Integration
+2588) Spring Data
+2589) Oracle APEX Best Practices
+2590) Microsoft Dynamics AX 2012 Security How-To
+2591) Continuous Delivery and DevOps: A Quickstart guide
+2592) Microsoft System Center 2012 Service Manager Cookbook
+Page 55===============================================
+https://www.packtpub.com/all?search=&offset=2592&rows=48&sort=ss_cck_field_date_of_publication+desc
+2593) Augmented Reality using Appcelerator Titanium Starter
+2594) Web Services Testing with soapUI
+2595) TextMate How-To
+2596) Yammer Starter
+2597) Oracle 11g Anti-hacker's Cookbook
+2598) HornetQ Messaging Developer’s Guide
+2599) Gradle Effective Implementation Guide
+2600) SQL Server 2012 with PowerShell V3 Cookbook
+2601) NumPy Cookbook
+2602) Windows Azure programming patterns for Start-ups
+2603) Akka Essentials
+2604) Java 7 Concurrency Cookbook
+2605) Learning Adobe Edge Animate
+2606) 3ds Max Speed Modeling for 3D Artists
+2607) Oracle ADF Real World Developer’s Guide
+2608) PhoneGap Mobile Application Development Cookbook
+2609) EVE Online: ISK Strategy Guide
+2610) Mind Mapping with FreeMind
+2611) Excel Programming with VBA Starter
+2612) What's New in SQL Server 2012
+2613) BMC Control-M 7: A Journey from Traditional Batch Scheduling to Workload Automation
+2614) Piwik Web Analytics Essentials
+2615) Final Cut Pro X Cookbook
+2616) Microsoft System Center 2012 Endpoint Protection Cookbook
+2617) Microsoft Windows PowerShell 3.0 First Look
+2618) HTML5 Video How-To
+2619) Oracle BPM Suite 11g: Advanced BPMN Topics
+2620) Windows Presentation Foundation 4.5 Cookbook
+2621) Microsoft SQL Server 2012 Security Cookbook
+2622) Learning Adobe Muse
+2623) OpenStack Cloud Computing Cookbook
+2624) Microsoft System Center 2012 Configuration Manager: Administration Cookbook
+2625) iPad Enterprise Application Development BluePrints
+2626) XNA 4 3D Game Development by Example: Beginner's Guide
+2627) iWork for Mac OS X Cookbook
+2628) IBM Websphere Portal 8: Web Experience Factory and the Cloud
+2629) Balsamiq Wireframes Quickstart Guide
+2630) Blender Game Engine: Beginner’s Guide
+2631) LMMS: A Complete Guide to Dance Music Production
+2632) CryENGINE 3 Game Development: Beginner's Guide
+2633) Mudbox 2013 Cookbook
+2634) Processing 2: Creative Programming Cookbook
+2635) Drupal Search Engine Optimization
+2636) Intelligent Document Capture with Ephesoft
+2637) FreeCAD
+2638) MySQL Management and Administration with Navicat
+2639) RapidWeaver 5 Beginner's Guide
+2640) ExtGWT Rich Internet Application Cookbook
+Page 56===============================================
+https://www.packtpub.com/all?search=&offset=2640&rows=48&sort=ss_cck_field_date_of_publication+desc
+2641) Visual Studio 2012 Cookbook
+2642) Sonar Code Quality Testing Essentials
+2643) Oracle SOA Suite 11g Administrator's Handbook
+2644) Microsoft Forefront Identity Manager 2010 R2 Handbook
+2645) WordPress Mobile Web Development: Beginner's Guide
+2646) Ext JS 4 Web Application Development Cookbook
+2647) UDK iOS Game Development Beginner's Guide
+2648) Visual Studio 2010 Best Practices
+2649) OpenLayers Cookbook
+2650) Governance, Risk, and Compliance Handbook for Oracle Applications
+2651) PHP Application Development with NetBeans: Beginner's Guide
+2652) Oracle Certified Associate, Java SE 7 Programmer Study Guide
+2653) Mastering Adobe Captivate 6
+2654) Oracle Primavera P6 Version 8: Project and Portfolio Management
+2655) HBase Administration Cookbook
+2656) Infinispan Data Grid Platform
+2657) MVVM Survival Guide for Enterprise Architectures in Silverlight and WPF
+2658) Getting Started with Citrix XenApp 6.5
+2659) Blackboard Essentials for Teachers
+2660) Sony Vegas Pro 11 Beginner's Guide
+2661) Microsoft Windows Server AppFabric Cookbook
+2662) WordPress Plugin Development Cookbook
+2663) Ruby and MongoDB Web Development Beginner's Guide
+2664) LiveCode Mobile Development Beginner's Guide
+2665) Microsoft SQL Server 2012 Performance Tuning Cookbook
+2666) Mahara ePortfolios: Beginner’s Guide
+2667) OData Programming Cookbook for .NET Developers
+2668) Node Cookbook
+2669) Mastering Prezi for Business Presentations
+2670) Windows Phone 7.5: Building Location-aware Applications
+2671) IBM Cognos Business Intelligence 10.1 Dashboarding Cookbook
+2672) Oracle Business Intelligence Enterprise Edition 11g: A Hands-On Tutorial
+2673) Drupal 7 Cookbook
+2674) Business Intelligence Cookbook: A Project Lifecycle Approach Using Oracle Technology
+2675) Oracle Database XE 11gR2 Jump Start Guide
+2676) Joomla! Search Engine Optimization
+2677) Oracle WebLogic Server 12c: First Look
+2678) MCTS: Microsoft Silverlight 4 Development (70-506) Certification Guide
+2679) Microsoft SharePoint 2010 Business Application Blueprints
+2680) Citrix XenServer 6.0 Administration Essential Guide
+2681) Unity 3.x Scripting
+2682) Joomla! Mobile Development Beginner’s Guide
+2683) Metasploit Penetration Testing Cookbook
+2684) Blender 3D Basics
+2685) Java EE 6 Cookbook for Securing, Tuning, and Extending Enterprise Applications
+2686) CouchDB and PHP Web Development Beginner's Guide
+2687) Microsoft XNA 4.0 Game Development Cookbook
+2688) Jenkins Continuous Integration Cookbook
+Page 57===============================================
+https://www.packtpub.com/all?search=&offset=2688&rows=48&sort=ss_cck_field_date_of_publication+desc
+2689) WebGL Beginner's Guide
+2690) Runescape Gold Strategy Guide
+2691) WordPress for Education
+2692) VMware View 5 Desktop Virtualization Solutions
+2693) (MCTS): Microsoft BizTalk Server 2010 (70-595) Certification Guide
+2694) Android Database Programming
+2695) Microsoft Office 365: Exchange Online Implementation and Migration
+2696) (MCTS): Microsoft Windows Small Business Server 2011 Standard, Configuring (70-169) Certification Guide
+2697) OpenNebula 3 Cloud Computing
+2698) Management in India: Grow from an Accidental to a successful manager in the IT & knowledge industry
+2699) Getting Started with Oracle Data Integrator 11g: A Hands-On Tutorial
+2700) Microsoft SharePoint for Business Executives: Q&A Handbook
+2701) Inkscape Beginner’s Guide
+2702) Oracle SOA Infrastructure Implementation Certification Handbook (1Z0-451)
+2703) Microsoft SQL Server 2012 Integration Services: An Expert Cookbook
+2704) Mastering Magento
+2705) Drupal 7 Development by Example Beginner’s Guide
+2706) Java 7 JAX-WS Web Services
+2707) Construct Game Development Beginners Guide
+2708) Oracle Advanced PL/SQL Developer Professional Guide
+2709) Advanced Penetration Testing for Highly-Secured Environments: The Ultimate Security Guide
+2710) Moodle 2 for Teaching 7-14 Year Olds Beginner's Guide
+2711) Drupal 7 Webform Cookbook
+2712) Oracle E-Business Suite R12 Core Development and Extension Cookbook
+2713) Microsoft Dynamics AX 2012 Development Cookbook
+2714) OGRE 3D 1.7 Application Development Cookbook
+2715) jQuery Mobile Web Development Essentials
+2716) Intuit QuickBooks Enterprise Edition 12.0 Cookbook for Experts
+2717) IBM Cognos TM1 Developer's Certification guide
+2718) jQuery for Designers: Beginner’s Guide
+2719) Oracle E-Business Suite Financials R12: A Functionality Guide
+2720) Oracle BPM Suite 11g Developer's cookbook
+2721) Corona SDK Mobile Game Development: Beginner's Guide
+2722) FusionCharts Beginner’s Guide: The Official Guide for FusionCharts Suite
+2723) Microsoft Windows Identity Foundation Cookbook
+2724) Social Media for Wordpress: Build Communities, Engage Members and Promote Your Site
+2725) Monkey Game Development: Beginner's Guide
+2726) Microsoft Silverlight 5 Data and Services Cookbook
+2727) Drupal 7 Multilingual Sites
+2728) Moodle Gradebook
+2729) Responsive Web Design with HTML5 and CSS3
+2730) Drush User’s Guide
+2731) BizTalk Server 2010 Cookbook
+2732) Oracle BAM 11gR1 Handbook
+2733) The Game Jam Survival Guide
+2734) phpMyAdmin Starter
+2735) Inkscape Starter
+2736) Cisco Unified Communications Manager 8: Expert Administration Cookbook
+Page 58===============================================
+https://www.packtpub.com/all?search=&offset=2736&rows=48&sort=ss_cck_field_date_of_publication+desc
+2737) Microsoft Application Virtualization Advanced Guide
+2738) Joomla! 2.5 Beginner’s Guide
+2739) Oracle JD Edwards EnterpriseOne 9.0: Supply Chain Management Cookbook
+2740) Entity Framework 4.1: Expert’s Cookbook
+2741) Drupal 7 Views Cookbook
+2742) Drupal 7 Multi Sites Configuration
+2743) iPhone Location Aware Apps by Example - Beginner's Guide
+2744) Apache Tomcat 7 Essentials
+2745) OpenSceneGraph 3 Cookbook
+2746) iPhone with Microsoft Exchange Server 2010: Business Integration and Deployment
+2747) Microsoft Silverlight 5 and Windows Azure Enterprise Integration
+2748) GameSalad Beginner’s Guide
+2749) Adobe Edge Quickstart Guide
+2750) Drupal 7 Mobile Web Development Beginner’s Guide
+2751) web2py Application Development Cookbook
+2752) Alfresco Share
+2753) IBM DB2 9.7 Advanced Application Developer Cookbook
+2754) Managing Data and Media in Microsoft Silverlight 4: A mashup of chapters from Packt's bestselling Silverlight books
+2755) gnuplot Cookbook
+2756) Oracle Application Integration Architecture (AIA) Foundation Pack 11gR1: Essentials
+2757) IBM DB2 9.7 Advanced Administration Cookbook
+2758) Mastering LOB Development for Silverlight 5: A Case Study in Action
+2759) jQuery Tools UI Library
+2760) FreeSWITCH Cookbook
+2761) iAd Production Beginner’s Guide
+2762) Java 7 New Features Cookbook
+2763) Unity iOS Game Development Beginners Guide
+2764) Unreal Development Kit Game Design Cookbook
+2765) Microsoft SharePoint 2010 Developer’s Compendium: The Best of Packt for Extending SharePoint
+2766) Spring Web Services 2 Cookbook
+2767) Windows Phone 7 XNA Cookbook
+2768) Sencha Touch Mobile JavaScript Framework
+2769) Mastering Microsoft Forefront UAG 2010 Customization
+2770) Cinema 4D R13 Cookbook
+2771) Mastering phpMyAdmin 3.4 for Effective MySQL Management
+2772) Flash iOS Apps Cookbook
+2773) Elgg 1.8 Social Networking
+2774) HTML5 Mobile Development Cookbook
+2775) Microsoft Silverlight 5: Building Rich Enterprise Dashboards
+2776) Liferay Portal Systems Development
+2777) .NET 4.0 Generics Beginner’s Guide
+2778) Microsoft Windows Intune 2.0: Quickstart Administration
+2779) Android NDK Beginner’s Guide
+2780) IBM Lotus Notes and Domino 8.5.3: Upgrader's Guide
+2781) Force.com Developer Certification Handbook (DEV401)
+2782) JBoss ESB Beginner’s Guide
+2783) Axure RP 6 Prototyping Essentials
+2784) Oracle JDeveloper 11gR2 Cookbook
+Page 59===============================================
+https://www.packtpub.com/all?search=&offset=2784&rows=48&sort=ss_cck_field_date_of_publication+desc
+2785) iOS 5 Essentials
+2786) Oracle Service Bus 11g Development Cookbook
+2787) Oracle Essbase 11 Development Cookbook
+2788) Drupal 7 Business Solutions
+2789) Oracle Database 11gR2 Performance Tuning Cookbook
+2790) Microsoft Dynamics CRM 2011: Dashboards Cookbook
+2791) Drupal 7 Theming Cookbook
+2792) Ext JS 4 First Look
+2793) Drools Developer’s Cookbook
+2794) XNA 4.0 Game Development by Example: Beginner's Guide – Visual Basic Edition
+2795) qooxdoo Beginner's Guide
+2796) Do more with SOA Integration: Best of Packt
+2797) Sencha Touch Cookbook
+2798) Microsoft SharePoint 2010 development cookbook
+2799) Unity 3.x Game Development Essentials
+2800) Appcelerator Titanium Smartphone App Development Cookbook
+2801) JBoss AS 7 Configuration, Deployment and Administration
+2802) Railo 3 Beginner’s Guide
+2803) Unreal Development Kit Game Programming with UnrealScript: Beginner's Guide
+2804) IBM Cognos TM1 Cookbook
+2805) Cocos2d for iPhone 1 Game Development Cookbook
+2806) iOS Development using MonoTouch Cookbook
+2807) WordPress 3 Cookbook
+2808) Unity iOS Essentials
+2809) PHP Ajax Cookbook
+2810) Oracle Hyperion Interactive Reporting 11 Expert Guide
+2811) OCA Oracle Database 11g: SQL Fundamentals I: A Real World Certification Guide ( 1ZO-051 )
+2812) WordPress 3 For Business Bloggers
+2813) Liferay Beginner’s Guide
+2814) Google SketchUp for Game Design: Beginner's Guide
+2815) PHP and MongoDB Web Development Beginner’s Guide
+2816) HTML5 Canvas Cookbook
+2817) Adobe Flash 11 Stage3D (Molehill) Game Programming Beginner’s Guide
+2818) iPhone User Interface Cookbook
+2819) NetSuite OneWorld Implementation 2011 R2
+2820) Google Plus First Look: a tip-packed, comprehensive look at Google+
+2821) JIRA Development Cookbook
+2822) Internet Marketing with WordPress
+2823) Agile IT Security Implementation Methodology
+2824) IBM Sametime 8.5.2 Administration Guide
+2825) Moodle 2.0 Course Conversion Beginner's Guide
+2826) Facebook Application Development with Graph API Cookbook
+2827) Microsoft SharePoint 2010 and Windows PowerShell 2.0: Expert Cookbook
+2828) Apache Solr 3 Enterprise Search Server
+2829) NumPy 1.5 Beginner's Guide
+2830) Oracle BI Publisher 11g: A Practical Guide to Enterprise Reporting
+2831) Microsoft Dynamics CRM 2011 New Features
+2832) Android 3.0 Animations: Beginner’s Guide
+Page 60===============================================
+https://www.packtpub.com/all?search=&offset=2832&rows=48&sort=ss_cck_field_date_of_publication+desc
+2833) Moodle 2 Administration
+2834) Microsoft BizTalk Server 2010 Patterns
+2835) Irrlicht 1.7 Realtime 3D Engine Beginner's Guide
+2836) Windows Phone 7.5 Data Cookbook
+2837) CFEngine 3 Beginner’s Guide
+2838) Google App Inventor
+2839) iClone 4.31 3D Animation Beginner's Guide
+2840) Puppet 2.7 Cookbook
+2841) Learning Vaadin
+2842) Moodle 2 for Teaching 4-9 Year Olds Beginner's Guide
+2843) Microsoft SharePoint 2010 Power User Cookbook
+2844) Salesforce CRM: The Definitive Admin Handbook
+2845) iPhone Applications Tune-Up
+2846) IBM WebSphere Application Server 8.0 Administration Guide
+2847) Microsoft Dynamics NAV 2009: Professional Reporting
+2848) Spring Roo 1.1 Cookbook
+2849) Oracle Weblogic Server 11gR1 PS2: Administration Essentials
+2850) Unity 3.x Game Development by Example Beginner's Guide
+2851) Dreamweaver CS5.5 Mobile and Web Development with HTML5, CSS3, and jQuery
+2852) PhoneGap Beginner's Guide
+2853) Getting Started with Oracle Hyperion Planning 11
+2854) Oracle Identity and Access Manager 11g for Administrators
+2855) Sage ACT! 2012 Cookbook
+2856) Microsoft SharePoint 2010 Development with Visual Studio 2010 Expert Cookbook
+2857) Learning jQuery, Third Edition
+2858) Drupal 7 Social Networking
+2859) SAP NetWeaver MDM 7.1 Administrator's Guide
+2860) Microsoft Visual Studio LightSwitch Business Application Development
+2861) Mahara 1.4 Cookbook
+2862) Google Apps: Mastering Integration and Customization
+2863) Oracle Information Integration, Migration, and Consolidation
+2864) BackTrack 5 Wireless Penetration Testing Beginner’s Guide
+2865) FreeRADIUS Beginner's Guide
+2866) Unity 3 Game Development HOTSHOT
+2867) Professional Plone 4 Development
+2868) Unreal Development Kit Beginner’s Guide
+2869) Kohana 3.0 Beginner’s Guide
+2870) HTML5 Games Development by Example: Beginner’s Guide
+2871) Xcode 4 iOS Development Beginner's Guide
+2872) Apache Maven 3 Cookbook
+2873) Moodle 2.0 E-Learning Course Development
+2874) Flash Facebook Cookbook
+2875) Windows Phone 7 Silverlight Cookbook
+2876) Yii 1.1 Application Development Cookbook
+2877) NHibernate 3 Beginner's Guide
+2878) jQuery UI 1.8: The User Interface Library for jQuery
+2879) Oracle E-Business Suite 12 Financials Cookbook
+2880) Magento 1.4 Theming Cookbook
+Page 61===============================================
+https://www.packtpub.com/all?search=&offset=2880&rows=48&sort=ss_cck_field_date_of_publication+desc
+2881) Node Web Development
+2882) MDX with Microsoft SQL Server 2008 R2 Analysis Services Cookbook
+2883) Play Framework Cookbook
+2884) Microsoft Windows Azure Development Cookbook
+2885) Rhomobile Beginner's Guide
+2886) haXe 2 Beginner's Guide
+2887) jQuery UI Themes Beginner's Guide
+2888) OpenGL 4.0 Shading Language Cookbook
+2889) phpList 2 E-mail Campaign Manager
+2890) Alfresco 3 Cookbook
+2891) Android 3.0 Application Development Cookbook
+2892) Microsoft Exchange 2010 PowerShell Cookbook
+2893) MooTools 1.3 Cookbook
+2894) Oracle WebCenter 11g PS3 Administration Cookbook
+2895) Apache Solr 3.1 Cookbook
+2896) Amazon Web Services: Migrating your .NET Enterprise Application
+2897) Microsoft SQL Server 2008 R2 Master Data Services
+2898) Microsoft BizTalk 2010: Line of Business Systems Integration
+2899) Cassandra High Performance Cookbook
+2900) Excel 2010 Financials Cookbook
+2901) Drupal 7 Fields/CCK Beginner's Guide
+2902) vtiger CRM Beginner's Guide
+2903) Sakai CLE Courseware Management: The Official Guide
+2904) CryENGINE 3 Cookbook
+2905) Pentaho Data Integration 4 Cookbook
+2906) jQuery Mobile First Look
+2907) Oracle PeopleSoft Enterprise Financial Management 9.1 Implementation
+2908) Android Application Testing Guide
+2909) iPhone JavaScript Cookbook
+2910) Blender 2.5 HOTSHOT
+2911) GNU Octave Beginner's Guide
+2912) Java EE 6 Development with NetBeans 7
+2913) Blender 2.5 Character Animation Cookbook
+2914) Flash Development for Android Cookbook
+2915) Getting Started with Citrix XenApp 6
+2916) History Teaching with Moodle 2
+2917) WordPress 3 Ultimate Security
+2918) Oracle ADF Enterprise Application Development—Made Simple
+2919) EJB 3.1 Cookbook
+2920) NetBeans IDE 7 Cookbook
+2921) Away3D 3.6 Cookbook
+2922) Mastering SQL Queries for SAP Business One
+2923) Drupal 7 Themes
+2924) Microsoft SQL Server 2008 R2 Administration Cookbook
+2925) Joomla! VirtueMart 1.1 Theme and Template Design
+2926) Oracle 11g R1/R2 Real Application Clusters Essentials
+2927) Cocoa and Objective-C Cookbook
+2928) SAP BusinessObjects Dashboards 4.0 Cookbook
+Page 62===============================================
+https://www.packtpub.com/all?search=&offset=2928&rows=48&sort=ss_cck_field_date_of_publication+desc
+2929) Microsoft Data Protection Manager 2010
+2930) Nginx 1 Web Server Implementation Cookbook
+2931) OpenCV 2 Computer Vision Application Programming Cookbook
+2932) JIRA 4 Essentials
+2933) Microsoft SharePoint 2010 Enterprise Applications on Windows Phone 7
+2934) HTML5 Multimedia Development Cookbook
+2935) Moodle 2.0 Multimedia Cookbook
+2936) Oracle Enterprise Manager Grid Control 11g R1: Business Service Management
+2937) Python Testing Cookbook
+2938) Oracle Warehouse Builder 11g R2: Getting Started 2011
+2939) Python Text Processing with NLTK 2.0 Cookbook: LITE
+2940) Seam 2 Web Development: LITE
+2941) Drupal 6 Site Blueprints: LITE
+2942) PostgreSQL 9 Administration Cookbook: LITE Edition
+2943) Inkscape 0.48 Essentials for Web Designers: LITE
+2944) MySQL Admin Cookbook LITE: Replication and Indexing
+2945) JSF 2.0 Cookbook: LITE
+2946) Unity 3D Game Development by Example Beginner’s Guide: LITE
+2947) MySQL Admin Cookbook LITE: Configuration, Server Monitoring, Managing Users
+2948) IBM Lotus Notes 8.5 User Guide: LITE
+2949) Oracle 10g/11g Data and Database Management Utilities: LITE
+2950) EJB 3.0 Database Persistence with Oracle Fusion Middleware 11g: LITE
+2951) Microsoft Silverlight 4 Data and Services Cookbook: LITE
+2952) Processing XML documents with Oracle JDeveloper 11g: LITE
+2953) Mootools 1.2 Beginners Guide LITE: Getting started
+2954) Joomla! 1.5 Development Cookbook: LITE
+2955) Microsoft Dynamics GP 2010 Cookbook: LITE
+2956) Joomla! 1.5 Site Blueprints: LITE
+2957) SAP Business ONE Implementation: LITE
+2958) PostgreSQL 9 Administration Cookbook LITE: Configuration, Monitoring and Maintenance
+2959) CMS Made Simple 1.9 Beginner’s Guide: LITE Edition
+2960) Oracle Siebel CRM 8 User Management: LITE
+2961) Middleware Management with Oracle Enterprise Manager Grid Control 10g R5: LITE
+2962) Amazon SimpleDB: LITE
+2963) Python 3 Web Development Beginner's Guide
+2964) Sage Beginner's Guide
+2965) Moodle 2.0 for Business Beginner's Guide
+2966) SilverStripe 2.4 Module Extension, Themes, and Widgets: Beginner's Guide
+2967) Core Data iOS Essentials
+2968) IBM Rational ClearCase 7.0: Master the Tools That Monitor, Analyze, and Manage Software Configurations
+2969) Moodle JavaScript Cookbook
+2970) ASP.NET jQuery Cookbook
+2971) Oracle Siebel CRM 8 Developer's Handbook
+2972) Microsoft Dynamics GP 2010 Reporting
+2973) Alice 3 Cookbook
+2974) CMS Made Simple Development Cookbook
+2975) Inkscape 0.48 Illustrator's Cookbook
+2976) WordPress 3 Search Engine Optimization
+Page 63===============================================
+https://www.packtpub.com/all?search=&offset=2976&rows=48&sort=ss_cck_field_date_of_publication+desc
+2977) Zenoss Core 3.x Network and System Monitoring
+2978) BackTrack 4: Assuring Security by Penetration Testing
+2979) Apache Wicket Cookbook
+2980) WordPress 3 Plugin Development Essentials
+2981) IBM Lotus Domino: Classic Web Application Development Techniques
+2982) pfSense 2 Cookbook
+2983) Panda3D 1.7 Game Developer's Cookbook
+2984) Oracle Application Express 4.0 with Ext JS
+2985) ASP.NET 4 Social Networking
+2986) Flash Game Development by Example
+2987) Open Text Metastorm ProVision® 6.2 Strategy Implementation
+2988) OpenCart 1.4 Template Design Cookbook
+2989) LaTeX Beginner's Guide
+2990) OpenLayers 2.10 Beginner's Guide
+2991) concrete5 Beginner's Guide
+2992) Science Teaching with Moodle 2.0
+2993) jQuery 1.4 Animation Techniques: Beginners Guide
+2994) GIMP 2.6 cookbook
+2995) ZBrush 4 Sculpting for Games: Beginner's Guide
+2996) Sphinx Search Beginner's Guide
+2997) Cacti 0.8 Beginner's Guide
+2998) Joomla! 1.6 First Look
+2999) ADempiere 3.6 Cookbook
+3000) Celtx: Open Source Screenwriting Beginner's Guide
+3001) CakePHP 1.3 Application Development Cookbook
+3002) Android User Interface Development: Beginner's Guide
+3003) BlackBerry Enterprise Server 5 Implementation Guide
+3004) MODx Web Development - Second Edition
+3005) IBM WebSphere Application Server v7.0 Security
+3006) Oracle GoldenGate 11g Implementer's guide
+3007) Using CiviCRM
+3008) IBM Lotus Quickr 8.5 for Domino Administration
+3009) Squid Proxy Server 3.1: Beginner's Guide
+3010) IBM Rational Team Concert 2 Essentials
+3011) Getting Started with IBM FileNet P8 Content Manager
+3012) Apache Axis2 Web Services, 2nd Edition
+3013) Sage ACT! 2011 Dashboard and Report Cookbook
+3014) OpenVPN 2 Cookbook
+3015) Microsoft SharePoint 2010 End User Guide: Business Performance Enhancement
+3016) Tcl/Tk 8.5 Programming Cookbook
+3017) Moodle Security
+3018) Panda3D 1.6 Game Engine Beginner's Guide
+3019) Gnucash 2.4 Small Business Accounting: Beginner's Guide
+3020) Alfresco 3 Business Solutions
+3021) OpenAM
+3022) Microsoft Dynamics AX 2009 Administration
+3023) Linux Shell Scripting Cookbook
+3024) Away3D 3.6 Essentials
+Page 64===============================================
+https://www.packtpub.com/all?search=&offset=3024&rows=48&sort=ss_cck_field_date_of_publication+desc
+3025) Microsoft SQL Server 2008 High Availability
+3026) Getting Started with Microsoft Application Virtualization 4.6
+3027) Microsoft Dynamics Sure Step 2010
+3028) Microsoft SharePoint 2010 Administration Cookbook
+3029) Microsoft Forefront UAG 2010 Administrator's Handbook
+3030) WordPress 3 Complete
+3031) ASP.NET MVC 2 Cookbook
+3032) R Graphs Cookbook
+3033) Alfresco 3 Records Management
+3034) Magento 1.4 Themes Design
+3035) Yahoo User Interface Library 2.x Cookbook
+3036) TortoiseSVN 1.7 Beginner's Guide
+3037) Moodle as a Curriculum and Information Management System
+3038) Drupal Intranets with Open Atrium
+3039) HP Network Node Manager 9: Getting Started
+3040) Django JavaScript Integration: AJAX and jQuery
+3041) Blender 2.5 Materials and Textures Cookbook
+3042) Moodle 1.9 Testing and Assessment
+3043) Cocos2d for iPhone 0.99 Beginner's Guide
+3044) Python 2.6 Text Processing: Beginners Guide
+3045) Magento 1.4 Development Cookbook
+3046) Facebook Graph API Development with Flash
+3047) Python Geospatial Development
+3048) PHP jQuery Cookbook
+3049) Oracle APEX 4.0 Cookbook
+3050) 3D Graphics with XNA Game Studio 4.0
+3051) OpenSceneGraph 3.0: Beginner's Guide
+3052) CMS Design Using PHP and jQuery
+3053) Microsoft SQL Azure Enterprise Application Development
+3054) Microsoft Azure: Enterprise Application Development
+3055) wxPython 2.8 Application Development Cookbook
+3056) Scribus 1.3.5: Beginner's Guide
+3057) Oracle E-Business Suite R12 Supply Chain Management
+3058) Drupal 7 Module Development
+3059) JBoss AS 5 Performance Tuning
+3060) Ext GWT 2.0: Beginner's Guide
+3061) Software Testing using Visual Studio 2010
+3062) Liferay User Interface Development
+3063) Python 2.6 Graphics Cookbook
+3064) Google App Engine Java and GWT Application Development
+3065) Google Web Toolkit 2 Application Development Cookbook
+3066) OGRE 3D 1.7 Beginner's Guide
+3067) Drupal 7 First Look
+3068) Drupal Web Services
+3069) Selenium 1.0 Testing Tools: Beginner’s Guide
+3070) TYPO3 Templates
+3071) Microsoft Dynamics GP 2010 Implementation
+3072) Koha 3 Library Management System
+Page 65===============================================
+https://www.packtpub.com/all?search=&offset=3072&rows=48&sort=ss_cck_field_date_of_publication+desc
+3073) Drupal 6 Theming Cookbook
+3074) Microsoft Enterprise Library 5.0
+3075) Blender 2.5 Lighting and Rendering
+3076) Inkscape 0.48 Essentials for Web Designers
+3077) Python Text Processing with NLTK 2.0 Cookbook
+3078) OSGi and Apache Felix 3.0 Beginner's Guide
+3079) Moodle 1.9 Top Extensions Cookbook
+3080) Statistical Analysis with R
+3081) Joomla! 1.5 Cookbook
+3082) PostgreSQL 9 Admin Cookbook
+3083) OmniGraffle 5 Diagramming Essentials
+3084) PHP 5 Social Networking
+3085) Microsoft Dynamics NAV 2009 Programming Cookbook
+3086) Microsoft Windows Communication Foundation 4.0 Cookbook for Developing SOA Applications
+3087) PostgreSQL 9.0 High Performance
+3088) Joomla! 1.5 Top Extensions Cookbook
+3089) WiX: A Developer's Guide to Windows Installer XML
+3090) jQuery Plugin Development Beginner's Guide
+3091) Object-Oriented Programming in ColdFusion
+3092) ASP.NET Site Performance Secrets
+3093) WS-BPEL 2.0 for SOA Composite Applications with IBM WebSphere 7
+3094) Oracle Business Intelligence : The Condensed Guide to Analysis and Reporting
+3095) Learning Ext JS 3.2
+3096) Mastering phpMyAdmin 3.3.x for Effective MySQL Management
+3097) Web 2.0 Solutions with Oracle WebCenter 11g
+3098) NHibernate 3.0 Cookbook
+3099) Moodle 2.0 First Look
+3100) XNA 4.0 Game Development by Example: Beginner's Guide
+3101) Unity 3D Game Development by Example Beginner's Guide
+3102) Microsoft Windows Workflow Foundation 4.0 Cookbook
+3103) Microsoft Dynamics NAV Administration
+3104) WordPress 3.0 jQuery
+3105) IBM Lotus Sametime 8 Essentials: A User's Guide
+3106) OpenStreetMap
+3107) MySQL for Python
+3108) WordPress Top Plugins
+3109) Building Websites with ExpressionEngine 2
+3110) Kentico CMS 5 Website Development: Beginner's Guide
+3111) Building job sites with Joomla!
+3112) Alfresco 3 Web Content Management
+3113) Implementing SugarCRM 5.x
+3114) The Business Analyst's Guide to Oracle Hyperion Interactive Reporting 11
+3115) Getting Started with Oracle BPM Suite 11gR1 – A Hands-On Tutorial
+3116) Oracle Fusion Middleware Patterns
+3117) Applied Architecture Patterns on the Microsoft Platform
+3118) Apache OfBiz Cookbook
+3119) Drupal 7
+3120) WS-BPEL 2.0 for SOA Composite Applications with Oracle SOA Suite 11g
+Page 66===============================================
+https://www.packtpub.com/all?search=&offset=3120&rows=48&sort=ss_cck_field_date_of_publication+desc
+3121) DotNetNuke 5.4 Cookbook
+3122) Blender 3D 2.49 Architecture, Buildings, and Scenery
+3123) WordPress 3 Site Blueprints
+3124) MySQL 5.1 Plugin Development
+3125) EJB 3.0 Database Persistence with Oracle Fusion Middleware 11g
+3126) Drupal 6 Panels Cookbook
+3127) OpenCart 1.4: Beginner's Guide
+3128) Silverlight 4 User Interface Cookbook
+3129) ChronoForms 3.1 for Joomla! site Cookbook
+3130) JavaScript Testing Beginner's Guide
+3131) JavaFX 1.2 Application Development Cookbook
+3132) BPEL PM and OSB operational management with Oracle Enterprise Manager 10g Grid Control
+3133) IBM Lotus Notes 8.5 User Guide
+3134) Cloning Internet Applications with Ruby
+3135) IBM InfoSphere Replication Server and Data Event Publisher
+3136) Alfresco 3 Web Services
+3137) PHP 5 CMS Framework Development - 2nd Edition
+3138) Flash Multiplayer Virtual Worlds
+3139) Troux Enterprise Architecture Solutions
+3140) NetBeans Platform 6.9 Developer's Guide
+3141) The Oracle Universal Content Management Handbook
+3142) Agile Web Application Development with Yii1.1 and PHP5
+3143) Python Multimedia
+3144) Oracle Siebel CRM 8 Installation and Management
+3145) Plone 3 Intranets
+3146) Python 3 Object Oriented Programming
+3147) Java EE 6 with GlassFish 3 Application Server
+3148) Plone 3.3 Site Administration
+3149) BlackBerry Java Application Development
+3150) FreeSWITCH 1.0.6
+3151) Refactoring with Microsoft Visual Studio 2010
+3152) PrestaShop 1.3 Theming – Beginner’s Guide
+3153) Microsoft Silverlight 4 and SharePoint 2010 Integration
+3154) Joomla! 1.5 JavaScript jQuery
+3155) ColdFusion 9 Developer Tutorial
+3156) Nginx HTTP Server
+3157) Joomla! Social Networking with JomSocial
+3158) BIRT 2.6 Data Analysis and Reporting
+3159) YUI 2.8: Learning the Library
+3160) Application Development for IBM WebSphere Process Server 7 and Enterprise Service Bus 7
+3161) Microsoft Visio 2010 Business Process Diagramming and Validation
+3162) Moodle 1.9 for Teaching Special Education Children (5-10): Beginner's Guide
+3163) Flash 10 Multiplayer Game Essentials
+3164) Least Privilege Security for Windows 7, Vista and XP
+3165) Joomla! 1.5 Templates Cookbook
+3166) Microsoft Dynamics GP 2010 Cookbook
+3167) Moodle 1.9: The English Teacher's Cookbook
+3168) WordPress 2.8 Themes Cookbook
+Page 67===============================================
+https://www.packtpub.com/all?search=&offset=3168&rows=48&sort=ss_cck_field_date_of_publication+desc
+3169) Catalyst 5.8: the Perl MVC Framework
+3170) Tcl 8.5 Network Programming
+3171) Oracle SOA Suite 11g R1 Developer's Guide
+3172) JasperReports 3.6 Development Cookbook
+3173) Compiere 3
+3174) Service Oriented Architecture: An Integration Blueprint
+3175) WCF 4.0 Multi-tier Services Development with LINQ to Entities
+3176) PrestaShop 1.3 Beginner's Guide
+3177) Microsoft Dynamics NAV 2009 Application Design
+3178) JSF 2.0 Cookbook
+3179) Documentum 6.5 Content Management Foundations
+3180) Amazon SimpleDB Developer Guide
+3181) Groovy for Domain-Specific Languages
+3182) Oracle Application Express 3.2 - The Essentials and More
+3183) Moodle 1.9 for Design and Technology
+3184) IBM Cognos 8 Report Studio Cookbook
+3185) Oracle JRockit: The Definitive Guide
+3186) Mastering Joomla! 1.5 Extension and Framework Development Second Edition
+3187) Joomla! 1.5 Site Blueprints
+3188) Spring Security 3
+3189) Spring Python 1.1
+3190) Django 1.2 E-commerce
+3191) Plone 3 Multimedia
+3192) IT Inventory and Resource Management with OCS Inventory NG 1.02
+3193) NHibernate 2 Beginner's Guide
+3194) GlassFish Security
+3195) Plone 3 Products Development Cookbook
+3196) Liferay Portal 6 Enterprise Intranets
+3197) TYPO3 4.2 E-Commerce
+3198) .NET Compact Framework 3.5 Data Driven Applications
+3199) SketchUp 7.1 for Architectural Visualization: Beginner's Guide
+3200) Hacking Vim 7.2
+3201) Moodle 1.9 Extension Development
+3202) Blender 2.49 Scripting
+3203) CodeIgniter 1.7 Professional Development
+3204) Moodle 1.9 Theme Design: Beginner's Guide
+3205) Microsoft Silverlight 4 Data and Services Cookbook
+3206) WordPress and Flash 10x Cookbook
+3207) Django 1.1 Testing and Debugging
+3208) Getting started with Audacity 1.3
+3209) iReport 3.7
+3210) VirtualBox 3.1: Beginner's Guide
+3211) Building Websites with DotNetNuke 5
+3212) Oracle Database 11g – Underground Advice for Database Administrators
+3213) High Availability MySQL Cookbook
+3214) Pentaho 3.2 Data Integration: Beginner's Guide
+3215) Microsoft Silverlight 4 Business Application Development: Beginner’s Guide
+3216) Firebug 1.5: Editing, Debugging, and Monitoring Web Pages
+Page 68===============================================
+https://www.packtpub.com/all?search=&offset=3216&rows=48&sort=ss_cck_field_date_of_publication+desc
+3217) WordPress 2.9 E-Commerce
+3218) Expert PHP 5 Tools
+3219) Magento 1.3 Sales Tactics Cookbook
+3220) Zabbix 1.8 Network Monitoring
+3221) OpenX Ad Server: Beginner's Guide
+3222) MediaWiki 1.1 Beginner's Guide
+3223) Drupal E-commerce with Ubercart 2.x
+3224) Apache MyFaces 1.2 Web Application Development
+3225) MySQL Admin Cookbook
+3226) Oracle Coherence 3.5
+3227) Joomla! 1.5: Beginner's Guide
+3228) CMS Made Simple 1.6: Beginner's Guide
+3229) Drupal 6 Performance Tips
+3230) Drupal 6 Attachment Views
+3231) Joomla! 1.5 Multimedia
+3232) The 3CX IP PBX Tutorial
+3233) Mahara 1.2 E-Portfolios: Beginner's Guide
+3234) TYPO3 4.3 Multimedia Cookbook
+3235) Grok 1.0 Web Development
+3236) jQuery 1.4 Reference Guide
+3237) Building Telephony Systems with OpenSIPS 1.6
+3238) Moodle 1.9 Teaching Techniques
+3239) IBM Lotus Notes and Domino 8.5.1
+3240) Magento 1.3: PHP Developer's Guide
+3241) Python Testing: Beginner's Guide
+3242) PHP 5 E-commerce Development
+3243) Apache Roller 4.0 – Beginner's Guide
+3244) Plone 3 for Education
+3245) MooTools 1.2 Beginner's Guide
+3246) Oracle SQL Developer 2.1
+3247) GlassFish Administration
+3248) AJAX and PHP: Building Modern Web Applications 2nd Edition
+3249) Microsoft Dynamics AX 2009 Development Cookbook
+3250) JBoss AS 5 Development
+3251) jBPM Developer Guide
+3252) Backbase 4 RIA Development
+3253) Oracle 11g Streams Implementer's Guide
+3254) ADempiere 3.4 ERP Solutions
+3255) Tomcat 6 Developer's Guide
+3256) Maximize Your Investment: 10 Key Strategies for Effective Packaged Software Implementations
+3257) Funambol Mobile Open Source
+3258) Middleware Management with Oracle Enterprise Manager Grid Control 10g R5
+3259) Microsoft Dynamics AX 2009 Programming: Getting Started
+3260) Apache MyFaces Trinidad 1.2: A Practical Guide
+3261) Apache CXF Web Service Development
+3262) Beginning OpenVPN 2.0.9
+3263) WordPress 2.8 Theme Design
+3264) JSF 1.2 Components
+Page 69===============================================
+https://www.packtpub.com/all?search=&offset=3264&rows=48&sort=ss_cck_field_date_of_publication+desc
+3265) Blender 3D 2.49 Incredible Machines
+3266) Spring Persistence with Hibernate
+3267) ModSecurity 2.5
+3268) Moodle 1.9 Math
+3269) Linux Email
+3270) Apache Geronimo 2.1: Quick Reference
+3271) RESTful Java Web Services
+3272) CodeIgniter 1.7
+3273) jQuery UI 1.7: The User Interface Library for jQuery
+3274) Matplotlib for Python Developers
+3275) IBM WebSphere eXtreme Scale 6
+3276) Programming Microsoft Dynamics NAV 2009
+3277) ICEfaces 1.8: Next Generation Enterprise Web Development
+3278) Joomla! with Flash
+3279) JBoss RichFaces 3.3
+3280) WordPress MU 2.8: Beginner's Guide
+3281) jQuery 1.3 with PHP
+3282) Joomla! 1.5 Content Administration
+3283) eZ Publish 4: Enterprise Web Sites Step-by-Step
+3284) Ext JS 3.0 Cookbook
+3285) Moodle 1.9 for Second Language Teaching
+3286) Joomla! 1.5 SEO
+3287) Getting Started With Oracle SOA Suite 11g R1 – A Hands-On Tutorial
+3288) Unity Game Development Essentials
+3289) Oracle User Productivity Kit 3.5
+3290) 3D Game Development with Microsoft Silverlight 3: Beginner's Guide
+3291) Symfony 1.3 Web Application Development
+3292) Zend Framework 1.8 Web Application Development
+3293) Joomla! 1.5 Development Cookbook
+3294) Asterisk 1.6
+3295) Drupal 6 Search Engine Optimization
+3296) Apache Maven 2 Effective Implementation
+3297) Pentaho Reporting 3.5 for Java Developers
+3298) PHP Team Development
+3299) Papervision3D Essentials
+3300) FreePBX 2.5 Powerful Telephony Solutions
+3301) Joomla! 1.5x Customization: Make Your Site Adapt to Your Needs
+3302) LWUIT 1.1 for Java ME Developers
+3303) Drupal 6 Site Blueprints
+3304) Solr 1.4 Enterprise Search Server
+3305) JasperReports 3.5 for Java Developers
+3306) WebSphere Application Server 7.0 Administration Guide
+3307) Asterisk 1.4 – the Professional’s Guide
+3308) Oracle Warehouse Builder 11g: Getting Started
+3309) Cacti 0.8 Network Monitoring
+3310) IBM Cognos 8 Planning
+3311) Oracle Application Express Forms Converter
+3312) Magento 1.3 Theme Design
+Page 70===============================================
+https://www.packtpub.com/all?search=&offset=3312&rows=48&sort=ss_cck_field_date_of_publication+desc
+3313) Building Enterprise Ready Telephony Systems with sipXecs 4.0
+3314) Plone 3 Theming
+3315) Expert Cube Development with Microsoft SQL Server 2008 Analysis Services
+3316) WordPress 2.7 Cookbook
+3317) Oracle VM Manager 2.1.2
+3318) Drools JBoss Rules 5.0 Developer's Guide
+3319) Scratch 1.4: Beginner’s Guide
+3320) Drupal 6 Content Administration
+3321) Flex 3 with Java
+3322) Oracle 10g/11g Data and Database Management Utilities
+3323) Oracle Essbase 9 Implementation Guide
+3324) ASP.NET 3.5 CMS Development
+3325) Joomla! 1.5 Template Design
+3326) Mastering Oracle Scheduler in Oracle 11g Databases
+3327) Apache Struts 2 Web Application Development
+3328) Alfresco 3 Enterprise Content Management Implementation
+3329) Smarty Programação de Aplicações em PHP Usando Templates [Portuguese]
+3330) Sakai Courseware Management: The Official Guide
+3331) WordPress 2.7 Complete
+3332) SAP Business ONE Implementation
+3333) Flash with Drupal
+3334) Grails 1.1 Web Application Development
+3335) Drupal 5 Views Recipes
+3336) Liferay Portal 5.2 Systems Development
+3337) Moodle 1.9 Multimedia
+3338) Processing XML documents with Oracle JDeveloper 11g
+3339) PHP and script.aculo.us Web 2.0 Application Interfaces
+3340) Seam 2.x Web Development
+3341) SOA Patterns with BizTalk Server 2009
+3342) Small Business Server 2008 – Installation, Migration, and Configuration
+3343) Choosing an Open Source CMS: Beginner's Guide
+3344) JBoss Tools 3 Developers Guide
+3345) JBoss Drools Business Rules
+3346) Spring Web Flow 2 Web Development
+3347) Magento: Beginner's Guide
+3348) MODx Web Development
+3349) Moodle 1.9 for Teaching 7-14 Year Olds: Beginner's Guide
+3350) Joomla! E-Commerce with VirtueMart
+3351) Learning SQL Server 2008 Reporting Services
+3352) Oracle SOA Suite Developer's Guide
+3353) VSTO 3.0 for Office 2007 Programming
+3354) ASP.NET MVC 1.0 Quickly
+3355) Mastering phpMyAdmin 3.1 for Effective MySQL Management
+3356) Django 1.0 Website Development
+3357) Drupal 6 JavaScript and jQuery
+3358) Spring 2.5 Aspect Oriented Programming
+3359) Drupal 6 Social Networking
+3360) trixbox CE 2.6
+Page 71===============================================
+https://www.packtpub.com/all?search=&offset=3360&rows=48&sort=ss_cck_field_date_of_publication+desc
+3361) WordPress Plugin Development: Beginner's Guide
+3362) Learning jQuery 1.3
+3363) jQuery UI 1.6: The User Interface Library for jQuery
+3364) Asterisk Gateway Interface 1.4 and 1.6 Programming
+3365) Practical Plone 3: A Beginner's Guide to Building Powerful Websites
+3366) C# 2008 and 2005 Threaded Programming: Beginner's Guide
+3367) JBoss Portal Server Development
+3368) Implementing Microsoft Dynamics NAV 2009
+3369) Learning Joomla! 1.5 Extension Development
+3370) Drupal 6 Site Builder Solutions
+3371) CISSP in 21 Days
+3372) Software Testing with Visual Studio Team System 2008
+3373) ASP.NET 3.5 Social Networking
+3374) Django 1.0 Template Development
+3375) Moodle Course Conversion: Beginner's Guide
+3376) WCF Multi-tier Services Development with LINQ
+3377) Learning Dojo
+3378) Learning Ext JS
+3379) Drupal for Education and E-Learning
+3380) Alfresco Developer Guide
+3381) Apache OFBiz Development: The Beginner's Tutorial
+3382) Java EE 5 Development with NetBeans 6
+3383) Drupal Multimedia
+3384) RESTful PHP Web Services
+3385) Entity Framework Tutorial
+3386) DWR Java AJAX Applications
+3387) Lighttpd
+3388) ASP.NET 3.5 Application Architecture and Design
+3389) Learning Nagios 3.0
+3390) Joomla! Web Security
+3391) SOA Governance
+3392) TYPO3 Extension Development
+3393) SOA Cookbook
+3394) Moodle Administration
+3395) CUPS Administrative Guide
+3396) Drupal 6 Themes
+3397) Expert Python Programming
+3398) Oracle Modernization Solutions
+3399) Business Process Driven SOA using BPMN and BPEL
+3400) Openfire Administration
+3401) Learning FreeNAS
+3402) MediaWiki Skins Design
+3403) WordPress for Business Bloggers
+3404) Building Websites with ExpressionEngine 1.6
+3405) Zen Cart: E-commerce Application Development
+3406) Object-Oriented JavaScript
+3407) SharePoint Designer Tutorial: Working with SharePoint Websites
+3408) CakePHP Application Development
+Page 72===============================================
+https://www.packtpub.com/all?search=&offset=3408&rows=48&sort=ss_cck_field_date_of_publication+desc
+3409) Oracle Web Services Manager
+3410) AJAX y PHP: Construyendo Aplicaciones Web Interactivas [Espanol]
+3411) ColdFusion 8 Developer Tutorial
+3412) Apache JMeter
+3413) Moodle 1.9 E-Learning Course Development
+3414) Microsoft Visual C++ Windows Applications by Example
+3415) Service Oriented Architecture with Java
+3416) Active Directory Disaster Recovery
+3417) Zenoss Core Network and System Monitoring
+3418) Swing Extreme Testing
+3419) Blender 3D Architecture, Buildings, and Scenery
+3420) Learning Facebook Application Development
+3421) WordPress Theme Design
+3422) Quickstart Apache Axis2
+3423) EJB 3 Developer Guide
+3424) Aptana RadRails: An IDE for Rails Development
+3425) DotNetNuke Skinning Tutorial
+3426) Learning Drupal 6 Module Development
+3427) Blogger: Beyond the Basics
+3428) JDBC 4.0 and Oracle JDeveloper for J2EE Development
+3429) Liferay Portal Enterprise Intranets
+3430) Scalix: Linux Administrator's Guide
+3431) Building Telephony Systems with OpenSER
+3432) Ruby on Rails Web Mashup Projects
+3433) OpenCms 7 Development
+3434) Network Administration with FreeBSD 7
+3435) Learning Website Development with Django
+3436) Building Powerful and Robust Websites with Drupal 6
+3437) Selling Online with Drupal e-Commerce
+3438) Building Dynamic Web 2.0 Websites with Ruby on Rails
+3439) Elgg Social Networking
+3440) ZK Developer's Guide
+3441) Building Websites with Joomla! 1.5
+3442) Learning the Yahoo! User Interface library
+3443) Mastering phpMyAdmin 2.11 for Effective MySQL Management
+3444) Service Oriented Java Business Integration
+3445) AsteriskNOW
+3446) Quality Assurance for Dynamics AX-Based ERP Solutions
+3447) Practical Data Analysis and Reporting with BIRT
+3448) Building SOA-Based Composite Applications Using NetBeans IDE 6
+3449) Mobile Web Development
+3450) Tapestry 5: Building Web Applications
+3451) Drupal 5 Themes
+3452) ASP.NET Data Presentation Controls Essentials
+3453) osCommerce Webmaster's Guide to Selling Online
+3454) Lotus Notes Domino 8: Upgrader's Guide
+3455) Object-Oriented Programming with PHP5
+3456) Beginners Guide to SQL Server Integration Services Using Visual Studio 2005
+Page 73===============================================
+https://www.packtpub.com/all?search=&offset=3456&rows=48&sort=ss_cck_field_date_of_publication+desc
+3457) Xen Virtualization
+3458) Managing Software Development with Trac and Subversion
+3459) Catalyst
+3460) SOA Approach to Integration
+3461) Mastering Joomla! 1.5 Extension and Framework Development
+3462) LINQ Quickly
+3463) Joomla! Cash
+3464) Joomla! Accessibility
+3465) Managing eZ Publish Web Content Management Projects
+3466) BlackBerry Enterprise Server for Microsoft® Exchange
+3467) Ruby on Rails Enterprise Application Development: Plan, Program, Extend
+3468) Java EE 5 Development using GlassFish Application Server
+3469) Zimbra: Implement, Administer and Manage
+3470) Programming Microsoft® Dynamics™ NAV
+3471) Moodle Teaching Techniques
+3472) Professional Plone Development
+3473) PHP Web 2.0 Mashup Projects: Practical PHP Mashups with Google Maps, Flickr, Amazon, YouTube, MSN Search, Yahoo!
+3474) SOA and WS-BPEL
+3475) Mastering OpenLDAP: Configuring, Securing and Integrating Directory Services
+3476) OSWorkflow: A guide for Java developers and architects to integrating open-source Business Process Management
+3477) Learning PHP Data Objects
+3478) Linux Thin Client Networks Design and Deployment
+3479) Business Process Management with JBoss jBPM
+3480) PHP Oracle Web Development: Data processing, Security, Caching, XML, Web Services, and Ajax
+3481) Microsoft AJAX Library Essentials: Client-side ASP.NET AJAX 1.0 Explained
+3482) jQuery Reference Guide
+3483) CodeIgniter for Rapid PHP Application Development
+3484) BPEL pour les services web : Deuxième Edition [French]
+3485) Learning jQuery : Better Interaction Design and Web Development with Simple JavaScript Techniques
+3486) Joomla! Template Design: Create your own professional-quality templates with this fast, friendly guide
+3487) SugarCRM Developer's Manual: Customize and extend SugarCRM
+3488) ODP.NET Developer’s Guide: Oracle Database 10g Development with Visual Studio 2005 and the Oracle Data Provider for .NET
+3489) Documentum Content Management Foundations: EMC Proven Professional Certification Exam E20-120 Study Guide
+3490) Learning Joomla! 1.5 Extension Development: Creating Modules, Components, and Plugins with PHP
+3491) Turinio valdymas su Plone [Lithuanian]
+3492) Hacking Vim: A Cookbook to get the Most out of the Latest Vim Editor
+3493) Project Management with dotProject: Implement, Configure, Customize, and Maintain your DotProject Installation
+3494) TrixBox: La telefonia VoIP resa semplice [Italian]
+3495) Construyendo Sistemas telefónicos con Asterisk [Espanol]
+3496) AJAX e PHP:Sviluppare applicazioni web dinamiche [Italiano]
+3497) CherryPy Essentials: Rapid Python Web Application Development
+3498) Dominar phpMyAdmin para una administración efectiva de MySQL [Espanol]
+3499) MediaWiki Administrators’ Tutorial Guide
+3500) Building Websites with TYPO3
+3501) Construyendo sitios web con PHP-Nuke [Espanol]
+3502) Visual SourceSafe 2005 Software Configuration Management in Practice
+3503) Google Web Toolkit GWT Java AJAX Programming
+3504) Alfresco Enterprise Content Management Implementation
+Page 74===============================================
+https://www.packtpub.com/all?search=&offset=3504&rows=48&sort=ss_cck_field_date_of_publication+desc
+3505) Domino 7 Application Development
+3506) Pluggable Authentication Modules: The Definitive Guide to PAM for Linux SysAdmins and C Developers
+3507) Programming Windows Workflow Foundation: Practical WF Techniques and Examples using XAML and C#
+3508) Learn OpenOffice.org Spreadsheet Macro Programming: OOoBasic and Calc automation
+3509) Mastering TypoScript: TYPO3 Website, Template, and Extension Development
+3510) Learning Mambo: A Step-by-Step Tutorial to Building Your Website
+3511) Creating your MySQL Database: Practical Design Tips and Techniques
+3512) Community Server Quickly
+3513) WordPress Complete
+3514) Designing and Implementing Linux Firewalls and QoS using netfilter, iproute2, NAT and l7-filter
+3515) Building Websites with XOOPS : A step-by-step tutorial
+3516) Costruire Sistemi Telefonici con Asterisk [Italiano]
+3517) Building Websites with VB.NET and DotNetNuke 4
+3518) Configuring IPCop Firewalls: Closing Borders with Open Source
+3519) TrixBox Made Easy
+3520) Deep Inside osCommerce: The Cookbook
+3521) PHP Programming with PEAR
+3522) Web Host Manager Administration Guide
+3523) Enhancing Microsoft Content Management Server with ASP.NET 2.0
+3524) JasperReports for Java Developers
+3525) BPEL Cookbook: Best Practices for SOA-based integration and composite applications development
+3526) GDI+ Application Custom Controls with Visual C# 2005
+3527) Web Content Management with Documentum
+3528) ImageMagick Tricks
+3529) Managing and Customizing OpenCms 6 Websites
+3530) Construindo Sistemas de Telefonia com o Asterisk [Portuguese]
+3531) Understanding TCP/IP
+3532) Drupal: Creating Blogs, Forums, Portals, and Community Websites
+3533) OpenVPN: Building and Integrating Virtual Private Networks
+3534) vBulletin: A Users Guide
+3535) Smarty PHP Template Programming and Applications
+3536) DNS in Action
+3537) cPanel User Guide and Tutorial
+3538) AJAX and PHP: Building Responsive Web Applications
+3539) The Microsoft Outlook Ideas Book
+3540) Building Websites with Joomla! v1.0
+3541) Implementing SugarCRM
+3542) Openswan: Building and Integrating Virtual Private Networks
+3543) PHPEclipse: A User Guide
+3544) phpBB: A User Guide
+3545) Building Online Stores with osCommerce: Beginner Edition
+3546) Business Process Execution Language for Web Services 2nd Edition
+3547) Mastering Mambo : E-Commerce, Templates, Module Development, SEO, Security, and Performance
+3548) Building Online Stores with osCommerce: Professional Edition
+3549) Building Websites with PHP-Nuke
+3550) Advanced Microsoft Content Management Server Development
+3551) Building Telephony Systems With Asterisk
+3552) UML 2.0 in Action: A project-based tutorial
+Page 75===============================================
+https://www.packtpub.com/all?search=&offset=3552&rows=48&sort=ss_cck_field_date_of_publication+desc
+3553) Learning Jakarta Struts 1.2: a concise and practical tutorial
+3554) Building Websites with Mambo
+3555) Windows Small Business Server SBS 2003: A Clear and Concise Administrator's Reference and How-To
+3556) TYPO3: Enterprise Content Management
+3557) Linux Email: Set up and Run a Small Office Email Server
+3558) User Training for Busy Programmers
+3559) Building Websites with VB.NET and DotNetNuke 3.0
+3560) SSL VPN : Understanding, evaluating and planning secure, web-based remote access
+3561) Windows Server 2003 Active Directory Design and Implementation: Creating, Migrating, and Merging Networks
+3562) Building Websites with Microsoft Content Management Server
+3563) Mastering phpMyAdmin for Effective MySQL Management
+3564) SpamAssassin: A practical guide to integration and configuration
+3565) Building Websites with OpenCms
+3566) Learning eZ publish 3 : Building content management solutions
+3567) Building Websites with the ASP.NET Community Starter Kit
+3568) R Graphs Cookbook Second Edition
+3569) Mastering matplotlib

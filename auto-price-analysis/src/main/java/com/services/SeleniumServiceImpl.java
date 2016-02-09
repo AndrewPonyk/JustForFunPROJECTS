@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BinaryOperator;
 
 /**
  * Created by andrii on 24.01.16.
@@ -30,49 +31,87 @@ public class SeleniumServiceImpl implements SeleniumService {
     }
 
     @Override
-    public List<Advert> getAllCars(String carUrl) {
+    public List<Advert> getAllCars(String carUrl,final String model) {
         final List<Advert> allCars = new ArrayList<>();
-        open(carUrl);
 
         By carsCountSelector = By.cssSelector("#resultsCount .count");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(carsCountSelector));
-        System.out.println(driver.findElement(carsCountSelector).getText());
 
-        List<WebElement> carsAdverts = driver.findElements(By.cssSelector(".ticket-item"));
-            carsAdverts.forEach(advert -> {
+        Integer count = -1000;
+        Integer currentPage = 0;
 
-                try{
-                    if(advert.findElements(By.cssSelector(".item.ticket-title")).size()>0){
-                        
-                        Advert advertItem = new Advert().
-                            setName(advert.findElements(By.cssSelector(".item.ticket-title")).get(0).getText()).
-                            setCity(advert.findElements(By.cssSelector(".location a")).get(0).getText()).
-                            setYear(extractYear(advert.findElements(By.cssSelector(".item.ticket-title")).get(0).getText())).
-                            setPrice(extractInteger(advert.findElements(By.cssSelector(".price-ticket .size16 strong")).get(0).getText())).
-                            setMileage(extractInteger(advert.findElements(By.cssSelector(".characteristic .item-char")).get(0).getText())).
-                            setDescription(advert.findElements(By.cssSelector(".descriptions-ticket")).get(0).getText()).
-                            setAutoriaId(extractAutoriaId(advert.findElements(By.cssSelector(".ticket-title .address")).get(0).getAttribute("href")));
-                        
-                        
-                                                
-                        
-                        if(!allCars.contains(advertItem) && advertItem.name != null && advertItem.name.length() > 0 ){
-                            FileSystemServiceImpl.saveImage(advertItem, advert.findElements(By.cssSelector(".ticket-photo img")).get(0).getAttribute("src"));
-                            advertItem.imageSaved = true;    
-                            allCars.add(advertItem);                            
-                        }
-                    }
-                }catch (Exception e) {
-                    //e.printStackTrace();
-                    //System.err.println(e.getMessage() + " For " + advert);
+        try{
+            open(carUrl);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(carsCountSelector));
+            System.out.println(driver.findElement(carsCountSelector).getText());
+            count = Integer.parseInt(driver.findElement(carsCountSelector).getText());
+        }catch (Exception e){
+            closeBrowser();
+            e.printStackTrace();
+            return allCars;
+        }
+
+        for(int i = 0; i <= count/100; i++){
+            if(i>0){
+                try {
+                    open("http://google.com");
+                    Thread.sleep(4000);
+                    System.out.println("CALLLING " + carUrl + "&page=" + i);
+                    open(carUrl + "&page=" + i);
+                    wait.until(ExpectedConditions.visibilityOfElementLocated(carsCountSelector));
+                } catch (Exception e) {
+                    closeBrowser();
+                    e.printStackTrace();
+                    return allCars;
                 }
-
             }
-        );
-        //closeBrowser();
 
+
+            List<WebElement> carsAdverts = driver.findElements(By.cssSelector(".ticket-item"));
+            System.out.println(i +"====:Size on page " + carsAdverts.size());
+            int[] counter = new int[1];
+            counter[0] = 0;
+            carsAdverts.forEach(advert -> {
+                        System.out.println("Counter " + (counter[0]++));
+                        try{
+                            List<WebElement> elements = advert.findElements(By.cssSelector(".item.ticket-title"));
+
+                            if(elements.size()>0 && elements.get(0).getText().length()>0){
+
+                                Advert advertItem = new Advert().
+                                        setName(advert.findElements(By.cssSelector(".item.ticket-title")).get(0).getText()).
+                                        setCity(advert.findElements(By.cssSelector(".location a")).get(0).getText()).
+                                        setYear(extractYear(advert.findElements(By.cssSelector(".item.ticket-title")).get(0).getText())).
+                                        setPrice(extractInteger(advert.findElements(By.cssSelector(".price-ticket .size16 strong")).get(0).getText())).
+                                        setMileage(extractInteger(advert.findElements(By.cssSelector(".characteristic .item-char")).get(0).getText())).
+                                        setDescription(advert.findElements(By.cssSelector(".descriptions-ticket")).get(0).getText()).
+                                        setAutoriaId(extractAutoriaId(advert.findElements(By.cssSelector(".ticket-title .address")).get(0).getAttribute("href"))).
+                                        setImageUrl(advert.findElements(By.cssSelector(".ticket-photo img")).get(0).getAttribute("src")).
+                                        setModel(model);
+
+                                System.out.println("Counter. " + counter[0]);
+                                System.out.println(advertItem);
+                                if(!allCars.contains(advertItem) && advertItem.name != null && advertItem.name.length() > 0 ){
+                                    allCars.add(advertItem);
+                                    System.out.println(allCars.size() + ";;;");
+                                }else {
+                                    System.out.println("==== DOnt add :" + advertItem) ;
+                                }
+                            }
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                            //System.err.println(e.getMessage() + " For " + advert);
+                        }
+
+                    }
+            );
+        }
+        final Integer averageModelPriceOnDate = (int)allCars.stream().mapToInt(e->e.price).average().getAsDouble();
+        allCars.forEach(car->{
+            car.setAveragePriceOnThisDate(averageModelPriceOnDate);
+        });
         return allCars;
     }
+
 
     public Integer extractYear (String name){
         String result = name.replaceAll("[^0-9]", "");

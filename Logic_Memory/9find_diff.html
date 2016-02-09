@@ -1,0 +1,112 @@
+<html>
+<head>
+    <title> Logic-Memory</title>
+    <link rel="stylesheet" href="styles/style.css" type="text/css"/>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="scripts/jquery-1.6.min.js"></script>
+    <script src="scripts/MatrixPlanFunctions.java.js"></script>
+    <script>
+
+        function splitLines(str){
+            var mas = str.split("LINESEPARATOR");
+            return mas;
+        }
+
+        $(function(){
+            var lines = splitLines(MatrixPlanFunctions);
+            for(var i =0;i<100;i++){
+                $("#source1_pre_container").append(lines[i]+"<br>");
+                $("#source2_pre_container").append(lines[i]+"<br>");
+            }
+            var scrolledObjects = $("#source1_pre_container, #source2_pre_container");
+
+            scrolledObjects.each(function(index, scrolledObj){
+
+                $(scrolledObj).scroll(function(){
+                    var scrollTop = $(this).scrollTop(),
+                            scrollLeft = $(this).scrollLeft();
+                    scrolledObjects.each(function(index, item){
+                        $(item).scrollTop(scrollTop);
+                        $(item).scrollLeft(scrollLeft);
+                    });
+                });
+
+            });
+
+        });
+
+    </script>
+    <style>
+        span.word{
+            margin: 4px;
+            border: 1px solid #444;
+            display: inline-block;
+        }
+
+        .german_words_panel{
+            padding: 10px;
+            border: 1px solid #666;
+        }
+
+        .source_containter{
+            width: 49%;
+            display: inline-block;
+            max-height: 550px;
+            overflow: scroll;
+            font-size: 0.9em;
+            border: 1px solid #555;
+        }
+    </style>
+</head>
+<body>
+<a href="index.html">Back to main</a>
+<span class="title">Find difference</span>
+<div id="settings" hidden>
+    <span class="section_title">Settings:</span>
+    <div>
+        <span>Lines of code</span>
+        <select id="words_count"  disabled >
+            <option value="20">2</option>
+            <option value="30">3</option>
+            <option value="40">4</option>
+            <option value="50">5</option>
+            <option value="60">6</option>
+            <option value="70" selected>7</option>
+            <option value="80">8</option>
+            <option value="90">9</option>
+            <option value="100">10</option>
+            <option value="110">11</option>
+            <option value="120">12</option>
+            <option value="140">12</option>
+            <option value="180">12</option>
+            <option value="210">12</option>
+            <option value="250">12</option>
+            <option value="300">12</option>
+            <option value="400">12</option>
+        </select>
+        <span>Diff count</span>
+        <select id="diff_count"  disabled >
+            <option value="20">2</option>
+            <option value="30">3</option>
+        </select>
+    </div>
+
+    <div id="controls_div">
+        <button id="find_diff_start">Start</button>
+    </div>
+</div>
+
+<h3>Best result: n/a</h3>
+
+<div id="find_diff_panel">
+    <div id="sources_area">
+        <pre id="source1_pre_container" class="source_containter"></pre>
+        <pre id="source2_pre_container" class="source_containter"></pre>
+    </div>
+
+</div>
+
+<div id="timer" title="Timer" style="display: block">0</div>
+
+</body>
+</html>
