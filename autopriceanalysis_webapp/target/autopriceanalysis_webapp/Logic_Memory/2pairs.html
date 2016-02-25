@@ -1,0 +1,193 @@
+<html>
+<head>
+<title>Logic-Memory</title>
+<link rel="stylesheet" href="styles/style.css" type="text/css" />
+<script type="text/javascript" src="scripts/jquery-1.6.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		pairsGame.reset();
+		
+		$("#pairs_start").click(function(){
+			pairsGame.startGame();
+		});
+	});
+	
+	var pairsGame = {};
+	
+	pairsGame.picturesCount = 0;
+	
+	pairsGame.currentTimer = null;
+	
+	pairsGame.availableImagesCount = 27;
+	
+	pairsGame.timeToSeeImages = 0;
+	
+	pairsGame.previousOpenedImage = null;
+	
+	pairsGame.correctAnswers = 0;
+	
+	pairsGame.currentImageTimeout = null;
+	
+	pairsGame.reset = function(){
+		$("#settings").show();
+		$("#images_area").hide();
+		$("#timer").hide();
+		$("#final_result").hide();
+	}
+	
+	pairsGame.generateRandomsImages = function(count, availableImagesCount){
+		var images = [];
+		
+		for( i=0; i < count; i++){
+			
+			unique = true;
+			while(unique){
+				var number = Math.floor(Math.random() * (availableImagesCount + 1));
+				image = "img/150150/" + number + ".jpg";
+				
+				if( images.indexOf(image) < 0 && number != 0){
+					images.push(image);
+					images.push(image);
+					console.log(image);
+					unique = false;
+				}
+			}	
+		}
+		
+		return this.shuffleArray(images);
+	}
+	
+	pairsGame.drawImages = function(images) {
+		var picturesElement = $("#images_area");
+		for (i = 0; i < images.length; i++) {
+			img = $("<img>");
+			img.attr("src", images[i]);
+			img.attr("data-correct-src", images[i]);
+			img.css("width", "100px");
+			img.css("height", "100px");
+			
+			picturesElement.append(img);
+		}
+	}
+
+	pairsGame.startGame = function() {
+		$("#settings").hide();
+		$("#images_area").show();
+		$("#timer").show();
+		$("#timer").text("0");
+		$("#final_result").show();
+		pairsGame.startTimer();
+
+		this.picturesCount = $("#numbers_count").val() / 2;
+		this.timeToSeeImages = $("#time_to_see_images").val() * 1000;
+	
+		this.drawImages(this.generateRandomsImages(this.picturesCount,
+				this.availableImagesCount));
+		
+		setTimeout(function(){
+			pairsGame.hideImagesAndStartNewTimer();
+			pairsGame.addHandlersToImages();
+		}, this.timeToSeeImages);
+		
+	}
+
+	pairsGame.hideImagesAndStartNewTimer = function() {
+		$("#images_area img").each(function(item, elem) {
+			elem.src = "img/150150/question_mark.jpg";
+		});
+		this.startTimer();
+	}
+
+	pairsGame.startTimer = function() {
+		var time = 0;
+		clearInterval(this.currentTimer);
+		var interval = setInterval(function() {
+			$("#timer").text(++time);
+		}, 1000);
+
+		this.currentTimer = interval;
+	}
+
+	pairsGame.shuffleArray = function(mas) {
+		for (var j, x, i = mas.length; i; j = parseInt(Math.random() * i), x = mas[--i], mas[i] = mas[j], mas[j] = x)
+			;
+		return mas;
+	};
+
+	pairsGame.addHandlersToImages = function() {
+		$("#images_area img")
+				.click(
+						function() {
+							var element = $(this);
+							element.attr("src", element
+									.attr("data-correct-src"));
+
+							if (pairsGame.previousOpenedImage
+									&& element.attr("src") == pairsGame.previousOpenedImage
+											.attr("data-correct-src")) {
+								console.log("correct");
+								clearTimeout(pairsGame.currentImageTimeout);
+								console.log("clearing");
+
+								pairsGame.previousOpenedImage.attr("src",
+										element.attr("data-correct-src"));
+								pairsGame.correctAnswers = pairsGame.correctAnswers + 1;
+								pairsGame.previousOpenedImage = null;
+
+								console.log(" console log :  ");
+								console.log(pairsGame.correctAnswers + " "
+										+ pairsGame.picturesCount);
+
+								if (pairsGame.correctAnswers == pairsGame.picturesCount) {
+									pairsGame.finishGameAndShowResult();
+								}
+							} else {
+								console.log("insorrect");
+								pairsGame.previousOpenedImage = element;
+								pairsGame.currentImageTimeout = setTimeout(
+										function() {
+											console.log("reseting");
+											element
+													.attr("src",
+															"img/150150/question_mark.jpg");
+										}, 1000);
+							}
+						});
+	};
+
+	pairsGame.finishGameAndShowResult = function() {
+		$("#images_area").hide();
+		$("#timer").hide();
+		$("#final_result").show();
+		$("#final_result").text("Your score is " + $("#timer").text());
+	}
+</script>
+</head>
+<body>
+	<a href="index.html">Back to main</a>
+	<span class="title">Picture pairs</span>
+	<div id="settings">
+		<span class="section_title">Settings:</span>
+		<div>
+			<span>Pictures count</span> <input id="numbers_count" value="26" />
+		</div>
+		<div>
+			<span>Time for see images:</span> <input id="time_to_see_images" value="8" />
+		</div>
+		
+		
+		<div id="controls_div">
+			<button id="pairs_start">Start</button>
+		</div>
+	</div>
+
+	<div id="timer">0</div>
+
+	<div id="images_area"></div>
+
+	<div id="final_result">
+		
+	</div>
+
+</body>
+</html>

@@ -2,9 +2,150 @@
 <head>
 <title> Logic-Memory</title>
 <link  rel="stylesheet" href="styles/style.css" type="text/css"/>
+<script src="scripts/jquery-1.6.min.js"></script>
+<script>
+	var MagicSquare = {};
+
+	MagicSquare.userColor = "red";
+
+	MagicSquare.colors = ["red", "green", "blue"];
+
+	MagicSquare.cellsColors = {"red": [], "green": [], "blue": []};
+
+	MagicSquare.shuffledCells = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
+		18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35];
+
+	MagicSquare.htmlCells = [];
+
+	MagicSquare.correctAnswersCount = 0;
+
+	MagicSquare.wrongAnswersCount = 0;
+
+	MagicSquare.start = function () {
+		$("#settings").hide();
+		$("#square-panel").show();
+		this.timeToRemembering = $("#time-to-remember").val();
+		this.fillRandomColors();
+		this.startTimer();
+	};
+
+	MagicSquare.startTimer = function () {
+		var time = 0;
+		clearInterval(this.currentTimer);
+		var interval = setInterval(function () {
+			$("#timer").text(++time);
+		}, 1000);
+		this.currentTimer = interval;
+	}
+
+	MagicSquare.fillRandomColors = function () {
+		var random = 0, random1 = 0, temp = 0;
+		this.htmlCells = $("#square-table td");
+
+		for (var i = 0; i < 10000; i++) {
+			random = Math.floor(Math.random() * 36);
+			random1 = Math.floor(Math.random() * 36);
+
+			temp = this.shuffledCells[random];
+			this.shuffledCells[random] = this.shuffledCells[random1];
+			this.shuffledCells[random1] = temp;
+		}
+
+		for(var colorNumber in this.colors){
+			for(var i = 0;i<9;i++){
+				console.log(this.shuffledCells[colorNumber * 9 + i] +  " " + this.colors[colorNumber]);
+				var index = this.shuffledCells[colorNumber * 9 + i];
+				$(this.htmlCells[index]).attr("data-color", this.colors[colorNumber]);
+				$(this.htmlCells[index]).css("background-color", this.colors[colorNumber]);
+			}
+		}
+
+		setTimeout(function(s){
+			for(var i = 0;i<MagicSquare.htmlCells.length;i++){
+				$(MagicSquare.htmlCells[i]).css("background-color", "black");
+			}
+		},MagicSquare.timeToRemembering * 1000)
+	}
+
+	MagicSquare.checkAnswer = function(){
+		this.correctAnswersCount++;
+		if(this.correctAnswersCount == 9){
+			alert("Correct answer" + ". In " + $("#timer").text() + " seconds." + "Wrong answers : " + MagicSquare.wrongAnswersCount);
+		}
+	}
+
+	$(function(){
+		$("#square-start").click(function(){
+			MagicSquare.start();
+		})
+
+		$("#square-table td").click(function(){
+			if($(this).attr("data-color")==MagicSquare.userColor){
+				MagicSquare.checkAnswer();
+				$(this).css("background-color", MagicSquare.userColor);
+			}else{
+				MagicSquare.wrongAnswersCount++;
+			}
+		});
+	})
+
+</script>
+<style>
+	#square-table {
+		border-collapse: collapse;
+		font-weight: bolder;
+	}
+	#square-table td {
+		background-color: black;
+		border: 1px solid white;
+		color: white;
+		height: 50px;
+		text-align: center;
+		width: 50px;
+	}
+	#square-panel {
+		width: 500px;
+		margin: 0 auto;
+	}
+</style>
 </head>
 <body>
 	<a href="index.html">Back to main</a>
-	<span class="title">7 digits remembering</span>
+	<span class="title">Square</span>
+
+	<div id="settings">
+		<span class="section_title">Settings:</span>
+		<div>
+			<span>Time to remembering</span>
+			<select id="time-to-remember">
+				<option value="10">10</option>
+				<option value="13">13</option>
+				<option value="15">15</option>
+			</select>
+			<span>Your color</span>
+			<select id="your-color">
+				<option value="1" selected>Red</option>
+				<option value="2">Green</option>
+				<option value="3">Blue</option>
+			</select>
+		</div>
+
+		<div id="controls_div">
+			<button id="square-start">Start</button>
+		</div>
+	</div>
+
+	<div id="square-panel" style="display: none;">
+		<table id="square-table">
+			<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+			<tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td></tr>
+			<tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td></tr>
+			<tr><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td></tr>
+			<tr><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td></tr>
+			<tr><td>31</td><td>32</td><td>33</td><td>34</td><td>35</td><td>36</td></tr>
+		</table>
+	</div>
+	<div id="timer" title="Timer" style="display: block">0</div>
+
 </body>
 </html>

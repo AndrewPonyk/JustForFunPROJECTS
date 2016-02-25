@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>Logic-Memory</title>
+<link rel="stylesheet" href="styles/style.css" type="text/css" />
+<script type="text/javascript" src="scripts/jquery-1.6.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        VeneziaRoute.clean();
+        $("#route_start").click(function(){
+            VeneziaRoute.start();
+            $("#submit_result_button").click(function(){
+                VeneziaRoute.checkResult();
+            });
+        });
+    });
+
+    var VeneziaRoute = {};
+    VeneziaRoute.clean = function(){
+
+    };
+
+    VeneziaRoute.start = function(){
+
+    };
+
+    VeneziaRoute.checkResult = function(){
+
+    }
+
+
+</script>
+<style type="text/css">
+    
+    table { 
+        border-collapse: collapse;
+    }
+
+    td {
+        border: 1px solid black;
+        display: inline-block;
+        height: 30px;
+        width: 30px;
+    }
+    
+    .table_containter{
+        width: 800px;
+        margin: 0 auto;
+    }
+    
+</style>
+</head>
+<body>
+<a href="index.html">Back to main</a>
+<span class="title">Venezia route</span>
+<div id="settings">
+    <span class="section_title">Settings:</span>
+    <div>
+        <span>Rectangle width</span>
+        <select id="rectangle_width">
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+        </select>
+        <span>Rectangle height</span>
+        <select id="rectangle_height"  >
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+        </select>
+        <span>Route length</span>
+        <select id="route_length">
+            <option value="7">7</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+        </select>
+    </div>
+    <div id="controls_div">
+        <button id="route_start">Start</button>
+    </div>
+
+</div>
+<div></div>
+<h3 style="display: none;">Best result: n/a</h3>
+
+    <div class="table_containter">
+	    <table>
+	        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	    </table>
+    </div>
+
+
+</body>
+</html>
