@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="2_8_0_0_0" name="1HTTP_Resources" nofquestions="2" nofsubcategories="0" filename="1http_resources2_8_0_0_0.xml">
+  <question id="2_8_0_0_0:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;difference&amp;nbsp;between&amp;nbsp;a&amp;nbsp;URI,&amp;nbsp;a&amp;nbsp;URL&amp;nbsp;and&amp;nbsp;a&amp;nbsp;URN&amp;nbsp;?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>URI&amp;nbsp;--&amp;nbsp;Uniform&amp;nbsp;Resource&amp;nbsp;Identifier&lt;br&gt;
+URIs&amp;nbsp;are&amp;nbsp;a&amp;nbsp;standard&amp;nbsp;for&amp;nbsp;identifying&amp;nbsp;documents&amp;nbsp;using&amp;nbsp;a&amp;nbsp;short&amp;nbsp;string&amp;nbsp;of&amp;nbsp;numbers,&amp;nbsp;letters,&amp;nbsp;and&amp;nbsp;symbols.&lt;br&gt;
+They&amp;nbsp;are&amp;nbsp;defined&amp;nbsp;by&amp;nbsp;RFC&amp;nbsp;3986&amp;nbsp;-&amp;nbsp;Uniform&amp;nbsp;Resource&amp;nbsp;Identifier&amp;nbsp;(URI):&amp;nbsp;Generic&amp;nbsp;Syntax.&amp;nbsp;URLs,&amp;nbsp;URNs,&amp;nbsp;and&amp;nbsp;URCs&amp;nbsp;are&amp;nbsp;all&amp;nbsp;types&amp;nbsp;of&amp;nbsp;URI.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;URL&amp;nbsp;--&amp;nbsp;Uniform&amp;nbsp;Resource&amp;nbsp;Locator&lt;br&gt;
+Contains&amp;nbsp;information&amp;nbsp;about&amp;nbsp;how&amp;nbsp;to&amp;nbsp;fetch&amp;nbsp;a&amp;nbsp;resource&amp;nbsp;from&amp;nbsp;its&amp;nbsp;location.&amp;nbsp;For&amp;nbsp;example:&lt;br&gt;
+&lt;br&gt;
+http://example.com/mypage.html&lt;br&gt;
+ftp://example.com/download.zip&lt;br&gt;
+mailto:user@example.com&lt;br&gt;
+file:///home/user/file.txt&lt;br&gt;
+tel:1-888-555-5555&lt;br&gt;
+http://example.com/resource?foo=bar#fragment&lt;br&gt;
+/other/link.html&amp;nbsp;(A&amp;nbsp;relative&amp;nbsp;URL,&amp;nbsp;only&amp;nbsp;useful&amp;nbsp;in&amp;nbsp;the&amp;nbsp;context&amp;nbsp;of&amp;nbsp;another&amp;nbsp;URL)&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;URN&amp;nbsp;--&amp;nbsp;Uniform&amp;nbsp;Resource&amp;nbsp;Name&lt;br&gt;
+Identifies&amp;nbsp;a&amp;nbsp;resource&amp;nbsp;by&amp;nbsp;a&amp;nbsp;unique&amp;nbsp;and&amp;nbsp;persistent&amp;nbsp;name,&amp;nbsp;but&amp;nbsp;doesn't&amp;nbsp;necessarily&amp;nbsp;tell&lt;br&gt;
+you&amp;nbsp;how&amp;nbsp;to&amp;nbsp;locate&amp;nbsp;it&amp;nbsp;on&amp;nbsp;the&amp;nbsp;internet.&amp;nbsp;It&amp;nbsp;usually&amp;nbsp;starts&amp;nbsp;with&amp;nbsp;the&amp;nbsp;prefix&amp;nbsp;urn:&amp;nbsp;For&amp;nbsp;example:&lt;br&gt;
+&lt;br&gt;
+urn:isbn:0451450523&amp;nbsp;to&amp;nbsp;identify&amp;nbsp;a&amp;nbsp;book&amp;nbsp;by&amp;nbsp;its&amp;nbsp;ISBN&amp;nbsp;number.&lt;br&gt;
+urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66&amp;nbsp;a&amp;nbsp;globally&amp;nbsp;unique&amp;nbsp;identifier&lt;br&gt;
+urn:publishing:book&amp;nbsp;-&amp;nbsp;An&amp;nbsp;XML&amp;nbsp;namespace&amp;nbsp;that&amp;nbsp;identifies&amp;nbsp;the&amp;nbsp;document&amp;nbsp;as&amp;nbsp;a&amp;nbsp;type&amp;nbsp;of&amp;nbsp;book.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;img&amp;nbsp;width='510'&amp;nbsp;height='630'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/LSIG4.png'/&gt;</questionanswer>
+  </question>
+  <question id="2_8_0_0_0:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;HTTP&amp;nbsp;Content-Negotiation&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+What&amp;nbsp;are&amp;nbsp;&amp;quot;q=&lt;value&gt;&amp;quot;&amp;nbsp;string&amp;nbsp;in&amp;nbsp;'Accept'&amp;nbsp;Header&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>https://en.wikipedia.org/wiki/Content_negotiation&lt;br&gt;
+==============================================&lt;br&gt;
+Content&amp;nbsp;negotiation&amp;nbsp;is&amp;nbsp;a&amp;nbsp;mechanism&amp;nbsp;defined&amp;nbsp;in&amp;nbsp;the&amp;nbsp;HTTP&amp;nbsp;specification&amp;nbsp;that&amp;nbsp;makes&amp;nbsp;it&amp;nbsp;possible&amp;nbsp;to&amp;nbsp;serve&lt;br&gt;
+different&amp;nbsp;versions&amp;nbsp;of&amp;nbsp;a&amp;nbsp;document&amp;nbsp;(or&amp;nbsp;more&amp;nbsp;generally,&amp;nbsp;a&amp;nbsp;resource&amp;nbsp;representation)&amp;nbsp;at&amp;nbsp;the&amp;nbsp;same&amp;nbsp;URI,&amp;nbsp;so&lt;br&gt;
+that&amp;nbsp;user&amp;nbsp;agents&amp;nbsp;can&amp;nbsp;specify&amp;nbsp;which&amp;nbsp;version&amp;nbsp;fit&amp;nbsp;their&amp;nbsp;capabilities&amp;nbsp;the&amp;nbsp;best.&lt;br&gt;
+&lt;br&gt;
+One&amp;nbsp;classical&amp;nbsp;use&amp;nbsp;of&amp;nbsp;this&amp;nbsp;mechanism&amp;nbsp;is&amp;nbsp;to&amp;nbsp;serve&amp;nbsp;an&amp;nbsp;image&amp;nbsp;in&amp;nbsp;GIF&amp;nbsp;or&amp;nbsp;PNG&amp;nbsp;format,&amp;nbsp;so&amp;nbsp;that&amp;nbsp;a&amp;nbsp;browser&amp;nbsp;that&lt;br&gt;
+cannot&amp;nbsp;display&amp;nbsp;PNG&amp;nbsp;images&amp;nbsp;(e.g.&amp;nbsp;MS&amp;nbsp;Internet&amp;nbsp;Explorer&amp;nbsp;4)&amp;nbsp;will&amp;nbsp;be&amp;nbsp;served&amp;nbsp;the&amp;nbsp;GIF&amp;nbsp;version.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;user&amp;nbsp;agent&amp;nbsp;provides&amp;nbsp;an&amp;nbsp;Accept&amp;nbsp;HTTP&amp;nbsp;header&amp;nbsp;that&amp;nbsp;lists&amp;nbsp;acceptable&amp;nbsp;media&amp;nbsp;types&amp;nbsp;and&amp;nbsp;associated&amp;nbsp;quality&amp;nbsp;factors.&lt;br&gt;
+The&amp;nbsp;server&amp;nbsp;is&amp;nbsp;then&amp;nbsp;able&amp;nbsp;to&amp;nbsp;supply&amp;nbsp;the&amp;nbsp;version&amp;nbsp;of&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;that&amp;nbsp;best&amp;nbsp;fits&amp;nbsp;the&amp;nbsp;user&amp;nbsp;agent's&amp;nbsp;needs.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;-------------------------------------&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;EXAMPLE&amp;nbsp;::&lt;br&gt;
+As&amp;nbsp;an&amp;nbsp;example&amp;nbsp;of&amp;nbsp;a&amp;nbsp;more&amp;nbsp;complex&amp;nbsp;request,&amp;nbsp;this&amp;nbsp;browser&amp;nbsp;has&amp;nbsp;been&amp;nbsp;configured&amp;nbsp;to&amp;nbsp;accept&amp;nbsp;German&amp;nbsp;and&amp;nbsp;English,&amp;nbsp;but&amp;nbsp;prefer&amp;nbsp;German,&lt;br&gt;
+and&amp;nbsp;to&amp;nbsp;accept&amp;nbsp;various&amp;nbsp;media&amp;nbsp;types,&amp;nbsp;preferring&amp;nbsp;HTML&amp;nbsp;over&amp;nbsp;plain&amp;nbsp;text&amp;nbsp;or&amp;nbsp;other&amp;nbsp;text&amp;nbsp;types,&amp;nbsp;and&amp;nbsp;preferring&amp;nbsp;GIF&amp;nbsp;or&amp;nbsp;JPEG&amp;nbsp;over&amp;nbsp;other&amp;nbsp;media&amp;nbsp;types,&lt;br&gt;
+but&amp;nbsp;also&amp;nbsp;allowing&amp;nbsp;any&amp;nbsp;other&amp;nbsp;media&amp;nbsp;type&amp;nbsp;as&amp;nbsp;a&amp;nbsp;last&amp;nbsp;resort:&lt;br&gt;
+&lt;br&gt;
+Accept-Language:&amp;nbsp;de;&amp;nbsp;q=1.0,&amp;nbsp;en;&amp;nbsp;q=0.5&lt;br&gt;
+Accept:&amp;nbsp;text/html;&amp;nbsp;q=1.0,&amp;nbsp;text/*;&amp;nbsp;q=0.8,&amp;nbsp;image/gif;&amp;nbsp;q=0.6,&amp;nbsp;image/jpeg;&amp;nbsp;q=0.6,&amp;nbsp;image/*;&amp;nbsp;q=0.5,&amp;nbsp;*/*;&amp;nbsp;q=0.1&lt;br&gt;
+&lt;br&gt;
+P.S&amp;nbsp;("q=&lt;value&gt;"&amp;nbsp;is&amp;nbsp;called&amp;nbsp;a&amp;nbsp;Relative&amp;nbsp;Quality&amp;nbsp;Factor.&amp;nbsp;It&amp;nbsp;specifies&amp;nbsp;what&amp;nbsp;language&amp;nbsp;the&amp;nbsp;user&amp;nbsp;would&amp;nbsp;prefer,&amp;nbsp;on&amp;nbsp;a&amp;nbsp;scale&amp;nbsp;of&amp;nbsp;0&amp;nbsp;to&amp;nbsp;1,&amp;nbsp;as&amp;nbsp;can&amp;nbsp;be&amp;nbsp;seen&amp;nbsp;from&amp;nbsp;the&amp;nbsp;HTTP/1.1&amp;nbsp;Specification,&amp;nbsp;§14.4:)</questionanswer>
+  </question>
+</questions>

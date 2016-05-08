@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="2_8_0_0_3" name="4HTTP_Architecture" nofquestions="2" nofsubcategories="0" filename="4http_architecture2_8_0_0_3.xml">
+  <question id="2_8_0_0_3:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;HTTP&amp;nbsp;caching:&amp;nbsp;Making&amp;nbsp;sure&amp;nbsp;a&amp;nbsp;web&amp;nbsp;page&amp;nbsp;is&amp;nbsp;not&amp;nbsp;cached,&amp;nbsp;across&amp;nbsp;all&amp;nbsp;browsers.&lt;br&gt;
+What&amp;nbsp;means&amp;nbsp;Ctrl+R&amp;nbsp;in&amp;nbsp;browsers&amp;nbsp;(which&amp;nbsp;headers&amp;nbsp;browser&amp;nbsp;send)&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+What's&amp;nbsp;the&amp;nbsp;difference&amp;nbsp;between&amp;nbsp;Cache-Control:&amp;nbsp;max-age=0&amp;nbsp;and&amp;nbsp;no-cache?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://www.mobify.com/blog/beginners-guide-to-http-cache-headers/&lt;br&gt;
+======================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;The&amp;nbsp;correct&amp;nbsp;minimum&amp;nbsp;set&amp;nbsp;of&amp;nbsp;headers&amp;nbsp;that&amp;nbsp;works&amp;nbsp;across&amp;nbsp;all&amp;nbsp;mentioned&amp;nbsp;clients&amp;nbsp;(and&amp;nbsp;proxies):&lt;br&gt;
+&lt;br&gt;
+Cache-Control:&amp;nbsp;no-cache,&amp;nbsp;no-store,&amp;nbsp;must-revalidate&lt;br&gt;
+Pragma:&amp;nbsp;no-cache&lt;br&gt;
+Expires:&amp;nbsp;0&lt;br&gt;
+&lt;br&gt;
+=============================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Ctrl+R&amp;nbsp;in&amp;nbsp;chrome&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;host:localhost:8080&lt;br&gt;
+&amp;nbsp;connection:keep-alive&lt;br&gt;
+&amp;nbsp;pragma:no-cache&lt;br&gt;
+&amp;nbsp;cache-control:no-cache&lt;br&gt;
+&amp;nbsp;authorization:Basic&amp;nbsp;ZGV2OmRldg==&lt;br&gt;
+&amp;nbsp;accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&lt;br&gt;
+&amp;nbsp;upgrade-insecure-requests:1&lt;br&gt;
+&amp;nbsp;user-agent:Mozilla/5.0&amp;nbsp;(X11;&amp;nbsp;Linux&amp;nbsp;x86_64)&amp;nbsp;AppleWebKit/537.36&amp;nbsp;(KHTML,&amp;nbsp;like&amp;nbsp;Gecko)&amp;nbsp;Chrome/47.0.2526.106&amp;nbsp;Safari/537.36&lt;br&gt;
+&amp;nbsp;accept-encoding:gzip,&amp;nbsp;deflate,&amp;nbsp;sdch&lt;br&gt;
+&amp;nbsp;accept-language:en-US,en;q=0.8&lt;br&gt;
+&amp;nbsp;cookie:JSESSIONID=7B2BA495864FB0B4C6B1FD167BDAD813;&amp;nbsp;JSESSIONID=8F0F0B5DE56E2735024C5EAC831E1B19&lt;br&gt;
+&lt;br&gt;
+Using&amp;nbsp;F5:&amp;nbsp;&lt;br&gt;
+&amp;nbsp;cache-control:max-age=0&lt;br&gt;
+//&amp;nbsp;and&amp;nbsp;there&amp;nbsp;is&amp;nbsp;not&amp;nbsp;"pragma:no-cache"&amp;nbsp;header&lt;br&gt;
+=============================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What's&amp;nbsp;the&amp;nbsp;difference&amp;nbsp;between&amp;nbsp;Cache-Control:&amp;nbsp;max-age=0&amp;nbsp;and&amp;nbsp;no-cache?&lt;br&gt;
+If&amp;nbsp;a&amp;nbsp;user&amp;nbsp;agent&amp;nbsp;sends&amp;nbsp;a&amp;nbsp;request&amp;nbsp;with&amp;nbsp;Cache-Control:&amp;nbsp;max-age=0&amp;nbsp;(aka.&amp;nbsp;"end-to-end&amp;nbsp;revalidation"),&amp;nbsp;then&amp;nbsp;each&amp;nbsp;cache&lt;br&gt;
+along&amp;nbsp;the&amp;nbsp;way&amp;nbsp;will&amp;nbsp;revalidate&amp;nbsp;its&amp;nbsp;cache&amp;nbsp;entry&amp;nbsp;(eg.&amp;nbsp;with&amp;nbsp;the&amp;nbsp;If-Not-Modified&amp;nbsp;header)&amp;nbsp;all&amp;nbsp;the&amp;nbsp;way&amp;nbsp;to&amp;nbsp;the&amp;nbsp;origin&amp;nbsp;server.&lt;br&gt;
+If&amp;nbsp;the&amp;nbsp;reply&amp;nbsp;is&amp;nbsp;then&amp;nbsp;304&amp;nbsp;(Not&amp;nbsp;Modified),&amp;nbsp;the&amp;nbsp;cached&amp;nbsp;entity&amp;nbsp;can&amp;nbsp;be&amp;nbsp;used.&lt;br&gt;
+&lt;br&gt;
+On&amp;nbsp;the&amp;nbsp;other&amp;nbsp;hand,&amp;nbsp;sending&amp;nbsp;a&amp;nbsp;request&amp;nbsp;with&amp;nbsp;Cache-Control:&amp;nbsp;no-cache&amp;nbsp;(aka.&amp;nbsp;"end-to-end&amp;nbsp;reload")&amp;nbsp;doesn't&lt;br&gt;
+revalidate&amp;nbsp;and&amp;nbsp;the&amp;nbsp;server&amp;nbsp;MUST&amp;nbsp;NOT&amp;nbsp;use&amp;nbsp;a&amp;nbsp;cached&amp;nbsp;copy&amp;nbsp;when&amp;nbsp;responding.</questionanswer>
+  </question>
+  <question id="2_8_0_0_3:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Http&amp;nbsp;caching&amp;nbsp;headers,&amp;nbsp;describe.&lt;br&gt;
+(pragma,&amp;nbsp;cache-control,&amp;nbsp;If-Modified-Since)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Pragma&amp;nbsp;vs&amp;nbsp;Cache-control&lt;br&gt;
+Pragma&amp;nbsp;is&amp;nbsp;the&amp;nbsp;HTTP/1.0&amp;nbsp;implementation&amp;nbsp;and&amp;nbsp;cache-control&amp;nbsp;is&amp;nbsp;the&amp;nbsp;HTTP/1.1&amp;nbsp;implementation&amp;nbsp;of&amp;nbsp;the&amp;nbsp;same&amp;nbsp;concept.&lt;br&gt;
+They&amp;nbsp;both&amp;nbsp;are&amp;nbsp;meant&amp;nbsp;to&amp;nbsp;prevent&amp;nbsp;the&amp;nbsp;client&amp;nbsp;from&amp;nbsp;caching&amp;nbsp;the&amp;nbsp;response.&amp;nbsp;Older&amp;nbsp;clients&amp;nbsp;may&amp;nbsp;not&amp;nbsp;support&amp;nbsp;HTTP/1.1&amp;nbsp;which&amp;nbsp;is&amp;nbsp;why&amp;nbsp;that&amp;nbsp;header&amp;nbsp;is&amp;nbsp;still&amp;nbsp;in&amp;nbsp;use.&lt;br&gt;
+&lt;br&gt;
+There&amp;nbsp;is&amp;nbsp;no&amp;nbsp;difference,&amp;nbsp;except&amp;nbsp;that&amp;nbsp;Pragma&amp;nbsp;is&amp;nbsp;only&amp;nbsp;defined&amp;nbsp;as&amp;nbsp;applicable&amp;nbsp;to&amp;nbsp;the&amp;nbsp;requests&amp;nbsp;by&amp;nbsp;the&amp;nbsp;client,&lt;br&gt;
+whereas&amp;nbsp;Cache-Control&amp;nbsp;may&amp;nbsp;be&amp;nbsp;used&amp;nbsp;by&amp;nbsp;both&amp;nbsp;the&amp;nbsp;requests&amp;nbsp;of&amp;nbsp;the&amp;nbsp;clients&amp;nbsp;and&amp;nbsp;the&amp;nbsp;replies&amp;nbsp;of&amp;nbsp;the&amp;nbsp;servers.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+!!!!&amp;nbsp;Important&amp;nbsp;&lt;br&gt;
+WHen&amp;nbsp;you&amp;nbsp;press&amp;nbsp;F5&amp;nbsp;(chrome&amp;nbsp;and&amp;nbsp;firefox)&amp;nbsp;browser&amp;nbsp;send&amp;nbsp;Cache-Control:max-age=0,&amp;nbsp;and&amp;nbsp;no&amp;nbsp;matters&amp;nbsp;what&amp;nbsp;you&amp;nbsp;send&amp;nbsp;in&amp;nbsp;response.&lt;br&gt;
+&lt;br&gt;
+WHen&amp;nbsp;you&amp;nbsp;go&amp;nbsp;to&amp;nbsp;some&amp;nbsp;page&amp;nbsp;through&amp;nbsp;a&amp;nbsp;link&amp;nbsp;and&amp;nbsp;if&amp;nbsp;you&amp;nbsp;set&amp;nbsp;in&amp;nbsp;response&amp;nbsp;Cache-Control:max-age=10&amp;nbsp;,&amp;nbsp;you'll&amp;nbsp;see&amp;nbsp;that&amp;nbsp;data&amp;nbsp;is&amp;nbsp;cached,&amp;nbsp;and&lt;br&gt;
+retriewed&amp;nbsp;only&amp;nbsp;if&amp;nbsp;next&amp;nbsp;visit&amp;nbsp;will&amp;nbsp;be&amp;nbsp;in&amp;nbsp;time&amp;nbsp;less&amp;nbsp;than&amp;nbsp;10&amp;nbsp;sec.&lt;br&gt;
+----------------------------------------------------------------------------------------------------------&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;If-Modified-Since&lt;br&gt;
+&lt;br&gt;
+A&amp;nbsp;time-based&amp;nbsp;conditional&amp;nbsp;request&amp;nbsp;ensures&amp;nbsp;that&amp;nbsp;only&amp;nbsp;if&amp;nbsp;the&amp;nbsp;requested&amp;nbsp;resource&amp;nbsp;has&amp;nbsp;changed&amp;nbsp;since&amp;nbsp;the&amp;nbsp;browser’s&amp;nbsp;copy&amp;nbsp;was&amp;nbsp;cached&amp;nbsp;will&amp;nbsp;the&amp;nbsp;contents&amp;nbsp;be&amp;nbsp;transferred.&amp;nbsp;If&amp;nbsp;the&amp;nbsp;cached&amp;nbsp;copy&amp;nbsp;is&amp;nbsp;the&amp;nbsp;most&amp;nbsp;up-to-date&amp;nbsp;then&amp;nbsp;the&amp;nbsp;server&amp;nbsp;returns&amp;nbsp;the&amp;nbsp;304&amp;nbsp;response&amp;nbsp;code.&lt;br&gt;
+&lt;br&gt;
+To&amp;nbsp;enable&amp;nbsp;conditional&amp;nbsp;requests&amp;nbsp;the&amp;nbsp;application&amp;nbsp;specifies&amp;nbsp;the&amp;nbsp;last&amp;nbsp;modified&amp;nbsp;time&amp;nbsp;of&amp;nbsp;a&amp;nbsp;resource&amp;nbsp;via&amp;nbsp;the&amp;nbsp;Last-Modified&amp;nbsp;response&amp;nbsp;header.&lt;br&gt;
+Cache-Control:public,&amp;nbsp;max-age=31536000&lt;br&gt;
+Last-Modified:&amp;nbsp;Mon,&amp;nbsp;03&amp;nbsp;Jan&amp;nbsp;2011&amp;nbsp;17:45:57&amp;nbsp;GMT&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;next&amp;nbsp;time&amp;nbsp;the&amp;nbsp;browser&amp;nbsp;requests&amp;nbsp;this&amp;nbsp;resource&amp;nbsp;it&amp;nbsp;will&amp;nbsp;only&amp;nbsp;ask&amp;nbsp;for&amp;nbsp;the&amp;nbsp;contents&amp;nbsp;of&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;if&amp;nbsp;they’re&amp;nbsp;unchanged&amp;nbsp;since&amp;nbsp;this&amp;nbsp;date&amp;nbsp;using&amp;nbsp;the&amp;nbsp;If-Modified-Since&amp;nbsp;request&amp;nbsp;header&lt;br&gt;
+If-Modified-Since:&amp;nbsp;Mon,&amp;nbsp;03&amp;nbsp;Jan&amp;nbsp;2011&amp;nbsp;17:45:57&amp;nbsp;GMT&lt;br&gt;
+&lt;br&gt;
+If&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;hasn’t&amp;nbsp;changed&amp;nbsp;since&amp;nbsp;Mon,&amp;nbsp;03&amp;nbsp;Jan&amp;nbsp;2011&amp;nbsp;17:45:57&amp;nbsp;GMT&amp;nbsp;the&amp;nbsp;server&amp;nbsp;will&amp;nbsp;return&amp;nbsp;with&amp;nbsp;an&amp;nbsp;empty&amp;nbsp;body&amp;nbsp;with&amp;nbsp;the&amp;nbsp;304&amp;nbsp;response&amp;nbsp;code.&lt;br&gt;
+----------------------------------------------------------------------------------------------------------&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;http://www.mobify.com/blog/beginners-guide-to-http-cache-headers/&lt;br&gt;
+&lt;br&gt;
+One&amp;nbsp;item&amp;nbsp;from&amp;nbsp;this&amp;nbsp;article&amp;nbsp;&lt;br&gt;
+1.&amp;nbsp;cache-control&lt;br&gt;
+&lt;br&gt;
+If&amp;nbsp;there&amp;nbsp;were&amp;nbsp;a&amp;nbsp;default&amp;nbsp;super-header&amp;nbsp;for&amp;nbsp;caching&amp;nbsp;behaviour,&amp;nbsp;this&amp;nbsp;would&amp;nbsp;be&amp;nbsp;it.&amp;nbsp;Typically&amp;nbsp;you&amp;nbsp;will&amp;nbsp;see&amp;nbsp;a&amp;nbsp;string&amp;nbsp;of&amp;nbsp;settings&amp;nbsp;for&amp;nbsp;this&amp;nbsp;header&amp;nbsp;along&amp;nbsp;the&amp;nbsp;lines&amp;nbsp;of:&lt;br&gt;
+&lt;br&gt;
+cache-control:&amp;nbsp;private,&amp;nbsp;max-age=0,&amp;nbsp;no-cache&lt;br&gt;
+These&amp;nbsp;settings&amp;nbsp;are&amp;nbsp;called&amp;nbsp;cache&amp;nbsp;response&amp;nbsp;directives,&amp;nbsp;and&amp;nbsp;are&amp;nbsp;as&amp;nbsp;follows:&lt;br&gt;
+&lt;br&gt;
+private&amp;nbsp;|&amp;nbsp;public&lt;br&gt;
+Essentially&amp;nbsp;they&amp;nbsp;let&amp;nbsp;intermediary&amp;nbsp;caches&amp;nbsp;know&amp;nbsp;that&amp;nbsp;a&amp;nbsp;given&amp;nbsp;response&amp;nbsp;is&amp;nbsp;specific&amp;nbsp;to&amp;nbsp;the&amp;nbsp;end&amp;nbsp;user&amp;nbsp;and&amp;nbsp;should&amp;nbsp;not&amp;nbsp;be&amp;nbsp;cached.&amp;nbsp;Do&amp;nbsp;not&amp;nbsp;make&amp;nbsp;the&amp;nbsp;mistake&amp;nbsp;of&amp;nbsp;assuming&amp;nbsp;that&amp;nbsp;this&amp;nbsp;in&amp;nbsp;any&amp;nbsp;way&amp;nbsp;provides&amp;nbsp;you&amp;nbsp;with&amp;nbsp;some&amp;nbsp;kind&amp;nbsp;of&amp;nbsp;security&amp;nbsp;or&amp;nbsp;privacy:&amp;nbsp;Keep&amp;nbsp;using&amp;nbsp;SSL&amp;nbsp;for&amp;nbsp;that.&lt;br&gt;
+&lt;br&gt;
+no-cache&lt;br&gt;
+When&amp;nbsp;used&amp;nbsp;alone,&amp;nbsp;this&amp;nbsp;guy&amp;nbsp;lets&amp;nbsp;you&amp;nbsp;specify&amp;nbsp;that&amp;nbsp;caches&amp;nbsp;should&amp;nbsp;revalidate&amp;nbsp;this&amp;nbsp;resource&amp;nbsp;every&amp;nbsp;time,&amp;nbsp;typically&amp;nbsp;using&amp;nbsp;the&amp;nbsp;"etag"&amp;nbsp;header&amp;nbsp;outlined&amp;nbsp;below.&amp;nbsp;The&amp;nbsp;fun&amp;nbsp;bit&amp;nbsp;comes&amp;nbsp;when&amp;nbsp;you&amp;nbsp;specify&amp;nbsp;a&amp;nbsp;field&amp;nbsp;name&amp;nbsp;after&amp;nbsp;the&amp;nbsp;no-cache&amp;nbsp;directive,&amp;nbsp;which&amp;nbsp;lets&amp;nbsp;caches&amp;nbsp;know&amp;nbsp;that&amp;nbsp;you&amp;nbsp;can&amp;nbsp;cache&amp;nbsp;the&amp;nbsp;response,&amp;nbsp;provided&amp;nbsp;that&amp;nbsp;the&amp;nbsp;named&amp;nbsp;fields&amp;nbsp;are&amp;nbsp;stripped&amp;nbsp;out;&amp;nbsp;cookies&amp;nbsp;would&amp;nbsp;be&amp;nbsp;a&amp;nbsp;good&amp;nbsp;example&amp;nbsp;of&amp;nbsp;why&amp;nbsp;you&amp;nbsp;might&amp;nbsp;want&amp;nbsp;to&amp;nbsp;do&amp;nbsp;this.&amp;nbsp;I&amp;nbsp;should&amp;nbsp;note&amp;nbsp;that&amp;nbsp;older&amp;nbsp;User&amp;nbsp;Agents&amp;nbsp;won't&amp;nbsp;respect&amp;nbsp;this&amp;nbsp;trick,&amp;nbsp;so&amp;nbsp;you&amp;nbsp;shouldn't&amp;nbsp;depend&amp;nbsp;on&amp;nbsp;it&amp;nbsp;too&amp;nbsp;much.&lt;br&gt;
+&lt;br&gt;
+no-store&lt;br&gt;
+This&amp;nbsp;guy&amp;nbsp;lets&amp;nbsp;you&amp;nbsp;specify&amp;nbsp;that&amp;nbsp;caches&amp;nbsp;should&amp;nbsp;not&amp;nbsp;store&amp;nbsp;this&amp;nbsp;response.&amp;nbsp;I&amp;nbsp;know&amp;nbsp;that&amp;nbsp;may&amp;nbsp;be&amp;nbsp;surprising&amp;nbsp;given&amp;nbsp;the&amp;nbsp;name,&amp;nbsp;but&amp;nbsp;there&amp;nbsp;it&amp;nbsp;is.&amp;nbsp;Actually,&amp;nbsp;if&amp;nbsp;the&amp;nbsp;cache&amp;nbsp;in&amp;nbsp;question&amp;nbsp;is&amp;nbsp;following&amp;nbsp;the&amp;nbsp;rules,&amp;nbsp;it&amp;nbsp;will&amp;nbsp;also&amp;nbsp;ensure&amp;nbsp;that&amp;nbsp;no&amp;nbsp;part&amp;nbsp;of&amp;nbsp;the&amp;nbsp;request&amp;nbsp;is&amp;nbsp;stored&amp;nbsp;either.&amp;nbsp;"no-store"&amp;nbsp;was&amp;nbsp;designed&amp;nbsp;with&amp;nbsp;sensitive&amp;nbsp;information&amp;nbsp;requirements&amp;nbsp;in&amp;nbsp;mind,&amp;nbsp;and&amp;nbsp;so&amp;nbsp;is&amp;nbsp;kind&amp;nbsp;of&amp;nbsp;like&amp;nbsp;the&amp;nbsp;G-Man&amp;nbsp;of&amp;nbsp;cache&amp;nbsp;headers.&lt;br&gt;
+&lt;br&gt;
+max-age&lt;br&gt;
+Traditionally,&amp;nbsp;you&amp;nbsp;would&amp;nbsp;let&amp;nbsp;caches&amp;nbsp;know&amp;nbsp;when&amp;nbsp;an&amp;nbsp;asset&amp;nbsp;is&amp;nbsp;expired&amp;nbsp;by&amp;nbsp;using&amp;nbsp;the&amp;nbsp;aptly-named&amp;nbsp;"expires"&amp;nbsp;header,&amp;nbsp;discussed&amp;nbsp;below.&amp;nbsp;However,&amp;nbsp;if&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;be&amp;nbsp;more&amp;nbsp;explicit,&amp;nbsp;you&amp;nbsp;may&amp;nbsp;set&amp;nbsp;a&amp;nbsp;max-age,&amp;nbsp;in&amp;nbsp;seconds,&amp;nbsp;which&amp;nbsp;will&amp;nbsp;override&amp;nbsp;the&amp;nbsp;expires&amp;nbsp;header.&amp;nbsp;Further&amp;nbsp;reasons&amp;nbsp;to&amp;nbsp;use&amp;nbsp;this&amp;nbsp;directive&amp;nbsp;are&amp;nbsp;discussed&amp;nbsp;below&amp;nbsp;under&amp;nbsp;the&amp;nbsp;Caveats&amp;nbsp;section.&lt;br&gt;
+&lt;br&gt;
+s-maxage&lt;br&gt;
+Using&amp;nbsp;our&amp;nbsp;keen&amp;nbsp;deductive&amp;nbsp;skills,&amp;nbsp;we&amp;nbsp;can&amp;nbsp;see&amp;nbsp;some&amp;nbsp;similarities&amp;nbsp;between&amp;nbsp;this&amp;nbsp;header&amp;nbsp;and&amp;nbsp;the&amp;nbsp;last&amp;nbsp;one.&amp;nbsp;"s-"&amp;nbsp;is&amp;nbsp;for&amp;nbsp;shared,&amp;nbsp;as&amp;nbsp;in&amp;nbsp;"shared&amp;nbsp;cache",&amp;nbsp;as&amp;nbsp;in&amp;nbsp;CDN.&amp;nbsp;These&amp;nbsp;directives&amp;nbsp;are&amp;nbsp;explicitly&amp;nbsp;for&amp;nbsp;CDNs&amp;nbsp;and&amp;nbsp;other&amp;nbsp;intermediary&amp;nbsp;caches.&amp;nbsp;When&amp;nbsp;present,&amp;nbsp;this&amp;nbsp;directive&amp;nbsp;overrides&amp;nbsp;both&amp;nbsp;the&amp;nbsp;max-age&amp;nbsp;and&amp;nbsp;expires&amp;nbsp;header,&amp;nbsp;and&amp;nbsp;most&amp;nbsp;well&amp;nbsp;behaved&amp;nbsp;CDNs&amp;nbsp;will&amp;nbsp;obey&amp;nbsp;it.&lt;br&gt;
+&lt;br&gt;
+must-revalidate&lt;br&gt;
+This&amp;nbsp;one&amp;nbsp;is&amp;nbsp;fun,&amp;nbsp;although&amp;nbsp;not&amp;nbsp;applicable&amp;nbsp;to&amp;nbsp;most&amp;nbsp;of&amp;nbsp;us.&amp;nbsp;For&amp;nbsp;the&amp;nbsp;sake&amp;nbsp;of&amp;nbsp;completeness,&amp;nbsp;and&amp;nbsp;in&amp;nbsp;case&amp;nbsp;your&amp;nbsp;dev-team&amp;nbsp;has&amp;nbsp;some&amp;nbsp;kind&amp;nbsp;of&amp;nbsp;trivia&amp;nbsp;night&amp;nbsp;where&amp;nbsp;free&amp;nbsp;beer&amp;nbsp;is&amp;nbsp;involved,&amp;nbsp;we'll&amp;nbsp;discuss&amp;nbsp;it.&amp;nbsp;Essentially,&amp;nbsp;if&amp;nbsp;your&amp;nbsp;responses&amp;nbsp;include&amp;nbsp;this&amp;nbsp;directive,&amp;nbsp;you&amp;nbsp;are&amp;nbsp;telling&amp;nbsp;the&amp;nbsp;cache&amp;nbsp;that&amp;nbsp;it&amp;nbsp;needs&amp;nbsp;to&amp;nbsp;revalidate&amp;nbsp;a&amp;nbsp;cached&amp;nbsp;asset&amp;nbsp;on&amp;nbsp;any&amp;nbsp;subsequent&amp;nbsp;request,&amp;nbsp;and&amp;nbsp;that&amp;nbsp;it&amp;nbsp;may&amp;nbsp;not,&amp;nbsp;under&amp;nbsp;any&amp;nbsp;circumstance,&amp;nbsp;serve&amp;nbsp;stale&amp;nbsp;content&amp;nbsp;(which&amp;nbsp;is&amp;nbsp;sometimes&amp;nbsp;a&amp;nbsp;desired&amp;nbsp;behaviour).&amp;nbsp;Of&amp;nbsp;course,&amp;nbsp;I&amp;nbsp;say&amp;nbsp;"under&amp;nbsp;any&amp;nbsp;circumstances",&amp;nbsp;but&amp;nbsp;what&amp;nbsp;I&amp;nbsp;really&amp;nbsp;mean&amp;nbsp;is&amp;nbsp;that&amp;nbsp;there's&amp;nbsp;a&amp;nbsp;big&amp;nbsp;fat&amp;nbsp;asterisk&amp;nbsp;next&amp;nbsp;to&amp;nbsp;that&amp;nbsp;claim.&amp;nbsp;If&amp;nbsp;your&amp;nbsp;users&amp;nbsp;are&amp;nbsp;under&amp;nbsp;"severe&amp;nbsp;connectivity&amp;nbsp;constraints",&amp;nbsp;(perhaps&amp;nbsp;they&amp;nbsp;are&amp;nbsp;browsing&amp;nbsp;from&amp;nbsp;low-earth-orbit),&amp;nbsp;then&amp;nbsp;their&amp;nbsp;user&amp;nbsp;agents&amp;nbsp;may&amp;nbsp;serve&amp;nbsp;stale&amp;nbsp;content,&amp;nbsp;provided&amp;nbsp;they&amp;nbsp;pinky-swear&amp;nbsp;to&amp;nbsp;tell&amp;nbsp;their&amp;nbsp;users&amp;nbsp;that&amp;nbsp;they've&amp;nbsp;done&amp;nbsp;so.&amp;nbsp;Apparently&amp;nbsp;this&amp;nbsp;directive&amp;nbsp;exists&amp;nbsp;because&amp;nbsp;some&amp;nbsp;protocols&amp;nbsp;require&amp;nbsp;it,&amp;nbsp;typically&amp;nbsp;involving&amp;nbsp;transactions.&lt;br&gt;
+&lt;br&gt;
+--------&lt;br&gt;
+2.&amp;nbsp;expires&lt;br&gt;
+&lt;br&gt;
+Back&amp;nbsp;in&amp;nbsp;the&amp;nbsp;day,&amp;nbsp;this&amp;nbsp;was&amp;nbsp;the&amp;nbsp;standard&amp;nbsp;way&amp;nbsp;to&amp;nbsp;specify&amp;nbsp;when&amp;nbsp;an&amp;nbsp;asset&amp;nbsp;expired,&amp;nbsp;and&amp;nbsp;is&amp;nbsp;just&amp;nbsp;a&amp;nbsp;basic&amp;nbsp;date-time&amp;nbsp;stamp.&amp;nbsp;It&amp;nbsp;is&amp;nbsp;still&amp;nbsp;fairly&amp;nbsp;useful&amp;nbsp;for&amp;nbsp;older&amp;nbsp;user&amp;nbsp;agents,&amp;nbsp;which&amp;nbsp;cryptowebologists&amp;nbsp;assure&amp;nbsp;us&amp;nbsp;still&amp;nbsp;roam&amp;nbsp;in&amp;nbsp;the&amp;nbsp;uncharted&amp;nbsp;territories.&amp;nbsp;On&amp;nbsp;most&amp;nbsp;modern&amp;nbsp;systems,&amp;nbsp;the&amp;nbsp;"cache-control"&amp;nbsp;headers&amp;nbsp;"max-age"&amp;nbsp;and&amp;nbsp;"s-maxage"&amp;nbsp;will&amp;nbsp;take&amp;nbsp;precedence,&amp;nbsp;but&amp;nbsp;it's&amp;nbsp;always&amp;nbsp;good&amp;nbsp;practice&amp;nbsp;to&amp;nbsp;set&amp;nbsp;a&amp;nbsp;matching&amp;nbsp;value&amp;nbsp;here&amp;nbsp;for&amp;nbsp;compatibility.&amp;nbsp;Just&amp;nbsp;make&amp;nbsp;sure&amp;nbsp;you&amp;nbsp;format&amp;nbsp;the&amp;nbsp;date&amp;nbsp;correctly,&amp;nbsp;or&amp;nbsp;it&amp;nbsp;will&amp;nbsp;be&amp;nbsp;evaluated&amp;nbsp;as&amp;nbsp;an&amp;nbsp;expired&amp;nbsp;date:&lt;br&gt;
+&lt;br&gt;
+Thu,&amp;nbsp;01&amp;nbsp;Dec&amp;nbsp;1983&amp;nbsp;20:00:00&amp;nbsp;GMT&lt;br&gt;
+Try&amp;nbsp;to&amp;nbsp;avoid&amp;nbsp;setting&amp;nbsp;the&amp;nbsp;value&amp;nbsp;to&amp;nbsp;more&amp;nbsp;than&amp;nbsp;one&amp;nbsp;year&amp;nbsp;out&amp;nbsp;as&amp;nbsp;that&amp;nbsp;breaks&amp;nbsp;the&amp;nbsp;specification,&amp;nbsp;(see&amp;nbsp;below&amp;nbsp;for&amp;nbsp;a&amp;nbsp;discussion&amp;nbsp;on&amp;nbsp;cache&amp;nbsp;time&amp;nbsp;settings).&lt;br&gt;
+&lt;br&gt;</questionanswer>
+  </question>
+</questions>

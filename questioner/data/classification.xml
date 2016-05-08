@@ -154,8 +154,8 @@
       <category id="0_3_2" name="BitsManipulation" nofquestions="0" nofsubcategories="0" filename="bitsmanipulation0_3_2.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="547" nofsubcategories="5">
-    <category id="1_0" name="Java" nofquestions="512" nofsubcategories="4">
+  <class id="1" name="Programming" nofquestions="548" nofsubcategories="5">
+    <category id="1_0" name="Java" nofquestions="513" nofsubcategories="4">
       <category id="1_0_0" name="Java CORE" nofquestions="274" nofsubcategories="13">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="89" nofsubcategories="1">
           <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="89" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
@@ -166,9 +166,10 @@
         <category id="1_0_0_2" name="Generics" nofquestions="25" nofsubcategories="1">
           <category id="1_0_0_2_0" name="Generics_LearningJava4thEdition" nofquestions="25" nofsubcategories="0" filename="generics_learningjava4thedition1_0_0_2_0.xml" />
         </category>
-        <category id="1_0_0_3" name="Multithreading" nofquestions="36" nofsubcategories="2">
+        <category id="1_0_0_3" name="Multithreading" nofquestions="36" nofsubcategories="3">
           <category id="1_0_0_3_0" name="Multhithreading_LearningJava4thEdition" nofquestions="31" nofsubcategories="0" filename="multhithreading_learningjava4thedition1_0_0_3_0.xml" />
           <category id="1_0_0_3_1" name="TestsFromSpecification" nofquestions="5" nofsubcategories="0" filename="testsfromspecification1_0_0_3_1.xml" />
+          <category id="1_0_0_3_2" name="Udemy_JavaMultithreading_15VideosFree" nofquestions="0" nofsubcategories="0" />
         </category>
         <category id="1_0_0_4" name="IO_and_Serialization" nofquestions="11" nofsubcategories="2">
           <category id="1_0_0_4_0" name="Io_and_Serialization_ApressBEGINNING_Java7" nofquestions="9" nofsubcategories="0" filename="io_and_serialization_apressbeginning_java71_0_0_4_0.xml" />
@@ -227,7 +228,7 @@
         </category>
         <category id="1_0_0_12" name="JavaCore_Other_Tutorials" nofquestions="0" nofsubcategories="0" filename="javacore_other_tutorials1_0_0_12.xml" />
       </category>
-      <category id="1_0_1" name="Java EE" nofquestions="238" nofsubcategories="16">
+      <category id="1_0_1" name="Java EE" nofquestions="239" nofsubcategories="16">
         <category id="1_0_1_0" name="Java EE JNDI" nofquestions="0" nofsubcategories="0" filename="javaeejndi.xml" />
         <category id="1_0_1_1" name="And+MAVEN" nofquestions="22" nofsubcategories="4">
           <category id="1_0_1_1_0" name="Ant" nofquestions="0" nofsubcategories="0" filename="ant.xml" />
@@ -362,10 +363,12 @@
           <category id="1_0_1_5_0" name="JBoss" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_1_5_1" name="WebLogic" nofquestions="0" nofsubcategories="0" filename="weblogic.xml" />
         </category>
-        <category id="1_0_1_6" name="WebServices" nofquestions="1" nofsubcategories="3">
-          <category id="1_0_1_6_0" name="Rest" nofquestions="0" nofsubcategories="0" />
-          <category id="1_0_1_6_1" name="Soap" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_1_6" name="WebServices" nofquestions="2" nofsubcategories="3">
           <category id="1_0_1_6_2" name="GeneralFaqQuestions" nofquestions="1" nofsubcategories="0" filename="generalfaqquestions1_0_1_6_2.xml" />
+          <category id="1_0_1_6_3" name="Apache_Axis2" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_1_6_4" name="Apache_CXF" nofquestions="1" nofsubcategories="1">
+            <category id="1_0_1_6_4_0" name="JavaCodegeek_cxf_soap_tutorial" nofquestions="1" nofsubcategories="0" filename="javacodegeek_cxf_soap_tutorial1_0_1_6_4_0.xml" />
+          </category>
         </category>
         <category id="1_0_1_7" name="SPRING" nofquestions="1" nofsubcategories="9">
           <category id="1_0_1_7_0" name="Spring3_TutorialsPoint" nofquestions="0" nofsubcategories="0" filename="spring3_tutorialspoint1_0_1_7_0.xml" />
@@ -499,7 +502,7 @@
       <category id="1_4_1" name="Ruby EE" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="2" name="Programming Other" nofquestions="86" nofsubcategories="12">
+  <class id="2" name="Programming Other" nofquestions="93" nofsubcategories="13">
     <category id="2_1" name="Version Control" nofquestions="26" nofsubcategories="2">
       <category id="2_1_0" name="Svn" nofquestions="0" nofsubcategories="0" filename="svn2_1_0.xml" />
       <category id="2_1_1" name="Git" nofquestions="26" nofsubcategories="1" filename="git2_1_1.xml">
@@ -567,9 +570,15 @@
       <category id="2_6_6" name="DesignPatternsTAGonStackOverflow" nofquestions="0" nofsubcategories="0" filename="designpatternstagonstackoverflow2_6_6.xml" />
     </category>
     <category id="2_7" name="Interviews" nofquestions="0" nofsubcategories="0" />
-    <category id="2_8" name="Protocols" nofquestions="1" nofsubcategories="4">
-      <category id="2_8_0" name="HTTP" nofquestions="0" nofsubcategories="1">
-        <category id="2_8_0_0" name="Pluralsight_HTTP_fundamentals" nofquestions="0" nofsubcategories="0" />
+    <category id="2_8" name="Protocols" nofquestions="8" nofsubcategories="4">
+      <category id="2_8_0" name="HTTP" nofquestions="7" nofsubcategories="1">
+        <category id="2_8_0_0" name="Pluralsight_HTTP_fundamentals" nofquestions="7" nofsubcategories="5">
+          <category id="2_8_0_0_0" name="1HTTP_Resources" nofquestions="2" nofsubcategories="0" filename="1http_resources2_8_0_0_0.xml" />
+          <category id="2_8_0_0_1" name="2HTTP_Messages" nofquestions="1" nofsubcategories="0" filename="2http_messages2_8_0_0_1.xml" />
+          <category id="2_8_0_0_2" name="3HTTP_Connections" nofquestions="0" nofsubcategories="0" filename="3http_connections2_8_0_0_2.xml" />
+          <category id="2_8_0_0_3" name="4HTTP_Architecture" nofquestions="2" nofsubcategories="0" filename="4http_architecture2_8_0_0_3.xml" />
+          <category id="2_8_0_0_4" name="5HTTP_Security" nofquestions="2" nofsubcategories="0" filename="5http_security2_8_0_0_4.xml" />
+        </category>
       </category>
       <category id="2_8_1" name="OAuth1_and_2" nofquestions="0" nofsubcategories="0" />
       <category id="2_8_2" name="FTP" nofquestions="0" nofsubcategories="0" />
@@ -591,6 +600,17 @@
     <category id="2_12" name="GraphicsAndGAMES" nofquestions="0" nofsubcategories="2">
       <category id="2_12_0" name="Unity" nofquestions="0" nofsubcategories="0" />
       <category id="2_12_1" name="GameEngines" nofquestions="0" nofsubcategories="0" />
+    </category>
+    <category id="2_13" name="XML" nofquestions="0" nofsubcategories="1">
+      <category id="2_13_0" name="Lynda.XML.Essential.Training" nofquestions="0" nofsubcategories="7">
+        <category id="2_13_0_0" name="Basics_Parts-1_to_4" nofquestions="0" nofsubcategories="0" filename="basics_parts-1_to_42_13_0_0.xml" />
+        <category id="2_13_0_1" name="5DOM" nofquestions="0" nofsubcategories="0" filename="5dom2_13_0_1.xml" />
+        <category id="2_13_0_2" name="6Xpath" nofquestions="0" nofsubcategories="0" filename="6xpath2_13_0_2.xml" />
+        <category id="2_13_0_3" name="7XSLT" nofquestions="0" nofsubcategories="0" filename="7xslt2_13_0_3.xml" />
+        <category id="2_13_0_4" name="7XSLT_examples" nofquestions="0" nofsubcategories="0" filename="7xslt_examples2_13_0_4.xml" />
+        <category id="2_13_0_5" name="9DTD_document_type_definition" nofquestions="0" nofsubcategories="0" filename="9dtd_document_type_definition2_13_0_5.xml" />
+        <category id="2_13_0_6" name="10XSD_xml_schema_definition" nofquestions="0" nofsubcategories="0" filename="10xsd_xml_schema_definition2_13_0_6.xml" />
+      </category>
     </category>
   </class>
   <class id="3" name="Operating.Systems" nofquestions="2" nofsubcategories="2">
