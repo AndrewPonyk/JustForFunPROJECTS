@@ -24,7 +24,7 @@ public class PacktBooksListProgram {
 
 		WebDriver driver = new FirefoxDriver();
 
-		for (int i = 1; i <= 75; i++) {
+		for (int i = 1; i <= 79; i++) {
 
 			System.out.println("Page " + i + "===============================================");
 //			url = "https://www.packtpub.com/all?search=&type_list%5Bbooks%5D=books&offset="

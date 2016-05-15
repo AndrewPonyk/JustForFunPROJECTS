@@ -154,8 +154,8 @@
       <category id="0_3_2" name="BitsManipulation" nofquestions="0" nofsubcategories="0" filename="bitsmanipulation0_3_2.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="548" nofsubcategories="5">
-    <category id="1_0" name="Java" nofquestions="513" nofsubcategories="4">
+  <class id="1" name="Programming" nofquestions="549" nofsubcategories="5">
+    <category id="1_0" name="Java" nofquestions="514" nofsubcategories="4">
       <category id="1_0_0" name="Java CORE" nofquestions="274" nofsubcategories="13">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="89" nofsubcategories="1">
           <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="89" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
@@ -228,7 +228,7 @@
         </category>
         <category id="1_0_0_12" name="JavaCore_Other_Tutorials" nofquestions="0" nofsubcategories="0" filename="javacore_other_tutorials1_0_0_12.xml" />
       </category>
-      <category id="1_0_1" name="Java EE" nofquestions="239" nofsubcategories="16">
+      <category id="1_0_1" name="Java EE" nofquestions="240" nofsubcategories="16">
         <category id="1_0_1_0" name="Java EE JNDI" nofquestions="0" nofsubcategories="0" filename="javaeejndi.xml" />
         <category id="1_0_1_1" name="And+MAVEN" nofquestions="22" nofsubcategories="4">
           <category id="1_0_1_1_0" name="Ant" nofquestions="0" nofsubcategories="0" filename="ant.xml" />
@@ -271,14 +271,18 @@
               <category id="1_0_1_2_0_1_9" name="chap12HibernateAndNoSQL" nofquestions="1" nofsubcategories="0" filename="chap12hibernateandnosql1_0_1_2_0_1_9.xml" />
             </category>
           </category>
-          <category id="1_0_1_2_1" name="JDBC" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_1_2_1" name="JDBC" nofquestions="0" nofsubcategories="1">
+            <category id="1_0_1_2_1_0" name="Luv2Code_JDBC_tutorial" nofquestions="0" nofsubcategories="0" />
+          </category>
         </category>
         <category id="1_0_1_3" name="Tomcat+JSP+Servlets+JSTL" nofquestions="63" nofsubcategories="2">
-          <category id="1_0_1_3_0" name="Tomcat" nofquestions="0" nofsubcategories="1">
+          <category id="1_0_1_3_0" name="Tomcat" nofquestions="0" nofsubcategories="3">
             <category id="1_0_1_3_0_0" name="Oreily.Tomcat.Definitive2008" nofquestions="0" nofsubcategories="2">
               <category id="1_0_1_3_0_0_0" name="chap1GettingStartedWithTomcat" nofquestions="0" nofsubcategories="0" filename="chap1gettingstartedwithtomcat1_0_1_3_0_0_0.xml" />
               <category id="1_0_1_3_0_0_1" name="chap2ConfigTomcat" nofquestions="0" nofsubcategories="0" filename="chap2configtomcat1_0_1_3_0_0_1.xml" />
             </category>
+            <category id="1_0_1_3_0_1" name="Apress.Apache.Tomcat7" nofquestions="0" nofsubcategories="0" />
+            <category id="1_0_1_3_0_2" name="Apress.Pro.ApacheTomcat.6" nofquestions="0" nofsubcategories="0" />
           </category>
           <category id="1_0_1_3_1" name="JSP" nofquestions="63" nofsubcategories="4">
             <category id="1_0_1_3_1_0" name="Pluralsight.JavaWebFundamentals" nofquestions="0" nofsubcategories="0" />
@@ -363,11 +367,11 @@
           <category id="1_0_1_5_0" name="JBoss" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_1_5_1" name="WebLogic" nofquestions="0" nofsubcategories="0" filename="weblogic.xml" />
         </category>
-        <category id="1_0_1_6" name="WebServices" nofquestions="2" nofsubcategories="3">
+        <category id="1_0_1_6" name="WebServices" nofquestions="3" nofsubcategories="3">
           <category id="1_0_1_6_2" name="GeneralFaqQuestions" nofquestions="1" nofsubcategories="0" filename="generalfaqquestions1_0_1_6_2.xml" />
           <category id="1_0_1_6_3" name="Apache_Axis2" nofquestions="0" nofsubcategories="0" />
-          <category id="1_0_1_6_4" name="Apache_CXF" nofquestions="1" nofsubcategories="1">
-            <category id="1_0_1_6_4_0" name="JavaCodegeek_cxf_soap_tutorial" nofquestions="1" nofsubcategories="0" filename="javacodegeek_cxf_soap_tutorial1_0_1_6_4_0.xml" />
+          <category id="1_0_1_6_4" name="Apache_CXF" nofquestions="2" nofsubcategories="1">
+            <category id="1_0_1_6_4_0" name="JavaCodegeek_cxf_soap_tutorial" nofquestions="2" nofsubcategories="0" filename="javacodegeek_cxf_soap_tutorial1_0_1_6_4_0.xml" />
           </category>
         </category>
         <category id="1_0_1_7" name="SPRING" nofquestions="1" nofsubcategories="9">
