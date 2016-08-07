@@ -154,7 +154,7 @@
       <category id="0_3_2" name="BitsManipulation" nofquestions="0" nofsubcategories="0" filename="bitsmanipulation0_3_2.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="549" nofsubcategories="5">
+  <class id="1" name="Programming" nofquestions="549" nofsubcategories="6">
     <category id="1_0" name="Java" nofquestions="514" nofsubcategories="4">
       <category id="1_0_0" name="Java CORE" nofquestions="274" nofsubcategories="13">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="89" nofsubcategories="1">
@@ -193,8 +193,9 @@
           <category id="1_0_0_8_0" name="RegExp" nofquestions="7" nofsubcategories="1">
             <category id="1_0_0_8_0_0" name="JavaRegex_Vogella" nofquestions="7" nofsubcategories="0" filename="javaregex_vogella1_0_0_8_0_0.xml" />
           </category>
-          <category id="1_0_0_8_2" name="Reflection" nofquestions="2" nofsubcategories="1">
+          <category id="1_0_0_8_2" name="Reflection" nofquestions="2" nofsubcategories="2">
             <category id="1_0_0_8_2_0" name="docsOracle_and_journaldevcom" nofquestions="2" nofsubcategories="0" filename="docsoracle_and_journaldevcom1_0_0_8_2_0.xml" />
+            <category id="1_0_0_8_2_1" name="Treehouse_JavaAnnotations" nofquestions="0" nofsubcategories="0" filename="treehouse_javaannotations1_0_0_8_2_1.xml" />
           </category>
         </category>
         <category id="1_0_0_9" name="JVM" nofquestions="16" nofsubcategories="7">
@@ -498,13 +499,21 @@
       </category>
     </category>
     <category id="1_3" name="Python" nofquestions="0" nofsubcategories="2">
-      <category id="1_3_0" name="Python Core" nofquestions="0" nofsubcategories="0" />
-      <category id="1_3_1" name="Python EE" nofquestions="0" nofsubcategories="0" />
+      <category id="1_3_0" name="Python Core" nofquestions="0" nofsubcategories="1">
+        <category id="1_3_0_0" name="Pluralsight_PythonFundamentals" nofquestions="0" nofsubcategories="2">
+          <category id="1_3_0_0_0" name="2GetStarted_WithPython3" nofquestions="0" nofsubcategories="0" filename="2getstarted_withpython31_3_0_0_0.xml" />
+          <category id="1_3_0_0_1" name="3Strings_and_Collections" nofquestions="0" nofsubcategories="0" filename="3strings_and_collections1_3_0_0_1.xml" />
+        </category>
+      </category>
+      <category id="1_3_1" name="Python EE" nofquestions="0" nofsubcategories="1">
+        <category id="1_3_1_0" name="Django" nofquestions="0" nofsubcategories="0" />
+      </category>
     </category>
     <category id="1_4" name="Ruby" nofquestions="0" nofsubcategories="2">
       <category id="1_4_0" name="Ruby_Core" nofquestions="0" nofsubcategories="0" />
       <category id="1_4_1" name="Ruby EE" nofquestions="0" nofsubcategories="0" />
     </category>
+    <category id="1_5" name="Scala" nofquestions="0" nofsubcategories="0" />
   </class>
   <class id="2" name="Programming Other" nofquestions="93" nofsubcategories="13">
     <category id="2_1" name="Version Control" nofquestions="26" nofsubcategories="2">
@@ -552,9 +561,14 @@
       </category>
       <category id="2_4_4" name="ApacheServer" nofquestions="0" nofsubcategories="0" />
     </category>
-    <category id="2_5" name="Cloud_platforms" nofquestions="0" nofsubcategories="2">
+    <category id="2_5" name="Cloud_platforms" nofquestions="0" nofsubcategories="3">
       <category id="2_5_0" name="AWS" nofquestions="0" nofsubcategories="0" />
       <category id="2_5_1" name="Heroku" nofquestions="0" nofsubcategories="0" />
+      <category id="2_5_2" name="Cloud_Infrastructure" nofquestions="0" nofsubcategories="3">
+        <category id="2_5_2_0" name="Docker" nofquestions="0" nofsubcategories="0" />
+        <category id="2_5_2_1" name="OpenStack" nofquestions="0" nofsubcategories="0" />
+        <category id="2_5_2_2" name="ApacheCloudStack" nofquestions="0" nofsubcategories="0" />
+      </category>
     </category>
     <category id="2_6" name="OppPatternsandOOD" nofquestions="51" nofsubcategories="6">
       <category id="2_6_1" name="DudzyaniyOOP_and_Stackoverflos_OOP" nofquestions="0" nofsubcategories="0" filename="dudzyaniyoop_and_stackoverflos_oop2_6_1.xml" />
@@ -591,7 +605,9 @@
       </category>
     </category>
     <category id="2_9" name="Browsers_and_their_APIS" nofquestions="0" nofsubcategories="2">
-      <category id="2_9_0" name="Chrome" nofquestions="0" nofsubcategories="0" />
+      <category id="2_9_0" name="Chrome" nofquestions="0" nofsubcategories="1">
+        <category id="2_9_0_0" name="TutsPlus_BuildChromeExtension_2015" nofquestions="0" nofsubcategories="0" />
+      </category>
       <category id="2_9_1" name="Firefox" nofquestions="0" nofsubcategories="0" />
     </category>
     <category id="2_10" name="Big_DATA" nofquestions="0" nofsubcategories="2">
@@ -633,9 +649,9 @@
       <category id="3_1_3" name="Linux_Other_Tutorials" nofquestions="1" nofsubcategories="0" filename="linux_other_tutorials3_1_3.xml" />
     </category>
   </class>
-  <class id="4" name="Languages" nofquestions="0" nofsubcategories="3">
-    <category id="4_0" name="English" nofquestions="0" nofsubcategories="4">
-      <category id="4_0_0" name="How English Works BOOK" nofquestions="0" nofsubcategories="20">
+  <class id="4" name="Languages" nofquestions="1" nofsubcategories="3">
+    <category id="4_0" name="English" nofquestions="1" nofsubcategories="4">
+      <category id="4_0_0" name="How English Works BOOK" nofquestions="1" nofsubcategories="20">
         <category id="4_0_0_0" name="InitialTest" nofquestions="0" nofsubcategories="0" filename="initialtest4_0_0_0.xml" />
         <category id="4_0_0_1" name="Determiners_articles_possesives_demonstatives" nofquestions="0" nofsubcategories="0" filename="determiners_articles_possesives_demonstatives4_0_0_1.xml" />
         <category id="4_0_0_2" name="Other_determiners" nofquestions="0" nofsubcategories="0" filename="other_determiners4_0_0_2.xml" />
@@ -643,7 +659,7 @@
         <category id="4_0_0_4" name="4_Adjectives_and_Adverbs" nofquestions="0" nofsubcategories="0" filename="4_adjectives_and_adverbs4_0_0_4.xml" />
         <category id="4_0_0_5" name="5_Comparison_and_Degree" nofquestions="0" nofsubcategories="0" filename="5_comparison_and_degree4_0_0_5.xml" />
         <category id="4_0_0_6" name="6_Be_Do_and_Have" nofquestions="0" nofsubcategories="0" filename="6_be_do_and_have4_0_0_6.xml" />
-        <category id="4_0_0_7" name="7_Modal_auxillary_verbs" nofquestions="0" nofsubcategories="0" filename="7_modal_auxillary_verbs4_0_0_7.xml" />
+        <category id="4_0_0_7" name="7_Modal_auxillary_verbs" nofquestions="1" nofsubcategories="0" filename="7_modal_auxillary_verbs4_0_0_7.xml" />
         <category id="4_0_0_8" name="8_Tenses__Future" nofquestions="0" nofsubcategories="0" filename="8_tenses__future4_0_0_8.xml" />
         <category id="4_0_0_9" name="9_Tenses__Present" nofquestions="0" nofsubcategories="0" filename="9_tenses__present4_0_0_9.xml" />
         <category id="4_0_0_10" name="10_Tenses__Perfect_and_Past" nofquestions="0" nofsubcategories="0" filename="10_tenses__perfect_and_past4_0_0_10.xml" />

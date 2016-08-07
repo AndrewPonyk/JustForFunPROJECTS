@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="4_0_0_7" name="7_Modal_auxillary_verbs" nofquestions="0" nofsubcategories="0" filename="7_modal_auxillary_verbs4_0_0_7.xml" />
+<questions id="4_0_0_7" name="7_Modal_auxillary_verbs" nofquestions="1" nofsubcategories="0" filename="7_modal_auxillary_verbs4_0_0_7.xml">
+  <question id="4_0_0_7:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;106n&amp;nbsp;eC:&amp;nbsp;What&amp;nbsp;are&amp;nbsp;modal&amp;nbsp;auxiliary&amp;nbsp;verbs&amp;nbsp;?&amp;nbsp;&amp;nbsp;(tip:&amp;nbsp;10&amp;nbsp;words)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Can,&amp;nbsp;could,&amp;nbsp;may,&amp;nbsp;might,&amp;nbsp;shall,&amp;nbsp;should,&amp;nbsp;will,&amp;nbsp;would,&amp;nbsp;must,&amp;nbsp;ought.&lt;br&gt;
+&lt;br&gt;
+Some&amp;nbsp;examples:&lt;br&gt;
+this&amp;nbsp;might&amp;nbsp;be&amp;nbsp;true&amp;nbsp;-&amp;nbsp;&amp;nbsp;tse&amp;nbsp;mozhe&amp;nbsp;buty&amp;nbsp;pravdoyu&lt;br&gt;
+he&amp;nbsp;said&amp;nbsp;he&amp;nbsp;might&amp;nbsp;be&amp;nbsp;late&amp;nbsp;-&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+they&amp;nbsp;ought&amp;nbsp;to&amp;nbsp;respect&amp;nbsp;the&amp;nbsp;law&amp;nbsp;-&amp;nbsp;vony&amp;nbsp;povynni&amp;nbsp;dotrymuvatysya&amp;nbsp;zakonu&lt;br&gt;
+five&amp;nbsp;minutes&amp;nbsp;ought&amp;nbsp;to&amp;nbsp;be&amp;nbsp;enough&amp;nbsp;time&amp;nbsp;-</questionanswer>
+  </question>
+</questions>
