@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_8_0_0" name="JavaRegex_Vogella" nofquestions="7" nofsubcategories="0" filename="javaregex_vogella1_0_0_8_0_0.xml">
+<questions id="1_0_0_8_0_0" name="JavaRegex_Vogella" nofquestions="8" nofsubcategories="0" filename="javaregex_vogella1_0_0_8_0_0.xml">
   <question id="1_0_0_8_0_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;Regexp&amp;nbsp;:&amp;nbsp;Common&amp;nbsp;matching&amp;nbsp;symbols,&amp;nbsp;Metacharacters,&amp;nbsp;Quantifiers&amp;nbsp;&lt;br&gt;
@@ -1005,5 +1005,39 @@ class&amp;nbsp;Flags&amp;nbsp;implements&amp;nbsp;Serializable&amp;nbsp;{&lt;br&
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
 &lt;br&gt;
 }&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_0_0_8_0_0:7" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Java&amp;nbsp;regex&amp;nbsp;:&amp;nbsp;what&amp;nbsp;are&amp;nbsp;named&amp;nbsp;groups?&amp;nbsp;Provide&amp;nbsp;examples.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>https://blogs.oracle.com/xuemingshen/entry/named_capturing_group_in_jdk7&lt;br&gt;
+&lt;br&gt;
+Named&amp;nbsp;groups&amp;nbsp;in&amp;nbsp;Regex&amp;nbsp;are&amp;nbsp;available&amp;nbsp;from&amp;nbsp;Java&amp;nbsp;7.&lt;br&gt;
+&amp;nbsp;Example&amp;nbsp;of&amp;nbsp;group&amp;nbsp;names&amp;nbsp;'row'&amp;nbsp;which&amp;nbsp;contains&amp;nbsp;one&amp;nbsp;letter:&amp;nbsp;(?&lt;row&gt;[a-zA-Z]{1})&lt;br&gt;
+==============================================&lt;br&gt;
+Example&amp;nbsp;:&lt;br&gt;
+&lt;br&gt;
+package&amp;nbsp;com.ap;&lt;br&gt;
+&lt;br&gt;
+import&amp;nbsp;java.util.regex.Matcher;&lt;br&gt;
+import&amp;nbsp;java.util.regex.Pattern;&lt;br&gt;
+&lt;br&gt;
+/**&lt;br&gt;
+&amp;nbsp;*&amp;nbsp;Created&amp;nbsp;by&amp;nbsp;andrii&amp;nbsp;on&amp;nbsp;07.08.16.&lt;br&gt;
+&amp;nbsp;*/&lt;br&gt;
+public&amp;nbsp;class&amp;nbsp;DemoAP&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;public&amp;nbsp;static&amp;nbsp;void&amp;nbsp;main(String[]&amp;nbsp;args)&amp;nbsp;throws&amp;nbsp;InvalidLocationException{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Pattern&amp;nbsp;pattern&amp;nbsp;=&amp;nbsp;Pattern.compile("^(?&lt;row&gt;[a-zA-Z]{1})(?&lt;column&gt;[0-9]+)(?&lt;anotherval&gt;[a-z]{2})$");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Matcher&amp;nbsp;matcher&amp;nbsp;=&amp;nbsp;pattern.matcher("B2dd");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if&amp;nbsp;(!matcher.matches())&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;throw&amp;nbsp;new&amp;nbsp;Exception("Invalid&amp;nbsp;buttons");&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;//&amp;nbsp;display&amp;nbsp;captured&amp;nbsp;groups&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(matcher.group("row"));&amp;nbsp;//&amp;nbsp;B&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(matcher.group("column"));&amp;nbsp;//&amp;nbsp;2&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System.out.println(matcher.group("anotherval"));&amp;nbsp;//&amp;nbsp;dd&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+}</questionanswer>
   </question>
 </questions>

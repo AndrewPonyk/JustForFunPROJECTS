@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="1_0_1_8_0_0_1" name="2HowToTest" nofquestions="1" nofsubcategories="0" filename="2howtotest1_0_1_8_0_0_1.xml">
+  <question id="1_0_1_8_0_0_1:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Unit&amp;nbsp;testing&amp;nbsp;:&amp;nbsp;what&amp;nbsp;is&amp;nbsp;the&amp;nbsp;unit&amp;nbsp;?&lt;br&gt;
+How&amp;nbsp;do&amp;nbsp;you&amp;nbsp;unit&amp;nbsp;test&amp;nbsp;private&amp;nbsp;methods?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Unit&lt;br&gt;
+Intuitively,&amp;nbsp;one&amp;nbsp;can&amp;nbsp;view&amp;nbsp;a&amp;nbsp;unit&amp;nbsp;as&amp;nbsp;the&amp;nbsp;smallest&amp;nbsp;testable&amp;nbsp;part&amp;nbsp;of&amp;nbsp;an&amp;nbsp;application.&lt;br&gt;
+&lt;br&gt;
+In&amp;nbsp;procedural&amp;nbsp;programming,&amp;nbsp;a&amp;nbsp;unit&amp;nbsp;could&amp;nbsp;be&amp;nbsp;an&amp;nbsp;entire&amp;nbsp;module,&amp;nbsp;but&amp;nbsp;it&amp;nbsp;is&amp;nbsp;more&amp;nbsp;commonly&amp;nbsp;an&amp;nbsp;individual&amp;nbsp;function&amp;nbsp;or&amp;nbsp;procedure.&lt;br&gt;
+In&amp;nbsp;object-oriented&amp;nbsp;programming,&amp;nbsp;a&amp;nbsp;unit&amp;nbsp;is&amp;nbsp;often&amp;nbsp;an&amp;nbsp;entire&amp;nbsp;interface,&amp;nbsp;such&amp;nbsp;as&amp;nbsp;a&amp;nbsp;class,&lt;br&gt;
+but&amp;nbsp;could&amp;nbsp;be&amp;nbsp;an&amp;nbsp;individual&amp;nbsp;method.[2]&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;Unit&amp;nbsp;tests&amp;nbsp;are&amp;nbsp;short&amp;nbsp;code&amp;nbsp;fragments[3]&amp;nbsp;created&amp;nbsp;by&amp;nbsp;programmers&amp;nbsp;or&amp;nbsp;occasionally&amp;nbsp;by&amp;nbsp;white&amp;nbsp;box&amp;nbsp;testers&lt;br&gt;
+during&amp;nbsp;the&amp;nbsp;development&amp;nbsp;process.&amp;nbsp;It&amp;nbsp;forms&amp;nbsp;the&amp;nbsp;basis&amp;nbsp;for&amp;nbsp;component&amp;nbsp;testing.[4]&lt;br&gt;
+&lt;br&gt;
+==================================================&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;do&amp;nbsp;you&amp;nbsp;unit&amp;nbsp;test&amp;nbsp;private&amp;nbsp;methods?&lt;br&gt;
+If&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;unit&amp;nbsp;test&amp;nbsp;a&amp;nbsp;private&amp;nbsp;method,&amp;nbsp;something&amp;nbsp;may&amp;nbsp;be&amp;nbsp;wrong.&amp;nbsp;Unit&amp;nbsp;tests&amp;nbsp;are&amp;nbsp;(generally&amp;nbsp;speaking)&lt;br&gt;
+meant&amp;nbsp;to&amp;nbsp;test&amp;nbsp;the&amp;nbsp;interface&amp;nbsp;of&amp;nbsp;a&amp;nbsp;class,&amp;nbsp;meaning&amp;nbsp;its&amp;nbsp;public&amp;nbsp;(and&amp;nbsp;protected)&amp;nbsp;methods.&lt;br&gt;
+You&amp;nbsp;can&amp;nbsp;of&amp;nbsp;course&amp;nbsp;"hack"&amp;nbsp;a&amp;nbsp;solution&amp;nbsp;to&amp;nbsp;this&amp;nbsp;(even&amp;nbsp;if&amp;nbsp;just&amp;nbsp;by&amp;nbsp;making&amp;nbsp;the&amp;nbsp;methods&amp;nbsp;public),&amp;nbsp;but&amp;nbsp;you&amp;nbsp;may&amp;nbsp;also&amp;nbsp;want&amp;nbsp;to&amp;nbsp;consider:&lt;br&gt;
+&lt;br&gt;
+1)If&amp;nbsp;the&amp;nbsp;method&amp;nbsp;you'd&amp;nbsp;like&amp;nbsp;to&amp;nbsp;test&amp;nbsp;is&amp;nbsp;really&amp;nbsp;worth&amp;nbsp;testing,&amp;nbsp;it&amp;nbsp;may&amp;nbsp;be&amp;nbsp;worth&amp;nbsp;to&amp;nbsp;move&amp;nbsp;it&amp;nbsp;into&amp;nbsp;its&amp;nbsp;own&amp;nbsp;class.&lt;br&gt;
+&lt;br&gt;
+2)Add&amp;nbsp;more&amp;nbsp;tests&amp;nbsp;to&amp;nbsp;the&amp;nbsp;public&amp;nbsp;methods&amp;nbsp;that&amp;nbsp;call&amp;nbsp;the&amp;nbsp;private&amp;nbsp;method,&amp;nbsp;testing&amp;nbsp;the&amp;nbsp;private&amp;nbsp;method's&amp;nbsp;functionality.&lt;br&gt;
+(As&amp;nbsp;the&amp;nbsp;commentators&amp;nbsp;indicated,&amp;nbsp;you&amp;nbsp;should&amp;nbsp;only&amp;nbsp;do&amp;nbsp;this&amp;nbsp;if&amp;nbsp;these&amp;nbsp;private&amp;nbsp;methods's&amp;nbsp;functionality&amp;nbsp;is&amp;nbsp;really&amp;nbsp;a&amp;nbsp;part&lt;br&gt;
+in&amp;nbsp;with&amp;nbsp;the&amp;nbsp;public&amp;nbsp;interface.&lt;br&gt;
+If&amp;nbsp;they&amp;nbsp;actually&amp;nbsp;perform&amp;nbsp;functions&amp;nbsp;that&amp;nbsp;are&amp;nbsp;hidden&amp;nbsp;from&amp;nbsp;the&amp;nbsp;user&amp;nbsp;(i.e.&amp;nbsp;the&amp;nbsp;unit&amp;nbsp;test),&amp;nbsp;this&amp;nbsp;is&amp;nbsp;probably&amp;nbsp;bad).</questionanswer>
+  </question>
+</questions>
