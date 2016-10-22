@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="1_0_1_15_1_0" name="TreeHouse_JavaRX" nofquestions="1" nofsubcategories="0" filename="treehouse_javarx1_0_1_15_1_0.xml">
+  <question id="1_0_1_15_1_0:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;reactive&amp;nbsp;programming&amp;nbsp;and&amp;nbsp;JavaRX&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>https://en.wikipedia.org/wiki/Reactive_programming&lt;br&gt;
+https://github.com/ReactiveX/RxJava&lt;br&gt;
+&lt;br&gt;
+n&amp;nbsp;computing,&amp;nbsp;reactive&amp;nbsp;programming&amp;nbsp;is&amp;nbsp;a&amp;nbsp;programming&amp;nbsp;paradigm&amp;nbsp;oriented&amp;nbsp;around&amp;nbsp;data&amp;nbsp;flows&amp;nbsp;and&lt;br&gt;
+the&amp;nbsp;propagation&amp;nbsp;of&amp;nbsp;change.&amp;nbsp;This&amp;nbsp;means&amp;nbsp;that&amp;nbsp;it&amp;nbsp;should&amp;nbsp;be&amp;nbsp;possible&amp;nbsp;to&amp;nbsp;express&amp;nbsp;static&amp;nbsp;or&amp;nbsp;dynamic&lt;br&gt;
+data&amp;nbsp;flows&amp;nbsp;with&amp;nbsp;ease&amp;nbsp;in&amp;nbsp;the&amp;nbsp;programming&amp;nbsp;languages&amp;nbsp;used,&amp;nbsp;and&amp;nbsp;that&amp;nbsp;the&amp;nbsp;underlying&amp;nbsp;execution&amp;nbsp;model&lt;br&gt;
+will&amp;nbsp;automatically&amp;nbsp;propagate&amp;nbsp;changes&amp;nbsp;through&amp;nbsp;the&amp;nbsp;data&amp;nbsp;flow.&amp;nbsp;For&amp;nbsp;example,&amp;nbsp;in&amp;nbsp;an&amp;nbsp;imperative&lt;br&gt;
+programming&amp;nbsp;setting,&amp;nbsp;&amp;nbsp;a:=b+c&amp;nbsp;a:=b+c&amp;nbsp;would&amp;nbsp;mean&amp;nbsp;that&amp;nbsp;&amp;nbsp;a,&amp;nbsp;a&amp;nbsp;is&amp;nbsp;being&amp;nbsp;assigned&amp;nbsp;the&lt;br&gt;
+result&amp;nbsp;of&amp;nbsp;{\displaystyle&amp;nbsp;b+c}&amp;nbsp;b+c&amp;nbsp;in&amp;nbsp;the&amp;nbsp;instant&amp;nbsp;the&amp;nbsp;expression&amp;nbsp;is&amp;nbsp;evaluated,&amp;nbsp;and&amp;nbsp;later,&lt;br&gt;
+the&amp;nbsp;values&amp;nbsp;of&amp;nbsp;{\displaystyle&amp;nbsp;b}&amp;nbsp;b&amp;nbsp;and&amp;nbsp;&amp;nbsp;&lt;b&gt;c&lt;/b&gt;&amp;nbsp;c&amp;nbsp;can&amp;nbsp;be&amp;nbsp;changed&amp;nbsp;with&amp;nbsp;no&amp;nbsp;effect&amp;nbsp;on&amp;nbsp;the&amp;nbsp;value&amp;nbsp;of&amp;nbsp;a&amp;nbsp;a.&lt;br&gt;
+&lt;br&gt;
+A&amp;nbsp;modern&amp;nbsp;spreadsheet&amp;nbsp;program&amp;nbsp;is&amp;nbsp;an&amp;nbsp;example&amp;nbsp;of&amp;nbsp;reactive&amp;nbsp;programming.&lt;br&gt;
+Spreadsheet&amp;nbsp;cells&amp;nbsp;can&amp;nbsp;contain&amp;nbsp;literal&amp;nbsp;values,&amp;nbsp;or&amp;nbsp;formulas&amp;nbsp;such&amp;nbsp;as&amp;nbsp;"=B1+C1"&amp;nbsp;that&amp;nbsp;are&amp;nbsp;evaluated&lt;br&gt;
+based&amp;nbsp;on&amp;nbsp;the&amp;nbsp;current&amp;nbsp;value&amp;nbsp;of&amp;nbsp;other&amp;nbsp;cells.&lt;br&gt;
+Whenever&amp;nbsp;the&amp;nbsp;value&amp;nbsp;of&amp;nbsp;the&amp;nbsp;other&amp;nbsp;cells&amp;nbsp;change,&amp;nbsp;the&amp;nbsp;value&amp;nbsp;of&amp;nbsp;the&amp;nbsp;cell&amp;nbsp;containing&amp;nbsp;the&amp;nbsp;formula&amp;nbsp;is&amp;nbsp;automatically&amp;nbsp;updated.&lt;br&gt;
+&lt;br&gt;
+!!!&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;RxJava&amp;nbsp;is&amp;nbsp;a&amp;nbsp;Java&amp;nbsp;VM&amp;nbsp;implementation&amp;nbsp;of&amp;nbsp;Reactive&amp;nbsp;Extensions:&amp;nbsp;a&amp;nbsp;library&amp;nbsp;for&amp;nbsp;composing&lt;br&gt;
+asynchronous&amp;nbsp;and&amp;nbsp;event-based&amp;nbsp;programs&amp;nbsp;by&amp;nbsp;using&amp;nbsp;observable&amp;nbsp;sequences.&lt;br&gt;
+&lt;br&gt;
+It&amp;nbsp;extends&amp;nbsp;the&amp;nbsp;observer&amp;nbsp;pattern&amp;nbsp;to&amp;nbsp;support&amp;nbsp;sequences&amp;nbsp;of&amp;nbsp;data/events&amp;nbsp;and&amp;nbsp;adds&amp;nbsp;operators&amp;nbsp;that&amp;nbsp;allow&amp;nbsp;you&lt;br&gt;
+to&amp;nbsp;compose&amp;nbsp;sequences&amp;nbsp;together&amp;nbsp;declaratively&amp;nbsp;while&amp;nbsp;abstracting&amp;nbsp;away&amp;nbsp;concerns&amp;nbsp;about&amp;nbsp;things&amp;nbsp;like&lt;br&gt;
+low-level&amp;nbsp;threading,&amp;nbsp;synchronization,&amp;nbsp;thread-safety&amp;nbsp;and&amp;nbsp;concurrent&amp;nbsp;data&amp;nbsp;structures.&lt;br&gt;
+&lt;br&gt;
+=============================&lt;br&gt;
+Illusctration&amp;nbsp;&amp;nbsp;how&amp;nbsp;RX&amp;nbsp;operators&amp;nbsp;works&amp;nbsp;:&amp;nbsp;(different&amp;nbsp;operators:first,last,&amp;nbsp;merge,&amp;nbsp;map)&lt;br&gt;
+http://rxmarbles.com/</questionanswer>
+  </question>
+</questions>

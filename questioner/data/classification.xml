@@ -154,8 +154,8 @@
       <category id="0_3_2" name="BitsManipulation" nofquestions="0" nofsubcategories="0" filename="bitsmanipulation0_3_2.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="551" nofsubcategories="6">
-    <category id="1_0" name="Java" nofquestions="516" nofsubcategories="4">
+  <class id="1" name="Programming" nofquestions="552" nofsubcategories="6">
+    <category id="1_0" name="Java" nofquestions="517" nofsubcategories="4">
       <category id="1_0_0" name="Java CORE" nofquestions="275" nofsubcategories="13">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="89" nofsubcategories="1">
           <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="89" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
@@ -229,7 +229,7 @@
         </category>
         <category id="1_0_0_12" name="JavaCore_Other_Tutorials" nofquestions="0" nofsubcategories="0" filename="javacore_other_tutorials1_0_0_12.xml" />
       </category>
-      <category id="1_0_1" name="Java EE" nofquestions="241" nofsubcategories="16">
+      <category id="1_0_1" name="Java EE" nofquestions="242" nofsubcategories="16">
         <category id="1_0_1_0" name="Java EE JNDI" nofquestions="0" nofsubcategories="0" filename="javaeejndi.xml" />
         <category id="1_0_1_1" name="And+MAVEN" nofquestions="22" nofsubcategories="4">
           <category id="1_0_1_1_0" name="Ant" nofquestions="0" nofsubcategories="0" filename="ant.xml" />
@@ -385,7 +385,6 @@
           <category id="1_0_1_7_5" name="Spring_Security" nofquestions="0" nofsubcategories="1">
             <category id="1_0_1_7_5_0" name="Pluralsight.Spring_Security" nofquestions="0" nofsubcategories="0" />
           </category>
-          <category id="1_0_1_7_6" name="Pluralsight_SpringFundamentals" nofquestions="1" nofsubcategories="0" filename="pluralsight_springfundamentals1_0_1_7_6.xml" />
           <category id="1_0_1_7_7" name="Wrox_Beginning_Spring_2015" nofquestions="0" nofsubcategories="13">
             <category id="1_0_1_7_7_0" name="chap1_POJOModel_LightContainers_IoC" nofquestions="0" nofsubcategories="0" filename="chap1_pojomodel_lightcontainers_ioc1_0_1_7_7_0.xml" />
             <category id="1_0_1_7_7_1" name="chap2DI_with_Spring" nofquestions="0" nofsubcategories="0" filename="chap2di_with_spring1_0_1_7_7_1.xml" />
@@ -403,6 +402,13 @@
           </category>
           <category id="1_0_1_7_8" name="PacktLearnSpringApplicationDevelopment2015" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_1_7_9" name="SpringBOOT" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_1_7_10" name="Pluralsight.Spring_fundamentals" nofquestions="1" nofsubcategories="5">
+            <category id="1_0_1_7_10_0" name="2_3_AppWIthoutSpring_and_XML_Configuration" nofquestions="1" nofsubcategories="0" filename="2_3_appwithoutspring_and_xml_configuration1_0_1_7_10_0.xml" />
+            <category id="1_0_1_7_10_1" name="4AnnotationConfig_using_XML" nofquestions="0" nofsubcategories="0" filename="4annotationconfig_using_xml1_0_1_7_10_1.xml" />
+            <category id="1_0_1_7_10_2" name="5Spring_Java_Configuration" nofquestions="0" nofsubcategories="0" filename="5spring_java_configuration1_0_1_7_10_2.xml" />
+            <category id="1_0_1_7_10_3" name="6Bean_Scopes_in_Spring" nofquestions="0" nofsubcategories="0" filename="6bean_scopes_in_spring1_0_1_7_10_3.xml" />
+            <category id="1_0_1_7_10_4" name="7Reading_Properties_File_in_Spring" nofquestions="0" nofsubcategories="0" filename="7reading_properties_file_in_spring1_0_1_7_10_4.xml" />
+          </category>
         </category>
         <category id="1_0_1_8" name="Testing" nofquestions="1" nofsubcategories="4">
           <category id="1_0_1_8_0" name="JUnit" nofquestions="1" nofsubcategories="1">
@@ -441,8 +447,11 @@
             <category id="1_0_1_14_0_0" name="WROX_JavaForWebApps_chap11Logging" nofquestions="0" nofsubcategories="0" filename="wrox_javaforwebapps_chap11logging1_0_1_14_0_0.xml" />
           </category>
         </category>
-        <category id="1_0_1_15" name="OtherJavaLibsAndTools" nofquestions="1" nofsubcategories="1">
+        <category id="1_0_1_15" name="OtherJavaLibsAndTools" nofquestions="2" nofsubcategories="2">
           <category id="1_0_1_15_0" name="CargoAPI" nofquestions="1" nofsubcategories="0" filename="cargoapi1_0_1_15_0.xml" />
+          <category id="1_0_1_15_1" name="JavaRX" nofquestions="1" nofsubcategories="1">
+            <category id="1_0_1_15_1_0" name="TreeHouse_JavaRX" nofquestions="1" nofsubcategories="0" filename="treehouse_javarx1_0_1_15_1_0.xml" />
+          </category>
         </category>
       </category>
       <category id="1_0_2" name="Android" nofquestions="0" nofsubcategories="0" />
