@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_1_7_10_0" name="2_3_AppWIthoutSpring_and_XML_Configuration" nofquestions="1" nofsubcategories="0" filename="2_3_appwithoutspring_and_xml_configuration1_0_1_7_10_0.xml">
+<questions id="1_0_1_7_10_0" name="2_3_AppWIthoutSpring_and_XML_Configuration" nofquestions="2" nofsubcategories="0" filename="2_3_appwithoutspring_and_xml_configuration1_0_1_7_10_0.xml">
   <question id="1_0_1_7_10_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Write&amp;nbsp;application&amp;nbsp;with&amp;nbsp;such&amp;nbsp;structure&amp;nbsp;:&lt;br&gt;
@@ -209,5 +209,36 @@ public&amp;nbsp;class&amp;nbsp;Main&amp;nbsp;{&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
 &lt;br&gt;
 }</questionanswer>
+  </question>
+  <question id="1_0_1_7_10_0:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;many&amp;nbsp;ways&amp;nbsp;are&amp;nbsp;there&amp;nbsp;to&amp;nbsp;configure&amp;nbsp;the&amp;nbsp;Spring&amp;nbsp;framework&amp;nbsp;?&lt;br&gt;
+(XML,&amp;nbsp;Java,&amp;nbsp;annotation...)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>!!!!&amp;nbsp;To&amp;nbsp;avoid&amp;nbsp;confusion,&amp;nbsp;we&amp;nbsp;should&amp;nbsp;understand,&amp;nbsp;that&amp;nbsp;&amp;nbsp;&lt;b&gt;configuration&amp;nbsp;definition&lt;b&gt;&amp;nbsp;and&amp;nbsp;&lt;br&gt;
+&lt;b&gt;bean&amp;nbsp;definition&amp;nbsp;&lt;/b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;are&amp;nbsp;two&amp;nbsp;different&amp;nbsp;things.&amp;nbsp;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Configuration&amp;nbsp;(3&amp;nbsp;ways)&lt;br&gt;
+There&amp;nbsp;is&amp;nbsp;a&amp;nbsp;three&amp;nbsp;ways&amp;nbsp;to&amp;nbsp;define&amp;nbsp;configuration,&amp;nbsp;available&amp;nbsp;in&amp;nbsp;Spring&amp;nbsp;4&amp;nbsp;by&amp;nbsp;default:&lt;br&gt;
+-&amp;nbsp;xml-based&amp;nbsp;configuration,&amp;nbsp;when&amp;nbsp;you&amp;nbsp;describe&amp;nbsp;configuration&amp;nbsp;in&amp;nbsp;xml&amp;nbsp;file;&lt;br&gt;
+-&amp;nbsp;java-based&amp;nbsp;configuration,&amp;nbsp;when&amp;nbsp;configuration&amp;nbsp;is&amp;nbsp;Java&amp;nbsp;class,&amp;nbsp;marked&amp;nbsp;with&amp;nbsp;specific&amp;nbsp;annotations;&lt;br&gt;
+-&amp;nbsp;groovy-based&amp;nbsp;configuration,&amp;nbsp;when&amp;nbsp;configuration&amp;nbsp;is&amp;nbsp;file&amp;nbsp;with&amp;nbsp;Groovy&amp;nbsp;code;&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Bean&amp;nbsp;definition&amp;nbsp;(2&amp;nbsp;ways&amp;nbsp;)&lt;br&gt;
+1)configuration&amp;nbsp;inside&amp;nbsp;bean&amp;nbsp;definition,&amp;nbsp;when&amp;nbsp;you&amp;nbsp;add&amp;nbsp;beans&amp;nbsp;manually&amp;nbsp;by&amp;nbsp;declaration&amp;nbsp;right&amp;nbsp;in&amp;nbsp;configuration.&lt;br&gt;
+&lt;br&gt;
+In&amp;nbsp;this&amp;nbsp;case&amp;nbsp;definition&amp;nbsp;will&amp;nbsp;be&amp;nbsp;based&amp;nbsp;on&amp;nbsp;configuration&amp;nbsp;type.&amp;nbsp;For&amp;nbsp;xml-config&amp;nbsp;it&amp;nbsp;will&amp;nbsp;be&amp;nbsp;&lt;bean/&gt;&amp;nbsp;tag,&lt;br&gt;
+for&amp;nbsp;java-based&amp;nbsp;config&amp;nbsp;-&amp;nbsp;method&amp;nbsp;with&amp;nbsp;@Bean&amp;nbsp;annotation&amp;nbsp;and&amp;nbsp;beans&amp;nbsp;{...}&amp;nbsp;construction&amp;nbsp;for&amp;nbsp;Groovy.&lt;br&gt;
+&lt;br&gt;
+2)annotation&amp;nbsp;based&amp;nbsp;bean&amp;nbsp;definition,&amp;nbsp;when&amp;nbsp;you&amp;nbsp;mark&amp;nbsp;bean&amp;nbsp;classes&amp;nbsp;with&amp;nbsp;specific&amp;nbsp;annotations&lt;br&gt;
+(like&amp;nbsp;@Component,&amp;nbsp;@Service,&amp;nbsp;@Controller&amp;nbsp;etc).&amp;nbsp;This&amp;nbsp;type&amp;nbsp;of&amp;nbsp;config&amp;nbsp;uses&amp;nbsp;classpath&amp;nbsp;scanning.&lt;br&gt;
+&lt;br&gt;
+In&amp;nbsp;this&amp;nbsp;case&amp;nbsp;you&amp;nbsp;have&amp;nbsp;to&amp;nbsp;specify&amp;nbsp;directive&amp;nbsp;for&amp;nbsp;scanning&amp;nbsp;classpath.&amp;nbsp;For&amp;nbsp;xml-config&amp;nbsp;it&amp;nbsp;will&amp;nbsp;be&lt;br&gt;
+&lt;context:component-scan&amp;nbsp;base-package="..."/&gt;,&amp;nbsp;for&amp;nbsp;java-config&amp;nbsp;-&amp;nbsp;@ComponentScan&amp;nbsp;annotation,&lt;br&gt;
+for&amp;nbsp;Groovy&amp;nbsp;ctx.'component-scan'(...)&amp;nbsp;invocation.&lt;br&gt;
+=======================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;So,&amp;nbsp;How&amp;nbsp;many&amp;nbsp;ways&amp;nbsp;are&amp;nbsp;there&amp;nbsp;to&amp;nbsp;configure&amp;nbsp;Spring&amp;nbsp;framework?&lt;br&gt;
+Answer:&amp;nbsp;So,&amp;nbsp;by&amp;nbsp;default,&amp;nbsp;we&amp;nbsp;have&amp;nbsp;three&amp;nbsp;ways&amp;nbsp;to&amp;nbsp;describe&amp;nbsp;configuration,&amp;nbsp;and&amp;nbsp;two&amp;nbsp;ways&amp;nbsp;to&amp;nbsp;define&amp;nbsp;beans.&lt;br&gt;
+That&amp;nbsp;turns&amp;nbsp;six&amp;nbsp;ways&amp;nbsp;to&amp;nbsp;configure&amp;nbsp;Spring&amp;nbsp;framework(by&amp;nbsp;default).&amp;nbsp;But,&amp;nbsp;of&amp;nbsp;course,&amp;nbsp;all&amp;nbsp;of&amp;nbsp;this&amp;nbsp;ways&amp;nbsp;can&amp;nbsp;be&amp;nbsp;used&amp;nbsp;in&amp;nbsp;combination&amp;nbsp;with&amp;nbsp;each&amp;nbsp;other.&lt;br&gt;</questionanswer>
   </question>
 </questions>
