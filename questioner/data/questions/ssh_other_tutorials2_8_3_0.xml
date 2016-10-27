@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="2_8_3_0" name="SSH_Other_Tutorials" nofquestions="2" nofsubcategories="0" filename="ssh_other_tutorials2_8_3_0.xml">
+<questions id="2_8_3_0" name="SSH_Other_Tutorials" nofquestions="3" nofsubcategories="0" filename="ssh_other_tutorials2_8_3_0.xml">
   <question id="2_8_3_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;does&amp;nbsp;'-i'&amp;nbsp;means&amp;nbsp;in&amp;nbsp;such&amp;nbsp;command&amp;nbsp;:&lt;br&gt;
@@ -16,5 +16,21 @@ ssh&amp;nbsp;-i&amp;nbsp;demo-key.pem&amp;nbsp;&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;host&amp;nbsp;basis&amp;nbsp;in&amp;nbsp;the&amp;nbsp;configuration&amp;nbsp;file.&amp;nbsp;&amp;nbsp;It&amp;nbsp;is&amp;nbsp;possible&amp;nbsp;to&amp;nbsp;have&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;multiple&amp;nbsp;-i&amp;nbsp;options&amp;nbsp;(and&amp;nbsp;multiple&amp;nbsp;identities&amp;nbsp;specified&amp;nbsp;in&amp;nbsp;config-&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;uration&amp;nbsp;files).</questionanswer>
+  </question>
+  <question id="2_8_3_0:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;to&amp;nbsp;copy&amp;nbsp;files&amp;nbsp;from&amp;nbsp;using&amp;nbsp;scp&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://the.earth.li/~sgtatham/putty/0.60/htmldoc/index.html&lt;br&gt;
+http://the.earth.li/~sgtatham/putty/0.60/htmldoc/Chapter5.html#pscp&lt;br&gt;
+==============================================&lt;br&gt;
+Download&amp;nbsp;pscp.exe&amp;nbsp;(http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)&lt;br&gt;
+&lt;br&gt;
+Example&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+pscp.exe&amp;nbsp;&lt;username&gt;@quappv4.agileassets.com:/usr/local/tomcat8/webapp&lt;br&gt;
+s/AMS_NC_07_01SP5/Maps/*&amp;nbsp;&amp;nbsp;D:\Maps&lt;br&gt;
+&lt;br&gt;
+This&amp;nbsp;command&amp;nbsp;will&amp;nbsp;copy&amp;nbsp;all&amp;nbsp;files&amp;nbsp;from&amp;nbsp;Maps&amp;nbsp;directory&amp;nbsp;to&amp;nbsp;your&amp;nbsp;local&amp;nbsp;computer.&lt;br&gt;
+(Tip:&amp;nbsp;to&amp;nbsp;get&amp;nbsp;your&amp;nbsp;current&amp;nbsp;dir&amp;nbsp;in&amp;nbsp;linux&amp;nbsp;use&amp;nbsp;command&amp;nbsp;'pwd')</questionanswer>
   </question>
 </questions>
