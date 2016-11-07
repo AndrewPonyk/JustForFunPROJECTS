@@ -580,10 +580,18 @@
     <category id="2_5" name="Cloud_platforms" nofquestions="0" nofsubcategories="3">
       <category id="2_5_0" name="AWS" nofquestions="0" nofsubcategories="0" />
       <category id="2_5_1" name="Heroku" nofquestions="0" nofsubcategories="0" />
-      <category id="2_5_2" name="Cloud_Infrastructure" nofquestions="0" nofsubcategories="3">
-        <category id="2_5_2_0" name="Docker" nofquestions="0" nofsubcategories="0" />
+      <category id="2_5_2" name="Cloud_Infrastructure" nofquestions="0" nofsubcategories="6">
+        <category id="2_5_2_0" name="Docker" nofquestions="0" nofsubcategories="1">
+          <category id="2_5_2_0_0" name="FirstDockerCourse_Packt_BuildOwnPaaSWihtDocker" nofquestions="0" nofsubcategories="2">
+            <category id="2_5_2_0_0_0" name="1InstallingDocker" nofquestions="0" nofsubcategories="0" filename="1installingdocker2_5_2_0_0_0.xml" />
+            <category id="2_5_2_0_0_1" name="2ExploringDocker" nofquestions="0" nofsubcategories="0" filename="2exploringdocker2_5_2_0_0_1.xml" />
+          </category>
+        </category>
         <category id="2_5_2_1" name="OpenStack" nofquestions="0" nofsubcategories="0" />
         <category id="2_5_2_2" name="ApacheCloudStack" nofquestions="0" nofsubcategories="0" />
+        <category id="2_5_2_3" name="Puppet" nofquestions="0" nofsubcategories="0" />
+        <category id="2_5_2_4" name="Chef" nofquestions="0" nofsubcategories="0" />
+        <category id="2_5_2_5" name="Vagrant" nofquestions="0" nofsubcategories="0" />
       </category>
     </category>
     <category id="2_6" name="OppPatternsandOOD" nofquestions="51" nofsubcategories="6">
