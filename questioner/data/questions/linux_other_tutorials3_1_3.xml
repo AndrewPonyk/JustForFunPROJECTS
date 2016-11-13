@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="3_1_3" name="Linux_Other_Tutorials" nofquestions="1" nofsubcategories="0" filename="linux_other_tutorials3_1_3.xml">
+<questions id="3_1_3" name="Linux_Other_Tutorials" nofquestions="2" nofsubcategories="0" filename="linux_other_tutorials3_1_3.xml">
   <question id="3_1_3:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;difference&amp;nbsp;between&amp;nbsp;yum,&amp;nbsp;apt-get,&amp;nbsp;rpm,&amp;nbsp;./configure&amp;nbsp;&amp;amp;&amp;amp;&amp;nbsp;make&amp;nbsp;&lt;br&gt;
@@ -49,5 +49,27 @@ It&amp;nbsp;will&amp;nbsp;also&amp;nbsp;automatically&amp;nbsp;resolve&amp;nbsp;
 So&amp;nbsp;to&amp;nbsp;sum&amp;nbsp;it&amp;nbsp;up:&amp;nbsp;if&amp;nbsp;you&amp;nbsp;just&amp;nbsp;want&amp;nbsp;some&amp;nbsp;software&amp;nbsp;try&amp;nbsp;yum&amp;nbsp;first.&amp;nbsp;If&amp;nbsp;it&amp;nbsp;is&amp;nbsp;not&amp;nbsp;available&amp;nbsp;there,&amp;nbsp;you&amp;nbsp;can&amp;nbsp;try&amp;nbsp;to&amp;nbsp;find&amp;nbsp;an&amp;nbsp;existing&lt;br&gt;
 rpm&amp;nbsp;package.&amp;nbsp;If&amp;nbsp;there&amp;nbsp;is&amp;nbsp;none&amp;nbsp;or&amp;nbsp;you&amp;nbsp;have&amp;nbsp;some&amp;nbsp;special&amp;nbsp;requirements,&amp;nbsp;build&amp;nbsp;from&amp;nbsp;source.&lt;br&gt;
 &lt;br&gt;</questionanswer>
+  </question>
+  <question id="3_1_3:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Why&amp;nbsp;is&amp;nbsp;it&amp;nbsp;better&amp;nbsp;to&amp;nbsp;use&amp;nbsp;&amp;#8220;#!/usr/bin/env&amp;nbsp;NAME&amp;#8221;&amp;nbsp;instead&amp;nbsp;of&amp;nbsp;&amp;#8220;#!/path/to/NAME&amp;#8221;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;as&amp;nbsp;my&amp;nbsp;shebang?&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>It&amp;nbsp;isn't&amp;nbsp;necessarily&amp;nbsp;better.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;advantage&amp;nbsp;of&amp;nbsp;#!/usr/bin/env&amp;nbsp;python&amp;nbsp;is&amp;nbsp;that&amp;nbsp;it&amp;nbsp;will&amp;nbsp;use&amp;nbsp;whatever&amp;nbsp;python&amp;nbsp;executable&amp;nbsp;appears&amp;nbsp;first&amp;nbsp;in&amp;nbsp;the&amp;nbsp;user's&amp;nbsp;$PATH.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;disadvantage&amp;nbsp;of&amp;nbsp;#!/usr/bin/env&amp;nbsp;python&amp;nbsp;is&amp;nbsp;that&amp;nbsp;it&amp;nbsp;will&amp;nbsp;use&amp;nbsp;whatever&amp;nbsp;python&amp;nbsp;executable&amp;nbsp;appears&amp;nbsp;first&amp;nbsp;in&amp;nbsp;the&amp;nbsp;user's&amp;nbsp;$PATH.&lt;br&gt;
+&lt;br&gt;
+That&amp;nbsp;means&amp;nbsp;that&amp;nbsp;the&amp;nbsp;script&amp;nbsp;could&amp;nbsp;behave&amp;nbsp;differently&amp;nbsp;depending&amp;nbsp;on&amp;nbsp;who&amp;nbsp;runs&amp;nbsp;it.&amp;nbsp;For&amp;nbsp;one&amp;nbsp;user,&amp;nbsp;it&amp;nbsp;might&amp;nbsp;use&amp;nbsp;the&amp;nbsp;/usr/bin/python&amp;nbsp;that&amp;nbsp;was&amp;nbsp;installed&amp;nbsp;with&amp;nbsp;the&amp;nbsp;OS.&amp;nbsp;For&amp;nbsp;another,&amp;nbsp;it&amp;nbsp;might&amp;nbsp;use&amp;nbsp;an&amp;nbsp;experimental&amp;nbsp;/home/phred/bin/python&amp;nbsp;that&amp;nbsp;doesn't&amp;nbsp;quite&amp;nbsp;work&amp;nbsp;correctly.&lt;br&gt;
+================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Example&amp;nbsp;&lt;br&gt;
+usually&amp;nbsp;i&amp;nbsp;run&amp;nbsp;my&amp;nbsp;nodejs&amp;nbsp;application&amp;nbsp;by&amp;nbsp;type&amp;nbsp;:&amp;nbsp;nodejs&amp;nbsp;script.js&lt;br&gt;
+&lt;br&gt;
+After&amp;nbsp;next&amp;nbsp;steps&amp;nbsp;:&amp;nbsp;&lt;br&gt;
+-&amp;nbsp;put&amp;nbsp;'#!/usr/bin/env&amp;nbsp;nodejs'&amp;nbsp;on&amp;nbsp;the&amp;nbsp;first&amp;nbsp;line&amp;nbsp;of&amp;nbsp;script.js&lt;br&gt;
+-&amp;nbsp;in&amp;nbsp;command&amp;nbsp;line&amp;nbsp;:&amp;nbsp;&amp;nbsp;chmod&amp;nbsp;700&amp;nbsp;script.js&lt;br&gt;
+&lt;br&gt;
+You&amp;nbsp;can&amp;nbsp;now&amp;nbsp;run&amp;nbsp;nodejs&amp;nbsp;app&amp;nbsp;by&amp;nbsp;type&amp;nbsp;:&amp;nbsp;'./script.js'</questionanswer>
   </question>
 </questions>

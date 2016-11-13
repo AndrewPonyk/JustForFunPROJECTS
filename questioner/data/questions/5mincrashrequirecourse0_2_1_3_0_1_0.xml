@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questions id="0_2_1_3_0_1_0" name="5minCrashRequireCourse" nofquestions="4" nofsubcategories="0" filename="5mincrashrequirecourse0_2_1_3_0_1_0.xml">
+  <question id="0_2_1_3_0_1_0:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Create&amp;nbsp;RequireJS&amp;nbsp;module&amp;nbsp;application,&amp;nbsp;create&amp;nbsp;two&amp;nbsp;modules&amp;nbsp;and&amp;nbsp;use&amp;nbsp;them&amp;nbsp;on&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;main&amp;nbsp;page.&lt;br&gt;
+(for&amp;nbsp;example&amp;nbsp;create&amp;nbsp;files&amp;nbsp;&lt;projdir&gt;/modules/module1.js,&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;projdir&gt;/modules/module2.js,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;projdir&gt;/main.js,&amp;nbsp;&lt;projdir&gt;/index.html)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>1)&amp;nbsp;Create&amp;nbsp;two&amp;nbsp;modules&amp;nbsp;(in&amp;nbsp;this&amp;nbsp;example&amp;nbsp;alertOne.js&amp;nbsp;and&amp;nbsp;alertTwo.js&amp;nbsp;files)&lt;br&gt;
+&lt;br&gt;
+///&lt;projdir&gt;/alertOne.js&lt;br&gt;
+define(function(){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;console.log(arguments);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;function&amp;nbsp;shout&amp;nbsp;(){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;alert("one!")&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;shout:shout&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+})&lt;br&gt;
+&lt;br&gt;
+///&lt;projdir&gt;/alertTwo.js&lt;br&gt;
+define(function(){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;function&amp;nbsp;shout(){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;alert("two!")&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;};&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;shout:&amp;nbsp;shout,&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+});&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+2)&amp;nbsp;Main&amp;nbsp;file&lt;br&gt;
+///&amp;nbsp;5minmain.js&lt;br&gt;
+define(["modules/alertOne","modules/alertTwo"],&amp;nbsp;function(alertOne,&amp;nbsp;alertTwo){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;alertOne.shout();&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;alertTwo.shout();&lt;br&gt;
+});&lt;br&gt;
+&lt;br&gt;
+3)&amp;nbsp;Index&amp;nbsp;html&amp;nbsp;file&lt;br&gt;
+!DOCTYPE&amp;nbsp;html&gt;&lt;br&gt;
+html&amp;nbsp;lang="en"&gt;&lt;br&gt;
+head&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;meta&amp;nbsp;charset="UTF-8"&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;title&gt;5&amp;nbsp;min&amp;nbsp;crashcourse&lt;/title&gt;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;script&amp;nbsp;data-main="5minmain.js"&amp;nbsp;src="../js/require.js"&gt;&lt;/script&gt;&lt;br&gt;
+/head&gt;&lt;br&gt;
+body&gt;&lt;br&gt;
+5&amp;nbsp;min&amp;nbsp;RequireJs&amp;nbsp;tutorial&lt;br&gt;
+/body&gt;&lt;br&gt;
+/html&gt;</questionanswer>
+  </question>
+  <question id="0_2_1_3_0_1_0:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;RequireJS&amp;nbsp;'define'&amp;nbsp;vs&amp;nbsp;'require'&amp;nbsp;functions,&amp;nbsp;describe.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>With&amp;nbsp;define&amp;nbsp;you&amp;nbsp;register&amp;nbsp;a&amp;nbsp;module&amp;nbsp;in&amp;nbsp;require.js&amp;nbsp;that&amp;nbsp;you&amp;nbsp;can&amp;nbsp;then&amp;nbsp;depend&amp;nbsp;on&amp;nbsp;in&amp;nbsp;other&amp;nbsp;module&amp;nbsp;definitions&lt;br&gt;
+or&amp;nbsp;require&amp;nbsp;statements.&amp;nbsp;With&amp;nbsp;require&amp;nbsp;you&amp;nbsp;"just"&amp;nbsp;load/use&amp;nbsp;a&amp;nbsp;module&amp;nbsp;or&amp;nbsp;javascript&amp;nbsp;file&amp;nbsp;that&amp;nbsp;can&amp;nbsp;be&amp;nbsp;loaded&amp;nbsp;by&amp;nbsp;require.js.&lt;br&gt;
+For&amp;nbsp;examples&amp;nbsp;have&amp;nbsp;a&amp;nbsp;look&amp;nbsp;at&amp;nbsp;the&amp;nbsp;documentation&lt;br&gt;
+============================================================&lt;br&gt;
+&lt;br&gt;
+Differences:&lt;br&gt;
+-&amp;nbsp;The&amp;nbsp;define()&amp;nbsp;function&amp;nbsp;accepts&amp;nbsp;two&amp;nbsp;optional&amp;nbsp;parameters&amp;nbsp;(a&amp;nbsp;string&amp;nbsp;that&amp;nbsp;represent&amp;nbsp;a&amp;nbsp;module&amp;nbsp;ID&amp;nbsp;and&amp;nbsp;an&lt;br&gt;
+array&amp;nbsp;of&amp;nbsp;required&amp;nbsp;modules)&amp;nbsp;and&amp;nbsp;one&amp;nbsp;required&amp;nbsp;parameter&amp;nbsp;(a&amp;nbsp;factory&amp;nbsp;method).&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;The&amp;nbsp;return&amp;nbsp;of&amp;nbsp;the&amp;nbsp;factory&amp;nbsp;method&amp;nbsp;MUST&amp;nbsp;return&amp;nbsp;the&amp;nbsp;implementation&amp;nbsp;for&amp;nbsp;your&amp;nbsp;module&lt;br&gt;
+(in&amp;nbsp;the&amp;nbsp;same&amp;nbsp;way&amp;nbsp;that&amp;nbsp;the&amp;nbsp;Module&amp;nbsp;Pattern&amp;nbsp;does).&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;The&amp;nbsp;require()&amp;nbsp;function&amp;nbsp;doesn't&amp;nbsp;have&amp;nbsp;to&amp;nbsp;return&amp;nbsp;the&amp;nbsp;implementation&amp;nbsp;of&amp;nbsp;a&amp;nbsp;new&amp;nbsp;module.&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;Using&amp;nbsp;define()&amp;nbsp;you&amp;nbsp;are&amp;nbsp;asking&amp;nbsp;something&amp;nbsp;like&amp;nbsp;"run&amp;nbsp;the&amp;nbsp;function&amp;nbsp;that&amp;nbsp;I&amp;nbsp;am&amp;nbsp;passing&amp;nbsp;as&amp;nbsp;a&amp;nbsp;parameter&amp;nbsp;and&lt;br&gt;
+assign&amp;nbsp;whatever&amp;nbsp;returns&amp;nbsp;to&amp;nbsp;the&amp;nbsp;ID&amp;nbsp;that&amp;nbsp;I&amp;nbsp;am&amp;nbsp;passing&amp;nbsp;but,&amp;nbsp;before,&amp;nbsp;check&amp;nbsp;that&amp;nbsp;these&amp;nbsp;dependencies&amp;nbsp;are&amp;nbsp;loaded".&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;Using&amp;nbsp;require()&amp;nbsp;you&amp;nbsp;are&amp;nbsp;saying&amp;nbsp;something&amp;nbsp;like&amp;nbsp;"the&amp;nbsp;function&amp;nbsp;that&amp;nbsp;I&amp;nbsp;pass&amp;nbsp;has&amp;nbsp;the&amp;nbsp;following&amp;nbsp;dependencies,&lt;br&gt;
+check&amp;nbsp;that&amp;nbsp;these&amp;nbsp;dependencies&amp;nbsp;are&amp;nbsp;loaded&amp;nbsp;before&amp;nbsp;running&amp;nbsp;it".&lt;br&gt;
+&lt;br&gt;
+-&amp;nbsp;The&amp;nbsp;require()&amp;nbsp;function&amp;nbsp;is&amp;nbsp;where&amp;nbsp;you&amp;nbsp;use&amp;nbsp;your&amp;nbsp;defined&amp;nbsp;modules,&amp;nbsp;in&amp;nbsp;order&amp;nbsp;to&amp;nbsp;be&amp;nbsp;sure&amp;nbsp;that&amp;nbsp;the&amp;nbsp;modules&amp;nbsp;are&amp;nbsp;defined,&amp;nbsp;but&amp;nbsp;you&amp;nbsp;are&amp;nbsp;not&amp;nbsp;defining&amp;nbsp;new&amp;nbsp;modules&amp;nbsp;there.</questionanswer>
+  </question>
+</questions>

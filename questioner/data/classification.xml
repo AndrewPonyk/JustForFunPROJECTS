@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classification>
-  <class id="0" name="Programming Foundation" nofquestions="118" nofsubcategories="4">
+  <class id="0" name="Programming Foundation" nofquestions="122" nofsubcategories="4">
     <category id="0_0" name="Web Design and XML" nofquestions="32" nofsubcategories="3">
       <category id="0_0_0" name="HTML5" nofquestions="3" nofsubcategories="0" filename="html5.xml" />
       <category id="0_0_1" name="CSS and Frameworks" nofquestions="26" nofsubcategories="4">
@@ -89,7 +89,7 @@
       </category>
       <category id="0_1_6" name="PostgreSQL" nofquestions="0" nofsubcategories="0" />
     </category>
-    <category id="0_2" name="Javascript" nofquestions="16" nofsubcategories="2">
+    <category id="0_2" name="Javascript" nofquestions="20" nofsubcategories="2">
       <category id="0_2_0" name="Javascript Core" nofquestions="12" nofsubcategories="4">
         <category id="0_2_0_0" name="BasicSyntaxDataTypesETC" nofquestions="0" nofsubcategories="0" filename="basicsyntaxdatatypesetc0_2_0_0.xml" />
         <category id="0_2_0_1" name="OopInJavascript" nofquestions="12" nofsubcategories="2" filename="oopinjavascript0_2_0_1.xml">
@@ -99,7 +99,7 @@
         <category id="0_2_0_2" name="Ajax" nofquestions="0" nofsubcategories="0" />
         <category id="0_2_0_3" name="RealTIme_things_comet_longpolling_chunkedencoding_etc" nofquestions="0" nofsubcategories="0" />
       </category>
-      <category id="0_2_1" name="Javascript EE" nofquestions="4" nofsubcategories="5">
+      <category id="0_2_1" name="Javascript EE" nofquestions="8" nofsubcategories="5">
         <category id="0_2_1_0" name="Frameworks" nofquestions="4" nofsubcategories="5">
           <category id="0_2_1_0_0" name="JQuery" nofquestions="0" nofsubcategories="0" />
           <category id="0_2_1_0_1" name="MVC_Frameworks" nofquestions="4" nofsubcategories="3">
@@ -125,10 +125,17 @@
           <category id="0_2_1_1_3" name="QUnit" nofquestions="0" nofsubcategories="0" />
         </category>
         <category id="0_2_1_2" name="ServerSideJavascript" nofquestions="0" nofsubcategories="1">
-          <category id="0_2_1_2_0" name="Node" nofquestions="0" nofsubcategories="0" />
+          <category id="0_2_1_2_0" name="Node" nofquestions="0" nofsubcategories="1">
+            <category id="0_2_1_2_0_0" name="Pluralsight_RealtimeAppsWithNode" nofquestions="0" nofsubcategories="0" />
+          </category>
         </category>
-        <category id="0_2_1_3" name="Loaders" nofquestions="0" nofsubcategories="2">
-          <category id="0_2_1_3_0" name="RequireJS" nofquestions="0" nofsubcategories="0" />
+        <category id="0_2_1_3" name="Loaders" nofquestions="4" nofsubcategories="2">
+          <category id="0_2_1_3_0" name="RequireJS" nofquestions="4" nofsubcategories="2">
+            <category id="0_2_1_3_0_0" name="GeneralQuestionAboutJSFilesAreLoaded" nofquestions="2" nofsubcategories="0" filename="generalquestionaboutjsfilesareloaded0_2_1_3_0_0.xml" />
+            <category id="0_2_1_3_0_1" name="ReuireYoutubeTutorials" nofquestions="2" nofsubcategories="1">
+              <category id="0_2_1_3_0_1_0" name="5minCrashRequireCourse" nofquestions="2" nofsubcategories="0" filename="5mincrashrequirecourse0_2_1_3_0_1_0.xml" />
+            </category>
+          </category>
           <category id="0_2_1_3_1" name="headjs" nofquestions="0" nofsubcategories="0" />
         </category>
         <category id="0_2_1_4" name="TemplateEngines" nofquestions="0" nofsubcategories="2">
@@ -154,7 +161,7 @@
       <category id="0_3_2" name="BitsManipulation" nofquestions="0" nofsubcategories="0" filename="bitsmanipulation0_3_2.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="557" nofsubcategories="6">
+  <class id="1" name="Programming" nofquestions="557" nofsubcategories="8">
     <category id="1_0" name="Java" nofquestions="522" nofsubcategories="4">
       <category id="1_0_0" name="Java CORE" nofquestions="275" nofsubcategories="13">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="89" nofsubcategories="1">
@@ -198,7 +205,7 @@
             <category id="1_0_0_8_2_1" name="Treehouse_JavaAnnotations" nofquestions="0" nofsubcategories="0" filename="treehouse_javaannotations1_0_0_8_2_1.xml" />
           </category>
         </category>
-        <category id="1_0_0_9" name="JVM" nofquestions="16" nofsubcategories="7">
+        <category id="1_0_0_9" name="JVM" nofquestions="16" nofsubcategories="9">
           <category id="1_0_0_9_0" name="JavaPerformanceBook2012" nofquestions="0" nofsubcategories="6">
             <category id="1_0_0_9_0_0" name="Chap3_HotSpot_Overview" nofquestions="0" nofsubcategories="0" filename="chap3_hotspot_overview1_0_0_9_0_0.xml" />
             <category id="1_0_0_9_0_1" name="Chap4_JVM_Performance_Monitoring" nofquestions="0" nofsubcategories="0" filename="chap4_jvm_performance_monitoring1_0_0_9_0_1.xml" />
@@ -213,6 +220,8 @@
           <category id="1_0_0_9_4" name="Jar_Files_ClassPath_Path_etc" nofquestions="1" nofsubcategories="0" filename="jar_files_classpath_path_etc1_0_0_9_4.xml" />
           <category id="1_0_0_9_5" name="JavaJVM8improvements" nofquestions="0" nofsubcategories="0" filename="javajvm8improvements1_0_0_9_5.xml" />
           <category id="1_0_0_9_6" name="Pluralsight_UnderstandJvm_CLASSLOADING_REFLECTION" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_0_9_7" name="Pluralsight_UnderstandJVM_Security" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_0_9_8" name="Pluralsight_UndertstandJVM_MemoryManagement" nofquestions="0" nofsubcategories="0" />
         </category>
         <category id="1_0_0_10" name="JavaCore_Security" nofquestions="2" nofsubcategories="1">
           <category id="1_0_0_10_0" name="JavaSESecurity_oracledotcom" nofquestions="2" nofsubcategories="0" filename="javasesecurity_oracledotcom1_0_0_10_0.xml" />
@@ -529,6 +538,11 @@
       <category id="1_4_1" name="Ruby EE" nofquestions="0" nofsubcategories="0" />
     </category>
     <category id="1_5" name="Scala" nofquestions="0" nofsubcategories="0" />
+    <category id="1_6" name="OtherLanguages" nofquestions="0" nofsubcategories="2">
+      <category id="1_6_0" name="Go" nofquestions="0" nofsubcategories="0" />
+      <category id="1_6_1" name="Clojure" nofquestions="0" nofsubcategories="0" />
+    </category>
+    <category id="1_7" name="CPlusPlus" nofquestions="0" nofsubcategories="0" />
   </class>
   <class id="2" name="Programming Other" nofquestions="95" nofsubcategories="13">
     <category id="2_1" name="Version Control" nofquestions="26" nofsubcategories="2">
@@ -657,9 +671,9 @@
       </category>
     </category>
   </class>
-  <class id="3" name="Operating.Systems" nofquestions="2" nofsubcategories="2">
+  <class id="3" name="Operating.Systems" nofquestions="3" nofsubcategories="2">
     <category id="3_0" name="Windows" nofquestions="0" nofsubcategories="0" />
-    <category id="3_1" name="Linux" nofquestions="2" nofsubcategories="4">
+    <category id="3_1" name="Linux" nofquestions="3" nofsubcategories="4">
       <category id="3_1_0" name="LinuxCore" nofquestions="0" nofsubcategories="0" />
       <category id="3_1_1" name="Ubuntu" nofquestions="1" nofsubcategories="1">
         <category id="3_1_1_0" name="QuestionsWhichHelpsMeDuringInstallationAndConfiguration" nofquestions="1" nofsubcategories="0" filename="questionswhichhelpsmeduringinstallationandconfiguration3_1_1_0.xml" />
@@ -670,7 +684,7 @@
         <category id="3_1_2_2" name="nmap" nofquestions="0" nofsubcategories="0" filename="nmap3_1_2_2.xml" />
         <category id="3_1_2_3" name="ShellTextEditors" nofquestions="0" nofsubcategories="0" />
       </category>
-      <category id="3_1_3" name="Linux_Other_Tutorials" nofquestions="1" nofsubcategories="0" filename="linux_other_tutorials3_1_3.xml" />
+      <category id="3_1_3" name="Linux_Other_Tutorials" nofquestions="2" nofsubcategories="0" filename="linux_other_tutorials3_1_3.xml" />
     </category>
   </class>
   <class id="4" name="Languages" nofquestions="1" nofsubcategories="3">
