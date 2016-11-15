@@ -238,7 +238,7 @@
         </category>
         <category id="1_0_0_12" name="JavaCore_Other_Tutorials" nofquestions="0" nofsubcategories="0" filename="javacore_other_tutorials1_0_0_12.xml" />
       </category>
-      <category id="1_0_1" name="Java EE" nofquestions="247" nofsubcategories="16">
+      <category id="1_0_1" name="Java EE" nofquestions="247" nofsubcategories="17">
         <category id="1_0_1_0" name="Java EE JNDI" nofquestions="0" nofsubcategories="0" filename="javaeejndi.xml" />
         <category id="1_0_1_1" name="And+MAVEN" nofquestions="22" nofsubcategories="4">
           <category id="1_0_1_1_0" name="Ant" nofquestions="0" nofsubcategories="0" filename="ant.xml" />
@@ -461,6 +461,9 @@
           <category id="1_0_1_15_1" name="JavaRX" nofquestions="1" nofsubcategories="1">
             <category id="1_0_1_15_1_0" name="TreeHouse_JavaRX" nofquestions="1" nofsubcategories="0" filename="treehouse_javarx1_0_1_15_1_0.xml" />
           </category>
+        </category>
+        <category id="1_0_1_16" name="WebSockets" nofquestions="0" nofsubcategories="1">
+          <category id="1_0_1_16_0" name="Pluralsight_WebSockets" nofquestions="0" nofsubcategories="0" />
         </category>
       </category>
       <category id="1_0_2" name="Android" nofquestions="0" nofsubcategories="0" />
