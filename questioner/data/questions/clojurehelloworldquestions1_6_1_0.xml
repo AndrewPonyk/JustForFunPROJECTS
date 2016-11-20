@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_6_1_0" name="ClojureHelloWorldQuestions" nofquestions="1" nofsubcategories="0" filename="clojurehelloworldquestions1_6_1_0.xml">
+<questions id="1_6_1_0" name="ClojureHelloWorldQuestions" nofquestions="2" nofsubcategories="0" filename="clojurehelloworldquestions1_6_1_0.xml">
   <question id="1_6_1_0:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Why&amp;nbsp;we&amp;nbsp;should&amp;nbsp;use&amp;nbsp;Clojure&amp;nbsp;?&lt;br&gt;
@@ -150,5 +150,35 @@ There&amp;nbsp;are&amp;nbsp;IDE&amp;nbsp;plugins.&amp;nbsp;&amp;nbsp;And&amp;nbs
 &lt;br&gt;
 ============================================================================&lt;br&gt;
 http://blog.venanti.us/why-clojure/</questionanswer>
+  </question>
+  <question id="1_6_1_0:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Provide&amp;nbsp;Clojure&amp;nbsp;Hello&amp;nbsp;world&amp;nbsp;app&amp;nbsp;(create&amp;nbsp;function&amp;nbsp;which&amp;nbsp;sum&amp;nbsp;two&amp;nbsp;numbers&amp;nbsp;and&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;execute&amp;nbsp;it&amp;nbsp;).&lt;br&gt;
+Create&amp;nbsp;function&amp;nbsp;which&amp;nbsp;calculate&amp;nbsp;fibonacci&amp;nbsp;numbers.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Created&amp;nbsp;in&amp;nbsp;Intellij&amp;nbsp;Idea&amp;nbsp;(use&amp;nbsp;Cursive&amp;nbsp;plugin&amp;nbsp;)&lt;br&gt;
+&lt;br&gt;
+(ns&amp;nbsp;HelloClojure)&lt;br&gt;
+&lt;br&gt;
+(defn&amp;nbsp;fib&lt;br&gt;
+&amp;nbsp;&amp;nbsp;"docstring"&lt;br&gt;
+&amp;nbsp;&amp;nbsp;([n]&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;(fib&amp;nbsp;[0&amp;nbsp;1]&amp;nbsp;n))&lt;br&gt;
+&amp;nbsp;&amp;nbsp;([x,&amp;nbsp;n]&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;(if&amp;nbsp;(&lt;&amp;nbsp;(count&amp;nbsp;x)&amp;nbsp;n)&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;(fib&amp;nbsp;(conj&amp;nbsp;x&amp;nbsp;(+&amp;nbsp;(last&amp;nbsp;x)&amp;nbsp;(nth&amp;nbsp;x&amp;nbsp;(-&amp;nbsp;(count&amp;nbsp;x)&amp;nbsp;2))))&amp;nbsp;n)&amp;nbsp;x)))&lt;br&gt;
+&lt;br&gt;
+(defn&amp;nbsp;add&lt;br&gt;
+&amp;nbsp;&amp;nbsp;[x&amp;nbsp;y]&lt;br&gt;
+&amp;nbsp;&amp;nbsp;(+&amp;nbsp;x&amp;nbsp;y))&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+(print&amp;nbsp;"Hello&amp;nbsp;World,&amp;nbsp;clojure\n")&lt;br&gt;
+(println(fib&amp;nbsp;10))&lt;br&gt;
+(println&amp;nbsp;(add&amp;nbsp;1&amp;nbsp;12))&lt;br&gt;
+&lt;br&gt;
+Output&amp;nbsp;:&lt;br&gt;</questionanswer>
   </question>
 </questions>

@@ -161,7 +161,7 @@
       <category id="0_3_2" name="BitsManipulation" nofquestions="0" nofsubcategories="0" filename="bitsmanipulation0_3_2.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="561" nofsubcategories="8">
+  <class id="1" name="Programming" nofquestions="562" nofsubcategories="8">
     <category id="1_0" name="Java" nofquestions="522" nofsubcategories="4">
       <category id="1_0_0" name="Java CORE" nofquestions="275" nofsubcategories="13">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="89" nofsubcategories="1">
@@ -541,17 +541,20 @@
       <category id="1_4_1" name="Ruby EE" nofquestions="0" nofsubcategories="0" />
     </category>
     <category id="1_5" name="Scala" nofquestions="0" nofsubcategories="0" />
-    <category id="1_6" name="OtherLanguages" nofquestions="4" nofsubcategories="2">
+    <category id="1_6" name="OtherLanguages" nofquestions="5" nofsubcategories="3">
       <category id="1_6_0" name="Go" nofquestions="3" nofsubcategories="1">
         <category id="1_6_0_0" name="GoHelloWorldQuestions" nofquestions="3" nofsubcategories="0" filename="gohelloworldquestions1_6_0_0.xml" />
       </category>
-      <category id="1_6_1" name="Clojure" nofquestions="1" nofsubcategories="1">
-        <category id="1_6_1_0" name="ClojureHelloWorldQuestions" nofquestions="1" nofsubcategories="0" filename="clojurehelloworldquestions1_6_1_0.xml" />
+      <category id="1_6_1" name="Clojure" nofquestions="2" nofsubcategories="1">
+        <category id="1_6_1_0" name="ClojureHelloWorldQuestions" nofquestions="2" nofsubcategories="0" filename="clojurehelloworldquestions1_6_1_0.xml" />
+      </category>
+      <category id="1_6_2" name="R_Language" nofquestions="0" nofsubcategories="1">
+        <category id="1_6_2_0" name="RHelloWorldQuestions" nofquestions="0" nofsubcategories="0" filename="rhelloworldquestions1_6_2_0.xml" />
       </category>
     </category>
     <category id="1_7" name="CPlusPlus" nofquestions="0" nofsubcategories="0" />
   </class>
-  <class id="2" name="Programming Other" nofquestions="95" nofsubcategories="13">
+  <class id="2" name="Programming Other" nofquestions="95" nofsubcategories="12">
     <category id="2_1" name="Version Control" nofquestions="26" nofsubcategories="2">
       <category id="2_1_0" name="Svn" nofquestions="0" nofsubcategories="0" filename="svn2_1_0.xml" />
       <category id="2_1_1" name="Git" nofquestions="26" nofsubcategories="1" filename="git2_1_1.xml">
@@ -655,16 +658,8 @@
       </category>
       <category id="2_9_1" name="Firefox" nofquestions="0" nofsubcategories="0" />
     </category>
-    <category id="2_10" name="Big_DATA" nofquestions="0" nofsubcategories="2">
-      <category id="2_10_0" name="HADOOP" nofquestions="0" nofsubcategories="0" />
-      <category id="2_10_1" name="Spark" nofquestions="0" nofsubcategories="0" />
-    </category>
     <category id="2_11" name="CryptoSecurity" nofquestions="1" nofsubcategories="1">
       <category id="2_11_0" name="Crypto_Other_Resources" nofquestions="1" nofsubcategories="0" filename="crypto_other_resources2_11_0.xml" />
-    </category>
-    <category id="2_12" name="GraphicsAndGAMES" nofquestions="0" nofsubcategories="2">
-      <category id="2_12_0" name="Unity" nofquestions="0" nofsubcategories="0" />
-      <category id="2_12_1" name="GameEngines" nofquestions="0" nofsubcategories="0" />
     </category>
     <category id="2_13" name="XML" nofquestions="0" nofsubcategories="1">
       <category id="2_13_0" name="Lynda.XML.Essential.Training" nofquestions="0" nofsubcategories="7">
@@ -676,6 +671,21 @@
         <category id="2_13_0_5" name="9DTD_document_type_definition" nofquestions="0" nofsubcategories="0" filename="9dtd_document_type_definition2_13_0_5.xml" />
         <category id="2_13_0_6" name="10XSD_xml_schema_definition" nofquestions="0" nofsubcategories="0" filename="10xsd_xml_schema_definition2_13_0_6.xml" />
       </category>
+    </category>
+    <category id="2_15" name="SPECIALIZATION_Categories" nofquestions="0" nofsubcategories="10">
+      <category id="2_15_0" name="MachineLearning" nofquestions="0" nofsubcategories="0" />
+      <category id="2_15_1" name="BigData" nofquestions="0" nofsubcategories="2">
+        <category id="2_15_1_0" name="Hadoop" nofquestions="0" nofsubcategories="0" />
+        <category id="2_15_1_1" name="Spark" nofquestions="0" nofsubcategories="0" />
+      </category>
+      <category id="2_15_2" name="CryptoSecurity" nofquestions="0" nofsubcategories="0" />
+      <category id="2_15_3" name="NLPandCompilers" nofquestions="0" nofsubcategories="0" />
+      <category id="2_15_4" name="GraphicsAndGames" nofquestions="0" nofsubcategories="0" />
+      <category id="2_15_5" name="ElectronicArduinoRaspberry" nofquestions="0" nofsubcategories="0" />
+      <category id="2_15_6" name="GIS" nofquestions="0" nofsubcategories="0" />
+      <category id="2_15_7" name="Chess" nofquestions="0" nofsubcategories="0" />
+      <category id="2_15_8" name="Sudoku" nofquestions="0" nofsubcategories="0" />
+      <category id="2_15_9" name="FemModelling" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
   <class id="3" name="Operating.Systems" nofquestions="3" nofsubcategories="2">
