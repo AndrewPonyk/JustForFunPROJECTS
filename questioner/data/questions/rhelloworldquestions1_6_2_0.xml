@@ -1,2 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_6_2_0" name="RHelloWorldQuestions" nofquestions="0" nofsubcategories="0" filename="rhelloworldquestions1_6_2_0.xml" />
+<questions id="1_6_2_0" name="RHelloWorldQuestions" nofquestions="2" nofsubcategories="0" filename="rhelloworldquestions1_6_2_0.xml">
+  <question id="1_6_2_0:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;How&amp;nbsp;to&amp;nbsp;install&amp;nbsp;R&amp;nbsp;on&amp;nbsp;Linux&amp;nbsp;?&amp;nbsp;Provide&amp;nbsp;Hello&amp;nbsp;World&amp;nbsp;program.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>Installation&lt;br&gt;
+Installation&amp;nbsp;of&amp;nbsp;R&amp;nbsp;language&amp;nbsp;in&amp;nbsp;ubuntu&amp;nbsp;i&amp;nbsp;simple&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;apt-get&amp;nbsp;install&amp;nbsp;r-base&amp;nbsp;r-base-dev&lt;br&gt;
+&lt;br&gt;
+=====================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;R-Studio&amp;nbsp;Installation&lt;br&gt;
+Just&amp;nbsp;download&amp;nbsp;it&amp;nbsp;from&amp;nbsp;official&amp;nbsp;site,&amp;nbsp;and&amp;nbsp;launch&amp;nbsp;('./rstudio'&amp;nbsp;in&amp;nbsp;bin&amp;nbsp;folder)&lt;br&gt;
+&lt;br&gt;
+Possible&amp;nbsp;problems:http://askubuntu.com/questions/694368/problems-installing-rstudio-the-program-wont-start-although-it-is-installed&lt;br&gt;
+(rstudio:&amp;nbsp;error&amp;nbsp;while&amp;nbsp;loading&amp;nbsp;shared&amp;nbsp;libraries:&amp;nbsp;libgstreamer-0.10.so.0:&amp;nbsp;cannot&amp;nbsp;open&amp;nbsp;shared&amp;nbsp;object&amp;nbsp;file:&amp;nbsp;No&amp;nbsp;such&amp;nbsp;file&amp;nbsp;or&amp;nbsp;directory)&lt;br&gt;
+Fix:&amp;nbsp;sudo&amp;nbsp;apt-get&amp;nbsp;install&amp;nbsp;libgstreamer0.10-0&lt;br&gt;
+=====================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Hello&amp;nbsp;world&amp;nbsp;example&lt;br&gt;
+name&amp;nbsp;&lt;-&amp;nbsp;"Andrii";&lt;br&gt;
+print(name)&lt;br&gt;
+&lt;br&gt;
+In&amp;nbsp;R-studio&amp;nbsp;you&amp;nbsp;can&amp;nbsp;create&amp;nbsp;a&amp;nbsp;project,&amp;nbsp;and&amp;nbsp;inside&amp;nbsp;project&amp;nbsp;create&amp;nbsp;Hello.R&amp;nbsp;file.&amp;nbsp;Execute&amp;nbsp;code&amp;nbsp;with&amp;nbsp;Ctrl+Enter&lt;br&gt;
+=====================================================&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;More&amp;nbsp;examples&lt;br&gt;
+http://www.rexamples.com/&lt;br&gt;
+https://www.r-bloggers.com/fibonacci-sequence-in-r-and-sas/&lt;br&gt;
+Fibonacci&amp;nbsp;numbers&amp;nbsp;example&amp;nbsp;:&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;fib&amp;nbsp;&lt;-&amp;nbsp;function(n)&amp;nbsp;{&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if&amp;nbsp;(n==&amp;nbsp;1&amp;nbsp;||&amp;nbsp;n&amp;nbsp;==&amp;nbsp;2){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;(1);&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return&amp;nbsp;(fib(n-1)&amp;nbsp;+&amp;nbsp;fib(n-2))&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;for&amp;nbsp;(i&amp;nbsp;in&amp;nbsp;1:10){&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;print(fib(i))&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;
+&lt;br&gt;</questionanswer>
+  </question>
+  <question id="1_6_2_0:1" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;R&amp;nbsp;languages&amp;nbsp;pros&amp;nbsp;and&amp;nbsp;cons.&lt;br&gt;
+Python&amp;nbsp;vs&amp;nbsp;R&amp;nbsp;for&amp;nbsp;data&amp;nbsp;analysis.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>http://www.burns-stat.com/documents/tutorials/why-use-the-r-language/&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Why&amp;nbsp;the&amp;nbsp;R&amp;nbsp;Language?&lt;br&gt;
+R&amp;nbsp;is&amp;nbsp;not&amp;nbsp;just&amp;nbsp;a&amp;nbsp;statistics&amp;nbsp;package,&amp;nbsp;it’s&amp;nbsp;a&amp;nbsp;language.&lt;br&gt;
+R&amp;nbsp;is&amp;nbsp;designed&amp;nbsp;to&amp;nbsp;operate&amp;nbsp;the&amp;nbsp;way&amp;nbsp;that&amp;nbsp;problems&amp;nbsp;are&amp;nbsp;thought&amp;nbsp;about.&lt;br&gt;
+R&amp;nbsp;is&amp;nbsp;both&amp;nbsp;flexible&amp;nbsp;and&amp;nbsp;powerful.&lt;br&gt;
+&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Why&amp;nbsp;R&amp;nbsp;for&amp;nbsp;data&amp;nbsp;analysis?&lt;br&gt;
+R&amp;nbsp;is&amp;nbsp;not&amp;nbsp;the&amp;nbsp;only&amp;nbsp;language&amp;nbsp;that&amp;nbsp;can&amp;nbsp;be&amp;nbsp;used&amp;nbsp;for&amp;nbsp;data&amp;nbsp;analysis.&amp;nbsp;&amp;nbsp;Why&amp;nbsp;R&amp;nbsp;rather&amp;nbsp;than&amp;nbsp;another?&amp;nbsp;&amp;nbsp;Here&amp;nbsp;is&amp;nbsp;a&amp;nbsp;list:&lt;br&gt;
+&lt;br&gt;
+interactive&amp;nbsp;language&lt;br&gt;
+data&amp;nbsp;structures&lt;br&gt;
+graphics&lt;br&gt;
+missing&amp;nbsp;values&lt;br&gt;
+functions&amp;nbsp;as&amp;nbsp;first&amp;nbsp;class&amp;nbsp;objects&lt;br&gt;
+packages&lt;br&gt;
+community&lt;br&gt;
+&lt;br&gt;
+Data&amp;nbsp;analysis&amp;nbsp;is&amp;nbsp;inherently&amp;nbsp;an&amp;nbsp;interactive&amp;nbsp;process&amp;nbsp;—&amp;nbsp;what&amp;nbsp;you&amp;nbsp;see&amp;nbsp;at&amp;nbsp;one&amp;nbsp;stage&amp;nbsp;determines&amp;nbsp;what&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&amp;nbsp;do&amp;nbsp;next.&lt;br&gt;
+Interactivity&amp;nbsp;is&amp;nbsp;important.&amp;nbsp;&amp;nbsp;Language&amp;nbsp;is&amp;nbsp;important.&amp;nbsp;&amp;nbsp;The&amp;nbsp;two&amp;nbsp;together&amp;nbsp;—&amp;nbsp;an&amp;nbsp;interactive&amp;nbsp;language&amp;nbsp;—&amp;nbsp;is&amp;nbsp;even&amp;nbsp;more&lt;br&gt;
+than&amp;nbsp;their&amp;nbsp;sum.&amp;nbsp;&amp;nbsp;But&amp;nbsp;there&amp;nbsp;is&amp;nbsp;a&amp;nbsp;down-side:&amp;nbsp;compromises&amp;nbsp;between&amp;nbsp;interactive&amp;nbsp;use&amp;nbsp;and&amp;nbsp;programming&amp;nbsp;use&amp;nbsp;are&amp;nbsp;the&amp;nbsp;cause&amp;nbsp;of&amp;nbsp;some&amp;nbsp;user&amp;nbsp;trauma.&lt;br&gt;
+&lt;br&gt;
+R&amp;nbsp;has&amp;nbsp;a&amp;nbsp;fantastic&amp;nbsp;mechanism&amp;nbsp;for&amp;nbsp;creating&amp;nbsp;data&amp;nbsp;structures.&amp;nbsp;&amp;nbsp;Obviously&amp;nbsp;if&amp;nbsp;you&amp;nbsp;are&amp;nbsp;doing&amp;nbsp;data&amp;nbsp;analysis,&amp;nbsp;you&amp;nbsp;want&amp;nbsp;to&lt;br&gt;
+be&amp;nbsp;able&amp;nbsp;to&amp;nbsp;put&amp;nbsp;your&amp;nbsp;data&amp;nbsp;into&amp;nbsp;a&amp;nbsp;natural&amp;nbsp;form.&amp;nbsp;&amp;nbsp;You&amp;nbsp;don’t&amp;nbsp;have&amp;nbsp;to&amp;nbsp;warp&amp;nbsp;your&amp;nbsp;data&amp;nbsp;into&amp;nbsp;a&amp;nbsp;particular&amp;nbsp;structure&amp;nbsp;because&amp;nbsp;that&amp;nbsp;is&amp;nbsp;all&amp;nbsp;that&amp;nbsp;is&amp;nbsp;available.&lt;br&gt;
+&lt;br&gt;
+Graphics&amp;nbsp;should&amp;nbsp;be&amp;nbsp;central&amp;nbsp;to&amp;nbsp;data&amp;nbsp;analysis.&amp;nbsp;&amp;nbsp;Humans&amp;nbsp;are&amp;nbsp;predominantly&amp;nbsp;visual,&amp;nbsp;we&amp;nbsp;don’t&amp;nbsp;intuitively&amp;nbsp;grasp&amp;nbsp;numbers&amp;nbsp;like&lt;br&gt;
+we&amp;nbsp;do&amp;nbsp;pictures.&amp;nbsp;&amp;nbsp;It&amp;nbsp;is&amp;nbsp;easy&amp;nbsp;to&amp;nbsp;produce&amp;nbsp;graphs&amp;nbsp;for&amp;nbsp;exploring&amp;nbsp;data.&amp;nbsp;&amp;nbsp;The&amp;nbsp;default&amp;nbsp;graphs&amp;nbsp;can&amp;nbsp;be&amp;nbsp;tweaked&amp;nbsp;to&amp;nbsp;get&amp;nbsp;publication-quality&amp;nbsp;graphs.&lt;br&gt;
+&lt;br&gt;
+Real&amp;nbsp;data&amp;nbsp;have&amp;nbsp;missing&amp;nbsp;values.&amp;nbsp;&amp;nbsp;Missing&amp;nbsp;values&amp;nbsp;are&amp;nbsp;an&amp;nbsp;integral&amp;nbsp;part&amp;nbsp;of&amp;nbsp;the&amp;nbsp;R&amp;nbsp;language.&amp;nbsp;&lt;br&gt;
+Many&amp;nbsp;functions&amp;nbsp;have&amp;nbsp;arguments&amp;nbsp;that&amp;nbsp;control&amp;nbsp;how&amp;nbsp;missing&amp;nbsp;values&amp;nbsp;are&amp;nbsp;to&amp;nbsp;be&amp;nbsp;handled.&lt;br&gt;
+&lt;br&gt;
+Functions,&amp;nbsp;like&amp;nbsp;mean&amp;nbsp;and&amp;nbsp;median,&amp;nbsp;are&amp;nbsp;objects&amp;nbsp;that&amp;nbsp;you&amp;nbsp;can&amp;nbsp;use&amp;nbsp;like&amp;nbsp;data.&amp;nbsp;&amp;nbsp;You&amp;nbsp;can&amp;nbsp;easily&amp;nbsp;change&amp;nbsp;your&amp;nbsp;analysis&lt;br&gt;
+to&amp;nbsp;use&amp;nbsp;the&amp;nbsp;median&amp;nbsp;(or&amp;nbsp;some&amp;nbsp;strange&amp;nbsp;estimate&amp;nbsp;you&amp;nbsp;make&amp;nbsp;up&amp;nbsp;on&amp;nbsp;the&amp;nbsp;spot)&amp;nbsp;rather&amp;nbsp;than&amp;nbsp;the&amp;nbsp;mean.&lt;br&gt;
+&lt;br&gt;
+R&amp;nbsp;has&amp;nbsp;a&amp;nbsp;package&amp;nbsp;system&amp;nbsp;that&amp;nbsp;makes&amp;nbsp;it&amp;nbsp;extremely&amp;nbsp;easy&amp;nbsp;for&amp;nbsp;people&amp;nbsp;to&amp;nbsp;add&amp;nbsp;their&amp;nbsp;own&amp;nbsp;functionality&amp;nbsp;so&amp;nbsp;it&amp;nbsp;is&amp;nbsp;indistinguishable&lt;br&gt;
+from&amp;nbsp;the&amp;nbsp;central&amp;nbsp;part&amp;nbsp;of&amp;nbsp;R.&amp;nbsp;&amp;nbsp;And&amp;nbsp;people&amp;nbsp;have.&amp;nbsp;&amp;nbsp;There&amp;nbsp;are&amp;nbsp;thousands&amp;nbsp;of&amp;nbsp;packages&amp;nbsp;that&amp;nbsp;do&amp;nbsp;all&amp;nbsp;sorts&amp;nbsp;of&amp;nbsp;extraordinary&amp;nbsp;things.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;R&amp;nbsp;community&amp;nbsp;is&amp;nbsp;very&amp;nbsp;strong,&amp;nbsp;and&amp;nbsp;quite&amp;nbsp;committed&amp;nbsp;to&amp;nbsp;improving&amp;nbsp;data&amp;nbsp;analysis.&lt;br&gt;
+================================================================\&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Python&amp;nbsp;vs&amp;nbsp;R&amp;nbsp;for&amp;nbsp;data&amp;nbsp;analysis&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;
+&lt;img&amp;nbsp;width='1000'&amp;nbsp;height='14192'&amp;nbsp;alt='image'&amp;nbsp;src='/data/images/repl_debug_step5.png'/&gt;</questionanswer>
+  </question>
+</questions>
