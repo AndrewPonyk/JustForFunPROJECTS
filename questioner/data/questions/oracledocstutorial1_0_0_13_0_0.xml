@@ -1,2 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="1_0_0_13_0_0" name="OracleDocsTUTORIAL" nofquestions="0" nofsubcategories="0" filename="oracledocstutorial1_0_0_13_0_0.xml" />
+<questions id="1_0_0_13_0_0" name="OracleDocsTUTORIAL" nofquestions="1" nofsubcategories="0" filename="oracledocstutorial1_0_0_13_0_0.xml">
+  <question id="1_0_0_13_0_0:0" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;RMI&amp;nbsp;?&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>The&amp;nbsp;Java&amp;nbsp;Remote&amp;nbsp;Method&amp;nbsp;Invocation&amp;nbsp;(Java&amp;nbsp;RMI)&amp;nbsp;is&amp;nbsp;a&amp;nbsp;Java&amp;nbsp;API&amp;nbsp;that&amp;nbsp;performs&amp;nbsp;remote&amp;nbsp;method&amp;nbsp;invocation,&amp;nbsp;the&amp;nbsp;object-oriented&amp;nbsp;equivalent&amp;nbsp;of&amp;nbsp;remote&amp;nbsp;procedure&amp;nbsp;calls&amp;nbsp;(RPC),&lt;br&gt;
+with&amp;nbsp;support&amp;nbsp;for&amp;nbsp;direct&amp;nbsp;transfer&amp;nbsp;of&amp;nbsp;serialized&amp;nbsp;Java&amp;nbsp;classes&amp;nbsp;and&amp;nbsp;distributed&amp;nbsp;garbage&amp;nbsp;collection.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;original&amp;nbsp;implementation&amp;nbsp;depends&amp;nbsp;on&amp;nbsp;Java&amp;nbsp;Virtual&amp;nbsp;Machine&amp;nbsp;(JVM)&amp;nbsp;class&amp;nbsp;representation&amp;nbsp;mechanisms&amp;nbsp;and&amp;nbsp;it&amp;nbsp;thus&amp;nbsp;only&amp;nbsp;supports&amp;nbsp;making&amp;nbsp;calls&amp;nbsp;from&amp;nbsp;one&amp;nbsp;JVM&amp;nbsp;to&amp;nbsp;another.&lt;br&gt;
+The&amp;nbsp;protocol&amp;nbsp;underlying&amp;nbsp;this&amp;nbsp;Java-only&amp;nbsp;implementation&amp;nbsp;is&amp;nbsp;known&amp;nbsp;as&amp;nbsp;Java&amp;nbsp;Remote&amp;nbsp;Method&amp;nbsp;Protocol&amp;nbsp;(JRMP).&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;!!!!In&amp;nbsp;order&amp;nbsp;to&amp;nbsp;support&amp;nbsp;code&amp;nbsp;running&amp;nbsp;in&amp;nbsp;a&amp;nbsp;non-JVM&amp;nbsp;context,&amp;nbsp;a&amp;nbsp;CORBA&amp;nbsp;version&amp;nbsp;was&amp;nbsp;later&amp;nbsp;developed.&lt;br&gt;
+&lt;br&gt;
+The&amp;nbsp;basic&amp;nbsp;idea&amp;nbsp;of&amp;nbsp;Java&amp;nbsp;RMI,&amp;nbsp;the&amp;nbsp;distributed&amp;nbsp;garbage-collection&amp;nbsp;(DGC)&amp;nbsp;protocol,&amp;nbsp;and&amp;nbsp;much&amp;nbsp;of&amp;nbsp;the&amp;nbsp;architecture&amp;nbsp;underlying&amp;nbsp;the&amp;nbsp;original&amp;nbsp;Sun&amp;nbsp;implementation,&amp;nbsp;come&amp;nbsp;from&amp;nbsp;the&amp;nbsp;'network&amp;nbsp;objects'&amp;nbsp;feature&amp;nbsp;of&amp;nbsp;Modula-3.&lt;br&gt;
+&lt;br&gt;
+==============================================================================================================&lt;br&gt;
+The&amp;nbsp;programmers&amp;nbsp;of&amp;nbsp;the&amp;nbsp;original&amp;nbsp;RMI&amp;nbsp;API&amp;nbsp;generalized&amp;nbsp;the&amp;nbsp;code&amp;nbsp;somewhat&amp;nbsp;to&amp;nbsp;support&amp;nbsp;different&amp;nbsp;implementations,&amp;nbsp;such&amp;nbsp;as&amp;nbsp;a&amp;nbsp;HTTP&amp;nbsp;transport.&amp;nbsp;Additionally,&amp;nbsp;the&amp;nbsp;ability&amp;nbsp;to&amp;nbsp;pass&amp;nbsp;arguments&lt;br&gt;
+"by&amp;nbsp;value"&amp;nbsp;was&amp;nbsp;added&amp;nbsp;to&amp;nbsp;CORBA&amp;nbsp;in&amp;nbsp;order&amp;nbsp;to&amp;nbsp;be&amp;nbsp;compatible&amp;nbsp;with&amp;nbsp;the&amp;nbsp;RMI&amp;nbsp;interface.&amp;nbsp;Still,&amp;nbsp;the&amp;nbsp;RMI-IIOP&amp;nbsp;and&amp;nbsp;JRMP&amp;nbsp;implementations&amp;nbsp;do&amp;nbsp;not&amp;nbsp;have&amp;nbsp;fully&amp;nbsp;identical&amp;nbsp;interfaces.&lt;br&gt;
+&lt;br&gt;
+RMI&amp;nbsp;functionality&amp;nbsp;comes&amp;nbsp;in&amp;nbsp;the&amp;nbsp;package&amp;nbsp;java.rmi,&amp;nbsp;while&amp;nbsp;most&amp;nbsp;of&amp;nbsp;Sun's&amp;nbsp;implementation&amp;nbsp;is&amp;nbsp;located&amp;nbsp;in&amp;nbsp;the&amp;nbsp;sun.rmi&amp;nbsp;package.&amp;nbsp;Note&amp;nbsp;that&amp;nbsp;with&amp;nbsp;Java&amp;nbsp;versions&amp;nbsp;before&amp;nbsp;Java&amp;nbsp;5.0&amp;nbsp;developers&amp;nbsp;had&amp;nbsp;to&lt;br&gt;
+compile&amp;nbsp;RMI&amp;nbsp;stubs&amp;nbsp;in&amp;nbsp;a&amp;nbsp;separate&amp;nbsp;compilation&amp;nbsp;step&amp;nbsp;using&amp;nbsp;rmic.&amp;nbsp;Version&amp;nbsp;5.0&amp;nbsp;of&amp;nbsp;Java&amp;nbsp;and&amp;nbsp;beyond&amp;nbsp;no&amp;nbsp;longer&amp;nbsp;require&amp;nbsp;this&amp;nbsp;step.&lt;br&gt;
+-----------------&lt;br&gt;
+&lt;br&gt;
+Java&amp;nbsp;Remote&amp;nbsp;Method&amp;nbsp;Protocol&amp;nbsp;Java&amp;nbsp;Remote&amp;nbsp;Method&amp;nbsp;Protocol&amp;nbsp;or&amp;nbsp;JRMP&amp;nbsp;is&amp;nbsp;the&amp;nbsp;Java&amp;nbsp;technology-specific&amp;nbsp;protocol&amp;nbsp;for&amp;nbsp;looking&amp;nbsp;up&amp;nbsp;and&amp;nbsp;referencing&amp;nbsp;remote&amp;nbsp;objects.&amp;nbsp;It&amp;nbsp;is&amp;nbsp;a&amp;nbsp;wire&amp;nbsp;level&amp;nbsp;protocol&amp;nbsp;running&amp;nbsp;at&amp;nbsp;the&amp;nbsp;level&amp;nbsp;under&lt;br&gt;
+Java&amp;nbsp;remote&amp;nbsp;method&amp;nbsp;invocation&amp;nbsp;(RMI)&amp;nbsp;and&amp;nbsp;over&amp;nbsp;TCP/IP.&lt;br&gt;
+&lt;br&gt;
+JRMP&amp;nbsp;is&amp;nbsp;a&amp;nbsp;Java-specific,&amp;nbsp;stream-based&amp;nbsp;protocol&amp;nbsp;for&amp;nbsp;Java-to-Java&amp;nbsp;remote&amp;nbsp;calls,&amp;nbsp;requiring&amp;nbsp;both&amp;nbsp;clients&amp;nbsp;and&amp;nbsp;server&amp;nbsp;to&amp;nbsp;use&amp;nbsp;Java&amp;nbsp;objects.&amp;nbsp;RMI-IIOP&amp;nbsp;is&amp;nbsp;an&amp;nbsp;alternative&amp;nbsp;protocol&amp;nbsp;which&lt;br&gt;
+exposes&amp;nbsp;Java&amp;nbsp;objects&amp;nbsp;to&amp;nbsp;CORBA&amp;nbsp;ORBs.&amp;nbsp;Many&amp;nbsp;application&amp;nbsp;server&amp;nbsp;vendors&amp;nbsp;have&amp;nbsp;developed&amp;nbsp;their&amp;nbsp;own&amp;nbsp;protocols&amp;nbsp;for&amp;nbsp;use&amp;nbsp;with&amp;nbsp;RMI&amp;nbsp;which&amp;nbsp;claim[citation&amp;nbsp;needed]&amp;nbsp;to&amp;nbsp;offer&amp;nbsp;advantages&amp;nbsp;over&amp;nbsp;both&amp;nbsp;IIOP&amp;nbsp;and&amp;nbsp;JRMP.</questionanswer>
+  </question>
+</questions>
