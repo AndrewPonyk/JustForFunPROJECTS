@@ -239,13 +239,14 @@
           </category>
         </category>
         <category id="1_0_0_12" name="JavaCore_Other_Tutorials" nofquestions="0" nofsubcategories="0" filename="javacore_other_tutorials1_0_0_12.xml" />
-        <category id="1_0_0_13" name="JavaAdvancedTopics" nofquestions="1" nofsubcategories="4">
+        <category id="1_0_0_13" name="JavaAdvancedTopics" nofquestions="1" nofsubcategories="5">
           <category id="1_0_0_13_0" name="RMI" nofquestions="1" nofsubcategories="1">
             <category id="1_0_0_13_0_0" name="OracleDocsTUTORIAL" nofquestions="1" nofsubcategories="0" filename="oracledocstutorial1_0_0_13_0_0.xml" />
           </category>
           <category id="1_0_0_13_1" name="JMX" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_0_13_2" name="Deployment" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_0_13_3" name="Internationalization" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_0_13_4" name="JDKTools" nofquestions="0" nofsubcategories="0" />
         </category>
       </category>
       <category id="1_0_1" name="Java EE" nofquestions="248" nofsubcategories="17">
@@ -705,8 +706,12 @@
     <category id="3_0" name="Windows" nofquestions="0" nofsubcategories="0" />
     <category id="3_1" name="Linux" nofquestions="3" nofsubcategories="4">
       <category id="3_1_0" name="LinuxCore" nofquestions="0" nofsubcategories="0" />
-      <category id="3_1_1" name="Ubuntu" nofquestions="1" nofsubcategories="1">
+      <category id="3_1_1" name="Ubuntu" nofquestions="1" nofsubcategories="5">
         <category id="3_1_1_0" name="QuestionsWhichHelpsMeDuringInstallationAndConfiguration" nofquestions="1" nofsubcategories="0" filename="questionswhichhelpsmeduringinstallationandconfiguration3_1_1_0.xml" />
+        <category id="3_1_1_1" name="PackMasteringUbuntuServer2015" nofquestions="0" nofsubcategories="0" />
+        <category id="3_1_1_2" name="PacktTroubleshootingUbuntuServer2015" nofquestions="0" nofsubcategories="0" />
+        <category id="3_1_1_3" name="PacktUbuntuServerEssentials2015" nofquestions="0" nofsubcategories="0" />
+        <category id="3_1_1_4" name="SamsUbuntuUnleashed2015" nofquestions="0" nofsubcategories="0" />
       </category>
       <category id="3_1_2" name="UbuntuUtilsAndPrograms" nofquestions="0" nofsubcategories="4">
         <category id="3_1_2_0" name="curl" nofquestions="0" nofsubcategories="0" filename="curl3_1_2_0.xml" />
