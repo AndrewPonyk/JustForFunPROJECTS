@@ -161,9 +161,9 @@
       <category id="0_3_2" name="BitsManipulation" nofquestions="0" nofsubcategories="0" filename="bitsmanipulation0_3_2.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="571" nofsubcategories="8">
-    <category id="1_0" name="Java" nofquestions="529" nofsubcategories="4">
-      <category id="1_0_0" name="Java CORE" nofquestions="281" nofsubcategories="14">
+  <class id="1" name="Programming" nofquestions="572" nofsubcategories="8">
+    <category id="1_0" name="Java" nofquestions="530" nofsubcategories="4">
+      <category id="1_0_0" name="Java CORE" nofquestions="282" nofsubcategories="14">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="89" nofsubcategories="1">
           <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="89" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
         </category>
@@ -239,7 +239,7 @@
           </category>
         </category>
         <category id="1_0_0_12" name="JavaCore_Other_Tutorials" nofquestions="0" nofsubcategories="0" filename="javacore_other_tutorials1_0_0_12.xml" />
-        <category id="1_0_0_13" name="JavaAdvancedTopics" nofquestions="1" nofsubcategories="5">
+        <category id="1_0_0_13" name="JavaAdvancedTopics" nofquestions="2" nofsubcategories="6">
           <category id="1_0_0_13_0" name="RMI" nofquestions="1" nofsubcategories="1">
             <category id="1_0_0_13_0_0" name="OracleDocsTUTORIAL" nofquestions="1" nofsubcategories="0" filename="oracledocstutorial1_0_0_13_0_0.xml" />
           </category>
@@ -247,6 +247,9 @@
           <category id="1_0_0_13_2" name="Deployment" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_0_13_3" name="Internationalization" nofquestions="0" nofsubcategories="0" />
           <category id="1_0_0_13_4" name="JDKTools" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_0_13_5" name="JNI" nofquestions="1" nofsubcategories="1">
+            <category id="1_0_0_13_5_0" name="JNI_helloworlds" nofquestions="1" nofsubcategories="0" filename="jni_helloworlds1_0_0_13_5_0.xml" />
+          </category>
         </category>
       </category>
       <category id="1_0_1" name="Java EE" nofquestions="248" nofsubcategories="17">
