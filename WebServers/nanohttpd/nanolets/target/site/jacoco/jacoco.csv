@@ -1,0 +1,16 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD.UriRouter,4,73,0,4,2,21,1,8,1,6
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD.NotImplementedHandler,0,9,0,0,0,4,0,4,0,4
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD.DefaultHandler,0,16,0,0,0,3,0,3,0,3
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD.DefaultStreamHandler,0,35,0,0,0,6,0,6,0,6
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD.InsertionOrderRoutePrioritizer,0,7,0,0,0,2,0,2,0,2
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD,15,93,0,6,5,25,2,12,2,9
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD.new Object() {...},4,29,0,0,0,1,0,1,0,1
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD.GeneralHandler,0,89,0,4,0,21,0,7,0,5
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD.ProvidedPriorityRoutePrioritizer,0,43,0,4,0,10,0,5,0,3
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD.DefaultRoutePrioritizer,0,7,0,0,0,2,0,2,0,2
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD.IndexHandler,0,9,0,0,0,4,0,4,0,4
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD.BaseRoutePrioritizer,0,80,0,8,0,21,0,9,0,5
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD.Error404UriHandler,0,9,0,0,0,4,0,4,0,4
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD.UriResource,2,329,2,27,0,76,2,27,0,13
+NanoHttpd-nano application server,org.nanohttpd.router,RouterNanoHTTPD.StaticPageHandler,0,169,4,14,0,29,4,12,0,7

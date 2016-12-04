@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RouterNanoHTTPD.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NanoHttpd-nano application server</a> &gt; <a href="index.source.html" class="el_package">org.nanohttpd.router</a> &gt; <span class="el_source">RouterNanoHTTPD.java</span></div><h1>RouterNanoHTTPD.java</h1><pre class="source lang-java linenums">package org.nanohttpd.router;
+
+/*
+ * #%L
+ * NanoHttpd-Samples
+ * %%
+ * Copyright (C) 2012 - 2015 nanohttpd
+ * %%
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the nanohttpd nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * #L%
+ */
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.nanohttpd.protocols.http.IHTTPSession;
+import org.nanohttpd.protocols.http.NanoHTTPD;
+import org.nanohttpd.protocols.http.response.IStatus;
+import org.nanohttpd.protocols.http.response.Response;
+import org.nanohttpd.protocols.http.response.Status;
+
+/**
+ * @author vnnv
+ * @author ritchieGitHub
+ */
+public class RouterNanoHTTPD extends NanoHTTPD {
+
+    /**
+     * logger to log to.
+     */
+<span class="fc" id="L69">    private static final Logger LOG = Logger.getLogger(RouterNanoHTTPD.class.getName());</span>
+
+    public interface UriResponder {
+
+        public Response get(UriResource uriResource, Map&lt;String, String&gt; urlParams, IHTTPSession session);
+
+        public Response put(UriResource uriResource, Map&lt;String, String&gt; urlParams, IHTTPSession session);
+
+        public Response post(UriResource uriResource, Map&lt;String, String&gt; urlParams, IHTTPSession session);
+
+        public Response delete(UriResource uriResource, Map&lt;String, String&gt; urlParams, IHTTPSession session);
+
+        public Response other(String method, UriResource uriResource, Map&lt;String, String&gt; urlParams, IHTTPSession session);
+    }
+
+    /**
+     * General nanolet to inherit from if you provide stream data, only chucked
+     * responses will be generated.
+     */
+<span class="fc" id="L88">    public static abstract class DefaultStreamHandler implements UriResponder {</span>
+
+        public abstract String getMimeType();
+
+        public abstract IStatus getStatus();
+
+        public abstract InputStream getData();
+
+        public Response get(UriResource uriResource, Map&lt;String, String&gt; urlParams, IHTTPSession session) {
+<span class="fc" id="L97">            return Response.newChunkedResponse(getStatus(), getMimeType(), getData());</span>
+        }
+
+        public Response post(UriResource uriResource, Map&lt;String, String&gt; urlParams, IHTTPSession session) {
+<span class="fc" id="L101">            return get(uriResource, urlParams, session);</span>
+        }
+
+        public Response put(UriResource uriResource, Map&lt;String, String&gt; urlParams, IHTTPSession session) {
+<span class="fc" id="L105">            return get(uriResource, urlParams, session);</span>
+        }
+
+        public Response delete(UriResource uriResource, Map&lt;String, String&gt; urlParams, IHTTPSession session) {
+<span class="fc" id="L109">            return get(uriResource, urlParams, session);</span>
+        }
+
+        public Response other(String method, UriResource uriResource, Map&lt;String, String&gt; urlParams, IHTTPSession session) {
+<span class="fc" id="L113">            return get(uriResource, urlParams, session);</span>
+        }
+    }
+
+    /**
+     * General nanolet to inherit from if you provide text or html data, only
+     * fixed size responses will be generated.
+     */
+<span class="fc" id="L121">    public static abstract class DefaultHandler extends DefaultStreamHandler {</span>
+
+        public abstract String getText();
+
+        public abstract IStatus getStatus();
+
+        public Response get(UriResource uriResource, Map&lt;String, String&gt; urlParams, IHTTPSession session) {
+<span class="fc" id="L128">            return Response.newFixedLengthResponse(getStatus(), getMimeType(), getText());</span>
+        }
+
+        @Override
+        public InputStream getData() {
+<span class="fc" id="L133">            throw new IllegalStateException(&quot;this method should not be called in a text based nanolet&quot;);</span>
+        }
+    }
+
+    /**
+     * General nanolet to print debug info's as a html page.
+     */
+<span class="fc" id="L140">    public static class GeneralHandler extends DefaultHandler {</span>
+
+        @Override
+        public String getText() {
+<span class="fc" id="L144">            throw new IllegalStateException(&quot;this method should not be called&quot;);</span>
+        }
+
+        @Override
+        public String getMimeType() {
+<span class="fc" id="L149">            return &quot;text/html&quot;;</span>
+        }
+
+        @Override
+        public IStatus getStatus() {
+<span class="fc" id="L154">            return Status.OK;</span>
+        }
+
+        public Response get(UriResource uriResource, Map&lt;String, String&gt; urlParams, IHTTPSession session) {
+<span class="fc" id="L158">            StringBuilder text = new StringBuilder(&quot;&lt;html&gt;&lt;body&gt;&quot;);</span>
+<span class="fc" id="L159">            text.append(&quot;&lt;h1&gt;Url: &quot;);</span>
+<span class="fc" id="L160">            text.append(session.getUri());</span>
+<span class="fc" id="L161">            text.append(&quot;&lt;/h1&gt;&lt;br&gt;&quot;);</span>
+<span class="fc" id="L162">            Map&lt;String, String&gt; queryParams = session.getParms();</span>
+<span class="fc bfc" id="L163" title="All 2 branches covered.">            if (queryParams.size() &gt; 0) {</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">                for (Map.Entry&lt;String, String&gt; entry : queryParams.entrySet()) {</span>
+<span class="fc" id="L165">                    String key = entry.getKey();</span>
+<span class="fc" id="L166">                    String value = entry.getValue();</span>
+<span class="fc" id="L167">                    text.append(&quot;&lt;p&gt;Param '&quot;);</span>
+<span class="fc" id="L168">                    text.append(key);</span>
+<span class="fc" id="L169">                    text.append(&quot;' = &quot;);</span>
+<span class="fc" id="L170">                    text.append(value);</span>
+<span class="fc" id="L171">                    text.append(&quot;&lt;/p&gt;&quot;);</span>
+<span class="fc" id="L172">                }</span>
+            } else {
+<span class="fc" id="L174">                text.append(&quot;&lt;p&gt;no params in url&lt;/p&gt;&lt;br&gt;&quot;);</span>
+            }
+<span class="fc" id="L176">            return Response.newFixedLengthResponse(getStatus(), getMimeType(), text.toString());</span>
+        }
+    }
+
+    /**
+     * General nanolet to print debug info's as a html page.
+     */
+<span class="fc" id="L183">    public static class StaticPageHandler extends DefaultHandler {</span>
+
+        private static String[] getPathArray(String uri) {
+<span class="fc" id="L186">            String array[] = uri.split(&quot;/&quot;);</span>
+<span class="fc" id="L187">            ArrayList&lt;String&gt; pathArray = new ArrayList&lt;String&gt;();</span>
+
+<span class="fc bfc" id="L189" title="All 2 branches covered.">            for (String s : array) {</span>
+<span class="pc bpc" id="L190" title="1 of 2 branches missed.">                if (s.length() &gt; 0)</span>
+<span class="fc" id="L191">                    pathArray.add(s);</span>
+            }
+
+<span class="fc" id="L194">            return pathArray.toArray(new String[]{});</span>
+
+        }
+
+        @Override
+        public String getText() {
+<span class="fc" id="L200">            throw new IllegalStateException(&quot;this method should not be called&quot;);</span>
+        }
+
+        @Override
+        public String getMimeType() {
+<span class="fc" id="L205">            throw new IllegalStateException(&quot;this method should not be called&quot;);</span>
+        }
+
+        @Override
+        public IStatus getStatus() {
+<span class="fc" id="L210">            return Status.OK;</span>
+        }
+
+        public Response get(UriResource uriResource, Map&lt;String, String&gt; urlParams, IHTTPSession session) {
+<span class="fc" id="L214">            String baseUri = uriResource.getUri();</span>
+<span class="fc" id="L215">            String realUri = normalizeUri(session.getUri());</span>
+<span class="pc bpc" id="L216" title="1 of 2 branches missed.">            for (int index = 0; index &lt; Math.min(baseUri.length(), realUri.length()); index++) {</span>
+<span class="fc bfc" id="L217" title="All 2 branches covered.">                if (baseUri.charAt(index) != realUri.charAt(index)) {</span>
+<span class="fc" id="L218">                    realUri = normalizeUri(realUri.substring(index));</span>
+<span class="fc" id="L219">                    break;</span>
+                }
+            }
+<span class="fc" id="L222">            File fileOrdirectory = uriResource.initParameter(File.class);</span>
+<span class="fc bfc" id="L223" title="All 2 branches covered.">            for (String pathPart : getPathArray(realUri)) {</span>
+<span class="fc" id="L224">                fileOrdirectory = new File(fileOrdirectory, pathPart);</span>
+            }
+<span class="fc bfc" id="L226" title="All 2 branches covered.">            if (fileOrdirectory.isDirectory()) {</span>
+<span class="fc" id="L227">                fileOrdirectory = new File(fileOrdirectory, &quot;index.html&quot;);</span>
+<span class="pc bpc" id="L228" title="1 of 2 branches missed.">                if (!fileOrdirectory.exists()) {</span>
+<span class="fc" id="L229">                    fileOrdirectory = new File(fileOrdirectory.getParentFile(), &quot;index.htm&quot;);</span>
+                }
+            }
+<span class="pc bpc" id="L232" title="1 of 4 branches missed.">            if (!fileOrdirectory.exists() || !fileOrdirectory.isFile()) {</span>
+<span class="fc" id="L233">                return new Error404UriHandler().get(uriResource, urlParams, session);</span>
+            } else {
+                try {
+<span class="fc" id="L236">                    return Response.newChunkedResponse(getStatus(), getMimeTypeForFile(fileOrdirectory.getName()), fileToInputStream(fileOrdirectory));</span>
+<span class="fc" id="L237">                } catch (IOException ioe) {</span>
+<span class="fc" id="L238">                    return Response.newFixedLengthResponse(Status.REQUEST_TIMEOUT, &quot;text/plain&quot;, (String) null);</span>
+                }
+            }
+        }
+
+        protected BufferedInputStream fileToInputStream(File fileOrdirectory) throws IOException {
+<span class="fc" id="L244">            return new BufferedInputStream(new FileInputStream(fileOrdirectory));</span>
+        }
+    }
+
+    /**
+     * Handling error 404 - unrecognized urls
+     */
+<span class="fc" id="L251">    public static class Error404UriHandler extends DefaultHandler {</span>
+
+        public String getText() {
+<span class="fc" id="L254">            return &quot;&lt;html&gt;&lt;body&gt;&lt;h3&gt;Error 404: the requested page doesn't exist.&lt;/h3&gt;&lt;/body&gt;&lt;/html&gt;&quot;;</span>
+        }
+
+        @Override
+        public String getMimeType() {
+<span class="fc" id="L259">            return &quot;text/html&quot;;</span>
+        }
+
+        @Override
+        public IStatus getStatus() {
+<span class="fc" id="L264">            return Status.NOT_FOUND;</span>
+        }
+    }
+
+    /**
+     * Handling index
+     */
+<span class="fc" id="L271">    public static class IndexHandler extends DefaultHandler {</span>
+
+        public String getText() {
+<span class="fc" id="L274">            return &quot;&lt;html&gt;&lt;body&gt;&lt;h2&gt;Hello world!&lt;/h3&gt;&lt;/body&gt;&lt;/html&gt;&quot;;</span>
+        }
+
+        @Override
+        public String getMimeType() {
+<span class="fc" id="L279">            return &quot;text/html&quot;;</span>
+        }
+
+        @Override
+        public IStatus getStatus() {
+<span class="fc" id="L284">            return Status.OK;</span>
+        }
+
+    }
+
+<span class="fc" id="L289">    public static class NotImplementedHandler extends DefaultHandler {</span>
+
+        public String getText() {
+<span class="fc" id="L292">            return &quot;&lt;html&gt;&lt;body&gt;&lt;h2&gt;The uri is mapped in the router, but no handler is specified. &lt;br&gt; Status: Not implemented!&lt;/h3&gt;&lt;/body&gt;&lt;/html&gt;&quot;;</span>
+        }
+
+        @Override
+        public String getMimeType() {
+<span class="fc" id="L297">            return &quot;text/html&quot;;</span>
+        }
+
+        @Override
+        public IStatus getStatus() {
+<span class="fc" id="L302">            return Status.OK;</span>
+        }
+    }
+
+    public static String normalizeUri(String value) {
+<span class="fc bfc" id="L307" title="All 2 branches covered.">        if (value == null) {</span>
+<span class="fc" id="L308">            return value;</span>
+        }
+<span class="fc bfc" id="L310" title="All 2 branches covered.">        if (value.startsWith(&quot;/&quot;)) {</span>
+<span class="fc" id="L311">            value = value.substring(1);</span>
+        }
+<span class="fc bfc" id="L313" title="All 2 branches covered.">        if (value.endsWith(&quot;/&quot;)) {</span>
+<span class="fc" id="L314">            value = value.substring(0, value.length() - 1);</span>
+        }
+<span class="fc" id="L316">        return value;</span>
+
+    }
+
+    public static class UriResource implements Comparable&lt;UriResource&gt; {
+
+<span class="fc" id="L322">        private static final Pattern PARAM_PATTERN = Pattern.compile(&quot;(?&lt;=(^|/)):[a-zA-Z0-9_-]+(?=(/|$))&quot;);</span>
+
+        private static final String PARAM_MATCHER = &quot;([A-Za-z0-9\\-\\._~:/?#\\[\\]@!\\$&amp;'\\(\\)\\*\\+,;=\\s]+)&quot;;
+
+<span class="fc" id="L326">        private static final Map&lt;String, String&gt; EMPTY = Collections.unmodifiableMap(new HashMap&lt;String, String&gt;());</span>
+
+        private final String uri;
+
+        private final Pattern uriPattern;
+
+        private int priority;
+
+        private final Class&lt;?&gt; handler;
+
+        private final Object[] initParameter;
+
+<span class="fc" id="L338">        private final List&lt;String&gt; uriParams = new ArrayList&lt;String&gt;();</span>
+
+        public UriResource(String uri, int priority, Class&lt;?&gt; handler, Object... initParameter) {
+<span class="fc" id="L341">            this(uri, handler, initParameter);</span>
+<span class="fc" id="L342">            this.priority = priority + uriParams.size() * 1000;</span>
+<span class="fc" id="L343">        }</span>
+
+<span class="fc" id="L345">        public UriResource(String uri, Class&lt;?&gt; handler, Object... initParameter) {</span>
+<span class="fc" id="L346">            this.handler = handler;</span>
+<span class="fc" id="L347">            this.initParameter = initParameter;</span>
+<span class="fc bfc" id="L348" title="All 2 branches covered.">            if (uri != null) {</span>
+<span class="fc" id="L349">                this.uri = normalizeUri(uri);</span>
+<span class="fc" id="L350">                parse();</span>
+<span class="fc" id="L351">                this.uriPattern = createUriPattern();</span>
+            } else {
+<span class="fc" id="L353">                this.uriPattern = null;</span>
+<span class="fc" id="L354">                this.uri = null;</span>
+            }
+<span class="fc" id="L356">        }</span>
+
+        private void parse() {
+<span class="fc" id="L359">        }</span>
+
+        private Pattern createUriPattern() {
+<span class="fc" id="L362">            String patternUri = uri;</span>
+<span class="fc" id="L363">            Matcher matcher = PARAM_PATTERN.matcher(patternUri);</span>
+<span class="fc" id="L364">            int start = 0;</span>
+<span class="fc bfc" id="L365" title="All 2 branches covered.">            while (matcher.find(start)) {</span>
+<span class="fc" id="L366">                uriParams.add(patternUri.substring(matcher.start() + 1, matcher.end()));</span>
+<span class="fc" id="L367">                patternUri = new StringBuilder(patternUri.substring(0, matcher.start()))//</span>
+<span class="fc" id="L368">                        .append(PARAM_MATCHER)//</span>
+<span class="fc" id="L369">                        .append(patternUri.substring(matcher.end())).toString();</span>
+<span class="fc" id="L370">                start = matcher.start() + PARAM_MATCHER.length();</span>
+<span class="fc" id="L371">                matcher = PARAM_PATTERN.matcher(patternUri);</span>
+            }
+<span class="fc" id="L373">            return Pattern.compile(patternUri);</span>
+        }
+
+        public Response process(Map&lt;String, String&gt; urlParams, IHTTPSession session) {
+<span class="fc" id="L377">            String error = &quot;General error!&quot;;</span>
+<span class="pc bpc" id="L378" title="1 of 2 branches missed.">            if (handler != null) {</span>
+                try {
+<span class="fc" id="L380">                    Object object = handler.newInstance();</span>
+<span class="fc bfc" id="L381" title="All 2 branches covered.">                    if (object instanceof UriResponder) {</span>
+<span class="fc" id="L382">                        UriResponder responder = (UriResponder) object;</span>
+<span class="pc bfc" id="L383" title="All 5 branches covered.">                        switch (session.getMethod()) {</span>
+                            case GET:
+<span class="fc" id="L385">                                return responder.get(this, urlParams, session);</span>
+                            case POST:
+<span class="fc" id="L387">                                return responder.post(this, urlParams, session);</span>
+                            case PUT:
+<span class="fc" id="L389">                                return responder.put(this, urlParams, session);</span>
+                            case DELETE:
+<span class="fc" id="L391">                                return responder.delete(this, urlParams, session);</span>
+                            default:
+<span class="fc" id="L393">                                return responder.other(session.getMethod().toString(), this, urlParams, session);</span>
+                        }
+                    } else {
+<span class="fc" id="L396">                        return Response.newFixedLengthResponse(Status.OK, &quot;text/plain&quot;, //</span>
+                                new StringBuilder(&quot;Return: &quot;)//
+<span class="fc" id="L398">                                        .append(handler.getCanonicalName())//</span>
+<span class="fc" id="L399">                                        .append(&quot;.toString() -&gt; &quot;)//</span>
+<span class="fc" id="L400">                                        .append(object)//</span>
+<span class="fc" id="L401">                                        .toString());</span>
+                    }
+<span class="fc" id="L403">                } catch (Exception e) {</span>
+<span class="fc" id="L404">                    error = &quot;Error: &quot; + e.getClass().getName() + &quot; : &quot; + e.getMessage();</span>
+<span class="fc" id="L405">                    LOG.log(Level.SEVERE, error, e);</span>
+                }
+            }
+<span class="fc" id="L408">            return Response.newFixedLengthResponse(Status.INTERNAL_ERROR, &quot;text/plain&quot;, error);</span>
+        }
+
+        @Override
+        public String toString() {
+<span class="pc bpc" id="L413" title="1 of 2 branches missed.">            return new StringBuilder(&quot;UrlResource{uri='&quot;).append((uri == null ? &quot;/&quot; : uri))//</span>
+<span class="fc" id="L414">                    .append(&quot;', urlParts=&quot;).append(uriParams)//</span>
+<span class="fc" id="L415">                    .append('}')//</span>
+<span class="fc" id="L416">                    .toString();</span>
+        }
+
+        public String getUri() {
+<span class="fc" id="L420">            return uri;</span>
+        }
+
+        public &lt;T&gt; T initParameter(Class&lt;T&gt; paramClazz) {
+<span class="fc" id="L424">            return initParameter(0, paramClazz);</span>
+        }
+
+        public &lt;T&gt; T initParameter(int parameterIndex, Class&lt;T&gt; paramClazz) {
+<span class="fc bfc" id="L428" title="All 2 branches covered.">            if (initParameter.length &gt; parameterIndex) {</span>
+<span class="fc" id="L429">                return paramClazz.cast(initParameter[parameterIndex]);</span>
+            }
+<span class="fc" id="L431">            LOG.severe(&quot;init parameter index not available &quot; + parameterIndex);</span>
+<span class="fc" id="L432">            return null;</span>
+        }
+
+        public Map&lt;String, String&gt; match(String url) {
+<span class="fc" id="L436">            Matcher matcher = uriPattern.matcher(url);</span>
+<span class="fc bfc" id="L437" title="All 2 branches covered.">            if (matcher.matches()) {</span>
+<span class="fc bfc" id="L438" title="All 2 branches covered.">                if (uriParams.size() &gt; 0) {</span>
+<span class="fc" id="L439">                    Map&lt;String, String&gt; result = new HashMap&lt;String, String&gt;();</span>
+<span class="fc bfc" id="L440" title="All 2 branches covered.">                    for (int i = 1; i &lt;= matcher.groupCount(); i++) {</span>
+<span class="fc" id="L441">                        result.put(uriParams.get(i - 1), matcher.group(i));</span>
+                    }
+<span class="fc" id="L443">                    return result;</span>
+                } else {
+<span class="fc" id="L445">                    return EMPTY;</span>
+                }
+            }
+<span class="fc" id="L448">            return null;</span>
+        }
+
+        @Override
+        public int compareTo(UriResource that) {
+<span class="fc bfc" id="L453" title="All 2 branches covered.">            if (that == null) {</span>
+<span class="fc" id="L454">                return 1;</span>
+<span class="fc bfc" id="L455" title="All 2 branches covered.">            } else if (this.priority &gt; that.priority) {</span>
+<span class="fc" id="L456">                return 1;</span>
+<span class="fc bfc" id="L457" title="All 2 branches covered.">            } else if (this.priority &lt; that.priority) {</span>
+<span class="fc" id="L458">                return -1;</span>
+            } else {
+<span class="fc" id="L460">                return 0;</span>
+            }
+        }
+
+        public void setPriority(int priority) {
+<span class="fc" id="L465">            this.priority = priority;</span>
+<span class="fc" id="L466">        }</span>
+
+    }
+
+    public static interface IRoutePrioritizer {
+
+        void addRoute(String url, int priority, Class&lt;?&gt; handler, Object... initParameter);
+
+        void removeRoute(String url);
+
+        Collection&lt;UriResource&gt; getPrioritizedRoutes();
+
+        void setNotImplemented(Class&lt;?&gt; notImplemented);
+    }
+
+    public static abstract class BaseRoutePrioritizer implements IRoutePrioritizer {
+
+        protected Class&lt;?&gt; notImplemented;
+
+        protected final Collection&lt;UriResource&gt; mappings;
+
+<span class="fc" id="L487">        public BaseRoutePrioritizer() {</span>
+<span class="fc" id="L488">            this.mappings = newMappingCollection();</span>
+<span class="fc" id="L489">            this.notImplemented = NotImplementedHandler.class;</span>
+<span class="fc" id="L490">        }</span>
+
+        @Override
+        public void addRoute(String url, int priority, Class&lt;?&gt; handler, Object... initParameter) {
+<span class="fc bfc" id="L494" title="All 2 branches covered.">            if (url != null) {</span>
+<span class="fc bfc" id="L495" title="All 2 branches covered.">                if (handler != null) {</span>
+<span class="fc" id="L496">                    mappings.add(new UriResource(url, priority + mappings.size(), handler, initParameter));</span>
+                } else {
+<span class="fc" id="L498">                    mappings.add(new UriResource(url, priority + mappings.size(), notImplemented));</span>
+                }
+            }
+<span class="fc" id="L501">        }</span>
+
+        public void removeRoute(String url) {
+<span class="fc" id="L504">            String uriToDelete = normalizeUri(url);</span>
+<span class="fc" id="L505">            Iterator&lt;UriResource&gt; iter = mappings.iterator();</span>
+<span class="fc bfc" id="L506" title="All 2 branches covered.">            while (iter.hasNext()) {</span>
+<span class="fc" id="L507">                UriResource uriResource = iter.next();</span>
+<span class="fc bfc" id="L508" title="All 2 branches covered.">                if (uriToDelete.equals(uriResource.getUri())) {</span>
+<span class="fc" id="L509">                    iter.remove();</span>
+<span class="fc" id="L510">                    break;</span>
+                }
+<span class="fc" id="L512">            }</span>
+<span class="fc" id="L513">        }</span>
+
+        @Override
+        public Collection&lt;UriResource&gt; getPrioritizedRoutes() {
+<span class="fc" id="L517">            return Collections.unmodifiableCollection(mappings);</span>
+        }
+
+        @Override
+        public void setNotImplemented(Class&lt;?&gt; handler) {
+<span class="fc" id="L522">            notImplemented = handler;</span>
+<span class="fc" id="L523">        }</span>
+
+        protected abstract Collection&lt;UriResource&gt; newMappingCollection();
+    }
+
+<span class="fc" id="L528">    public static class ProvidedPriorityRoutePrioritizer extends BaseRoutePrioritizer {</span>
+
+        @Override
+        public void addRoute(String url, int priority, Class&lt;?&gt; handler, Object... initParameter) {
+<span class="fc bfc" id="L532" title="All 2 branches covered.">            if (url != null) {</span>
+<span class="fc" id="L533">                UriResource resource = null;</span>
+<span class="fc bfc" id="L534" title="All 2 branches covered.">                if (handler != null) {</span>
+<span class="fc" id="L535">                    resource = new UriResource(url, handler, initParameter);</span>
+                } else {
+<span class="fc" id="L537">                    resource = new UriResource(url, handler, notImplemented);</span>
+                }
+
+<span class="fc" id="L540">                resource.setPriority(priority);</span>
+<span class="fc" id="L541">                mappings.add(resource);</span>
+            }
+<span class="fc" id="L543">        }</span>
+
+        @Override
+        protected Collection&lt;UriResource&gt; newMappingCollection() {
+<span class="fc" id="L547">            return new PriorityQueue&lt;UriResource&gt;();</span>
+        }
+
+    }
+
+<span class="fc" id="L552">    public static class DefaultRoutePrioritizer extends BaseRoutePrioritizer {</span>
+
+        protected Collection&lt;UriResource&gt; newMappingCollection() {
+<span class="fc" id="L555">            return new PriorityQueue&lt;UriResource&gt;();</span>
+        }
+    }
+
+<span class="fc" id="L559">    public static class InsertionOrderRoutePrioritizer extends BaseRoutePrioritizer {</span>
+
+        protected Collection&lt;UriResource&gt; newMappingCollection() {
+<span class="fc" id="L562">            return new ArrayList&lt;UriResource&gt;();</span>
+        }
+    }
+
+    public static class UriRouter {
+
+        private UriResource error404Url;
+
+        private IRoutePrioritizer routePrioritizer;
+
+<span class="fc" id="L572">        public UriRouter() {</span>
+<span class="fc" id="L573">            this.routePrioritizer = new DefaultRoutePrioritizer();</span>
+<span class="fc" id="L574">        }</span>
+
+        /**
+         * Search in the mappings if the given url matches some of the rules If
+         * there are more than one marches returns the rule with less parameters
+         * e.g. mapping 1 = /user/:id mapping 2 = /user/help if the incoming uri
+         * is www.example.com/user/help - mapping 2 is returned if the incoming
+         * uri is www.example.com/user/3232 - mapping 1 is returned
+         * 
+         * @param url
+         * @return
+         */
+        public Response process(IHTTPSession session) {
+<span class="fc" id="L587">            String work = normalizeUri(session.getUri());</span>
+<span class="fc" id="L588">            Map&lt;String, String&gt; params = null;</span>
+<span class="fc" id="L589">            UriResource uriResource = error404Url;</span>
+<span class="fc bfc" id="L590" title="All 2 branches covered.">            for (UriResource u : routePrioritizer.getPrioritizedRoutes()) {</span>
+<span class="fc" id="L591">                params = u.match(work);</span>
+<span class="fc bfc" id="L592" title="All 2 branches covered.">                if (params != null) {</span>
+<span class="fc" id="L593">                    uriResource = u;</span>
+<span class="fc" id="L594">                    break;</span>
+                }
+<span class="fc" id="L596">            }</span>
+<span class="fc" id="L597">            return uriResource.process(params, session);</span>
+        }
+
+        private void addRoute(String url, int priority, Class&lt;?&gt; handler, Object... initParameter) {
+<span class="fc" id="L601">            routePrioritizer.addRoute(url, priority, handler, initParameter);</span>
+<span class="fc" id="L602">        }</span>
+
+        private void removeRoute(String url) {
+<span class="fc" id="L605">            routePrioritizer.removeRoute(url);</span>
+<span class="fc" id="L606">        }</span>
+
+        public void setNotFoundHandler(Class&lt;?&gt; handler) {
+<span class="fc" id="L609">            error404Url = new UriResource(null, 100, handler);</span>
+<span class="fc" id="L610">        }</span>
+
+        public void setNotImplemented(Class&lt;?&gt; handler) {
+<span class="fc" id="L613">            routePrioritizer.setNotImplemented(handler);</span>
+<span class="fc" id="L614">        }</span>
+
+        public void setRoutePrioritizer(IRoutePrioritizer routePrioritizer) {
+<span class="nc" id="L617">            this.routePrioritizer = routePrioritizer;</span>
+<span class="nc" id="L618">        }</span>
+
+    }
+
+    private UriRouter router;
+
+    public RouterNanoHTTPD(int port) {
+<span class="fc" id="L625">        super(port);</span>
+<span class="fc" id="L626">        router = new UriRouter();</span>
+<span class="fc" id="L627">    }</span>
+
+    public RouterNanoHTTPD(String hostname, int port) {
+<span class="nc" id="L630">        super(hostname, port);</span>
+<span class="nc" id="L631">        router = new UriRouter();</span>
+<span class="nc" id="L632">    }</span>
+
+    /**
+     * default routings, they are over writable.
+     * 
+     * &lt;pre&gt;
+     * router.setNotFoundHandler(GeneralHandler.class);
+     * &lt;/pre&gt;
+     */
+
+    public void addMappings() {
+<span class="fc" id="L643">        router.setNotImplemented(NotImplementedHandler.class);</span>
+<span class="fc" id="L644">        router.setNotFoundHandler(Error404UriHandler.class);</span>
+<span class="fc" id="L645">        router.addRoute(&quot;/&quot;, Integer.MAX_VALUE / 2, IndexHandler.class);</span>
+<span class="fc" id="L646">        router.addRoute(&quot;/index.html&quot;, Integer.MAX_VALUE / 2, IndexHandler.class);</span>
+<span class="fc" id="L647">    }</span>
+
+    public void addRoute(String url, Class&lt;?&gt; handler, Object... initParameter) {
+<span class="fc" id="L650">        router.addRoute(url, 100, handler, initParameter);</span>
+<span class="fc" id="L651">    }</span>
+
+    public &lt;T extends UriResponder&gt; void setNotImplementedHandler(Class&lt;T&gt; handler) {
+<span class="fc" id="L654">        router.setNotImplemented(handler);</span>
+<span class="fc" id="L655">    }</span>
+
+    public &lt;T extends UriResponder&gt; void setNotFoundHandler(Class&lt;T&gt; handler) {
+<span class="fc" id="L658">        router.setNotFoundHandler(handler);</span>
+<span class="fc" id="L659">    }</span>
+
+    public void removeRoute(String url) {
+<span class="fc" id="L662">        router.removeRoute(url);</span>
+<span class="fc" id="L663">    }</span>
+
+    public void setRoutePrioritizer(IRoutePrioritizer routePrioritizer) {
+<span class="nc" id="L666">        router.setRoutePrioritizer(routePrioritizer);</span>
+<span class="nc" id="L667">    }</span>
+
+    @Override
+    public Response serve(IHTTPSession session) {
+        // Try to find match
+<span class="fc" id="L672">        return router.process(session);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

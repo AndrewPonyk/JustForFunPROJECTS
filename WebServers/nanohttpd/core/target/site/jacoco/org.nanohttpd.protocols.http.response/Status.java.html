@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Status.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NanoHttpd-Core</a> &gt; <a href="index.source.html" class="el_package">org.nanohttpd.protocols.http.response</a> &gt; <span class="el_source">Status.java</span></div><h1>Status.java</h1><pre class="source lang-java linenums">package org.nanohttpd.protocols.http.response;
+
+/*
+ * #%L
+ * NanoHttpd-Core
+ * %%
+ * Copyright (C) 2012 - 2016 nanohttpd
+ * %%
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the nanohttpd nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * #L%
+ */
+
+/**
+ * Some HTTP response status codes
+ */
+<span class="pc" id="L39">public enum Status implements IStatus {</span>
+<span class="fc" id="L40">    SWITCH_PROTOCOL(101, &quot;Switching Protocols&quot;),</span>
+
+<span class="fc" id="L42">    OK(200, &quot;OK&quot;),</span>
+<span class="fc" id="L43">    CREATED(201, &quot;Created&quot;),</span>
+<span class="fc" id="L44">    ACCEPTED(202, &quot;Accepted&quot;),</span>
+<span class="fc" id="L45">    NO_CONTENT(204, &quot;No Content&quot;),</span>
+<span class="fc" id="L46">    PARTIAL_CONTENT(206, &quot;Partial Content&quot;),</span>
+<span class="fc" id="L47">    MULTI_STATUS(207, &quot;Multi-Status&quot;),</span>
+
+<span class="fc" id="L49">    REDIRECT(301, &quot;Moved Permanently&quot;),</span>
+    /**
+     * Many user agents mishandle 302 in ways that violate the RFC1945 spec
+     * (i.e., redirect a POST to a GET). 303 and 307 were added in RFC2616 to
+     * address this. You should prefer 303 and 307 unless the calling user agent
+     * does not support 303 and 307 functionality
+     */
+<span class="fc" id="L56">    @Deprecated</span>
+    FOUND(302, &quot;Found&quot;),
+<span class="fc" id="L58">    REDIRECT_SEE_OTHER(303, &quot;See Other&quot;),</span>
+<span class="fc" id="L59">    NOT_MODIFIED(304, &quot;Not Modified&quot;),</span>
+<span class="fc" id="L60">    TEMPORARY_REDIRECT(307, &quot;Temporary Redirect&quot;),</span>
+
+<span class="fc" id="L62">    BAD_REQUEST(400, &quot;Bad Request&quot;),</span>
+<span class="fc" id="L63">    UNAUTHORIZED(401, &quot;Unauthorized&quot;),</span>
+<span class="fc" id="L64">    FORBIDDEN(403, &quot;Forbidden&quot;),</span>
+<span class="fc" id="L65">    NOT_FOUND(404, &quot;Not Found&quot;),</span>
+<span class="fc" id="L66">    METHOD_NOT_ALLOWED(405, &quot;Method Not Allowed&quot;),</span>
+<span class="fc" id="L67">    NOT_ACCEPTABLE(406, &quot;Not Acceptable&quot;),</span>
+<span class="fc" id="L68">    REQUEST_TIMEOUT(408, &quot;Request Timeout&quot;),</span>
+<span class="fc" id="L69">    CONFLICT(409, &quot;Conflict&quot;),</span>
+<span class="fc" id="L70">    GONE(410, &quot;Gone&quot;),</span>
+<span class="fc" id="L71">    LENGTH_REQUIRED(411, &quot;Length Required&quot;),</span>
+<span class="fc" id="L72">    PRECONDITION_FAILED(412, &quot;Precondition Failed&quot;),</span>
+<span class="fc" id="L73">    PAYLOAD_TOO_LARGE(413, &quot;Payload Too Large&quot;),</span>
+<span class="fc" id="L74">    UNSUPPORTED_MEDIA_TYPE(415, &quot;Unsupported Media Type&quot;),</span>
+<span class="fc" id="L75">    RANGE_NOT_SATISFIABLE(416, &quot;Requested Range Not Satisfiable&quot;),</span>
+<span class="fc" id="L76">    EXPECTATION_FAILED(417, &quot;Expectation Failed&quot;),</span>
+<span class="fc" id="L77">    TOO_MANY_REQUESTS(429, &quot;Too Many Requests&quot;),</span>
+
+<span class="fc" id="L79">    INTERNAL_ERROR(500, &quot;Internal Server Error&quot;),</span>
+<span class="fc" id="L80">    NOT_IMPLEMENTED(501, &quot;Not Implemented&quot;),</span>
+<span class="fc" id="L81">    SERVICE_UNAVAILABLE(503, &quot;Service Unavailable&quot;),</span>
+<span class="fc" id="L82">    UNSUPPORTED_HTTP_VERSION(505, &quot;HTTP Version Not Supported&quot;);</span>
+
+    private final int requestStatus;
+
+    private final String description;
+
+<span class="fc" id="L88">    Status(int requestStatus, String description) {</span>
+<span class="fc" id="L89">        this.requestStatus = requestStatus;</span>
+<span class="fc" id="L90">        this.description = description;</span>
+<span class="fc" id="L91">    }</span>
+
+    public static Status lookup(int requestStatus) {
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">        for (Status status : Status.values()) {</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">            if (status.getRequestStatus() == requestStatus) {</span>
+<span class="fc" id="L96">                return status;</span>
+            }
+        }
+<span class="nc" id="L99">        return null;</span>
+    }
+
+    @Override
+    public String getDescription() {
+<span class="fc" id="L104">        return &quot;&quot; + this.requestStatus + &quot; &quot; + this.description;</span>
+    }
+
+    @Override
+    public int getRequestStatus() {
+<span class="fc" id="L109">        return this.requestStatus;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

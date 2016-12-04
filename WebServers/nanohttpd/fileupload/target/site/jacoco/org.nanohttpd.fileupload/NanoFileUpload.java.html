@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>NanoFileUpload.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NanoHttpd-apache file upload integration</a> &gt; <a href="index.source.html" class="el_package">org.nanohttpd.fileupload</a> &gt; <span class="el_source">NanoFileUpload.java</span></div><h1>NanoFileUpload.java</h1><pre class="source lang-java linenums">package org.nanohttpd.fileupload;
+
+/*
+ * #%L
+ * NanoHttpd-apache file upload integration
+ * %%
+ * Copyright (C) 2012 - 2016 nanohttpd
+ * %%
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the nanohttpd nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * #L%
+ */
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.FileItemIterator;
+import org.apache.commons.fileupload.FileUpload;
+import org.apache.commons.fileupload.FileUploadBase;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.UploadContext;
+import org.nanohttpd.protocols.http.IHTTPSession;
+import org.nanohttpd.protocols.http.request.Method;
+
+/**
+ * @author victor &amp; ritchieGitHub
+ */
+public class NanoFileUpload extends FileUpload {
+
+    public static class NanoHttpdContext implements UploadContext {
+
+        private IHTTPSession session;
+
+<span class="fc" id="L60">        public NanoHttpdContext(IHTTPSession session) {</span>
+<span class="fc" id="L61">            this.session = session;</span>
+<span class="fc" id="L62">        }</span>
+
+        @Override
+        public long contentLength() {
+            long size;
+            try {
+<span class="fc" id="L68">                String cl1 = session.getHeaders().get(&quot;content-length&quot;);</span>
+<span class="fc" id="L69">                size = Long.parseLong(cl1);</span>
+<span class="fc" id="L70">            } catch (NumberFormatException var4) {</span>
+<span class="fc" id="L71">                size = -1L;</span>
+<span class="fc" id="L72">            }</span>
+
+<span class="fc" id="L74">            return size;</span>
+        }
+
+        @Override
+        public String getCharacterEncoding() {
+<span class="fc" id="L79">            return &quot;UTF-8&quot;;</span>
+        }
+
+        @Override
+        public String getContentType() {
+<span class="fc" id="L84">            return this.session.getHeaders().get(&quot;content-type&quot;);</span>
+        }
+
+        @Override
+        public int getContentLength() {
+<span class="fc" id="L89">            return (int) contentLength();</span>
+        }
+
+        @Override
+        public InputStream getInputStream() throws IOException {
+<span class="fc" id="L94">            return session.getInputStream();</span>
+        }
+    }
+
+    public static final boolean isMultipartContent(IHTTPSession session) {
+<span class="pc bpc" id="L99" title="1 of 4 branches missed.">        return session.getMethod() == Method.POST &amp;&amp; FileUploadBase.isMultipartContent(new NanoHttpdContext(session));</span>
+    }
+
+    public NanoFileUpload(FileItemFactory fileItemFactory) {
+<span class="fc" id="L103">        super(fileItemFactory);</span>
+<span class="fc" id="L104">    }</span>
+
+    public List&lt;FileItem&gt; parseRequest(IHTTPSession session) throws FileUploadException {
+<span class="fc" id="L107">        return this.parseRequest(new NanoHttpdContext(session));</span>
+    }
+
+    public Map&lt;String, List&lt;FileItem&gt;&gt; parseParameterMap(IHTTPSession session) throws FileUploadException {
+<span class="fc" id="L111">        return this.parseParameterMap(new NanoHttpdContext(session));</span>
+    }
+
+    public FileItemIterator getItemIterator(IHTTPSession session) throws FileUploadException, IOException {
+<span class="fc" id="L115">        return super.getItemIterator(new NanoHttpdContext(session));</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

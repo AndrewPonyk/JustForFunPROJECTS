@@ -1,0 +1,12 @@
+org/nanohttpd/protocols/websockets/NanoWSD.class
+org/nanohttpd/protocols/websockets/WebSocketFrame.class
+org/nanohttpd/protocols/websockets/CloseCode.class
+org/nanohttpd/protocols/websockets/WebSocket.class
+org/nanohttpd/protocols/websockets/WebSocketException.class
+org/nanohttpd/samples/websockets/EchoSocketSample.class
+org/nanohttpd/protocols/websockets/WebSocket$1.class
+org/nanohttpd/protocols/websockets/CloseFrame.class
+org/nanohttpd/samples/websockets/DebugWebSocketServer$DebugWebSocket.class
+org/nanohttpd/protocols/websockets/OpCode.class
+org/nanohttpd/protocols/websockets/State.class
+org/nanohttpd/samples/websockets/DebugWebSocketServer.class

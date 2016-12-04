@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SimpleWebServer.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NanoHttpd-Webserver</a> &gt; <a href="index.source.html" class="el_package">org.nanohttpd.webserver</a> &gt; <span class="el_source">SimpleWebServer.java</span></div><h1>SimpleWebServer.java</h1><pre class="source lang-java linenums">package org.nanohttpd.webserver;
+
+/*
+ * #%L
+ * NanoHttpd-Webserver
+ * %%
+ * Copyright (C) 2012 - 2015 nanohttpd
+ * %%
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the nanohttpd nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * #L%
+ */
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.ServiceLoader;
+import java.util.StringTokenizer;
+
+import org.nanohttpd.protocols.http.IHTTPSession;
+import org.nanohttpd.protocols.http.NanoHTTPD;
+import org.nanohttpd.protocols.http.request.Method;
+import org.nanohttpd.protocols.http.response.IStatus;
+import org.nanohttpd.protocols.http.response.Response;
+import org.nanohttpd.protocols.http.response.Status;
+import org.nanohttpd.util.ServerRunner;
+
+public class SimpleWebServer extends NanoHTTPD {
+
+    /**
+     * Default Index file names.
+     */
+    @SuppressWarnings(&quot;serial&quot;)
+<span class="fc" id="L68">    public static final List&lt;String&gt; INDEX_FILE_NAMES = new ArrayList&lt;String&gt;() {</span>
+
+        {
+<span class="fc" id="L71">            add(&quot;index.html&quot;);</span>
+<span class="fc" id="L72">            add(&quot;index.htm&quot;);</span>
+<span class="fc" id="L73">        }</span>
+    };
+
+    /**
+     * The distribution licence
+     */
+    private static final String LICENCE;
+    static {
+<span class="fc" id="L81">        mimeTypes();</span>
+        String text;
+        try {
+<span class="fc" id="L84">            InputStream stream = SimpleWebServer.class.getResourceAsStream(&quot;/LICENSE.txt&quot;);</span>
+<span class="fc" id="L85">            ByteArrayOutputStream bytes = new ByteArrayOutputStream();</span>
+<span class="fc" id="L86">            byte[] buffer = new byte[1024];</span>
+            int count;
+<span class="fc bfc" id="L88" title="All 2 branches covered.">            while ((count = stream.read(buffer)) &gt;= 0) {</span>
+<span class="fc" id="L89">                bytes.write(buffer, 0, count);</span>
+            }
+<span class="fc" id="L91">            text = bytes.toString(&quot;UTF-8&quot;);</span>
+<span class="nc" id="L92">        } catch (Exception e) {</span>
+<span class="nc" id="L93">            text = &quot;unknown&quot;;</span>
+<span class="fc" id="L94">        }</span>
+<span class="fc" id="L95">        LICENCE = text;</span>
+    }
+
+<span class="fc" id="L98">    private static Map&lt;String, WebServerPlugin&gt; mimeTypeHandlers = new HashMap&lt;String, WebServerPlugin&gt;();</span>
+
+    /**
+     * Starts as a standalone file server and waits for Enter.
+     */
+    public static void main(String[] args) {
+        // Defaults
+<span class="fc" id="L105">        int port = 8080;</span>
+
+<span class="fc" id="L107">        String host = null; // bind to all interfaces by default</span>
+<span class="fc" id="L108">        List&lt;File&gt; rootDirs = new ArrayList&lt;File&gt;();</span>
+<span class="fc" id="L109">        boolean quiet = false;</span>
+<span class="fc" id="L110">        String cors = null;</span>
+<span class="fc" id="L111">        Map&lt;String, String&gt; options = new HashMap&lt;String, String&gt;();</span>
+
+        // Parse command-line, with short and long versions of the options.
+<span class="fc bfc" id="L114" title="All 2 branches covered.">        for (int i = 0; i &lt; args.length; ++i) {</span>
+<span class="fc bfc" id="L115" title="All 4 branches covered.">            if (&quot;-h&quot;.equalsIgnoreCase(args[i]) || &quot;--host&quot;.equalsIgnoreCase(args[i])) {</span>
+<span class="fc" id="L116">                host = args[i + 1];</span>
+<span class="fc bfc" id="L117" title="All 4 branches covered.">            } else if (&quot;-p&quot;.equalsIgnoreCase(args[i]) || &quot;--port&quot;.equalsIgnoreCase(args[i])) {</span>
+<span class="fc" id="L118">                port = Integer.parseInt(args[i + 1]);</span>
+<span class="pc bpc" id="L119" title="2 of 4 branches missed.">            } else if (&quot;-q&quot;.equalsIgnoreCase(args[i]) || &quot;--quiet&quot;.equalsIgnoreCase(args[i])) {</span>
+<span class="nc" id="L120">                quiet = true;</span>
+<span class="fc bfc" id="L121" title="All 4 branches covered.">            } else if (&quot;-d&quot;.equalsIgnoreCase(args[i]) || &quot;--dir&quot;.equalsIgnoreCase(args[i])) {</span>
+<span class="fc" id="L122">                rootDirs.add(new File(args[i + 1]).getAbsoluteFile());</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">            } else if (args[i].startsWith(&quot;--cors&quot;)) {</span>
+<span class="fc" id="L124">                cors = &quot;*&quot;;</span>
+<span class="fc" id="L125">                int equalIdx = args[i].indexOf('=');</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">                if (equalIdx &gt; 0) {</span>
+<span class="fc" id="L127">                    cors = args[i].substring(equalIdx + 1);</span>
+                }
+<span class="pc bpc" id="L129" title="1 of 2 branches missed.">            } else if (&quot;--licence&quot;.equalsIgnoreCase(args[i])) {</span>
+<span class="nc" id="L130">                System.out.println(SimpleWebServer.LICENCE + &quot;\n&quot;);</span>
+<span class="pc bpc" id="L131" title="1 of 2 branches missed.">            } else if (args[i].startsWith(&quot;-X:&quot;)) {</span>
+<span class="nc" id="L132">                int dot = args[i].indexOf('=');</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">                if (dot &gt; 0) {</span>
+<span class="nc" id="L134">                    String name = args[i].substring(0, dot);</span>
+<span class="nc" id="L135">                    String value = args[i].substring(dot + 1, args[i].length());</span>
+<span class="nc" id="L136">                    options.put(name, value);</span>
+                }
+            }
+        }
+
+<span class="pc bpc" id="L141" title="1 of 2 branches missed.">        if (rootDirs.isEmpty()) {</span>
+<span class="nc" id="L142">            rootDirs.add(new File(&quot;.&quot;).getAbsoluteFile());</span>
+        }
+<span class="fc" id="L144">        options.put(&quot;host&quot;, host);</span>
+<span class="fc" id="L145">        options.put(&quot;port&quot;, &quot;&quot; + port);</span>
+<span class="fc" id="L146">        options.put(&quot;quiet&quot;, String.valueOf(quiet));</span>
+<span class="fc" id="L147">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc bfc" id="L148" title="All 2 branches covered.">        for (File dir : rootDirs) {</span>
+<span class="pc bpc" id="L149" title="1 of 2 branches missed.">            if (sb.length() &gt; 0) {</span>
+<span class="nc" id="L150">                sb.append(&quot;:&quot;);</span>
+            }
+            try {
+<span class="fc" id="L153">                sb.append(dir.getCanonicalPath());</span>
+<span class="nc" id="L154">            } catch (IOException ignored) {</span>
+<span class="fc" id="L155">            }</span>
+<span class="fc" id="L156">        }</span>
+<span class="fc" id="L157">        options.put(&quot;home&quot;, sb.toString());</span>
+<span class="fc" id="L158">        ServiceLoader&lt;WebServerPluginInfo&gt; serviceLoader = ServiceLoader.load(WebServerPluginInfo.class);</span>
+<span class="fc bfc" id="L159" title="All 2 branches covered.">        for (WebServerPluginInfo info : serviceLoader) {</span>
+<span class="fc" id="L160">            String[] mimeTypes = info.getMimeTypes();</span>
+<span class="fc bfc" id="L161" title="All 2 branches covered.">            for (String mime : mimeTypes) {</span>
+<span class="fc" id="L162">                String[] indexFiles = info.getIndexFilesForMimeType(mime);</span>
+<span class="pc bpc" id="L163" title="1 of 2 branches missed.">                if (!quiet) {</span>
+<span class="fc" id="L164">                    System.out.print(&quot;# Found plugin for Mime type: \&quot;&quot; + mime + &quot;\&quot;&quot;);</span>
+<span class="pc bpc" id="L165" title="1 of 2 branches missed.">                    if (indexFiles != null) {</span>
+<span class="fc" id="L166">                        System.out.print(&quot; (serving index files: &quot;);</span>
+<span class="fc bfc" id="L167" title="All 2 branches covered.">                        for (String indexFile : indexFiles) {</span>
+<span class="fc" id="L168">                            System.out.print(indexFile + &quot; &quot;);</span>
+                        }
+                    }
+<span class="fc" id="L171">                    System.out.println(&quot;).&quot;);</span>
+                }
+<span class="fc" id="L173">                registerPluginForMimeType(indexFiles, mime, info.getWebServerPlugin(mime), options);</span>
+            }
+<span class="fc" id="L175">        }</span>
+<span class="fc" id="L176">        ServerRunner.executeInstance(new SimpleWebServer(host, port, rootDirs, quiet, cors));</span>
+<span class="fc" id="L177">    }</span>
+
+    protected static void registerPluginForMimeType(String[] indexFiles, String mimeType, WebServerPlugin plugin, Map&lt;String, String&gt; commandLineOptions) {
+<span class="pc bpc" id="L180" title="2 of 4 branches missed.">        if (mimeType == null || plugin == null) {</span>
+<span class="nc" id="L181">            return;</span>
+        }
+
+<span class="pc bpc" id="L184" title="1 of 2 branches missed.">        if (indexFiles != null) {</span>
+<span class="fc bfc" id="L185" title="All 2 branches covered.">            for (String filename : indexFiles) {</span>
+<span class="fc" id="L186">                int dot = filename.lastIndexOf('.');</span>
+<span class="pc bpc" id="L187" title="1 of 2 branches missed.">                if (dot &gt;= 0) {</span>
+<span class="fc" id="L188">                    String extension = filename.substring(dot + 1).toLowerCase();</span>
+<span class="fc" id="L189">                    mimeTypes().put(extension, mimeType);</span>
+                }
+            }
+<span class="fc" id="L192">            SimpleWebServer.INDEX_FILE_NAMES.addAll(Arrays.asList(indexFiles));</span>
+        }
+<span class="fc" id="L194">        SimpleWebServer.mimeTypeHandlers.put(mimeType, plugin);</span>
+<span class="fc" id="L195">        plugin.initialize(commandLineOptions);</span>
+<span class="fc" id="L196">    }</span>
+
+    private final boolean quiet;
+
+    private final String cors;
+
+    protected List&lt;File&gt; rootDirs;
+
+    public SimpleWebServer(String host, int port, File wwwroot, boolean quiet, String cors) {
+<span class="nc" id="L205">        this(host, port, Collections.singletonList(wwwroot), quiet, cors);</span>
+<span class="nc" id="L206">    }</span>
+
+    public SimpleWebServer(String host, int port, File wwwroot, boolean quiet) {
+<span class="nc" id="L209">        this(host, port, Collections.singletonList(wwwroot), quiet, null);</span>
+<span class="nc" id="L210">    }</span>
+
+    public SimpleWebServer(String host, int port, List&lt;File&gt; wwwroots, boolean quiet) {
+<span class="nc" id="L213">        this(host, port, wwwroots, quiet, null);</span>
+<span class="nc" id="L214">    }</span>
+
+    public SimpleWebServer(String host, int port, List&lt;File&gt; wwwroots, boolean quiet, String cors) {
+<span class="fc" id="L217">        super(host, port);</span>
+<span class="fc" id="L218">        this.quiet = quiet;</span>
+<span class="fc" id="L219">        this.cors = cors;</span>
+<span class="fc" id="L220">        this.rootDirs = new ArrayList&lt;File&gt;(wwwroots);</span>
+
+<span class="fc" id="L222">        init();</span>
+<span class="fc" id="L223">    }</span>
+
+    private boolean canServeUri(String uri, File homeDir) {
+        boolean canServeUri;
+<span class="fc" id="L227">        File f = new File(homeDir, uri);</span>
+<span class="fc" id="L228">        canServeUri = f.exists();</span>
+<span class="fc bfc" id="L229" title="All 2 branches covered.">        if (!canServeUri) {</span>
+<span class="fc" id="L230">            WebServerPlugin plugin = SimpleWebServer.mimeTypeHandlers.get(getMimeTypeForFile(uri));</span>
+<span class="fc bfc" id="L231" title="All 2 branches covered.">            if (plugin != null) {</span>
+<span class="fc" id="L232">                canServeUri = plugin.canServeUri(uri, homeDir);</span>
+            }
+        }
+<span class="fc" id="L235">        return canServeUri;</span>
+    }
+
+    /**
+     * URL-encodes everything between &quot;/&quot;-characters. Encodes spaces as '%20'
+     * instead of '+'.
+     */
+    private String encodeUri(String uri) {
+<span class="fc" id="L243">        String newUri = &quot;&quot;;</span>
+<span class="fc" id="L244">        StringTokenizer st = new StringTokenizer(uri, &quot;/ &quot;, true);</span>
+<span class="fc bfc" id="L245" title="All 2 branches covered.">        while (st.hasMoreTokens()) {</span>
+<span class="fc" id="L246">            String tok = st.nextToken();</span>
+<span class="fc bfc" id="L247" title="All 2 branches covered.">            if (&quot;/&quot;.equals(tok)) {</span>
+<span class="fc" id="L248">                newUri += &quot;/&quot;;</span>
+<span class="pc bpc" id="L249" title="1 of 2 branches missed.">            } else if (&quot; &quot;.equals(tok)) {</span>
+<span class="nc" id="L250">                newUri += &quot;%20&quot;;</span>
+            } else {
+                try {
+<span class="fc" id="L253">                    newUri += URLEncoder.encode(tok, &quot;UTF-8&quot;);</span>
+<span class="nc" id="L254">                } catch (UnsupportedEncodingException ignored) {</span>
+<span class="fc" id="L255">                }</span>
+            }
+<span class="fc" id="L257">        }</span>
+<span class="fc" id="L258">        return newUri;</span>
+    }
+
+    private String findIndexFileInDirectory(File directory) {
+<span class="fc bfc" id="L262" title="All 2 branches covered.">        for (String fileName : SimpleWebServer.INDEX_FILE_NAMES) {</span>
+<span class="fc" id="L263">            File indexFile = new File(directory, fileName);</span>
+<span class="fc bfc" id="L264" title="All 2 branches covered.">            if (indexFile.isFile()) {</span>
+<span class="fc" id="L265">                return fileName;</span>
+            }
+<span class="fc" id="L267">        }</span>
+<span class="fc" id="L268">        return null;</span>
+    }
+
+    protected Response getForbiddenResponse(String s) {
+<span class="fc" id="L272">        return Response.newFixedLengthResponse(Status.FORBIDDEN, NanoHTTPD.MIME_PLAINTEXT, &quot;FORBIDDEN: &quot; + s);</span>
+    }
+
+    protected Response getInternalErrorResponse(String s) {
+<span class="nc" id="L276">        return Response.newFixedLengthResponse(Status.INTERNAL_ERROR, NanoHTTPD.MIME_PLAINTEXT, &quot;INTERNAL ERROR: &quot; + s);</span>
+    }
+
+    protected Response getNotFoundResponse() {
+<span class="fc" id="L280">        return Response.newFixedLengthResponse(Status.NOT_FOUND, NanoHTTPD.MIME_PLAINTEXT, &quot;Error 404, file not found.&quot;);</span>
+    }
+
+    /**
+     * Used to initialize and customize the server.
+     */
+    public void init() {
+<span class="fc" id="L287">    }</span>
+
+    protected String listDirectory(String uri, File f) {
+<span class="fc" id="L290">        String heading = &quot;Directory &quot; + uri;</span>
+<span class="fc" id="L291">        StringBuilder msg =</span>
+                new StringBuilder(&quot;&lt;html&gt;&lt;head&gt;&lt;title&gt;&quot; + heading + &quot;&lt;/title&gt;&lt;style&gt;&lt;!--\n&quot; + &quot;span.dirname { font-weight: bold; }\n&quot; + &quot;span.filesize { font-size: 75%; }\n&quot;
+                        + &quot;// --&gt;\n&quot; + &quot;&lt;/style&gt;&quot; + &quot;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;&quot; + heading + &quot;&lt;/h1&gt;&quot;);
+
+<span class="fc" id="L295">        String up = null;</span>
+<span class="fc bfc" id="L296" title="All 2 branches covered.">        if (uri.length() &gt; 1) {</span>
+<span class="fc" id="L297">            String u = uri.substring(0, uri.length() - 1);</span>
+<span class="fc" id="L298">            int slash = u.lastIndexOf('/');</span>
+<span class="pc bpc" id="L299" title="2 of 4 branches missed.">            if (slash &gt;= 0 &amp;&amp; slash &lt; u.length()) {</span>
+<span class="fc" id="L300">                up = uri.substring(0, slash + 1);</span>
+            }
+        }
+
+<span class="fc" id="L304">        List&lt;String&gt; files = Arrays.asList(f.list(new FilenameFilter() {</span>
+
+            @Override
+            public boolean accept(File dir, String name) {
+<span class="fc" id="L308">                return new File(dir, name).isFile();</span>
+            }
+        }));
+<span class="fc" id="L311">        Collections.sort(files);</span>
+<span class="fc" id="L312">        List&lt;String&gt; directories = Arrays.asList(f.list(new FilenameFilter() {</span>
+
+            @Override
+            public boolean accept(File dir, String name) {
+<span class="fc" id="L316">                return new File(dir, name).isDirectory();</span>
+            }
+        }));
+<span class="fc" id="L319">        Collections.sort(directories);</span>
+<span class="pc bpc" id="L320" title="1 of 4 branches missed.">        if (up != null || directories.size() + files.size() &gt; 0) {</span>
+<span class="fc" id="L321">            msg.append(&quot;&lt;ul&gt;&quot;);</span>
+<span class="pc bpc" id="L322" title="1 of 4 branches missed.">            if (up != null || directories.size() &gt; 0) {</span>
+<span class="fc" id="L323">                msg.append(&quot;&lt;section class=\&quot;directories\&quot;&gt;&quot;);</span>
+<span class="fc bfc" id="L324" title="All 2 branches covered.">                if (up != null) {</span>
+<span class="fc" id="L325">                    msg.append(&quot;&lt;li&gt;&lt;a rel=\&quot;directory\&quot; href=\&quot;&quot;).append(up).append(&quot;\&quot;&gt;&lt;span class=\&quot;dirname\&quot;&gt;..&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&quot;);</span>
+                }
+<span class="fc bfc" id="L327" title="All 2 branches covered.">                for (String directory : directories) {</span>
+<span class="fc" id="L328">                    String dir = directory + &quot;/&quot;;</span>
+<span class="fc" id="L329">                    msg.append(&quot;&lt;li&gt;&lt;a rel=\&quot;directory\&quot; href=\&quot;&quot;).append(encodeUri(uri + dir)).append(&quot;\&quot;&gt;&lt;span class=\&quot;dirname\&quot;&gt;&quot;).append(dir).append(&quot;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&quot;);</span>
+<span class="fc" id="L330">                }</span>
+<span class="fc" id="L331">                msg.append(&quot;&lt;/section&gt;&quot;);</span>
+            }
+<span class="fc bfc" id="L333" title="All 2 branches covered.">            if (files.size() &gt; 0) {</span>
+<span class="fc" id="L334">                msg.append(&quot;&lt;section class=\&quot;files\&quot;&gt;&quot;);</span>
+<span class="fc bfc" id="L335" title="All 2 branches covered.">                for (String file : files) {</span>
+<span class="fc" id="L336">                    msg.append(&quot;&lt;li&gt;&lt;a href=\&quot;&quot;).append(encodeUri(uri + file)).append(&quot;\&quot;&gt;&lt;span class=\&quot;filename\&quot;&gt;&quot;).append(file).append(&quot;&lt;/span&gt;&lt;/a&gt;&quot;);</span>
+<span class="fc" id="L337">                    File curFile = new File(f, file);</span>
+<span class="fc" id="L338">                    long len = curFile.length();</span>
+<span class="fc" id="L339">                    msg.append(&quot;&amp;nbsp;&lt;span class=\&quot;filesize\&quot;&gt;(&quot;);</span>
+<span class="fc bfc" id="L340" title="All 2 branches covered.">                    if (len &lt; 1024) {</span>
+<span class="fc" id="L341">                        msg.append(len).append(&quot; bytes&quot;);</span>
+<span class="pc bpc" id="L342" title="1 of 2 branches missed.">                    } else if (len &lt; 1024 * 1024) {</span>
+<span class="fc" id="L343">                        msg.append(len / 1024).append(&quot;.&quot;).append(len % 1024 / 10 % 100).append(&quot; KB&quot;);</span>
+                    } else {
+<span class="nc" id="L345">                        msg.append(len / (1024 * 1024)).append(&quot;.&quot;).append(len % (1024 * 1024) / 10000 % 100).append(&quot; MB&quot;);</span>
+                    }
+<span class="fc" id="L347">                    msg.append(&quot;)&lt;/span&gt;&lt;/li&gt;&quot;);</span>
+<span class="fc" id="L348">                }</span>
+<span class="fc" id="L349">                msg.append(&quot;&lt;/section&gt;&quot;);</span>
+            }
+<span class="fc" id="L351">            msg.append(&quot;&lt;/ul&gt;&quot;);</span>
+        }
+<span class="fc" id="L353">        msg.append(&quot;&lt;/body&gt;&lt;/html&gt;&quot;);</span>
+<span class="fc" id="L354">        return msg.toString();</span>
+    }
+
+    public static Response newFixedLengthResponse(IStatus status, String mimeType, String message) {
+<span class="fc" id="L358">        Response response = Response.newFixedLengthResponse(status, mimeType, message);</span>
+<span class="fc" id="L359">        response.addHeader(&quot;Accept-Ranges&quot;, &quot;bytes&quot;);</span>
+<span class="fc" id="L360">        return response;</span>
+    }
+
+    private Response respond(Map&lt;String, String&gt; headers, IHTTPSession session, String uri) {
+        // First let's handle CORS OPTION query
+        Response r;
+<span class="fc bfc" id="L366" title="All 4 branches covered.">        if (cors != null &amp;&amp; Method.OPTIONS.equals(session.getMethod())) {</span>
+<span class="fc" id="L367">            r = Response.newFixedLengthResponse(Status.OK, MIME_PLAINTEXT, null, 0);</span>
+        } else {
+<span class="fc" id="L369">            r = defaultRespond(headers, session, uri);</span>
+        }
+
+<span class="fc bfc" id="L372" title="All 2 branches covered.">        if (cors != null) {</span>
+<span class="fc" id="L373">            r = addCORSHeaders(headers, r, cors);</span>
+        }
+<span class="fc" id="L375">        return r;</span>
+    }
+
+    private Response defaultRespond(Map&lt;String, String&gt; headers, IHTTPSession session, String uri) {
+        // Remove URL arguments
+<span class="fc" id="L380">        uri = uri.trim().replace(File.separatorChar, '/');</span>
+<span class="pc bpc" id="L381" title="1 of 2 branches missed.">        if (uri.indexOf('?') &gt;= 0) {</span>
+<span class="nc" id="L382">            uri = uri.substring(0, uri.indexOf('?'));</span>
+        }
+
+        // Prohibit getting out of current directory
+<span class="fc bfc" id="L386" title="All 2 branches covered.">        if (uri.contains(&quot;../&quot;)) {</span>
+<span class="fc" id="L387">            return getForbiddenResponse(&quot;Won't serve ../ for security reasons.&quot;);</span>
+        }
+
+<span class="fc" id="L390">        boolean canServeUri = false;</span>
+<span class="fc" id="L391">        File homeDir = null;</span>
+<span class="fc bfc" id="L392" title="All 4 branches covered.">        for (int i = 0; !canServeUri &amp;&amp; i &lt; this.rootDirs.size(); i++) {</span>
+<span class="fc" id="L393">            homeDir = this.rootDirs.get(i);</span>
+<span class="fc" id="L394">            canServeUri = canServeUri(uri, homeDir);</span>
+        }
+<span class="fc bfc" id="L396" title="All 2 branches covered.">        if (!canServeUri) {</span>
+<span class="fc" id="L397">            return getNotFoundResponse();</span>
+        }
+
+        // Browsers get confused without '/' after the directory, send a
+        // redirect.
+<span class="fc" id="L402">        File f = new File(homeDir, uri);</span>
+<span class="fc bfc" id="L403" title="All 4 branches covered.">        if (f.isDirectory() &amp;&amp; !uri.endsWith(&quot;/&quot;)) {</span>
+<span class="fc" id="L404">            uri += &quot;/&quot;;</span>
+<span class="fc" id="L405">            Response res = newFixedLengthResponse(Status.REDIRECT, NanoHTTPD.MIME_HTML, &quot;&lt;html&gt;&lt;body&gt;Redirected: &lt;a href=\&quot;&quot; + uri + &quot;\&quot;&gt;&quot; + uri + &quot;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;&quot;);</span>
+<span class="fc" id="L406">            res.addHeader(&quot;Location&quot;, uri);</span>
+<span class="fc" id="L407">            return res;</span>
+        }
+
+<span class="fc bfc" id="L410" title="All 2 branches covered.">        if (f.isDirectory()) {</span>
+            // First look for index files (index.html, index.htm, etc) and if
+            // none found, list the directory if readable.
+<span class="fc" id="L413">            String indexFile = findIndexFileInDirectory(f);</span>
+<span class="fc bfc" id="L414" title="All 2 branches covered.">            if (indexFile == null) {</span>
+<span class="pc bpc" id="L415" title="1 of 2 branches missed.">                if (f.canRead()) {</span>
+                    // No index file, list the directory if it is readable
+<span class="fc" id="L417">                    return newFixedLengthResponse(Status.OK, NanoHTTPD.MIME_HTML, listDirectory(uri, f));</span>
+                } else {
+<span class="nc" id="L419">                    return getForbiddenResponse(&quot;No directory listing.&quot;);</span>
+                }
+            } else {
+<span class="fc" id="L422">                return respond(headers, session, uri + indexFile);</span>
+            }
+        }
+<span class="fc" id="L425">        String mimeTypeForFile = getMimeTypeForFile(uri);</span>
+<span class="fc" id="L426">        WebServerPlugin plugin = SimpleWebServer.mimeTypeHandlers.get(mimeTypeForFile);</span>
+<span class="fc" id="L427">        Response response = null;</span>
+<span class="pc bpc" id="L428" title="1 of 4 branches missed.">        if (plugin != null &amp;&amp; plugin.canServeUri(uri, homeDir)) {</span>
+<span class="fc" id="L429">            response = plugin.serveFile(uri, headers, session, f, mimeTypeForFile);</span>
+<span class="pc bpc" id="L430" title="1 of 4 branches missed.">            if (response != null &amp;&amp; response instanceof InternalRewrite) {</span>
+<span class="fc" id="L431">                InternalRewrite rewrite = (InternalRewrite) response;</span>
+<span class="fc" id="L432">                return respond(rewrite.getHeaders(), session, rewrite.getUri());</span>
+            }
+        } else {
+<span class="fc" id="L435">            response = serveFile(uri, headers, f, mimeTypeForFile);</span>
+        }
+<span class="pc bpc" id="L437" title="1 of 2 branches missed.">        return response != null ? response : getNotFoundResponse();</span>
+    }
+
+    @Override
+    public Response serve(IHTTPSession session) {
+<span class="fc" id="L442">        Map&lt;String, String&gt; header = session.getHeaders();</span>
+<span class="fc" id="L443">        Map&lt;String, String&gt; parms = session.getParms();</span>
+<span class="fc" id="L444">        String uri = session.getUri();</span>
+
+<span class="pc bpc" id="L446" title="1 of 2 branches missed.">        if (!this.quiet) {</span>
+<span class="fc" id="L447">            System.out.println(session.getMethod() + &quot; '&quot; + uri + &quot;' &quot;);</span>
+
+<span class="fc" id="L449">            Iterator&lt;String&gt; e = header.keySet().iterator();</span>
+<span class="fc bfc" id="L450" title="All 2 branches covered.">            while (e.hasNext()) {</span>
+<span class="fc" id="L451">                String value = e.next();</span>
+<span class="fc" id="L452">                System.out.println(&quot;  HDR: '&quot; + value + &quot;' = '&quot; + header.get(value) + &quot;'&quot;);</span>
+<span class="fc" id="L453">            }</span>
+<span class="fc" id="L454">            e = parms.keySet().iterator();</span>
+<span class="pc bpc" id="L455" title="1 of 2 branches missed.">            while (e.hasNext()) {</span>
+<span class="nc" id="L456">                String value = e.next();</span>
+<span class="nc" id="L457">                System.out.println(&quot;  PRM: '&quot; + value + &quot;' = '&quot; + parms.get(value) + &quot;'&quot;);</span>
+<span class="nc" id="L458">            }</span>
+        }
+
+<span class="fc bfc" id="L461" title="All 2 branches covered.">        for (File homeDir : this.rootDirs) {</span>
+            // Make sure we won't die of an exception later
+<span class="pc bpc" id="L463" title="1 of 2 branches missed.">            if (!homeDir.isDirectory()) {</span>
+<span class="nc" id="L464">                return getInternalErrorResponse(&quot;given path is not a directory (&quot; + homeDir + &quot;).&quot;);</span>
+            }
+<span class="fc" id="L466">        }</span>
+<span class="fc" id="L467">        return respond(Collections.unmodifiableMap(header), session, uri);</span>
+    }
+
+    /**
+     * Serves file from homeDir and its' subdirectories (only). Uses only URI,
+     * ignores all headers and HTTP parameters.
+     */
+    Response serveFile(String uri, Map&lt;String, String&gt; header, File file, String mime) {
+        Response res;
+        try {
+            // Calculate etag
+<span class="fc" id="L478">            String etag = Integer.toHexString((file.getAbsolutePath() + file.lastModified() + &quot;&quot; + file.length()).hashCode());</span>
+
+            // Support (simple) skipping:
+<span class="fc" id="L481">            long startFrom = 0;</span>
+<span class="fc" id="L482">            long endAt = -1;</span>
+<span class="fc" id="L483">            String range = header.get(&quot;range&quot;);</span>
+<span class="fc bfc" id="L484" title="All 2 branches covered.">            if (range != null) {</span>
+<span class="pc bpc" id="L485" title="1 of 2 branches missed.">                if (range.startsWith(&quot;bytes=&quot;)) {</span>
+<span class="fc" id="L486">                    range = range.substring(&quot;bytes=&quot;.length());</span>
+<span class="fc" id="L487">                    int minus = range.indexOf('-');</span>
+                    try {
+<span class="pc bpc" id="L489" title="1 of 2 branches missed.">                        if (minus &gt; 0) {</span>
+<span class="fc" id="L490">                            startFrom = Long.parseLong(range.substring(0, minus));</span>
+<span class="fc" id="L491">                            endAt = Long.parseLong(range.substring(minus + 1));</span>
+                        }
+<span class="fc" id="L493">                    } catch (NumberFormatException ignored) {</span>
+<span class="fc" id="L494">                    }</span>
+                }
+            }
+
+            // get if-range header. If present, it must match etag or else we
+            // should ignore the range request
+<span class="fc" id="L500">            String ifRange = header.get(&quot;if-range&quot;);</span>
+<span class="pc bpc" id="L501" title="3 of 4 branches missed.">            boolean headerIfRangeMissingOrMatching = (ifRange == null || etag.equals(ifRange));</span>
+
+<span class="fc" id="L503">            String ifNoneMatch = header.get(&quot;if-none-match&quot;);</span>
+<span class="pc bpc" id="L504" title="3 of 6 branches missed.">            boolean headerIfNoneMatchPresentAndMatching = ifNoneMatch != null &amp;&amp; (&quot;*&quot;.equals(ifNoneMatch) || ifNoneMatch.equals(etag));</span>
+
+            // Change return code and add Content-Range header when skipping is
+            // requested
+<span class="fc" id="L508">            long fileLen = file.length();</span>
+
+<span class="pc bpc" id="L510" title="2 of 8 branches missed.">            if (headerIfRangeMissingOrMatching &amp;&amp; range != null &amp;&amp; startFrom &gt;= 0 &amp;&amp; startFrom &lt; fileLen) {</span>
+                // range request that matches current etag
+                // and the startFrom of the range is satisfiable
+<span class="fc bfc" id="L513" title="All 2 branches covered.">                if (headerIfNoneMatchPresentAndMatching) {</span>
+                    // range request that matches current etag
+                    // and the startFrom of the range is satisfiable
+                    // would return range from file
+                    // respond with not-modified
+<span class="fc" id="L518">                    res = newFixedLengthResponse(Status.NOT_MODIFIED, mime, &quot;&quot;);</span>
+<span class="fc" id="L519">                    res.addHeader(&quot;ETag&quot;, etag);</span>
+                } else {
+<span class="fc bfc" id="L521" title="All 2 branches covered.">                    if (endAt &lt; 0) {</span>
+<span class="fc" id="L522">                        endAt = fileLen - 1;</span>
+                    }
+<span class="fc" id="L524">                    long newLen = endAt - startFrom + 1;</span>
+<span class="pc bpc" id="L525" title="1 of 2 branches missed.">                    if (newLen &lt; 0) {</span>
+<span class="nc" id="L526">                        newLen = 0;</span>
+                    }
+
+<span class="fc" id="L529">                    FileInputStream fis = new FileInputStream(file);</span>
+<span class="fc" id="L530">                    fis.skip(startFrom);</span>
+
+<span class="fc" id="L532">                    res = Response.newFixedLengthResponse(Status.PARTIAL_CONTENT, mime, fis, newLen);</span>
+<span class="fc" id="L533">                    res.addHeader(&quot;Accept-Ranges&quot;, &quot;bytes&quot;);</span>
+<span class="fc" id="L534">                    res.addHeader(&quot;Content-Length&quot;, &quot;&quot; + newLen);</span>
+<span class="fc" id="L535">                    res.addHeader(&quot;Content-Range&quot;, &quot;bytes &quot; + startFrom + &quot;-&quot; + endAt + &quot;/&quot; + fileLen);</span>
+<span class="fc" id="L536">                    res.addHeader(&quot;ETag&quot;, etag);</span>
+<span class="fc" id="L537">                }</span>
+            } else {
+
+<span class="pc bpc" id="L540" title="2 of 6 branches missed.">                if (headerIfRangeMissingOrMatching &amp;&amp; range != null &amp;&amp; startFrom &gt;= fileLen) {</span>
+                    // return the size of the file
+                    // 4xx responses are not trumped by if-none-match
+<span class="fc" id="L543">                    res = newFixedLengthResponse(Status.RANGE_NOT_SATISFIABLE, NanoHTTPD.MIME_PLAINTEXT, &quot;&quot;);</span>
+<span class="fc" id="L544">                    res.addHeader(&quot;Content-Range&quot;, &quot;bytes */&quot; + fileLen);</span>
+<span class="fc" id="L545">                    res.addHeader(&quot;ETag&quot;, etag);</span>
+<span class="pc bpc" id="L546" title="1 of 4 branches missed.">                } else if (range == null &amp;&amp; headerIfNoneMatchPresentAndMatching) {</span>
+                    // full-file-fetch request
+                    // would return entire file
+                    // respond with not-modified
+<span class="fc" id="L550">                    res = newFixedLengthResponse(Status.NOT_MODIFIED, mime, &quot;&quot;);</span>
+<span class="fc" id="L551">                    res.addHeader(&quot;ETag&quot;, etag);</span>
+<span class="pc bpc" id="L552" title="3 of 4 branches missed.">                } else if (!headerIfRangeMissingOrMatching &amp;&amp; headerIfNoneMatchPresentAndMatching) {</span>
+                    // range request that doesn't match current etag
+                    // would return entire (different) file
+                    // respond with not-modified
+
+<span class="nc" id="L557">                    res = newFixedLengthResponse(Status.NOT_MODIFIED, mime, &quot;&quot;);</span>
+<span class="nc" id="L558">                    res.addHeader(&quot;ETag&quot;, etag);</span>
+                } else {
+                    // supply the file
+<span class="fc" id="L561">                    res = newFixedFileResponse(file, mime);</span>
+<span class="fc" id="L562">                    res.addHeader(&quot;Content-Length&quot;, &quot;&quot; + fileLen);</span>
+<span class="fc" id="L563">                    res.addHeader(&quot;ETag&quot;, etag);</span>
+                }
+            }
+<span class="nc" id="L566">        } catch (IOException ioe) {</span>
+<span class="nc" id="L567">            res = getForbiddenResponse(&quot;Reading file failed.&quot;);</span>
+<span class="fc" id="L568">        }</span>
+
+<span class="fc" id="L570">        return res;</span>
+    }
+
+    private Response newFixedFileResponse(File file, String mime) throws FileNotFoundException {
+        Response res;
+<span class="fc" id="L575">        res = Response.newFixedLengthResponse(Status.OK, mime, new FileInputStream(file), (int) file.length());</span>
+<span class="fc" id="L576">        res.addHeader(&quot;Accept-Ranges&quot;, &quot;bytes&quot;);</span>
+<span class="fc" id="L577">        return res;</span>
+    }
+
+    protected Response addCORSHeaders(Map&lt;String, String&gt; queryHeaders, Response resp, String cors) {
+<span class="fc" id="L581">        resp.addHeader(&quot;Access-Control-Allow-Origin&quot;, cors);</span>
+<span class="fc" id="L582">        resp.addHeader(&quot;Access-Control-Allow-Headers&quot;, calculateAllowHeaders(queryHeaders));</span>
+<span class="fc" id="L583">        resp.addHeader(&quot;Access-Control-Allow-Credentials&quot;, &quot;true&quot;);</span>
+<span class="fc" id="L584">        resp.addHeader(&quot;Access-Control-Allow-Methods&quot;, ALLOWED_METHODS);</span>
+<span class="fc" id="L585">        resp.addHeader(&quot;Access-Control-Max-Age&quot;, &quot;&quot; + MAX_AGE);</span>
+
+<span class="fc" id="L587">        return resp;</span>
+    }
+
+    private String calculateAllowHeaders(Map&lt;String, String&gt; queryHeaders) {
+        // here we should use the given asked headers
+        // but NanoHttpd uses a Map whereas it is possible for requester to send
+        // several time the same header
+        // let's just use default values for this version
+<span class="fc" id="L595">        return System.getProperty(ACCESS_CONTROL_ALLOW_HEADER_PROPERTY_NAME, DEFAULT_ALLOWED_HEADERS);</span>
+    }
+
+    private final static String ALLOWED_METHODS = &quot;GET, POST, PUT, DELETE, OPTIONS, HEAD&quot;;
+
+    private final static int MAX_AGE = 42 * 60 * 60;
+
+    // explicitly relax visibility to package for tests purposes
+    public final static String DEFAULT_ALLOWED_HEADERS = &quot;origin,accept,content-type&quot;;
+
+    public final static String ACCESS_CONTROL_ALLOW_HEADER_PROPERTY_NAME = &quot;AccessControlAllowHeader&quot;;
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

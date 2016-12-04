@@ -1,0 +1,21 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+NanoHttpd-Core,org.nanohttpd.protocols.http,NanoHTTPD.ResponseException,8,10,0,0,3,4,1,2,1,2
+NanoHttpd-Core,org.nanohttpd.protocols.http,HTTPSession,146,1379,29,139,29,299,28,79,0,23
+NanoHttpd-Core,org.nanohttpd.protocols.http,ClientHandler,24,89,4,4,1,22,3,4,0,3
+NanoHttpd-Core,org.nanohttpd.protocols.http,NanoHTTPD,136,475,19,43,31,126,21,44,4,30
+NanoHttpd-Core,org.nanohttpd.protocols.http,ServerRunnable,15,73,2,4,3,20,2,5,0,4
+NanoHttpd-Core,org.nanohttpd.protocols.http.request,Method,2,186,1,1,1,21,1,5,0,5
+NanoHttpd-Core,org.nanohttpd.protocols.http.sockets,DefaultServerSocketFactory,0,7,0,0,0,2,0,2,0,2
+NanoHttpd-Core,org.nanohttpd.protocols.http.sockets,SecureServerSocketFactory,0,39,0,2,0,13,0,3,0,2
+NanoHttpd-Core,org.nanohttpd.protocols.http.threading,DefaultAsyncRunner,3,72,0,2,1,16,1,6,1,5
+NanoHttpd-Core,org.nanohttpd.protocols.http.tempfiles,DefaultTempFileManagerFactory,0,7,0,0,0,2,0,2,0,2
+NanoHttpd-Core,org.nanohttpd.protocols.http.tempfiles,DefaultTempFileManager,0,61,0,4,0,17,0,5,0,3
+NanoHttpd-Core,org.nanohttpd.protocols.http.tempfiles,DefaultTempFile,3,42,0,2,1,9,1,4,1,3
+NanoHttpd-Core,org.nanohttpd.protocols.http.response,Response,73,508,10,50,20,121,17,43,8,22
+NanoHttpd-Core,org.nanohttpd.protocols.http.response,Response.new HashMap() {...},2,22,1,1,0,3,1,2,0,2
+NanoHttpd-Core,org.nanohttpd.protocols.http.response,Status,7,443,1,3,1,42,2,7,1,6
+NanoHttpd-Core,org.nanohttpd.protocols.http.response,ChunkedOutputStream,15,44,1,1,4,11,2,4,1,4
+NanoHttpd-Core,org.nanohttpd.protocols.http.content,ContentType,2,112,1,9,1,23,1,13,0,9
+NanoHttpd-Core,org.nanohttpd.protocols.http.content,CookieHandler,0,111,1,7,0,23,1,10,0,7
+NanoHttpd-Core,org.nanohttpd.protocols.http.content,Cookie,0,74,0,0,0,19,0,5,0,5
+NanoHttpd-Core,org.nanohttpd.util,ServerRunner,52,0,0,0,19,0,4,0,4,0

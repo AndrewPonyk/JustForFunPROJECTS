@@ -1,0 +1,10 @@
+org/nanohttpd/junit/webserver/AbstractTestHttpServer.class
+org/nanohttpd/junit/webserver/DummyPlugin.class
+org/nanohttpd/junit/webserver/TestHttpServer.class
+org/nanohttpd/junit/webserver/TestCorsHttpServer.class
+org/nanohttpd/junit/webserver/TestHttpServer$1.class
+org/nanohttpd/junit/webserver/DummyPluginInfo.class
+org/nanohttpd/junit/webserver/TestHttpServer$2.class
+org/nanohttpd/junit/webserver/TestCorsHttpServerWithSingleOrigin.class
+org/nanohttpd/junit/webserver/TestCorsHttpServerWithSingleOrigin$1.class
+org/nanohttpd/junit/webserver/TestCorsHttpServer$1.class

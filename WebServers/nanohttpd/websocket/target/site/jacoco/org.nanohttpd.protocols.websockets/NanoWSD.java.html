@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>NanoWSD.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NanoHttpd-Websocket</a> &gt; <a href="index.source.html" class="el_package">org.nanohttpd.protocols.websockets</a> &gt; <span class="el_source">NanoWSD.java</span></div><h1>NanoWSD.java</h1><pre class="source lang-java linenums">package org.nanohttpd.protocols.websockets;
+
+/*
+ * #%L
+ * NanoHttpd-Websocket
+ * %%
+ * Copyright (C) 2012 - 2016 nanohttpd
+ * %%
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the nanohttpd nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * #L%
+ */
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Map;
+import java.util.logging.Logger;
+
+import org.nanohttpd.protocols.http.IHTTPSession;
+import org.nanohttpd.protocols.http.NanoHTTPD;
+import org.nanohttpd.protocols.http.response.Response;
+import org.nanohttpd.protocols.http.response.Status;
+
+public abstract class NanoWSD extends NanoHTTPD {
+
+    /**
+     * logger to log to.
+     */
+<span class="fc" id="L51">    public static final Logger LOG = Logger.getLogger(NanoWSD.class.getName());</span>
+
+    public static final String HEADER_UPGRADE = &quot;upgrade&quot;;
+
+    public static final String HEADER_UPGRADE_VALUE = &quot;websocket&quot;;
+
+    public static final String HEADER_CONNECTION = &quot;connection&quot;;
+
+    public static final String HEADER_CONNECTION_VALUE = &quot;Upgrade&quot;;
+
+    public static final String HEADER_WEBSOCKET_VERSION = &quot;sec-websocket-version&quot;;
+
+    public static final String HEADER_WEBSOCKET_VERSION_VALUE = &quot;13&quot;;
+
+    public static final String HEADER_WEBSOCKET_KEY = &quot;sec-websocket-key&quot;;
+
+    public static final String HEADER_WEBSOCKET_ACCEPT = &quot;sec-websocket-accept&quot;;
+
+    public static final String HEADER_WEBSOCKET_PROTOCOL = &quot;sec-websocket-protocol&quot;;
+
+    private final static String WEBSOCKET_KEY_MAGIC = &quot;258EAFA5-E914-47DA-95CA-C5AB0DC85B11&quot;;
+
+<span class="fc" id="L73">    private final static char[] ALPHABET = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;.toCharArray();</span>
+
+    /**
+     * Translates the specified byte array into Base64 string.
+     * &lt;p&gt;
+     * Android has android.util.Base64, sun has sun.misc.Base64Encoder, Java 8
+     * hast java.util.Base64, I have this from stackoverflow:
+     * http://stackoverflow.com/a/4265472
+     * &lt;/p&gt;
+     * 
+     * @param buf
+     *            the byte array (not null)
+     * @return the translated Base64 string (not null)
+     */
+    private static String encodeBase64(byte[] buf) {
+<span class="fc" id="L88">        int size = buf.length;</span>
+<span class="fc" id="L89">        char[] ar = new char[(size + 2) / 3 * 4];</span>
+<span class="fc" id="L90">        int a = 0;</span>
+<span class="fc" id="L91">        int i = 0;</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        while (i &lt; size) {</span>
+<span class="fc" id="L93">            byte b0 = buf[i++];</span>
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">            byte b1 = i &lt; size ? buf[i++] : 0;</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">            byte b2 = i &lt; size ? buf[i++] : 0;</span>
+
+<span class="fc" id="L97">            int mask = 0x3F;</span>
+<span class="fc" id="L98">            ar[a++] = NanoWSD.ALPHABET[b0 &gt;&gt; 2 &amp; mask];</span>
+<span class="fc" id="L99">            ar[a++] = NanoWSD.ALPHABET[(b0 &lt;&lt; 4 | (b1 &amp; 0xFF) &gt;&gt; 4) &amp; mask];</span>
+<span class="fc" id="L100">            ar[a++] = NanoWSD.ALPHABET[(b1 &lt;&lt; 2 | (b2 &amp; 0xFF) &gt;&gt; 6) &amp; mask];</span>
+<span class="fc" id="L101">            ar[a++] = NanoWSD.ALPHABET[b2 &amp; mask];</span>
+<span class="fc" id="L102">        }</span>
+<span class="pc bpc" id="L103" title="2 of 3 branches missed.">        switch (size % 3) {</span>
+            case 1:
+<span class="nc" id="L105">                ar[--a] = '=';</span>
+            case 2:
+<span class="fc" id="L107">                ar[--a] = '=';</span>
+        }
+<span class="fc" id="L109">        return new String(ar);</span>
+    }
+
+    public static String makeAcceptKey(String key) throws NoSuchAlgorithmException {
+<span class="fc" id="L113">        MessageDigest md = MessageDigest.getInstance(&quot;SHA-1&quot;);</span>
+<span class="fc" id="L114">        String text = key + NanoWSD.WEBSOCKET_KEY_MAGIC;</span>
+<span class="fc" id="L115">        md.update(text.getBytes(), 0, text.length());</span>
+<span class="fc" id="L116">        byte[] sha1hash = md.digest();</span>
+<span class="fc" id="L117">        return encodeBase64(sha1hash);</span>
+    }
+
+    public NanoWSD(int port) {
+<span class="fc" id="L121">        super(port);</span>
+<span class="fc" id="L122">    }</span>
+
+    public NanoWSD(String hostname, int port) {
+<span class="nc" id="L125">        super(hostname, port);</span>
+<span class="nc" id="L126">    }</span>
+
+    private boolean isWebSocketConnectionHeader(Map&lt;String, String&gt; headers) {
+<span class="fc" id="L129">        String connection = headers.get(NanoWSD.HEADER_CONNECTION);</span>
+<span class="pc bpc" id="L130" title="1 of 4 branches missed.">        return connection != null &amp;&amp; connection.toLowerCase().contains(NanoWSD.HEADER_CONNECTION_VALUE.toLowerCase());</span>
+    }
+
+    protected boolean isWebsocketRequested(IHTTPSession session) {
+<span class="fc" id="L134">        Map&lt;String, String&gt; headers = session.getHeaders();</span>
+<span class="fc" id="L135">        String upgrade = headers.get(NanoWSD.HEADER_UPGRADE);</span>
+<span class="fc" id="L136">        boolean isCorrectConnection = isWebSocketConnectionHeader(headers);</span>
+<span class="fc" id="L137">        boolean isUpgrade = NanoWSD.HEADER_UPGRADE_VALUE.equalsIgnoreCase(upgrade);</span>
+<span class="fc bfc" id="L138" title="All 4 branches covered.">        return isUpgrade &amp;&amp; isCorrectConnection;</span>
+    }
+
+    // --------------------------------Listener--------------------------------
+
+    protected abstract WebSocket openWebSocket(IHTTPSession handshake);
+
+    @Override
+    public Response serve(final IHTTPSession session) {
+<span class="fc" id="L147">        Map&lt;String, String&gt; headers = session.getHeaders();</span>
+<span class="fc bfc" id="L148" title="All 2 branches covered.">        if (isWebsocketRequested(session)) {</span>
+<span class="fc bfc" id="L149" title="All 2 branches covered.">            if (!NanoWSD.HEADER_WEBSOCKET_VERSION_VALUE.equalsIgnoreCase(headers.get(NanoWSD.HEADER_WEBSOCKET_VERSION))) {</span>
+<span class="fc" id="L150">                return Response.newFixedLengthResponse(Status.BAD_REQUEST, NanoHTTPD.MIME_PLAINTEXT,</span>
+<span class="fc" id="L151">                        &quot;Invalid Websocket-Version &quot; + headers.get(NanoWSD.HEADER_WEBSOCKET_VERSION));</span>
+            }
+
+<span class="fc bfc" id="L154" title="All 2 branches covered.">            if (!headers.containsKey(NanoWSD.HEADER_WEBSOCKET_KEY)) {</span>
+<span class="fc" id="L155">                return Response.newFixedLengthResponse(Status.BAD_REQUEST, NanoHTTPD.MIME_PLAINTEXT, &quot;Missing Websocket-Key&quot;);</span>
+            }
+
+<span class="fc" id="L158">            WebSocket webSocket = openWebSocket(session);</span>
+<span class="fc" id="L159">            Response handshakeResponse = webSocket.getHandshakeResponse();</span>
+            try {
+<span class="fc" id="L161">                handshakeResponse.addHeader(NanoWSD.HEADER_WEBSOCKET_ACCEPT, makeAcceptKey(headers.get(NanoWSD.HEADER_WEBSOCKET_KEY)));</span>
+<span class="nc" id="L162">            } catch (NoSuchAlgorithmException e) {</span>
+<span class="nc" id="L163">                return Response.newFixedLengthResponse(Status.INTERNAL_ERROR, NanoHTTPD.MIME_PLAINTEXT,</span>
+                        &quot;The SHA-1 Algorithm required for websockets is not available on the server.&quot;);
+<span class="fc" id="L165">            }</span>
+
+<span class="fc bfc" id="L167" title="All 2 branches covered.">            if (headers.containsKey(NanoWSD.HEADER_WEBSOCKET_PROTOCOL)) {</span>
+<span class="fc" id="L168">                handshakeResponse.addHeader(NanoWSD.HEADER_WEBSOCKET_PROTOCOL, headers.get(NanoWSD.HEADER_WEBSOCKET_PROTOCOL).split(&quot;,&quot;)[0]);</span>
+            }
+
+<span class="fc" id="L171">            return handshakeResponse;</span>
+        } else {
+<span class="fc" id="L173">            return serveHttp(session);</span>
+        }
+    }
+
+    protected Response serveHttp(final IHTTPSession session) {
+<span class="fc" id="L178">        return super.serve(session);</span>
+    }
+
+    /**
+     * not all websockets implementations accept gzip compression.
+     */
+    @Override
+    protected boolean useGzipWhenAccepted(Response r) {
+<span class="fc" id="L186">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

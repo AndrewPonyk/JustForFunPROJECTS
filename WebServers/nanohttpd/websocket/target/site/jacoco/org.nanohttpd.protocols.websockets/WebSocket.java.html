@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>WebSocket.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NanoHttpd-Websocket</a> &gt; <a href="index.source.html" class="el_package">org.nanohttpd.protocols.websockets</a> &gt; <span class="el_source">WebSocket.java</span></div><h1>WebSocket.java</h1><pre class="source lang-java linenums">package org.nanohttpd.protocols.websockets;
+
+/*
+ * #%L
+ * NanoHttpd-Websocket
+ * %%
+ * Copyright (C) 2012 - 2016 nanohttpd
+ * %%
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the nanohttpd nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * #L%
+ */
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.charset.CharacterCodingException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.logging.Level;
+
+import org.nanohttpd.protocols.http.IHTTPSession;
+import org.nanohttpd.protocols.http.response.Response;
+import org.nanohttpd.protocols.http.response.Status;
+
+public abstract class WebSocket {
+
+    private final InputStream in;
+
+    private OutputStream out;
+
+<span class="fc" id="L54">    private OpCode continuousOpCode = null;</span>
+
+<span class="fc" id="L56">    private final List&lt;WebSocketFrame&gt; continuousFrames = new LinkedList&lt;WebSocketFrame&gt;();</span>
+
+<span class="fc" id="L58">    private State state = State.UNCONNECTED;</span>
+
+    private final IHTTPSession handshakeRequest;
+
+<span class="fc" id="L62">    private final Response handshakeResponse = new Response(Status.SWITCH_PROTOCOL, null, (InputStream) null, 0) {</span>
+
+        @Override
+        public void send(OutputStream out) {
+<span class="fc" id="L66">            WebSocket.this.out = out;</span>
+<span class="fc" id="L67">            WebSocket.this.state = State.CONNECTING;</span>
+<span class="fc" id="L68">            super.send(out);</span>
+<span class="fc" id="L69">            WebSocket.this.state = State.OPEN;</span>
+<span class="fc" id="L70">            WebSocket.this.onOpen();</span>
+<span class="fc" id="L71">            readWebsocket();</span>
+<span class="fc" id="L72">        }</span>
+    };
+
+<span class="fc" id="L75">    public WebSocket(IHTTPSession handshakeRequest) {</span>
+<span class="fc" id="L76">        this.handshakeRequest = handshakeRequest;</span>
+<span class="fc" id="L77">        this.in = handshakeRequest.getInputStream();</span>
+
+<span class="fc" id="L79">        this.handshakeResponse.addHeader(NanoWSD.HEADER_UPGRADE, NanoWSD.HEADER_UPGRADE_VALUE);</span>
+<span class="fc" id="L80">        this.handshakeResponse.addHeader(NanoWSD.HEADER_CONNECTION, NanoWSD.HEADER_CONNECTION_VALUE);</span>
+<span class="fc" id="L81">    }</span>
+
+    public boolean isOpen() {
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        return state == State.OPEN;</span>
+    }
+
+    protected abstract void onOpen();
+
+    protected abstract void onClose(CloseCode code, String reason, boolean initiatedByRemote);
+
+    protected abstract void onMessage(WebSocketFrame message);
+
+    protected abstract void onPong(WebSocketFrame pong);
+
+    protected abstract void onException(IOException exception);
+
+    /**
+     * Debug method. &lt;b&gt;Do not Override unless for debug purposes!&lt;/b&gt;
+     * 
+     * @param frame
+     *            The received WebSocket Frame.
+     */
+    protected void debugFrameReceived(WebSocketFrame frame) {
+<span class="nc" id="L104">    }</span>
+
+    /**
+     * Debug method. &lt;b&gt;Do not Override unless for debug purposes!&lt;/b&gt;&lt;br&gt;
+     * This method is called before actually sending the frame.
+     * 
+     * @param frame
+     *            The sent WebSocket Frame.
+     */
+    protected void debugFrameSent(WebSocketFrame frame) {
+<span class="nc" id="L114">    }</span>
+
+    public void close(CloseCode code, String reason, boolean initiatedByRemote) throws IOException {
+<span class="fc" id="L117">        State oldState = this.state;</span>
+<span class="fc" id="L118">        this.state = State.CLOSING;</span>
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">        if (oldState == State.OPEN) {</span>
+<span class="fc" id="L120">            sendFrame(new CloseFrame(code, reason));</span>
+        } else {
+<span class="nc" id="L122">            doClose(code, reason, initiatedByRemote);</span>
+        }
+<span class="fc" id="L124">    }</span>
+
+    private void doClose(CloseCode code, String reason, boolean initiatedByRemote) {
+<span class="pc bpc" id="L127" title="1 of 2 branches missed.">        if (this.state == State.CLOSED) {</span>
+<span class="nc" id="L128">            return;</span>
+        }
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">        if (this.in != null) {</span>
+            try {
+<span class="fc" id="L132">                this.in.close();</span>
+<span class="nc" id="L133">            } catch (IOException e) {</span>
+<span class="nc" id="L134">                NanoWSD.LOG.log(Level.FINE, &quot;close failed&quot;, e);</span>
+<span class="fc" id="L135">            }</span>
+        }
+<span class="pc bpc" id="L137" title="1 of 2 branches missed.">        if (this.out != null) {</span>
+            try {
+<span class="fc" id="L139">                this.out.close();</span>
+<span class="nc" id="L140">            } catch (IOException e) {</span>
+<span class="nc" id="L141">                NanoWSD.LOG.log(Level.FINE, &quot;close failed&quot;, e);</span>
+<span class="fc" id="L142">            }</span>
+        }
+<span class="fc" id="L144">        this.state = State.CLOSED;</span>
+<span class="fc" id="L145">        onClose(code, reason, initiatedByRemote);</span>
+<span class="fc" id="L146">    }</span>
+
+    // --------------------------------IO--------------------------------------
+
+    public IHTTPSession getHandshakeRequest() {
+<span class="nc" id="L151">        return this.handshakeRequest;</span>
+    }
+
+    public Response getHandshakeResponse() {
+<span class="fc" id="L155">        return this.handshakeResponse;</span>
+    }
+
+    private void handleCloseFrame(WebSocketFrame frame) throws IOException {
+<span class="fc" id="L159">        CloseCode code = CloseCode.NormalClosure;</span>
+<span class="fc" id="L160">        String reason = &quot;&quot;;</span>
+<span class="pc bpc" id="L161" title="1 of 2 branches missed.">        if (frame instanceof CloseFrame) {</span>
+<span class="fc" id="L162">            code = ((CloseFrame) frame).getCloseCode();</span>
+<span class="fc" id="L163">            reason = ((CloseFrame) frame).getCloseReason();</span>
+        }
+<span class="pc bpc" id="L165" title="1 of 2 branches missed.">        if (this.state == State.CLOSING) {</span>
+            // Answer for my requested close
+<span class="nc" id="L167">            doClose(code, reason, false);</span>
+        } else {
+<span class="fc" id="L169">            close(code, reason, true);</span>
+        }
+<span class="fc" id="L171">    }</span>
+
+    private void handleFrameFragment(WebSocketFrame frame) throws IOException {
+<span class="nc bnc" id="L174" title="All 2 branches missed.">        if (frame.getOpCode() != OpCode.Continuation) {</span>
+            // First
+<span class="nc bnc" id="L176" title="All 2 branches missed.">            if (this.continuousOpCode != null) {</span>
+<span class="nc" id="L177">                throw new WebSocketException(CloseCode.ProtocolError, &quot;Previous continuous frame sequence not completed.&quot;);</span>
+            }
+<span class="nc" id="L179">            this.continuousOpCode = frame.getOpCode();</span>
+<span class="nc" id="L180">            this.continuousFrames.clear();</span>
+<span class="nc" id="L181">            this.continuousFrames.add(frame);</span>
+<span class="nc bnc" id="L182" title="All 2 branches missed.">        } else if (frame.isFin()) {</span>
+            // Last
+<span class="nc bnc" id="L184" title="All 2 branches missed.">            if (this.continuousOpCode == null) {</span>
+<span class="nc" id="L185">                throw new WebSocketException(CloseCode.ProtocolError, &quot;Continuous frame sequence was not started.&quot;);</span>
+            }
+<span class="nc" id="L187">            this.continuousFrames.add(frame);</span>
+<span class="nc" id="L188">            onMessage(new WebSocketFrame(this.continuousOpCode, this.continuousFrames));</span>
+<span class="nc" id="L189">            this.continuousOpCode = null;</span>
+<span class="nc" id="L190">            this.continuousFrames.clear();</span>
+<span class="nc bnc" id="L191" title="All 2 branches missed.">        } else if (this.continuousOpCode == null) {</span>
+            // Unexpected
+<span class="nc" id="L193">            throw new WebSocketException(CloseCode.ProtocolError, &quot;Continuous frame sequence was not started.&quot;);</span>
+        } else {
+            // Intermediate
+<span class="nc" id="L196">            this.continuousFrames.add(frame);</span>
+        }
+<span class="nc" id="L198">    }</span>
+
+    private void handleWebsocketFrame(WebSocketFrame frame) throws IOException {
+<span class="fc" id="L201">        debugFrameReceived(frame);</span>
+<span class="fc bfc" id="L202" title="All 2 branches covered.">        if (frame.getOpCode() == OpCode.Close) {</span>
+<span class="fc" id="L203">            handleCloseFrame(frame);</span>
+<span class="pc bpc" id="L204" title="1 of 2 branches missed.">        } else if (frame.getOpCode() == OpCode.Ping) {</span>
+<span class="nc" id="L205">            sendFrame(new WebSocketFrame(OpCode.Pong, true, frame.getBinaryPayload()));</span>
+<span class="pc bpc" id="L206" title="1 of 2 branches missed.">        } else if (frame.getOpCode() == OpCode.Pong) {</span>
+<span class="nc" id="L207">            onPong(frame);</span>
+<span class="pc bpc" id="L208" title="2 of 4 branches missed.">        } else if (!frame.isFin() || frame.getOpCode() == OpCode.Continuation) {</span>
+<span class="nc" id="L209">            handleFrameFragment(frame);</span>
+<span class="pc bpc" id="L210" title="1 of 2 branches missed.">        } else if (this.continuousOpCode != null) {</span>
+<span class="nc" id="L211">            throw new WebSocketException(CloseCode.ProtocolError, &quot;Continuous frame sequence not completed.&quot;);</span>
+<span class="pc bpc" id="L212" title="3 of 4 branches missed.">        } else if (frame.getOpCode() == OpCode.Text || frame.getOpCode() == OpCode.Binary) {</span>
+<span class="fc" id="L213">            onMessage(frame);</span>
+        } else {
+<span class="nc" id="L215">            throw new WebSocketException(CloseCode.ProtocolError, &quot;Non control or continuous frame expected.&quot;);</span>
+        }
+<span class="fc" id="L217">    }</span>
+
+    // --------------------------------Close-----------------------------------
+
+    public void ping(byte[] payload) throws IOException {
+<span class="nc" id="L222">        sendFrame(new WebSocketFrame(OpCode.Ping, true, payload));</span>
+<span class="nc" id="L223">    }</span>
+
+    // --------------------------------Public
+    // Facade---------------------------
+
+    private void readWebsocket() {
+        try {
+<span class="fc bfc" id="L230" title="All 2 branches covered.">            while (this.state == State.OPEN) {</span>
+<span class="fc" id="L231">                handleWebsocketFrame(WebSocketFrame.read(this.in));</span>
+            }
+<span class="nc" id="L233">        } catch (CharacterCodingException e) {</span>
+<span class="nc" id="L234">            onException(e);</span>
+<span class="nc" id="L235">            doClose(CloseCode.InvalidFramePayloadData, e.toString(), false);</span>
+<span class="nc" id="L236">        } catch (IOException e) {</span>
+<span class="nc" id="L237">            onException(e);</span>
+<span class="nc bnc" id="L238" title="All 2 branches missed.">            if (e instanceof WebSocketException) {</span>
+<span class="nc" id="L239">                doClose(((WebSocketException) e).getCode(), ((WebSocketException) e).getReason(), false);</span>
+            }
+        } finally {
+<span class="pc" id="L242">            doClose(CloseCode.InternalServerError, &quot;Handler terminated without closing the connection.&quot;, false);</span>
+<span class="pc" id="L243">        }</span>
+<span class="fc" id="L244">    }</span>
+
+    public void send(byte[] payload) throws IOException {
+<span class="nc" id="L247">        sendFrame(new WebSocketFrame(OpCode.Binary, true, payload));</span>
+<span class="nc" id="L248">    }</span>
+
+    public void send(String payload) throws IOException {
+<span class="nc" id="L251">        sendFrame(new WebSocketFrame(OpCode.Text, true, payload));</span>
+<span class="nc" id="L252">    }</span>
+
+    public synchronized void sendFrame(WebSocketFrame frame) throws IOException {
+<span class="fc" id="L255">        debugFrameSent(frame);</span>
+<span class="fc" id="L256">        frame.write(this.out);</span>
+<span class="fc" id="L257">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

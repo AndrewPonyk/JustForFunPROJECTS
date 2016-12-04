@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CookieHandler.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NanoHttpd-Core</a> &gt; <a href="index.source.html" class="el_package">org.nanohttpd.protocols.http.content</a> &gt; <span class="el_source">CookieHandler.java</span></div><h1>CookieHandler.java</h1><pre class="source lang-java linenums">package org.nanohttpd.protocols.http.content;
+
+/*
+ * #%L
+ * NanoHttpd-Core
+ * %%
+ * Copyright (C) 2012 - 2016 nanohttpd
+ * %%
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the nanohttpd nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * #L%
+ */
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import org.nanohttpd.protocols.http.response.Response;
+
+/**
+ * Provides rudimentary support for cookies. Doesn't support 'path', 'secure'
+ * nor 'httpOnly'. Feel free to improve it and/or add unsupported features. This
+ * is old code and it's flawed in many ways.
+ * 
+ * @author LordFokas
+ */
+public class CookieHandler implements Iterable&lt;String&gt; {
+
+<span class="fc" id="L52">    private final HashMap&lt;String, String&gt; cookies = new HashMap&lt;String, String&gt;();</span>
+
+<span class="fc" id="L54">    private final ArrayList&lt;Cookie&gt; queue = new ArrayList&lt;Cookie&gt;();</span>
+
+<span class="fc" id="L56">    public CookieHandler(Map&lt;String, String&gt; httpHeaders) {</span>
+<span class="fc" id="L57">        String raw = httpHeaders.get(&quot;cookie&quot;);</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (raw != null) {</span>
+<span class="fc" id="L59">            String[] tokens = raw.split(&quot;;&quot;);</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">            for (String token : tokens) {</span>
+<span class="fc" id="L61">                String[] data = token.trim().split(&quot;=&quot;);</span>
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">                if (data.length == 2) {</span>
+<span class="fc" id="L63">                    this.cookies.put(data[0], data[1]);</span>
+                }
+            }
+        }
+<span class="fc" id="L67">    }</span>
+
+    /**
+     * Set a cookie with an expiration date from a month ago, effectively
+     * deleting it on the client side.
+     * 
+     * @param name
+     *            The cookie name.
+     */
+    public void delete(String name) {
+<span class="fc" id="L77">        set(name, &quot;-delete-&quot;, -30);</span>
+<span class="fc" id="L78">    }</span>
+
+    @Override
+    public Iterator&lt;String&gt; iterator() {
+<span class="fc" id="L82">        return this.cookies.keySet().iterator();</span>
+    }
+
+    /**
+     * Read a cookie from the HTTP Headers.
+     * 
+     * @param name
+     *            The cookie's name.
+     * @return The cookie's value if it exists, null otherwise.
+     */
+    public String read(String name) {
+<span class="fc" id="L93">        return this.cookies.get(name);</span>
+    }
+
+    public void set(Cookie cookie) {
+<span class="fc" id="L97">        this.queue.add(cookie);</span>
+<span class="fc" id="L98">    }</span>
+
+    /**
+     * Sets a cookie.
+     * 
+     * @param name
+     *            The cookie's name.
+     * @param value
+     *            The cookie's value.
+     * @param expires
+     *            How many days until the cookie expires.
+     */
+    public void set(String name, String value, int expires) {
+<span class="fc" id="L111">        this.queue.add(new Cookie(name, value, Cookie.getHTTPTime(expires)));</span>
+<span class="fc" id="L112">    }</span>
+
+    /**
+     * Internally used by the webserver to add all queued cookies into the
+     * Response's HTTP Headers.
+     * 
+     * @param response
+     *            The Response object to which headers the queued cookies will
+     *            be added.
+     */
+    public void unloadQueue(Response response) {
+<span class="fc bfc" id="L123" title="All 2 branches covered.">        for (Cookie cookie : this.queue) {</span>
+<span class="fc" id="L124">            response.addCookieHeader(cookie.getHTTPHeader());</span>
+<span class="fc" id="L125">        }</span>
+<span class="fc" id="L126">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

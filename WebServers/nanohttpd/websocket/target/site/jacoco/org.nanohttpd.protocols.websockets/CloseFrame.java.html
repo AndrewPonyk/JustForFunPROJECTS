@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CloseFrame.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NanoHttpd-Websocket</a> &gt; <a href="index.source.html" class="el_package">org.nanohttpd.protocols.websockets</a> &gt; <span class="el_source">CloseFrame.java</span></div><h1>CloseFrame.java</h1><pre class="source lang-java linenums">package org.nanohttpd.protocols.websockets;
+
+/*
+ * #%L
+ * NanoHttpd-Websocket
+ * %%
+ * Copyright (C) 2012 - 2016 nanohttpd
+ * %%
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the nanohttpd nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * #L%
+ */
+
+import java.nio.charset.CharacterCodingException;
+
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">public class CloseFrame extends WebSocketFrame {</span>
+
+    private static byte[] generatePayload(CloseCode code, String closeReason) throws CharacterCodingException {
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if (code != null) {</span>
+<span class="fc" id="L42">            byte[] reasonBytes = text2Binary(closeReason);</span>
+<span class="fc" id="L43">            byte[] payload = new byte[reasonBytes.length + 2];</span>
+<span class="fc" id="L44">            payload[0] = (byte) (code.getValue() &gt;&gt; 8 &amp; 0xFF);</span>
+<span class="fc" id="L45">            payload[1] = (byte) (code.getValue() &amp; 0xFF);</span>
+<span class="fc" id="L46">            System.arraycopy(reasonBytes, 0, payload, 2, reasonBytes.length);</span>
+<span class="fc" id="L47">            return payload;</span>
+        } else {
+<span class="nc" id="L49">            return new byte[0];</span>
+        }
+    }
+
+    private CloseCode _closeCode;
+
+    private String _closeReason;
+
+    public CloseFrame(CloseCode code, String closeReason) throws CharacterCodingException {
+<span class="fc" id="L58">        super(OpCode.Close, true, generatePayload(code, closeReason));</span>
+<span class="fc" id="L59">    }</span>
+
+    public CloseFrame(WebSocketFrame wrap) throws CharacterCodingException {
+<span class="fc" id="L62">        super(wrap);</span>
+<span class="pc bpc" id="L63" title="2 of 4 branches missed.">        assert wrap.getOpCode() == OpCode.Close;</span>
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">        if (wrap.getBinaryPayload().length &gt;= 2) {</span>
+<span class="fc" id="L65">            this._closeCode = CloseCode.find((wrap.getBinaryPayload()[0] &amp; 0xFF) &lt;&lt; 8 | wrap.getBinaryPayload()[1] &amp; 0xFF);</span>
+<span class="fc" id="L66">            this._closeReason = binary2Text(getBinaryPayload(), 2, getBinaryPayload().length - 2);</span>
+        }
+<span class="fc" id="L68">    }</span>
+
+    public CloseCode getCloseCode() {
+<span class="fc" id="L71">        return this._closeCode;</span>
+    }
+
+    public String getCloseReason() {
+<span class="fc" id="L75">        return this._closeReason;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

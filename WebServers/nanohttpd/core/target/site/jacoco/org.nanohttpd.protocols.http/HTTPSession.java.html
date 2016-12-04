@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>HTTPSession.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NanoHttpd-Core</a> &gt; <a href="index.source.html" class="el_package">org.nanohttpd.protocols.http</a> &gt; <span class="el_source">HTTPSession.java</span></div><h1>HTTPSession.java</h1><pre class="source lang-java linenums">package org.nanohttpd.protocols.http;
+
+/*
+ * #%L
+ * NanoHttpd-Core
+ * %%
+ * Copyright (C) 2012 - 2016 nanohttpd
+ * %%
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the nanohttpd nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * #L%
+ */
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutput;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.RandomAccessFile;
+import java.net.InetAddress;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.regex.Matcher;
+
+import javax.net.ssl.SSLException;
+
+import org.nanohttpd.protocols.http.NanoHTTPD.ResponseException;
+import org.nanohttpd.protocols.http.content.ContentType;
+import org.nanohttpd.protocols.http.content.CookieHandler;
+import org.nanohttpd.protocols.http.request.Method;
+import org.nanohttpd.protocols.http.response.Response;
+import org.nanohttpd.protocols.http.response.Status;
+import org.nanohttpd.protocols.http.tempfiles.ITempFile;
+import org.nanohttpd.protocols.http.tempfiles.ITempFileManager;
+
+public class HTTPSession implements IHTTPSession {
+
+    private static final int REQUEST_BUFFER_LEN = 512;
+
+    private static final int MEMORY_STORE_LIMIT = 1024;
+
+    public static final int BUFSIZE = 8192;
+
+    public static final int MAX_HEADER_SIZE = 1024;
+
+    private final NanoHTTPD httpd;
+
+    private final ITempFileManager tempFileManager;
+
+    private final OutputStream outputStream;
+
+    private final BufferedInputStream inputStream;
+
+    private int splitbyte;
+
+    private int rlen;
+
+    private String uri;
+
+    private Method method;
+
+    private Map&lt;String, List&lt;String&gt;&gt; parms;
+
+    private Map&lt;String, String&gt; headers;
+
+    private CookieHandler cookies;
+
+    private String queryParameterString;
+
+    private String remoteIp;
+
+    private String remoteHostname;
+
+    private String protocolVersion;
+
+<span class="fc" id="L114">    public HTTPSession(NanoHTTPD httpd, ITempFileManager tempFileManager, InputStream inputStream, OutputStream outputStream) {</span>
+<span class="fc" id="L115">        this.httpd = httpd;</span>
+<span class="fc" id="L116">        this.tempFileManager = tempFileManager;</span>
+<span class="fc" id="L117">        this.inputStream = new BufferedInputStream(inputStream, HTTPSession.BUFSIZE);</span>
+<span class="fc" id="L118">        this.outputStream = outputStream;</span>
+<span class="fc" id="L119">    }</span>
+
+<span class="fc" id="L121">    public HTTPSession(NanoHTTPD httpd, ITempFileManager tempFileManager, InputStream inputStream, OutputStream outputStream, InetAddress inetAddress) {</span>
+<span class="fc" id="L122">        this.httpd = httpd;</span>
+<span class="fc" id="L123">        this.tempFileManager = tempFileManager;</span>
+<span class="fc" id="L124">        this.inputStream = new BufferedInputStream(inputStream, HTTPSession.BUFSIZE);</span>
+<span class="fc" id="L125">        this.outputStream = outputStream;</span>
+<span class="pc bpc" id="L126" title="1 of 4 branches missed.">        this.remoteIp = inetAddress.isLoopbackAddress() || inetAddress.isAnyLocalAddress() ? &quot;127.0.0.1&quot; : inetAddress.getHostAddress().toString();</span>
+<span class="pc bpc" id="L127" title="1 of 4 branches missed.">        this.remoteHostname = inetAddress.isLoopbackAddress() || inetAddress.isAnyLocalAddress() ? &quot;localhost&quot; : inetAddress.getHostName().toString();</span>
+<span class="fc" id="L128">        this.headers = new HashMap&lt;String, String&gt;();</span>
+<span class="fc" id="L129">    }</span>
+
+    /**
+     * Decodes the sent headers and loads the data into Key/value pairs
+     */
+    private void decodeHeader(BufferedReader in, Map&lt;String, String&gt; pre, Map&lt;String, List&lt;String&gt;&gt; parms, Map&lt;String, String&gt; headers) throws ResponseException {
+        try {
+            // Read the request line
+<span class="fc" id="L137">            String inLine = in.readLine();</span>
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">            if (inLine == null) {</span>
+<span class="nc" id="L139">                return;</span>
+            }
+
+<span class="fc" id="L142">            StringTokenizer st = new StringTokenizer(inLine);</span>
+<span class="fc bfc" id="L143" title="All 2 branches covered.">            if (!st.hasMoreTokens()) {</span>
+<span class="fc" id="L144">                throw new ResponseException(Status.BAD_REQUEST, &quot;BAD REQUEST: Syntax error. Usage: GET /example/file.html&quot;);</span>
+            }
+
+<span class="fc" id="L147">            pre.put(&quot;method&quot;, st.nextToken());</span>
+
+<span class="fc bfc" id="L149" title="All 2 branches covered.">            if (!st.hasMoreTokens()) {</span>
+<span class="fc" id="L150">                throw new ResponseException(Status.BAD_REQUEST, &quot;BAD REQUEST: Missing URI. Usage: GET /example/file.html&quot;);</span>
+            }
+
+<span class="fc" id="L153">            String uri = st.nextToken();</span>
+
+            // Decode parameters from the URI
+<span class="fc" id="L156">            int qmi = uri.indexOf('?');</span>
+<span class="fc bfc" id="L157" title="All 2 branches covered.">            if (qmi &gt;= 0) {</span>
+<span class="fc" id="L158">                decodeParms(uri.substring(qmi + 1), parms);</span>
+<span class="fc" id="L159">                uri = NanoHTTPD.decodePercent(uri.substring(0, qmi));</span>
+            } else {
+<span class="fc" id="L161">                uri = NanoHTTPD.decodePercent(uri);</span>
+            }
+
+            // If there's another token, its protocol version,
+            // followed by HTTP headers.
+            // NOTE: this now forces header names lower case since they are
+            // case insensitive and vary by client.
+<span class="fc bfc" id="L168" title="All 2 branches covered.">            if (st.hasMoreTokens()) {</span>
+<span class="fc" id="L169">                protocolVersion = st.nextToken();</span>
+            } else {
+<span class="fc" id="L171">                protocolVersion = &quot;HTTP/1.1&quot;;</span>
+<span class="fc" id="L172">                NanoHTTPD.LOG.log(Level.FINE, &quot;no protocol version specified, strange. Assuming HTTP/1.1.&quot;);</span>
+            }
+<span class="fc" id="L174">            String line = in.readLine();</span>
+<span class="fc bfc" id="L175" title="All 4 branches covered.">            while (line != null &amp;&amp; !line.trim().isEmpty()) {</span>
+<span class="fc" id="L176">                int p = line.indexOf(':');</span>
+<span class="pc bpc" id="L177" title="1 of 2 branches missed.">                if (p &gt;= 0) {</span>
+<span class="fc" id="L178">                    headers.put(line.substring(0, p).trim().toLowerCase(Locale.US), line.substring(p + 1).trim());</span>
+                }
+<span class="fc" id="L180">                line = in.readLine();</span>
+<span class="fc" id="L181">            }</span>
+
+<span class="fc" id="L183">            pre.put(&quot;uri&quot;, uri);</span>
+<span class="nc" id="L184">        } catch (IOException ioe) {</span>
+<span class="nc" id="L185">            throw new ResponseException(Status.INTERNAL_ERROR, &quot;SERVER INTERNAL ERROR: IOException: &quot; + ioe.getMessage(), ioe);</span>
+<span class="fc" id="L186">        }</span>
+<span class="fc" id="L187">    }</span>
+
+    /**
+     * Decodes the Multipart Body data and put it into Key/Value pairs.
+     */
+    private void decodeMultipartFormData(ContentType contentType, ByteBuffer fbuf, Map&lt;String, List&lt;String&gt;&gt; parms, Map&lt;String, String&gt; files) throws ResponseException {
+<span class="fc" id="L193">        int pcount = 0;</span>
+        try {
+<span class="fc" id="L195">            int[] boundaryIdxs = getBoundaryPositions(fbuf, contentType.getBoundary().getBytes());</span>
+<span class="pc bpc" id="L196" title="1 of 2 branches missed.">            if (boundaryIdxs.length &lt; 2) {</span>
+<span class="nc" id="L197">                throw new ResponseException(Status.BAD_REQUEST, &quot;BAD REQUEST: Content type is multipart/form-data but contains less than two boundary strings.&quot;);</span>
+            }
+
+<span class="fc" id="L200">            byte[] partHeaderBuff = new byte[MAX_HEADER_SIZE];</span>
+<span class="fc bfc" id="L201" title="All 2 branches covered.">            for (int boundaryIdx = 0; boundaryIdx &lt; boundaryIdxs.length - 1; boundaryIdx++) {</span>
+<span class="fc" id="L202">                fbuf.position(boundaryIdxs[boundaryIdx]);</span>
+<span class="fc bfc" id="L203" title="All 2 branches covered.">                int len = (fbuf.remaining() &lt; MAX_HEADER_SIZE) ? fbuf.remaining() : MAX_HEADER_SIZE;</span>
+<span class="fc" id="L204">                fbuf.get(partHeaderBuff, 0, len);</span>
+<span class="fc" id="L205">                BufferedReader in =</span>
+<span class="fc" id="L206">                        new BufferedReader(new InputStreamReader(new ByteArrayInputStream(partHeaderBuff, 0, len), Charset.forName(contentType.getEncoding())), len);</span>
+
+<span class="fc" id="L208">                int headerLines = 0;</span>
+                // First line is boundary string
+<span class="fc" id="L210">                String mpline = in.readLine();</span>
+<span class="fc" id="L211">                headerLines++;</span>
+<span class="pc bpc" id="L212" title="2 of 4 branches missed.">                if (mpline == null || !mpline.contains(contentType.getBoundary())) {</span>
+<span class="nc" id="L213">                    throw new ResponseException(Status.BAD_REQUEST, &quot;BAD REQUEST: Content type is multipart/form-data but chunk does not start with boundary.&quot;);</span>
+                }
+
+<span class="fc" id="L216">                String partName = null, fileName = null, partContentType = null;</span>
+                // Parse the reset of the header lines
+<span class="fc" id="L218">                mpline = in.readLine();</span>
+<span class="fc" id="L219">                headerLines++;</span>
+<span class="pc bpc" id="L220" title="1 of 4 branches missed.">                while (mpline != null &amp;&amp; mpline.trim().length() &gt; 0) {</span>
+<span class="fc" id="L221">                    Matcher matcher = NanoHTTPD.CONTENT_DISPOSITION_PATTERN.matcher(mpline);</span>
+<span class="fc bfc" id="L222" title="All 2 branches covered.">                    if (matcher.matches()) {</span>
+<span class="fc" id="L223">                        String attributeString = matcher.group(2);</span>
+<span class="fc" id="L224">                        matcher = NanoHTTPD.CONTENT_DISPOSITION_ATTRIBUTE_PATTERN.matcher(attributeString);</span>
+<span class="fc bfc" id="L225" title="All 2 branches covered.">                        while (matcher.find()) {</span>
+<span class="fc" id="L226">                            String key = matcher.group(1);</span>
+<span class="fc bfc" id="L227" title="All 2 branches covered.">                            if (&quot;name&quot;.equalsIgnoreCase(key)) {</span>
+<span class="fc" id="L228">                                partName = matcher.group(2);</span>
+<span class="pc bpc" id="L229" title="1 of 2 branches missed.">                            } else if (&quot;filename&quot;.equalsIgnoreCase(key)) {</span>
+<span class="fc" id="L230">                                fileName = matcher.group(2);</span>
+                                // add these two line to support multiple
+                                // files uploaded using the same field Id
+<span class="pc bpc" id="L233" title="1 of 2 branches missed.">                                if (!fileName.isEmpty()) {</span>
+<span class="fc bfc" id="L234" title="All 2 branches covered.">                                    if (pcount &gt; 0)</span>
+<span class="fc" id="L235">                                        partName = partName + String.valueOf(pcount++);</span>
+                                    else
+<span class="fc" id="L237">                                        pcount++;</span>
+                                }
+                            }
+<span class="fc" id="L240">                        }</span>
+                    }
+<span class="fc" id="L242">                    matcher = NanoHTTPD.CONTENT_TYPE_PATTERN.matcher(mpline);</span>
+<span class="fc bfc" id="L243" title="All 2 branches covered.">                    if (matcher.matches()) {</span>
+<span class="fc" id="L244">                        partContentType = matcher.group(2).trim();</span>
+                    }
+<span class="fc" id="L246">                    mpline = in.readLine();</span>
+<span class="fc" id="L247">                    headerLines++;</span>
+<span class="fc" id="L248">                }</span>
+<span class="fc" id="L249">                int partHeaderLength = 0;</span>
+<span class="fc bfc" id="L250" title="All 2 branches covered.">                while (headerLines-- &gt; 0) {</span>
+<span class="fc" id="L251">                    partHeaderLength = scipOverNewLine(partHeaderBuff, partHeaderLength);</span>
+                }
+                // Read the part data
+<span class="pc bpc" id="L254" title="1 of 2 branches missed.">                if (partHeaderLength &gt;= len - 4) {</span>
+<span class="nc" id="L255">                    throw new ResponseException(Status.INTERNAL_ERROR, &quot;Multipart header size exceeds MAX_HEADER_SIZE.&quot;);</span>
+                }
+<span class="fc" id="L257">                int partDataStart = boundaryIdxs[boundaryIdx] + partHeaderLength;</span>
+<span class="fc" id="L258">                int partDataEnd = boundaryIdxs[boundaryIdx + 1] - 4;</span>
+
+<span class="fc" id="L260">                fbuf.position(partDataStart);</span>
+
+<span class="fc" id="L262">                List&lt;String&gt; values = parms.get(partName);</span>
+<span class="pc bpc" id="L263" title="1 of 2 branches missed.">                if (values == null) {</span>
+<span class="fc" id="L264">                    values = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L265">                    parms.put(partName, values);</span>
+                }
+
+<span class="fc bfc" id="L268" title="All 2 branches covered.">                if (partContentType == null) {</span>
+                    // Read the part into a string
+<span class="fc" id="L270">                    byte[] data_bytes = new byte[partDataEnd - partDataStart];</span>
+<span class="fc" id="L271">                    fbuf.get(data_bytes);</span>
+
+<span class="fc" id="L273">                    values.add(new String(data_bytes, contentType.getEncoding()));</span>
+<span class="fc" id="L274">                } else {</span>
+                    // Read it into a file
+<span class="fc" id="L276">                    String path = saveTmpFile(fbuf, partDataStart, partDataEnd - partDataStart, fileName);</span>
+<span class="pc bpc" id="L277" title="1 of 2 branches missed.">                    if (!files.containsKey(partName)) {</span>
+<span class="fc" id="L278">                        files.put(partName, path);</span>
+                    } else {
+<span class="nc" id="L280">                        int count = 2;</span>
+<span class="nc bnc" id="L281" title="All 2 branches missed.">                        while (files.containsKey(partName + count)) {</span>
+<span class="nc" id="L282">                            count++;</span>
+                        }
+<span class="nc" id="L284">                        files.put(partName + count, path);</span>
+                    }
+<span class="fc" id="L286">                    values.add(fileName);</span>
+                }
+            }
+<span class="nc" id="L289">        } catch (ResponseException re) {</span>
+<span class="nc" id="L290">            throw re;</span>
+<span class="nc" id="L291">        } catch (Exception e) {</span>
+<span class="nc" id="L292">            throw new ResponseException(Status.INTERNAL_ERROR, e.toString());</span>
+<span class="fc" id="L293">        }</span>
+<span class="fc" id="L294">    }</span>
+
+    private int scipOverNewLine(byte[] partHeaderBuff, int index) {
+<span class="fc bfc" id="L297" title="All 2 branches covered.">        while (partHeaderBuff[index] != '\n') {</span>
+<span class="fc" id="L298">            index++;</span>
+        }
+<span class="fc" id="L300">        return ++index;</span>
+    }
+
+    /**
+     * Decodes parameters in percent-encoded URI-format ( e.g.
+     * &quot;name=Jack%20Daniels&amp;pass=Single%20Malt&quot; ) and adds them to given Map.
+     */
+    private void decodeParms(String parms, Map&lt;String, List&lt;String&gt;&gt; p) {
+<span class="pc bpc" id="L308" title="1 of 2 branches missed.">        if (parms == null) {</span>
+<span class="nc" id="L309">            this.queryParameterString = &quot;&quot;;</span>
+<span class="nc" id="L310">            return;</span>
+        }
+
+<span class="fc" id="L313">        this.queryParameterString = parms;</span>
+<span class="fc" id="L314">        StringTokenizer st = new StringTokenizer(parms, &quot;&amp;&quot;);</span>
+<span class="fc bfc" id="L315" title="All 2 branches covered.">        while (st.hasMoreTokens()) {</span>
+<span class="fc" id="L316">            String e = st.nextToken();</span>
+<span class="fc" id="L317">            int sep = e.indexOf('=');</span>
+<span class="fc" id="L318">            String key = null;</span>
+<span class="fc" id="L319">            String value = null;</span>
+
+<span class="fc bfc" id="L321" title="All 2 branches covered.">            if (sep &gt;= 0) {</span>
+<span class="fc" id="L322">                key = NanoHTTPD.decodePercent(e.substring(0, sep)).trim();</span>
+<span class="fc" id="L323">                value = NanoHTTPD.decodePercent(e.substring(sep + 1));</span>
+            } else {
+<span class="fc" id="L325">                key = NanoHTTPD.decodePercent(e).trim();</span>
+<span class="fc" id="L326">                value = &quot;&quot;;</span>
+            }
+
+<span class="fc" id="L329">            List&lt;String&gt; values = p.get(key);</span>
+<span class="fc bfc" id="L330" title="All 2 branches covered.">            if (values == null) {</span>
+<span class="fc" id="L331">                values = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L332">                p.put(key, values);</span>
+            }
+
+<span class="fc" id="L335">            values.add(value);</span>
+<span class="fc" id="L336">        }</span>
+<span class="fc" id="L337">    }</span>
+
+    @Override
+    public void execute() throws IOException {
+<span class="fc" id="L341">        Response r = null;</span>
+        try {
+            // Read the first 8192 bytes.
+            // The full header should fit in here.
+            // Apache's default header limit is 8KB.
+            // Do NOT assume that a single read will get the entire header
+            // at once!
+<span class="fc" id="L348">            byte[] buf = new byte[HTTPSession.BUFSIZE];</span>
+<span class="fc" id="L349">            this.splitbyte = 0;</span>
+<span class="fc" id="L350">            this.rlen = 0;</span>
+
+<span class="fc" id="L352">            int read = -1;</span>
+<span class="fc" id="L353">            this.inputStream.mark(HTTPSession.BUFSIZE);</span>
+            try {
+<span class="fc" id="L355">                read = this.inputStream.read(buf, 0, HTTPSession.BUFSIZE);</span>
+<span class="fc" id="L356">            } catch (SSLException e) {</span>
+<span class="fc" id="L357">                throw e;</span>
+<span class="fc" id="L358">            } catch (IOException e) {</span>
+<span class="fc" id="L359">                NanoHTTPD.safeClose(this.inputStream);</span>
+<span class="fc" id="L360">                NanoHTTPD.safeClose(this.outputStream);</span>
+<span class="fc" id="L361">                throw new SocketException(&quot;NanoHttpd Shutdown&quot;);</span>
+<span class="fc" id="L362">            }</span>
+<span class="fc bfc" id="L363" title="All 2 branches covered.">            if (read == -1) {</span>
+                // socket was been closed
+<span class="fc" id="L365">                NanoHTTPD.safeClose(this.inputStream);</span>
+<span class="fc" id="L366">                NanoHTTPD.safeClose(this.outputStream);</span>
+<span class="fc" id="L367">                throw new SocketException(&quot;NanoHttpd Shutdown&quot;);</span>
+            }
+<span class="fc bfc" id="L369" title="All 2 branches covered.">            while (read &gt; 0) {</span>
+<span class="fc" id="L370">                this.rlen += read;</span>
+<span class="fc" id="L371">                this.splitbyte = findHeaderEnd(buf, this.rlen);</span>
+<span class="fc bfc" id="L372" title="All 2 branches covered.">                if (this.splitbyte &gt; 0) {</span>
+<span class="fc" id="L373">                    break;</span>
+                }
+<span class="fc" id="L375">                read = this.inputStream.read(buf, this.rlen, HTTPSession.BUFSIZE - this.rlen);</span>
+            }
+
+<span class="fc bfc" id="L378" title="All 2 branches covered.">            if (this.splitbyte &lt; this.rlen) {</span>
+<span class="fc" id="L379">                this.inputStream.reset();</span>
+<span class="fc" id="L380">                this.inputStream.skip(this.splitbyte);</span>
+            }
+
+<span class="fc" id="L383">            this.parms = new HashMap&lt;String, List&lt;String&gt;&gt;();</span>
+<span class="fc bfc" id="L384" title="All 2 branches covered.">            if (null == this.headers) {</span>
+<span class="fc" id="L385">                this.headers = new HashMap&lt;String, String&gt;();</span>
+            } else {
+<span class="fc" id="L387">                this.headers.clear();</span>
+            }
+
+            // Create a BufferedReader for parsing the header.
+<span class="fc" id="L391">            BufferedReader hin = new BufferedReader(new InputStreamReader(new ByteArrayInputStream(buf, 0, this.rlen)));</span>
+
+            // Decode the header into parms and header java properties
+<span class="fc" id="L394">            Map&lt;String, String&gt; pre = new HashMap&lt;String, String&gt;();</span>
+<span class="fc" id="L395">            decodeHeader(hin, pre, this.parms, this.headers);</span>
+
+<span class="fc bfc" id="L397" title="All 2 branches covered.">            if (null != this.remoteIp) {</span>
+<span class="fc" id="L398">                this.headers.put(&quot;remote-addr&quot;, this.remoteIp);</span>
+<span class="fc" id="L399">                this.headers.put(&quot;http-client-ip&quot;, this.remoteIp);</span>
+            }
+
+<span class="fc" id="L402">            this.method = Method.lookup(pre.get(&quot;method&quot;));</span>
+<span class="fc bfc" id="L403" title="All 2 branches covered.">            if (this.method == null) {</span>
+<span class="fc" id="L404">                throw new ResponseException(Status.BAD_REQUEST, &quot;BAD REQUEST: Syntax error. HTTP verb &quot; + pre.get(&quot;method&quot;) + &quot; unhandled.&quot;);</span>
+            }
+
+<span class="fc" id="L407">            this.uri = pre.get(&quot;uri&quot;);</span>
+
+<span class="fc" id="L409">            this.cookies = new CookieHandler(this.headers);</span>
+
+<span class="fc" id="L411">            String connection = this.headers.get(&quot;connection&quot;);</span>
+<span class="pc bpc" id="L412" title="1 of 6 branches missed.">            boolean keepAlive = &quot;HTTP/1.1&quot;.equals(protocolVersion) &amp;&amp; (connection == null || !connection.matches(&quot;(?i).*close.*&quot;));</span>
+
+            // Ok, now do the serve()
+
+            // TODO: long body_size = getBodySize();
+            // TODO: long pos_before_serve = this.inputStream.totalRead()
+            // (requires implementation for totalRead())
+<span class="fc" id="L419">            r = httpd.serve(this);</span>
+            // TODO: this.inputStream.skip(body_size -
+            // (this.inputStream.totalRead() - pos_before_serve))
+
+<span class="pc bpc" id="L423" title="1 of 2 branches missed.">            if (r == null) {</span>
+<span class="nc" id="L424">                throw new ResponseException(Status.INTERNAL_ERROR, &quot;SERVER INTERNAL ERROR: Serve() returned a null response.&quot;);</span>
+            } else {
+<span class="fc" id="L426">                String acceptEncoding = this.headers.get(&quot;accept-encoding&quot;);</span>
+<span class="fc" id="L427">                this.cookies.unloadQueue(r);</span>
+<span class="fc" id="L428">                r.setRequestMethod(this.method);</span>
+<span class="pc bpc" id="L429" title="1 of 6 branches missed.">                r.setGzipEncoding(httpd.useGzipWhenAccepted(r) &amp;&amp; acceptEncoding != null &amp;&amp; acceptEncoding.contains(&quot;gzip&quot;));</span>
+<span class="fc" id="L430">                r.setKeepAlive(keepAlive);</span>
+<span class="fc" id="L431">                r.send(this.outputStream);</span>
+            }
+<span class="pc bpc" id="L433" title="1 of 4 branches missed.">            if (!keepAlive || r.isCloseConnection()) {</span>
+<span class="fc" id="L434">                throw new SocketException(&quot;NanoHttpd Shutdown&quot;);</span>
+            }
+<span class="fc" id="L436">        } catch (SocketException e) {</span>
+            // throw it out to close socket object (finalAccept)
+<span class="fc" id="L438">            throw e;</span>
+<span class="nc" id="L439">        } catch (SocketTimeoutException ste) {</span>
+            // treat socket timeouts the same way we treat socket exceptions
+            // i.e. close the stream &amp; finalAccept object by throwing the
+            // exception up the call stack.
+<span class="nc" id="L443">            throw ste;</span>
+<span class="fc" id="L444">        } catch (SSLException ssle) {</span>
+<span class="fc" id="L445">            Response resp = Response.newFixedLengthResponse(Status.INTERNAL_ERROR, NanoHTTPD.MIME_PLAINTEXT, &quot;SSL PROTOCOL FAILURE: &quot; + ssle.getMessage());</span>
+<span class="fc" id="L446">            resp.send(this.outputStream);</span>
+<span class="fc" id="L447">            NanoHTTPD.safeClose(this.outputStream);</span>
+<span class="nc" id="L448">        } catch (IOException ioe) {</span>
+<span class="nc" id="L449">            Response resp = Response.newFixedLengthResponse(Status.INTERNAL_ERROR, NanoHTTPD.MIME_PLAINTEXT, &quot;SERVER INTERNAL ERROR: IOException: &quot; + ioe.getMessage());</span>
+<span class="nc" id="L450">            resp.send(this.outputStream);</span>
+<span class="nc" id="L451">            NanoHTTPD.safeClose(this.outputStream);</span>
+<span class="fc" id="L452">        } catch (ResponseException re) {</span>
+<span class="fc" id="L453">            Response resp = Response.newFixedLengthResponse(re.getStatus(), NanoHTTPD.MIME_PLAINTEXT, re.getMessage());</span>
+<span class="fc" id="L454">            resp.send(this.outputStream);</span>
+<span class="fc" id="L455">            NanoHTTPD.safeClose(this.outputStream);</span>
+        } finally {
+<span class="pc" id="L457">            NanoHTTPD.safeClose(r);</span>
+<span class="pc" id="L458">            this.tempFileManager.clear();</span>
+<span class="pc" id="L459">        }</span>
+<span class="fc" id="L460">    }</span>
+
+    /**
+     * Find byte index separating header from body. It must be the last byte of
+     * the first two sequential new lines.
+     */
+    private int findHeaderEnd(final byte[] buf, int rlen) {
+<span class="fc" id="L467">        int splitbyte = 0;</span>
+<span class="fc bfc" id="L468" title="All 2 branches covered.">        while (splitbyte + 1 &lt; rlen) {</span>
+
+            // RFC2616
+<span class="pc bpc" id="L471" title="3 of 10 branches missed.">            if (buf[splitbyte] == '\r' &amp;&amp; buf[splitbyte + 1] == '\n' &amp;&amp; splitbyte + 3 &lt; rlen &amp;&amp; buf[splitbyte + 2] == '\r' &amp;&amp; buf[splitbyte + 3] == '\n') {</span>
+<span class="fc" id="L472">                return splitbyte + 4;</span>
+            }
+
+            // tolerance
+<span class="fc bfc" id="L476" title="All 4 branches covered.">            if (buf[splitbyte] == '\n' &amp;&amp; buf[splitbyte + 1] == '\n') {</span>
+<span class="fc" id="L477">                return splitbyte + 2;</span>
+            }
+<span class="fc" id="L479">            splitbyte++;</span>
+        }
+<span class="fc" id="L481">        return 0;</span>
+    }
+
+    /**
+     * Find the byte positions where multipart boundaries start. This reads a
+     * large block at a time and uses a temporary buffer to optimize (memory
+     * mapped) file access.
+     */
+    private int[] getBoundaryPositions(ByteBuffer b, byte[] boundary) {
+<span class="fc" id="L490">        int[] res = new int[0];</span>
+<span class="pc bpc" id="L491" title="1 of 2 branches missed.">        if (b.remaining() &lt; boundary.length) {</span>
+<span class="nc" id="L492">            return res;</span>
+        }
+
+<span class="fc" id="L495">        int search_window_pos = 0;</span>
+<span class="fc" id="L496">        byte[] search_window = new byte[4 * 1024 + boundary.length];</span>
+
+<span class="pc bpc" id="L498" title="1 of 2 branches missed.">        int first_fill = (b.remaining() &lt; search_window.length) ? b.remaining() : search_window.length;</span>
+<span class="fc" id="L499">        b.get(search_window, 0, first_fill);</span>
+<span class="fc" id="L500">        int new_bytes = first_fill - boundary.length;</span>
+
+        do {
+            // Search the search_window
+<span class="fc bfc" id="L504" title="All 2 branches covered.">            for (int j = 0; j &lt; new_bytes; j++) {</span>
+<span class="fc bfc" id="L505" title="All 2 branches covered.">                for (int i = 0; i &lt; boundary.length; i++) {</span>
+<span class="fc bfc" id="L506" title="All 2 branches covered.">                    if (search_window[j + i] != boundary[i])</span>
+<span class="fc" id="L507">                        break;</span>
+<span class="fc bfc" id="L508" title="All 2 branches covered.">                    if (i == boundary.length - 1) {</span>
+                        // Match found, add it to results
+<span class="fc" id="L510">                        int[] new_res = new int[res.length + 1];</span>
+<span class="fc" id="L511">                        System.arraycopy(res, 0, new_res, 0, res.length);</span>
+<span class="fc" id="L512">                        new_res[res.length] = search_window_pos + j;</span>
+<span class="fc" id="L513">                        res = new_res;</span>
+                    }
+                }
+            }
+<span class="fc" id="L517">            search_window_pos += new_bytes;</span>
+
+            // Copy the end of the buffer to the start
+<span class="fc" id="L520">            System.arraycopy(search_window, search_window.length - boundary.length, search_window, 0, boundary.length);</span>
+
+            // Refill search_window
+<span class="fc" id="L523">            new_bytes = search_window.length - boundary.length;</span>
+<span class="pc bpc" id="L524" title="1 of 2 branches missed.">            new_bytes = (b.remaining() &lt; new_bytes) ? b.remaining() : new_bytes;</span>
+<span class="fc" id="L525">            b.get(search_window, boundary.length, new_bytes);</span>
+<span class="pc bpc" id="L526" title="1 of 2 branches missed.">        } while (new_bytes &gt; 0);</span>
+<span class="fc" id="L527">        return res;</span>
+    }
+
+    @Override
+    public CookieHandler getCookies() {
+<span class="fc" id="L532">        return this.cookies;</span>
+    }
+
+    @Override
+    public final Map&lt;String, String&gt; getHeaders() {
+<span class="fc" id="L537">        return this.headers;</span>
+    }
+
+    @Override
+    public final InputStream getInputStream() {
+<span class="fc" id="L542">        return this.inputStream;</span>
+    }
+
+    @Override
+    public final Method getMethod() {
+<span class="fc" id="L547">        return this.method;</span>
+    }
+
+    /**
+     * @deprecated use {@link #getParameters()} instead.
+     */
+    @Override
+    @Deprecated
+    public final Map&lt;String, String&gt; getParms() {
+<span class="fc" id="L556">        Map&lt;String, String&gt; result = new HashMap&lt;String, String&gt;();</span>
+<span class="fc bfc" id="L557" title="All 2 branches covered.">        for (String key : this.parms.keySet()) {</span>
+<span class="fc" id="L558">            result.put(key, this.parms.get(key).get(0));</span>
+<span class="fc" id="L559">        }</span>
+
+<span class="fc" id="L561">        return result;</span>
+    }
+
+    @Override
+    public final Map&lt;String, List&lt;String&gt;&gt; getParameters() {
+<span class="fc" id="L566">        return this.parms;</span>
+    }
+
+    @Override
+    public String getQueryParameterString() {
+<span class="fc" id="L571">        return this.queryParameterString;</span>
+    }
+
+    private RandomAccessFile getTmpBucket() {
+        try {
+<span class="fc" id="L576">            ITempFile tempFile = this.tempFileManager.createTempFile(null);</span>
+<span class="fc" id="L577">            return new RandomAccessFile(tempFile.getName(), &quot;rw&quot;);</span>
+<span class="nc" id="L578">        } catch (Exception e) {</span>
+<span class="nc" id="L579">            throw new Error(e); // we won't recover, so throw an error</span>
+        }
+    }
+
+    @Override
+    public final String getUri() {
+<span class="fc" id="L585">        return this.uri;</span>
+    }
+
+    /**
+     * Deduce body length in bytes. Either from &quot;content-length&quot; header or read
+     * bytes.
+     */
+    public long getBodySize() {
+<span class="fc bfc" id="L593" title="All 2 branches covered.">        if (this.headers.containsKey(&quot;content-length&quot;)) {</span>
+<span class="fc" id="L594">            return Long.parseLong(this.headers.get(&quot;content-length&quot;));</span>
+<span class="fc bfc" id="L595" title="All 2 branches covered.">        } else if (this.splitbyte &lt; this.rlen) {</span>
+<span class="fc" id="L596">            return this.rlen - this.splitbyte;</span>
+        }
+<span class="fc" id="L598">        return 0;</span>
+    }
+
+    @Override
+    public void parseBody(Map&lt;String, String&gt; files) throws IOException, ResponseException {
+<span class="fc" id="L603">        RandomAccessFile randomAccessFile = null;</span>
+        try {
+<span class="fc" id="L605">            long size = getBodySize();</span>
+<span class="fc" id="L606">            ByteArrayOutputStream baos = null;</span>
+<span class="fc" id="L607">            DataOutput requestDataOutput = null;</span>
+
+            // Store the request in memory or a file, depending on size
+<span class="fc bfc" id="L610" title="All 2 branches covered.">            if (size &lt; MEMORY_STORE_LIMIT) {</span>
+<span class="fc" id="L611">                baos = new ByteArrayOutputStream();</span>
+<span class="fc" id="L612">                requestDataOutput = new DataOutputStream(baos);</span>
+            } else {
+<span class="fc" id="L614">                randomAccessFile = getTmpBucket();</span>
+<span class="fc" id="L615">                requestDataOutput = randomAccessFile;</span>
+            }
+
+            // Read all the body and write it to request_data_output
+<span class="fc" id="L619">            byte[] buf = new byte[REQUEST_BUFFER_LEN];</span>
+<span class="fc bfc" id="L620" title="All 4 branches covered.">            while (this.rlen &gt;= 0 &amp;&amp; size &gt; 0) {</span>
+<span class="fc" id="L621">                this.rlen = this.inputStream.read(buf, 0, (int) Math.min(size, REQUEST_BUFFER_LEN));</span>
+<span class="fc" id="L622">                size -= this.rlen;</span>
+<span class="fc bfc" id="L623" title="All 2 branches covered.">                if (this.rlen &gt; 0) {</span>
+<span class="fc" id="L624">                    requestDataOutput.write(buf, 0, this.rlen);</span>
+                }
+            }
+
+<span class="fc" id="L628">            ByteBuffer fbuf = null;</span>
+<span class="fc bfc" id="L629" title="All 2 branches covered.">            if (baos != null) {</span>
+<span class="fc" id="L630">                fbuf = ByteBuffer.wrap(baos.toByteArray(), 0, baos.size());</span>
+            } else {
+<span class="fc" id="L632">                fbuf = randomAccessFile.getChannel().map(FileChannel.MapMode.READ_ONLY, 0, randomAccessFile.length());</span>
+<span class="fc" id="L633">                randomAccessFile.seek(0);</span>
+            }
+
+            // If the method is POST, there may be parameters
+            // in data section, too, read it:
+<span class="fc bfc" id="L638" title="All 2 branches covered.">            if (Method.POST.equals(this.method)) {</span>
+<span class="fc" id="L639">                ContentType contentType = new ContentType(this.headers.get(&quot;content-type&quot;));</span>
+<span class="fc bfc" id="L640" title="All 2 branches covered.">                if (contentType.isMultipart()) {</span>
+<span class="fc" id="L641">                    String boundary = contentType.getBoundary();</span>
+<span class="pc bpc" id="L642" title="1 of 2 branches missed.">                    if (boundary == null) {</span>
+<span class="nc" id="L643">                        throw new ResponseException(Status.BAD_REQUEST, &quot;BAD REQUEST: Content type is multipart/form-data but boundary missing. Usage: GET /example/file.html&quot;);</span>
+                    }
+<span class="fc" id="L645">                    decodeMultipartFormData(contentType, fbuf, this.parms, files);</span>
+<span class="fc" id="L646">                } else {</span>
+<span class="fc" id="L647">                    byte[] postBytes = new byte[fbuf.remaining()];</span>
+<span class="fc" id="L648">                    fbuf.get(postBytes);</span>
+<span class="fc" id="L649">                    String postLine = new String(postBytes, contentType.getEncoding()).trim();</span>
+                    // Handle application/x-www-form-urlencoded
+<span class="fc bfc" id="L651" title="All 2 branches covered.">                    if (&quot;application/x-www-form-urlencoded&quot;.equalsIgnoreCase(contentType.getContentType())) {</span>
+<span class="fc" id="L652">                        decodeParms(postLine, this.parms);</span>
+<span class="fc bfc" id="L653" title="All 2 branches covered.">                    } else if (postLine.length() != 0) {</span>
+                        // Special case for raw POST data =&gt; create a
+                        // special files entry &quot;postData&quot; with raw content
+                        // data
+<span class="fc" id="L657">                        files.put(&quot;postData&quot;, postLine);</span>
+                    }
+                }
+<span class="fc bfc" id="L660" title="All 2 branches covered.">            } else if (Method.PUT.equals(this.method)) {</span>
+<span class="fc" id="L661">                files.put(&quot;content&quot;, saveTmpFile(fbuf, 0, fbuf.limit(), null));</span>
+            }
+        } finally {
+<span class="pc" id="L664">            NanoHTTPD.safeClose(randomAccessFile);</span>
+<span class="fc" id="L665">        }</span>
+<span class="fc" id="L666">    }</span>
+
+    /**
+     * Retrieves the content of a sent file and saves it to a temporary file.
+     * The full path to the saved file is returned.
+     */
+    private String saveTmpFile(ByteBuffer b, int offset, int len, String filename_hint) {
+<span class="fc" id="L673">        String path = &quot;&quot;;</span>
+<span class="pc bpc" id="L674" title="1 of 2 branches missed.">        if (len &gt; 0) {</span>
+<span class="fc" id="L675">            FileOutputStream fileOutputStream = null;</span>
+            try {
+<span class="fc" id="L677">                ITempFile tempFile = this.tempFileManager.createTempFile(filename_hint);</span>
+<span class="fc" id="L678">                ByteBuffer src = b.duplicate();</span>
+<span class="fc" id="L679">                fileOutputStream = new FileOutputStream(tempFile.getName());</span>
+<span class="fc" id="L680">                FileChannel dest = fileOutputStream.getChannel();</span>
+<span class="fc" id="L681">                src.position(offset).limit(offset + len);</span>
+<span class="fc" id="L682">                dest.write(src.slice());</span>
+<span class="fc" id="L683">                path = tempFile.getName();</span>
+<span class="nc" id="L684">            } catch (Exception e) { // Catch exception if any</span>
+<span class="nc" id="L685">                throw new Error(e); // we won't recover, so throw an error</span>
+            } finally {
+<span class="pc" id="L687">                NanoHTTPD.safeClose(fileOutputStream);</span>
+<span class="fc" id="L688">            }</span>
+        }
+<span class="fc" id="L690">        return path;</span>
+    }
+
+    @Override
+    public String getRemoteIpAddress() {
+<span class="fc" id="L695">        return this.remoteIp;</span>
+    }
+
+    @Override
+    public String getRemoteHostName() {
+<span class="fc" id="L700">        return this.remoteHostname;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

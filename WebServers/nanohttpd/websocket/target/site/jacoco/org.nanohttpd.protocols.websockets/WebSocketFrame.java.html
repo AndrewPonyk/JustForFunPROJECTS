@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>WebSocketFrame.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NanoHttpd-Websocket</a> &gt; <a href="index.source.html" class="el_package">org.nanohttpd.protocols.websockets</a> &gt; <span class="el_source">WebSocketFrame.java</span></div><h1>WebSocketFrame.java</h1><pre class="source lang-java linenums">package org.nanohttpd.protocols.websockets;
+
+/*
+ * #%L
+ * NanoHttpd-Websocket
+ * %%
+ * Copyright (C) 2012 - 2016 nanohttpd
+ * %%
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the nanohttpd nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * #L%
+ */
+
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.charset.CharacterCodingException;
+import java.nio.charset.Charset;
+import java.util.Arrays;
+import java.util.List;
+
+public class WebSocketFrame {
+
+<span class="fc" id="L47">    public static final Charset TEXT_CHARSET = Charset.forName(&quot;UTF-8&quot;);</span>
+
+    public static String binary2Text(byte[] payload) throws CharacterCodingException {
+<span class="fc" id="L50">        return new String(payload, WebSocketFrame.TEXT_CHARSET);</span>
+    }
+
+    public static String binary2Text(byte[] payload, int offset, int length) throws CharacterCodingException {
+<span class="fc" id="L54">        return new String(payload, offset, length, WebSocketFrame.TEXT_CHARSET);</span>
+    }
+
+    private static int checkedRead(int read) throws IOException {
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (read &lt; 0) {</span>
+<span class="nc" id="L59">            throw new EOFException();</span>
+        }
+<span class="fc" id="L61">        return read;</span>
+    }
+
+    public static WebSocketFrame read(InputStream in) throws IOException {
+<span class="fc" id="L65">        byte head = (byte) checkedRead(in.read());</span>
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">        boolean fin = (head &amp; 0x80) != 0;</span>
+<span class="fc" id="L67">        OpCode opCode = OpCode.find((byte) (head &amp; 0x0F));</span>
+<span class="pc bpc" id="L68" title="1 of 2 branches missed.">        if ((head &amp; 0x70) != 0) {</span>
+<span class="nc" id="L69">            throw new WebSocketException(CloseCode.ProtocolError, &quot;The reserved bits (&quot; + Integer.toBinaryString(head &amp; 0x70) + &quot;) must be 0.&quot;);</span>
+        }
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">        if (opCode == null) {</span>
+<span class="nc" id="L72">            throw new WebSocketException(CloseCode.ProtocolError, &quot;Received frame with reserved/unknown opcode &quot; + (head &amp; 0x0F) + &quot;.&quot;);</span>
+<span class="pc bpc" id="L73" title="1 of 4 branches missed.">        } else if (opCode.isControlFrame() &amp;&amp; !fin) {</span>
+<span class="nc" id="L74">            throw new WebSocketException(CloseCode.ProtocolError, &quot;Fragmented control frame.&quot;);</span>
+        }
+
+<span class="fc" id="L77">        WebSocketFrame frame = new WebSocketFrame(opCode, fin);</span>
+<span class="fc" id="L78">        frame.readPayloadInfo(in);</span>
+<span class="fc" id="L79">        frame.readPayload(in);</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        if (frame.getOpCode() == OpCode.Close) {</span>
+<span class="fc" id="L81">            return new CloseFrame(frame);</span>
+        } else {
+<span class="fc" id="L83">            return frame;</span>
+        }
+    }
+
+    public static byte[] text2Binary(String payload) throws CharacterCodingException {
+<span class="fc" id="L88">        return payload.getBytes(WebSocketFrame.TEXT_CHARSET);</span>
+    }
+
+    private OpCode opCode;
+
+    private boolean fin;
+
+    private byte[] maskingKey;
+
+    private byte[] payload;
+
+    // --------------------------------GETTERS---------------------------------
+
+    private transient int _payloadLength;
+
+    private transient String _payloadString;
+
+<span class="fc" id="L105">    private WebSocketFrame(OpCode opCode, boolean fin) {</span>
+<span class="fc" id="L106">        setOpCode(opCode);</span>
+<span class="fc" id="L107">        setFin(fin);</span>
+<span class="fc" id="L108">    }</span>
+
+    public WebSocketFrame(OpCode opCode, boolean fin, byte[] payload) {
+<span class="fc" id="L111">        this(opCode, fin, payload, null);</span>
+<span class="fc" id="L112">    }</span>
+
+    public WebSocketFrame(OpCode opCode, boolean fin, byte[] payload, byte[] maskingKey) {
+<span class="fc" id="L115">        this(opCode, fin);</span>
+<span class="fc" id="L116">        setMaskingKey(maskingKey);</span>
+<span class="fc" id="L117">        setBinaryPayload(payload);</span>
+<span class="fc" id="L118">    }</span>
+
+    public WebSocketFrame(OpCode opCode, boolean fin, String payload) throws CharacterCodingException {
+<span class="nc" id="L121">        this(opCode, fin, payload, null);</span>
+<span class="nc" id="L122">    }</span>
+
+    public WebSocketFrame(OpCode opCode, boolean fin, String payload, byte[] maskingKey) throws CharacterCodingException {
+<span class="nc" id="L125">        this(opCode, fin);</span>
+<span class="nc" id="L126">        setMaskingKey(maskingKey);</span>
+<span class="nc" id="L127">        setTextPayload(payload);</span>
+<span class="nc" id="L128">    }</span>
+
+<span class="nc" id="L130">    public WebSocketFrame(OpCode opCode, List&lt;WebSocketFrame&gt; fragments) throws WebSocketException {</span>
+<span class="nc" id="L131">        setOpCode(opCode);</span>
+<span class="nc" id="L132">        setFin(true);</span>
+
+<span class="nc" id="L134">        long _payloadLength = 0;</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">        for (WebSocketFrame inter : fragments) {</span>
+<span class="nc" id="L136">            _payloadLength += inter.getBinaryPayload().length;</span>
+<span class="nc" id="L137">        }</span>
+<span class="nc bnc" id="L138" title="All 4 branches missed.">        if (_payloadLength &lt; 0 || _payloadLength &gt; Integer.MAX_VALUE) {</span>
+<span class="nc" id="L139">            throw new WebSocketException(CloseCode.MessageTooBig, &quot;Max frame length has been exceeded.&quot;);</span>
+        }
+<span class="nc" id="L141">        this._payloadLength = (int) _payloadLength;</span>
+<span class="nc" id="L142">        byte[] payload = new byte[this._payloadLength];</span>
+<span class="nc" id="L143">        int offset = 0;</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">        for (WebSocketFrame inter : fragments) {</span>
+<span class="nc" id="L145">            System.arraycopy(inter.getBinaryPayload(), 0, payload, offset, inter.getBinaryPayload().length);</span>
+<span class="nc" id="L146">            offset += inter.getBinaryPayload().length;</span>
+<span class="nc" id="L147">        }</span>
+<span class="nc" id="L148">        setBinaryPayload(payload);</span>
+<span class="nc" id="L149">    }</span>
+
+<span class="fc" id="L151">    public WebSocketFrame(WebSocketFrame clone) {</span>
+<span class="fc" id="L152">        setOpCode(clone.getOpCode());</span>
+<span class="fc" id="L153">        setFin(clone.isFin());</span>
+<span class="fc" id="L154">        setBinaryPayload(clone.getBinaryPayload());</span>
+<span class="fc" id="L155">        setMaskingKey(clone.getMaskingKey());</span>
+<span class="fc" id="L156">    }</span>
+
+    public byte[] getBinaryPayload() {
+<span class="fc" id="L159">        return this.payload;</span>
+    }
+
+    public byte[] getMaskingKey() {
+<span class="fc" id="L163">        return this.maskingKey;</span>
+    }
+
+    public OpCode getOpCode() {
+<span class="fc" id="L167">        return this.opCode;</span>
+    }
+
+    // --------------------------------SERIALIZATION---------------------------
+
+    public String getTextPayload() {
+<span class="pc bpc" id="L173" title="1 of 2 branches missed.">        if (this._payloadString == null) {</span>
+            try {
+<span class="nc" id="L175">                this._payloadString = binary2Text(getBinaryPayload());</span>
+<span class="nc" id="L176">            } catch (CharacterCodingException e) {</span>
+<span class="nc" id="L177">                throw new RuntimeException(&quot;Undetected CharacterCodingException&quot;, e);</span>
+<span class="nc" id="L178">            }</span>
+        }
+<span class="fc" id="L180">        return this._payloadString;</span>
+    }
+
+    public boolean isFin() {
+<span class="fc" id="L184">        return this.fin;</span>
+    }
+
+    public boolean isMasked() {
+<span class="pc bpc" id="L188" title="1 of 4 branches missed.">        return this.maskingKey != null &amp;&amp; this.maskingKey.length == 4;</span>
+    }
+
+    private String payloadToString() {
+<span class="pc bpc" id="L192" title="1 of 2 branches missed.">        if (this.payload == null) {</span>
+<span class="nc" id="L193">            return &quot;null&quot;;</span>
+        } else {
+<span class="fc" id="L195">            final StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L196">            sb.append('[').append(this.payload.length).append(&quot;b] &quot;);</span>
+<span class="fc bfc" id="L197" title="All 2 branches covered.">            if (getOpCode() == OpCode.Text) {</span>
+<span class="fc" id="L198">                String text = getTextPayload();</span>
+<span class="fc bfc" id="L199" title="All 2 branches covered.">                if (text.length() &gt; 100) {</span>
+<span class="fc" id="L200">                    sb.append(text.substring(0, 100)).append(&quot;...&quot;);</span>
+                } else {
+<span class="fc" id="L202">                    sb.append(text);</span>
+                }
+<span class="fc" id="L204">            } else {</span>
+<span class="fc" id="L205">                sb.append(&quot;0x&quot;);</span>
+<span class="fc bfc" id="L206" title="All 2 branches covered.">                for (int i = 0; i &lt; Math.min(this.payload.length, 50); ++i) {</span>
+<span class="fc" id="L207">                    sb.append(Integer.toHexString(this.payload[i] &amp; 0xFF));</span>
+                }
+<span class="pc bpc" id="L209" title="1 of 2 branches missed.">                if (this.payload.length &gt; 50) {</span>
+<span class="nc" id="L210">                    sb.append(&quot;...&quot;);</span>
+                }
+            }
+<span class="fc" id="L213">            return sb.toString();</span>
+        }
+    }
+
+    private void readPayload(InputStream in) throws IOException {
+<span class="fc" id="L218">        this.payload = new byte[this._payloadLength];</span>
+<span class="fc" id="L219">        int read = 0;</span>
+<span class="fc bfc" id="L220" title="All 2 branches covered.">        while (read &lt; this._payloadLength) {</span>
+<span class="fc" id="L221">            read += checkedRead(in.read(this.payload, read, this._payloadLength - read));</span>
+        }
+
+<span class="pc bpc" id="L224" title="1 of 2 branches missed.">        if (isMasked()) {</span>
+<span class="fc bfc" id="L225" title="All 2 branches covered.">            for (int i = 0; i &lt; this.payload.length; i++) {</span>
+<span class="fc" id="L226">                this.payload[i] ^= this.maskingKey[i % 4];</span>
+            }
+        }
+
+        // Test for Unicode errors
+<span class="fc bfc" id="L231" title="All 2 branches covered.">        if (getOpCode() == OpCode.Text) {</span>
+<span class="fc" id="L232">            this._payloadString = binary2Text(getBinaryPayload());</span>
+        }
+<span class="fc" id="L234">    }</span>
+
+    // --------------------------------ENCODING--------------------------------
+
+    private void readPayloadInfo(InputStream in) throws IOException {
+<span class="fc" id="L239">        byte b = (byte) checkedRead(in.read());</span>
+<span class="pc bpc" id="L240" title="1 of 2 branches missed.">        boolean masked = (b &amp; 0x80) != 0;</span>
+
+<span class="fc" id="L242">        this._payloadLength = (byte) (0x7F &amp; b);</span>
+<span class="fc bfc" id="L243" title="All 2 branches covered.">        if (this._payloadLength == 126) {</span>
+            // checkedRead must return int for this to work
+<span class="fc" id="L245">            this._payloadLength = (checkedRead(in.read()) &lt;&lt; 8 | checkedRead(in.read())) &amp; 0xFFFF;</span>
+<span class="pc bpc" id="L246" title="1 of 2 branches missed.">            if (this._payloadLength &lt; 126) {</span>
+<span class="nc" id="L247">                throw new WebSocketException(CloseCode.ProtocolError, &quot;Invalid data frame 2byte length. (not using minimal length encoding)&quot;);</span>
+            }
+<span class="pc bpc" id="L249" title="1 of 2 branches missed.">        } else if (this._payloadLength == 127) {</span>
+<span class="nc" id="L250">            long _payloadLength =</span>
+<span class="nc" id="L251">                    (long) checkedRead(in.read()) &lt;&lt; 56 | (long) checkedRead(in.read()) &lt;&lt; 48 | (long) checkedRead(in.read()) &lt;&lt; 40 | (long) checkedRead(in.read()) &lt;&lt; 32</span>
+<span class="nc" id="L252">                            | checkedRead(in.read()) &lt;&lt; 24 | checkedRead(in.read()) &lt;&lt; 16 | checkedRead(in.read()) &lt;&lt; 8 | checkedRead(in.read());</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">            if (_payloadLength &lt; 65536) {</span>
+<span class="nc" id="L254">                throw new WebSocketException(CloseCode.ProtocolError, &quot;Invalid data frame 4byte length. (not using minimal length encoding)&quot;);</span>
+            }
+<span class="nc bnc" id="L256" title="All 4 branches missed.">            if (_payloadLength &lt; 0 || _payloadLength &gt; Integer.MAX_VALUE) {</span>
+<span class="nc" id="L257">                throw new WebSocketException(CloseCode.MessageTooBig, &quot;Max frame length has been exceeded.&quot;);</span>
+            }
+<span class="nc" id="L259">            this._payloadLength = (int) _payloadLength;</span>
+        }
+
+<span class="fc bfc" id="L262" title="All 2 branches covered.">        if (this.opCode.isControlFrame()) {</span>
+<span class="pc bpc" id="L263" title="1 of 2 branches missed.">            if (this._payloadLength &gt; 125) {</span>
+<span class="nc" id="L264">                throw new WebSocketException(CloseCode.ProtocolError, &quot;Control frame with payload length &gt; 125 bytes.&quot;);</span>
+            }
+<span class="pc bpc" id="L266" title="2 of 4 branches missed.">            if (this.opCode == OpCode.Close &amp;&amp; this._payloadLength == 1) {</span>
+<span class="nc" id="L267">                throw new WebSocketException(CloseCode.ProtocolError, &quot;Received close frame with payload len 1.&quot;);</span>
+            }
+        }
+
+<span class="pc bpc" id="L271" title="1 of 2 branches missed.">        if (masked) {</span>
+<span class="fc" id="L272">            this.maskingKey = new byte[4];</span>
+<span class="fc" id="L273">            int read = 0;</span>
+<span class="fc bfc" id="L274" title="All 2 branches covered.">            while (read &lt; this.maskingKey.length) {</span>
+<span class="fc" id="L275">                read += checkedRead(in.read(this.maskingKey, read, this.maskingKey.length - read));</span>
+            }
+        }
+<span class="fc" id="L278">    }</span>
+
+    public void setBinaryPayload(byte[] payload) {
+<span class="fc" id="L281">        this.payload = payload;</span>
+<span class="fc" id="L282">        this._payloadLength = payload.length;</span>
+<span class="fc" id="L283">        this._payloadString = null;</span>
+<span class="fc" id="L284">    }</span>
+
+    public void setFin(boolean fin) {
+<span class="fc" id="L287">        this.fin = fin;</span>
+<span class="fc" id="L288">    }</span>
+
+    public void setMaskingKey(byte[] maskingKey) {
+<span class="fc bfc" id="L291" title="All 4 branches covered.">        if (maskingKey != null &amp;&amp; maskingKey.length != 4) {</span>
+<span class="fc" id="L292">            throw new IllegalArgumentException(&quot;MaskingKey &quot; + Arrays.toString(maskingKey) + &quot; hasn't length 4&quot;);</span>
+        }
+<span class="fc" id="L294">        this.maskingKey = maskingKey;</span>
+<span class="fc" id="L295">    }</span>
+
+    public void setOpCode(OpCode opcode) {
+<span class="fc" id="L298">        this.opCode = opcode;</span>
+<span class="fc" id="L299">    }</span>
+
+    public void setTextPayload(String payload) throws CharacterCodingException {
+<span class="nc" id="L302">        this.payload = text2Binary(payload);</span>
+<span class="nc" id="L303">        this._payloadLength = payload.length();</span>
+<span class="nc" id="L304">        this._payloadString = payload;</span>
+<span class="nc" id="L305">    }</span>
+
+    // --------------------------------CONSTANTS-------------------------------
+
+    public void setUnmasked() {
+<span class="fc" id="L310">        setMaskingKey(null);</span>
+<span class="fc" id="L311">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L315">        final StringBuilder sb = new StringBuilder(&quot;WS[&quot;);</span>
+<span class="fc" id="L316">        sb.append(getOpCode());</span>
+<span class="pc bpc" id="L317" title="1 of 2 branches missed.">        sb.append(&quot;, &quot;).append(isFin() ? &quot;fin&quot; : &quot;inter&quot;);</span>
+<span class="fc bfc" id="L318" title="All 2 branches covered.">        sb.append(&quot;, &quot;).append(isMasked() ? &quot;masked&quot; : &quot;unmasked&quot;);</span>
+<span class="fc" id="L319">        sb.append(&quot;, &quot;).append(payloadToString());</span>
+<span class="fc" id="L320">        sb.append(']');</span>
+<span class="fc" id="L321">        return sb.toString();</span>
+    }
+
+    // ------------------------------------------------------------------------
+
+    public void write(OutputStream out) throws IOException {
+<span class="fc" id="L327">        byte header = 0;</span>
+<span class="fc bfc" id="L328" title="All 2 branches covered.">        if (this.fin) {</span>
+<span class="fc" id="L329">            header |= 0x80;</span>
+        }
+<span class="fc" id="L331">        header |= this.opCode.getValue() &amp; 0x0F;</span>
+<span class="fc" id="L332">        out.write(header);</span>
+
+<span class="fc" id="L334">        this._payloadLength = getBinaryPayload().length;</span>
+<span class="fc bfc" id="L335" title="All 2 branches covered.">        if (this._payloadLength &lt;= 125) {</span>
+<span class="fc bfc" id="L336" title="All 2 branches covered.">            out.write(isMasked() ? 0x80 | (byte) this._payloadLength : (byte) this._payloadLength);</span>
+<span class="fc bfc" id="L337" title="All 2 branches covered.">        } else if (this._payloadLength &lt;= 0xFFFF) {</span>
+<span class="fc bfc" id="L338" title="All 2 branches covered.">            out.write(isMasked() ? 0xFE : 126);</span>
+<span class="fc" id="L339">            out.write(this._payloadLength &gt;&gt;&gt; 8);</span>
+<span class="fc" id="L340">            out.write(this._payloadLength);</span>
+        } else {
+<span class="pc bpc" id="L342" title="1 of 2 branches missed.">            out.write(isMasked() ? 0xFF : 127);</span>
+<span class="fc" id="L343">            out.write(this._payloadLength &gt;&gt;&gt; 56 &amp; 0); // integer only</span>
+                                                       // contains
+            // 31 bit
+<span class="fc" id="L346">            out.write(this._payloadLength &gt;&gt;&gt; 48 &amp; 0);</span>
+<span class="fc" id="L347">            out.write(this._payloadLength &gt;&gt;&gt; 40 &amp; 0);</span>
+<span class="fc" id="L348">            out.write(this._payloadLength &gt;&gt;&gt; 32 &amp; 0);</span>
+<span class="fc" id="L349">            out.write(this._payloadLength &gt;&gt;&gt; 24);</span>
+<span class="fc" id="L350">            out.write(this._payloadLength &gt;&gt;&gt; 16);</span>
+<span class="fc" id="L351">            out.write(this._payloadLength &gt;&gt;&gt; 8);</span>
+<span class="fc" id="L352">            out.write(this._payloadLength);</span>
+        }
+
+<span class="fc bfc" id="L355" title="All 2 branches covered.">        if (isMasked()) {</span>
+<span class="fc" id="L356">            out.write(this.maskingKey);</span>
+<span class="fc bfc" id="L357" title="All 2 branches covered.">            for (int i = 0; i &lt; this._payloadLength; i++) {</span>
+<span class="fc" id="L358">                out.write(getBinaryPayload()[i] ^ this.maskingKey[i % 4]);</span>
+            }
+        } else {
+<span class="fc" id="L361">            out.write(getBinaryPayload());</span>
+        }
+<span class="fc" id="L363">        out.flush();</span>
+<span class="fc" id="L364">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

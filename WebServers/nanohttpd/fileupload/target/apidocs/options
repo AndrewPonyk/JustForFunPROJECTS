@@ -1,0 +1,26 @@
+-classpath
+'/home/andrii/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar:/home/andrii/.m2/repository/commons-io/commons-io/2.2/commons-io-2.2.jar:/home/andrii/.m2/repository/commons-fileupload/commons-fileupload/1.3.1/commons-fileupload-1.3.1.jar:/home/andrii/git/JustForFunPROJECTS/WebServers/nanohttpd/core/target/nanohttpd-2.3.2-SNAPSHOT.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/home/andrii/git/JustForFunPROJECTS/WebServers/nanohttpd/fileupload/src/main/java:/home/andrii/git/JustForFunPROJECTS/WebServers/nanohttpd/fileupload/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2012&#x2013;2016 nanohttpd. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/andrii/git/JustForFunPROJECTS/WebServers/nanohttpd/fileupload/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'NanoHttpd-apache file upload integration 2.3.2-SNAPSHOT API'
+-linkoffline
+'http://docs.oracle.com/javase/6/docs/api' '/home/andrii/git/JustForFunPROJECTS/WebServers/nanohttpd/fileupload/target/javadoc-bundle-options'
+-linkoffline
+'http://www.nanohttpd.org/nanohttpd/apidocs' '/home/andrii/git/JustForFunPROJECTS/WebServers/nanohttpd/core/target/apidocs'
+-use
+-version
+-windowtitle
+'NanoHttpd-apache file upload integration 2.3.2-SNAPSHOT API'

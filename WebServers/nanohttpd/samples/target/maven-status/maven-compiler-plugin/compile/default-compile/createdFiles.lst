@@ -1,0 +1,6 @@
+org/nanohttpd/samples/tempfiles/TempFilesServer$1.class
+org/nanohttpd/samples/tempfiles/TempFilesServer$ExampleManager.class
+org/nanohttpd/samples/http/HelloServer.class
+org/nanohttpd/samples/tempfiles/TempFilesServer.class
+org/nanohttpd/samples/http/DebugServer.class
+org/nanohttpd/samples/tempfiles/TempFilesServer$ExampleManagerFactory.class

@@ -1,0 +1,22 @@
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/home/andrii/git/JustForFunPROJECTS/WebServers/nanohttpd/core/src/main/java:/home/andrii/git/JustForFunPROJECTS/WebServers/nanohttpd/core/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2012&#x2013;2016 nanohttpd. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/andrii/git/JustForFunPROJECTS/WebServers/nanohttpd/core/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'NanoHttpd-Core 2.3.2-SNAPSHOT API'
+-linkoffline
+'http://docs.oracle.com/javase/6/docs/api' '/home/andrii/git/JustForFunPROJECTS/WebServers/nanohttpd/core/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'NanoHttpd-Core 2.3.2-SNAPSHOT API'

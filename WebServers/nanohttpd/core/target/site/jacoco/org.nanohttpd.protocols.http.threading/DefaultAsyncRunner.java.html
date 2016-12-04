@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>DefaultAsyncRunner.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NanoHttpd-Core</a> &gt; <a href="index.source.html" class="el_package">org.nanohttpd.protocols.http.threading</a> &gt; <span class="el_source">DefaultAsyncRunner.java</span></div><h1>DefaultAsyncRunner.java</h1><pre class="source lang-java linenums">package org.nanohttpd.protocols.http.threading;
+
+/*
+ * #%L
+ * NanoHttpd-Core
+ * %%
+ * Copyright (C) 2012 - 2016 nanohttpd
+ * %%
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the nanohttpd nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * #L%
+ */
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.nanohttpd.protocols.http.ClientHandler;
+
+/**
+ * Default threading strategy for NanoHTTPD.
+ * &lt;p/&gt;
+ * &lt;p&gt;
+ * By default, the server spawns a new Thread for every incoming request. These
+ * are set to &lt;i&gt;daemon&lt;/i&gt; status, and named according to the request number.
+ * The name is useful when profiling the application.
+ * &lt;/p&gt;
+ */
+<span class="fc" id="L51">public class DefaultAsyncRunner implements IAsyncRunner {</span>
+
+    protected long requestCount;
+
+<span class="fc" id="L55">    private final List&lt;ClientHandler&gt; running = Collections.synchronizedList(new ArrayList&lt;ClientHandler&gt;());</span>
+
+    /**
+     * @return a list with currently running clients.
+     */
+    public List&lt;ClientHandler&gt; getRunning() {
+<span class="nc" id="L61">        return running;</span>
+    }
+
+    @Override
+    public void closeAll() {
+        // copy of the list for concurrency
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        for (ClientHandler clientHandler : new ArrayList&lt;ClientHandler&gt;(this.running)) {</span>
+<span class="fc" id="L68">            clientHandler.close();</span>
+<span class="fc" id="L69">        }</span>
+<span class="fc" id="L70">    }</span>
+
+    @Override
+    public void closed(ClientHandler clientHandler) {
+<span class="fc" id="L74">        this.running.remove(clientHandler);</span>
+<span class="fc" id="L75">    }</span>
+
+    @Override
+    public void exec(ClientHandler clientHandler) {
+<span class="fc" id="L79">        ++this.requestCount;</span>
+<span class="fc" id="L80">        this.running.add(clientHandler);</span>
+<span class="fc" id="L81">        createThread(clientHandler).start();</span>
+<span class="fc" id="L82">    }</span>
+
+    protected Thread createThread(ClientHandler clientHandler) {
+<span class="fc" id="L85">        Thread t = new Thread(clientHandler);</span>
+<span class="fc" id="L86">        t.setDaemon(true);</span>
+<span class="fc" id="L87">        t.setName(&quot;NanoHttpd Request Processor (#&quot; + this.requestCount + &quot;)&quot;);</span>
+<span class="fc" id="L88">        return t;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

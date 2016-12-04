@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ChunkedOutputStream.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NanoHttpd-Core</a> &gt; <a href="index.source.html" class="el_package">org.nanohttpd.protocols.http.response</a> &gt; <span class="el_source">ChunkedOutputStream.java</span></div><h1>ChunkedOutputStream.java</h1><pre class="source lang-java linenums">package org.nanohttpd.protocols.http.response;
+
+/*
+ * #%L
+ * NanoHttpd-Core
+ * %%
+ * Copyright (C) 2012 - 2016 nanohttpd
+ * %%
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the nanohttpd nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * #L%
+ */
+
+import java.io.FilterOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+/**
+ * Output stream that will automatically send every write to the wrapped
+ * OutputStream according to chunked transfer:
+ * http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.6.1
+ */
+public class ChunkedOutputStream extends FilterOutputStream {
+
+    public ChunkedOutputStream(OutputStream out) {
+<span class="fc" id="L48">        super(out);</span>
+<span class="fc" id="L49">    }</span>
+
+    @Override
+    public void write(int b) throws IOException {
+<span class="nc" id="L53">        byte[] data = {</span>
+            (byte) b
+        };
+<span class="nc" id="L56">        write(data, 0, 1);</span>
+<span class="nc" id="L57">    }</span>
+
+    @Override
+    public void write(byte[] b) throws IOException {
+<span class="fc" id="L61">        write(b, 0, b.length);</span>
+<span class="fc" id="L62">    }</span>
+
+    @Override
+    public void write(byte[] b, int off, int len) throws IOException {
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">        if (len == 0)</span>
+<span class="nc" id="L67">            return;</span>
+<span class="fc" id="L68">        out.write(String.format(&quot;%x\r\n&quot;, len).getBytes());</span>
+<span class="fc" id="L69">        out.write(b, off, len);</span>
+<span class="fc" id="L70">        out.write(&quot;\r\n&quot;.getBytes());</span>
+<span class="fc" id="L71">    }</span>
+
+    public void finish() throws IOException {
+<span class="fc" id="L74">        out.write(&quot;0\r\n\r\n&quot;.getBytes());</span>
+<span class="fc" id="L75">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>

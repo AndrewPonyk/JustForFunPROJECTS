@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Response.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">NanoHttpd-Core</a> &gt; <a href="index.source.html" class="el_package">org.nanohttpd.protocols.http.response</a> &gt; <span class="el_source">Response.java</span></div><h1>Response.java</h1><pre class="source lang-java linenums">package org.nanohttpd.protocols.http.response;
+
+/*
+ * #%L
+ * NanoHttpd-Core
+ * %%
+ * Copyright (C) 2012 - 2016 nanohttpd
+ * %%
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 
+ * 3. Neither the name of the nanohttpd nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * #L%
+ */
+
+import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetEncoder;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TimeZone;
+import java.util.logging.Level;
+import java.util.zip.GZIPOutputStream;
+
+import org.nanohttpd.protocols.http.NanoHTTPD;
+import org.nanohttpd.protocols.http.content.ContentType;
+import org.nanohttpd.protocols.http.request.Method;
+
+/**
+ * HTTP response. Return one of these from serve().
+ */
+public class Response implements Closeable {
+
+    /**
+     * HTTP status code after processing, e.g. &quot;200 OK&quot;, Status.OK
+     */
+    private IStatus status;
+
+    /**
+     * MIME type of content, e.g. &quot;text/html&quot;
+     */
+    private String mimeType;
+
+    /**
+     * Data of the response, may be null.
+     */
+    private InputStream data;
+
+    private long contentLength;
+
+    /**
+     * Headers for the HTTP response. Use addHeader() to add lines. the
+     * lowercase map is automatically kept up to date.
+     */
+<span class="fc" id="L89">    @SuppressWarnings(&quot;serial&quot;)</span>
+<span class="fc" id="L90">    private final Map&lt;String, String&gt; header = new HashMap&lt;String, String&gt;() {</span>
+
+        public String put(String key, String value) {
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">            lowerCaseHeader.put(key == null ? key : key.toLowerCase(), value);</span>
+<span class="fc" id="L94">            return super.put(key, value);</span>
+        };
+    };
+
+    /**
+     * copy of the header map with all the keys lowercase for faster searching.
+     */
+<span class="fc" id="L101">    private final Map&lt;String, String&gt; lowerCaseHeader = new HashMap&lt;String, String&gt;();</span>
+
+    /**
+     * The request method that spawned this response.
+     */
+    private Method requestMethod;
+
+    /**
+     * Use chunkedTransfer
+     */
+    private boolean chunkedTransfer;
+
+    private boolean encodeAsGzip;
+
+    private boolean keepAlive;
+
+    private List&lt;String&gt; cookieHeaders;
+
+    /**
+     * Creates a fixed length response if totalBytes&gt;=0, otherwise chunked.
+     */
+    @SuppressWarnings({
+        &quot;rawtypes&quot;,
+        &quot;unchecked&quot;
+    })
+<span class="fc" id="L126">    protected Response(IStatus status, String mimeType, InputStream data, long totalBytes) {</span>
+<span class="fc" id="L127">        this.status = status;</span>
+<span class="fc" id="L128">        this.mimeType = mimeType;</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">        if (data == null) {</span>
+<span class="fc" id="L130">            this.data = new ByteArrayInputStream(new byte[0]);</span>
+<span class="fc" id="L131">            this.contentLength = 0L;</span>
+        } else {
+<span class="fc" id="L133">            this.data = data;</span>
+<span class="fc" id="L134">            this.contentLength = totalBytes;</span>
+        }
+<span class="fc bfc" id="L136" title="All 2 branches covered.">        this.chunkedTransfer = this.contentLength &lt; 0;</span>
+<span class="fc" id="L137">        this.keepAlive = true;</span>
+<span class="fc" id="L138">        this.cookieHeaders = new ArrayList(10);</span>
+<span class="fc" id="L139">    }</span>
+
+    @Override
+    public void close() throws IOException {
+<span class="pc bpc" id="L143" title="1 of 2 branches missed.">        if (this.data != null) {</span>
+<span class="fc" id="L144">            this.data.close();</span>
+        }
+<span class="fc" id="L146">    }</span>
+
+    /**
+     * Adds a cookie header to the list. Should not be called manually, this is
+     * an internal utility.
+     */
+    public void addCookieHeader(String cookie) {
+<span class="fc" id="L153">        cookieHeaders.add(cookie);</span>
+<span class="fc" id="L154">    }</span>
+
+    /**
+     * Should not be called manually. This is an internally utility for JUnit
+     * test purposes.
+     * 
+     * @return All unloaded cookie headers.
+     */
+    public List&lt;String&gt; getCookieHeaders() {
+<span class="fc" id="L163">        return cookieHeaders;</span>
+    }
+
+    /**
+     * Adds given line to the header.
+     */
+    public void addHeader(String name, String value) {
+<span class="fc" id="L170">        this.header.put(name, value);</span>
+<span class="fc" id="L171">    }</span>
+
+    /**
+     * Indicate to close the connection after the Response has been sent.
+     * 
+     * @param close
+     *            {@code true} to hint connection closing, {@code false} to let
+     *            connection be closed by client.
+     */
+    public void closeConnection(boolean close) {
+<span class="nc bnc" id="L181" title="All 2 branches missed.">        if (close)</span>
+<span class="nc" id="L182">            this.header.put(&quot;connection&quot;, &quot;close&quot;);</span>
+        else
+<span class="nc" id="L184">            this.header.remove(&quot;connection&quot;);</span>
+<span class="nc" id="L185">    }</span>
+
+    /**
+     * @return {@code true} if connection is to be closed after this Response
+     *         has been sent.
+     */
+    public boolean isCloseConnection() {
+<span class="fc" id="L192">        return &quot;close&quot;.equals(getHeader(&quot;connection&quot;));</span>
+    }
+
+    public InputStream getData() {
+<span class="nc" id="L196">        return this.data;</span>
+    }
+
+    public String getHeader(String name) {
+<span class="fc" id="L200">        return this.lowerCaseHeader.get(name.toLowerCase());</span>
+    }
+
+    public String getMimeType() {
+<span class="fc" id="L204">        return this.mimeType;</span>
+    }
+
+    public Method getRequestMethod() {
+<span class="nc" id="L208">        return this.requestMethod;</span>
+    }
+
+    public IStatus getStatus() {
+<span class="nc" id="L212">        return this.status;</span>
+    }
+
+    public void setGzipEncoding(boolean encodeAsGzip) {
+<span class="fc" id="L216">        this.encodeAsGzip = encodeAsGzip;</span>
+<span class="fc" id="L217">    }</span>
+
+    public void setKeepAlive(boolean useKeepAlive) {
+<span class="fc" id="L220">        this.keepAlive = useKeepAlive;</span>
+<span class="fc" id="L221">    }</span>
+
+    /**
+     * Sends given response to the socket.
+     */
+    public void send(OutputStream outputStream) {
+<span class="fc" id="L227">        SimpleDateFormat gmtFrmt = new SimpleDateFormat(&quot;E, d MMM yyyy HH:mm:ss 'GMT'&quot;, Locale.US);</span>
+<span class="fc" id="L228">        gmtFrmt.setTimeZone(TimeZone.getTimeZone(&quot;GMT&quot;));</span>
+
+        try {
+<span class="pc bpc" id="L231" title="1 of 2 branches missed.">            if (this.status == null) {</span>
+<span class="nc" id="L232">                throw new Error(&quot;sendResponse(): Status can't be null.&quot;);</span>
+            }
+<span class="fc" id="L234">            PrintWriter pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream, new ContentType(this.mimeType).getEncoding())), false);</span>
+<span class="fc" id="L235">            pw.append(&quot;HTTP/1.1 &quot;).append(this.status.getDescription()).append(&quot; \r\n&quot;);</span>
+<span class="pc bpc" id="L236" title="1 of 2 branches missed.">            if (this.mimeType != null) {</span>
+<span class="fc" id="L237">                printHeader(pw, &quot;Content-Type&quot;, this.mimeType);</span>
+            }
+<span class="pc bpc" id="L239" title="1 of 2 branches missed.">            if (getHeader(&quot;date&quot;) == null) {</span>
+<span class="fc" id="L240">                printHeader(pw, &quot;Date&quot;, gmtFrmt.format(new Date()));</span>
+            }
+<span class="fc bfc" id="L242" title="All 2 branches covered.">            for (Entry&lt;String, String&gt; entry : this.header.entrySet()) {</span>
+<span class="fc" id="L243">                printHeader(pw, entry.getKey(), entry.getValue());</span>
+<span class="fc" id="L244">            }</span>
+<span class="fc bfc" id="L245" title="All 2 branches covered.">            for (String cookieHeader : this.cookieHeaders) {</span>
+<span class="fc" id="L246">                printHeader(pw, &quot;Set-Cookie&quot;, cookieHeader);</span>
+<span class="fc" id="L247">            }</span>
+<span class="pc bpc" id="L248" title="1 of 2 branches missed.">            if (getHeader(&quot;connection&quot;) == null) {</span>
+<span class="fc bfc" id="L249" title="All 2 branches covered.">                printHeader(pw, &quot;Connection&quot;, (this.keepAlive ? &quot;keep-alive&quot; : &quot;close&quot;));</span>
+            }
+<span class="fc bfc" id="L251" title="All 2 branches covered.">            if (getHeader(&quot;content-length&quot;) != null) {</span>
+<span class="fc" id="L252">                encodeAsGzip = false;</span>
+            }
+<span class="fc bfc" id="L254" title="All 2 branches covered.">            if (encodeAsGzip) {</span>
+<span class="fc" id="L255">                printHeader(pw, &quot;Content-Encoding&quot;, &quot;gzip&quot;);</span>
+<span class="fc" id="L256">                setChunkedTransfer(true);</span>
+            }
+<span class="pc bpc" id="L258" title="1 of 2 branches missed.">            long pending = this.data != null ? this.contentLength : 0;</span>
+<span class="fc bfc" id="L259" title="All 4 branches covered.">            if (this.requestMethod != Method.HEAD &amp;&amp; this.chunkedTransfer) {</span>
+<span class="fc" id="L260">                printHeader(pw, &quot;Transfer-Encoding&quot;, &quot;chunked&quot;);</span>
+<span class="pc bpc" id="L261" title="1 of 2 branches missed.">            } else if (!encodeAsGzip) {</span>
+<span class="fc" id="L262">                pending = sendContentLengthHeaderIfNotAlreadyPresent(pw, pending);</span>
+            }
+<span class="fc" id="L264">            pw.append(&quot;\r\n&quot;);</span>
+<span class="fc" id="L265">            pw.flush();</span>
+<span class="fc" id="L266">            sendBodyWithCorrectTransferAndEncoding(outputStream, pending);</span>
+<span class="fc" id="L267">            outputStream.flush();</span>
+<span class="fc" id="L268">            NanoHTTPD.safeClose(this.data);</span>
+<span class="fc" id="L269">        } catch (IOException ioe) {</span>
+<span class="fc" id="L270">            NanoHTTPD.LOG.log(Level.SEVERE, &quot;Could not send response to the client&quot;, ioe);</span>
+<span class="fc" id="L271">        }</span>
+<span class="fc" id="L272">    }</span>
+
+    @SuppressWarnings(&quot;static-method&quot;)
+    protected void printHeader(PrintWriter pw, String key, String value) {
+<span class="fc" id="L276">        pw.append(key).append(&quot;: &quot;).append(value).append(&quot;\r\n&quot;);</span>
+<span class="fc" id="L277">    }</span>
+
+    protected long sendContentLengthHeaderIfNotAlreadyPresent(PrintWriter pw, long defaultSize) {
+<span class="fc" id="L280">        String contentLengthString = getHeader(&quot;content-length&quot;);</span>
+<span class="fc" id="L281">        long size = defaultSize;</span>
+<span class="fc bfc" id="L282" title="All 2 branches covered.">        if (contentLengthString != null) {</span>
+            try {
+<span class="fc" id="L284">                size = Long.parseLong(contentLengthString);</span>
+<span class="nc" id="L285">            } catch (NumberFormatException ex) {</span>
+<span class="nc" id="L286">                NanoHTTPD.LOG.severe(&quot;content-length was no number &quot; + contentLengthString);</span>
+<span class="fc" id="L287">            }</span>
+        }
+<span class="fc" id="L289">        pw.print(&quot;Content-Length: &quot; + size + &quot;\r\n&quot;);</span>
+<span class="fc" id="L290">        return size;</span>
+    }
+
+    private void sendBodyWithCorrectTransferAndEncoding(OutputStream outputStream, long pending) throws IOException {
+<span class="fc bfc" id="L294" title="All 4 branches covered.">        if (this.requestMethod != Method.HEAD &amp;&amp; this.chunkedTransfer) {</span>
+<span class="fc" id="L295">            ChunkedOutputStream chunkedOutputStream = new ChunkedOutputStream(outputStream);</span>
+<span class="fc" id="L296">            sendBodyWithCorrectEncoding(chunkedOutputStream, -1);</span>
+<span class="fc" id="L297">            chunkedOutputStream.finish();</span>
+<span class="fc" id="L298">        } else {</span>
+<span class="fc" id="L299">            sendBodyWithCorrectEncoding(outputStream, pending);</span>
+        }
+<span class="fc" id="L301">    }</span>
+
+    private void sendBodyWithCorrectEncoding(OutputStream outputStream, long pending) throws IOException {
+<span class="fc bfc" id="L304" title="All 2 branches covered.">        if (encodeAsGzip) {</span>
+<span class="fc" id="L305">            GZIPOutputStream gzipOutputStream = new GZIPOutputStream(outputStream);</span>
+<span class="fc" id="L306">            sendBody(gzipOutputStream, -1);</span>
+<span class="fc" id="L307">            gzipOutputStream.finish();</span>
+<span class="fc" id="L308">        } else {</span>
+<span class="fc" id="L309">            sendBody(outputStream, pending);</span>
+        }
+<span class="fc" id="L311">    }</span>
+
+    /**
+     * Sends the body to the specified OutputStream. The pending parameter
+     * limits the maximum amounts of bytes sent unless it is -1, in which case
+     * everything is sent.
+     * 
+     * @param outputStream
+     *            the OutputStream to send data to
+     * @param pending
+     *            -1 to send everything, otherwise sets a max limit to the
+     *            number of bytes sent
+     * @throws IOException
+     *             if something goes wrong while sending the data.
+     */
+    private void sendBody(OutputStream outputStream, long pending) throws IOException {
+<span class="fc" id="L327">        long BUFFER_SIZE = 16 * 1024;</span>
+<span class="fc" id="L328">        byte[] buff = new byte[(int) BUFFER_SIZE];</span>
+<span class="fc bfc" id="L329" title="All 2 branches covered.">        boolean sendEverything = pending == -1;</span>
+<span class="fc bfc" id="L330" title="All 4 branches covered.">        while (pending &gt; 0 || sendEverything) {</span>
+<span class="fc bfc" id="L331" title="All 2 branches covered.">            long bytesToRead = sendEverything ? BUFFER_SIZE : Math.min(pending, BUFFER_SIZE);</span>
+<span class="fc" id="L332">            int read = this.data.read(buff, 0, (int) bytesToRead);</span>
+<span class="fc bfc" id="L333" title="All 2 branches covered.">            if (read &lt;= 0) {</span>
+<span class="fc" id="L334">                break;</span>
+            }
+            try {
+<span class="fc" id="L337">                outputStream.write(buff, 0, read);</span>
+<span class="fc" id="L338">            } catch (Exception e) {</span>
+<span class="pc bpc" id="L339" title="1 of 2 branches missed.">                if (this.data != null) {</span>
+<span class="fc" id="L340">                    this.data.close();</span>
+                }
+<span class="fc" id="L342">            }</span>
+<span class="fc bfc" id="L343" title="All 2 branches covered.">            if (!sendEverything) {</span>
+<span class="fc" id="L344">                pending -= read;</span>
+            }
+<span class="fc" id="L346">        }</span>
+<span class="fc" id="L347">    }</span>
+
+    public void setChunkedTransfer(boolean chunkedTransfer) {
+<span class="fc" id="L350">        this.chunkedTransfer = chunkedTransfer;</span>
+<span class="fc" id="L351">    }</span>
+
+    public void setData(InputStream data) {
+<span class="nc" id="L354">        this.data = data;</span>
+<span class="nc" id="L355">    }</span>
+
+    public void setMimeType(String mimeType) {
+<span class="nc" id="L358">        this.mimeType = mimeType;</span>
+<span class="nc" id="L359">    }</span>
+
+    public void setRequestMethod(Method requestMethod) {
+<span class="fc" id="L362">        this.requestMethod = requestMethod;</span>
+<span class="fc" id="L363">    }</span>
+
+    public void setStatus(IStatus status) {
+<span class="nc" id="L366">        this.status = status;</span>
+<span class="nc" id="L367">    }</span>
+
+    /**
+     * Create a response with unknown length (using HTTP 1.1 chunking).
+     */
+    public static Response newChunkedResponse(IStatus status, String mimeType, InputStream data) {
+<span class="fc" id="L373">        return new Response(status, mimeType, data, -1);</span>
+    }
+
+    public static Response newFixedLengthResponse(IStatus status, String mimeType, byte[] data) {
+<span class="nc" id="L377">        return newFixedLengthResponse(status, mimeType, new ByteArrayInputStream(data), data.length);</span>
+    }
+
+    /**
+     * Create a response with known length.
+     */
+    public static Response newFixedLengthResponse(IStatus status, String mimeType, InputStream data, long totalBytes) {
+<span class="fc" id="L384">        return new Response(status, mimeType, data, totalBytes);</span>
+    }
+
+    /**
+     * Create a text response with known length.
+     */
+    public static Response newFixedLengthResponse(IStatus status, String mimeType, String txt) {
+<span class="fc" id="L391">        ContentType contentType = new ContentType(mimeType);</span>
+<span class="fc bfc" id="L392" title="All 2 branches covered.">        if (txt == null) {</span>
+<span class="fc" id="L393">            return newFixedLengthResponse(status, mimeType, new ByteArrayInputStream(new byte[0]), 0);</span>
+        } else {
+            byte[] bytes;
+            try {
+<span class="fc" id="L397">                CharsetEncoder newEncoder = Charset.forName(contentType.getEncoding()).newEncoder();</span>
+<span class="fc bfc" id="L398" title="All 2 branches covered.">                if (!newEncoder.canEncode(txt)) {</span>
+<span class="fc" id="L399">                    contentType = contentType.tryUTF8();</span>
+                }
+<span class="fc" id="L401">                bytes = txt.getBytes(contentType.getEncoding());</span>
+<span class="nc" id="L402">            } catch (UnsupportedEncodingException e) {</span>
+<span class="nc" id="L403">                NanoHTTPD.LOG.log(Level.SEVERE, &quot;encoding problem, responding nothing&quot;, e);</span>
+<span class="nc" id="L404">                bytes = new byte[0];</span>
+<span class="fc" id="L405">            }</span>
+<span class="fc" id="L406">            return newFixedLengthResponse(status, contentType.getContentTypeHeader(), new ByteArrayInputStream(bytes), bytes.length);</span>
+        }
+    }
+
+    /**
+     * Create a text response with known length.
+     */
+    public static Response newFixedLengthResponse(String msg) {
+<span class="fc" id="L414">        return newFixedLengthResponse(Status.OK, NanoHTTPD.MIME_HTML, msg);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.4.201502262128</span></div></body></html>
