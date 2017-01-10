@@ -650,6 +650,7 @@ public class Catalina {
 
         long t1 = System.nanoTime();
 
+	log.warn("CUSTOM BUILD OF TOMCAT.");
         // Start the new server
         try {
             getServer().start();

@@ -161,9 +161,9 @@
       <category id="0_3_2" name="BitsManipulation" nofquestions="0" nofsubcategories="0" filename="bitsmanipulation0_3_2.xml" />
     </category>
   </class>
-  <class id="1" name="Programming" nofquestions="584" nofsubcategories="8">
-    <category id="1_0" name="Java" nofquestions="542" nofsubcategories="4">
-      <category id="1_0_0" name="Java CORE" nofquestions="291" nofsubcategories="14">
+  <class id="1" name="Programming" nofquestions="587" nofsubcategories="8">
+    <category id="1_0" name="Java" nofquestions="545" nofsubcategories="4">
+      <category id="1_0_0" name="Java CORE" nofquestions="294" nofsubcategories="14">
         <category id="1_0_0_0" name="BasicSyntax(Types,Arrays,Strings,Dates,Flow,OOP)" nofquestions="89" nofsubcategories="1">
           <category id="1_0_0_0_0" name="CoreSyntax_SJSP6_R.Raposa" nofquestions="89" nofsubcategories="0" filename="coresyntax_sjsp6_r.raposa1_0_0_0_0.xml" />
         </category>
@@ -173,14 +173,14 @@
         <category id="1_0_0_2" name="Generics" nofquestions="25" nofsubcategories="1">
           <category id="1_0_0_2_0" name="Generics_LearningJava4thEdition" nofquestions="25" nofsubcategories="0" filename="generics_learningjava4thedition1_0_0_2_0.xml" />
         </category>
-        <category id="1_0_0_3" name="Multithreading" nofquestions="50" nofsubcategories="4">
+        <category id="1_0_0_3" name="Multithreading" nofquestions="53" nofsubcategories="4">
           <category id="1_0_0_3_0" name="Multhithreading_LearningJava4thEdition" nofquestions="31" nofsubcategories="0" filename="multhithreading_learningjava4thedition1_0_0_3_0.xml" />
           <category id="1_0_0_3_1" name="TestsFromSpecification" nofquestions="5" nofsubcategories="0" filename="testsfromspecification1_0_0_3_1.xml" />
           <category id="1_0_0_3_2" name="Udemy_JavaMultithreading_15VideosFree" nofquestions="14" nofsubcategories="1">
             <category id="1_0_0_3_2_0" name="Udemy15VideosQuestions" nofquestions="14" nofsubcategories="0" filename="udemy15videosquestions1_0_0_3_2_0.xml" />
           </category>
-          <category id="1_0_0_3_3" name="Udemy_Java_Simulations_and_Multithread" nofquestions="0" nofsubcategories="4">
-            <category id="1_0_0_3_3_0" name="Part2_BasicConcurrency" nofquestions="0" nofsubcategories="0" filename="part2_basicconcurrency1_0_0_3_3_0.xml" />
+          <category id="1_0_0_3_3" name="Udemy_Java_Simulations_and_Multithread" nofquestions="3" nofsubcategories="4">
+            <category id="1_0_0_3_3_0" name="Part2_BasicConcurrency" nofquestions="3" nofsubcategories="0" filename="part2_basicconcurrency1_0_0_3_3_0.xml" />
             <category id="1_0_0_3_3_1" name="Part3_ConcurrentObjectsandCollections" nofquestions="0" nofsubcategories="0" filename="part3_concurrentobjectsandcollections1_0_0_3_3_1.xml" />
             <category id="1_0_0_3_3_2" name="Part4_5_DiningPhilosof_and_StudentsLibrary_problems" nofquestions="0" nofsubcategories="0" filename="part4_5_diningphilosof_and_studentslibrary_problems1_0_0_3_3_2.xml" />
             <category id="1_0_0_3_3_3" name="Part_6_7_MinesWeeperGui_and_ConwaysGameOfLife" nofquestions="0" nofsubcategories="0" filename="part_6_7_minesweepergui_and_conwaysgameoflife1_0_0_3_3_3.xml" />
@@ -258,7 +258,7 @@
         </category>
         <category id="1_0_0_14" name="ArticlesVideosETC" nofquestions="0" nofsubcategories="0" />
       </category>
-      <category id="1_0_1" name="Java EE" nofquestions="251" nofsubcategories="18">
+      <category id="1_0_1" name="Java EE" nofquestions="251" nofsubcategories="19">
         <category id="1_0_1_0" name="Java EE JNDI" nofquestions="0" nofsubcategories="0" filename="javaeejndi.xml" />
         <category id="1_0_1_1" name="And+MAVEN" nofquestions="24" nofsubcategories="4">
           <category id="1_0_1_1_0" name="Ant" nofquestions="0" nofsubcategories="0" filename="ant.xml" />
@@ -490,6 +490,12 @@
           <category id="1_0_1_16_0" name="Pluralsight_WebSockets" nofquestions="0" nofsubcategories="0" />
         </category>
         <category id="1_0_1_17" name="ArticlesVideos" nofquestions="0" nofsubcategories="0" />
+        <category id="1_0_1_18" name="JEE" nofquestions="0" nofsubcategories="1">
+          <category id="1_0_1_18_0" name="5VideoSeries" nofquestions="0" nofsubcategories="2">
+            <category id="1_0_1_18_0_0" name="JEEEclipse_5videos" nofquestions="0" nofsubcategories="0" filename="jeeeclipse_5videos1_0_1_18_0_0.xml" />
+            <category id="1_0_1_18_0_1" name="JEENetbeans_5Videos" nofquestions="0" nofsubcategories="0" filename="jeenetbeans_5videos1_0_1_18_0_1.xml" />
+          </category>
+        </category>
       </category>
       <category id="1_0_2" name="Android" nofquestions="0" nofsubcategories="0" />
       <category id="1_0_3" name="Other_Resources" nofquestions="0" nofsubcategories="1">
