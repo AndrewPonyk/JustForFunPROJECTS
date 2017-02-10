@@ -5,12 +5,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 
 public class RutrackerPagesWithoutDowload {
@@ -117,7 +115,8 @@ public class RutrackerPagesWithoutDowload {
     public static List<TorrentItem> retrieveAndPrintTorrents(String url, int count, String ... containsConditions){
         System.out.println("Rutracker pages retriewer");
 
-        WebDriver driver = new HtmlUnitDriver();
+        //WebDriver driver = new HtmlUnitDriver();
+        WebDriver driver = null;
         int page = 1, counter = 1, offset = 0;
         List<String> items = new ArrayList<String>();
         List<TorrentItem> result = new ArrayList<TorrentItem>();
