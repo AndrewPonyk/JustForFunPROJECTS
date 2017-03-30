@@ -29,7 +29,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="WebUtilsUsingSelenium" target="1.5" />
+      <module name="WebUtilsUsingSelenium" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
