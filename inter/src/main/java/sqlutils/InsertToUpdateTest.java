@@ -17,5 +17,10 @@ public class InsertToUpdateTest {
         assertEquals(expectedSql, InsertToUpdateApp.convertInsertToUpdate(sql, "WINDOW_ID"));
     }
 
+    @Test
+    public void testConvertFromInsertToUpdateWith2Conditions(){
+        assertEquals(expectedSql, InsertToUpdateApp.convertInsertToUpdate(sql, "WINDOW_ID,WINDOW_NAME"));
+    }
+
 
 }
