@@ -498,7 +498,7 @@
         </category>
       </category>
       <category id="1_0_2" name="Android" nofquestions="0" nofsubcategories="0" />
-      <category id="1_0_3" name="Other_Resources" nofquestions="0" nofsubcategories="1">
+      <category id="1_0_3" name="Other_Resources" nofquestions="0" nofsubcategories="2">
         <category id="1_0_3_0" name="Conferences" nofquestions="0" nofsubcategories="1">
           <category id="1_0_3_0_0" name="JavaOne" nofquestions="0" nofsubcategories="4">
             <category id="1_0_3_0_0_0" name="2012" nofquestions="0" nofsubcategories="0" />
@@ -506,6 +506,32 @@
             <category id="1_0_3_0_0_2" name="2014" nofquestions="0" nofsubcategories="0" />
             <category id="1_0_3_0_0_3" name="2015" nofquestions="0" nofsubcategories="0" />
           </category>
+        </category>
+        <category id="1_0_3_1" name="VIRTUALpairProgrammers" nofquestions="0" nofsubcategories="1">
+          <category id="1_0_3_1_0" name="1JavaFundamentals" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_1" name="2JavaAdvanced" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_2" name="3JavaBuildTools" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_3" name="3JavaWebDevelopment" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_4" name="4JavaEEandWildFlyModule1" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_5" name="5JavaEEandWildFlyModule2_Webservices" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_6" name="6JavaEEandWildFlyModule3_Messaging" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_7" name="7HibernateandJPAVirtualPairProgrammers" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_8" name="8SpringFrameworkFundamentals-virtualpairprogrammers" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_9" name="9SpringJavaConfig" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_10" name="10SpringMVCandWebFlow-Virtualpairprogrammers" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_11" name="11SpringBoot-VirtualProgrammers" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_12" name="12SpringBootMicroservices-Virtualpairprogrammers" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_13" name="13SpringSecurityModule1CoreConcepts" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_14" name="14SpringSecurityModule2OAuth2andREST" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_15" name="15SpringSecurityModule3-ssoldap" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_16" name="16TestDrivenDevelopment-virtualpairprogrammers" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_17" name="17SpringRemotingandWebservices-virtualpairprogrammers" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_18" name="18HTML5andResponsiveCSSforDevelopers" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_19" name="19CloudDeploymentwithAWS" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_20" name="20HadoopforJavaDevelopers" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_21" name="21NoSQLDatabases-virtualpairprogrammers" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_22" name="JavaEEMessagingwithJMSandMDB" nofquestions="0" nofsubcategories="0" />
+          <category id="1_0_3_1_23" name="JavaEE_oldJee6" nofquestions="0" nofsubcategories="0" />
         </category>
       </category>
     </category>
