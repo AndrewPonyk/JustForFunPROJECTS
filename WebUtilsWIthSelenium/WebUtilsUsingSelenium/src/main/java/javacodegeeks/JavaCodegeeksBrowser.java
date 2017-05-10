@@ -26,15 +26,15 @@ public class JavaCodegeeksBrowser {
     //static WebDriver driver =   new FirefoxDriver(); // works only for selenium 3.0.0 !!!!
     static WebDriver driver =   new HtmlUnitDriver();
     static String url = "https://www.javacodegeeks.com/page/";
-
+    static String examplesUrl = "https://examples.javacodegeeks.com/page/";
 
     public static void readArticleTitles(){
         WebElement closePopup;
         final AtomicInteger counter = new AtomicInteger(1);
 
-        for(int i = 947;i>0;i--){
+        for(int i = 240;i>0;i--){
             System.out.println("------Page: " + i);
-            driver.get(url+ i);
+            driver.get(examplesUrl+ i);
             try{
                 closePopup = driver.findElement(By.className("snp-close-link"));
                 if(closePopup != null){
