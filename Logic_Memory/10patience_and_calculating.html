@@ -115,7 +115,7 @@
 		var interval = setInterval(function() {
 			$("#timer").text(--time);
 			if (time <= 0) {
-				$("#timer").text("Time finish");
+				$("#timer").text("Time is over");
 				clearInterval(interval);
 				NumbersSum.startNewAttempt();
 				NumbersSum.timeSpent = NumbersSum.timeSpent + 20;

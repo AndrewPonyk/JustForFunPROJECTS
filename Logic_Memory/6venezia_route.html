@@ -3,6 +3,7 @@
 <title>Logic-Memory</title>
 <link rel="stylesheet" href="styles/style.css" type="text/css" />
 <script type="text/javascript" src="scripts/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="scripts/utils.js"></script>
 <script type="text/javascript">
     $(function(){
         VeneziaRoute.clean();
@@ -15,18 +16,135 @@
     });
 
     var VeneziaRoute = {};
-    VeneziaRoute.clean = function(){
 
+    VeneziaRoute.cells = [];
+
+    VeneziaRoute.routePlace = null;
+
+    VeneziaRoute.clean = function(){
+        if(this.routePlace){
+            this.routePlace.empty();
+        }
     };
 
     VeneziaRoute.start = function(){
-
+        this.clean();
+        this.width = $("#rectangle_width").val();
+        this.height = $("#rectangle_height").val();
+        this.routeLength = $("#route_length").val();
+        this.routePlace = $("#route_place");
+        this.timerForRemembering = $("#time_to_remember").val();
+        this.generateTableAndRoute();
+        this.generateRandomPath();
+        this.startTimer();
     };
 
     VeneziaRoute.checkResult = function(){
 
     }
 
+    VeneziaRoute.generateTableAndRoute = function (){
+        for(var i=0;i<this.height;i++){
+            this.cells[i] = [];
+            var row = $("<tr></tr>")
+            for(var j=0;j<this.width; j++){
+                this.cells[i][j] = $("<td></td>");
+                //this.cells[i][j].css("background-color", this.getRandomColor())
+                row.append(this.cells[i][j]);
+            }
+            this.routePlace.append(row);
+        }
+    }
+    VeneziaRoute.getRandomColor = function() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    VeneziaRoute.generateRandomPath = function () {
+        var totalCells = this.height*this.width;
+        var startPoint = random(totalCells);
+        var startPointX = startPoint % this.height;
+        var startPointY = Math.floor(startPoint/this.height);
+        var counter = 1;
+        console.log(startPointX + ";" + startPointY);
+        this.cells[startPointX][startPointY].text(counter)
+        this.cells[startPointX][startPointY].css("background-color", "red");
+        this.cells[startPointX][startPointY].attr("data-routePosition", counter++);
+
+        var nextX = startPointX,
+                nextY = startPointY;
+        while (counter <= this.routeLength) {
+
+            var nextPositionFinded = false;
+            while(!nextPositionFinded){
+                var direction = random(4);
+                switch (direction){
+                    case  0:
+                        if(nextX - 1 >= 0 && !this.cells[nextX-1][nextY].attr("data-routePosition")){
+                            nextX--;
+                            nextPositionFinded = true;
+                        }
+                        break;
+                    case  1:
+                        if (nextY - 1 >= 0 && !this.cells[nextX][nextY-1].attr("data-routePosition")){
+                            nextY--;
+                            nextPositionFinded = true;
+                        }
+                        break;
+                    case  2:
+                        if(nextX + 1 < this.width && !this.cells[nextX+1][nextY].attr("data-routePosition")){
+                            nextX++
+                            nextPositionFinded = true;
+                        }
+                        break;
+                    case  3:
+                        if(nextY+1 <= this.height &&  !this.cells[nextX][nextY+1].attr("data-routePosition")){
+                            nextY ++;
+                            nextPositionFinded = true;
+                        }
+                        break;
+                }
+
+            }
+
+            this.cells[nextX][nextY].text(counter);
+            this.cells[nextX][nextY].css("background-color", "red");
+            this.cells[nextX][nextY].attr("data-routePosition", counter++);
+        }
+
+    };
+
+    VeneziaRoute.startTimer = function() {
+        $("#timer").show();
+        var time = this.timerForRemembering;
+        clearInterval(this.currentTimer);
+        $("#timer").text(time);
+
+        this.currentTimer = VeneziaRoute.currentTimer = setInterval(function() {
+
+            $("#timer").text(--time);
+
+            if (time <= 0) {
+                $("#timer").text("Time is over");
+                VeneziaRoute.startUserAnswer();
+                clearInterval(VeneziaRoute.currentTimer);
+            }
+        }, 1000);
+
+    };
+
+    VeneziaRoute.startUserAnswer = function() {
+        for (var i = 0; i < this.cells.length; i++){
+            for(var j = 0; j < this.cells[i].length; j++){
+                this.cells[i][j].css("background-color", "#fff");
+                this.cells[i][j].text("");
+            }
+        }
+    }
 
 </script>
 <style type="text/css">
@@ -38,8 +156,8 @@
     td {
         border: 1px solid black;
         display: inline-block;
-        height: 30px;
-        width: 30px;
+        height: 25px;
+        width: 25px;
     }
     
     .table_containter{
@@ -51,41 +169,44 @@
 </head>
 <body>
 <a href="index.html">Back to main</a>
+<div id="timer">0</div>
 <span class="title">Venezia route</span>
 <div id="settings">
     <span class="section_title">Settings:</span>
     <div>
         <span>Rectangle width</span>
-        <select id="rectangle_width">
+        <select disabled id="rectangle_width">
             <option value="7">7</option>
             <option value="8">8</option>
             <option value="9">9</option>
             <option value="10">10</option>
             <option value="11">11</option>
-            <option value="12">12</option>
+            <option value="12" selected>12</option>
             <option value="13">13</option>
         </select>
         <span>Rectangle height</span>
-        <select id="rectangle_height"  >
+        <select disabled id="rectangle_height"  >
             <option value="7">7</option>
             <option value="8">8</option>
             <option value="9">9</option>
             <option value="10">10</option>
             <option value="11">11</option>
-            <option value="12">12</option>
+            <option value="12" selected>12</option>
             <option value="13">13</option>
         </select>
         <span>Route length</span>
-        <select id="route_length">
+        <select disabled id="route_length">
             <option value="7">7</option>
             <option value="7">7</option>
             <option value="8">8</option>
             <option value="9">9</option>
-            <option value="10">10</option>
+            <option value="10" selected>10</option>
             <option value="11">11</option>
             <option value="12">12</option>
             <option value="13">13</option>
         </select>
+        <span>Time to remember</span>
+        <input type="text" value="9" id="time_to_remember" disabled>
     </div>
     <div id="controls_div">
         <button id="route_start">Start</button>
@@ -96,19 +217,9 @@
 <h3 style="display: none;">Best result: n/a</h3>
 
     <div class="table_containter">
-	    <table>
-	        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+	    <table id="route_place">
 	    </table>
     </div>
-
 
 </body>
 </html>
