@@ -745,9 +745,9 @@
       <category id="2_15_9" name="FemModelling" nofquestions="0" nofsubcategories="0" />
     </category>
   </class>
-  <class id="3" name="Operating.Systems" nofquestions="3" nofsubcategories="2">
+  <class id="3" name="Operating.Systems" nofquestions="4" nofsubcategories="2">
     <category id="3_0" name="Windows" nofquestions="0" nofsubcategories="0" />
-    <category id="3_1" name="Linux" nofquestions="3" nofsubcategories="4">
+    <category id="3_1" name="Linux" nofquestions="4" nofsubcategories="4">
       <category id="3_1_0" name="LinuxCore" nofquestions="0" nofsubcategories="0" />
       <category id="3_1_1" name="Ubuntu" nofquestions="1" nofsubcategories="5">
         <category id="3_1_1_0" name="QuestionsWhichHelpsMeDuringInstallationAndConfiguration" nofquestions="1" nofsubcategories="0" filename="questionswhichhelpsmeduringinstallationandconfiguration3_1_1_0.xml" />
@@ -762,7 +762,7 @@
         <category id="3_1_2_2" name="nmap" nofquestions="0" nofsubcategories="0" filename="nmap3_1_2_2.xml" />
         <category id="3_1_2_3" name="ShellTextEditors" nofquestions="0" nofsubcategories="0" />
       </category>
-      <category id="3_1_3" name="Linux_Other_Tutorials" nofquestions="2" nofsubcategories="0" filename="linux_other_tutorials3_1_3.xml" />
+      <category id="3_1_3" name="Linux_Other_Tutorials" nofquestions="3" nofsubcategories="0" filename="linux_other_tutorials3_1_3.xml" />
     </category>
   </class>
   <class id="4" name="Languages" nofquestions="1" nofsubcategories="3">

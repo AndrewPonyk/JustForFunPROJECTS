@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questions id="3_1_3" name="Linux_Other_Tutorials" nofquestions="2" nofsubcategories="0" filename="linux_other_tutorials3_1_3.xml">
+<questions id="3_1_3" name="Linux_Other_Tutorials" nofquestions="3" nofsubcategories="0" filename="linux_other_tutorials3_1_3.xml">
   <question id="3_1_3:0" type="2">
     <questiontext>&lt;br&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;What&amp;nbsp;is&amp;nbsp;the&amp;nbsp;difference&amp;nbsp;between&amp;nbsp;yum,&amp;nbsp;apt-get,&amp;nbsp;rpm,&amp;nbsp;./configure&amp;nbsp;&amp;amp;&amp;amp;&amp;nbsp;make&amp;nbsp;&lt;br&gt;
@@ -71,5 +71,25 @@ After&amp;nbsp;next&amp;nbsp;steps&amp;nbsp;:&amp;nbsp;&lt;br&gt;
 -&amp;nbsp;in&amp;nbsp;command&amp;nbsp;line&amp;nbsp;:&amp;nbsp;&amp;nbsp;chmod&amp;nbsp;700&amp;nbsp;script.js&lt;br&gt;
 &lt;br&gt;
 You&amp;nbsp;can&amp;nbsp;now&amp;nbsp;run&amp;nbsp;nodejs&amp;nbsp;app&amp;nbsp;by&amp;nbsp;type&amp;nbsp;:&amp;nbsp;'./script.js'</questionanswer>
+  </question>
+  <question id="3_1_3:2" type="2">
+    <questiontext>&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;I&amp;nbsp;had&amp;nbsp;a&amp;nbsp;problem,&amp;nbsp;I&amp;nbsp;was&amp;nbsp;not&amp;nbsp;able&amp;nbsp;to&amp;nbsp;start&amp;nbsp;terminal&amp;nbsp;('Open&amp;nbsp;terminal'&amp;nbsp;rc&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;didn't&amp;nbsp;work,&amp;nbsp;alt+f2&amp;nbsp;and&amp;nbsp;then&amp;nbsp;type&amp;nbsp;'gnome-terminal'&amp;nbsp;fails).&lt;br&gt;
+In&amp;nbsp;logs&amp;nbsp;I&amp;nbsp;found&lt;br&gt;
+'Gtk-WARNING&amp;nbsp;**:&amp;nbsp;Locale&amp;nbsp;not&amp;nbsp;supported&amp;nbsp;by&amp;nbsp;C&amp;nbsp;library.&amp;nbsp;Using&amp;nbsp;the&amp;nbsp;fallback&amp;nbsp;'C'&amp;nbsp;&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;locale.'&lt;br&gt;
+Resolution&amp;nbsp;in&amp;nbsp;ANSWER.&lt;br&gt;
+&amp;nbsp;&amp;nbsp;</questiontext>
+    <questionanswer>first:&lt;br&gt;
+&lt;br&gt;
+sudo&amp;nbsp;apt-get&amp;nbsp;purge&amp;nbsp;locales&lt;br&gt;
+then:&lt;br&gt;
+&lt;br&gt;
+sudo&amp;nbsp;apt-get&amp;nbsp;install&amp;nbsp;locales&lt;br&gt;
+and&amp;nbsp;the&amp;nbsp;famous:&lt;br&gt;
+&lt;br&gt;
+sudo&amp;nbsp;dpkg-reconfigure&amp;nbsp;locales&lt;br&gt;
+This&amp;nbsp;rids&amp;nbsp;the&amp;nbsp;system&amp;nbsp;of&amp;nbsp;locales,&amp;nbsp;then&amp;nbsp;re-installs&amp;nbsp;locales&amp;nbsp;and&amp;nbsp;downgrades&amp;nbsp;libc6&amp;nbsp;from&amp;nbsp;2.19&amp;nbsp;to&amp;nbsp;2.13&amp;nbsp;which&amp;nbsp;is&amp;nbsp;the&amp;nbsp;issue.&amp;nbsp;Then&amp;nbsp;configures&amp;nbsp;locales&amp;nbsp;again.</questionanswer>
   </question>
 </questions>
