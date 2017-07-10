@@ -1,205 +1,142 @@
 <html>
 <head>
-<title>Numbers Sum</title>
-<link rel="stylesheet" href="styles/style.css" type="text/css" />
-<script type="text/javascript" src="scripts/jquery-1.6.min.js"></script>
-<script type="text/javascript">
-	$(function(){
-		NumbersSum.clean();
-		$("#numbers_start").click(function(){
-			NumbersSum.start();
-			NumbersSum.generateRandomsAndDraw($("#numbers_count").val(), $("#digits_in_number_select").val(),
-				$("#round_numbers_checkbox").is(":checked"));
-			$("#submit_result_button").click(function(){
-				NumbersSum.checkResult();
-			});
-		});
-	});
-	
-	var NumbersSum = {};
-	
-	NumbersSum.correctSum = 0;
-	
-	NumbersSum.roundsCompleted = 0;
-	
-	NumbersSum.timeSpent = 0;
-	
-	NumbersSum.currentTimer = null;
-	
-	NumbersSum.clean = function(){
-		$("#settings").show();
-		$("#numbers_area").hide();
-		$("#user_input").hide();
-		$("#final_results").hide();
-		$("#timer").hide();
-	};
-	
-	NumbersSum.start = function(){
-		$("#settings").hide();
-		$("#numbers_area").show();
-		$("#user_input").show();
-		$("#timer").show();
-		NumbersSum.startTimer(20);
-	};
-	
-	NumbersSum.startNewAttempt = function() {
-		if( this.roundsCompleted < 2 ){ // 3 attemps
-			$("#answer_correct").text("");
-			this.startTimer(20);
-			this.generateRandomsAndDraw($("#numbers_count").val(), $(
-					"#digits_in_number_select").val(), $("#round_numbers_checkbox")
-					.is(":checked"));
-			/*$("#submit_result_button").click(function() {
-				this.checkResult();
-			});*/
-		}else{
-			console.log("finita : " + this.timeSpent);
-			this.finishAndShowFinalResult();
-		}
-	}
+    <title>Patience and calculating</title>
+    <link rel="stylesheet" href="styles/style.css" type="text/css"/>
+    <script type="text/javascript" src="scripts/jquery-1.6.min.js"></script>
+    <script type="text/javascript" src="scripts/utils.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            PatienceCalc.clean();
+            $("#numbers_start").click(function () {
+                PatienceCalc.start();
+                $("#submit_result_button").click(function () {
+                    PatienceCalc.checkResult();
+                });
+            });
+        });
 
-	NumbersSum.generateRandomsAndDraw = function(count, digits, round) {
-		var result = [], max = (digits == 2) ? 100 : 1000, sumOfRandoms = 0;
+        var PatienceCalc = {};
 
-		for (i = 0; i < count; i++) {
-			number = 0;
-			var number = Math.floor(Math.random() * (max + 1));
+        PatienceCalc.numberArray = [];
 
-			if (round) {
-				number = number - number % 5;
-			}
-			result.push(number);
-			sumOfRandoms += number;
-		}
+        PatienceCalc.arraySum = 0;
 
-		this.correctSum = sumOfRandoms;
-		this.drawRandoms(result);
-	};
+        PatienceCalc.maxNumer = 0;
 
-	NumbersSum.drawRandoms = function(randoms) {
-		var numberCanvas = $("#number_canvas");
-		numberCanvas.text("");
+        PatienceCalc.interval = 0;
 
-		for (i = 0; i < randoms.length; i++) {
-			randomX = Math.floor(Math.random() * (400 + 1));
-			randomY = Math.floor(Math.random() * (400 + 1));
-			//console.log(randoms[i]);
+        PatienceCalc.gameTime = 0;
 
-			numberElement = $('<span>');
-			numberElement.text(randoms[i]);
-			numberElement.css("position", "absolute");
-			numberElement.css("top", randomX + "px");
-			numberElement.css("left", randomY + "px");
+        PatienceCalc.currentTimer = null;
 
-			numberCanvas.append(numberElement);
-		}
-	};
+        PatienceCalc.currentNumberTimer = null;
 
-	NumbersSum.checkResult = function() {
-		if (this.correctSum == $("#user_sum_input").val()) {
-			this.timeSpent = this.timeSpent + ( 20 - $("#timer").text() );
-			console.log(":");
-			console.log( $("#timer").text() );
-			
-			this.showAttemtsResultLabel(true);
-			this.startNewAttempt();
-			this.roundsCompleted++;
-			
-		} else {
-			this.showAttemtsResultLabel(false);
-		}
-	};
+        PatienceCalc.clean = function () {
+            $("#settings").show();
+            $("#numbers_area").hide();
+            $("#user_answer").hide();
+            $("#final_results").hide();
+            $("#timer").hide();
+        };
 
-	NumbersSum.startTimer = function(time) {
-		clearInterval(this.currentTimer);
-		var interval = setInterval(function() {
-			$("#timer").text(--time);
-			if (time <= 0) {
-				$("#timer").text("Time is over");
-				clearInterval(interval);
-				NumbersSum.startNewAttempt();
-				NumbersSum.timeSpent = NumbersSum.timeSpent + 20;
-			}
-		}, 1000);
-		
-		this.currentTimer = interval;
-	}
+        PatienceCalc.start = function () {
+            $("#settings").hide();
+            $("#numbers_area").show();
+            $("#user_answer").show();
+            $("#timer").show();
+            PatienceCalc.init();
+            PatienceCalc.startShowingNumbers();
+            PatienceCalc.startTimer(this.gameTime);
+        };
 
-	NumbersSum.showAttemtsResultLabel = function(value) {
-		if (value) {
-			//correct
-			$("#answer_correct").text("correct");
-			$("#answer_correct").css("color","green");
-		} else {
-			//incorrect
-			$("#answer_correct").text("incorrect");
-			$("#answer_correct").css("color","red");
-		}
-	}
-	
-	NumbersSum.finishAndShowFinalResult = function(){
-		$("#final_results").show();
-		$("#final_results").append (this.timeSpent);
-		
-		$("#settings").hide();
-		$("#numbers_area").hide();
-		$("#user_input").hide();
-		$("#timer").hide();
-		
-		console.log( "Time spent" + this.timeSpent);
-		
-	}
-</script>
+        PatienceCalc.init = function () {
+            this.gameTime = $("#time_for_patience").val();
+            this.maxNumer = $("#max_number").val();
+            this.interval = $("#interval_between_numbers").val();
+        }
+
+        PatienceCalc.checkResult = function () {
+            if ($("#user_answer_input").val() == this.arraySum) {
+                alert("Correct!!!");
+            } else {
+                alert("WROONG");
+            }
+            ;
+        }
+
+        PatienceCalc.startShowingNumbers = function () {
+            var self = this;
+            this.currentNumberTimer = setInterval(function () {
+                var number = random(self.maxNumer);
+                self.numberArray.push(number);
+                $("#numbers_area").toggleClass("grey-elem")
+                $("#numbers_area").text(number + "");
+            }, this.interval * 1000);
+        }
+
+        PatienceCalc.startTimer = function (time) {
+            clearInterval(this.currentTimer);
+            var self = this;
+            var interval = setInterval(function () {
+                $("#timer").text(--time);
+                if (time <= 0) {
+                    $("#timer").text("Time is over, SUBMIT answer");
+                    clearInterval(interval);
+                    clearInterval(self.currentNumberTimer);
+                    self.arraySum = sumArray(self.numberArray);
+                }
+            }, 1000);
+
+            this.currentTimer = interval;
+        }
+
+        PatienceCalc.finishAndShowFinalResult = function () {
+            $("#final_results").show();
+
+            $("#settings").hide();
+            $("#numbers_area").hide();
+            $("#user_input").hide();
+            $("#timer").hide();
+
+        }
+    </script>
 </head>
 <body>
-	<a href="index.html">Back to main</a>
-	<span class="title">Sum of numbers</span>
-	
-	<div id="timer">
-		20
-	</div>
-	
-	<div id="settings" >
-		<span class="section_title">Settings:</span>
-		<div>
-			<span>Digits in Number</span>
-			<select id="digits_in_number_select">
-				<option value="2">2</option>
-				<option value="3">3</option>
-			</select>
-		</div>
-		<div>
-			<span>Round numbers : </span>
-			<input  type="checkbox" id="round_numbers_checkbox" checked="checked"/>
-		</div>
-		<div>
-			<span >Numbers count</span>
-			<input id="numbers_count"  value="6" />
-		</div>
-		<div>
-			<span>Time for one attempt</span>
-			<input type="text" value="20" disabled="disabled" />
-		</div>
-		<div id="controls_div">
-			<button id="numbers_start">Start</button>
-		</div>
-	</div>
-	
-	<div id="user_input">
-		<span>Type sum:</span>
-		<input  id="user_sum_input"/>
-		<button id="submit_result_button">Sumbit answer</button>
-		<label id="answer_correct"></label>
-	</div>
-	
-	<div id="numbers_area">
-		<span>Sum these Numbers:</span>
-		<div id="number_canvas">
-		</div>
-	</div>
-	
-	<div id="final_results">
-		<span>Your result:</span>
-	</div>
+<a href="index.html">Back to main</a>
+<span class="title">Sum of numbers</span>
+
+<div id="timer">
+    600
+</div>
+
+<div id="settings">
+    <span class="section_title">Settings:</span>
+    <div>
+        <span>Time (in seconds)</span>
+        <input type="text" id="time_for_patience" value="600">
+    </div>
+    <div>
+        <span>Max number </span>
+        <input type="text" id="max_number" value="15">
+    </div>
+    <div>
+        <span>Interval </span>
+        <input type="text" id="interval_between_numbers" value="10">
+    </div>
+
+    <div id="controls_div">
+        <button id="numbers_start">Start</button>
+    </div>
+</div>
+
+<div id="numbers_area">
+    ___
+</div>
+
+<div id="user_answer">
+    <input type="text" id="user_answer_input">
+    <button id="submit_result_button">Submit answer</button>
+</div>
+
 </body>
 </html>

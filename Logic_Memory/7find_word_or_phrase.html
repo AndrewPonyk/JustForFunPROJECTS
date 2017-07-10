@@ -74,7 +74,6 @@
                 if (i == this.correctIndexInDiv /*|| wordsMas[randomItem]==correctWord*/) {
                     $("#textContainer").append("<span class='correct'>{0} </span>".format(this.correctPhrase.join(" ")));
                     console.log("added : " + this.correctPhrase.join(" "));
-
                 } else {
                     $("#textContainer").append("<span class='word'>{0} </span>".format(this.wordsMas[randomItem]));
                 }
@@ -146,7 +145,7 @@
     </div>
     <div>
         <span>Words in big text </span>
-        <input id="words_count" value="3000">
+        <input id="words_count" value="700">
     </div>
     <div id="controls_div">
         <button id="numbers_start">Start</button>

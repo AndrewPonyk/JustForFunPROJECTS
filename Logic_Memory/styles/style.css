@@ -89,6 +89,13 @@ a:hover{
 	border: 1px solid #999;
 }
 
+#numbers_area{
+	max-width: 850px;
+	margin : 10px auto;
+	border: 1px solid #999;
+}
+
+
 .word_item{
 	background-color: #6fa;
 	margin: 5px;
@@ -141,4 +148,8 @@ a:hover{
 
 #show_correct_order{
 	display: block;
+}
+
+.grey-elem {
+	background: #bbb;
 }

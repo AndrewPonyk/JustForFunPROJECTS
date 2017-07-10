@@ -21,6 +21,8 @@
 
     VeneziaRoute.routePlace = null;
 
+    VeneziaRoute.currentStep = null;
+
     VeneziaRoute.clean = function(){
         if(this.routePlace){
             this.routePlace.empty();
@@ -102,7 +104,7 @@
                         }
                         break;
                     case  3:
-                        if(nextY+1 <= this.height &&  !this.cells[nextX][nextY+1].attr("data-routePosition")){
+                        if(nextY+1 < this.height &&  !this.cells[nextX][nextY+1].attr("data-routePosition")){
                             nextY ++;
                             nextPositionFinded = true;
                         }
@@ -114,6 +116,7 @@
             this.cells[nextX][nextY].text(counter);
             this.cells[nextX][nextY].css("background-color", "red");
             this.cells[nextX][nextY].attr("data-routePosition", counter++);
+
         }
 
     };
@@ -144,6 +147,30 @@
                 this.cells[i][j].text("");
             }
         }
+        var self = this;
+        $("#route_place td").click(function(){
+
+            var attr = $(this).attr("data-routeposition");
+            if(attr == "1" && self.currentStep == null){
+               $(this).text(attr);
+                self.currentStep = 1;
+                return;
+            } else if(attr-1 == self.currentStep){
+                self.currentStep++;
+                $(this).text(attr);
+                return;
+            } else {
+                alert("WRONG")
+                $("td[data-routeposition]").css("background","red")
+            }
+
+
+
+            if(self.currentStep == self.routeLength){
+                alert("Correct!!!");
+            }
+
+        });
     }
 
 </script>
@@ -195,13 +222,13 @@
             <option value="13">13</option>
         </select>
         <span>Route length</span>
-        <select disabled id="route_length">
+        <select id="route_length">
             <option value="7">7</option>
             <option value="7">7</option>
             <option value="8">8</option>
             <option value="9">9</option>
-            <option value="10" selected>10</option>
-            <option value="11">11</option>
+            <option value="10">10</option>
+            <option value="11" selected>11</option>
             <option value="12">12</option>
             <option value="13">13</option>
         </select>
