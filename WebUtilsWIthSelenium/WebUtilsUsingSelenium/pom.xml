@@ -20,11 +20,14 @@
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
+
+		<!--Dont forget to set gecko driver property for selenium3-->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>2.53.0</version> <!-- For firefox only 3.0.0 works !!!!!!! -->
+			<version>3.4.0</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-htmlunit-driver</artifactId>
@@ -46,5 +49,10 @@
 			<version>2.4</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.5.10</version>
+		</dependency>
 	</dependencies>
 </project>

@@ -10,42 +10,36 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class PacktBooksListProgram {
 
-	public static void main(String[] args) {
-		new PacktBooksListProgram().runApp();
-		System.out.println(new Date().toString());
-	}
+    public static void main(String[] args) {
+        new PacktBooksListProgram().runApp();
+        System.out.println(new Date().toString());
+    }
 
-	public void runApp() {
-		System.out.println("Listing of all packt books");
-		int bookCounter = 1;
-		int offsetCounter = 0;
-		String url = "https://www.packtpub.com/all?search=&type_list%5Bbooks%5D=books&offset= + "
-				+ 0 + "&rows=48&sort=ss_cck_field_date_of_publication+desc";
+    public void runApp() {
+        System.out.println("Listing of all packt books");
+        int bookCounter = 1;
+        int offsetCounter = 0;
+        String url;
+        WebDriver driver = new FirefoxDriver();
 
-		WebDriver driver = new FirefoxDriver();
+        for (int i = 1; i <= 103; i++) {
 
-		for (int i = 1; i <= 79; i++) {
+            System.out.println("Page " + i + "===============================================");
+            url = "https://www.packtpub.com/all?search=&offset=" +
+                    +offsetCounter
+                    + "&rows=48&sort=ss_cck_field_date_of_publication+desc"; // BOOKS AND VIDEO
 
-			System.out.println("Page " + i + "===============================================");
-//			url = "https://www.packtpub.com/all?search=&type_list%5Bbooks%5D=books&offset="
-//					+ offsetCounter
-//					+ "&rows=48&sort=ss_cck_field_date_of_publication+desc"; // ONLY BOOKS
+            driver.get(url);
+            System.out.println(url);
+            List<WebElement> books = driver.findElements(By.cssSelector(".book-block"));
 
-			url = "https://www.packtpub.com/all?search=&offset="+
-					+ offsetCounter
-			+ "&rows=48&sort=ss_cck_field_date_of_publication+desc"; // BOOKS AND VIDEO
-
-			driver.get(url);
-			System.out.println(url);
-			List<WebElement> books = driver
-					.findElements(By
-							.cssSelector(".book-block-outer .book-block-outer .book-block-title"));
-
-			for (WebElement item : books) {
-				System.out.println(bookCounter + ") " + item.getText());
-				bookCounter++;
-			}
-			offsetCounter += 48;
-		}
-	}
+            for (WebElement item : books) {
+                WebElement titleElement = item.findElement(By.cssSelector(".book-block-title"));
+                WebElement bookLink = item.findElement(By.cssSelector("a"));
+                System.out.println(bookCounter + ") " + titleElement.getText() + " ::" + bookLink.getAttribute("href"));
+                bookCounter++;
+            }
+            offsetCounter += 48;
+        }
+    }
 }

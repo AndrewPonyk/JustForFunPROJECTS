@@ -1,0 +1,9 @@
+302) Learning Elasticsearch ::https://www.packtpub.com/big-data-and-business-intelligence/learning-elasticsearch
+303) Frank Kane's Taming Big Data with Apache Spark and Python ::https://www.packtpub.com/big-data-and-business-intelligence/frank-kanes-taming-big-data-apache-spark-and-python
+304) Practical Game AI Programming ::https://www.packtpub.com/game-development/practical-game-ai-programming
+305) Android Things Projects ::https://www.packtpub.com/hardware-and-creative/android-things-projects
+306) QlikView for Developers ::https://www.packtpub.com/big-data-and-business-intelligence/qlikview-developers
+307) Game Audio Development with Unity 5.X ::https://www.packtpub.com/game-development/game-audio-development-unity-5x
+308) Daniel Arbuckle's Mastering Python ::https://www.packtpub.com/application-development/daniel-arbuckle-mastering-python
+309) Python for Finance - Second Edition ::https://www.packtpub.com/big-data-and-business-intelligence/python-finance-second-edition
+310) SQL Server 2017 Integration Services Cookbook ::https://www.packtpub.com/big-data-and-business-intelligence/sql-server-2017-integration-services-cookbook
