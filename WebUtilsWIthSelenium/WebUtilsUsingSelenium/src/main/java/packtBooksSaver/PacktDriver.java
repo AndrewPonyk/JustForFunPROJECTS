@@ -44,6 +44,11 @@ public class PacktDriver {
         setAttribute(loginElements.get(1), "value", "andrew9999@ukr.net");
         setAttribute(passwordElements.get(1), "value", "Zz123456");
         packtWebDriver.findElements(By.cssSelector("#edit-submit-1")).get(1).click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void saveBook(String url) {
