@@ -9,10 +9,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.sql.Date;
+import java.util.*;
 
 public class BetRepoJdbc implements BetRepo {
     @Override
@@ -32,6 +30,9 @@ public class BetRepoJdbc implements BetRepo {
             System.err.println("EMPTY betItems!!!!!!");
             return;
         }
+        java.util.Date yesterday = new java.util.Date();
+        Long within24H = yesterday.getTime() - (24*60*60*1000L);
+
         try {
             Connection connection = ConnectionFactory.getConnection();
 
@@ -55,6 +56,7 @@ public class BetRepoJdbc implements BetRepo {
                 BetItem item = new BetItem(rs.getString("TITLE"), rs.getString("SPORT"),
                         JsonMapper.mapper.readValue(rs.getString("RESULTS"), new TypeReference<LinkedList<MomentResult>>() {
                         }), rs.getString("STAGE"));
+                item.setDate(rs.getDate("DATE"));
                 existingBets.put(item.getTitle() + item.getSport(), item);
             }
             PreparedStatement insertPs = connection.prepareStatement("INSERT INTO BET_HISTORY (TITLE, SPORT, RESULTS, DATE, STAGE)" +
@@ -66,7 +68,9 @@ public class BetRepoJdbc implements BetRepo {
             );
 
             for (BetItem item : betItems) {
-                if (!existingBets.containsKey(item.getTitle() + item.getSport())) {
+                if (!existingBets.containsKey(item.getTitle() + item.getSport()) ||
+                        (existingBets.containsKey(item.getTitle() + item.getSport()) &&
+                                existingBets.get(item.getTitle() + item.getSport()).getDate().getTime()<within24H )) {
                     String stage = item.getStage();
                     if (item.getResults().size() > 0 && item.getResults().getLast().getCoef1() < 1.05) {
                         System.out.println("set player1:1" + item.getResults().getLast().getCoef1());
@@ -78,7 +82,7 @@ public class BetRepoJdbc implements BetRepo {
                     insertPs.setString(1, item.getTitle().replaceAll("'", ""));
                     insertPs.setString(2, item.getSport());
                     insertPs.setString(3, JsonMapper.mapper.writeValueAsString(item.getResults()));
-                    insertPs.setDate(4, Date.valueOf(item.getDate()));
+                    insertPs.setDate(4, new Date(Calendar.getInstance().getTime().getTime()));
                     insertPs.setString(5, stage);
                     insertPs.addBatch();
                     System.out.println("Insert: " + item.getTitle() );
@@ -86,7 +90,15 @@ public class BetRepoJdbc implements BetRepo {
 
                     BetItem existingItem = existingBets.get(item.getTitle() + item.getSport());
                     LinkedList<MomentResult> existingResults = existingItem.getResults();
-                    existingResults.addAll(item.getResults());
+
+                    if(!existingResults.isEmpty() && !item.getResults().isEmpty()){
+                        if(!existingResults.getLast().equals(item.getResults().getFirst())){
+                            existingResults.addAll(item.getResults());
+                        }
+                    } else {
+                        existingResults.addAll(item.getResults());
+                    }
+
 
                     String stage = existingItem.getStage();
                     //zero stage

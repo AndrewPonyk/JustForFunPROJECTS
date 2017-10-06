@@ -14,4 +14,5 @@ public class Constants {
 
     public static final Double BET_BASE = 5.0;
     public static final Double MIN_BET = 3.0;
+    public static final Double WIN_COEF_FLAG = 0.6; // max bet equals BET_BASE+BET_BASE*WIN_COEF_FLAG
 }
