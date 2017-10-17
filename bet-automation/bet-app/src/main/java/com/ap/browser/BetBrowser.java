@@ -57,7 +57,7 @@ public class BetBrowser {
             }
 
             try {
-                Thread.sleep(16500);
+                Thread.sleep(13000);
             } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }
@@ -128,7 +128,7 @@ public class BetBrowser {
             try {
                 //List<WebElement> betRows = driver.findElements(By.cssSelector("#inplay table.dt"));
                 List<WebElement> betRows = driver.findElements(By.xpath("//div[@id='inplay']//table[contains(@class,'dt') and contains(normalize-space(),'" +
-                        stage3Item.getTitle().substring(0,3) +
+                        stage3Item.getTitle().substring(0,5) +
                         "')]"));
 
                 System.out.println(":::" + betRows.size());
@@ -161,7 +161,7 @@ public class BetBrowser {
 
                         driver.switchTo().window(subWindowHandler); // switch to popup window
                         System.out.println("SUBWINDOW:" + driver.getCurrentUrl());
-                        Thread.sleep(1000);
+                        Thread.sleep(500);
                         System.out.println("-----------------------------------------------------------");
                         WebElement sumElement = driver.findElement(By.cssSelector("input[name=sums]"));
                         WebElement currBalanceElement = driver.findElement(By.cssSelector("#ownerInfo td b"));
@@ -188,7 +188,7 @@ public class BetBrowser {
                                 !driver.getPageSource().contains("have been changed")) {
                             stage3Item.setStage(stage3Item.getStage() + "ERROR");
                         }else {
-                            Thread.sleep(200);
+                            Thread.sleep(100);
                             if(ValidationUtils.checkCoef(driver)){
                                 driver.findElement(By.cssSelector(".btn_orange")).click();
                                 // looks like click waits until bet is done, but for sure I added this sleep

@@ -35,7 +35,7 @@ public class ValidationUtils {
                 changeCoefText = changeCoefText.replaceAll("\".$", "");
                 Double changedCoef = Double.valueOf(changeCoefText);
                 System.err.println("Coef in new MESSAGE " + changedCoef);
-                if (changedCoef > Constants.THIRD_STAGE_COEF) {
+                if (changedCoef > Constants.FIFTH_STAGE_COEF) {
                     return false;
                 } else {
                     return true;
@@ -46,7 +46,7 @@ public class ValidationUtils {
             Double coef = Double.valueOf(coefElement.getText());
             System.err.println("COEF in TABLE " + coef);
 
-            if (coef > Constants.THIRD_STAGE_COEF) {
+            if (coef > Constants.FIFTH_STAGE_COEF) {
                 return false;
             }
 
