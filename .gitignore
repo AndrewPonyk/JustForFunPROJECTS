@@ -2,3 +2,5 @@
 /Croodle/build/
 lib
 .idea/
+/*.iml
+/target
