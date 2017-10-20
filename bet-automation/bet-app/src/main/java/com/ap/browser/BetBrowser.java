@@ -9,13 +9,15 @@ import com.ap.utils.RegexUtils;
 import com.ap.utils.ValidationUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -55,7 +57,7 @@ public class BetBrowser {
             }
 
             try {
-                Thread.sleep(21000);
+                Thread.sleep(13000);
             } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }
@@ -64,33 +66,27 @@ public class BetBrowser {
 
     private void parseAndSaveBets() {
         try {
+            RegexUtils.currentTime = LocalDateTime.now();
             String betTable = driver.findElements(By.cssSelector("#inplay")).get(0).getAttribute("outerHTML");
             System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
-            System.out.println(betTable);
             Document betTableElement = Jsoup.parse(betTable);
-            betTableElement.select("#inplay table.dt");
+            Elements betRows = betTableElement.select("#inplay table.dt");
             System.out.println("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
 
-            List<WebElement> betRows = driver.findElements(By.cssSelector("#inplay table.dt"));
             LinkedList<BetItem> betItems = new LinkedList<>();
-
             final AtomicInteger countSkip = new AtomicInteger(0);
             betRows.forEach(row -> {
                 try {
-                    //WebElement parent = (WebElement) ((JavascriptExecutor) driver).executeScript(
-                    //        "return arguments[0].parentNode.parentNode.parentNode;", row);
-                    //WebElement sport = parent.findElement(By.cssSelector("p.sport"));
-                    WebElement win1Element = row.findElement(By.cssSelector("tr td:nth-child(3)"));
-                    WebElement win2Element = row.findElement(By.cssSelector("tr td:nth-child(5)"));
-
-                    //if (ValidationUtils.validateSport(sport.getText())) {
-                        String betText = row.getAttribute("innerHTML");
+                    Element win1Element = row.select("tr td:nth-child(3)").first();
+                    Element win2Element = row.select("tr td:nth-child(5)").first();
+                    String sport = row.parent().parent().parent().select("p.sport").first().text();
+                    if (ValidationUtils.validateSport(sport)) {
+                        String betText = row.html();
                         if(!betText.toLowerCase().contains("corners")){
-                            betItems.add(RegexUtils.parseBetItem("nosport"/*sport.getText()*/, betText,
-                                    win1Element.getText(), win2Element.getText()));
+                            betItems.add(RegexUtils.parseBetItem(sport, betText,
+                                    win1Element.text(), win2Element.text()));
                         }
-                    //}
-
+                    }
 
                 } catch (Exception wrondInvisibleRow) {
                     //this slow down app, so comment
@@ -107,18 +103,18 @@ public class BetBrowser {
             });
             System.out.println(betItemsString);
             betRepo.saveUpdateItems(betItems);
-
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
     private BetItem checkAndBet() {
+        BetItem stage3Item = null;
         List<BetItem> stage3Items = betRepo.getStage5Items();
         System.out.println("Try to find sssssssssssssssssssssssssssstage 333333");
         if (!stage3Items.isEmpty()) {
             String parentWindowHandler="";
-            BetItem stage3Item = stage3Items.get(0);
+            stage3Item = stage3Items.get(0);
             System.out.println("FOUND STAGE 3" + stage3Item.getTitle());
             goToLivePage();
             login();
@@ -130,16 +126,24 @@ public class BetBrowser {
             }
 
             try {
-                List<WebElement> betRows = driver.findElements(By.cssSelector("#inplay table.dt"));
+                //List<WebElement> betRows = driver.findElements(By.cssSelector("#inplay table.dt"));
+                List<WebElement> betRows = driver.findElements(By.xpath("//div[@id='inplay']//table[contains(@class,'dt') and contains(normalize-space(),'" +
+                        stage3Item.getTitle().substring(0,5) +
+                        "')]"));
+
                 System.out.println(":::" + betRows.size());
+                if(betRows.isEmpty()){
+                    throw new Exception("Bet is not present anymore");
+                }
+
                 for (WebElement row : betRows) {
-                    String rowText = row.getText().replace("<small>", "").replace("</small>", "");
+                    String rowText = row.getText().replace("<small>", "").replace("</small>", "").replaceAll("'", "");
                     if (rowText.contains(stage3Item.getTitle())) {
 
                         WebElement winElement = playerInStage3 == 1 ? row.findElement(By.cssSelector("tr td:nth-child(3)")) :
                                 row.findElement(By.cssSelector("tr td:nth-child(5)"));
                         winElement.click();
-                        Thread.sleep(500);
+                        Thread.sleep(100);
                         driver.findElement(By.cssSelector(".btn_orange")).click();
 
                         parentWindowHandler = driver.getWindowHandle();
@@ -157,7 +161,7 @@ public class BetBrowser {
 
                         driver.switchTo().window(subWindowHandler); // switch to popup window
                         System.out.println("SUBWINDOW:" + driver.getCurrentUrl());
-                        Thread.sleep(1000);
+                        Thread.sleep(500);
                         System.out.println("-----------------------------------------------------------");
                         WebElement sumElement = driver.findElement(By.cssSelector("input[name=sums]"));
                         WebElement currBalanceElement = driver.findElement(By.cssSelector("#ownerInfo td b"));
@@ -165,21 +169,34 @@ public class BetBrowser {
 
                         if( currBalance < Constants.MIN_BET ){
                             stage3Item.setStage(stage3Item.getStage() + Constants.ERROR_STATUS + "No_enough_money");
+                            return stage3Item;
                         }
-                        Double betSum = Constants.BET_BASE + currBalance%Constants.BET_BASE;
+                        //old way
+                        //Double betSum = Constants.BET_BASE + currBalance%Constants.BET_BASE;
+                        Double betSum = 0d;
+                        if(currBalance % Constants.BET_BASE < (Constants.BET_BASE*Constants.WIN_COEF_FLAG)){
+                            betSum = Constants.BET_BASE + currBalance % Constants.BET_BASE;
+                        }else {
+                            betSum = currBalance % (Constants.BET_BASE*Constants.WIN_COEF_FLAG) + Constants.BET_BASE;
+                        }
+                        if(betSum > currBalance){
+                            betSum = currBalance;
+                        }
 
                         BetDomUtils.setAttribute(driver, sumElement, "value", "" + betSum);
                         if (driver.getPageSource().contains("Errors list") &&
                                 !driver.getPageSource().contains("have been changed")) {
                             stage3Item.setStage(stage3Item.getStage() + "ERROR");
                         }else {
-                            Thread.sleep(200);
+                            Thread.sleep(100);
                             if(ValidationUtils.checkCoef(driver)){
                                 driver.findElement(By.cssSelector(".btn_orange")).click();
                                 // looks like click waits until bet is done, but for sure I added this sleep
                                 Thread.sleep(3000);
                             } else {
-                                stage3Item.setStage(stage3Item.getStage() + Constants.ERROR_STATUS + "COEFFF");
+                                // if coef is 5, and while betting it has changed (to 1.3 for example, we set stage:4 back)
+                                //stage3Item.setStage(stage3Item.getStage() + Constants.ERROR_STATUS + "COEFFF");
+                                stage3Item.setStage(stage3Item.getStage().replace("5","4"));
                             }
 
 
@@ -191,6 +208,7 @@ public class BetBrowser {
                         }
                         return stage3Item;
                     }
+                    stage3Item.setStage(stage3Item.getStage()+"ERROR203Line");
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -205,12 +223,14 @@ public class BetBrowser {
                 }
             }
         }
-        return null;
+        return stage3Item;
     }
 
     private void goToLivePage() {
         try {
-            driver.get("https://www.parimatch.com/en/live.html");
+            //if(!driver.getCurrentUrl().contains("live.html")){
+                driver.get("https://www.parimatch.com/en/live.html");
+            //}
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -234,8 +254,8 @@ public class BetBrowser {
             WebElement passwordInput = driver.findElement(By.cssSelector("input[name='passwd']"));
             WebElement okButton = driver.findElement(By.cssSelector(".btn_orange.ok"));
 
-            BetDomUtils.setAttribute(driver, loginInput, "value", "");
-            BetDomUtils.setAttribute(driver, passwordInput, "value", "");
+            BetDomUtils.setAttribute(driver, loginInput, "value", "andrew9999@ukr.net");
+            BetDomUtils.setAttribute(driver, passwordInput, "value", "Aa123456");
             okButton.click();
         } catch (Exception e) {
             System.out.println("Error with find login inputs");

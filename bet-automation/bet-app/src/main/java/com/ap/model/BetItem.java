@@ -1,8 +1,7 @@
 package com.ap.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.LinkedList;
-import java.util.List;
 
 public class BetItem {
     private Integer id;
@@ -10,7 +9,8 @@ public class BetItem {
     private String sport;
     private LinkedList<MomentResult> results;
     private String stage; // 0,1,2,3
-    private LocalDate date;
+
+    private Date date;
     private Integer finalWinner;
 
 
@@ -21,7 +21,6 @@ public class BetItem {
         this.title = title;
         this.sport = sport;
         this.results = results;
-        this.date = LocalDate.now();
         this.stage = stage;
     }
 
@@ -81,11 +80,11 @@ public class BetItem {
         this.stage = stage;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
