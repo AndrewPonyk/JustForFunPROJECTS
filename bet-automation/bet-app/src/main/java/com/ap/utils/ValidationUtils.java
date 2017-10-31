@@ -7,16 +7,20 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ValidationUtils {
     public static Boolean validateSport(String text) {
-        text = text.toLowerCase();
-        if (text.contains("table")) {
-            return false;
+//        text = text.toLowerCase();
+//        if (text.contains("table")) {
+//            return false;
+//        }
+//
+//        if (text.contains("baseball")) {
+//            return false;
+//        }
+
+        if(Constants.SPORTS.contains(text)){
+            return true;
         }
 
-        if (text.contains("baseball")) {
-            return false;
-        }
-
-        return true;
+        return false;
     }
 
     public static void main(String[] args) {

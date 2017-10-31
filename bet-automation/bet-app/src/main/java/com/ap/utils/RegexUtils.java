@@ -4,7 +4,6 @@ import com.ap.model.BetItem;
 import com.ap.model.MomentResult;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -22,6 +21,7 @@ public class RegexUtils {
         String title = matcher.group(1);
 
         System.out.println(matcher.group(1));
+
     }
 
     public static BetItem parseBetItem(String sport, String content, String coef1, String coef2) throws Exception {
@@ -38,14 +38,18 @@ public class RegexUtils {
         if(matcher.groupCount() > 1){
             String currentScore = matcher.group(2);
 
-            if(coef1.trim().isEmpty() || coef2.trim().isEmpty()){
-                throw new Exception("No coefs in:" + title);
-            }
-            Double coef1Double =  Double.valueOf(coef1),
-                    coef2Double =  Double.valueOf(coef2);
+            Double coef1Double = 0.0;
+            Double coef2Double = 0.0;
+            try {
+                coef1Double = Double.valueOf(coef1);
+                coef2Double = Double.valueOf(coef2);
+            }catch (Exception e){
+                // no coefs
 
+            }
             results.add(new MomentResult(coef1Double, coef2Double, currentScore, currentTime.toString()));
         }
         return new BetItem(title, sport, results, "0");
     }
+
 }

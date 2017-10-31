@@ -15,47 +15,85 @@ import java.util.LinkedList;
 
 /**
  * Hello world!
- *
  */
-public class _1CoefAnalysisLessThenSomeNumber
-{
+public class _1CoefAnalysisLessThenSomeNumber {
+    private static final double BET_LIMIT = 1.3;
     private static ObjectMapper objectMapper = new ObjectMapper();
+
     static {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
-    public static void main( String[] args ) throws SQLException, IOException {
-        System.out.println( "Hello World!" );
+
+    public static void main(String[] args) throws SQLException, IOException {
+        System.out.println("Hello World!");
+        StringBuilder resultIllustrated = new StringBuilder("");
         Connection connection = ConnectionFactory.getConnection();
         Statement statement = connection.createStatement();
         int counter = 0;
         int less1_17AtStartCounter = 0;
-        ResultSet result = statement.executeQuery("select TITLE,SPORT,STAGE,BET_TIME, RESULTS from BET_HISTORY where DATE >= '2017-09-23' and " +
-                "( STAGE like '%:5COMPLETED%')  order by BET_TIME desc;\n");
+        int winCount = 0;
+        String ids = "";
 
-        while (result.next()){
-            System.out.println(++counter);
+        ResultSet result = statement.executeQuery("select TITLE,SPORT,STAGE,BET_TIME, RESULTS,ID from BET_HISTORY where DATE >= '2017-09-23' and " +
+                "  DATE < '2017-10-29' AND ( STAGE like '%:5Com%') AND SPORT in ('Tennis','Basketball','Volleyball','Handball','Hockey','Badminton') " +
+                "order by BET_TIME asc");
+
+        while (result.next()) {
+            counter++;
             String stage = result.getString(3);
-            System.out.println(result.getString(1));
-             LinkedList<MomentResult> results = objectMapper.readValue(result.getString(5), new TypeReference<LinkedList<MomentResult>>() {
 
-             });
-             if(stage.contains("1")){
-                 System.out.println(results.getFirst().getCoef1());
-                if(results.getFirst().getCoef1()<1.3){
+            LinkedList<MomentResult> results = objectMapper.readValue(result.getString(5), new TypeReference<LinkedList<MomentResult>>() {
+            });
+            String title = result.getString(1);
+            if (title.toLowerCase().contains("u-1") || title.toLowerCase().contains("u-2")) {
+                continue;
+            }
+            if(results.getFirst().getResult().matches(".*[123456789].*")){
+                continue;
+            }
+            if (stage.contains("player1")) {
+                if (results.getFirst().getCoef1() < BET_LIMIT) {
+                    System.out.println(results.getFirst().getCoef1());
+                    System.out.println(results.getFirst().toString());
                     less1_17AtStartCounter++;
+                    ids = ids + result.getString(6) + ",";
                     System.out.println("here");
+                    System.out.println(title);
+                    if (stage.contains("win")) {
+                        winCount++;
+                        System.out.println("WIN++");
+                        resultIllustrated.append("1");
+                    } else {
+                        resultIllustrated.append("0");
+                        System.out.println("LOSE++");
+                    }
                 }
-             }else {
-                 System.out.println(results.getFirst().getCoef2());
-                 if(results.getFirst().getCoef2()<1.3){
-                     less1_17AtStartCounter++;
-                     System.out.println("here");
-                 }
-             }
+            } else {
+                if (results.getFirst().getCoef2() < BET_LIMIT) {
+                    System.out.println(results.getFirst().getCoef2());
+                    System.out.println(results.getFirst().toString());
+                    less1_17AtStartCounter++;
+                    ids = ids + result.getString(6) + ",";
+                    System.out.println("here");
+                    System.out.println(title);
+                    if (stage.contains("win")) {
+                        winCount++;
+                        System.out.println("WIN++");
+                        resultIllustrated.append("1");
+                    } else {
+                        resultIllustrated.append("0");
+                        System.out.println("LOSE++");
+                    }
+                }
+            }
             System.out.println("---------------------");
         }
 
-        System.out.println("LEss then 1.17 count=" + less1_17AtStartCounter + "( of "+ counter+" bets)");
+        System.out.println(BET_LIMIT + " : LEss then count=" + less1_17AtStartCounter + "( of " + counter + " bets)");
+        System.out.println("Win count = " + winCount);
+        System.out.println("RATIO:" + (double)winCount/less1_17AtStartCounter);
+        System.out.println(ids);
+        System.out.println(resultIllustrated);
         statement.close();
         connection.close();
     }

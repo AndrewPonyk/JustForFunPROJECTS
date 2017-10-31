@@ -8,9 +8,10 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
     private static Connection connection = null;
-    public static final String URL = "jdbc:mysql://104.196.174.243:3306/parimatch";
+//    public static final String URL = "jdbc:mysql://104.196.174.243:3306/parimatch";
+    public static final String URL = "jdbc:mysql://localhost:3306/parimatch";
     public static final String USER = "root";
-    public static final String PASS = "root1992";
+    public static final String PASS = "root";
 
     public static Connection getConnection()
     {

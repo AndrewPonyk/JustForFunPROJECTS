@@ -6,6 +6,8 @@ import com.ap.model.MomentResult;
 import com.ap.utils.Constants;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.sql.*;
@@ -13,6 +15,9 @@ import java.sql.Date;
 import java.util.*;
 
 public class BetRepoJdbc implements BetRepo {
+
+    Logger logger = LoggerFactory.getLogger(BetRepoJdbc.class);
+
     @Override
     public List<BetItem> getAll() {
         try {
@@ -33,7 +38,7 @@ public class BetRepoJdbc implements BetRepo {
         Date sqlDateNow = new Date(Calendar.getInstance().getTime().getTime());
         Timestamp sqlDateTimeNow = new Timestamp(new java.util.Date().getTime());
         java.util.Date yesterday = new java.util.Date();
-        Long within48H = yesterday.getTime() - (2*24*60*60*1000L);
+        Long within27H = yesterday.getTime() - (27*60*60*1000L);
 
         try {
             Connection connection = ConnectionFactory.getConnection();
@@ -47,7 +52,7 @@ public class BetRepoJdbc implements BetRepo {
 
             HashMap<String, BetItem> existingBets = new HashMap<>();
             PreparedStatement ps = connection.prepareStatement("select * from BET_HISTORY where concat(TITLE,'', SPORT)  in " +
-                    betCondition);
+                    betCondition + " AND BET_TIME > (now() - INTERVAL 300 MINUTE )");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -63,28 +68,49 @@ public class BetRepoJdbc implements BetRepo {
                     "?" +
                     ", STAGE = " + "? " +
                     ", LAST_UPDATE = " + "? " +
-                    "WHERE TITLE = ? and SPORT = ?"
+                    "WHERE TITLE = ? and SPORT = ? and BET_TIME > (now() - INTERVAL 300 minute)"
             );
 
             for (BetItem item : betItems) {
                 if (!existingBets.containsKey(item.getTitle() + item.getSport()) ||
                         (existingBets.containsKey(item.getTitle() + item.getSport()) &&
-                                existingBets.get(item.getTitle() + item.getSport()).getDate().getTime()<within48H )) {
+                                existingBets.get(item.getTitle() + item.getSport()).getDate().getTime()<within27H )) {
                     String stage = item.getStage();
-                    if (item.getResults().size() > 0 && item.getResults().getLast().getCoef1() < 1.05) {
-                        System.out.println("set player1:1" + item.getResults().getLast().getCoef1());
-                        stage = "player1:1";
+                    if(item.getTitle().toLowerCase().contains("u-1") || item.getTitle().toLowerCase().contains("u-2")
+                            || item.getTitle().toLowerCase().contains("youth")){
+                        continue;
                     }
-                    if (item.getResults().size() > 0 && item.getResults().getLast().getCoef2() < 1.05) {
-                        stage = "player2:1";
+                    if(Math.min(item.getResults().getFirst().getCoef1(),item.getResults().getFirst().getCoef2()) >= Constants.BET_LIMIT
+                            || Math.max(item.getResults().getFirst().getCoef1(),item.getResults().getFirst().getCoef2())<1 ){
+                        //skip items with coef1 or coef2 > BET_LIMIT
+                        //and
+                        //skip items with 0.0 coefs - no data yet
+                        continue;
                     }
+                    if(item.getResults().getFirst().getResult().matches(".*[123456789].*")){
+                        //skip items, which started already
+                        continue;
+                    }
+
+                    if(item.getResults().size() > 0 && item.getResults().getLast().getCoef1() > 1 &&
+                            item.getResults().getLast().getCoef2() > 1){
+                        if ( item.getResults().getLast().getCoef1() < 1.05) {
+                            logger.info("set player1:1 " + item.getTitle() + ":" +item.getResults().getLast().toString());
+                            stage = "player1:1";
+                        }
+                        if ( item.getResults().getLast().getCoef2() < 1.05) {
+                            stage = "player2:1";
+                            logger.info("set player2:1 " + item.getTitle() + ":" +item.getResults().getLast().toString());
+                        }
+                    }
+
                     insertPs.setString(1, item.getTitle().replaceAll("'", ""));
                     insertPs.setString(2, item.getSport());
                     insertPs.setString(3, JsonMapper.mapper.writeValueAsString(item.getResults()));
                     insertPs.setDate(4, sqlDateNow);
                     insertPs.setString(5, stage);
                     insertPs.addBatch();
-                    System.out.println("Insert: " + item.getTitle() );
+                    logger.info("Insert: " + item.getTitle() );
                 } else {
 
                     BetItem existingItem = existingBets.get(item.getTitle() + item.getSport());
@@ -98,59 +124,69 @@ public class BetRepoJdbc implements BetRepo {
                         existingResults.addAll(item.getResults());
                     }
 
-
                     String stage = existingItem.getStage();
                     //zero stage
-                    if (stage != null && stage.contains("0")) {
-                        if (item.getResults().size() > 0 && existingResults.getLast().getCoef1() < Constants.FIRST_STAGE_COEF) {
-                            System.out.println("set player1:1" + item.getResults().getLast().getCoef1());
-                            stage = "player1:1";
+                    if(existingResults.getLast().getCoef1()>0 && existingResults.getLast().getCoef2()>0 ){
+                        if (stage != null && stage.contains("0")) {
+                            if (item.getResults().size() > 0 && existingResults.getLast().getCoef1() < Constants.FIRST_STAGE_COEF) {
+                                logger.info("set player1:1 " + item.getTitle() + ":" +item.getResults().getLast().toString());
+                                stage = "player1:1";
+                            }
+                            if (item.getResults().size() > 0 && existingResults.getLast().getCoef2() < Constants.FIRST_STAGE_COEF) {
+                                stage = "player2:1";
+                                logger.info("set player2:1 " + item.getTitle() + ":" +item.getResults().getLast().toString());
+                            }
                         }
-                        if (item.getResults().size() > 0 && existingResults.getLast().getCoef2() < Constants.FIRST_STAGE_COEF) {
-                            stage = "player2:1";
+                        if (stage != null && stage.contains("player1:1")) {
+                            if (item.getResults().size() > 0 && existingResults.getLast().getCoef1() >= Constants.SECOND_STAGE_COEF) {
+                                stage = "player1:2";
+                                logger.info("set player1:2 " + item.getTitle() + ":" +item.getResults().getLast().toString());
+                            }
                         }
-                    }
-                    if (stage != null && stage.contains("player1:1")) {
-                        if (item.getResults().size() > 0 && existingResults.getLast().getCoef1() >= Constants.SECOND_STAGE_COEF) {
-                            stage = "player1:2";
+                        if (stage != null && stage.contains("player2:1")) {
+                            if (item.getResults().size() > 0 && existingResults.getLast().getCoef2() >= Constants.SECOND_STAGE_COEF) {
+                                stage = "player2:2";
+                                logger.info("set player2:2 " + item.getTitle() + ":" +item.getResults().getLast().toString());
+                            }
                         }
-                    }
-                    if (stage != null && stage.contains("player2:1")) {
-                        if (item.getResults().size() > 0 && existingResults.getLast().getCoef2() >= Constants.SECOND_STAGE_COEF) {
-                            stage = "player2:2";
-                        }
-                    }
 
-                    if (stage != null && stage.contains("player1:2")) {
-                        if (item.getResults().size() > 0 && existingResults.getLast().getCoef1() <= Constants.THIRD_STAGE_COEF) {
-                            stage = "player1:3";
+                        if (stage != null && stage.contains("player1:2")) {
+                            if (item.getResults().size() > 0 && existingResults.getLast().getCoef1() <= Constants.THIRD_STAGE_COEF) {
+                                stage = "player1:3";
+                                logger.info("set player1:3 " + item.getTitle() + ":" +item.getResults().getLast().toString());
+                            }
                         }
-                    }
-                    if (stage != null && stage.contains("player2:2")) {
-                        if (item.getResults().size() > 0 && existingResults.getLast().getCoef2() <= Constants.THIRD_STAGE_COEF) {
-                            stage = "player2:3";
+                        if (stage != null && stage.contains("player2:2")) {
+                            if (item.getResults().size() > 0 && existingResults.getLast().getCoef2() <= Constants.THIRD_STAGE_COEF) {
+                                stage = "player2:3";
+                                logger.info("set player2:3 " + item.getTitle() + ":" +item.getResults().getLast().toString());
+                            }
                         }
-                    }
 
-                    if (stage != null && stage.contains("player1:3")) {
-                        if (item.getResults().size() > 0 && existingResults.getLast().getCoef1() > Constants.FOURTH_STAGE_COEF) {
-                            stage = "player1:4";
+                        if (stage != null && stage.contains("player1:3")) {
+                            if (item.getResults().size() > 0 && existingResults.getLast().getCoef1() > Constants.FOURTH_STAGE_COEF) {
+                                stage = "player1:4";
+                                logger.info("set player1:4 " + item.getTitle() + ":" +item.getResults().getLast().toString());
+                            }
                         }
-                    }
-                    if (stage != null && stage.contains("player2:3")) {
-                        if (item.getResults().size() > 0 && existingResults.getLast().getCoef2() > Constants.FOURTH_STAGE_COEF) {
-                            stage = "player2:4";
+                        if (stage != null && stage.contains("player2:3")) {
+                            if (item.getResults().size() > 0 && existingResults.getLast().getCoef2() > Constants.FOURTH_STAGE_COEF) {
+                                stage = "player2:4";
+                                logger.info("set player2:4 " + item.getTitle() + ":" +item.getResults().getLast().toString());
+                            }
                         }
-                    }
 
-                    if (stage != null && stage.contains("player1:4")) {
-                        if (item.getResults().size() > 0 && existingResults.getLast().getCoef1() <= Constants.FIFTH_STAGE_COEF) {
-                            stage = "player1:5";
+                        if (stage != null && stage.contains("player1:4")) {
+                            if (item.getResults().size() > 0 && existingResults.getLast().getCoef1() <= Constants.FIFTH_STAGE_COEF) {
+                                stage = "player1:5";
+                                logger.info("set player1:5 " + item.getTitle() + ":" +item.getResults().getLast().toString());
+                            }
                         }
-                    }
-                    if (stage != null && stage.contains("player2:4")) {
-                        if (item.getResults().size() > 0 && existingResults.getLast().getCoef2() <= Constants.FIFTH_STAGE_COEF) {
-                            stage = "player2:5";
+                        if (stage != null && stage.contains("player2:4")) {
+                            if (item.getResults().size() > 0 && existingResults.getLast().getCoef2() <= Constants.FIFTH_STAGE_COEF) {
+                                stage = "player2:5";
+                                logger.info("set player2:5 " + item.getTitle() + ":" +item.getResults().getLast().toString());
+                            }
                         }
                     }
 
@@ -170,7 +206,7 @@ public class BetRepoJdbc implements BetRepo {
             updatePs.close();
             connection.close();
         } catch (SQLException e) {
-            System.out.println(e.getMessage() + ":;;");
+            logger.info(e.getMessage() + ":;;");
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -194,7 +230,7 @@ public class BetRepoJdbc implements BetRepo {
             }
             connection.close();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            logger.info(e.getMessage());
         }
         return result;
     }
@@ -207,11 +243,11 @@ public class BetRepoJdbc implements BetRepo {
                     " SET STAGE = ? WHERE TITLE = ?");
             ps.setString(1, bet.getStage());
             ps.setString(2, bet.getTitle());
-            System.out.println("Marking as completed:" + bet.getStage() + bet.getTitle());
+            logger.info("Marking as completed:" + bet.getStage() + bet.getTitle());
             ps.executeUpdate();
             connection.close();
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            logger.info(e.getMessage());
         }
     }
 }

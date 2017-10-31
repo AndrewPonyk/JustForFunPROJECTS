@@ -1,5 +1,11 @@
 package com.ap.utils;
 
+import com.google.common.collect.Sets;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class Constants {
     public static final String LIVE_URL = "https://www.parimatch.com/en/live.html";
 
@@ -17,5 +23,15 @@ public class Constants {
 
     public static final Double BET_BASE = 5.0;
     public static final Double MIN_BET = 3.0;
-    public static final Double WIN_COEF_FLAG = 0.45; // max bet equals BET_BASE+BET_BASE*WIN_COEF_FLAG
+    public static final Double WIN_COEF_FLAG = 0.4; // max bet equals BET_BASE+BET_BASE*WIN_COEF_FLAG
+
+    public static final Set<String> SPORTS = new HashSet<>(Arrays.asList(
+    "Tennis",
+    "Basketball",
+    "Volleyball",
+    "Handball",
+    "Hockey",
+    "Badminton"));
+
+    public static final Double BET_LIMIT = 1.25;
 }
