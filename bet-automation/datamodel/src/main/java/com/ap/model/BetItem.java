@@ -10,6 +10,8 @@ public class BetItem {
     private LinkedList<MomentResult> results;
     private String stage; // 0,1,2,3
 
+    private String link;
+
     private Date date;
     private Integer finalWinner;
 
@@ -17,11 +19,12 @@ public class BetItem {
     public BetItem() {
     }
 
-    public BetItem(String title, String sport, LinkedList<MomentResult> results, String stage) {
+    public BetItem(String title, String sport, LinkedList<MomentResult> results, String stage, String link) {
         this.title = title;
         this.sport = sport;
         this.results = results;
         this.stage = stage;
+        this.link = link;
     }
 
     @Override
@@ -34,6 +37,7 @@ public class BetItem {
                 ", stage=" + stage +
                 ", date=" + date +
                 ", finalWinner=" + finalWinner +
+                ", link=" + link +
                 '}';
     }
 
@@ -96,4 +100,11 @@ public class BetItem {
         this.finalWinner = finalWinner;
     }
 
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
 }

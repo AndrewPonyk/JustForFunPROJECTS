@@ -3,7 +3,6 @@ package com.ap.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 public class MomentResult {
     private Double coef1;

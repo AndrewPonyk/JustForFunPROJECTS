@@ -58,12 +58,12 @@ public class BetRepoJdbc implements BetRepo {
             while (rs.next()) {
                 BetItem item = new BetItem(rs.getString("TITLE"), rs.getString("SPORT"),
                         JsonMapper.mapper.readValue(rs.getString("RESULTS"), new TypeReference<LinkedList<MomentResult>>() {
-                        }), rs.getString("STAGE"));
+                        }), rs.getString("STAGE"), "");
                 item.setDate(rs.getDate("DATE"));
                 existingBets.put(item.getTitle() + item.getSport(), item);
             }
-            PreparedStatement insertPs = connection.prepareStatement("INSERT INTO BET_HISTORY (TITLE, SPORT, RESULTS, DATE, STAGE)" +
-                    " VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement insertPs = connection.prepareStatement("INSERT INTO BET_HISTORY (TITLE, SPORT, RESULTS, DATE, STAGE, LINK)" +
+                    " VALUES (?, ?, ?, ?, ?, ?)");
             PreparedStatement updatePs = connection.prepareStatement("UPDATE BET_HISTORY SET RESULTS = " +
                     "?" +
                     ", STAGE = " + "? " +
@@ -109,6 +109,7 @@ public class BetRepoJdbc implements BetRepo {
                     insertPs.setString(3, JsonMapper.mapper.writeValueAsString(item.getResults()));
                     insertPs.setDate(4, sqlDateNow);
                     insertPs.setString(5, stage);
+                    insertPs.setString(6, item.getLink());
                     insertPs.addBatch();
                     logger.info("Insert: " + item.getTitle() );
                 } else {
@@ -225,7 +226,7 @@ public class BetRepoJdbc implements BetRepo {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 //here we dont need RESULTS, because bet is already in 3rd stage
-                BetItem bet = new BetItem(rs.getString("TITLE"),rs.getString("SPORT"),null, rs.getString("STAGE"));
+                BetItem bet = new BetItem(rs.getString("TITLE"),rs.getString("SPORT"),null, rs.getString("STAGE"), "");
                 result.add(bet);
             }
             connection.close();

@@ -24,7 +24,7 @@ public class RegexUtils {
 
     }
 
-    public static BetItem parseBetItem(String sport, String content, String coef1, String coef2) throws Exception {
+    public static BetItem parseBetItem(String sport, String content, String coef1, String coef2, String link) throws Exception {
         content=content.replaceAll("\n","");
         final Matcher matcher = pattern.matcher(content);
         matcher.find();
@@ -49,7 +49,7 @@ public class RegexUtils {
             }
             results.add(new MomentResult(coef1Double, coef2Double, currentScore, currentTime.toString()));
         }
-        return new BetItem(title, sport, results, "0");
+        return new BetItem(title, sport, results, "0", link);
     }
 
 }

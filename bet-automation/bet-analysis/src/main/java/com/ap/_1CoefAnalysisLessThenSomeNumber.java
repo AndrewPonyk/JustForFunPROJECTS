@@ -1,6 +1,6 @@
 package com.ap;
 
-import com.ap.dao.ConnectionFactory;
+import com.ap.ConnectionFactory;
 import com.ap.model.MomentResult;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -13,9 +13,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 
-/**
- * Hello world!
- */
 public class _1CoefAnalysisLessThenSomeNumber {
     private static final double BET_LIMIT = 1.3;
     private static ObjectMapper objectMapper = new ObjectMapper();
