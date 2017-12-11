@@ -1,9 +1,13 @@
 package com.ap.utils;
 
 import com.google.common.collect.Sets;
+import org.apache.commons.io.FileUtils;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Constants {
@@ -34,4 +38,23 @@ public class Constants {
     "Badminton"));
 
     public static final Double BET_LIMIT = 1.25;
+
+    public static String BET_EMAIL = "";
+    public static String BET_PASSWORD = "";
+
+    static {
+        try {
+            List<String> strings = FileUtils.readLines(new File("/home/andrii/pass.txt"), "UTF-8");
+            System.out.println(strings);
+            BET_EMAIL = strings.get(0);
+            BET_PASSWORD = strings.get(1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("test constants");
+    }
+
 }

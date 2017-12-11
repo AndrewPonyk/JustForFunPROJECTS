@@ -1,6 +1,7 @@
 package com.ap.monitor;
 
 import com.ap._3FavoriteWinAfterLooseSet;
+import com.ap.utils.Constants;
 import com.ap.utils.JavaCoreSendMailUtils;
 
 import javax.mail.MessagingException;
@@ -24,8 +25,8 @@ public class Tennis2ndAfterLose1stMonitor implements Runnable{
 
                 List<List<String>> mailItems = _3FavoriteWinAfterLooseSet.processResultSet();
                 if(!mailItems.isEmpty()){
-                    JavaCoreSendMailUtils.sendHtmlTable("", "SET 2 TENNIS notification", mailItems,
-                            "", "");
+                    JavaCoreSendMailUtils.sendHtmlTable(Constants.BET_EMAIL, "SET 2 TENNIS notification", mailItems,
+                            Constants.BET_EMAIL, Constants.BET_PASSWORD);
                 }
                 Thread.sleep(50000);
             } catch (InterruptedException e) {

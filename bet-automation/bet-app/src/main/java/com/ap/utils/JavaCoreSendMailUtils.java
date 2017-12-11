@@ -15,8 +15,8 @@ import java.util.Properties;
 public class JavaCoreSendMailUtils {
 
     public static void main(String[] args) throws MessagingException {
-        sendHtmlTable("", "many tables", Arrays.asList(Arrays.asList("1","2"), Arrays.asList("3","4")),
-                "", "");
+        sendHtmlTable(Constants.BET_EMAIL, "many tables", Arrays.asList(Arrays.asList("1","2"), Arrays.asList("3","4")),
+                Constants.BET_EMAIL, Constants.BET_PASSWORD);
     }
 
     public static void sendHtmlTable(String to, String subject, List<List<String>> tablesText, String from, String password) throws MessagingException {

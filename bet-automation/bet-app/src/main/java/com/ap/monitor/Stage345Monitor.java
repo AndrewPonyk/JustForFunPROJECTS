@@ -1,6 +1,7 @@
 package com.ap.monitor;
 
 import com.ap.Get45StageItems;
+import com.ap.utils.Constants;
 import com.ap.utils.JavaCoreSendMailUtils;
 
 import javax.mail.MessagingException;
@@ -19,10 +20,10 @@ public class Stage345Monitor implements Runnable {
                 try {
                     List<List<String>> items = Get45StageItems.get45Items();
                     if(!items.isEmpty()){
-                        JavaCoreSendMailUtils.sendHtmlTable("", "stage345 items", items,
-                                "", "");
+                        JavaCoreSendMailUtils.sendHtmlTable(Constants.BET_EMAIL, "stage345 items", items,
+                                Constants.BET_EMAIL, Constants.BET_PASSWORD);
                     }
-                    Thread.sleep(75000);
+                    Thread.sleep(90000);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
