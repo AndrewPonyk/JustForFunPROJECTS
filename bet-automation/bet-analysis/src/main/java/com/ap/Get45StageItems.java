@@ -1,6 +1,7 @@
 package com.ap;
 
 import com.ap.model.MomentResult;
+import com.ap.sportsstatistics.Tennis;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,7 +26,7 @@ public class Get45StageItems {
 
 
     public static final String SELECT_STRING = "SELECT * FROM BET_HISTORY\n" +
-            "WHERE LAST_UPDATE > now() - INTERVAL 100 SECOND AND (STAGE LIKE '%:4%' OR STAGE LIKE '%:5%') " +
+            "WHERE LAST_UPDATE > now() - INTERVAL 100 SECOND AND (STAGE LIKE '%:3%' OR STAGE LIKE '%:4%' OR STAGE LIKE '%:5%') " +
             "order by ID desc";
 
 
@@ -54,6 +55,9 @@ public class Get45StageItems {
             List<String> item = new ArrayList<>();
             item.add(title + " " + stage +" <b>" + sport +"</b>");
             item.add(String.format("<span style='color:%s'>"+resultsList.getLast().toString()+"</span>", resultColorProgress));
+            if(sport.contains("Tennis")){
+                item.add(Tennis.getPlayersStatsHasLeadershipInsetAndWin(title));
+            }
             item.add(link);
             item.add(lastUpdate);
             result.add(item);

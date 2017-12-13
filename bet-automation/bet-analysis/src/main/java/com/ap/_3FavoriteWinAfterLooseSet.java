@@ -2,6 +2,7 @@ package com.ap;
 
 
 import com.ap.model.MomentResult;
+import com.ap.sportsstatistics.Tennis;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,10 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class _3FavoriteWinAfterLooseSet {
     public static final String SELECT_STRING = "SELECT * FROM BET_HISTORY\n" +
@@ -69,10 +68,10 @@ public class _3FavoriteWinAfterLooseSet {
             LinkedList<MomentResult> resultsList = objectMapper.readValue(results, new TypeReference<LinkedList<MomentResult>>() {
             });
 
-            int firstSetWinner = getWinner(resultsList.getLast().toString(), 1);
-            int secondSetWinner = getWinner(resultsList.getLast().toString(), 2);
+            int firstSetWinner = TennisScroreUtils.getWinner(resultsList.getLast().toString(), 1);
+            int secondSetWinner = TennisScroreUtils.getWinner(resultsList.getLast().toString(), 2);
 
-            if (secondSetWinner!= -1 && firstSetWinner != -1 && playerFavourite != firstSetWinner
+            if (/*secondSetWinner!= -1 &&*/ firstSetWinner != -1 && playerFavourite != firstSetWinner
              /*&& hasLeadershipInSet(resultsList, 2, playerFavourite)*/) {
                 matchDetails.add(resultsList.getLast().toString());
                 //System.out.println(counter + ")" + title + " " + date + " " + stage);
@@ -84,7 +83,7 @@ public class _3FavoriteWinAfterLooseSet {
                     System.out.println("favourite looooooooooooooooooooooooooooooooose 2nd" + title + date);
                     matchDetails.add("<b style='color:red'>favourite lose 2nd</b>");
                     favouriteLose2nd++;
-                    if (hasLeadershipInSet(resultsList, 2, playerFavourite)) {
+                    if (TennisScroreUtils.hasLeadershipInSet(resultsList, 2, playerFavourite)) {
                         favouriteHasadvantageAndLose++;
                     } else {
                     }
@@ -92,7 +91,8 @@ public class _3FavoriteWinAfterLooseSet {
 
                 //System.out.println(resultsList.getLast().toString());
                 //System.out.println("Favourite Has leadership in 2nd:" + hasLeadershipInSet(resultsList, 2, playerFavourite));
-                matchDetails.add("Favourite Has leadership in 2nd:" + hasLeadershipInSet(resultsList, 2, playerFavourite));
+                matchDetails.add(Tennis.getPlayersStatsHasLeadershipInsetAndWin(title));
+                matchDetails.add("Favourite Has leadership in 2nd:" + TennisScroreUtils.hasLeadershipInSet(resultsList, 2, playerFavourite));
 
                 counter++;
                 resultList.add(matchDetails);
@@ -114,69 +114,4 @@ public class _3FavoriteWinAfterLooseSet {
         return statement.executeQuery(SELECT_STRING);
     }
 
-
-    public static int getWinner(String score, int set) {
-        if (!score.contains("(")) {
-            return -1;
-        }
-        String[] setsArray = score.substring(score.indexOf("(") + 1, score.indexOf(")")).split(",");
-
-        if (setsArray.length < 2) {
-            return -1;
-        }
-
-        String currentSet = setsArray[set - 1];
-        List<Integer> currentSetResults = Arrays.stream(currentSet.split("-")).map(Integer::parseInt).collect(Collectors.toList());
-
-
-        if (currentSet.startsWith("6") || currentSet.startsWith("7")) {
-            if (currentSetResults.get(0) > currentSetResults.get(1)) {
-                return 1;
-            }
-        }
-
-        if (currentSet.endsWith("6") || currentSet.endsWith("7")) {
-            if (currentSetResults.get(0) < currentSetResults.get(1)) {
-                return 2;
-            }
-        }
-
-        // special case, not finished sed:
-        //....
-        // special case, not finished sed:
-        //....
-        if (set == setsArray.length && Math.max(currentSetResults.get(0), currentSetResults.get(1)) >= 5) {
-            if (currentSetResults.get(0) > currentSetResults.get(1)) {
-                return 1;
-            } else if (currentSetResults.get(0) < currentSetResults.get(1)) {
-                return 2;
-            }
-        }
-
-        return -1;
-    }
-
-    public static boolean hasLeadershipInSet(List<MomentResult> results, int set, int player) {
-
-        for (MomentResult result : results) {
-            if (!result.toString().contains("(")) {
-                continue;
-            }
-            String[] setsArray = result.getResult()
-                    .substring(result.getResult().indexOf("(") + 1, result.getResult().indexOf(")")).split(",");
-            if (setsArray.length < set) {
-                continue;
-            }
-            String currentSet = setsArray[set - 1];
-            List<Integer> currentSetResults = Arrays.stream(currentSet.split("-")).map(Integer::parseInt).collect(Collectors.toList());
-
-            if (player == 1 && currentSetResults.get(0) > currentSetResults.get(1) && currentSetResults.get(0) > 0) {
-                return true;
-            }
-            if (player == 2 && currentSetResults.get(0) < currentSetResults.get(1) && currentSetResults.get(1) > 0) {
-                return true;
-            }
-        }
-        return false;
-    }
 }
