@@ -191,8 +191,6 @@ public class BetRepoJdbc implements BetRepo {
                         }
                     }
 
-                    ////////////////////
-
                     updatePs.setString(1, JsonMapper.mapper.writeValueAsString(existingResults));
                     updatePs.setString(2, stage);
                     updatePs.setObject(3, sqlDateTimeNow);
@@ -251,4 +249,44 @@ public class BetRepoJdbc implements BetRepo {
             logger.info(e.getMessage());
         }
     }
+
+    @Override
+    public void updateCurrentBetStatus(Integer winLastBet, Double currentAmount) {
+        try {
+            Connection connection = ConnectionFactory.getConnection();
+            PreparedStatement ps = connection.prepareStatement("UPDATE CURRENT_BET_STATUS" +
+                    " SET WIN_LAST_BET = ?, CURRENT_AMOUNT = ?  WHERE ID = 1");
+            ps.setInt(1, winLastBet);
+            ps.setDouble(2, currentAmount);
+            logger.info("Updated CURRENT_BET_STATUS:" + winLastBet + " " + currentAmount);
+            ps.executeUpdate();
+            connection.close();
+        }catch (Exception e){
+            logger.info(e.getMessage());
+        }
+    }
+
+    @Override
+    public Integer getLastBetStatus() {
+        Integer result = -1000; // N/A
+        try {
+            Connection connection = ConnectionFactory.getConnection();
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT WIN_LAST_BET " +
+                    " FROM CURRENT_BET_STATUS WHERE ID=1");
+            resultSet.next();
+            result = resultSet.getInt(1);
+            connection.close();
+            return result;
+        }catch (Exception e){
+            logger.info(e.getMessage());
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("1");
+        BetRepo b =new BetRepoJdbc();
+        System.out.println(b.getLastBetStatus());
+    }
+
 }

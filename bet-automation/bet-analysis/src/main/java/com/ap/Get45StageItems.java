@@ -11,7 +11,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,14 +28,27 @@ public class Get45StageItems {
     }
 
 
-    public static final String SELECT_STRING = "SELECT * FROM BET_HISTORY\n" +
-            "WHERE LAST_UPDATE > now() - INTERVAL 100 SECOND AND (STAGE LIKE '%:3%' OR STAGE LIKE '%:4%' OR STAGE LIKE '%:5%') " +
+    public static final String SELECT5_STRING = "SELECT * FROM BET_HISTORY\n" +
+            "WHERE LAST_UPDATE > now() - INTERVAL 100 SECOND AND (STAGE LIKE '%:5%') " +
+            "order by ID desc";
+
+    public static final String SELECT12345_STRING = "SELECT * FROM BET_HISTORY\n" +
+            "WHERE LAST_UPDATE > now() - INTERVAL 100 SECOND AND " +
+            "(STAGE LIKE '%:1%' or STAGE LIKE '%:2%' or STAGE LIKE '%:3%' or STAGE LIKE '%:4%' or STAGE LIKE '%:5%') " +
             "order by ID desc";
 
 
-    public static List<List<String>> get45Items() throws SQLException, IOException {
+    public static List<List<String>> get5Items() throws SQLException, IOException {
+        return getBetItems(SELECT5_STRING);
+    }
+
+    public static List<List<String>> get12345Items() throws SQLException, IOException {
+        return getBetItems(SELECT12345_STRING);
+    }
+
+    private static List<List<String>> getBetItems(String selectString) throws SQLException, IOException {
         List<List<String>> result = new ArrayList<>();
-        ResultSet resultSet = getResultSet();
+        ResultSet resultSet = getResultSet(selectString);
 
         while (resultSet.next()) {
 
@@ -45,11 +61,14 @@ public class Get45StageItems {
             LinkedList<MomentResult> resultsList = objectMapper.readValue(results, new TypeReference<LinkedList<MomentResult>>() {
             });
             int favourite = stage.contains("player1")? 1 : 2;
-            MomentResult last = resultsList.getLast();
-            MomentResult secondToLast = resultsList.get(resultsList.size()-2);
+            boolean coefDecrease = false;
+            if(resultsList.size() > 1){
+                MomentResult last = resultsList.getLast();
+                MomentResult secondToLast = resultsList.get(resultsList.size()-2);
 
-            boolean coefDecrease = favourite == 1 ? (last.getCoef1() < secondToLast.getCoef1())
-                    : (last.getCoef2() < secondToLast.getCoef2());
+                coefDecrease = favourite == 1 ? (last.getCoef1() < secondToLast.getCoef1())
+                        : (last.getCoef2() < secondToLast.getCoef2());
+            }
             String resultColorProgress = coefDecrease ? "green" : "red";
 
             List<String> item = new ArrayList<>();
@@ -66,11 +85,36 @@ public class Get45StageItems {
         return result;
     }
 
-    private static ResultSet getResultSet() throws SQLException {
+    /**
+     * [date] stages 0,1,3,5 count=[n], stages 2,4 count=[m]
+     * @return
+     */
+    public static String stagesCountCurrentDate() throws SQLException {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        String result =  df.format(new Date()) + ": ";
+        Connection connection = ConnectionFactory.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM BET_HISTORY WHERE DATE =CURDATE() AND (STAGE LIKE '%0%' or STAGE LIKE '%:1%' OR STAGE LIKE '%:3%' OR STAGE LIKE '%:5%')");
+
+        resultSet.next();
+        result += "stages 0,1,3,5 count=[" + resultSet.getString(1) + "]";
+
+        resultSet = statement.executeQuery("SELECT COUNT(*) FROM BET_HISTORY WHERE DATE =CURDATE() AND (STAGE LIKE '%2%' or STAGE LIKE '%:4%')");
+        resultSet.next();
+        result+= " stages 2,4 count=[" + resultSet.getString(1) + "]";
+        return result;
+    }
+
+    private static ResultSet getResultSet(String selectString) throws SQLException {
         Connection connection = ConnectionFactory.getConnection();
 
         Integer counter = 0;
         Statement statement = connection.createStatement();
-        return statement.executeQuery(SELECT_STRING);
+        return statement.executeQuery(selectString);
+    }
+
+    public static void main(String[] args) throws SQLException {
+        System.out.println("test");
+        System.out.println(stagesCountCurrentDate());
     }
 }

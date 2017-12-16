@@ -177,19 +177,23 @@ public class BetBrowser {
                             stage3Item.setStage(stage3Item.getStage() + Constants.ERROR_STATUS + "No_enough_money");
                             return stage3Item;
                         }
-                        //old way
-                        //Double betSum = Constants.BET_BASE + currBalance%Constants.BET_BASE;
-                        Double betSum = 0d;
-                        if(currBalance % Constants.BET_BASE < (Constants.BET_BASE*Constants.WIN_COEF_FLAG)){
-                            betSum = Constants.BET_BASE + currBalance % Constants.BET_BASE;
-                        }else {
-                            betSum = currBalance % (Constants.BET_BASE) % (Constants.BET_BASE*Constants.WIN_COEF_FLAG) + Constants.BET_BASE;
-                        }
-                        if(betSum > currBalance){
-                            betSum = currBalance;
-                        }
+                        Double betSum = 10000D;
+                        if(betRepo.getLastBetStatus() == 1){
+                            // win last bet
+                            betSum = currBalance * 0.045;
+                            System.out.println("Setting bet sume = " + betSum);
 
-                        betSum = 1000D; // skip betting
+                        }
+                        //old way
+//                        if(currBalance % Constants.BET_BASE < (Constants.BET_BASE*Constants.WIN_COEF_FLAG)){
+//                            betSum = Constants.BET_BASE + currBalance % Constants.BET_BASE;
+//                        }else {
+//                            betSum = currBalance % (Constants.BET_BASE) % (Constants.BET_BASE*Constants.WIN_COEF_FLAG) + Constants.BET_BASE;
+//                        }
+//                        if(betSum > currBalance){
+//                            betSum = currBalance;
+//                        }
+
                         BetDomUtils.setAttribute(driver, sumElement, "value", "" + betSum);
                         if (driver.getPageSource().contains("Errors list") &&
                                 !driver.getPageSource().contains("have been changed")) {

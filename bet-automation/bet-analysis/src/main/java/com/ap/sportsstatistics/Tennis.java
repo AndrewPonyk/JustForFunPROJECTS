@@ -135,7 +135,6 @@ public class Tennis {
         System.out.println("Test");
         //String s = playerHasLeadershipInsetAndWin("Babos Timea");
         //System.out.println(s);
-        System.out.println(getPlayersStatsHasLeadershipInsetAndWin("" +
-                "Vallebuona Duilio - Wolf Jeffrey John"));
+        System.out.println(getPlayersStatsHasLeadershipInsetAndWin("Sanchez Ana Sofia - Kurata Nathaly"));
     }
 }

@@ -13,4 +13,8 @@ public interface BetRepo {
     List<BetItem> getStage5Items();
 
     void markBetAsCompleted(BetItem bet);
+
+    void updateCurrentBetStatus(Integer winLastBet, Double currentAmount);
+
+    Integer getLastBetStatus();
 }

@@ -12,6 +12,7 @@ import java.util.Set;
 
 public class Constants {
     public static final String LIVE_URL = "https://www.parimatch.com/en/live.html";
+    public static final String HISTORY_URL = "https://www.parimatch.com/en/history.html";
 
     public static final double FIRST_STAGE_COEF = 1.2;
     public static final double SECOND_STAGE_COEF = 1.4;
