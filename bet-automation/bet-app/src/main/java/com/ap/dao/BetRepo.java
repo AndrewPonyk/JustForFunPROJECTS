@@ -17,4 +17,10 @@ public interface BetRepo {
     void updateCurrentBetStatus(Integer winLastBet, Double currentAmount);
 
     Integer getLastBetStatus();
+
+    List<String> getLastBetInfo();
+
+    String stagesCount();
+
+    List<String> getPlayerStagesFromHistory(String title, String sport);
 }

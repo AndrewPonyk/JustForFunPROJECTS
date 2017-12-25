@@ -34,9 +34,9 @@ public class _3FavoriteWinAfterLooseSet {
         processResultSet();
     }
 
-    public static List<List<String>> processResultSet() throws SQLException, IOException {
+    public static LinkedList<List<String>> processResultSet() throws SQLException, IOException {
         ResultSet result = getResultSet();
-        List<List<String>> resultList = new ArrayList<>();
+        LinkedList<List<String>> resultList = new LinkedList<>();
         int counter = 1;
         String date = "";
         int favouriteWin2nd = 0;

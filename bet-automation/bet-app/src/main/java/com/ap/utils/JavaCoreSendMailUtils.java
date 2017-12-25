@@ -1,22 +1,43 @@
 package com.ap.utils;
 
+import com.ap.dao.BetRepo;
+import com.ap.dao.BetRepoJdbc;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 //basic usage of sonarqube
 //mvn clean package sonar:sonar  -Dsonar.host.url=http://localhost:9000 -Dsonar.login=a6038e62294db47baf288d5eb4ea0083bd78ff01
 public class JavaCoreSendMailUtils {
 
+    static BetRepo betRepo = new BetRepoJdbc();
+
     public static void main(String[] args) throws MessagingException {
         sendHtmlTable(Constants.BET_EMAIL, "many tables", Arrays.asList(Arrays.asList("1","2"), Arrays.asList("3","4")),
                 Constants.BET_EMAIL, Constants.BET_PASSWORD);
+    }
+
+    public static void sendHtmlTableWithUserData(String to, String subject, LinkedList<List<String>> tablesText, String from, String password) throws MessagingException {
+        Double currentAmount=0.0;
+        Double threePercent = 0.0;
+        List<String> betMetadata = betRepo.getLastBetInfo();
+        try {
+            currentAmount = Double.valueOf(betMetadata.get(2));
+            threePercent = currentAmount*0.03;
+            betMetadata.add(currentAmount+": 3%=" + threePercent);
+            betMetadata.add(betRepo.stagesCount());
+        }catch (Exception e){
+            System.out.println("cann not parse current amount");
+        }
+        betMetadata.set(0, "id:" +betMetadata.get(0));
+        betMetadata.set(1, "Status:" +betMetadata.get(1));
+        betMetadata.set(2, "Amount:" +betMetadata.get(2));
+        tablesText.addFirst(betMetadata);
+        sendHtmlTable(to, subject, tablesText, from, password);
     }
 
     public static void sendHtmlTable(String to, String subject, List<List<String>> tablesText, String from, String password) throws MessagingException {

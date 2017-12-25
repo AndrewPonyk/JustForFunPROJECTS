@@ -20,22 +20,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class BetBrowser {
-    static {
-        System.setProperty("webdriver.gecko.driver", "/home/andrii/Programs/geckodriver");
-        driver = new FirefoxDriver();
-    }
-
     Logger logger = LoggerFactory.getLogger(BetBrowser.class);
 
     public static FirefoxDriver driver;
     public static BetRepo betRepo = new BetRepoJdbc();
+    public static WebDriverWait wait;
+
+    static {
+        System.setProperty("webdriver.gecko.driver", "/home/andrii/Programs/geckodriver");
+        driver = new FirefoxDriver();
+        wait = new WebDriverWait(driver, 9);
+    }
 
     public void start() {
         login();
@@ -169,6 +168,7 @@ public class BetBrowser {
                         logger.info("SUBWINDOW:" + driver.getCurrentUrl());
                         Thread.sleep(500);
                         logger.info("-----------------------------------------------------------");
+                        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[name=sums]")));
                         WebElement sumElement = driver.findElement(By.cssSelector("input[name=sums]"));
                         WebElement currBalanceElement = driver.findElement(By.cssSelector("#ownerInfo td b"));
                         Double currBalance = Double.parseDouble(currBalanceElement.getText().replaceAll("UAH", "").trim());

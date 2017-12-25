@@ -7,10 +7,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,13 +15,35 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-
 public class Get45StageItems {
 
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     static {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    }
+
+
+    public static List<String> getPlayerStagesFromHistory(String title, String sport) {
+        List<String> result = new ArrayList<>();
+        String[] parts = title.split(" - ");
+        String sql = "SELECT * FROM BET_HISTORY WHERE (TITLE LIKE ? OR TITLE LIKE ?) AND SPORT = ? ";
+        try {
+            Connection connection = ConnectionFactory.getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, "%" + parts[0] + "%");
+            statement.setString(2, "%" + parts[1] + "%");
+            statement.setString(3, sport);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                result.add(resultSet.getString("TITLE") + ":" + resultSet.getString("DATE")+":"
+                        + resultSet.getString("STAGE"));
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return result;
     }
 
 
@@ -38,20 +57,19 @@ public class Get45StageItems {
             "order by ID desc";
 
 
-    public static List<List<String>> get5Items() throws SQLException, IOException {
+    public static LinkedList<List<String>> get5Items() throws SQLException, IOException {
         return getBetItems(SELECT5_STRING);
     }
 
-    public static List<List<String>> get12345Items() throws SQLException, IOException {
+    public static LinkedList<List<String>> get12345Items() throws SQLException, IOException {
         return getBetItems(SELECT12345_STRING);
     }
 
-    private static List<List<String>> getBetItems(String selectString) throws SQLException, IOException {
-        List<List<String>> result = new ArrayList<>();
+    private static LinkedList<List<String>> getBetItems(String selectString) throws SQLException, IOException {
+        LinkedList<List<String>> result = new LinkedList<>();
         ResultSet resultSet = getResultSet(selectString);
 
         while (resultSet.next()) {
-
             String title = resultSet.getString(2);
             String stage = resultSet.getString("STAGE");
             String lastUpdate = resultSet.getString("LAST_UPDATE");
@@ -60,6 +78,7 @@ public class Get45StageItems {
             String sport = resultSet.getString("SPORT");
             LinkedList<MomentResult> resultsList = objectMapper.readValue(results, new TypeReference<LinkedList<MomentResult>>() {
             });
+            List<String> prevResults = getPlayerStagesFromHistory(title, sport);
             int favourite = stage.contains("player1")? 1 : 2;
             boolean coefDecrease = false;
             if(resultsList.size() > 1){
@@ -79,6 +98,7 @@ public class Get45StageItems {
             }
             item.add(link);
             item.add(lastUpdate);
+            item.addAll(prevResults);
             result.add(item);
         }
 

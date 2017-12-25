@@ -6,6 +6,7 @@ import com.ap.model.MomentResult;
 import com.ap.utils.Constants;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.gargoylesoftware.htmlunit.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -283,10 +284,73 @@ public class BetRepoJdbc implements BetRepo {
         return result;
     }
 
+    @Override
+    public List<String> getLastBetInfo() {
+        List<String> result = new ArrayList<>();
+        try {
+            Connection connection = ConnectionFactory.getConnection();
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * " +
+                    " FROM CURRENT_BET_STATUS WHERE ID=1");
+            resultSet.next();
+            result.add(resultSet.getInt(1)+"");
+            result.add(resultSet.getString(2)+"");
+            result.add(resultSet.getString(3)+"");
+            connection.close();
+            return result;
+        }catch (Exception e){
+            logger.info(e.getMessage());
+        }
+        return result;
+    }
+
+    @Override
+    public String stagesCount() {
+        //String sql = "SELECT substr(stage, instr(STAGE,':')+1, 1) , count(*) FROM BET_HISTORY WHERE DATE = current_date  " +
+        //        "and LAST_UPDATE is not null GROUP BY  substr(stage, instr(STAGE,':')+1, 1)";
+        String sql = "SELECT substr(stage, instr(STAGE,':')+1, 1), TITLE,date FROM BET_HISTORY WHERE DATE = current_date order by last_update";
+        String result = "";
+
+        try {
+            Connection connection = ConnectionFactory.getConnection();
+            ResultSet resultSet = connection.createStatement().executeQuery(sql);
+            while (resultSet.next()){
+                result += resultSet.getString(1);
+                //result += resultSet.getString(1) +":"+resultSet.getString(2)+"<br/>";
+            }
+
+        }catch (Exception e){
+            logger.info(e.getMessage());
+        }
+        return result;
+    }
+
+    @Override
+    public List<String> getPlayerStagesFromHistory(String title, String sport) {
+        List<String> result = new ArrayList<>();
+        String[] parts = title.split(" - ");
+        String sql = "SELECT * FROM BET_HISTORY WHERE (TITLE LIKE ? OR TITLE LIKE ?) AND SPORT = ? ";
+        try {
+            Connection connection = ConnectionFactory.getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, "%" + parts[0] + "%");
+            statement.setString(2, "%" + parts[1] + "%");
+            statement.setString(3, sport);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                result.add(resultSet.getString("TITLE") + ":" + resultSet.getString("DATE")+":"
+                        + resultSet.getString("STAGE"));
+            }
+        }catch (Exception e){
+            logger.info(e.getMessage());
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         System.out.println("1");
         BetRepo b =new BetRepoJdbc();
-        System.out.println(b.getLastBetStatus());
+        System.out.println(b.getPlayerStagesFromHistory("Tianjin - Bayi", "Volleyball"));
     }
 
 }
