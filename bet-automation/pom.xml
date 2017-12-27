@@ -13,6 +13,7 @@
         <module>bet-app</module>
         <module>bet-analysis</module>
         <module>datamodel</module>
+        <module>db-sync-utils</module>
     </modules>
     <properties>
         <sonar.java.binaries>target/classes</sonar.java.binaries>

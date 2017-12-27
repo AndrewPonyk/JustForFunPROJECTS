@@ -25,4 +25,19 @@ public class ConnectionFactory {
             throw new RuntimeException("Error connecting to the database", ex);
         }
     }
+
+    public static Connection getConnection(String server, String user, String password)
+    {
+        if(connection != null){
+            return connection;
+        }
+        try {
+            DriverManager.registerDriver(new Driver());
+            return DriverManager.getConnection("jdbc:mysql://" +
+                    server +
+                    ":3306/parimatch", user, password);
+        } catch (SQLException ex) {
+            throw new RuntimeException("Error connecting to the database", ex);
+        }
+    }
 }
