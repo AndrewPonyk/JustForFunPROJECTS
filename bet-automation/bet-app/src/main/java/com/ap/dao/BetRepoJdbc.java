@@ -6,7 +6,6 @@ import com.ap.model.MomentResult;
 import com.ap.utils.Constants;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.gargoylesoftware.htmlunit.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,7 +58,7 @@ public class BetRepoJdbc implements BetRepo {
             while (rs.next()) {
                 BetItem item = new BetItem(rs.getString("TITLE"), rs.getString("SPORT"),
                         JsonMapper.mapper.readValue(rs.getString("RESULTS"), new TypeReference<LinkedList<MomentResult>>() {
-                        }), rs.getString("STAGE"), "");
+                        }), rs.getString("STAGE"), "", rs.getString("NOTES"));
                 item.setDate(rs.getDate("DATE"));
                 existingBets.put(item.getTitle() + item.getSport(), item);
             }
@@ -69,6 +68,7 @@ public class BetRepoJdbc implements BetRepo {
                     "?" +
                     ", STAGE = " + "? " +
                     ", LAST_UPDATE = " + "? " +
+                    ", NOTES = ? " +
                     "WHERE TITLE = ? and SPORT = ? and BET_TIME > (now() - INTERVAL 300 minute)"
             );
 
@@ -192,11 +192,24 @@ public class BetRepoJdbc implements BetRepo {
                         }
                     }
 
+                    // comeback settings
+                    if(stage != null){
+                        if(stage.contains("player1")){
+                          if(existingResults.getLast().getCoef1() > Constants.COMEBACK_LIMIT){
+                              item.setNotes(Constants.PLAYER1_CROLL_LIMIT);
+                          }
+                        } else if(stage.contains("player2")){
+                            item.setNotes(Constants.PLAYER2_CROLL_LIMIT);
+                        }
+
+                    }
+
                     updatePs.setString(1, JsonMapper.mapper.writeValueAsString(existingResults));
                     updatePs.setString(2, stage);
                     updatePs.setObject(3, sqlDateTimeNow);
-                    updatePs.setString(4, item.getTitle());
-                    updatePs.setString(5, item.getSport());
+                    updatePs.setString(4, item.getNotes());
+                    updatePs.setString(5, item.getTitle());
+                    updatePs.setString(6, item.getSport());
                     updatePs.executeUpdate();
                 }
             }
@@ -225,13 +238,35 @@ public class BetRepoJdbc implements BetRepo {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 //here we dont need RESULTS, because bet is already in 3rd stage
-                BetItem bet = new BetItem(rs.getString("TITLE"),rs.getString("SPORT"),null, rs.getString("STAGE"), "");
+                BetItem bet = new BetItem(rs.getString("TITLE"),rs.getString("SPORT"),null, rs.getString("STAGE"), "", rs.getString("NOTES"));
                 result.add(bet);
             }
             connection.close();
         } catch (Exception e) {
             logger.info(e.getMessage());
         }
+        return result;
+    }
+
+    @Override
+    public List<BetItem> getBetsWhereComebackIsPossile() {
+        List<BetItem> result = new ArrayList<>();
+        try {
+            Connection connection = ConnectionFactory.getConnection();
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM BET_HISTORY" +
+                    " WHERE NOTES like '%FAVORITE COMEBACK POSSIBLE%' AND LAST_UPDATE > now() - INTERVAL 500 SECOND");
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                //here we dont need RESULTS, because bet is already in 3rd stage
+                BetItem bet = new BetItem(rs.getString("TITLE"),rs.getString("SPORT"),null, rs.getString("STAGE"), "", rs.getString("NOTES"));
+                result.add(bet);
+            }
+            connection.close();
+        } catch (Exception e) {
+            logger.info(e.getMessage());
+        }
+
         return result;
     }
 
@@ -252,13 +287,14 @@ public class BetRepoJdbc implements BetRepo {
     }
 
     @Override
-    public void updateCurrentBetStatus(Integer winLastBet, Double currentAmount) {
+    public void updateCurrentBetStatus(Integer winLastBet, Double currentAmount, Double lastLoseBetsSum) {
         try {
             Connection connection = ConnectionFactory.getConnection();
             PreparedStatement ps = connection.prepareStatement("UPDATE CURRENT_BET_STATUS" +
-                    " SET WIN_LAST_BET = ?, CURRENT_AMOUNT = ?  WHERE ID = 1");
+                    " SET WIN_LAST_BET = ?, CURRENT_AMOUNT = ?, LAST_LOSE_BETS_SUM = ?  WHERE ID = 1");
             ps.setInt(1, winLastBet);
             ps.setDouble(2, currentAmount);
+            ps.setDouble(3, lastLoseBetsSum);
             logger.info("Updated CURRENT_BET_STATUS:" + winLastBet + " " + currentAmount);
             ps.executeUpdate();
             connection.close();
@@ -276,6 +312,23 @@ public class BetRepoJdbc implements BetRepo {
                     " FROM CURRENT_BET_STATUS WHERE ID=1");
             resultSet.next();
             result = resultSet.getInt(1);
+            connection.close();
+            return result;
+        }catch (Exception e){
+            logger.info(e.getMessage());
+        }
+        return result;
+    }
+
+    @Override
+    public Double getLastLoseBetsSum() {
+        Double result = null; // N/A
+        try {
+            Connection connection = ConnectionFactory.getConnection();
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT LAST_LOSE_BETS_SUM " +
+                    " FROM CURRENT_BET_STATUS WHERE ID=1");
+            resultSet.next();
+            result = resultSet.getDouble(1);
             connection.close();
             return result;
         }catch (Exception e){
@@ -350,7 +403,8 @@ public class BetRepoJdbc implements BetRepo {
     public static void main(String[] args) {
         System.out.println("1");
         BetRepo b =new BetRepoJdbc();
-        System.out.println(b.getPlayerStagesFromHistory("Tianjin - Bayi", "Volleyball"));
+        //System.out.println(b.getPlayerStagesFromHistory("Tianjin - Bayi", "Volleyball"));
+        System.out.println(b.getLastLoseBetsSum());
     }
 
 }

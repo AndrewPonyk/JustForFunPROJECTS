@@ -49,7 +49,7 @@ public class RegexUtils {
             }
             results.add(new MomentResult(coef1Double, coef2Double, currentScore, currentTime.toString()));
         }
-        return new BetItem(title, sport, results, "0", link);
+        return new BetItem(title, sport, results, "0", link, "");
     }
 
 }

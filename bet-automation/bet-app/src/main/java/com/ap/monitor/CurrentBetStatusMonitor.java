@@ -31,13 +31,7 @@ public class CurrentBetStatusMonitor implements Runnable {
                 login();
                 goToHistoryPage();
                 parseAndUpdateLastBetAndCurrentAmount();
-
-//                List<List<String>> items = Get45StageItems.get5Items();
-//                if(!items.isEmpty()){
-//                    JavaCoreSendMailUtils.sendHtmlTable(Constants.BET_EMAIL, "Stage 5 items", items,
-//                            Constants.BET_EMAIL, Constants.BET_PASSWORD);
-//                }
-                Thread.sleep(50000);
+                Thread.sleep(100000);
             }catch (Exception e) {
                 e.printStackTrace();
             }
@@ -48,34 +42,55 @@ public class CurrentBetStatusMonitor implements Runnable {
         try {
         List<WebElement> pastBets = driver.findElementsByCssSelector(".lr .so");
         WebElement lastBet = pastBets.get(0);
-        String sumOfLastBet = lastBet.getText();
+        String winOfLastBet = lastBet.getText();
 
         Integer lastBetStatus = 0;
         Double currentAmount= Double.valueOf(driver.findElement(By.cssSelector(".saldo"))
                 .getText()
                 .replaceAll("[^\\d.]", ""));
 
-        if(sumOfLastBet.startsWith("0.0")){
+        if(winOfLastBet.startsWith("0.0")){
             //lose last bet
             lastBetStatus = -1;
         }
 
-        if(!sumOfLastBet.isEmpty() && !sumOfLastBet.startsWith("0.0")){
+        if(!winOfLastBet.isEmpty() && !winOfLastBet.startsWith("0.0")){
             //win last bet
             lastBetStatus = 1;
         }
 
-        if(sumOfLastBet.isEmpty()){
+        if(winOfLastBet.isEmpty()){
             // last bet in progress
             lastBetStatus = 0;
         }
 
-        betRepo.updateCurrentBetStatus(lastBetStatus, currentAmount);
+        betRepo.updateCurrentBetStatus(lastBetStatus, currentAmount, getLastLoseBetsSum());
 
         }catch (Exception e){
             System.err.println("Error happens during update CURRENT_BET_STATUS {}" + e);
         }
         System.out.println("CURRENT_BET_STATUS updated successfully");
+    }
+
+    private Double getLastLoseBetsSum() {
+        Double result = 0.0;
+        try {
+            List<WebElement> pastBets = driver.findElementsByCssSelector(".lr");
+            for (WebElement bet : pastBets) {
+                String sumOfLastBet = bet.findElement(By.cssSelector(".so")).getText();
+                if (sumOfLastBet.startsWith("0.0")) {
+                    //lose this bet
+                    String loseBetSum = bet.findElements(By.cssSelector(".lrBold")).get(1).getText();
+                    Double betSum = Double.valueOf(loseBetSum.substring(0, loseBetSum.indexOf(" ")));
+                    result += betSum;
+                } else {
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return result;
     }
 
     private void goToHistoryPage() {

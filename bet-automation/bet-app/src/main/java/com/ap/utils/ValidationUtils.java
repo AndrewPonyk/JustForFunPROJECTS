@@ -62,4 +62,29 @@ public class ValidationUtils {
 
         return false;
     }
+
+    public static Double getCurrentCoef(FirefoxDriver driver){
+        try {
+            if (driver.getPageSource().contains("have been changed")) {
+                String changeCoefText = driver.findElement(By.cssSelector("#stakeHolder ol li")).getText();
+                //String changeCoefText = "Outcome \"Morocco - Angola:Win 2\" - the odds have been changed to \"1.18\".";
+                changeCoefText = changeCoefText.substring(changeCoefText.indexOf("to \"") + 4);
+                changeCoefText = changeCoefText.replaceAll("\".$", "");
+                Double changedCoef = Double.valueOf(changeCoefText);
+                System.err.println("Coef in new MESSAGE " + changedCoef);
+                return changedCoef;
+            }
+
+            WebElement coefElement = driver.findElement(By.cssSelector("#wb .td_cf"));
+            Double coef = Double.valueOf(coefElement.getText());
+            System.err.println("COEF in TABLE " + coef);
+
+            return coef;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return -1.0;
+    }
+
 }

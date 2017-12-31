@@ -16,9 +16,9 @@ public class Constants {
 
     public static final double FIRST_STAGE_COEF = 1.2;
     public static final double SECOND_STAGE_COEF = 1.4;
-    public static final double THIRD_STAGE_COEF = 1.18;
+    public static final double THIRD_STAGE_COEF = 1.21;
 
-    public static final double FOURTH_STAGE_COEF = 1.35;
+    public static final double FOURTH_STAGE_COEF = 1.45;
     public static final double FIFTH_STAGE_COEF = 1.17;
 
     //public static final double SIXTH_STAGE_COEF = 1.3;
@@ -30,6 +30,9 @@ public class Constants {
     public static final Double MIN_BET = 3.0;
     public static final Double WIN_COEF_FLAG = 0.4; // max bet equals BET_BASE+BET_BASE*WIN_COEF_FLAG
 
+    public static final Double COMEBACK_LIMIT = 2.75;
+    public static final Double[] COMEBACK_PERFORM_BET_BOUND = {2.45, 2.6};
+
     public static final Set<String> SPORTS = new HashSet<>(Arrays.asList(
     "Tennis",
     "Basketball",
@@ -39,6 +42,8 @@ public class Constants {
     "Badminton"));
 
     public static final Double BET_LIMIT = 1.25;
+    public static final String PLAYER1_CROLL_LIMIT = "PLAYER1_CROSS_LIMIT";
+    public static final String PLAYER2_CROLL_LIMIT = "PLAYER2_CROSS_LIMIT";
 
     public static String BET_EMAIL = "";
     public static String BET_PASSWORD = "";

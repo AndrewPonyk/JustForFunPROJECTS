@@ -12,11 +12,15 @@ public interface BetRepo {
 
     List<BetItem> getStage5Items();
 
+    List<BetItem> getBetsWhereComebackIsPossile();
+
     void markBetAsCompleted(BetItem bet);
 
-    void updateCurrentBetStatus(Integer winLastBet, Double currentAmount);
+    void updateCurrentBetStatus(Integer winLastBet, Double currentAmount, Double lastLoseBetsSum);
 
     Integer getLastBetStatus();
+
+    Double getLastLoseBetsSum();
 
     List<String> getLastBetInfo();
 

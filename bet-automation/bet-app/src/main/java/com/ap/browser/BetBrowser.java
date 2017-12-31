@@ -71,7 +71,6 @@ public class BetBrowser {
         try {
             RegexUtils.currentTime = LocalDateTime.now();
             String betTable = driver.findElements(By.cssSelector("#inplay")).get(0).getAttribute("outerHTML");
-            logger.info("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
             Document betTableElement = Jsoup.parse(betTable);
             Elements betRows = betTableElement.select("#inplay table.dt");
             logger.info("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
@@ -115,7 +114,124 @@ public class BetBrowser {
 
     private BetItem checkAndBet() {
         BetItem stage3Item = null;
+        BetItem possibleComeBackItem = null;
         List<BetItem> stage3Items = betRepo.getStage5Items();
+        //List<BetItem> possibleComeBackItems = betRepo.getBetsWhereComebackIsPossile();
+        List<BetItem> possibleComeBackItems = new ArrayList<>();
+        // Start of big code duplication
+        if(!possibleComeBackItems.isEmpty()){
+            String parentWindowHandler="";
+            possibleComeBackItem = possibleComeBackItems.get(0);
+            logger.info("FOUND POSSIBLE COMEBACK" + stage3Item.getTitle());
+            goToLivePage();
+            login();
+            Integer possibleComebackPlayer = 0;
+            if (possibleComeBackItem.getStage().startsWith("player1:5")) {
+                possibleComebackPlayer = 1;
+            } else if (possibleComeBackItem.getStage().startsWith("player2:5")) {
+                possibleComebackPlayer = 2;
+            }
+
+            try {
+                List<WebElement> betRows = driver.findElements(By.xpath("//div[@id='inplay']//table[contains(@class,'dt') and contains(normalize-space(),'" +
+                        possibleComeBackItem.getTitle().substring(0,5) +
+                        "')]"));
+
+                logger.info(":::" + betRows.size());
+                if(betRows.isEmpty()){
+                    throw new Exception("Bet is not present anymore");
+                }
+
+                for (WebElement row : betRows) {
+                    String rowText = row.getText().replace("<small>", "").replace("</small>", "").replaceAll("'", "");
+                    if (rowText.contains(possibleComeBackItem.getTitle())) {
+
+                        WebElement winElement = possibleComebackPlayer == 1 ? row.findElement(By.cssSelector("tr td:nth-child(3)")) :
+                                row.findElement(By.cssSelector("tr td:nth-child(5)"));
+                        winElement.click();
+                        Thread.sleep(100);
+                        driver.findElement(By.cssSelector(".btn_orange")).click();
+
+                        parentWindowHandler = driver.getWindowHandle();
+                        String subWindowHandler = "";
+//
+                        Set<String> handles = driver.getWindowHandles();
+                        Iterator<String> iterator = handles.iterator();
+                        while (iterator.hasNext()) {
+                            String next = iterator.next();
+                            if (!next.equals(parentWindowHandler)) {
+                                subWindowHandler = next;
+                            }
+                        }
+
+
+                        driver.switchTo().window(subWindowHandler); // switch to popup window
+                        logger.info("SUBWINDOW:" + driver.getCurrentUrl());
+                        Thread.sleep(500);
+                        logger.info("-----------------------------------------------------------");
+                        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[name=sums]")));
+                        WebElement sumElement = driver.findElement(By.cssSelector("input[name=sums]"));
+                        WebElement currBalanceElement = driver.findElement(By.cssSelector("#ownerInfo td b"));
+                        Double currBalance = Double.parseDouble(currBalanceElement.getText().replaceAll("UAH", "").trim());
+
+                        if( currBalance < Constants.MIN_BET ){
+                            possibleComeBackItem.setStage(possibleComeBackItem.getStage() + Constants.ERROR_STATUS + "No_enough_money");
+                            return possibleComeBackItem;
+                        }
+                        Double betSum = 10000D;
+                        Integer lastBetStatus = betRepo.getLastBetStatus();
+                        if( lastBetStatus == 1){
+                            // win last bet, so set base bet
+                            betSum = currBalance * 0.195;
+                            System.out.println("Setting bet sume = " + betSum);
+                        }
+                        if(lastBetStatus == -1){
+                            //lose last bet, need bigger bet
+
+                        }
+
+                        BetDomUtils.setAttribute(driver, sumElement, "value", "" + betSum);
+                        if (driver.getPageSource().contains("Errors list") &&
+                                !driver.getPageSource().contains("have been changed")) {
+                            possibleComeBackItem.setStage(possibleComeBackItem.getStage() + "ERROR");
+                        }else {
+                            Thread.sleep(100);
+                            if(ValidationUtils.checkCoef(driver)){
+                                driver.findElement(By.cssSelector(".btn_orange")).click();
+                                // looks like click waits until bet is done, but for sure I added this sleep
+                                Thread.sleep(3000);
+                            } else {
+                                // if coef is 5, and while betting it has changed (to 1.3 for example, we set stage:4 back)
+                                //stage3Item.setStage(stage3Item.getStage() + Constants.ERROR_STATUS + "COEFFF");
+                                possibleComeBackItem.setStage(possibleComeBackItem.getStage().replace("5","4"));
+                            }
+
+
+                            if (driver.getPageSource().contains("Errors list")) {
+                                stage3Item.setStage(possibleComeBackItem.getStage() + Constants.ERROR_STATUS);
+                            } else {
+                                stage3Item.setStage(possibleComeBackItem.getStage() + "COMPLETED");
+                            }
+                        }
+                        return stage3Item;
+                    }
+                    possibleComeBackItem.setStage(possibleComeBackItem.getStage()+"ERROR203Line");
+                }
+            } catch (Exception e) {
+                logger.info(e.getMessage());
+                possibleComeBackItem.setStage(possibleComeBackItem.getStage() + Constants.ERROR_STATUS);
+                return stage3Item;
+            }
+            finally {
+                if( parentWindowHandler != null && !parentWindowHandler.isEmpty()){
+                    logger.info("Close window:::" + driver.getCurrentUrl());
+                    driver.close();
+                    driver.switchTo().window(parentWindowHandler);
+                }
+            }
+        }
+
+        // Big code duplication, will resolve in future!!!!!!!!!!
         logger.info("Try to find sssssssssssssssssssssssssssstage 333333");
         if (!stage3Items.isEmpty()) {
             String parentWindowHandler="";
@@ -178,10 +294,14 @@ public class BetBrowser {
                             return stage3Item;
                         }
                         Double betSum = 10000D;
-                        if(betRepo.getLastBetStatus() == 1){
+                        Integer lastBetStatus = betRepo.getLastBetStatus();
+                        if( lastBetStatus == 1){
                             // win last bet
-                            betSum = currBalance * 0.045;
+                            betSum = currBalance * 0.195;
                             System.out.println("Setting bet sume = " + betSum);
+                        }
+
+                        if(lastBetStatus == -1){
 
                         }
                         //old way
@@ -234,6 +354,8 @@ public class BetBrowser {
                 }
             }
         }
+
+
         return stage3Item;
     }
 

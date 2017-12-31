@@ -53,7 +53,7 @@ public class Get45StageItems {
 
     public static final String SELECT12345_STRING = "SELECT * FROM BET_HISTORY\n" +
             "WHERE LAST_UPDATE > now() - INTERVAL 100 SECOND AND " +
-            "(STAGE LIKE '%:1%' or STAGE LIKE '%:2%' or STAGE LIKE '%:3%' or STAGE LIKE '%:4%' or STAGE LIKE '%:5%') " +
+            "(STAGE LIKE '%:4%' or STAGE LIKE '%:5%') " +
             "order by ID desc";
 
 
