@@ -119,8 +119,8 @@ public class CurrentBetStatusMonitor implements Runnable {
             WebElement passwordInput = driver.findElement(By.cssSelector("input[name='passwd']"));
             WebElement okButton = driver.findElement(By.cssSelector(".btn_orange.ok"));
 
-            BetDomUtils.setAttribute(driver, loginInput, "value", "andrew9999@ukr.net");
-            BetDomUtils.setAttribute(driver, passwordInput, "value", "Aa123456");
+            BetDomUtils.setAttribute(driver, loginInput, "value", Constants.PAR_EMAIL);
+            BetDomUtils.setAttribute(driver, passwordInput, "value", Constants.PAR_PASS);
             okButton.click();
         } catch (Exception e) {
             e.printStackTrace();
