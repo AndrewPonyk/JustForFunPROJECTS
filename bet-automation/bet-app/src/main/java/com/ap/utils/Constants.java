@@ -14,7 +14,9 @@ public class Constants {
     public static final String LIVE_URL = "https://www.parimatch.com/en/live.html";
     public static final String HISTORY_URL = "https://www.parimatch.com/en/history.html";
 
-    public static final double FIRST_STAGE_COEF = 1.2;
+    public static final Double baseBetSum = 0.017;
+
+    public static final double FIRST_STAGE_COEF = 1.26;
     public static final double SECOND_STAGE_COEF = 1.4;
     public static final double THIRD_STAGE_COEF = 1.21;
 
@@ -30,8 +32,11 @@ public class Constants {
     public static final Double MIN_BET = 3.0;
     public static final Double WIN_COEF_FLAG = 0.4; // max bet equals BET_BASE+BET_BASE*WIN_COEF_FLAG
 
-    public static final Double COMEBACK_LIMIT = 2.75;
-    public static final Double[] COMEBACK_PERFORM_BET_BOUND = {2.45, 2.6};
+    public static final Double COMEBACK_LIMIT = 3.1;
+    public static final Double[] COMEBACK_PERFORM_BET_BOUND = {2.25, 2.6};
+    public static final String PLAYER1_CROLL_LIMIT = "PLAYER1_CROSS_LIMIT";
+    public static final String PLAYER2_CROLL_LIMIT = "PLAYER2_CROSS_LIMIT";
+    public static final String RETURNS_TO_BET_BOUND = "RETURS_TO_BET_BOUND";
 
     public static final Set<String> SPORTS = new HashSet<>(Arrays.asList(
     "Tennis",
@@ -41,12 +46,13 @@ public class Constants {
     "Hockey",
     "Badminton"));
 
-    public static final Double BET_LIMIT = 1.25;
-    public static final String PLAYER1_CROLL_LIMIT = "PLAYER1_CROSS_LIMIT";
-    public static final String PLAYER2_CROLL_LIMIT = "PLAYER2_CROSS_LIMIT";
+    public static final Double BET_LIMIT = 1.26;
 
     public static String BET_EMAIL = "";
     public static String BET_PASSWORD = "";
+
+    public static String PAR_EMAIL = "";
+    public static String PAR_PASS = "";
 
     static {
         try {
@@ -54,6 +60,8 @@ public class Constants {
             System.out.println(strings);
             BET_EMAIL = strings.get(0);
             BET_PASSWORD = strings.get(1);
+            PAR_EMAIL = strings.get(2);
+            PAR_PASS = strings.get(3);
         } catch (IOException e) {
             e.printStackTrace();
         }

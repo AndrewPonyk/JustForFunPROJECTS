@@ -31,7 +31,7 @@ public class CurrentBetStatusMonitor implements Runnable {
                 login();
                 goToHistoryPage();
                 parseAndUpdateLastBetAndCurrentAmount();
-                Thread.sleep(100000);
+                Thread.sleep(70000);
             }catch (Exception e) {
                 e.printStackTrace();
             }

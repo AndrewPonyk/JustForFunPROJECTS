@@ -19,7 +19,7 @@ public class Stage12345Monitor implements Runnable {
                     JavaCoreSendMailUtils.sendHtmlTableWithUserData(Constants.BET_EMAIL, "Stage 12345 items", items,
                             Constants.BET_EMAIL, Constants.BET_PASSWORD);
                 }
-                Thread.sleep(300000);
+                Thread.sleep(200000);
             } catch (Exception e) {
                 e.printStackTrace();
             }

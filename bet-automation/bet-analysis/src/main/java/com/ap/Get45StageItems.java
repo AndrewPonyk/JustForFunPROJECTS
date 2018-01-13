@@ -16,36 +16,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Get45StageItems {
-
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     static {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
-
-    public static List<String> getPlayerStagesFromHistory(String title, String sport) {
-        List<String> result = new ArrayList<>();
-        String[] parts = title.split(" - ");
-        String sql = "SELECT * FROM BET_HISTORY WHERE (TITLE LIKE ? OR TITLE LIKE ?) AND SPORT = ? ";
-        try {
-            Connection connection = ConnectionFactory.getConnection();
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, "%" + parts[0] + "%");
-            statement.setString(2, "%" + parts[1] + "%");
-            statement.setString(3, sport);
-
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()){
-                result.add(resultSet.getString("TITLE") + ":" + resultSet.getString("DATE")+":"
-                        + resultSet.getString("STAGE"));
-            }
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        return result;
-    }
-
+    private static final String POSSIBLE_COMEBACK = "SELECT * FROM BET_HISTORY\n" +
+            "WHERE LAST_UPDATE > now() - INTERVAL 100 SECOND AND (NOTES like '%RE%') " +
+            "order by ID desc";
 
     public static final String SELECT5_STRING = "SELECT * FROM BET_HISTORY\n" +
             "WHERE LAST_UPDATE > now() - INTERVAL 100 SECOND AND (STAGE LIKE '%:5%') " +
@@ -63,6 +42,10 @@ public class Get45StageItems {
 
     public static LinkedList<List<String>> get12345Items() throws SQLException, IOException {
         return getBetItems(SELECT12345_STRING);
+    }
+
+    public static LinkedList<List<String>> getItemsWithPossibleComeback() throws IOException, SQLException {
+        return getBetItems(POSSIBLE_COMEBACK);
     }
 
     private static LinkedList<List<String>> getBetItems(String selectString) throws SQLException, IOException {
@@ -104,6 +87,29 @@ public class Get45StageItems {
 
         return result;
     }
+
+    public static List<String> getPlayerStagesFromHistory(String title, String sport) {
+        List<String> result = new ArrayList<>();
+        String[] parts = title.split(" - ");
+        String sql = "SELECT * FROM BET_HISTORY WHERE (TITLE LIKE ? OR TITLE LIKE ?) AND SPORT = ? ";
+        try {
+            Connection connection = ConnectionFactory.getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, "%" + parts[0] + "%");
+            statement.setString(2, "%" + parts[1] + "%");
+            statement.setString(3, sport);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                result.add(resultSet.getString("TITLE") + ":" + resultSet.getString("DATE")+":"
+                        + resultSet.getString("STAGE"));
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
+
 
     /**
      * [date] stages 0,1,3,5 count=[n], stages 2,4 count=[m]

@@ -51,6 +51,7 @@ public class BetBrowser {
 
             if (bet == null || bet.getStage().contains("ERROR")) {
                 //try again, but only 1 time
+                System.out.println(bet + ": " + "try again, but only 1 time");
                 bet = checkAndBet();
             }
 
@@ -60,7 +61,7 @@ public class BetBrowser {
             }
 
             try {
-                Thread.sleep(13000);
+                Thread.sleep(11500);
             } catch (InterruptedException e) {
                 logger.info(e.getMessage());
             }
@@ -113,22 +114,31 @@ public class BetBrowser {
     }
 
     private BetItem checkAndBet() {
+        Integer lastBetStatus = betRepo.getLastBetStatus();
+        if( lastBetStatus == 0){
+            return null;
+        }
+
         BetItem stage3Item = null;
         BetItem possibleComeBackItem = null;
-        List<BetItem> stage3Items = betRepo.getStage5Items();
-        //List<BetItem> possibleComeBackItems = betRepo.getBetsWhereComebackIsPossile();
-        List<BetItem> possibleComeBackItems = new ArrayList<>();
+//        List<BetItem> stage3Items = betRepo.getStage5Items();
+        List<BetItem> stage3Items = new ArrayList<>();
+        BetItem randomFavourite = betRepo.getRandomFavourite(4);
+        if(randomFavourite != null){
+            stage3Items.add(randomFavourite);
+        }
+        List<BetItem> possibleComeBackItems = betRepo.getBetsWhereComebackIsPossile();
         // Start of big code duplication
         if(!possibleComeBackItems.isEmpty()){
             String parentWindowHandler="";
             possibleComeBackItem = possibleComeBackItems.get(0);
-            logger.info("FOUND POSSIBLE COMEBACK" + stage3Item.getTitle());
+            logger.info("FOUND POSSIBLE COMEBACK" + possibleComeBackItem.getTitle());
             goToLivePage();
             login();
             Integer possibleComebackPlayer = 0;
-            if (possibleComeBackItem.getStage().startsWith("player1:5")) {
+            if (possibleComeBackItem.getStage().startsWith("player1")) {
                 possibleComebackPlayer = 1;
-            } else if (possibleComeBackItem.getStage().startsWith("player2:5")) {
+            } else if (possibleComeBackItem.getStage().startsWith("player2")) {
                 possibleComebackPlayer = 2;
             }
 
@@ -164,7 +174,6 @@ public class BetBrowser {
                             }
                         }
 
-
                         driver.switchTo().window(subWindowHandler); // switch to popup window
                         logger.info("SUBWINDOW:" + driver.getCurrentUrl());
                         Thread.sleep(500);
@@ -178,38 +187,53 @@ public class BetBrowser {
                             possibleComeBackItem.setStage(possibleComeBackItem.getStage() + Constants.ERROR_STATUS + "No_enough_money");
                             return possibleComeBackItem;
                         }
+
                         Double betSum = 10000D;
-                        Integer lastBetStatus = betRepo.getLastBetStatus();
+                        Double currentCoef = ValidationUtils.getCurrentCoef(driver);
+                        System.out.println("BET COEFF: " + currentCoef);
+                        //Integer lastBetStatus = betRepo.getLastBetStatus();
                         if( lastBetStatus == 1){
                             // win last bet, so set base bet
-                            betSum = currBalance * 0.195;
-                            System.out.println("Setting bet sume = " + betSum);
-                        }
-                        if(lastBetStatus == -1){
-                            //lose last bet, need bigger bet
+                            betSum = currBalance * Constants.baseBetSum;
 
+                            System.out.println("Setting bet sume = " + betSum);
+                        } else if(lastBetStatus == -1){
+                            //lose last bet, need bigger bet
+                            betSum = betRepo.getLastLoseBetsSum() / (currentCoef-1) * 1.12;
+                            if(betSum < Constants.MIN_BET){
+                                betSum = Constants.MIN_BET * 1.12;
+                            }
+                        } else {
+                            return null;
+                        }
+
+                        if(betSum < Constants.MIN_BET){
+                            betSum = Constants.MIN_BET;
+                        }
+                        if(betSum > currBalance){
+                            betSum = currBalance;
                         }
 
                         BetDomUtils.setAttribute(driver, sumElement, "value", "" + betSum);
                         if (driver.getPageSource().contains("Errors list") &&
                                 !driver.getPageSource().contains("have been changed")) {
                             possibleComeBackItem.setStage(possibleComeBackItem.getStage() + "ERROR");
-                        }else {
+                        } else {
                             Thread.sleep(100);
-                            if(ValidationUtils.checkCoef(driver)){
-                                driver.findElement(By.cssSelector(".btn_orange")).click();
-                                // looks like click waits until bet is done, but for sure I added this sleep
-                                Thread.sleep(3000);
-                            } else {
-                                // if coef is 5, and while betting it has changed (to 1.3 for example, we set stage:4 back)
-                                //stage3Item.setStage(stage3Item.getStage() + Constants.ERROR_STATUS + "COEFFF");
-                                possibleComeBackItem.setStage(possibleComeBackItem.getStage().replace("5","4"));
+
+                            if(currentCoef < Constants.COMEBACK_PERFORM_BET_BOUND[0] ||
+                                    currentCoef > Constants.COMEBACK_PERFORM_BET_BOUND[1]){
+                                return null;
                             }
 
+                            driver.findElement(By.cssSelector(".btn_orange")).click();
+                            // looks like click waits until bet is done, but for sure I added this sleep
+                            Thread.sleep(3000);
 
                             if (driver.getPageSource().contains("Errors list")) {
                                 stage3Item.setStage(possibleComeBackItem.getStage() + Constants.ERROR_STATUS);
                             } else {
+                                betRepo.updateCurrentBetStatus(0, 0.0, 0.0);
                                 stage3Item.setStage(possibleComeBackItem.getStage() + "COMPLETED");
                             }
                         }
@@ -232,17 +256,17 @@ public class BetBrowser {
         }
 
         // Big code duplication, will resolve in future!!!!!!!!!!
-        logger.info("Try to find sssssssssssssssssssssssssssstage 333333");
-        if (!stage3Items.isEmpty()) {
+        // DISABLE THIS SMALL BETS, NO SENse
+        if (false && !stage3Items.isEmpty() && stage3Items.get(0)!= null && lastBetStatus == 1) {
             String parentWindowHandler="";
             stage3Item = stage3Items.get(0);
             logger.info("FOUND STAGE 3" + stage3Item.getTitle());
             goToLivePage();
             login();
             Integer playerInStage3 = 0;
-            if (stage3Item.getStage().startsWith("player1:5")) {
+            if (stage3Item.getStage().startsWith("player1")) {
                 playerInStage3 = 1;
-            } else if (stage3Item.getStage().startsWith("player2:5")) {
+            } else if (stage3Item.getStage().startsWith("player2")) {
                 playerInStage3 = 2;
             }
 
@@ -294,16 +318,13 @@ public class BetBrowser {
                             return stage3Item;
                         }
                         Double betSum = 10000D;
-                        Integer lastBetStatus = betRepo.getLastBetStatus();
+
                         if( lastBetStatus == 1){
                             // win last bet
-                            betSum = currBalance * 0.195;
+                            betSum = currBalance * 0.0195;
                             System.out.println("Setting bet sume = " + betSum);
                         }
 
-                        if(lastBetStatus == -1){
-
-                        }
                         //old way
 //                        if(currBalance % Constants.BET_BASE < (Constants.BET_BASE*Constants.WIN_COEF_FLAG)){
 //                            betSum = Constants.BET_BASE + currBalance % Constants.BET_BASE;

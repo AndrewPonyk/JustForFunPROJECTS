@@ -17,6 +17,7 @@ import java.util.*;
 public class BetRepoJdbc implements BetRepo {
 
     Logger logger = LoggerFactory.getLogger(BetRepoJdbc.class);
+    Random random = new Random();
 
     @Override
     public List<BetItem> getAll() {
@@ -127,6 +128,7 @@ public class BetRepoJdbc implements BetRepo {
                     }
 
                     String stage = existingItem.getStage();
+                    String notes = existingItem.getNotes() == null ? "" : existingItem.getNotes();
                     //zero stage
                     if(existingResults.getLast().getCoef1()>0 && existingResults.getLast().getCoef2()>0 ){
                         if (stage != null && stage.contains("0")) {
@@ -193,15 +195,31 @@ public class BetRepoJdbc implements BetRepo {
                     }
 
                     // comeback settings
-                    if(stage != null){
-                        if(stage.contains("player1")){
-                          if(existingResults.getLast().getCoef1() > Constants.COMEBACK_LIMIT){
-                              item.setNotes(Constants.PLAYER1_CROLL_LIMIT);
-                          }
-                        } else if(stage.contains("player2")){
-                            item.setNotes(Constants.PLAYER2_CROLL_LIMIT);
+                    if (stage != null) {
+                        item.setNotes(notes);
+                        if (stage.contains("player1")) {
+                            if (notes.contains(Constants.PLAYER1_CROLL_LIMIT)) {
+                                if (existingResults.getLast().getCoef1() >= Constants.COMEBACK_PERFORM_BET_BOUND[0] &&
+                                        existingResults.getLast().getCoef1() <= Constants.COMEBACK_PERFORM_BET_BOUND[1]) {
+                                    item.setNotes(Constants.PLAYER1_CROLL_LIMIT + ":" + Constants.RETURNS_TO_BET_BOUND);
+                                }
+                            }
+                            if (existingResults.getLast().getCoef1() > Constants.COMEBACK_LIMIT &&
+                                    !item.getNotes().contains(Constants.PLAYER1_CROLL_LIMIT)) {
+                                item.setNotes(Constants.PLAYER1_CROLL_LIMIT);
+                            }
+                        } else if (stage.contains("player2")) {
+                            if (notes.contains(Constants.PLAYER2_CROLL_LIMIT)) {
+                                if (existingResults.getLast().getCoef2() >= Constants.COMEBACK_PERFORM_BET_BOUND[0] &&
+                                        existingResults.getLast().getCoef2() <= Constants.COMEBACK_PERFORM_BET_BOUND[1]) {
+                                    item.setNotes(Constants.PLAYER2_CROLL_LIMIT + ":" + Constants.RETURNS_TO_BET_BOUND);
+                                }
+                            }
+                            if (existingResults.getLast().getCoef2() > Constants.COMEBACK_LIMIT
+                                    && !item.getNotes().contains(Constants.PLAYER2_CROLL_LIMIT)) {
+                                item.setNotes(Constants.PLAYER2_CROLL_LIMIT);
+                            }
                         }
-
                     }
 
                     updatePs.setString(1, JsonMapper.mapper.writeValueAsString(existingResults));
@@ -254,7 +272,9 @@ public class BetRepoJdbc implements BetRepo {
         try {
             Connection connection = ConnectionFactory.getConnection();
             PreparedStatement ps = connection.prepareStatement("SELECT * FROM BET_HISTORY" +
-                    " WHERE NOTES like '%FAVORITE COMEBACK POSSIBLE%' AND LAST_UPDATE > now() - INTERVAL 500 SECOND");
+                    " WHERE NOTES like '%" +
+                    Constants.RETURNS_TO_BET_BOUND +
+                    "%' AND LAST_UPDATE > now() - INTERVAL 120 SECOND");
 
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -348,6 +368,7 @@ public class BetRepoJdbc implements BetRepo {
             result.add(resultSet.getInt(1)+"");
             result.add(resultSet.getString(2)+"");
             result.add(resultSet.getString(3)+"");
+            result.add(resultSet.getString(4)+"");
             connection.close();
             return result;
         }catch (Exception e){
@@ -400,11 +421,44 @@ public class BetRepoJdbc implements BetRepo {
         return result;
     }
 
+    @Override
+    public BetItem getRandomFavourite(int minBetFavItems) {
+        List<BetItem> result = new ArrayList<>();
+        try {
+            Connection connection = ConnectionFactory.getConnection();
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM BET_HISTORY" +
+                    " WHERE (STAGE like '%:1%' or stage like '%:3%')  AND LAST_UPDATE > now() - INTERVAL 100 SECOND");
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                BetItem bet = new BetItem(rs.getString("TITLE"),rs.getString("SPORT"),
+                        JsonMapper.mapper.readValue(rs.getString("RESULTS"), new TypeReference<LinkedList<MomentResult>>() {
+                        }), rs.getString("STAGE"), "", rs.getString("NOTES"));
+                if(bet.getResults().getLast().getCoef1() > 0 &&
+                        Math.max(bet.getResults().getLast().getCoef1(), bet.getResults().getLast().getCoef2()) > 1.05
+                        ){
+                    result.add(bet);
+                }
+            }
+            connection.close();
+        } catch (Exception e) {
+            logger.info(e.getMessage());
+        }
+        if(!result.isEmpty() && minBetFavItems <= result.size()){
+            int randomInt = random.nextInt(result.size());
+            return result.get(randomInt);
+        } else {
+            return null;
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("1");
         BetRepo b =new BetRepoJdbc();
         //System.out.println(b.getPlayerStagesFromHistory("Tianjin - Bayi", "Volleyball"));
-        System.out.println(b.getLastLoseBetsSum());
+        System.out.println(b.getRandomFavourite(4));
+        System.out.println(new ArrayList<>(null));
     }
+
 
 }
