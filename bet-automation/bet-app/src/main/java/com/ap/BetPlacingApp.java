@@ -15,6 +15,8 @@ public class BetPlacingApp {
         //Thread stage12345Monitor = new Thread(new Stage12345Monitor());
         //stage12345Monitor.start();
 
+        Thread shouldRebootMonitor = new Thread(new ShouldRebootMonitor());
+        shouldRebootMonitor.start();
         Thread currentStatusMonitor = new Thread(new CurrentBetStatusMonitor());
         currentStatusMonitor.start();
         Thread possibleComebackMonitor = new Thread(new PossibleComebackMonitor());

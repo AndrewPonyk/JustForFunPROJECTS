@@ -32,7 +32,7 @@ public class Constants {
     public static final Double MIN_BET = 3.0;
     public static final Double WIN_COEF_FLAG = 0.4; // max bet equals BET_BASE+BET_BASE*WIN_COEF_FLAG
 
-    public static final Double COMEBACK_LIMIT = 3.5;
+    public static final Double COMEBACK_LIMIT = 3.3;
     public static final Double[] COMEBACK_PERFORM_BET_BOUND = {2.25, 2.6};
     public static final String PLAYER1_CROLL_LIMIT = "PLAYER1_CROSS_LIMIT";
     public static final String PLAYER2_CROLL_LIMIT = "PLAYER2_CROSS_LIMIT";

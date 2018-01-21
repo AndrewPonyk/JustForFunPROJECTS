@@ -61,7 +61,7 @@ public class BetBrowser {
             }
 
             try {
-                Thread.sleep(11500);
+                Thread.sleep(10500);
             } catch (InterruptedException e) {
                 logger.info(e.getMessage());
             }
@@ -199,9 +199,9 @@ public class BetBrowser {
                             System.out.println("Setting bet sume = " + betSum);
                         } else if(lastBetStatus == -1){
                             //lose last bet, need bigger bet
-                            betSum = betRepo.getLastLoseBetsSum() / (currentCoef-1) * 1.12;
+                            betSum = betRepo.getLastLoseBetsSum() / (currentCoef-1) * 1.1;
                             if(betSum < Constants.MIN_BET){
-                                betSum = Constants.MIN_BET * 1.12;
+                                betSum = Constants.MIN_BET * 1.1;
                             }
                         } else {
                             return null;
@@ -394,6 +394,7 @@ public class BetBrowser {
     private void login() {
         try {
             driver.get(Constants.LIVE_URL);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("login")));
             WebElement loginButton = driver.findElement(By.className("login"));
             loginButton.click();
         } catch (Exception e) {

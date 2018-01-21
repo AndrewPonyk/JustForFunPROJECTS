@@ -1,9 +1,12 @@
 package com.ap.utils;
 
 
+import com.ap.model.MomentResult;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.util.List;
 
 public class ValidationUtils {
     public static Boolean validateSport(String text) {
@@ -85,6 +88,10 @@ public class ValidationUtils {
         }
 
         return -1.0;
+    }
+
+    public boolean checkFirst4Results(List<MomentResult> results){
+        return false;
     }
 
 }

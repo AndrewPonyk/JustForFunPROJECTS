@@ -16,6 +16,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Get45StageItems {
+
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     static {
@@ -35,6 +36,9 @@ public class Get45StageItems {
             "(STAGE LIKE '%:4%' or STAGE LIKE '%:5%') " +
             "order by ID desc";
 
+    private static final String ALL_CURRENT_ITEMS = "SELECT * FROM BET_HISTORY \n" +
+            "WHERE LAST_UPDATE > now() - INTERVAL 100 SECOND " +
+            "order by ID desc";;
 
     public static LinkedList<List<String>> get5Items() throws SQLException, IOException {
         return getBetItems(SELECT5_STRING);
@@ -46,6 +50,10 @@ public class Get45StageItems {
 
     public static LinkedList<List<String>> getItemsWithPossibleComeback() throws IOException, SQLException {
         return getBetItems(POSSIBLE_COMEBACK);
+    }
+
+    public static LinkedList<List<String>> getAllCurrent() throws IOException, SQLException {
+        return getBetItems(ALL_CURRENT_ITEMS);
     }
 
     private static LinkedList<List<String>> getBetItems(String selectString) throws SQLException, IOException {

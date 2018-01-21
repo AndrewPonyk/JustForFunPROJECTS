@@ -29,7 +29,7 @@ public class ShouldRebootMonitor implements Runnable {
                 if("true".equals(status)){
                     rebootPC();
                 }
-                Thread.sleep(600000);
+                Thread.sleep(300000);
             }catch (Exception e) {
                 e.printStackTrace();
             }
