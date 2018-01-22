@@ -2,12 +2,14 @@ package com.ap.utils;
 
 import com.ap.dao.BetRepo;
 import com.ap.dao.BetRepoJdbc;
+import pl.allegro.finance.tradukisto.ValueConverters;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import java.time.LocalDateTime;
 import java.util.*;
 
 //basic usage of sonarqube
@@ -15,7 +17,7 @@ import java.util.*;
 public class JavaCoreSendMailUtils {
 
     static BetRepo betRepo = new BetRepoJdbc();
-
+    static ValueConverters converter = ValueConverters.ENGLISH_INTEGER;
     public static void main(String[] args) throws MessagingException {
         sendHtmlTable(Constants.BET_EMAIL, "many tables", Arrays.asList(Arrays.asList("1","2"), Arrays.asList("3","4")),
                 Constants.BET_EMAIL, Constants.BET_PASSWORD);
@@ -25,9 +27,12 @@ public class JavaCoreSendMailUtils {
         Double currentAmount=0.0;
         Double threePercent = 0.0;
         List<String> betMetadata = betRepo.getLastBetInfo();
+        LocalDateTime now = LocalDateTime.now();
         try {
             currentAmount = Double.valueOf(betMetadata.get(2));
             threePercent = currentAmount*0.03;
+            betMetadata.add("TIME:" + converter.asWords(now.getHour())+
+                    ":"+converter.asWords(now.getMinute()));
             betMetadata.add(currentAmount+": 3%=" + threePercent);
             betMetadata.add(betRepo.stagesCount());
         }catch (Exception e){

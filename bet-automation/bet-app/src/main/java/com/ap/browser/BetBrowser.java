@@ -3,6 +3,7 @@ package com.ap.browser;
 import com.ap.dao.BetRepo;
 import com.ap.dao.BetRepoJdbc;
 import com.ap.model.BetItem;
+import com.ap.monitor.CurrentBetStatusMonitor;
 import com.ap.utils.BetDomUtils;
 import com.ap.utils.Constants;
 import com.ap.utils.RegexUtils;
@@ -29,9 +30,13 @@ public class BetBrowser {
     public static FirefoxDriver driver;
     public static BetRepo betRepo = new BetRepoJdbc();
     public static WebDriverWait wait;
+    public static int monitorsWithoutChanges = 0;
 
     static {
         System.setProperty("webdriver.gecko.driver", "/home/andrii/Programs/geckodriver");
+        System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
+        System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");
+
         driver = new FirefoxDriver();
         wait = new WebDriverWait(driver, 9);
     }
@@ -70,6 +75,25 @@ public class BetBrowser {
 
     private void parseAndSaveBets() {
         try {
+            WebElement upWebElement = driver.findElements(By.cssSelector("i.up")).get(0);
+            if(upWebElement != null && upWebElement.getText().trim().length() > 0){
+                monitorsWithoutChanges = 0;
+                System.out.println(upWebElement.getText() + " << Up element");
+            } else {
+
+                monitorsWithoutChanges++;
+            }
+        }catch (Exception e){
+            monitorsWithoutChanges++;
+        }
+
+        System.out.println("Monitor without changes >>" + monitorsWithoutChanges);
+        if(monitorsWithoutChanges >= 10){
+            monitorsWithoutChanges=0;
+            goToLivePage();
+        }
+
+        try {
             RegexUtils.currentTime = LocalDateTime.now();
             String betTable = driver.findElements(By.cssSelector("#inplay")).get(0).getAttribute("outerHTML");
             Document betTableElement = Jsoup.parse(betTable);
@@ -101,12 +125,13 @@ public class BetBrowser {
             });
             logger.info("LENGHT = " + betRows.size());
             logger.info("Skipped items:: " + countSkip.get());
-            final StringBuilder betItemsString = new StringBuilder();
-            betItems.forEach(e -> {
-                betItemsString.append(e.toString());
-                betItemsString.append("=====================\n");
-            });
-            logger.info(betItemsString.toString());
+            //final StringBuilder betItemsString = new StringBuilder();
+            // slow down app
+//            betItems.forEach(e -> {
+//                betItemsString.append(e.toString());
+//                betItemsString.append("=====================\n");
+//            });
+//            logger.info(betItemsString.toString());
             betRepo.saveUpdateItems(betItems);
         } catch (Exception e) {
             logger.info(e.getMessage());
@@ -119,22 +144,29 @@ public class BetBrowser {
             return null;
         }
 
+        //refresh page once per hour
+        LocalDateTime now = LocalDateTime.now();
+        if(now.getMinute() == 50 && now.getSecond()>40){
+            goToLivePage();
+            login();
+            System.out.println("Performin refresh once per hour " + now);
+        }
+
         BetItem stage3Item = null;
         BetItem possibleComeBackItem = null;
 //        List<BetItem> stage3Items = betRepo.getStage5Items();
         List<BetItem> stage3Items = new ArrayList<>();
-        BetItem randomFavourite = betRepo.getRandomFavourite(4);
-        if(randomFavourite != null){
-            stage3Items.add(randomFavourite);
-        }
+//        BetItem randomFavourite = betRepo.getRandomFavourite(4);
+//        if(randomFavourite != null){
+//            stage3Items.add(randomFavourite);
+//        }
         List<BetItem> possibleComeBackItems = betRepo.getBetsWhereComebackIsPossile();
         // Start of big code duplication
         if(!possibleComeBackItems.isEmpty()){
             String parentWindowHandler="";
             possibleComeBackItem = possibleComeBackItems.get(0);
             logger.info("FOUND POSSIBLE COMEBACK" + possibleComeBackItem.getTitle());
-            goToLivePage();
-            login();
+
             Integer possibleComebackPlayer = 0;
             if (possibleComeBackItem.getStage().startsWith("player1")) {
                 possibleComebackPlayer = 1;
@@ -176,7 +208,7 @@ public class BetBrowser {
 
                         driver.switchTo().window(subWindowHandler); // switch to popup window
                         logger.info("SUBWINDOW:" + driver.getCurrentUrl());
-                        Thread.sleep(500);
+                        Thread.sleep(200);
                         logger.info("-----------------------------------------------------------");
                         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[name=sums]")));
                         WebElement sumElement = driver.findElement(By.cssSelector("input[name=sums]"));
@@ -221,14 +253,27 @@ public class BetBrowser {
                         } else {
                             Thread.sleep(100);
 
+                            try {
+                                // get current progress money
+                                String progressMoney = driver.findElements(By.cssSelector("#ownerInfo tr")).get(1)
+                                        .findElements(By.cssSelector("td")).get(6).getText();
+                                System.out.println("Progress money:" + progressMoney);
+
+                            }catch (Exception e){
+                                System.out.println("Can not detect progress money");
+                            }
+
                             if(currentCoef < Constants.COMEBACK_PERFORM_BET_BOUND[0] ||
                                     currentCoef > Constants.COMEBACK_PERFORM_BET_BOUND[1]){
                                 return null;
                             }
 
+
+
+
                             driver.findElement(By.cssSelector(".btn_orange")).click();
                             // looks like click waits until bet is done, but for sure I added this sleep
-                            Thread.sleep(3000);
+                            Thread.sleep(3500);
 
                             if (driver.getPageSource().contains("Errors list")) {
                                 stage3Item.setStage(possibleComeBackItem.getStage() + Constants.ERROR_STATUS);
@@ -303,7 +348,6 @@ public class BetBrowser {
                             }
                         }
 
-
                         driver.switchTo().window(subWindowHandler); // switch to popup window
                         logger.info("SUBWINDOW:" + driver.getCurrentUrl());
                         Thread.sleep(500);
@@ -341,7 +385,7 @@ public class BetBrowser {
                             stage3Item.setStage(stage3Item.getStage() + "ERROR");
                         }else {
                             Thread.sleep(100);
-                            if(ValidationUtils.checkCoef(driver)){
+                            if(ValidationUtils.checkCoefAndNoBetInProgress(driver)){
                                 driver.findElement(By.cssSelector(".btn_orange")).click();
                                 // looks like click waits until bet is done, but for sure I added this sleep
                                 Thread.sleep(3000);

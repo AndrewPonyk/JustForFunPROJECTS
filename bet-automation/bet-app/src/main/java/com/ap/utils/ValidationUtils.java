@@ -28,12 +28,12 @@ public class ValidationUtils {
 
     public static void main(String[] args) {
         Double d = 3.456;
-        System.out.println(checkCoef(null));
+        System.out.println(checkCoefAndNoBetInProgress(null));
 
     }
 
     //Outcome "Morocco - Angola:Win 2" - the odds have been changed to "1.80".
-    public static Boolean checkCoef(FirefoxDriver driver) {
+    public static Boolean checkCoefAndNoBetInProgress(FirefoxDriver driver) {
         try {
             if (driver.getPageSource().contains("have been changed")) {
                 String changeCoefText = driver.findElement(By.cssSelector("#stakeHolder ol li")).getText();

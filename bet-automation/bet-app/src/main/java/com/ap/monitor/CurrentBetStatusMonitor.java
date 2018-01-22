@@ -14,12 +14,15 @@ import java.util.List;
 
 public class CurrentBetStatusMonitor implements Runnable {
 
+    private static final WebDriverWait wait;
+    public static FirefoxDriver driver;
+    public static Integer LAST_BET_STATUS = -10;
+
     static {
         System.setProperty("webdriver.gecko.driver", "/home/andrii/Programs/geckodriver");
         driver = new FirefoxDriver();
+        wait = new WebDriverWait(driver, 9);
     }
-
-    public static FirefoxDriver driver;
 
     BetRepo betRepo = new BetRepoJdbc();
 
@@ -29,9 +32,8 @@ public class CurrentBetStatusMonitor implements Runnable {
             System.err.println("Monitor current bet status");
             try {
                 login();
-                goToHistoryPage();
                 parseAndUpdateLastBetAndCurrentAmount();
-                Thread.sleep(70000);
+                Thread.sleep(95000);
             }catch (Exception e) {
                 e.printStackTrace();
             }
@@ -64,6 +66,7 @@ public class CurrentBetStatusMonitor implements Runnable {
             lastBetStatus = 0;
         }
 
+        LAST_BET_STATUS = lastBetStatus;
         betRepo.updateCurrentBetStatus(lastBetStatus, currentAmount, getLastLoseBetsSum());
 
         }catch (Exception e){
@@ -93,37 +96,25 @@ public class CurrentBetStatusMonitor implements Runnable {
         return result;
     }
 
-    private void goToHistoryPage() {
-        try {
-            driver.get(Constants.HISTORY_URL);
-        } catch (Exception e) {
-            //logger.info(e.getMessage());
-        }
-
-    }
-
+    //specific behavior
     private void login() {
         try {
             driver.get(Constants.HISTORY_URL);
-            WebElement loginButton = driver.findElement(By.className("login"));
-            loginButton.click();
-        } catch (Exception e) {
-            //logger.info("Click login error or we are already logged in");
-            // we are logged
-            return;
-        }
-
-        try {
-            WebElement loginInput = (new WebDriverWait(driver, 10)).
+            WebElement loginInput = (new WebDriverWait(driver, 5)).
                     until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[name='username']")));
             WebElement passwordInput = driver.findElement(By.cssSelector("input[name='passwd']"));
             WebElement okButton = driver.findElement(By.cssSelector(".btn_orange.ok"));
+            okButton.click();
 
+            loginInput = (new WebDriverWait(driver, 5)).
+                    until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[name='username']")));
+            passwordInput = driver.findElement(By.cssSelector("input[name='passwd']"));
+            okButton = driver.findElement(By.cssSelector(".btn_orange.ok"));
             BetDomUtils.setAttribute(driver, loginInput, "value", Constants.PAR_EMAIL);
             BetDomUtils.setAttribute(driver, passwordInput, "value", Constants.PAR_PASS);
             okButton.click();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("already logged on history page");
         }
     }
 }

@@ -17,8 +17,8 @@ public class Constants {
     public static final Double baseBetSum = 0.017;
 
     public static final double FIRST_STAGE_COEF = 1.26;
-    public static final double SECOND_STAGE_COEF = 1.4;
-    public static final double THIRD_STAGE_COEF = 1.21;
+    public static final double SECOND_STAGE_COEF = 1.5;
+    public static final double THIRD_STAGE_COEF = 1.22;
 
     public static final double FOURTH_STAGE_COEF = 1.45;
     public static final double FIFTH_STAGE_COEF = 1.17;
