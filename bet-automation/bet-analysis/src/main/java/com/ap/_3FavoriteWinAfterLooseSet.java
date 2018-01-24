@@ -107,7 +107,7 @@ public class _3FavoriteWinAfterLooseSet {
     }
 
     private static ResultSet getResultSet() throws SQLException {
-        System.out.println("Test tennis after ");
+        System.out.println("Test tennis after_ ");
         Connection connection = ConnectionFactory.getConnection();
 
         Statement statement = connection.createStatement();

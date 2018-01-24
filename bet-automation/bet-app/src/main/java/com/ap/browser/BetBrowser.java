@@ -66,8 +66,16 @@ public class BetBrowser {
             }
 
             try {
+                //refresh page once per hour
+                LocalDateTime now = LocalDateTime.now();
+                if((now.getMinute() == 50 || now.getMinute() == 7)
+                        && now.getSecond()>40){
+                    goToLivePage();
+                    login();
+                    System.out.println("Performin refresh twice per hour " + now);
+                }
                 Thread.sleep(10500);
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
                 logger.info(e.getMessage());
             }
         }
@@ -142,14 +150,6 @@ public class BetBrowser {
         Integer lastBetStatus = betRepo.getLastBetStatus();
         if( lastBetStatus == 0){
             return null;
-        }
-
-        //refresh page once per hour
-        LocalDateTime now = LocalDateTime.now();
-        if(now.getMinute() == 50 && now.getSecond()>40){
-            goToLivePage();
-            login();
-            System.out.println("Performin refresh once per hour " + now);
         }
 
         BetItem stage3Item = null;

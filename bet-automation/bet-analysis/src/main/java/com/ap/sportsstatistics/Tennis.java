@@ -110,7 +110,7 @@ public class Tennis {
 
 //-----------------------------------------------UTILS
     public static ResultSet getTennisResults(String player) throws SQLException {
-        System.out.println("Test tennis after ");
+        System.out.println("Test tennis after+ ");
         Connection connection = ConnectionFactory.getConnection();
 
         Statement statement = connection.createStatement();
