@@ -20,19 +20,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class BetBrowser {
     Logger logger = LoggerFactory.getLogger(BetBrowser.class);
+    Random random = new Random();
 
     public static FirefoxDriver driver;
     public static BetRepo betRepo = new BetRepoJdbc();
     public static WebDriverWait wait;
     public static int monitorsWithoutChanges = 0;
+
 
     static {
         System.setProperty("webdriver.gecko.driver", "/home/andrii/Programs/geckodriver");
@@ -161,7 +160,7 @@ public class BetBrowser {
 
         if (!possibleComeBackItems.isEmpty()) {
             String parentWindowHandler = "";
-            possibleComeBackItem = possibleComeBackItems.get(0);
+            possibleComeBackItem = possibleComeBackItems.get(random.nextInt(possibleComeBackItems.size()));
             logger.info("FOUND POSSIBLE COMEBACK" + possibleComeBackItem.getTitle());
 
             Integer possibleComebackPlayer = 0;
