@@ -242,6 +242,7 @@ public class BetRepoJdbc implements BetRepo {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
         }
     }
 
@@ -453,7 +454,6 @@ public class BetRepoJdbc implements BetRepo {
     }
 
     public static void main(String[] args) {
-        System.out.println("1");
         BetRepo b =new BetRepoJdbc();
         //System.out.println(b.getPlayerStagesFromHistory("Tianjin - Bayi", "Volleyball"));
         System.out.println(b.getRandomFavourite(4));

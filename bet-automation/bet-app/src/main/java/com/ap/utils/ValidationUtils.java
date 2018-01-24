@@ -10,15 +10,6 @@ import java.util.List;
 
 public class ValidationUtils {
     public static Boolean validateSport(String text) {
-//        text = text.toLowerCase();
-//        if (text.contains("table")) {
-//            return false;
-//        }
-//
-//        if (text.contains("baseball")) {
-//            return false;
-//        }
-
         if(Constants.SPORTS.contains(text)){
             return true;
         }
