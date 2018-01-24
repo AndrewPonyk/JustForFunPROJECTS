@@ -1,12 +1,13 @@
 package com.ap;
 
 import com.ap.browser.BetBrowser;
+import com.ap.browser.VacationBrowser;
 import com.ap.monitor.*;
 
 public class BetPlacingApp {
     public static void main(String[] args) {
         BetBrowser betBrowser = new BetBrowser();
-
+        VacationBrowser vacationBrowser = new VacationBrowser();
         // disable set 2 monitor
         //Thread tennis2ndSetMonitor = new Thread(new Tennis2ndAfterLose1stMonitor());
         //tennis2ndSetMonitor.start();
@@ -22,6 +23,7 @@ public class BetPlacingApp {
         Thread possibleComebackMonitor = new Thread(new PossibleComebackMonitor());
         possibleComebackMonitor.start();
 
+        vacationBrowser.startVacationBrowser();
         betBrowser.start();
     }
 }

@@ -5,10 +5,7 @@ import com.ap.dao.BetRepoJdbc;
 import pl.allegro.finance.tradukisto.ValueConverters;
 
 import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.*;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -80,8 +77,47 @@ public class JavaCoreSendMailUtils {
         transport.close();
     }
 
+    public static void sendTwoDimTables(String to, String subject, List<List<List<String>>> tablesText, String from, String password) throws MessagingException {
+// can be added "session.setDebug(true);"
+        Session session = getSession(from, password);
+        Transport transport = session.getTransport();
+        InternetAddress addressFrom = new InternetAddress(from);
+
+
+        MimeMessage messageWithHtml = new MimeMessage(session);
+        messageWithHtml.setSubject(subject);
+        Multipart mp = new MimeMultipart();
+        MimeBodyPart htmlPart = new MimeBodyPart();
+
+        final StringBuilder tableHtml = new StringBuilder();
+
+        tablesText.stream().forEach(table ->{
+            tableHtml.append("<table style='border-collapse:collapse; border: 2px solid grey'>");
+            table.stream().forEach(e -> tableHtml.append(getMultiCellRow(e)));
+            tableHtml.append("</table> <br/>");
+
+        });
+
+        htmlPart.setContent(tableHtml.toString(), "text/html");
+        mp.addBodyPart(htmlPart);
+        messageWithHtml.setContent(mp);
+        messageWithHtml.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+
+        Transport.send(messageWithHtml);
+        transport.close();
+    }
+
     private static String getTableRow(String text) {
         return "<tr><td style='border-collapse: collapse;border: 1px solid grey;padding:5px'>" + text + "</td></tr>";
+    }
+
+    private static String getMultiCellRow(List<String> row){
+        StringBuilder result = new StringBuilder("<tr>");
+        row.forEach(cell->{
+            result.append("<td>").append(cell).append("</td>");
+        });
+        return result.toString();
     }
 
     private static Session getSession(String from, String password) {
