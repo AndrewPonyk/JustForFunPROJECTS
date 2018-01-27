@@ -24,6 +24,7 @@ public class BetDataPlotRetriever {
     private final static String SELECT_TITLE_LIKE_STRING = "SELECT * from BET_HISTORY where title like '%s' order by id desc";
 
     private final static String SELECT_ALL_BETS_FROM_DATE = "SELECT * from BET_HISTORY where DATE >='%s' order by id desc";
+    private static final String SELECT_ALL_DATA = "Select * from BET_HISTORY";
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     static {
@@ -52,6 +53,20 @@ public class BetDataPlotRetriever {
 
         return result;
     }
+
+    public static List<List<ImmutableTriple<String, Double, Double>>> getAllBetsFromQuery(String condition) throws SQLException, IOException {
+        List<List<ImmutableTriple<String, Double, Double>>> result = new ArrayList<>();
+
+        ResultSet resultSet = getResultSet(SELECT_ALL_DATA + " WHERE " + condition);
+        Optional<List<ImmutableTriple<String, Double, Double>>> bet = resultSetToTriplesResult(resultSet);
+        while (bet.isPresent()){
+            result.add(bet.get());
+            bet = resultSetToTriplesResult(resultSet);
+        }
+
+        return result;
+    }
+
 
     private static Optional<List<ImmutableTriple<String, Double, Double>>> resultSetToTriplesResult(ResultSet resultSet) throws SQLException, IOException {
         Optional<List<ImmutableTriple<String, Double, Double>>> result = Optional.empty();

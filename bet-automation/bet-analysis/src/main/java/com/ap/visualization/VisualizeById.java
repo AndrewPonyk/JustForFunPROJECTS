@@ -44,6 +44,8 @@ public class VisualizeById extends ApplicationFrame implements ActionListener {
 
     private JTextField idText;
 
+    private JTextField queryText;
+
     /** The index of the last dataset added. */
     private int datasetIndex = 0;
 
@@ -94,7 +96,7 @@ public class VisualizeById extends ApplicationFrame implements ActionListener {
         button2.setActionCommand("REMOVE_DATASET");
         button2.addActionListener(this);
 
-        final JButton saveAllBets = new JButton("Save bets as images");
+        final JButton saveAllBets = new JButton("Save bets as images from date");
         saveAllBets.setActionCommand("SAVE_BETS_AS_IMAGES");
         saveAllBets.addActionListener(this);
 
@@ -102,6 +104,11 @@ public class VisualizeById extends ApplicationFrame implements ActionListener {
         picker.setDate(Calendar.getInstance().getTime());
         picker.setFormats(new SimpleDateFormat("yyyy-MM-dd"));
 
+        final JButton saveAllBetsByQuery = new JButton("Save bets as images from query");
+        saveAllBetsByQuery.setActionCommand("SAVE_BETS_AS_IMAGES_FROM_QUERY");
+        saveAllBetsByQuery.addActionListener(this);
+
+        queryText = new JTextField(30);
         idText = new JTextField(10);
 
         final JPanel buttonPanel = new JPanel(new FlowLayout());
@@ -110,17 +117,35 @@ public class VisualizeById extends ApplicationFrame implements ActionListener {
         buttonPanel.add(idText);
         buttonPanel.add(saveAllBets);
         buttonPanel.add(picker);
+        buttonPanel.add(saveAllBetsByQuery);
+        buttonPanel.add(queryText);
 
         content.add(buttonPanel, BorderLayout.SOUTH);
         chartPanel.setPreferredSize(new java.awt.Dimension(1200, 900));
         setContentPane(content);
     }
 
-
     private List<List<XYSeriesCollection>> getAllDatasetsFromDate(String date){
         List<List<XYSeriesCollection>> result = new ArrayList<>();
         try {
             List<List<ImmutableTriple<String, Double, Double>>> allBetsFromDate = BetDataPlotRetriever.getAllBetsFromDate(date);
+            for (List<ImmutableTriple<String, Double, Double>> item : allBetsFromDate) {
+                result.add(tripleToXySeriesCollections(Optional.of(item)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    private List<List<XYSeriesCollection>> getAllDatasetsFromQuery(String query){
+        List<List<XYSeriesCollection>> result = new ArrayList<>();
+        try {
+            List<List<ImmutableTriple<String, Double, Double>>> allBetsFromDate =
+                    BetDataPlotRetriever.getAllBetsFromQuery(query);
             for (List<ImmutableTriple<String, Double, Double>> item : allBetsFromDate) {
                 result.add(tripleToXySeriesCollections(Optional.of(item)));
             }
@@ -223,6 +248,14 @@ public class VisualizeById extends ApplicationFrame implements ActionListener {
             List<List<XYSeriesCollection>> allDatasetsFromDate = getAllDatasetsFromDate(dateFormatter.format(picker.getDate()));
             clearChart();
             for (List<XYSeriesCollection> item : allDatasetsFromDate) {
+                addBetPlayersPlotAndSaveImage(item);
+                clearChart();
+            }
+        } else if (e.getActionCommand().equals("SAVE_BETS_AS_IMAGES_FROM_QUERY")){
+            List<List<XYSeriesCollection>> allDatasetsFromQuery =
+                    getAllDatasetsFromQuery(queryText.getText());
+            clearChart();
+            for (List<XYSeriesCollection> item : allDatasetsFromQuery) {
                 addBetPlayersPlotAndSaveImage(item);
                 clearChart();
             }
