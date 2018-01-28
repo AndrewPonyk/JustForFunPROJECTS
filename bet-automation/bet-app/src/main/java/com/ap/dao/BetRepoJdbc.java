@@ -316,6 +316,7 @@ public class BetRepoJdbc implements BetRepo {
             ps.setInt(1, winLastBet);
             ps.setDouble(2, currentAmount);
             ps.setDouble(3, lastLoseBetsSum);
+
             logger.info("Updated CURRENT_BET_STATUS:" + winLastBet + " " + currentAmount);
             ps.executeUpdate();
             connection.close();

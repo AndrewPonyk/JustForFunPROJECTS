@@ -63,7 +63,7 @@ public class JavaCoreSendMailUtils {
         tablesText.stream().forEach(table ->{
             tableHtml.append("<table style='border-collapse:collapse; border: 2px solid grey'>");
             table.stream().forEach(e -> tableHtml.append(getTableRow(e)));
-            tableHtml.append("</table> <br/>");
+            tableHtml.append("</table> <br/> ");
 
         });
 
@@ -94,11 +94,11 @@ public class JavaCoreSendMailUtils {
         tablesText.stream().forEach(table ->{
             tableHtml.append("<table style='border-collapse:collapse; border: 2px solid grey'>");
             table.stream().forEach(e -> tableHtml.append(getMultiCellRow(e)));
-            tableHtml.append("</table> <br/>");
+            tableHtml.append("</table> <br/> <br/>");
 
         });
 
-        htmlPart.setContent(tableHtml.toString(), "text/html");
+        htmlPart.setContent(tableHtml.toString(), "text/html; charset=UTF-8");
         mp.addBodyPart(htmlPart);
         messageWithHtml.setContent(mp);
         messageWithHtml.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
@@ -109,13 +109,19 @@ public class JavaCoreSendMailUtils {
     }
 
     private static String getTableRow(String text) {
-        return "<tr><td style='border-collapse: collapse;border: 1px solid grey;padding:5px'>" + text + "</td></tr>";
+        return "<tr><td style='border: 1px solid grey;padding:5px'>" + text + "</td></tr>";
     }
 
     private static String getMultiCellRow(List<String> row){
         StringBuilder result = new StringBuilder("<tr>");
-        row.forEach(cell->{
-            result.append("<td>").append(cell).append("</td>");
+        row.forEach(content->{
+            if(content.startsWith("http")){
+
+                result.append("<td style='border: 1px solid grey;padding:8px'>").append("<a href='"+content+"'> link </a>").append("</td>");
+            } else{
+                result.append("<td style='border: 1px solid grey;padding:8px'>").append(content).append("</td>");
+            }
+
         });
         return result.toString();
     }

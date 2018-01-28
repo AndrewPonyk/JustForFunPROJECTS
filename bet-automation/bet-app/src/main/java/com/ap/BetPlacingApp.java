@@ -1,10 +1,15 @@
 package com.ap;
 
 import com.ap.browser.BetBrowser;
-import com.ap.browser.VacationBrowser;
+import com.ap.browser.vacation.VacationBrowser;
 import com.ap.monitor.*;
 
-public class BetPlacingApp {
+public class
+
+
+
+
+BetPlacingApp {
     public static void main(String[] args) {
         BetBrowser betBrowser = new BetBrowser();
         VacationBrowser vacationBrowser = new VacationBrowser();
@@ -23,7 +28,6 @@ public class BetPlacingApp {
         Thread possibleComebackMonitor = new Thread(new PossibleComebackMonitor());
         possibleComebackMonitor.start();
 
-        vacationBrowser.startVacationBrowser();
         betBrowser.start();
     }
 }

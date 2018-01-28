@@ -37,9 +37,10 @@ public class PossibleComebackMonitor implements Runnable {
                 }
 
                 int minute = LocalDateTime.now().getMinute();
-                if(minute % 30 == 0){
+                int second = LocalDateTime.now().getSecond();
+                if(minute % 30 == 0 && second > 29){
                     LinkedList<List<String>> allcurrentItems =
-                            Get45StageItems.getAllCurrent();
+                            Get45StageItems.getAllCurrent_Except1stage();
                     JavaCoreSendMailUtils.sendHtmlTableWithUserData(Constants.BET_EMAIL,
                             "System notification",
                             allcurrentItems,

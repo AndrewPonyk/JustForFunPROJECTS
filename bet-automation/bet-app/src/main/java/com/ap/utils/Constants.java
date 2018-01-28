@@ -51,6 +51,8 @@ public class Constants {
     "Badminton"));
 
     public static final Double BET_LIMIT = 1.26;
+    public static final Double WEEKEND_BET_LIMIT = 1.2; // on saturday and sunday need to decrease bets count
+    public static final Double RATIO = 1.09;
 
     public static String BET_EMAIL = "";
     public static String BET_PASSWORD = "";

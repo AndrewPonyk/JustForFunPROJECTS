@@ -71,13 +71,13 @@ public class BetDataPlotRetriever {
     private static Optional<List<ImmutableTriple<String, Double, Double>>> resultSetToTriplesResult(ResultSet resultSet) throws SQLException, IOException {
         Optional<List<ImmutableTriple<String, Double, Double>>> result = Optional.empty();
         if(resultSet.next()){
-            String title = resultSet.getString("TITLE")
-                    + " Sport:" + resultSet.getString("SPORT") +"; Last update:"
-                    + resultSet.getString("LAST_UPDATE");
+
             String results = resultSet.getString("RESULTS");
             LinkedList<MomentResult> resultsList = objectMapper.readValue(results, new TypeReference<LinkedList<MomentResult>>() {
             });
-
+            String title = resultSet.getString("TITLE")
+                    + " Sport:" + resultSet.getString("SPORT") +"; Last Result:"
+                    + resultsList.getLast();
             List<ImmutableTriple<String, Double, Double>> collect = resultsList.stream().map(item -> {
                 return new ImmutableTriple<String, Double, Double>(title, item.getCoef1(), item.getCoef2());
             }).collect(Collectors.toList());

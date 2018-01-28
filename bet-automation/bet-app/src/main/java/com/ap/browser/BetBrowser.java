@@ -226,9 +226,9 @@ public class BetBrowser {
                             System.out.println("Setting bet sume = " + betSum);
                         } else if (lastBetStatus == -1) {
                             //lose last bet, need bigger bet
-                            betSum = betRepo.getLastLoseBetsSum() / (currentCoef - 1) * 1.1;
+                            betSum = betRepo.getLastLoseBetsSum() / (currentCoef - 1) * Constants.RATIO;
                             if (betSum < Constants.MIN_BET) {
-                                betSum = Constants.MIN_BET * 1.1;
+                                betSum = Constants.MIN_BET * Constants.RATIO;
                             }
                         } else {
                             return null;

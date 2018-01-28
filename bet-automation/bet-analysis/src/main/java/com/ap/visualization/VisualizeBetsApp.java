@@ -36,7 +36,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * A demo showing the addition and removal of multiple datasets / renderers.
  */
-public class VisualizeById extends ApplicationFrame implements ActionListener {
+public class VisualizeBetsApp extends ApplicationFrame implements ActionListener {
     private static final Format dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 
     /** The plot. */
@@ -59,7 +59,7 @@ public class VisualizeById extends ApplicationFrame implements ActionListener {
      *
      * @param title  the frame title.
      */
-    public VisualizeById(final String title) {
+    public VisualizeBetsApp(final String title) {
         super(title);
 
         // random plot - can be added in JFreeChart constructor
@@ -108,7 +108,7 @@ public class VisualizeById extends ApplicationFrame implements ActionListener {
         saveAllBetsByQuery.setActionCommand("SAVE_BETS_AS_IMAGES_FROM_QUERY");
         saveAllBetsByQuery.addActionListener(this);
 
-        queryText = new JTextField(30);
+        queryText = new JTextField(20);
         idText = new JTextField(10);
 
         final JPanel buttonPanel = new JPanel(new FlowLayout());
@@ -294,6 +294,7 @@ public class VisualizeById extends ApplicationFrame implements ActionListener {
 
     public boolean saveChartAsImage(String fileName){
         try {
+            //different path on LENOVO =)))
             ChartUtilities.saveChartAsPNG(new File(FileSystemUtils.BET_IMAGES_PATH + fileName +".png"), chart,
                     chartPanel.getWidth(), chartPanel.getHeight());
             return true;
@@ -310,7 +311,7 @@ public class VisualizeById extends ApplicationFrame implements ActionListener {
      */
     public static void main(final String[] args) {
 
-        final VisualizeById demo = new VisualizeById("Multiple Dataset Demo 1");
+        final VisualizeBetsApp demo = new VisualizeBetsApp("Multiple Dataset Demo 1");
         demo.pack();
         RefineryUtilities.centerFrameOnScreen(demo);
         demo.setVisible(true);

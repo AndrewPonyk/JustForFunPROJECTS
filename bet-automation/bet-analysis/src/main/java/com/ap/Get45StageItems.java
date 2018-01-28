@@ -38,7 +38,11 @@ public class Get45StageItems {
 
     private static final String ALL_CURRENT_ITEMS = "SELECT * FROM BET_HISTORY \n" +
             "WHERE LAST_UPDATE > now() - INTERVAL 100 SECOND " +
-            "order by ID desc";;
+            "order by ID desc";
+
+    private static final String ALL_CURRENT_ITEMS_EXCEPT1STAGE = "SELECT * FROM BET_HISTORY \n" +
+            "WHERE STAGE NOT LIKE '%:1%' AND LAST_UPDATE > now() - INTERVAL 100 SECOND " +
+            "order by ID desc";
 
     public static LinkedList<List<String>> get5Items() throws SQLException, IOException {
         return getBetItems(SELECT5_STRING);
@@ -56,6 +60,10 @@ public class Get45StageItems {
         return getBetItems(ALL_CURRENT_ITEMS);
     }
 
+    public static LinkedList<List<String>> getAllCurrent_Except1stage() throws IOException, SQLException {
+        return getBetItems(ALL_CURRENT_ITEMS_EXCEPT1STAGE);
+    }
+
     private static LinkedList<List<String>> getBetItems(String selectString) throws SQLException, IOException {
         LinkedList<List<String>> result = new LinkedList<>();
         ResultSet resultSet = getResultSet(selectString);
@@ -67,6 +75,7 @@ public class Get45StageItems {
             String link = resultSet.getString("LINK");
             String results = resultSet.getString(4);
             String sport = resultSet.getString("SPORT");
+            String notes = resultSet.getString("NOTES");
             LinkedList<MomentResult> resultsList = objectMapper.readValue(results, new TypeReference<LinkedList<MomentResult>>() {
             });
             List<String> prevResults = getPlayerStagesFromHistory(title, sport);
@@ -89,6 +98,7 @@ public class Get45StageItems {
             }
             item.add(link);
             item.add(lastUpdate);
+            item.add(notes);
             item.addAll(prevResults);
             result.add(item);
         }
