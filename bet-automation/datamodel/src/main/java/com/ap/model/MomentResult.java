@@ -1,9 +1,11 @@
 package com.ap.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDateTime;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MomentResult {
     private Double coef1;
     private Double coef2;
@@ -12,6 +14,8 @@ public class MomentResult {
     private String resultTime;
 
     private String result;
+
+    private Boolean enabled;
 
     public MomentResult() {
     }
@@ -88,5 +92,13 @@ public class MomentResult {
 
     public void setResultTime(String resultTime) {
         this.resultTime = resultTime;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 }

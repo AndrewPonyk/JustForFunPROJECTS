@@ -6,6 +6,8 @@ import com.ap.model.MomentResult;
 import com.ap.utils.Constants;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,6 +20,7 @@ public class BetRepoJdbc implements BetRepo {
 
     Logger logger = LoggerFactory.getLogger(BetRepoJdbc.class);
     Random random = new Random();
+    ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public List<BetItem> getAll() {
@@ -204,7 +207,7 @@ public class BetRepoJdbc implements BetRepo {
                                     item.setNotes(Constants.PLAYER1_CROLL_LIMIT + ":" + Constants.RETURNS_TO_BET_BOUND);
                                 }
                             }
-                            if (existingResults.getLast().getCoef1() > Constants.COMEBACK_LIMIT &&
+                            if (existingResults.getLast().getCoef1() >= Constants.COMEBACK_LIMIT &&
                                     !item.getNotes().contains(Constants.PLAYER1_CROLL_LIMIT)) {
                                 item.setNotes(Constants.PLAYER1_CROLL_LIMIT);
                             }
@@ -215,7 +218,7 @@ public class BetRepoJdbc implements BetRepo {
                                     item.setNotes(Constants.PLAYER2_CROLL_LIMIT + ":" + Constants.RETURNS_TO_BET_BOUND);
                                 }
                             }
-                            if (existingResults.getLast().getCoef2() > Constants.COMEBACK_LIMIT
+                            if (existingResults.getLast().getCoef2() >= Constants.COMEBACK_LIMIT
                                     && !item.getNotes().contains(Constants.PLAYER2_CROLL_LIMIT)) {
                                 item.setNotes(Constants.PLAYER2_CROLL_LIMIT);
                             }
@@ -391,7 +394,40 @@ public class BetRepoJdbc implements BetRepo {
             ResultSet resultSet = connection.createStatement().executeQuery(sql);
             while (resultSet.next()){
                 result += resultSet.getString(1);
-                //result += resultSet.getString(1) +":"+resultSet.getString(2)+"<br/>";
+            }
+
+        }catch (Exception e){
+            logger.info(e.getMessage());
+        }
+
+        int count24 = StringUtils.countMatches(result, "2") + StringUtils.countMatches(result, "4");
+        int count135 = StringUtils.countMatches(result, "1") + StringUtils.countMatches(result, "3")
+            + StringUtils.countMatches(result, "5");
+        int totalCount = result.length();
+        double percent24 = (double) count24 / totalCount;
+
+        return String.format("%s (count = %d, '24'= %d, '135' = %d, '24 percent' = %f", result,
+                totalCount, count24, count135, percent24);
+    }
+
+    @Override
+    public String comebackItemsAndTheirResults() {
+        //String sql = "SELECT substr(stage, instr(STAGE,':')+1, 1) , count(*) FROM BET_HISTORY WHERE DATE = current_date  " +
+        //        "and LAST_UPDATE is not null GROUP BY  substr(stage, instr(STAGE,':')+1, 1)";
+        String sql = "SELECT * FROM BET_HISTORY WHERE NOTES LIKE '%RETU%' AND DATE = current_date order by last_update";
+        String result = "";
+        int counter = 1;
+        try {
+            Connection connection = ConnectionFactory.getConnection();
+            ResultSet resultSet = connection.createStatement().executeQuery(sql);
+            while (resultSet.next()){
+                LinkedList<MomentResult> results = objectMapper.readValue(resultSet.getString("RESULTS"), new TypeReference<LinkedList<MomentResult>>() {
+                });
+
+                result += counter++ + ") " + resultSet.getString("SPORT")  + "  "
+                        + resultSet.getString("TITLE")  + " <b>"+ resultSet.getString("NOTES") + "</b> "
+                        + "[" + results.getFirst().getCoef1() + ", " + results.getFirst().getCoef2() + "] "
+                        +  results.getLast().getResult() + "<br/> <br/>";
             }
 
         }catch (Exception e){

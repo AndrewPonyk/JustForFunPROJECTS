@@ -28,10 +28,11 @@ public class JavaCoreSendMailUtils {
         try {
             currentAmount = Double.valueOf(betMetadata.get(2));
             threePercent = currentAmount*0.03;
-            betMetadata.add("TIME:" + converter.asWords(now.getHour())+
+            betMetadata.add("TIME: " + now.getDayOfWeek() + ":" + converter.asWords(now.getHour())+
                     ":"+converter.asWords(now.getMinute()));
             betMetadata.add(currentAmount+": 3%=" + threePercent);
             betMetadata.add(betRepo.stagesCount());
+            betMetadata.add(betRepo.comebackItemsAndTheirResults());
         }catch (Exception e){
             System.out.println("cann not parse current amount");
         }

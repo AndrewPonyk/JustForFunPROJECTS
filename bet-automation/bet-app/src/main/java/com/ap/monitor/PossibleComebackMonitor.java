@@ -1,11 +1,10 @@
 package com.ap.monitor;
 
-import com.ap.Get45StageItems;
+import com.ap.DbUtils;
 import com.ap.utils.Constants;
 import com.ap.utils.JavaCoreSendMailUtils;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class PossibleComebackMonitor implements Runnable {
         while (true) {
             System.out.println("Try to findPossible comeback items");
             try {
-                LinkedList<List<String>> items = Get45StageItems.getItemsWithPossibleComeback();
+                LinkedList<List<String>> items = DbUtils.getItemsWithPossibleComeback();
                 long currentTime = System.currentTimeMillis() / 1000;
 
                 if (!items.isEmpty() && (currentTime-lastMessageDateTime > timeoutAfterSendedMessage)) {
@@ -40,7 +39,7 @@ public class PossibleComebackMonitor implements Runnable {
                 int second = LocalDateTime.now().getSecond();
                 if(minute % 30 == 0 && second > 29){
                     LinkedList<List<String>> allcurrentItems =
-                            Get45StageItems.getAllCurrent_Except1stage();
+                            DbUtils.getAllCurrent_Except1stage();
                     JavaCoreSendMailUtils.sendHtmlTableWithUserData(Constants.BET_EMAIL,
                             "System notification",
                             allcurrentItems,

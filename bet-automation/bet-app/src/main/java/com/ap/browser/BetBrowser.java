@@ -116,9 +116,11 @@ public class BetBrowser {
                     Element win1Element = row.select("tr td:nth-child(3)").first();
                     Element win2Element = row.select("tr td:nth-child(5)").first();
                     String sport = row.parent().parent().parent().select("p.sport").first().text();
+                    String competitions  = row.parent().previousElementSibling().text();
+                    //
                     String link = "https://www.parimatch.com/en/"
                             + row.select("tr td:nth-child(2) a").get(0).attr("href");
-                    if (ValidationUtils.validateSport(sport)) {
+                    if (ValidationUtils.validateSport(sport) && ValidationUtils.validateCompetitions(competitions)) {
                         String betText = row.html();
                         if (!betText.toLowerCase().contains("corners")) {
                             betItems.add(RegexUtils.parseBetItem(sport, betText,
@@ -221,14 +223,14 @@ public class BetBrowser {
                         System.out.println("BET COEFF: " + currentCoef);
                         if (lastBetStatus == 1) {
                             // win last bet, so set base bet
-                            betSum = currBalance * Constants.baseBetSum;
+                            betSum = currBalance * Constants.FIRST_BET_IN_PERCENTS;
 
                             System.out.println("Setting bet sume = " + betSum);
                         } else if (lastBetStatus == -1) {
                             //lose last bet, need bigger bet
-                            betSum = betRepo.getLastLoseBetsSum() / (currentCoef - 1) * Constants.RATIO;
+                            betSum = betRepo.getLastLoseBetsSum() / (currentCoef - 1) * Constants.PROFIT_RATIO;
                             if (betSum < Constants.MIN_BET) {
-                                betSum = Constants.MIN_BET * Constants.RATIO;
+                                betSum = Constants.MIN_BET * Constants.PROFIT_RATIO;
                             }
                         } else {
                             return null;
@@ -253,7 +255,9 @@ public class BetBrowser {
                                 String progressMoney = driver.findElements(By.cssSelector("#ownerInfo tr")).get(1)
                                         .findElements(By.cssSelector("td")).get(6).getText();
                                 System.out.println("Progress money:" + progressMoney);
-
+                                if(!progressMoney.trim().startsWith("0")){
+                                    return null;
+                                }
                             } catch (Exception e) {
                                 System.out.println("Can not detect progress money");
                             }

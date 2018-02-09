@@ -26,6 +26,8 @@ public interface BetRepo {
 
     String stagesCount();
 
+    String comebackItemsAndTheirResults();
+
     List<String> getPlayerStagesFromHistory(String title, String sport);
 
     BetItem getRandomFavourite(int minBetFavItems);

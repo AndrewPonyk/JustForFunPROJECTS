@@ -19,8 +19,6 @@ public class Constants {
     public static final String LIVE_URL = "https://www.parimatch.com/en/live.html";
     public static final String HISTORY_URL = "https://www.parimatch.com/en/history.html";
 
-    public static final Double baseBetSum = 0.017;
-
     public static final double FIRST_STAGE_COEF = 1.26;
     public static final double SECOND_STAGE_COEF = 1.5;
     public static final double THIRD_STAGE_COEF = 1.22;
@@ -37,8 +35,14 @@ public class Constants {
     public static final Double MIN_BET = 3.0;
     public static final Double WIN_COEF_FLAG = 0.4; // max bet equals BET_BASE+BET_BASE*WIN_COEF_FLAG
 
+    public static final Double BET_LIMIT = 1.26;
+    public static final Double WEEKEND_BET_LIMIT = 1.2; //on saturday and sunday need to decrease bets count
+
+
     public static final Double COMEBACK_LIMIT = 3.3;
-    public static final Double[] COMEBACK_PERFORM_BET_BOUND = {2.25, 2.6};
+    public static final Double FIRST_BET_IN_PERCENTS = 0.01;
+    public static final Double PROFIT_RATIO = 1.08;
+    public static final Double[] COMEBACK_PERFORM_BET_BOUND = {2.25, 2.55};
     public static final String PLAYER1_CROLL_LIMIT = "PLAYER1_CROSS_LIMIT";
     public static final String PLAYER2_CROLL_LIMIT = "PLAYER2_CROSS_LIMIT";
     public static final String RETURNS_TO_BET_BOUND = "RETURS_TO_BET_BOUND";
@@ -50,9 +54,8 @@ public class Constants {
     "Hockey",
     "Badminton"));
 
-    public static final Double BET_LIMIT = 1.26;
-    public static final Double WEEKEND_BET_LIMIT = 1.2; // on saturday and sunday need to decrease bets count
-    public static final Double RATIO = 1.09;
+    public static final List<String> STOP_WORDS = Arrays.asList(
+            "poland");
 
     public static String BET_EMAIL = "";
     public static String BET_PASSWORD = "";

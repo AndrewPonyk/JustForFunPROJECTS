@@ -17,6 +17,16 @@ public class ValidationUtils {
         return false;
     }
 
+    public static Boolean validateCompetitions(String competitions){
+        for (String stopWord : Constants.STOP_WORDS) {
+            if(competitions.contains(stopWord)){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
         Double d = 3.456;
         System.out.println(checkCoefAndNoBetInProgress(null));

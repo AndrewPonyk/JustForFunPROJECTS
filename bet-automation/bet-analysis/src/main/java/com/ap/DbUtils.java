@@ -15,13 +15,16 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Get45StageItems {
+public class DbUtils {
 
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     static {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
+
+    private static final String ALL_BETS = "SELECT * FROM BET_HISTORY\n"
+            + " order by ID asc";
 
     private static final String POSSIBLE_COMEBACK = "SELECT * FROM BET_HISTORY\n" +
             "WHERE LAST_UPDATE > now() - INTERVAL 100 SECOND AND (NOTES like '%RE%') " +
@@ -157,8 +160,31 @@ public class Get45StageItems {
         return statement.executeQuery(selectString);
     }
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, IOException {
         System.out.println("test");
-        System.out.println(stagesCountCurrentDate());
+        int counter = 1;
+        ResultSet resultSet = getResultSet(ALL_BETS);
+
+        while (resultSet.next()) {
+            LinkedList<MomentResult> resultsList =
+                    objectMapper.readValue(resultSet.getString("RESULTS"), new TypeReference<LinkedList<MomentResult>>() {
+                    });
+            MomentResult first = resultsList.getFirst();
+            if (Math.min(first.getCoef1(), first.getCoef2()) < 1.21 &&
+                    Math.min(first.getCoef1(), first.getCoef2()) > 1.14) {
+                System.out.println(counter + ")"
+                        + " " + resultSet.getString("STAGE")
+                        + " " + resultSet.getString("TITLE")
+                        + "(" + first.getCoef1() + "," + first.getCoef2() + ")"
+                        + " " + resultsList.getLast().getResult());
+                if(counter % 20 == 0){
+                    System.out.println("=====================================");
+                }
+                counter++;
+            }
+
+        }
+
+
     }
 }
