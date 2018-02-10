@@ -4,6 +4,8 @@ import com.ap.model.BetItem;
 import com.ap.model.JsonMapper;
 import com.ap.model.MomentResult;
 import com.ap.utils.Constants;
+import com.ap.wincheckers.WinChecker;
+import com.ap.wincheckers.WinCheckerProvider;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -423,11 +425,22 @@ public class BetRepoJdbc implements BetRepo {
             while (resultSet.next()){
                 LinkedList<MomentResult> results = objectMapper.readValue(resultSet.getString("RESULTS"), new TypeReference<LinkedList<MomentResult>>() {
                 });
+                WinChecker winChecker = WinCheckerProvider.getWinChecker(resultSet.getString("SPORT"));
+                int winner = winChecker.getWinner(results.getLast().getResult());
 
                 result += counter++ + ") " + resultSet.getString("SPORT")  + "  "
                         + resultSet.getString("TITLE")  + " <b>"+ resultSet.getString("NOTES") + "</b> "
                         + "[" + results.getFirst().getCoef1() + ", " + results.getFirst().getCoef2() + "] "
                         +  results.getLast().getResult() + "<br/> <br/>";
+
+                if(winner != -1){
+                    if(resultSet.getString("NOTES").contains(""+winner) ){
+                        result+="<span style='color:green'>";
+                    } else {
+                        result+="<span style='color:red'>";
+                    }
+                    result += "</span>";
+                }
             }
 
         }catch (Exception e){
