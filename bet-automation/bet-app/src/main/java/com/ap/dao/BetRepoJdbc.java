@@ -64,12 +64,12 @@ public class BetRepoJdbc implements BetRepo {
             while (rs.next()) {
                 BetItem item = new BetItem(rs.getString("TITLE"), rs.getString("SPORT"),
                         JsonMapper.mapper.readValue(rs.getString("RESULTS"), new TypeReference<LinkedList<MomentResult>>() {
-                        }), rs.getString("STAGE"), "", rs.getString("NOTES"));
+                        }), rs.getString("STAGE"), "", rs.getString("NOTES"), rs.getString("COMPETITION"));
                 item.setDate(rs.getDate("DATE"));
                 existingBets.put(item.getTitle() + item.getSport(), item);
             }
-            PreparedStatement insertPs = connection.prepareStatement("INSERT INTO BET_HISTORY (TITLE, SPORT, RESULTS, DATE, STAGE, LINK)" +
-                    " VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement insertPs = connection.prepareStatement("INSERT INTO BET_HISTORY (TITLE, SPORT, RESULTS, DATE, STAGE, LINK, COMPETITION)" +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?)");
             PreparedStatement updatePs = connection.prepareStatement("UPDATE BET_HISTORY SET RESULTS = " +
                     "?" +
                     ", STAGE = " + "? " +
@@ -117,6 +117,7 @@ public class BetRepoJdbc implements BetRepo {
                     insertPs.setDate(4, sqlDateNow);
                     insertPs.setString(5, stage);
                     insertPs.setString(6, item.getLink());
+                    insertPs.setString(7, item.getCompetition());
                     insertPs.addBatch();
                     logger.info("Insert: " + item.getTitle() );
                 } else {
@@ -262,7 +263,7 @@ public class BetRepoJdbc implements BetRepo {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 //here we dont need RESULTS, because bet is already in 3rd stage
-                BetItem bet = new BetItem(rs.getString("TITLE"),rs.getString("SPORT"),null, rs.getString("STAGE"), "", rs.getString("NOTES"));
+                BetItem bet = new BetItem(rs.getString("TITLE"),rs.getString("SPORT"),null, rs.getString("STAGE"), "", rs.getString("NOTES"), rs.getString("COMPETITION"));
                 result.add(bet);
             }
             connection.close();
@@ -285,7 +286,7 @@ public class BetRepoJdbc implements BetRepo {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 //here we dont need RESULTS, because bet is already in 3rd stage
-                BetItem bet = new BetItem(rs.getString("TITLE"),rs.getString("SPORT"),null, rs.getString("STAGE"), "", rs.getString("NOTES"));
+                BetItem bet = new BetItem(rs.getString("TITLE"),rs.getString("SPORT"),null, rs.getString("STAGE"), "", rs.getString("NOTES"), rs.getString("COMPETITION"));
                 result.add(bet);
             }
             connection.close();
@@ -428,24 +429,28 @@ public class BetRepoJdbc implements BetRepo {
                 WinChecker winChecker = WinCheckerProvider.getWinChecker(resultSet.getString("SPORT"));
                 int winner = winChecker.getWinner(results.getLast().getResult());
 
-                result += counter++ + ") " + resultSet.getString("SPORT")  + "  "
+                String item = counter++ + ") " + resultSet.getString("COMPETITION")  + "[" +
+                        resultSet.getString("BET_TIME") +"] - "
                         + resultSet.getString("TITLE")  + " <b>"+ resultSet.getString("NOTES") + "</b> "
                         + "[" + results.getFirst().getCoef1() + ", " + results.getFirst().getCoef2() + "] "
-                        +  results.getLast().getResult() + "<br/> <br/>";
+                        +  results.getLast().getResult();
 
                 if(winner != -1){
                     if(resultSet.getString("NOTES").contains(""+winner) ){
-                        result+="<span style='color:green'>";
+                        item ="<span style='color:green'>" + item;
                     } else {
-                        result+="<span style='color:red'>";
+                        item="<span style='color:red'>" + item;
                     }
-                    result += "</span>";
+                    item += "</span>";
                 }
+                System.out.println("Result= " + result);
+                result = result + item + "<br/> <br/>";
             }
 
         }catch (Exception e){
             logger.info(e.getMessage());
         }
+
         return result;
     }
 
@@ -484,7 +489,7 @@ public class BetRepoJdbc implements BetRepo {
             while (rs.next()) {
                 BetItem bet = new BetItem(rs.getString("TITLE"),rs.getString("SPORT"),
                         JsonMapper.mapper.readValue(rs.getString("RESULTS"), new TypeReference<LinkedList<MomentResult>>() {
-                        }), rs.getString("STAGE"), "", rs.getString("NOTES"));
+                        }), rs.getString("STAGE"), "", rs.getString("NOTES"), rs.getString("COMPETITION"));
                 if(bet.getResults().getLast().getCoef1() > 0 &&
                         Math.max(bet.getResults().getLast().getCoef1(), bet.getResults().getLast().getCoef2()) > 1.05
                         ){

@@ -8,7 +8,7 @@ public class WinCheckerProvider {
     private static Map<String, WinChecker> CHECKERS = new HashMap<>();
     static {
         CHECKERS.put("basketball", new BasketballWinChecker());
-        CHECKERS.put("voleyball", new VoleyballWinChecker());
+        CHECKERS.put("volleyball", new VoleyballWinChecker());
         CHECKERS.put("tennis", new TennisWinChecker());
     }
 

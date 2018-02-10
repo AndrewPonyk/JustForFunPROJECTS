@@ -19,7 +19,7 @@ public class ValidationUtils {
 
     public static Boolean validateCompetitions(String competitions){
         for (String stopWord : Constants.STOP_WORDS) {
-            if(competitions.contains(stopWord)){
+            if(competitions.toLowerCase().contains(stopWord)){
                 return false;
             }
         }

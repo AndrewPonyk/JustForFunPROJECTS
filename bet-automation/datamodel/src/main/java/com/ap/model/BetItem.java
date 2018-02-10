@@ -16,17 +16,17 @@ public class BetItem {
     private Date date;
     private Integer finalWinner;
 
+    private String competition;
 
-    public BetItem() {
-    }
-
-    public BetItem(String title, String sport, LinkedList<MomentResult> results, String stage, String link, String notes) {
+    public BetItem(String title, String sport, LinkedList<MomentResult> results, String stage, String link, String notes,
+                   String competition) {
         this.title = title;
         this.sport = sport;
         this.results = results;
         this.stage = stage;
         this.link = link;
         this.notes = notes;
+        this.competition = competition;
     }
 
     @Override
@@ -115,5 +115,13 @@ public class BetItem {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public String getCompetition() {
+        return competition;
+    }
+
+    public void setCompetition(String competition) {
+        this.competition = competition;
     }
 }
