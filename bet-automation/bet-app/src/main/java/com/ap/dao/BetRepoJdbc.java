@@ -443,7 +443,6 @@ public class BetRepoJdbc implements BetRepo {
                     }
                     item += "</span>";
                 }
-                System.out.println("Result= " + result);
                 result = result + item + "<br/> <br/>";
             }
 
