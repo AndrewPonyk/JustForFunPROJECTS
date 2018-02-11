@@ -26,7 +26,7 @@ public interface BetRepo {
 
     String stagesCount();
 
-    String comebackItemsAndTheirResults();
+    String comebackItemsAndTheirResults(Boolean onlyCurrDate);
 
     List<String> getPlayerStagesFromHistory(String title, String sport);
 

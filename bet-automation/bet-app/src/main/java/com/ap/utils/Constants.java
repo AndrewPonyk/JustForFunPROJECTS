@@ -40,8 +40,8 @@ public class Constants {
 
 
     public static final Double COMEBACK_LIMIT = 3.3;
-    public static final Double FIRST_BET_IN_PERCENTS = 0.01;
-    public static final Double PROFIT_RATIO = 1.08;
+    public static final Double FIRST_BET_IN_PERCENTS = 0.009;
+    public static final Double PROFIT_RATIO = 1.09;
     public static final Double[] COMEBACK_PERFORM_BET_BOUND = {2.25, 2.55};
     public static final String PLAYER1_CROLL_LIMIT = "PLAYER1_CROSS_LIMIT";
     public static final String PLAYER2_CROLL_LIMIT = "PLAYER2_CROSS_LIMIT";
@@ -55,7 +55,7 @@ public class Constants {
     "Badminton"));
 
     public static final List<String> STOP_WORDS = Arrays.asList(
-            "poland");
+            "poland", "Basketball china");
 
     public static String BET_EMAIL = "";
     public static String BET_PASSWORD = "";

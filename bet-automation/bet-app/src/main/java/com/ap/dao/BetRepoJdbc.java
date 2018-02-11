@@ -414,10 +414,14 @@ public class BetRepoJdbc implements BetRepo {
     }
 
     @Override
-    public String comebackItemsAndTheirResults() {
+    public String comebackItemsAndTheirResults(Boolean onlyCurrDate) {
         //String sql = "SELECT substr(stage, instr(STAGE,':')+1, 1) , count(*) FROM BET_HISTORY WHERE DATE = current_date  " +
         //        "and LAST_UPDATE is not null GROUP BY  substr(stage, instr(STAGE,':')+1, 1)";
         String sql = "SELECT * FROM BET_HISTORY WHERE NOTES LIKE '%RETU%' AND DATE = current_date order by last_update";
+        if(!onlyCurrDate){
+             sql = "SELECT * FROM BET_HISTORY WHERE NOTES LIKE '%RETU%' AND DATE >= '2018-01-15' order by last_update";
+        }
+
         String result = "";
         int counter = 1;
         try {
@@ -427,21 +431,27 @@ public class BetRepoJdbc implements BetRepo {
                 LinkedList<MomentResult> results = objectMapper.readValue(resultSet.getString("RESULTS"), new TypeReference<LinkedList<MomentResult>>() {
                 });
                 WinChecker winChecker = WinCheckerProvider.getWinChecker(resultSet.getString("SPORT"));
-                int winner = winChecker.getWinner(results.getLast().getResult());
 
-                String item = counter++ + ") " + resultSet.getString("COMPETITION")  + "[" +
+                String sportCompetition =  resultSet.getString("COMPETITION") != null ? resultSet.getString("COMPETITION"):
+                        resultSet.getString("SPORT");
+
+                String item = counter++ + ") " + sportCompetition  + "[" +
                         resultSet.getString("BET_TIME") +"] - "
                         + resultSet.getString("TITLE")  + " <b>"+ resultSet.getString("NOTES") + "</b> "
                         + "[" + results.getFirst().getCoef1() + ", " + results.getFirst().getCoef2() + "] "
                         +  results.getLast().getResult();
 
-                if(winner != -1){
-                    if(resultSet.getString("NOTES").contains(""+winner) ){
-                        item ="<span style='color:green'>" + item;
-                    } else {
-                        item="<span style='color:red'>" + item;
+                if(winChecker != null){
+                    int winner = winChecker.getWinner(results.getLast().getResult());
+
+                    if(winner != -1){
+                        if(resultSet.getString("NOTES").contains(""+winner) ){
+                            item ="<span style='color:green'>" + item;
+                        } else {
+                            item="<span style='color:red'>" + item;
+                        }
+                        item += "</span>";
                     }
-                    item += "</span>";
                 }
                 result = result + item + "<br/> <br/>";
             }

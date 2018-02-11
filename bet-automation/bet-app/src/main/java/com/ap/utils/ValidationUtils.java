@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class ValidationUtils {
@@ -19,7 +20,7 @@ public class ValidationUtils {
 
     public static Boolean validateCompetitions(String competitions){
         for (String stopWord : Constants.STOP_WORDS) {
-            if(competitions.toLowerCase().contains(stopWord)){
+            if(containsAllWords(competitions, stopWord)){
                 return false;
             }
         }
@@ -27,9 +28,21 @@ public class ValidationUtils {
         return true;
     }
 
+    private static Boolean containsAllWords(String str, String stopWord){
+        String[] words = stopWord.toLowerCase().split("\\s");
+        str = str.toLowerCase();
+
+        for (String word : words) {
+            if(!str.contains(word)){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         Double d = 3.456;
-        System.out.println(checkCoefAndNoBetInProgress(null));
+        System.out.println(validateCompetitions("Basketball. Turkey. TB2L"));
 
     }
 

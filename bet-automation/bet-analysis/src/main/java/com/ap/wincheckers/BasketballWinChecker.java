@@ -24,6 +24,10 @@ public class BasketballWinChecker implements WinChecker {
             } else if(score[0] < score[1]){
                 return 2;
             }
+
+            if(score[0] == score[1]){
+                return 3; // no winner
+            }
         } catch (Exception e){
             e.printStackTrace();
         }

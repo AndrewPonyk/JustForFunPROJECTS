@@ -26,6 +26,10 @@ public class DbUtils {
     private static final String ALL_BETS = "SELECT * FROM BET_HISTORY\n"
             + " order by ID asc";
 
+    private static final String POSSIBLE_COMEBACK_FROM_15_JAN = "SELECT * FROM BET_HISTORY\n" +
+            "WHERE DATE>='2018-01-15' AND (NOTES like '%RE%') " +
+            "order by ID desc";
+
     private static final String POSSIBLE_COMEBACK = "SELECT * FROM BET_HISTORY\n" +
             "WHERE LAST_UPDATE > now() - INTERVAL 100 SECOND AND (NOTES like '%RE%') " +
             "order by ID desc";
@@ -58,6 +62,11 @@ public class DbUtils {
     public static LinkedList<List<String>> getItemsWithPossibleComeback() throws IOException, SQLException {
         return getBetItems(POSSIBLE_COMEBACK);
     }
+
+    public static LinkedList<List<String>> getItemsWithPossibleComeback_ALL() throws IOException, SQLException {
+        return getBetItems(POSSIBLE_COMEBACK_FROM_15_JAN);
+    }
+
 
     public static LinkedList<List<String>> getAllCurrent() throws IOException, SQLException {
         return getBetItems(ALL_CURRENT_ITEMS);

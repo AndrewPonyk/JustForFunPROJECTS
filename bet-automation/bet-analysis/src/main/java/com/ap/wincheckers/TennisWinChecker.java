@@ -15,6 +15,7 @@ public class TennisWinChecker implements WinChecker {
         if (result == null || !result.contains("(") || !result.contains(")")) {
             return -1;
         }
+        result = result.toLowerCase().replaceAll("adv", "45");//
 
         try {
             int[] score = {Integer.valueOf(result.substring(0, result.indexOf("(")).split("-")[0]),
