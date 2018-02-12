@@ -10,6 +10,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -414,12 +415,12 @@ public class BetRepoJdbc implements BetRepo {
     }
 
     @Override
-    public String comebackItemsAndTheirResults(Boolean onlyCurrDate) {
+    public String comebackItemsAndTheirResultsAsHtml(Boolean onlyCurrDate) {
         //String sql = "SELECT substr(stage, instr(STAGE,':')+1, 1) , count(*) FROM BET_HISTORY WHERE DATE = current_date  " +
         //        "and LAST_UPDATE is not null GROUP BY  substr(stage, instr(STAGE,':')+1, 1)";
         String sql = "SELECT * FROM BET_HISTORY WHERE NOTES LIKE '%RETU%' AND DATE = current_date order by last_update";
         if(!onlyCurrDate){
-             sql = "SELECT * FROM BET_HISTORY WHERE NOTES LIKE '%RETU%' AND DATE >= '2018-01-15' order by last_update";
+             sql = "SELECT * FROM BET_HISTORY WHERE NOTES LIKE '%RETU%' AND DATE >= '2018-01-15' order by last_update desc";
         }
 
         String result = "";
@@ -461,6 +462,52 @@ public class BetRepoJdbc implements BetRepo {
         }
 
         return result;
+    }
+
+    @Override
+    public LinkedList<Pair<Integer, BetItem>> getAllComebackItemsFromHistory(int count) {
+        String sql = "SELECT * FROM BET_HISTORY WHERE NOTES LIKE '%RETU%' AND DATE >= '2018-01-15' and  LAST_UPDATE > now() - INTERVAL 100 second " +
+                "order by last_update desc";
+
+        LinkedList<Pair<Integer, BetItem>> res = new LinkedList<>();
+        int counter = 0;
+        String result = "";
+        Connection connection = null;
+        try {
+            connection = ConnectionFactory.getConnection();
+            ResultSet resultSet = connection.createStatement().executeQuery(sql);
+            while (resultSet.next()) {
+                LinkedList<MomentResult> results = objectMapper.readValue(resultSet.getString("RESULTS"), new TypeReference<LinkedList<MomentResult>>() {
+                });
+                WinChecker winChecker = WinCheckerProvider.getWinChecker(resultSet.getString("SPORT"));
+
+                String sportCompetition = resultSet.getString("COMPETITION") != null ? resultSet.getString("COMPETITION") :
+                        resultSet.getString("SPORT");
+
+                BetItem betItem = new BetItem(resultSet.getString("TITLE"), resultSet.getString("SPORT"), results, resultSet.getString("STAGE"), resultSet.getString("LINK"),
+                        resultSet.getString("NOTES"), sportCompetition);
+                counter++;
+
+                if (winChecker != null) {
+                    int winner = winChecker.getWinner(results.getLast().getResult());
+                    res.add(Pair.of(winner, betItem));
+                }
+
+                if (counter >= count) {
+                    break;
+                }
+            }
+
+        } catch (Exception e) {
+            logger.info(e.getMessage());
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return res;
     }
 
     @Override

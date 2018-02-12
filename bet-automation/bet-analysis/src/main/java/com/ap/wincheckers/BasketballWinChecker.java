@@ -15,7 +15,7 @@ public class BasketballWinChecker implements WinChecker {
                     Integer.valueOf(result.substring(0, result.indexOf("(")).split("-")[1])};
             String[] quarterStrings = result.substring(result.indexOf("(") + 1, result.indexOf(")")).split(",");
 
-            if(quarterStrings.length < 4){
+            if(quarterStrings.length < 4 && Math.max(score[0], score[1]) < 60){
                 return -1;
             }
 

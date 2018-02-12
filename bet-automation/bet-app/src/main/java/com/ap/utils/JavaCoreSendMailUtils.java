@@ -32,7 +32,7 @@ public class JavaCoreSendMailUtils {
                     ":"+converter.asWords(now.getMinute()));
             betMetadata.add(currentAmount+": 3%=" + threePercent);
             betMetadata.add(betRepo.stagesCount());
-            betMetadata.add(betRepo.comebackItemsAndTheirResults(true));
+            betMetadata.add(betRepo.comebackItemsAndTheirResultsAsHtml(true));
         }catch (Exception e){
             System.out.println("cann not parse current amount");
         }

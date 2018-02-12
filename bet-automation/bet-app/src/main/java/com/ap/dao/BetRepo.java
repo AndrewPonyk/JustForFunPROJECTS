@@ -1,7 +1,9 @@
 package com.ap.dao;
 
 import com.ap.model.BetItem;
+import org.apache.commons.lang3.tuple.Pair;
 
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -26,7 +28,9 @@ public interface BetRepo {
 
     String stagesCount();
 
-    String comebackItemsAndTheirResults(Boolean onlyCurrDate);
+    String comebackItemsAndTheirResultsAsHtml(Boolean onlyCurrDate);
+
+    LinkedList<Pair<Integer, BetItem>> getAllComebackItemsFromHistory(int count) throws SQLException;
 
     List<String> getPlayerStagesFromHistory(String title, String sport);
 

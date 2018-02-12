@@ -25,7 +25,7 @@ public class PossibleComebackMonitor implements Runnable {
 
     public static void main(String[] args) throws IOException, SQLException, MessagingException {
 
-        String allComebacksFromHistory = betRepo.comebackItemsAndTheirResults(false);
+        String allComebacksFromHistory = betRepo.comebackItemsAndTheirResultsAsHtml(false);
 
         LinkedList<List<String>> items = new LinkedList<>();
         items.add(new LinkedList<>(Arrays.asList(allComebacksFromHistory)));
