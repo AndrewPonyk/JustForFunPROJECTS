@@ -105,7 +105,27 @@ public class ValidationUtils {
     }
 
     public boolean checkFirst4Results(List<MomentResult> results){
-        return false;
+        if(results.size()< 4 ){
+            return false;
+        }
+
+        int firstFavorite = results.get(0).getCoef1() > results.get(0).getCoef2() ? 0 : 1;
+
+        for (int i = 1; i < 4; i++) {
+            if(firstFavorite == 0){
+                if(results.get(i).getCoef1() < results.get(i).getCoef2()){
+                    return false;
+                }
+            }
+            if(firstFavorite == 1){
+                if(results.get(i).getCoef1() > results.get(i).getCoef2()){
+                    return false;
+                }
+            }
+        }
+
+
+        return true;
     }
 
 }
