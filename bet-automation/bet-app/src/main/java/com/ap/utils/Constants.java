@@ -66,8 +66,16 @@ public class Constants {
     public static String STATUS_URL = "https://raw.githubusercontent.com/AndrewPonyk/JustForFunPROJECTS/master/bet-automation/remote-status.txt";
 
     static {
+
+
         try {
-            List<String> strings = FileUtils.readLines(new File("/home/andrii/pass.txt"), "UTF-8");
+
+            File passFile = new File("/home/andrii/pass.txt");
+            if(!passFile.exists()){
+                passFile = new File("C:\\tmp\\pass.txt");
+            }
+
+            List<String> strings = FileUtils.readLines(passFile, "UTF-8");
             System.out.println(strings);
             BET_EMAIL = strings.get(0);
             BET_PASSWORD = strings.get(1);

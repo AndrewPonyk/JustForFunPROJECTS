@@ -5,8 +5,12 @@ package com.ap;
  */
 public class _5Comeback_Analyzer_Utils {
     public static void main(String[] args) {
-        System.out.println("Comeback test");
+        favoriteCross14CoefAndTheirFinalResult();
     }
 
+
+    public static void favoriteCross14CoefAndTheirFinalResult(){
+        System.out.println("List favorites, which cross 1.4 coef, and their final results");
+    }
     
 }
