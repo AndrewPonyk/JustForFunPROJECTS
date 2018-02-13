@@ -15,30 +15,31 @@ public class JavaCoreSendMailUtils {
 
     static BetRepo betRepo = new BetRepoJdbc();
     static ValueConverters converter = ValueConverters.ENGLISH_INTEGER;
+
     public static void main(String[] args) throws MessagingException {
-        sendHtmlTable(Constants.BET_EMAIL, "many tables", Arrays.asList(Arrays.asList("1","2"), Arrays.asList("3","4")),
+        sendHtmlTable(Constants.BET_EMAIL, "many tables", Arrays.asList(Arrays.asList("1", "2"), Arrays.asList("3", "4")),
                 Constants.BET_EMAIL, Constants.BET_PASSWORD);
     }
 
     public static void sendHtmlTableWithUserData(String to, String subject, LinkedList<List<String>> tablesText, String from, String password) throws MessagingException {
-        Double currentAmount=0.0;
-        Double threePercent = 0.0;
+        Double currentAmount = 0.0;
+        Double firstBetSum = 0.0;
         List<String> betMetadata = betRepo.getLastBetInfo();
         LocalDateTime now = LocalDateTime.now();
         try {
             currentAmount = Double.valueOf(betMetadata.get(2));
-            threePercent = currentAmount*0.03;
-            betMetadata.add("TIME: " + now.getDayOfWeek() + ":" + converter.asWords(now.getHour())+
-                    ":"+converter.asWords(now.getMinute()));
-            betMetadata.add(currentAmount+": 3%=" + threePercent);
+            firstBetSum = currentAmount * Constants.FIRST_BET_IN_PERCENTS;
+            betMetadata.add("TIME: " + now.getDayOfWeek() + ":" + converter.asWords(now.getHour()) +
+                    ":" + converter.asWords(now.getMinute()));
+            betMetadata.add(currentAmount + ": First bet (" + Constants.FIRST_BET_IN_PERCENTS + ") =" + firstBetSum);
             betMetadata.add(betRepo.stagesCount());
             betMetadata.add(betRepo.comebackItemsAndTheirResultsAsHtml(true));
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("cann not parse current amount");
         }
-        betMetadata.set(0, "id:" +betMetadata.get(0));
-        betMetadata.set(1, "Status:" +betMetadata.get(1));
-        betMetadata.set(2, "Amount:" +betMetadata.get(2));
+        betMetadata.set(0, "id:" + betMetadata.get(0));
+        betMetadata.set(1, "Status:" + betMetadata.get(1));
+        betMetadata.set(2, "Amount:" + betMetadata.get(2));
         tablesText.addFirst(betMetadata);
         sendHtmlTable(to, subject, tablesText, from, password);
     }
@@ -61,7 +62,7 @@ public class JavaCoreSendMailUtils {
 
         final StringBuilder tableHtml = new StringBuilder();
 
-        tablesText.stream().forEach(table ->{
+        tablesText.stream().forEach(table -> {
             tableHtml.append("<table style='border-collapse:collapse; border: 2px solid grey'>");
             table.stream().forEach(e -> tableHtml.append(getTableRow(e)));
             tableHtml.append("</table> <br/> ");
@@ -92,7 +93,7 @@ public class JavaCoreSendMailUtils {
 
         final StringBuilder tableHtml = new StringBuilder();
 
-        tablesText.stream().forEach(table ->{
+        tablesText.stream().forEach(table -> {
             tableHtml.append("<table style='border-collapse:collapse; border: 2px solid grey'>");
             table.stream().forEach(e -> tableHtml.append(getMultiCellRow(e)));
             tableHtml.append("</table> <br/> <br/>");
@@ -113,13 +114,13 @@ public class JavaCoreSendMailUtils {
         return "<tr><td style='border: 1px solid grey;padding:5px'>" + text + "</td></tr>";
     }
 
-    private static String getMultiCellRow(List<String> row){
+    private static String getMultiCellRow(List<String> row) {
         StringBuilder result = new StringBuilder("<tr>");
-        row.forEach(content->{
-            if(content.startsWith("http")){
+        row.forEach(content -> {
+            if (content.startsWith("http")) {
 
-                result.append("<td style='border: 1px solid grey;padding:8px'>").append("<a href='"+content+"'> link </a>").append("</td>");
-            } else{
+                result.append("<td style='border: 1px solid grey;padding:8px'>").append("<a href='" + content + "'> link </a>").append("</td>");
+            } else {
                 result.append("<td style='border: 1px solid grey;padding:8px'>").append(content).append("</td>");
             }
 
