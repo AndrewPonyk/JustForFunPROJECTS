@@ -497,6 +497,7 @@ public class BetRepoJdbc implements BetRepo {
 
                 BetItem betItem = new BetItem(resultSet.getString("TITLE"), resultSet.getString("SPORT"), results, resultSet.getString("STAGE"), resultSet.getString("LINK"),
                         resultSet.getString("NOTES"), sportCompetition);
+                betItem.setDate(resultSet.getDate("DATE"));
                 counter++;
 
                 if (winChecker != null) {

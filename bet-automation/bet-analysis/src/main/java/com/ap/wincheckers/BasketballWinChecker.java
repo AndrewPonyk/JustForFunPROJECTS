@@ -10,14 +10,25 @@ public class BasketballWinChecker implements WinChecker {
      */
     @Override
     public int getWinner(String result) {
+        if(result == null || result.trim().length() == 0){
+            return -1;
+        }
         try {
-            int[] score = {Integer.valueOf(result.substring(0, result.indexOf("(")).split("-")[0]),
-                    Integer.valueOf(result.substring(0, result.indexOf("(")).split("-")[1])};
-            String[] quarterStrings = result.substring(result.indexOf("(") + 1, result.indexOf(")")).split(",");
+            int[] score;
+            if(result.contains("(")){
+                score = new int[]{Integer.valueOf(result.substring(0, result.indexOf("(")).split("-")[0]),
+                        Integer.valueOf(result.substring(0, result.indexOf("(")).split("-")[1])};
 
-            if(quarterStrings.length < 4 && Math.max(score[0], score[1]) < 60){
-                return -1;
+                String[] quarterStrings = result.substring(result.indexOf("(") + 1, result.indexOf(")")).split(",");
+                if(quarterStrings.length < 4 && Math.max(score[0], score[1]) < 60){
+                    return -1;
+                }
+            } else {
+                score = new int[]{Integer.valueOf(result.split("-")[0]),
+                        Integer.valueOf(result.split("-")[1])};
             }
+
+
 
             if(score[0] > score[1]){
                 return 1;
