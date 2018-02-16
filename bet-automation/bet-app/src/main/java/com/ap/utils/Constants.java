@@ -39,23 +39,31 @@ public class Constants {
     public static final Double WEEKEND_BET_LIMIT = 1.2; //on saturday and sunday need to decrease bets count
 
 
-    public static final Double COMEBACK_LIMIT = 3.3;
-    public static final Double FIRST_BET_IN_PERCENTS = 0.009;
-    public static final Double PROFIT_RATIO = 1.09;
-    public static final Double[] COMEBACK_PERFORM_BET_BOUND = {2.25, 2.55};
-    public static final String PLAYER1_CROLL_LIMIT = "PLAYER1_CROSS_LIMIT";
-    public static final String PLAYER2_CROLL_LIMIT = "PLAYER2_CROSS_LIMIT";
-    public static final String RETURNS_TO_BET_BOUND = "RETURS_TO_BET_BOUND";
+    public static final Double FIRST_BET_IN_PERCENTS = 0.015;
+    public static final Double PROFIT_RATIO = 1.15;
+//
+//    public static final Double COMEBACK_LIMIT = 3.3;
+//    public static final Double[] COMEBACK_PERFORM_BET_BOUND = {2.25, 2.55};
+//    public static final String PLAYER1_CROLL_LIMIT = "PLAYER1_CROSS_LIMIT";
+//    public static final String PLAYER2_CROLL_LIMIT = "PLAYER2_CROSS_LIMIT";
+//    public static final String RETURNS_TO_BET_BOUND = "RETURS_TO_BET_BOUND";
+//    public static final List<String> STOP_WORDS = Arrays.asList(
+//            "poland", "Basketball china", "Badminton");
+
+    //try this, without basket
+    public static final Double COMEBACK_LIMIT = 1.5;
+    public static final Double[] COMEBACK_PERFORM_BET_BOUND = {1.54, 1.86};
+    public static final String PLAYER1_CROLL_LIMIT = "ZPLAYER1_CROSS_LIMIT";
+    public static final String PLAYER2_CROLL_LIMIT = "ZPLAYER2_CROSS_LIMIT";
+    public static final String RETURNS_TO_BET_BOUND = "ZRETURS_TO_BET_BOUND";
+    public static final List<String> STOP_WORDS = Arrays.asList(
+            "poland", "Basketball", "Badminton");
 
     public static final Set<String> SPORTS = new HashSet<>(Arrays.asList(
     "Tennis",
     "Basketball",
     "Volleyball",
-    "Hockey",
-    "Badminton"));
-
-    public static final List<String> STOP_WORDS = Arrays.asList(
-            "poland", "Basketball china");
+    "Hockey"));
 
     public static String BET_EMAIL = "";
     public static String BET_PASSWORD = "";
@@ -66,10 +74,7 @@ public class Constants {
     public static String STATUS_URL = "https://raw.githubusercontent.com/AndrewPonyk/JustForFunPROJECTS/master/bet-automation/remote-status.txt";
 
     static {
-
-
         try {
-
             File passFile = new File("/home/andrii/pass.txt");
             if(!passFile.exists()){
                 passFile = new File("C:\\tmp\\pass.txt");

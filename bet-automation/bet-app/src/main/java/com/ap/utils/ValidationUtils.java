@@ -117,6 +117,11 @@ public class ValidationUtils {
             return false;
         }
 
+        if(Math.min(results.get(0).getCoef1(), results.get(0).getCoef2()) < 1.02){
+            return false;
+        }
+
+
         int firstFavorite = results.get(0).getCoef1() > results.get(0).getCoef2() ? 0 : 1;
 
         for (int i = 1; i < 5; i++) {
