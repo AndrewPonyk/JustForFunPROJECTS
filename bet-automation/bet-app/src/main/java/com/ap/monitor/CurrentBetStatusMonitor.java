@@ -6,6 +6,7 @@ import com.ap.utils.BetDomUtils;
 import com.ap.utils.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,12 +16,14 @@ import java.util.List;
 public class CurrentBetStatusMonitor implements Runnable {
 
     private static final WebDriverWait wait;
-    public static FirefoxDriver driver;
+    public static ChromeDriver driver;
     public static Integer LAST_BET_STATUS = -10;
 
     static {
+
+        System.setProperty("webdriver.chrome.driver", Constants.driver());
         System.setProperty("webdriver.gecko.driver", "/home/andrii/Programs/geckodriver");
-        driver = new FirefoxDriver();
+        driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 9);
     }
 

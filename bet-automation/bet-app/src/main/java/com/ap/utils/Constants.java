@@ -95,6 +95,13 @@ public class Constants {
         System.out.println("test constants");
     }
 
-
+    public static String driver(){
+        File driver = new File("C:\\tmp\\chromedriver.exe");
+        if(driver.exists()){
+            return "C:\\tmp\\chromedriver.exe";
+        } else {
+            return "/home/andrii/Programs/chromedriver";
+        }
+    }
 
 }

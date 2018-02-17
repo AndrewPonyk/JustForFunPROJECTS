@@ -12,7 +12,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -27,7 +29,7 @@ public class BetBrowser {
     Logger logger = LoggerFactory.getLogger(BetBrowser.class);
     Random random = new Random();
 
-    public static FirefoxDriver driver;
+    public static WebDriver driver;
     public static BetRepo betRepo = new BetRepoJdbc();
     public static WebDriverWait wait;
     public static int monitorsWithoutChanges = 0;
@@ -38,7 +40,8 @@ public class BetBrowser {
         System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
         System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
 
-        driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", Constants.driver());
+        driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 9);
     }
 

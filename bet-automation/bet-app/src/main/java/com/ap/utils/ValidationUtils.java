@@ -5,7 +5,9 @@ import com.ap.model.MomentResult;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.IOException;
@@ -88,7 +90,7 @@ public class ValidationUtils {
         return false;
     }
 
-    public static Double getCurrentCoef(FirefoxDriver driver){
+    public static Double getCurrentCoef(WebDriver driver){
         try {
             if (driver.getPageSource().contains("have been changed")) {
                 String changeCoefText = driver.findElement(By.cssSelector("#stakeHolder ol li")).getText();
