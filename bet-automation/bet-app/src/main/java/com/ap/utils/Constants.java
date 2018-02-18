@@ -39,8 +39,8 @@ public class Constants {
     public static final Double WEEKEND_BET_LIMIT = 1.2; //on saturday and sunday need to decrease bets count
 
 
-    public static final Double FIRST_BET_IN_PERCENTS = 0.015;
-    public static final Double PROFIT_RATIO = 1.15;
+    public static final Double FIRST_BET_IN_PERCENTS = 0.013;
+    public static final Double PROFIT_RATIO = 1.13;
 //
 //    public static final Double COMEBACK_LIMIT = 3.3;
 //    public static final Double[] COMEBACK_PERFORM_BET_BOUND = {2.25, 2.55};

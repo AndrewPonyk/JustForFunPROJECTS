@@ -315,16 +315,20 @@ public class BetRepoJdbc implements BetRepo {
     }
 
     @Override
-    public void updateCurrentBetStatus(Integer winLastBet, Double currentAmount, Double lastLoseBetsSum) {
+    public void updateCurrentBetStatus(Integer winLastBet, Double currentAmount, Double lastLoseBetsSum,
+                                       String lastBetTitle) {
         try {
             Connection connection = ConnectionFactory.getConnection();
             PreparedStatement ps = connection.prepareStatement("UPDATE CURRENT_BET_STATUS" +
-                    " SET WIN_LAST_BET = ?, CURRENT_AMOUNT = ?, LAST_LOSE_BETS_SUM = ?  WHERE ID = 1");
+                    " SET WIN_LAST_BET = ?, CURRENT_AMOUNT = ?, LAST_LOSE_BETS_SUM = ?, " +
+                    "LAST_BET_TITLE = ?  WHERE ID = 1");
             ps.setInt(1, winLastBet);
             ps.setDouble(2, currentAmount);
             ps.setDouble(3, lastLoseBetsSum);
+            ps.setString(4, lastBetTitle);
 
-            logger.info("Updated CURRENT_BET_STATUS:" + winLastBet + " " + currentAmount);
+            logger.info("Updated CURRENT_BET_STATUS:" + winLastBet + " " + currentAmount + " "+
+            lastBetTitle );
             ps.executeUpdate();
             connection.close();
         }catch (Exception e){
@@ -333,20 +337,24 @@ public class BetRepoJdbc implements BetRepo {
     }
 
     @Override
-    public Integer getLastBetStatus() {
-        Integer result = -1000; // N/A
+    public Map<String, Object> getLastPerformedBet() {
+        Map<String, Object> results = new HashMap<>();
+        results.put("WIN_LAST_BET", 1000);
         try {
-            Connection connection = ConnectionFactory.getConnection();
-            ResultSet resultSet = connection.createStatement().executeQuery("SELECT WIN_LAST_BET " +
+            Connection connection = ConnectionFactory.getConnection();//
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT " +
+                    "WIN_LAST_BET, CURRENT_AMOUNT, LAST_LOSE_BETS_SUM, LAST_BET_TITLE " +
                     " FROM CURRENT_BET_STATUS WHERE ID=1");
             resultSet.next();
-            result = resultSet.getInt(1);
+            results.put("WIN_LAST_BET", resultSet.getInt(1));
+            results.put("CURRENT_AMOUNT", resultSet.getDouble(2));
+            results.put("LAST_LOSE_BETS_SUM", resultSet.getDouble(3));
+            results.put("LAST_BET_TITLE", resultSet.getString(4));
             connection.close();
-            return result;
-        }catch (Exception e){
+        } catch (Exception e){
             logger.info(e.getMessage());
         }
-        return result;
+        return results;
     }
 
     @Override

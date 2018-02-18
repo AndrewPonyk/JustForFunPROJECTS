@@ -7,7 +7,6 @@ import com.ap.utils.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -20,7 +19,6 @@ public class CurrentBetStatusMonitor implements Runnable {
     public static Integer LAST_BET_STATUS = -10;
 
     static {
-
         System.setProperty("webdriver.chrome.driver", Constants.driver());
         System.setProperty("webdriver.gecko.driver", "/home/andrii/Programs/geckodriver");
         driver = new ChromeDriver();
@@ -45,34 +43,37 @@ public class CurrentBetStatusMonitor implements Runnable {
 
     private void parseAndUpdateLastBetAndCurrentAmount() {
         try {
-        List<WebElement> pastBets = driver.findElementsByCssSelector(".lr .so");
-        WebElement lastBet = pastBets.get(0);
-        String winOfLastBet = lastBet.getText();
+            List<WebElement> pastBetsSums = driver.findElementsByCssSelector(".lr .so");
+            WebElement lastBet = pastBetsSums.get(0);
+            String winOfLastBet = lastBet.getText();
 
-        Integer lastBetStatus = 0;
-        Double currentAmount= Double.valueOf(driver.findElement(By.cssSelector(".saldo"))
-                .getText()
-                .replaceAll("[^\\d.]", ""));
+            List<WebElement> lastBets = driver.findElementsByCssSelector(".lr");
+            String lastBetTitle = lastBets.get(0).findElement(By.cssSelector(".row-info .col-2")).getText();
 
-        if(winOfLastBet.startsWith("0.0")){
-            //lose last bet
-            lastBetStatus = -1;
-        }
+            Integer lastBetStatus = 0;
+            Double currentAmount = Double.valueOf(driver.findElement(By.cssSelector(".saldo"))
+                    .getText()
+                    .replaceAll("[^\\d.]", ""));
 
-        if(!winOfLastBet.isEmpty() && !winOfLastBet.startsWith("0.0")){
-            //win last bet
-            lastBetStatus = 1;
-        }
+            if (winOfLastBet.startsWith("0.0")) {
+                //lose last bet
+                lastBetStatus = -1;
+            }
 
-        if(winOfLastBet.isEmpty()){
-            // last bet in progress
-            lastBetStatus = 0;
-        }
+            if (!winOfLastBet.isEmpty() && !winOfLastBet.startsWith("0.0")) {
+                //win last bet
+                lastBetStatus = 1;
+            }
 
-        LAST_BET_STATUS = lastBetStatus;
-        betRepo.updateCurrentBetStatus(lastBetStatus, currentAmount, getLastLoseBetsSum());
+            if (winOfLastBet.isEmpty()) {
+                // last bet in progress
+                lastBetStatus = 0;
+            }
 
-        }catch (Exception e){
+            LAST_BET_STATUS = lastBetStatus;
+            betRepo.updateCurrentBetStatus(lastBetStatus, currentAmount, getLastLoseBetsSum(), lastBetTitle);
+
+        } catch (Exception e) {
             System.err.println("Error happens during update CURRENT_BET_STATUS {}" + e);
         }
         System.out.println("CURRENT_BET_STATUS updated successfully");

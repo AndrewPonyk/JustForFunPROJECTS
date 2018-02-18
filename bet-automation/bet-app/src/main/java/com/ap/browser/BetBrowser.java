@@ -153,7 +153,7 @@ public class BetBrowser {
     }
 
     private BetItem checkAndBet() {
-        Integer lastBetStatus = betRepo.getLastBetStatus();
+        Integer lastBetStatus = (Integer) betRepo.getLastPerformedBet().get("WIN_LAST_BET");
         if (lastBetStatus == 0) {
             return null;
         }
@@ -245,6 +245,7 @@ public class BetBrowser {
                         if (betSum > currBalance) {
                             betSum = currBalance;
                         }
+                        betSum=3.0;// temppppppp
 
                         BetDomUtils.setAttribute(driver, sumElement, "value", "" + betSum);
                         if (driver.getPageSource().contains("Errors list") &&
@@ -278,7 +279,7 @@ public class BetBrowser {
                             if (driver.getPageSource().contains("Errors list")) {
                                 stage3Item.setStage(possibleComeBackItem.getStage() + Constants.ERROR_STATUS);
                             } else {
-                                betRepo.updateCurrentBetStatus(0, 0.0, 0.0);
+                                betRepo.updateCurrentBetStatus(0, 0.0, 0.0, "<epmty>");
                                 stage3Item.setStage(possibleComeBackItem.getStage() + "COMPLETED");
                             }
                         }
@@ -287,14 +288,16 @@ public class BetBrowser {
                     possibleComeBackItem.setStage(possibleComeBackItem.getStage() + "ERROR203Line");
                 }
             } catch (Exception e) {
-                logger.info(e.getMessage());
+                logger.info("Error during checkAndBet" + e.getMessage());
                 possibleComeBackItem.setStage(possibleComeBackItem.getStage() + Constants.ERROR_STATUS);
                 return stage3Item;
             } finally {
                 if (parentWindowHandler != null && !parentWindowHandler.isEmpty()) {
-                    logger.info("Close window:::" + driver.getCurrentUrl());
-                    driver.close();
-                    driver.switchTo().window(parentWindowHandler);
+                    if(!driver.getCurrentUrl().contains("live.html")){
+                        logger.info("Close window:::" + driver.getCurrentUrl());
+                        driver.close();
+                        driver.switchTo().window(parentWindowHandler);
+                    }
                 }
             }
         }

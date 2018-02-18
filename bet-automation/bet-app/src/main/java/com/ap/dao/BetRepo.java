@@ -5,6 +5,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public interface BetRepo {
     List<BetItem> getAll();
@@ -17,9 +18,9 @@ public interface BetRepo {
 
     void markBetAsCompleted(BetItem bet);
 
-    void updateCurrentBetStatus(Integer winLastBet, Double currentAmount, Double lastLoseBetsSum);
+    void updateCurrentBetStatus(Integer winLastBet, Double currentAmount, Double lastLoseBetsSum, String lastBetTitle);
 
-    Integer getLastBetStatus();
+    Map<String, Object> getLastPerformedBet();
 
     Double getLastLoseBetsSum();
 
