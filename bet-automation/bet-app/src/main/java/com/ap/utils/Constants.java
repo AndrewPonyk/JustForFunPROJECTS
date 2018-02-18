@@ -40,7 +40,7 @@ public class Constants {
 
 
     public static final Double FIRST_BET_IN_PERCENTS = 0.013;
-    public static final Double PROFIT_RATIO = 1.13;
+    public static final Double PROFIT_RATIO = 1.05;
 //
 //    public static final Double COMEBACK_LIMIT = 3.3;
 //    public static final Double[] COMEBACK_PERFORM_BET_BOUND = {2.25, 2.55};

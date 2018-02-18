@@ -443,8 +443,11 @@ public class BetRepoJdbc implements BetRepo {
 
                 String sportCompetition =  resultSet.getString("COMPETITION") != null ? resultSet.getString("COMPETITION"):
                         resultSet.getString("SPORT");
+                Integer id = resultSet.getInt("ID");
+                String stage = resultSet.getString("STAGE");
 
-                String item = counter++ + ") " + sportCompetition  + "[" +
+                String item = counter++ + "(" + id +
+                        ")) [" + stage + "]" + sportCompetition  + "[" +
                         resultSet.getString("BET_TIME") +"] - "
                         + resultSet.getString("TITLE")  + " <b>"+ resultSet.getString("NOTES") + "</b> "
                         + "[" + results.getFirst().getCoef1() + ", " + results.getFirst().getCoef2() + "] "

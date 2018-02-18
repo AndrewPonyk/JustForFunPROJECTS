@@ -7,6 +7,7 @@ import com.ap.utils.BetDomUtils;
 import com.ap.utils.Constants;
 import com.ap.utils.RegexUtils;
 import com.ap.utils.ValidationUtils;
+import org.apache.commons.lang3.tuple.Pair;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -154,6 +155,7 @@ public class BetBrowser {
 
     private BetItem checkAndBet() {
         Integer lastBetStatus = (Integer) betRepo.getLastPerformedBet().get("WIN_LAST_BET");
+        String lastLoseBetTitle = (String) betRepo.getLastPerformedBet().get("LAST_BET_TITLE");
         if (lastBetStatus == 0) {
             return null;
         }
@@ -167,6 +169,18 @@ public class BetBrowser {
             String parentWindowHandler = "";
             possibleComeBackItem = possibleComeBackItems.get(random.nextInt(possibleComeBackItems.size()));
             logger.info("FOUND POSSIBLE COMEBACK" + possibleComeBackItem.getTitle());
+
+            if(lastBetStatus == -1){
+                // add skipping algorithm
+                Pair<Integer, BetItem> lastPastPossibleComeback =
+                        betRepo.getAllComebackItemsFromHistory(5).get(0);
+                String[] lastPastPossibleComebackTitle = lastPastPossibleComeback.getRight().getTitle().split("-");
+                if(lastPastPossibleComeback.getLeft() == 1 && (lastLoseBetTitle.contains(lastPastPossibleComebackTitle[0]) ||
+                        lastLoseBetTitle.contains(lastPastPossibleComebackTitle[1]))){
+                    //return null;
+                }
+
+            }
 
             Integer possibleComebackPlayer = 0;
             if (possibleComeBackItem.getStage().startsWith("player1")) {
