@@ -100,6 +100,12 @@ public class CurrentBetStatusMonitor implements Runnable {
         return result;
     }
 
+    private void syncResultsWithResultsPage(){
+        // perform results sync, check last results with bet_history table
+        //https://www.parimatch.com/en/res.html?&Date=20180222&SK=0
+
+    }
+
     //specific behavior
     private void login() {
         try {

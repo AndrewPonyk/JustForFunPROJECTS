@@ -38,9 +38,9 @@ public class TennisWinChecker implements WinChecker {
                         .split(":"))
                         .map(e->Integer.valueOf(e))
                         .collect(Collectors.toList());
-                if(tieBreakResult.get(0) > tieBreakResult.get(1) && tieBreakResult.get(0) >=5){
+                if(tieBreakResult.get(0) > tieBreakResult.get(1) && tieBreakResult.get(0) >=5 && tieBreakResult.get(0)< 15){
                     advantagesOnTieBreak = 1;
-                } else if(tieBreakResult.get(0) < tieBreakResult.get(1) && tieBreakResult.get(1) >=5){
+                } else if(tieBreakResult.get(0) < tieBreakResult.get(1) && tieBreakResult.get(1) >=5 && tieBreakResult.get(1)< 15){
                     advantagesOnTieBreak = 2;
                 }
 

@@ -202,9 +202,9 @@ public class BetRepoJdbc implements BetRepo {
                     }
 
                     // comeback settings
-                    if (stage != null) {
+                    if (stage != null ) {
                         item.setNotes(notes);
-                        if (stage.contains("player1")) {
+                        if (stage.contains("player1") && !notes.contains(Constants.RETURNS_TO_BET_BOUND)) {
                             if (notes.contains(Constants.PLAYER1_CROLL_LIMIT)) {
                                 if (existingResults.getLast().getCoef1() >= Constants.COMEBACK_PERFORM_BET_BOUND[0] &&
                                         existingResults.getLast().getCoef1() <= Constants.COMEBACK_PERFORM_BET_BOUND[1]) {
@@ -215,7 +215,7 @@ public class BetRepoJdbc implements BetRepo {
                                     !item.getNotes().contains(Constants.PLAYER1_CROLL_LIMIT)) {
                                 item.setNotes(Constants.PLAYER1_CROLL_LIMIT);
                             }
-                        } else if (stage.contains("player2")) {
+                        } else if (stage.contains("player2") && !notes.contains(Constants.RETURNS_TO_BET_BOUND)) {
                             if (notes.contains(Constants.PLAYER2_CROLL_LIMIT)) {
                                 if (existingResults.getLast().getCoef2() >= Constants.COMEBACK_PERFORM_BET_BOUND[0] &&
                                         existingResults.getLast().getCoef2() <= Constants.COMEBACK_PERFORM_BET_BOUND[1]) {
@@ -303,13 +303,20 @@ public class BetRepoJdbc implements BetRepo {
         try {
             Connection connection = ConnectionFactory.getConnection();
             PreparedStatement ps = connection.prepareStatement("UPDATE BET_HISTORY" +
-                    " SET STAGE = ? WHERE TITLE = ?");
+                    " SET STAGE = ?, NOTES = ? WHERE (TITLE LIKE ? or TITLE LIKE ?) and LAST_UPDATE > now() - INTERVAL 1000 SECOND ");
+            logger.info("Marking as completed:" + bet.getStage() + bet.getTitle() +"->" + bet.getNotes());
             ps.setString(1, bet.getStage());
-            ps.setString(2, bet.getTitle());
-            logger.info("Marking as completed:" + bet.getStage() + bet.getTitle());
-            ps.executeUpdate();
+            ps.setString(2, bet.getNotes());
+//            ps.setString(3, bet.getTitle());//old way
+            String[] titleParts = bet.getTitle().split("-");
+            ps.setString(3, "%" + titleParts[0].trim() + "%");
+            ps.setString(4, "%" + titleParts[1].trim() + "%");
+
+            int affectedRows = ps.executeUpdate();
+            logger.info("Marked as completed:(affected=" + affectedRows +")"
+                    + bet.getStage() + bet.getTitle() +"->" + bet.getNotes());
             connection.close();
-        }catch (Exception e){
+        }catch (Exception e) {
             logger.info(e.getMessage());
         }
     }
@@ -340,6 +347,7 @@ public class BetRepoJdbc implements BetRepo {
     public Map<String, Object> getLastPerformedBet() {
         Map<String, Object> results = new HashMap<>();
         results.put("WIN_LAST_BET", 1000);
+        results.put("LAST_BET_TITLE", "");
         try {
             Connection connection = ConnectionFactory.getConnection();//
             ResultSet resultSet = connection.createStatement().executeQuery("SELECT " +
@@ -426,7 +434,7 @@ public class BetRepoJdbc implements BetRepo {
     public String comebackItemsAndTheirResultsAsHtml(Boolean onlyCurrDate) {
         //String sql = "SELECT substr(stage, instr(STAGE,':')+1, 1) , count(*) FROM BET_HISTORY WHERE DATE = current_date  " +
         //        "and LAST_UPDATE is not null GROUP BY  substr(stage, instr(STAGE,':')+1, 1)";
-        String sql = "SELECT * FROM BET_HISTORY WHERE NOTES LIKE '%RETU%' AND DATE = current_date order by last_update";
+        String sql = "SELECT * FROM BET_HISTORY WHERE NOTES LIKE '%RETU%' AND DATE = current_date order by ID";
         if(!onlyCurrDate){
              sql = "SELECT * FROM BET_HISTORY WHERE  NOTES LIKE '%RETU%' AND DATE >= '2018-01-15' order by last_update desc";
         }
@@ -477,7 +485,7 @@ public class BetRepoJdbc implements BetRepo {
 
     @Override
     public LinkedList<Pair<Integer, BetItem>> getAllComebackItemsFromHistory(int count) {
-        String sql = "SELECT * FROM BET_HISTORY WHERE NOTES LIKE '%RETU%' AND DATE >= '2018-01-15' and  LAST_UPDATE > now() - INTERVAL 100 second " +
+        String sql = "SELECT * FROM BET_HISTORY WHERE NOTES LIKE '%RETU%' AND DATE >= '2018-01-15' and  LAST_UPDATE < now() - INTERVAL 120 second " +
                 "order by last_update desc";
 
         return getItemsAndWinnersPairs(count, sql);

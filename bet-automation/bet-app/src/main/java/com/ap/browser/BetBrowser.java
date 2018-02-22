@@ -26,6 +26,9 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static com.ap.utils.Constants.ERROR_STATUS;
+import static com.ap.utils.Constants.SKIPPED_STATUS;
+
 public class BetBrowser {
     Logger logger = LoggerFactory.getLogger(BetBrowser.class);
     Random random = new Random();
@@ -73,7 +76,7 @@ public class BetBrowser {
             try {
                 //refresh page once per hour
                 LocalDateTime now = LocalDateTime.now();
-                if ((now.getMinute() == 50 || now.getMinute() == 7)
+                if ((now.getMinute() == 7 || now.getMinute() == 21 || now.getMinute() == 47)
                         && now.getSecond() > 40) {
                     goToLivePage();
                     login();
@@ -155,12 +158,11 @@ public class BetBrowser {
 
     private BetItem checkAndBet() {
         Integer lastBetStatus = (Integer) betRepo.getLastPerformedBet().get("WIN_LAST_BET");
-        String lastLoseBetTitle = (String) betRepo.getLastPerformedBet().get("LAST_BET_TITLE");
+        String lastPerformedBetTitle = (String) betRepo.getLastPerformedBet().get("LAST_BET_TITLE");
         if (lastBetStatus == 0) {
             return null;
         }
 
-        BetItem stage3Item = null;
         BetItem possibleComeBackItem = null;
         //stage3 item code: was removed 24.01.2018
         List<BetItem> possibleComeBackItems = betRepo.getBetsWhereComebackIsPossile();
@@ -171,13 +173,33 @@ public class BetBrowser {
             logger.info("FOUND POSSIBLE COMEBACK" + possibleComeBackItem.getTitle());
 
             if(lastBetStatus == -1){
-                // add skipping algorithm
+                // skipping algorithm
+                LinkedList<Pair<Integer, BetItem>> last5Possible = betRepo.getAllComebackItemsFromHistory(5);
+                if(last5Possible.isEmpty()){
+                    if(!possibleComeBackItem.getNotes().contains(SKIPPED_STATUS)){
+                        possibleComeBackItem.setNotes(possibleComeBackItem.getNotes()+SKIPPED_STATUS+"no history avail");
+                    }
+                }
                 Pair<Integer, BetItem> lastPastPossibleComeback =
-                        betRepo.getAllComebackItemsFromHistory(5).get(0);
+                        last5Possible.get(0);
                 String[] lastPastPossibleComebackTitle = lastPastPossibleComeback.getRight().getTitle().split("-");
-                if(lastPastPossibleComeback.getLeft() == 1 && (lastLoseBetTitle.contains(lastPastPossibleComebackTitle[0]) ||
-                        lastLoseBetTitle.contains(lastPastPossibleComebackTitle[1]))){
-                    //return null;
+
+                Integer lastPossibleComebackWinner = lastPastPossibleComeback.getLeft();
+
+
+                if(lastPossibleComebackWinner == -1 ||  lastPastPossibleComeback.getRight().getStage().contains("er"+lastPossibleComebackWinner)){
+                    //set skipped
+                    if(!possibleComeBackItem.getNotes().contains(SKIPPED_STATUS)){
+                        possibleComeBackItem.setNotes(possibleComeBackItem.getNotes()+SKIPPED_STATUS);
+                    }
+                     return possibleComeBackItem;
+                }
+                if((lastPerformedBetTitle.contains(lastPastPossibleComebackTitle[0].trim()) ||
+                        lastPerformedBetTitle.contains(lastPastPossibleComebackTitle[1].trim()))){
+                    if(!possibleComeBackItem.getNotes().contains(SKIPPED_STATUS)){
+                        possibleComeBackItem.setNotes(possibleComeBackItem.getNotes()+SKIPPED_STATUS);
+                    }
+                    return possibleComeBackItem;
                 }
 
             }
@@ -230,8 +252,10 @@ public class BetBrowser {
                         WebElement currBalanceElement = driver.findElement(By.cssSelector("#ownerInfo td b"));
                         Double currBalance = Double.parseDouble(currBalanceElement.getText().replaceAll("UAH", "").trim());
 
-                        if (currBalance < Constants.MIN_BET) {
-                            possibleComeBackItem.setStage(possibleComeBackItem.getStage() + Constants.ERROR_STATUS + "No_enough_money");
+                        if (currBalance < Constants.MIN_BET  ) {
+                            if(!possibleComeBackItem.getStage().contains(ERROR_STATUS)){
+                                possibleComeBackItem.setStage(possibleComeBackItem.getStage() + ERROR_STATUS + "No_enough_money");
+                            }
                             return possibleComeBackItem;
                         }
 
@@ -259,12 +283,18 @@ public class BetBrowser {
                         if (betSum > currBalance) {
                             betSum = currBalance;
                         }
-                        betSum=3.0;// temppppppp
+
+                        //temppppppppppppppppppppppppp
+                        betSum= currBalance* 0.01 > 3.0 ? currBalance* 0.01 : 3.0;// temppppppp
 
                         BetDomUtils.setAttribute(driver, sumElement, "value", "" + betSum);
                         if (driver.getPageSource().contains("Errors list") &&
                                 !driver.getPageSource().contains("have been changed")) {
-                            possibleComeBackItem.setStage(possibleComeBackItem.getStage() + "ERROR");
+                            if(!possibleComeBackItem.getStage().contains(ERROR_STATUS)){
+                                possibleComeBackItem.setStage(possibleComeBackItem.getStage() + ERROR_STATUS);
+                            }
+
+
                         } else {
                             Thread.sleep(100);
 
@@ -288,23 +318,30 @@ public class BetBrowser {
 
                             driver.findElement(By.cssSelector(".btn_orange")).click();
                             // looks like click waits until bet is done, but for sure I added this sleep
-                            Thread.sleep(3500);
+                            Thread.sleep(2700);
 
                             if (driver.getPageSource().contains("Errors list")) {
-                                stage3Item.setStage(possibleComeBackItem.getStage() + Constants.ERROR_STATUS);
+                                if(!possibleComeBackItem.getStage().contains(ERROR_STATUS)){
+                                    possibleComeBackItem.setStage(possibleComeBackItem.getStage() + ERROR_STATUS);
+                                }
+
                             } else {
                                 betRepo.updateCurrentBetStatus(0, 0.0, 0.0, "<epmty>");
-                                stage3Item.setStage(possibleComeBackItem.getStage() + "COMPLETED");
+                                possibleComeBackItem.setNotes(possibleComeBackItem.getNotes() +":Completed");
+                                System.out.println("Set COMPLETED notes:" + possibleComeBackItem.getTitle());
+                                possibleComeBackItem.setStage(possibleComeBackItem.getStage() + "COMPLETED");
                             }
                         }
-                        return stage3Item;
+                        return possibleComeBackItem;
                     }
                     possibleComeBackItem.setStage(possibleComeBackItem.getStage() + "ERROR203Line");
                 }
             } catch (Exception e) {
                 logger.info("Error during checkAndBet" + e.getMessage());
-                possibleComeBackItem.setStage(possibleComeBackItem.getStage() + Constants.ERROR_STATUS);
-                return stage3Item;
+                if(possibleComeBackItem!=null && possibleComeBackItem.getStage()!=null && !possibleComeBackItem.getStage().contains(ERROR_STATUS)){
+                    possibleComeBackItem.setStage(possibleComeBackItem.getStage() + ERROR_STATUS);
+                }
+                return possibleComeBackItem;
             } finally {
                 if (parentWindowHandler != null && !parentWindowHandler.isEmpty()) {
                     if(!driver.getCurrentUrl().contains("live.html")){
@@ -318,7 +355,7 @@ public class BetBrowser {
         // Big code duplication, will resolve in future! (removed 24.01.2018)
         // DISABLE THIS SMALL BETS, NO SENse
 
-        return stage3Item;
+        return possibleComeBackItem;
     }
 
     private void goToLivePage() {

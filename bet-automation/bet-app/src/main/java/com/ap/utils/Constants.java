@@ -30,6 +30,8 @@ public class Constants {
     //public static final double SEVENTH_STAGE_COEF = 1.15;
 
     public static final String ERROR_STATUS = "ERROR";
+    public static final String SKIPPED_STATUS = "SKIPPED";
+
 
     public static final Double BET_BASE = 5.0;
     public static final Double MIN_BET = 3.0;
@@ -40,7 +42,7 @@ public class Constants {
 
 
     public static final Double FIRST_BET_IN_PERCENTS = 0.013;
-    public static final Double PROFIT_RATIO = 1.05;
+    public static final Double PROFIT_RATIO = 1.02;
 //
 //    public static final Double COMEBACK_LIMIT = 3.3;
 //    public static final Double[] COMEBACK_PERFORM_BET_BOUND = {2.25, 2.55};
@@ -57,7 +59,7 @@ public class Constants {
     public static final String PLAYER2_CROLL_LIMIT = "ZPLAYER2_CROSS_LIMIT";
     public static final String RETURNS_TO_BET_BOUND = "ZRETURS_TO_BET_BOUND";
     public static final List<String> STOP_WORDS = Arrays.asList(
-            "poland", "Basketball", "Badminton");
+            "poland", "Basketball", "Badminton", "regional greece", "volleyball Qatar", "saudi", "iran", "/");
 
     public static final Set<String> SPORTS = new HashSet<>(Arrays.asList(
     "Tennis",

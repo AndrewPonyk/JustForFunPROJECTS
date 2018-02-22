@@ -50,7 +50,7 @@ public class RegexUtils {
             }
             results.add(new MomentResult(coef1Double, coef2Double, currentScore, currentTime.toString()));
         }
-        System.out.println(title + " ::: " + competition);
+        //System.out.println(title + " ::: " + competition);
         return new BetItem(title, sport, results, "0", link, "", competition);
     }
 
