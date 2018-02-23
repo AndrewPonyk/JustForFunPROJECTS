@@ -31,7 +31,7 @@ public class Constants {
 
     public static final String ERROR_STATUS = "ERROR";
     public static final String SKIPPED_STATUS = "SKIPPED";
-
+    public static final String COMPLETED = ":Completed";
 
     public static final Double BET_BASE = 5.0;
     public static final Double MIN_BET = 3.0;

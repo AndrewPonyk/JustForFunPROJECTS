@@ -26,6 +26,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static com.ap.utils.Constants.COMPLETED;
 import static com.ap.utils.Constants.ERROR_STATUS;
 import static com.ap.utils.Constants.SKIPPED_STATUS;
 
@@ -124,6 +125,7 @@ public class BetBrowser {
                     Element win2Element = row.select("tr td:nth-child(5)").first();
                     String sport = row.parent().parent().parent().select("p.sport").first().text();
                     String competition  = row.parent().previousElementSibling().text();
+                    Elements liveStreams = row.select(".ics");
                     //
                     String link = "https://www.parimatch.com/en/"
                             + row.select("tr td:nth-child(2) a").get(0).attr("href");
@@ -131,7 +133,7 @@ public class BetBrowser {
                         String betText = row.html();
                         if (!betText.toLowerCase().contains("corners")) {
                             betItems.add(RegexUtils.parseBetItem(sport, betText,
-                                    win1Element.text(), win2Element.text(), link, competition));
+                                    win1Element.text(), win2Element.text(), link, competition, liveStreams));
                         }
                     }
 
@@ -172,7 +174,7 @@ public class BetBrowser {
             possibleComeBackItem = possibleComeBackItems.get(random.nextInt(possibleComeBackItems.size()));
             logger.info("FOUND POSSIBLE COMEBACK" + possibleComeBackItem.getTitle());
 
-            if(lastBetStatus == -1){
+            if(lastBetStatus == -1 ){
                 // skipping algorithm
                 LinkedList<Pair<Integer, BetItem>> last5Possible = betRepo.getAllComebackItemsFromHistory(5);
                 if(last5Possible.isEmpty()){
@@ -189,14 +191,14 @@ public class BetBrowser {
 
                 if(lastPossibleComebackWinner == -1 ||  lastPastPossibleComeback.getRight().getStage().contains("er"+lastPossibleComebackWinner)){
                     //set skipped
-                    if(!possibleComeBackItem.getNotes().contains(SKIPPED_STATUS)){
+                    if(!possibleComeBackItem.getNotes().contains(SKIPPED_STATUS) && !possibleComeBackItem.getNotes().contains(COMPLETED) ){
                         possibleComeBackItem.setNotes(possibleComeBackItem.getNotes()+SKIPPED_STATUS);
                     }
                      return possibleComeBackItem;
                 }
                 if((lastPerformedBetTitle.contains(lastPastPossibleComebackTitle[0].trim()) ||
                         lastPerformedBetTitle.contains(lastPastPossibleComebackTitle[1].trim()))){
-                    if(!possibleComeBackItem.getNotes().contains(SKIPPED_STATUS)){
+                    if(!possibleComeBackItem.getNotes().contains(SKIPPED_STATUS) && !possibleComeBackItem.getNotes().contains(COMPLETED)){
                         possibleComeBackItem.setNotes(possibleComeBackItem.getNotes()+SKIPPED_STATUS);
                     }
                     return possibleComeBackItem;
@@ -285,7 +287,11 @@ public class BetBrowser {
                         }
 
                         //temppppppppppppppppppppppppp
-                        betSum= currBalance* 0.01 > 3.0 ? currBalance* 0.01 : 3.0;// temppppppp
+                        betSum = currBalance* 0.01 > 3.0 ? currBalance* 0.01 : 3.0;// temppppppp
+                        if(lastBetStatus == -1){
+                            betSum = betRepo.getLastLoseBetsSum() * 1.55 > currBalance ?
+                            currBalance: betRepo.getLastLoseBetsSum() * 1.55;
+                        }
 
                         BetDomUtils.setAttribute(driver, sumElement, "value", "" + betSum);
                         if (driver.getPageSource().contains("Errors list") &&
@@ -327,7 +333,7 @@ public class BetBrowser {
 
                             } else {
                                 betRepo.updateCurrentBetStatus(0, 0.0, 0.0, "<epmty>");
-                                possibleComeBackItem.setNotes(possibleComeBackItem.getNotes() +":Completed");
+                                possibleComeBackItem.setNotes(possibleComeBackItem.getNotes() + COMPLETED);
                                 System.out.println("Set COMPLETED notes:" + possibleComeBackItem.getTitle());
                                 possibleComeBackItem.setStage(possibleComeBackItem.getStage() + "COMPLETED");
                             }

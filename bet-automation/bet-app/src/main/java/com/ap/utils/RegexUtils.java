@@ -2,6 +2,7 @@ package com.ap.utils;
 
 import com.ap.model.BetItem;
 import com.ap.model.MomentResult;
+import org.jsoup.select.Elements;
 
 import java.time.LocalDateTime;
 import java.util.LinkedList;
@@ -25,7 +26,7 @@ public class RegexUtils {
     }
 
     public static BetItem parseBetItem(String sport, String content, String coef1, String coef2, String link,
-                                       String competition) throws Exception {
+                                       String competition, Elements liveStreams) throws Exception {
         content=content.replaceAll("\n","");
         final Matcher matcher = pattern.matcher(content);
         matcher.find();
@@ -51,7 +52,10 @@ public class RegexUtils {
             results.add(new MomentResult(coef1Double, coef2Double, currentScore, currentTime.toString()));
         }
         //System.out.println(title + " ::: " + competition);
-        return new BetItem(title, sport, results, "0", link, "", competition);
+        BetItem betItem = new BetItem(title, sport, results, "0", link, "", competition);
+        betItem.setLiveStream(liveStreams.size()>0 ? "yes": "no");
+
+        return betItem;
     }
 
 }

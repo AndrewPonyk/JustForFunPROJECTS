@@ -69,8 +69,8 @@ public class BetRepoJdbc implements BetRepo {
                 item.setDate(rs.getDate("DATE"));
                 existingBets.put(item.getTitle() + item.getSport(), item);
             }
-            PreparedStatement insertPs = connection.prepareStatement("INSERT INTO BET_HISTORY (TITLE, SPORT, RESULTS, DATE, STAGE, LINK, COMPETITION)" +
-                    " VALUES (?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement insertPs = connection.prepareStatement("INSERT INTO BET_HISTORY (TITLE, SPORT, RESULTS, DATE, STAGE, LINK, COMPETITION, LIVE_STREAM)" +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             PreparedStatement updatePs = connection.prepareStatement("UPDATE BET_HISTORY SET RESULTS = " +
                     "?" +
                     ", STAGE = " + "? " +
@@ -119,6 +119,7 @@ public class BetRepoJdbc implements BetRepo {
                     insertPs.setString(5, stage);
                     insertPs.setString(6, item.getLink());
                     insertPs.setString(7, item.getCompetition());
+                    insertPs.setString(8, item.getLiveStream());
                     insertPs.addBatch();
                     logger.info("Insert: " + item.getTitle() );
                 } else {
@@ -455,7 +456,7 @@ public class BetRepoJdbc implements BetRepo {
                 String stage = resultSet.getString("STAGE");
 
                 String item = counter++ + "(" + id +
-                        ")) [" + stage + "]" + sportCompetition  + "[" +
+                        ")) [" + stage + "] [live stream: " + resultSet.getString("LIVE_STREAM") +"]" + sportCompetition  + "[" +
                         resultSet.getString("BET_TIME") +"] - "
                         + resultSet.getString("TITLE")  + " <b>"+ resultSet.getString("NOTES") + "</b> "
                         + "[" + results.getFirst().getCoef1() + ", " + results.getFirst().getCoef2() + "] "
@@ -486,7 +487,7 @@ public class BetRepoJdbc implements BetRepo {
     @Override
     public LinkedList<Pair<Integer, BetItem>> getAllComebackItemsFromHistory(int count) {
         String sql = "SELECT * FROM BET_HISTORY WHERE NOTES LIKE '%RETU%' AND DATE >= '2018-01-15' and  LAST_UPDATE < now() - INTERVAL 120 second " +
-                "order by last_update desc";
+                "order by ID desc";
 
         return getItemsAndWinnersPairs(count, sql);
     }
@@ -494,7 +495,7 @@ public class BetRepoJdbc implements BetRepo {
     @Override
     public LinkedList<Pair<Integer, BetItem>> getItemsFromHistory(int count) {
         String sql = "SELECT * FROM BET_HISTORY WHERE  DATE >= '2018-01-15' and  LAST_UPDATE < now() - INTERVAL 100 second " +
-                "order by last_update desc";;
+                "order by ID desc";
         return getItemsAndWinnersPairs(count, sql);
     }
 

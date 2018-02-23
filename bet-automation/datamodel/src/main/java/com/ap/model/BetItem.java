@@ -17,6 +17,7 @@ public class BetItem {
     private Integer finalWinner;
 
     private String competition;
+    private String liveStream;
 
     public BetItem(String title, String sport, LinkedList<MomentResult> results, String stage, String link, String notes,
                    String competition) {
@@ -123,5 +124,13 @@ public class BetItem {
 
     public void setCompetition(String competition) {
         this.competition = competition;
+    }
+
+    public String getLiveStream() {
+        return liveStream;
+    }
+
+    public void setLiveStream(String liveStream) {
+        this.liveStream = liveStream;
     }
 }
