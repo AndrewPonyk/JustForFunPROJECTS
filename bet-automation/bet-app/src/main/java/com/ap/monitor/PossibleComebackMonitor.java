@@ -37,20 +37,20 @@ public class PossibleComebackMonitor implements Runnable {
 
     public static void main(String[] args) throws IOException, SQLException, MessagingException {
 
-        String allComebacksFromHistory = betRepo.comebackItemsAndTheirResultsAsHtml(false);
-
-        LinkedList<List<String>> items = new LinkedList<>();
-        items.add(new LinkedList<>(Arrays.asList(allComebacksFromHistory)));
-
-        if (!items.isEmpty()) {
-            JavaCoreSendMailUtils.sendHtmlTableWithUserData(Constants.BET_EMAIL,
-                    "All possible comeback from history", items,
-                    Constants.BET_EMAIL, Constants.BET_PASSWORD);
-        }
+//        String allComebacksFromHistory = betRepo.comebackItemsAndTheirResultsAsHtml(false);
+//
+//        LinkedList<List<String>> items = new LinkedList<>();
+//        items.add(new LinkedList<>(Arrays.asList(allComebacksFromHistory)));
+//
+//        if (!items.isEmpty()) {
+//            JavaCoreSendMailUtils.sendHtmlTableWithUserData(Constants.BET_EMAIL,
+//                    "All possible comeback from history", items,
+//                    Constants.BET_EMAIL, Constants.BET_PASSWORD);
+//        }
 
         //showInvalidBets();
 
-        //showItemsWith132_148AndTheirResults();
+        showItemsWith132_148AndTheirResults();
     }
 
 
@@ -75,23 +75,23 @@ public class PossibleComebackMonitor implements Runnable {
             WinChecker winChecker = WinCheckerProvider.getWinChecker(betItem.getSport());
             if(favorite == 1){
                 for (MomentResult momentResult: betItem.getResults()){
-                    if(momentResult.getCoef1()>=1.55 && momentResult.getCoef1()<=1.85){
+                    if(momentResult.getCoef1()>=4.8 && momentResult.getCoef1()<=5.3){
                         if(winChecker != null){
                             int winner = winChecker.getWinner(betItem.getResults().getLast().getResult());
                             if(winner == favorite){
-                                System.out.println(GREEN + betItem.getTitle() + ": "
+                                System.out.println(GREEN + betItem.getTitle() + ": " + "[" + betItem.getDate() + "]" + "[" + betItem.getDate() + "]"
                                         + betItem.getResults().getLast().getResult()
                                         + RESET );
                                 if(flag.get()){System.out.println(); }flag.set(!flag.get());
                                 break;
                             } else if(winner != -1 && winner == 2){
-                                System.out.println(RED + betItem.getTitle() + ": "
+                                System.out.println(RED + betItem.getTitle() + ": " + "[" + betItem.getDate() + "]"
                                         + betItem.getResults().getLast().getResult()
                                         + RESET );
                                 if(flag.get()){System.out.println(); }flag.set(!flag.get());
                                 break;
                             } else if(winner == -1){
-                                System.out.println(betItem.getTitle() + ": "
+                                System.out.println(betItem.getTitle() + ": " + "[" + betItem.getDate() + "]"
                                         + betItem.getResults().getLast().getResult()
                                         + RESET );
                                 if(flag.get()){System.out.println(); }flag.set(!flag.get());
@@ -107,17 +107,17 @@ public class PossibleComebackMonitor implements Runnable {
 
             if(favorite == 2){
                 for (MomentResult momentResult: betItem.getResults()){
-                    if(momentResult.getCoef2()>=1.55 && momentResult.getCoef2()<=1.85){
+                    if(momentResult.getCoef2()>=4.8 && momentResult.getCoef2()<=5.3){
                         if(winChecker != null){
                             int winner = winChecker.getWinner(betItem.getResults().getLast().getResult());
                             if(winner == favorite){
-                                System.out.println(GREEN + betItem.getTitle() + ": "
+                                System.out.println(GREEN + betItem.getTitle() + ": " + "[" + betItem.getDate() + "]"
                                         + betItem.getResults().getLast().getResult()
                                         + RESET);
                                 if(flag.get()){System.out.println(); }flag.set(!flag.get());
                                 break;
                             } else if(winner != -1 && winner == 1){
-                                System.out.println(RED + betItem.getTitle() + ": "
+                                System.out.println(RED + betItem.getTitle() + ": " + "[" + betItem.getDate() + "]"
                                         + betItem.getResults().getLast().getResult()
                                         + RESET);
                                 if(flag.get()){
@@ -125,7 +125,7 @@ public class PossibleComebackMonitor implements Runnable {
                                 }flag.set(!flag.get());
                                 break;
                             } else if(winner == -1){
-                                System.out.println(betItem.getTitle() + ": "
+                                System.out.println(betItem.getTitle() + ": " + "[" + betItem.getDate() + "]"
                                         + betItem.getResults().getLast().getResult()
                                         + RESET );
                                 if(flag.get()){System.out.println("dd"); }flag.set(!flag.get());

@@ -59,7 +59,8 @@ public class Constants {
     public static final String PLAYER2_CROLL_LIMIT = "ZPLAYER2_CROSS_LIMIT";
     public static final String RETURNS_TO_BET_BOUND = "ZRETURS_TO_BET_BOUND";
     public static final List<String> STOP_WORDS = Arrays.asList(
-            "poland", "Basketball", "Badminton", "regional greece", "volleyball Qatar", "saudi", "iran", "/");
+            "poland", "Basketball", "Badminton", "regional greece", "volleyball Qatar", "saudi", "iran", "/", "doubles",
+            "volleyball japan", "volleyball korea");
 
     public static final Set<String> SPORTS = new HashSet<>(Arrays.asList(
     "Tennis",

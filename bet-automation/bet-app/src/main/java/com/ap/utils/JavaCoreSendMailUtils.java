@@ -33,7 +33,9 @@ public class JavaCoreSendMailUtils {
                     ":" + converter.asWords(now.getMinute()));
             betMetadata.add(currentAmount + ": First bet (" + Constants.FIRST_BET_IN_PERCENTS + ") =" + firstBetSum);
             betMetadata.add(betRepo.stagesCount());
-            betMetadata.add(betRepo.comebackItemsAndTheirResultsAsHtml(true));
+            String htmlStatuses = betRepo.comebackItemsAndTheirResultsAsHtml(true);
+            RestUtils.sendStatus(htmlStatuses);
+            betMetadata.add(htmlStatuses);
         } catch (Exception e) {
             System.out.println("cann not parse current amount");
         }

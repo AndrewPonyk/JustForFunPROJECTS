@@ -9,14 +9,17 @@ import com.ap.wincheckers.WinCheckerProvider;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.*;
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class BetRepoJdbc implements BetRepo {
@@ -316,6 +319,22 @@ public class BetRepoJdbc implements BetRepo {
             int affectedRows = ps.executeUpdate();
             logger.info("Marked as completed:(affected=" + affectedRows +")"
                     + bet.getStage() + bet.getTitle() +"->" + bet.getNotes());
+
+            try {
+                    String text = LocalDateTime.now().toString() + "\n";
+                    text += ps.toString()+"\n";
+                    text+= "Marked as completed:(affected=" + affectedRows +")"
+                            + bet.getStage() + bet.getTitle() +"->" + bet.getNotes() + "[" +titleParts[0].trim()+","
+                            + titleParts[1].trim() +"]";
+                    text+="\n ---------------\n";
+                    FileUtils.write(new File("/home/andrii/update_log.txt"),text, "UTF-8", true);
+
+
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+
+
             connection.close();
         }catch (Exception e) {
             logger.info(e.getMessage());
@@ -460,7 +479,8 @@ public class BetRepoJdbc implements BetRepo {
                         resultSet.getString("BET_TIME") +"] - "
                         + resultSet.getString("TITLE")  + " <b>"+ resultSet.getString("NOTES") + "</b> "
                         + "[" + results.getFirst().getCoef1() + ", " + results.getFirst().getCoef2() + "] "
-                        +  results.getLast().getResult();
+                        +  results.getLast().getResult()
+                        + "[lastupdate=" + resultSet.getString("LAST_UPDATE") +"]";
 
                 if(winChecker != null){
                     int winner = winChecker.getWinner(results.getLast().getResult());
