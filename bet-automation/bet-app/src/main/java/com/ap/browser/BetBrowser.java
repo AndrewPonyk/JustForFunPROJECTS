@@ -181,6 +181,7 @@ public class BetBrowser {
                     if(!possibleComeBackItem.getNotes().contains(SKIPPED_STATUS)){
                         possibleComeBackItem.setNotes(possibleComeBackItem.getNotes()+SKIPPED_STATUS+"no history avail");
                     }
+                    return possibleComeBackItem;
                 }
                 Pair<Integer, BetItem> lastPastPossibleComeback =
                         last5Possible.get(0);
