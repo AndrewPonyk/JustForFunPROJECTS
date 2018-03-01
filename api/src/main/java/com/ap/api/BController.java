@@ -46,10 +46,15 @@ public class BController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/status")
     public HttpStatus addCurrentDateStatus(@RequestBody String status){
-        LocalDate now= LocalDate.now();
+        LocalDate now = LocalDate.now();
         Status statusEntity = new Status();
         statusEntity.setKey(now.toString());
         statusEntity.setValue(status);
+
+        Status existing = repository.findOne(now.toString());
+        if(existing != null && existing.getValue().length()/2 > status.length()){
+            return HttpStatus.BAD_REQUEST;
+        }
 
         repository.save(statusEntity);
         return HttpStatus.OK;
