@@ -176,13 +176,26 @@ public class BetBrowser {
 
             if(lastBetStatus == -1 ){
                 // skipping algorithm
-                LinkedList<Pair<Integer, BetItem>> last5Possible = betRepo.getAllComebackItemsFromHistory(5);
+                // skip in such situations
+                // 1) no history is available
+                // 2) last bet win, and in 3 lasts there is at least one lose
+
+                LinkedList<Pair<Integer, BetItem>> last5Possible = betRepo.getAllComebackItemsFromHistory(3);
                 if(last5Possible.isEmpty()){
                     if(!possibleComeBackItem.getNotes().contains(SKIPPED_STATUS)){
                         possibleComeBackItem.setNotes(possibleComeBackItem.getNotes()+SKIPPED_STATUS+"no history avail");
                     }
                     return possibleComeBackItem;
                 }
+
+                //check if 3 last bets win (iw win then bet)
+                Boolean winLastThreeBets = true;
+
+                Pair<Integer, BetItem> lastPastPossibleComeback2 =
+                        last5Possible.get(1);
+                Pair<Integer, BetItem> lastPastPossibleComeback3 =
+                        last5Possible.get(2);
+
                 Pair<Integer, BetItem> lastPastPossibleComeback =
                         last5Possible.get(0);
                 String[] lastPastPossibleComebackTitle = lastPastPossibleComeback.getRight().getTitle().split("-");
@@ -190,13 +203,21 @@ public class BetBrowser {
                 Integer lastPossibleComebackWinner = lastPastPossibleComeback.getLeft();
 
 
-                if(lastPossibleComebackWinner == -1 ||  lastPastPossibleComeback.getRight().getStage().contains("er"+lastPossibleComebackWinner)){
+                winLastThreeBets = (lastPossibleComebackWinner != -1 &&  lastPastPossibleComeback.getRight().getStage().contains("er"+lastPossibleComebackWinner))
+
+                        && ((lastPastPossibleComeback2.getLeft() != -1 &&  lastPastPossibleComeback2.getRight().getStage().contains("er"+lastPastPossibleComeback2.getLeft())))
+
+                        && ((lastPastPossibleComeback3.getLeft() != -1 &&  lastPastPossibleComeback3.getRight().getStage().contains("er"+lastPastPossibleComeback3.getLeft())));
+
+                if(!winLastThreeBets && (lastPossibleComebackWinner == -1 ||  lastPastPossibleComeback.getRight().getStage().contains("er"+lastPossibleComebackWinner))){
                     //set skipped
                     if(!possibleComeBackItem.getNotes().contains(SKIPPED_STATUS) && !possibleComeBackItem.getNotes().contains(COMPLETED) ){
                         possibleComeBackItem.setNotes(possibleComeBackItem.getNotes()+SKIPPED_STATUS);
                     }
                      return possibleComeBackItem;
                 }
+
+                //skip if last bet contains current bet
                 if((lastPerformedBetTitle.contains(lastPastPossibleComebackTitle[0].trim()) ||
                         lastPerformedBetTitle.contains(lastPastPossibleComebackTitle[1].trim()))){
                     if(!possibleComeBackItem.getNotes().contains(SKIPPED_STATUS) && !possibleComeBackItem.getNotes().contains(COMPLETED)){
@@ -204,6 +225,8 @@ public class BetBrowser {
                     }
                     return possibleComeBackItem;
                 }
+
+
 
             }
 

@@ -1,4 +1,4 @@
-package com.ap.api;
+package com.ap.api.controller;
 
 import com.ap.api.entity.Status;
 import com.ap.api.repository.StatusRepository;
