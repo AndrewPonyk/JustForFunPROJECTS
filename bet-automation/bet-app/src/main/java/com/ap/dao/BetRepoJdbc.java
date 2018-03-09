@@ -4,6 +4,7 @@ import com.ap.model.BetItem;
 import com.ap.model.JsonMapper;
 import com.ap.model.MomentResult;
 import com.ap.utils.Constants;
+import com.ap.utils.SystemUtils;
 import com.ap.wincheckers.WinChecker;
 import com.ap.wincheckers.WinCheckerProvider;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -460,6 +461,8 @@ public class BetRepoJdbc implements BetRepo {
         }
 
         String result = "";
+        List<String> lastBetInfo = getLastBetInfo();
+        result += "Current money:$" + lastBetInfo.get(2)+ "$<br/>";
         int counter = 1;
         try {
             Connection connection = ConnectionFactory.getConnection();
@@ -475,7 +478,7 @@ public class BetRepoJdbc implements BetRepo {
                 String stage = resultSet.getString("STAGE");
 
                 String item = counter++ + "(" + id +
-                        ")) [" + stage + "] [live stream: " + resultSet.getString("LIVE_STREAM") +"]" + sportCompetition  + "[" +
+                        ") [" + SystemUtils.getPcName() +"] [" + stage + "] [live stream: " + resultSet.getString("LIVE_STREAM") +"]" + sportCompetition  + "[" +
                         resultSet.getString("BET_TIME") +"] - "
                         + resultSet.getString("TITLE")  + " <b>"+ resultSet.getString("NOTES") + "</b> "
                         + "[" + results.getFirst().getCoef1() + ", " + results.getFirst().getCoef2() + "] "

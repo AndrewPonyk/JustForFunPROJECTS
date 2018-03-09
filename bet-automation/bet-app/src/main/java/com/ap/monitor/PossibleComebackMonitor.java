@@ -37,20 +37,20 @@ public class PossibleComebackMonitor implements Runnable {
 
     public static void main(String[] args) throws IOException, SQLException, MessagingException {
 
-//        String allComebacksFromHistory = betRepo.comebackItemsAndTheirResultsAsHtml(false);
-//
-//        LinkedList<List<String>> items = new LinkedList<>();
-//        items.add(new LinkedList<>(Arrays.asList(allComebacksFromHistory)));
-//
-//        if (!items.isEmpty()) {
-//            JavaCoreSendMailUtils.sendHtmlTableWithUserData(Constants.BET_EMAIL,
-//                    "All possible comeback from history", items,
-//                    Constants.BET_EMAIL, Constants.BET_PASSWORD);
-//        }
+        String allComebacksFromHistory = betRepo.comebackItemsAndTheirResultsAsHtml(false);
+
+        LinkedList<List<String>> items = new LinkedList<>();
+        items.add(new LinkedList<>(Arrays.asList(allComebacksFromHistory)));
+
+        if (!items.isEmpty()) {
+            JavaCoreSendMailUtils.sendHtmlTableWithUserData(Constants.BET_EMAIL,
+                    "All possible comeback from history", items,
+                    Constants.BET_EMAIL, Constants.BET_PASSWORD);
+        }
 
         //showInvalidBets();
 
-        showItemsWith132_148AndTheirResults();
+//        showItemsWith132_148AndTheirResults();
     }
 
 

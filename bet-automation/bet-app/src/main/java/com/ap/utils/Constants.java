@@ -42,7 +42,7 @@ public class Constants {
 
 
     public static final Double FIRST_BET_IN_PERCENTS = 0.013;
-    public static final Double PROFIT_RATIO = 1.02;
+    public static final Double PROFIT_RATIO = 1.06;
 //
 //    public static final Double COMEBACK_LIMIT = 3.3;
 //    public static final Double[] COMEBACK_PERFORM_BET_BOUND = {2.25, 2.55};
@@ -53,14 +53,16 @@ public class Constants {
 //            "poland", "Basketball china", "Badminton");
 
     //try this, without basket
-    public static final Double COMEBACK_LIMIT = 1.5;
+    public static final Double COMEBACK_LIMIT = 1.95;
     public static final Double[] COMEBACK_PERFORM_BET_BOUND = {1.54, 1.86};
     public static final String PLAYER1_CROLL_LIMIT = "ZPLAYER1_CROSS_LIMIT";
     public static final String PLAYER2_CROLL_LIMIT = "ZPLAYER2_CROSS_LIMIT";
     public static final String RETURNS_TO_BET_BOUND = "ZRETURS_TO_BET_BOUND";
     public static final List<String> STOP_WORDS = Arrays.asList(
             "poland", "Basketball", "Badminton", "regional greece", "volleyball Qatar", "saudi", "iran", "/", "doubles",
-            "volleyball japan", "volleyball korea");
+            "volleyball japan", "volleyball korea",
+            "kolkata", "bhopal",
+            "algeria", "afric", "egypt", "angola");
 
     public static final Set<String> SPORTS = new HashSet<>(Arrays.asList(
     "Tennis",
@@ -106,5 +108,4 @@ public class Constants {
             return "/home/andrii/Programs/chromedriver";
         }
     }
-
 }

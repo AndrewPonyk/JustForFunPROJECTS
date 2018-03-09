@@ -313,8 +313,13 @@ public class BetBrowser {
                         //temppppppppppppppppppppppppp
                         betSum = currBalance* 0.01 > 3.0 ? currBalance* 0.01 : 3.0;// temppppppp
                         if(lastBetStatus == -1){
-                            betSum = betRepo.getLastLoseBetsSum() * 1.55 > currBalance ?
-                            currBalance: betRepo.getLastLoseBetsSum() * 1.55;
+                            betSum = betRepo.getLastLoseBetsSum() * 1.56 > currBalance ?
+                            currBalance: betRepo.getLastLoseBetsSum() * 1.56;
+
+                            if(betRepo.getLastLoseBetsSum() / (currentCoef - 1) * Constants.PROFIT_RATIO < 1.56){
+                                betSum = betRepo.getLastLoseBetsSum() / (currentCoef - 1) * Constants.PROFIT_RATIO;
+                            }
+
                         }
 
                         BetDomUtils.setAttribute(driver, sumElement, "value", "" + betSum);
