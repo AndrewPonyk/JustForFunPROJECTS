@@ -59,16 +59,16 @@ public class Constants {
     public static final String PLAYER2_CROLL_LIMIT = "ZPLAYER2_CROSS_LIMIT";
     public static final String RETURNS_TO_BET_BOUND = "ZRETURS_TO_BET_BOUND";
     public static final List<String> STOP_WORDS = Arrays.asList(
-            "poland", "Basketball", "Badminton", "regional greece", "volleyball Qatar", "saudi", "iran", "/", "doubles",
-            "volleyball japan", "volleyball korea",
-            "kolkata", "bhopal",
-            "algeria", "afric", "egypt", "angola");
+            "poland", "Basketball", "Badminton","volleyball", "regional greece", "volleyball Qatar", "saudi", "iran", "/", "doubles",
+            "volleyball japan", "volleyball korea", "univer",
+            "kolkata", "bhopal","mumbai",
+            "algeria", "afric", "egypt", "angola",
+            "belarus", "qualifying");
 
     public static final Set<String> SPORTS = new HashSet<>(Arrays.asList(
     "Tennis",
     "Basketball",
-    "Volleyball",
-    "Hockey"));
+    "Volleyball"));
 
     public static String BET_EMAIL = "";
     public static String BET_PASSWORD = "";

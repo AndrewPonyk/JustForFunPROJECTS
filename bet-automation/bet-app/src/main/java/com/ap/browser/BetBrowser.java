@@ -180,7 +180,7 @@ public class BetBrowser {
                 // 1) no history is available
                 // 2) last bet win, and in 3 lasts there is at least one lose
 
-                LinkedList<Pair<Integer, BetItem>> last5Possible = betRepo.getAllComebackItemsFromHistory(3);
+                LinkedList<Pair<Integer, BetItem>> last5Possible = betRepo.getAllComebackItemsFromHistory(4);
                 if(last5Possible.isEmpty()){
                     if(!possibleComeBackItem.getNotes().contains(SKIPPED_STATUS)){
                         possibleComeBackItem.setNotes(possibleComeBackItem.getNotes()+SKIPPED_STATUS+"no history avail");
@@ -190,14 +190,18 @@ public class BetBrowser {
 
                 //check if 3 last bets win (iw win then bet)
                 Boolean winLastThreeBets = true;
+                Boolean winAtLeastOneOfFour = false;
 
+                Pair<Integer, BetItem> lastPastPossibleComeback =
+                        last5Possible.get(0);
                 Pair<Integer, BetItem> lastPastPossibleComeback2 =
                         last5Possible.get(1);
                 Pair<Integer, BetItem> lastPastPossibleComeback3 =
                         last5Possible.get(2);
+                Pair<Integer, BetItem> lastPastPossibleComeback4 =
+                        last5Possible.get(3);
 
-                Pair<Integer, BetItem> lastPastPossibleComeback =
-                        last5Possible.get(0);
+
                 String[] lastPastPossibleComebackTitle = lastPastPossibleComeback.getRight().getTitle().split("-");
 
                 Integer lastPossibleComebackWinner = lastPastPossibleComeback.getLeft();
@@ -209,12 +213,31 @@ public class BetBrowser {
 
                         && ((lastPastPossibleComeback3.getLeft() != -1 &&  lastPastPossibleComeback3.getRight().getStage().contains("er"+lastPastPossibleComeback3.getLeft())));
 
+
+
+                winAtLeastOneOfFour = (lastPossibleComebackWinner != -1 &&  lastPastPossibleComeback.getRight().getStage().contains("er"+lastPossibleComebackWinner))
+
+                        || ((lastPastPossibleComeback2.getLeft() != -1 &&  lastPastPossibleComeback2.getRight().getStage().contains("er"+lastPastPossibleComeback2.getLeft())))
+
+                        || ((lastPastPossibleComeback3.getLeft() != -1 &&  lastPastPossibleComeback3.getRight().getStage().contains("er"+lastPastPossibleComeback3.getLeft())))
+
+                        || ((lastPastPossibleComeback4.getLeft() != -1 &&  lastPastPossibleComeback4.getRight().getStage().contains("er"+lastPastPossibleComeback4.getLeft())));
+
+
                 if(!winLastThreeBets && (lastPossibleComebackWinner == -1 ||  lastPastPossibleComeback.getRight().getStage().contains("er"+lastPossibleComebackWinner))){
                     //set skipped
                     if(!possibleComeBackItem.getNotes().contains(SKIPPED_STATUS) && !possibleComeBackItem.getNotes().contains(COMPLETED) ){
                         possibleComeBackItem.setNotes(possibleComeBackItem.getNotes()+SKIPPED_STATUS);
                     }
                      return possibleComeBackItem;
+                }
+
+                if(!winAtLeastOneOfFour ){
+                    if(!possibleComeBackItem.getNotes().contains(SKIPPED_STATUS) && !possibleComeBackItem.getNotes().contains(COMPLETED) ){
+                        possibleComeBackItem.setNotes(possibleComeBackItem.getNotes()+SKIPPED_STATUS);
+                    }
+                    return possibleComeBackItem;
+
                 }
 
                 //skip if last bet contains current bet
@@ -311,13 +334,17 @@ public class BetBrowser {
                         }
 
                         //temppppppppppppppppppppppppp
-                        betSum = currBalance* 0.01 > 3.0 ? currBalance* 0.01 : 3.0;// temppppppp
+                        betSum = currBalance* 0.012 > 3.0 ? currBalance* 0.012 : 3.0;// temppppppp
                         if(lastBetStatus == -1){
                             betSum = betRepo.getLastLoseBetsSum() * 1.56 > currBalance ?
                             currBalance: betRepo.getLastLoseBetsSum() * 1.56;
 
-                            if(betRepo.getLastLoseBetsSum() / (currentCoef - 1) * Constants.PROFIT_RATIO < 1.56){
+                            if(1 / (currentCoef - 1) * Constants.PROFIT_RATIO < 1.56){
                                 betSum = betRepo.getLastLoseBetsSum() / (currentCoef - 1) * Constants.PROFIT_RATIO;
+                            }
+
+                            if(betSum> currBalance){
+                                betSum=currBalance;
                             }
 
                         }

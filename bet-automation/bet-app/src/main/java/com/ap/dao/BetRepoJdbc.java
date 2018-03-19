@@ -477,11 +477,15 @@ public class BetRepoJdbc implements BetRepo {
                 Integer id = resultSet.getInt("ID");
                 String stage = resultSet.getString("STAGE");
 
+                Double max1 = results.stream().map(MomentResult::getCoef1).max(Comparator.comparing(Double::doubleValue)).get();
+                Double max2 = results.stream().map(MomentResult::getCoef2).max(Comparator.comparing(Double::doubleValue)).get();
+
                 String item = counter++ + "(" + id +
                         ") [" + SystemUtils.getPcName() +"] [" + stage + "] [live stream: " + resultSet.getString("LIVE_STREAM") +"]" + sportCompetition  + "[" +
                         resultSet.getString("BET_TIME") +"] - "
                         + resultSet.getString("TITLE")  + " <b>"+ resultSet.getString("NOTES") + "</b> "
                         + "[" + results.getFirst().getCoef1() + ", " + results.getFirst().getCoef2() + "] "
+                        + "[max coefs: " + max1 + "," + max2 + "]"
                         +  results.getLast().getResult()
                         + "[lastupdate=" + resultSet.getString("LAST_UPDATE") +"]";
 
