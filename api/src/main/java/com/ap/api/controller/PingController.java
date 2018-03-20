@@ -7,6 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class PingController {
     @RequestMapping("/")
     public String ping(){
-        return "v4";
+        return "v5";
+    }
+
+    public static void main(String[] args) {
+        String test = "123$abc$hello";
+
+
+        System.out.println(test.substring(test.indexOf("$")+1, test.lastIndexOf("$")));
+
     }
 }
