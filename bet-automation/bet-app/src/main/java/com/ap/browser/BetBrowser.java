@@ -83,7 +83,7 @@ public class BetBrowser {
                     login();
                     System.out.println("Performin refresh twice per hour " + now);
                 }
-                Thread.sleep(10500);
+                Thread.sleep(9500);
             } catch (Exception e) {
                 logger.info(e.getMessage());
             }
