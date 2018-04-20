@@ -18,20 +18,21 @@ public class PacktBookSaverApp {
 
     public static void saveBooks(String fileName) throws FileNotFoundException {
         System.out.println("Saving all packt books:");
-        Scanner scanner = new Scanner(new FileInputStream(fileName));
+        try (Scanner scanner = new Scanner(new FileInputStream(fileName))) {
 
-        PacktDriver driver = new PacktDriver();
-        driver.login();
+            PacktDriver driver = new PacktDriver();
+            driver.login();
 
-        while (scanner.hasNext()){
-            String line = scanner.nextLine();
-            if(line.contains("[Video]") || !line.contains("::")){
-                continue;
+            while (scanner.hasNext()) {
+                String line = scanner.nextLine();
+                if (line.contains("[Video]") || !line.contains("::")) {
+                    continue;
+                }
+
+                String url = line.substring(line.indexOf("::") + 2);
+                driver.getMaptUrlAndSaveBook(url);
+                System.out.println(url);
             }
-
-            String url = line.substring(line.indexOf("::")+2);
-            driver.getMaptUrlAndSaveBook(url);
-            System.out.println(url);
         }
 
     }
