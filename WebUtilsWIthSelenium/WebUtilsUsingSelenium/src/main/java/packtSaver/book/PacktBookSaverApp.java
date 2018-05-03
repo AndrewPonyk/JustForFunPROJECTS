@@ -1,6 +1,4 @@
-package packtBooksSaver;
-
-import org.openqa.selenium.By;
+package packtSaver.book;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,9 +7,9 @@ import java.util.Scanner;
 public class PacktBookSaverApp {
     public static void main(String[] args) throws FileNotFoundException {
         PacktDriver driver = new PacktDriver();
-        driver.login();
+        driver.login(true);
 
-        driver.saveBook("https://www.packtpub.com/mapt/book/big_data_and_business_intelligence/9781785889622");
+        driver.saveBook("https://www.packtpub.com/mapt/book/application_development/9781786468161");
         driver.convertImagesToPdf();
  //       saveBooks("/home/andrii/git/JustForFunPROJECTS/WebUtilsWIthSelenium/WebUtilsUsingSelenium/packttemp.txt");
     }
@@ -21,7 +19,7 @@ public class PacktBookSaverApp {
         try (Scanner scanner = new Scanner(new FileInputStream(fileName))) {
 
             PacktDriver driver = new PacktDriver();
-            driver.login();
+            driver.login(true);
 
             while (scanner.hasNext()) {
                 String line = scanner.nextLine();

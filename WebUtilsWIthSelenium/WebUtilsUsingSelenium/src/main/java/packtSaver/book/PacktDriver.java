@@ -1,12 +1,14 @@
-package packtBooksSaver;
+package packtSaver.book;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfWriter;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
@@ -16,6 +18,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -23,29 +26,66 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class PacktDriver {
-    FirefoxDriver packtWebDriver;
+    protected RemoteWebDriver packtWebDriver;
     private int pagesCounter;
     private String bookName;
 
     public PacktDriver() {
         System.setProperty("webdriver.gecko.driver", "/home/andrii/Programs/geckodriver");
-        packtWebDriver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", driver());
+
+        //
+        ChromeOptions options = new ChromeOptions();
+
+        options.addArguments("--load-extension=C:\\Users\\Andrii_Ponyk\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\aiimdkdngfcipjohbjenkahhlhccpdbc\\31.2.5_0");
+
+        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+        chromePrefs.put("download.prompt_for_download", false);
+        chromePrefs.put("download.default_directory", "C:\\tmp\\packt\\video\\");
+        options.setExperimentalOption("prefs", chromePrefs);
+
+        packtWebDriver = new ChromeDriver(options);
     }
 
-    public void login() {
+    public static String driver(){
+        File driver = new File("C:\\tmp\\chromedriver.exe");
+        if(driver.exists()){
+            return "C:\\tmp\\chromedriver.exe";
+        } else {
+            return "/home/andrii/Programs/chromedriver";
+        }
+    }
+
+    public void login(Boolean maximize) {
+        ArrayList<String> tabs = new ArrayList<>(packtWebDriver.getWindowHandles());
+        packtWebDriver.switchTo().window(tabs.get(0));
         packtWebDriver.get("https://www.packtpub.com/");
-        packtWebDriver.manage().window().maximize();
+        if(maximize){
+            packtWebDriver.manage().window().maximize();
+        }
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        tabs = new ArrayList<>(packtWebDriver.getWindowHandles());
+        packtWebDriver.switchTo().window(tabs.get(0));
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         List<WebElement> loginLink = packtWebDriver.findElements(By.cssSelector(".login-popup div"));
         System.out.println(loginLink);
         loginLink.get(0).click();
 
         List<WebElement> loginElements = packtWebDriver.findElements(By.cssSelector("#email"));
         List<WebElement> passwordElements = packtWebDriver.findElements(By.cssSelector("#password"));
-        setAttribute(loginElements.get(1), "value", "andrew9999@ukr.net");
-        setAttribute(passwordElements.get(1), "value", "Zz123456");
+        setAttribute(loginElements.get(1), "value", "andrew.ponuk9999@gmail.com");
+        setAttribute(passwordElements.get(1), "value", "Aa123456");
         packtWebDriver.findElements(By.cssSelector("#edit-submit-1")).get(1).click();
         try {
-            Thread.sleep(2000);
+            Thread.sleep(4000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -77,11 +117,11 @@ public class PacktDriver {
     public String convertImagesToPdf() {
         final Document document = new Document();
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("/home/andrii/Downloads/packt/" + this.bookName + ".pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("C:\\tmp\\packt\\" + this.bookName + ".pdf"));
             document.open();
             IntStream.range(0, this.pagesCounter).forEach(i -> {
                 try {
-                    Image image = Image.getInstance("/home/andrii/Downloads/packt/images/" + this.bookName + i + ".png");
+                    Image image = Image.getInstance("C:\\tmp\\packt\\images\\" + this.bookName + i + ".png");
                     //Setting zero, zero - cause some unpredictible location,
                     image.setAbsolutePosition(1, 1);
                     document.setPageSize(new Rectangle(image.getWidth(), image.getHeight()+2));
@@ -123,16 +163,33 @@ public class PacktDriver {
         this.bookName = packtWebDriver.findElement(By.cssSelector("h3")).getText();
         List<WebElement> dropdown = packtWebDriver.findElements(By.className("cover-accordion"));
 
-        //open TOC
-        dropdown.get(0).findElements(By.tagName("a")).get(0).click();
+        //open TOC, 24.04 change: toc is already opened
+        // toc can be opened, or can be closed
+        List<WebElement> toc = dropdown.get(0).findElements(By.tagName("a"));
+//        if(toc.get(0).getAttribute("class").contains("collapsed")){
+//            toc.get(0).click();
+//        }
+
 
         //open all sections
         WebElement tocParentElement = dropdown.get(0).findElements(By.cssSelector("#item-one")).get(0);
         List<WebElement> sectionsElements = tocParentElement.findElements(By.cssSelector("div.cover-toc__title"));
-        sectionsElements.forEach(element -> element.click());
+        sectionsElements.forEach(e->System.out.println(e.getText()));
+        sectionsElements.stream().skip(1).forEach(element -> {
+            try {
+                System.out.println("||||"+element.getAttribute("outerHTML")+"||||");
+                element.click();
+                Thread.sleep(500);
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        });
 
         //open description
-        dropdown.get(0).findElements(By.cssSelector(".list-group-item")).get(1).click();
+        packtWebDriver.findElements(By.className("cover-accordion"))
+                .get(0).findElements(By.cssSelector(".list-group-item")).get(1).click();
 
         String tocFileName = takeScreenshot(null);
         return tocFileName;
@@ -170,7 +227,7 @@ public class PacktDriver {
             try {
                 img = ImageIO.read(file);
                 slices.add(img);
-                FileUtils.copyFile(file, new File("/home/andrii/Downloads/packt/images/" + this.bookName + this.pagesCounter++ + ".png"));
+                FileUtils.copyFile(file, new File("C:\\tmp\\packt\\images\\" + this.bookName + this.pagesCounter++ + ".png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -227,7 +284,7 @@ public class PacktDriver {
         return foo;
     }
 
-    private void sleep(int i) {
+    public void sleep(int i) {
         try {
             Thread.sleep(i);
         } catch (InterruptedException e) {
@@ -246,5 +303,6 @@ public class PacktDriver {
             e.printStackTrace();
         }
     }
+
 
 }

@@ -1,4 +1,4 @@
-package packtBooksSaver;
+package packtSaver.book;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -22,7 +22,7 @@ public class PdfConverter {
     public static void main(String[] args) {
         Document document = new Document();
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("/home/andrii/Downloads/javacreate.pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream("C:\\tmp\\packt\\javacreate.pdf"));
             document.open();
 
             Paragraph p = new Paragraph();
@@ -39,9 +39,9 @@ public class PdfConverter {
             p2.setAlignment(Element.ALIGN_RIGHT);
             document.add(p2);
 
-            Image image = new Jpeg(new URL("file:/home/andrii/Downloads/Example.jpg"));
+            Image image = new Jpeg(new URL("file:C:\\tmp\\packt\\Example.jpg"));
             document.add(image);
-            File ff = new File("/home/andrii/Downloads/Example.jpg");
+            File ff = new File("C:\\tmp\\packt\\Example.jpg");
             System.out.println(ff.toURI().toURL());
 
             document.close();
