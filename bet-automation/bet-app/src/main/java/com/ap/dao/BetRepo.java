@@ -1,6 +1,7 @@
 package com.ap.dao;
 
 import com.ap.model.BetItem;
+import com.ap.model.SyncResult;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.LinkedList;
@@ -37,4 +38,6 @@ public interface BetRepo {
     List<String> getPlayerStagesFromHistory(String title, String sport);
 
     BetItem getRandomFavourite(int minBetFavItems);
+
+    boolean updateResult(List<SyncResult> results);
 }

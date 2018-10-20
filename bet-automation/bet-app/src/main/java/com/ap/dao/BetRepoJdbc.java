@@ -3,6 +3,7 @@ package com.ap.dao;
 import com.ap.model.BetItem;
 import com.ap.model.JsonMapper;
 import com.ap.model.MomentResult;
+import com.ap.model.SyncResult;
 import com.ap.utils.Constants;
 import com.ap.utils.SystemUtils;
 import com.ap.wincheckers.WinChecker;
@@ -621,6 +622,48 @@ public class BetRepoJdbc implements BetRepo {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public boolean updateResult(List<SyncResult> results) {
+        // GET BETS FROM LAST 2 HOURS
+        LinkedList<Pair<Integer, BetItem>> itemsAndWinnersPairs = getItemsAndWinnersPairs(100, "SELECT * from BET_HISTORY WHERE LAST_UPDATE > NOW() - INTERVAL 7300 SECOND " +
+                "AND LAST_UPDATE < NOW() - INTERVAL 100 SECOND");
+        Connection connection = ConnectionFactory.getConnection();
+
+        itemsAndWinnersPairs.forEach(item->{
+            Optional<SyncResult> betItemOptional = findInSyncResults(results, item.getRight().getTitle());
+            betItemOptional.ifPresent(betItem -> {
+                MomentResult lastResult = item.getRight().getResults().getLast();
+                if(){
+
+                }
+            });
+        });
+        PreparedStatement ps = null;
+        try {
+            ps = connection.prepareStatement("SELECT * FROM BET_HISTORY" +
+                    " WHERE TITLE LIKE '%%' AND TITLE LIKE '%%' LAST_UPDATE > NOW - INTERVAL 20000 SECOND");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                //here we dont need RESULTS, because bet is already in 3rd stage
+                BetItem bet = new BetItem(rs.getString("TITLE"),rs.getString("SPORT"),null, rs.getString("STAGE"), "", rs.getString("NOTES"), rs.getString("COMPETITION"));
+            }
+        } catch (SQLException e) {
+
+        }
+
+
+
+
+
+        return false;
+    }
+
+    private Optional<SyncResult> findInSyncResults(List<SyncResult> results, String title) {
+        return results.stream()
+                .filter(item -> title.contains(item.getPlayer1()) && title.contains(item.getPlayer1()))
+                .findAny();
     }
 
     public static void main(String[] args) {

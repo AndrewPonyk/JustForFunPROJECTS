@@ -15,7 +15,7 @@ public class TennisWinChecker implements WinChecker {
         if (result == null || !result.contains("(") || !result.contains(")")) {
             return -1;
         }
-        result = result.toLowerCase().replaceAll("adv", "45").replaceAll("win", "45");//
+        result = result.toLowerCase().replaceAll("adv", "45").replaceAll("win", "45").replaceAll(" ", "");//
 
         try {
             int[] score = {Integer.valueOf(result.substring(0, result.indexOf("(")).split("-")[0]),
@@ -64,6 +64,6 @@ public class TennisWinChecker implements WinChecker {
 
     public static void main(String[] args) {
         System.out.println(new TennisWinChecker().getWinner("1-1(6-2,2-6,4-5) 15:40"));
-
+        System.out.println(new TennisWinChecker().getWinner("6-2 (1-0, 1-1, 4-1)"));
     }
 }
