@@ -13,7 +13,7 @@ public class VoleyballWinChecker implements WinChecker {
         if (result == null || !result.contains("(") || !result.contains(")")) {
             return -1;
         }
-
+        result = result.replaceAll(" ", "");
         int[] score = {Integer.valueOf(result.substring(0, result.indexOf("(")).split("-")[0]),
                 Integer.valueOf(result.substring(0, result.indexOf("(")).split("-")[1])};
 

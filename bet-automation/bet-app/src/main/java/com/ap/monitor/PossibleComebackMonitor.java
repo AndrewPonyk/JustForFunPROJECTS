@@ -66,6 +66,110 @@ public class PossibleComebackMonitor implements Runnable {
         });
     }
 
+    public static void showItemsCrossXReturnToY(double x, double y) {
+        final AtomicBoolean flag = new AtomicBoolean(true);
+        LinkedList<Pair<Integer, BetItem>> itemsFromHistory = betRepo.getItemsFromHistory(2000);
+        itemsFromHistory.forEach(item -> {
+            BetItem betItem = item.getRight();
+            int favorite = betItem.getStage().contains("r1") ? 1 : 2;
+            WinChecker winChecker = WinCheckerProvider.getWinChecker(betItem.getSport());
+            if (favorite == 1 && winChecker != null) {
+                for (int i = 0; i < betItem.getResults().size(); i++) {
+                    MomentResult momentResult = betItem.getResults().get(i);
+                    if (momentResult.getCoef1() >= x) {
+                        for (int j = i; j < betItem.getResults().size(); j++) {
+                            MomentResult nextMomentResult = betItem.getResults().get(j);
+                            if (momentResult.getCoef1() <= y) {
+                                i = 10000000; //exit loop
+                                j = 10000000;
+                                int winner = winChecker.getWinner(betItem.getResults().getLast().getResult());
+                                if (winner == favorite) {
+                                    System.out.println(GREEN + betItem.getTitle() + ": " + "[" + betItem.getDate() + "]" + "[" + betItem.getDate() + "]"
+                                            + betItem.getResults().getLast().getResult()
+                                            + RESET);
+                                    if (flag.get()) {
+                                        System.out.println();
+                                    }
+                                    flag.set(!flag.get());
+                                    break;
+                                } else if (winner != -1 && winner == 2) {
+                                    System.out.println(RED + betItem.getTitle() + ": " + "[" + betItem.getDate() + "]"
+                                            + betItem.getResults().getLast().getResult()
+                                            + RESET);
+                                    if (flag.get()) {
+                                        System.out.println();
+                                    }
+                                    flag.set(!flag.get());
+                                    break;
+                                } else if (winner == -1) {
+                                    System.out.println(betItem.getTitle() + ": " + "[" + betItem.getDate() + "]"
+                                            + betItem.getResults().getLast().getResult()
+                                            + RESET);
+                                    if (flag.get()) {
+                                        System.out.println();
+                                    }
+                                    flag.set(!flag.get());
+                                    break;
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            }
+
+
+            if (favorite == 2 && winChecker != null) {
+                for (int i = 0; i < betItem.getResults().size(); i++) {
+                    MomentResult momentResult = betItem.getResults().get(i);
+                    if (momentResult.getCoef2() >= x) {
+                        for (int j = i; j < betItem.getResults().size(); j++) {
+                            MomentResult nextMomentResult = betItem.getResults().get(j);
+                            if (momentResult.getCoef2() <= y) {
+                                i = 10000000; //exit loop
+                                j = 10000000;
+                                int winner = winChecker.getWinner(betItem.getResults().getLast().getResult());
+                                if (winner == favorite) {
+                                    System.out.println(GREEN + betItem.getTitle() + ": " + "[" + betItem.getDate() + "]"
+                                            + betItem.getResults().getLast().getResult()
+                                            + RESET);
+                                    if (flag.get()) {
+                                        System.out.println();
+                                    }
+                                    flag.set(!flag.get());
+                                    break;
+                                } else if (winner != -1 && winner == 1) {
+                                    System.out.println(RED + betItem.getTitle() + ": " + "[" + betItem.getDate() + "]"
+                                            + betItem.getResults().getLast().getResult()
+                                            + RESET);
+                                    if (flag.get()) {
+                                        System.out.println();
+                                    }
+                                    flag.set(!flag.get());
+                                    break;
+                                } else if (winner == -1) {
+                                    System.out.println(betItem.getTitle() + ": " + "[" + betItem.getDate() + "]"
+                                            + betItem.getResults().getLast().getResult()
+                                            + RESET);
+                                    if (flag.get()) {
+                                        System.out.println("dd");
+                                    }
+                                    flag.set(!flag.get());
+                                    break;
+                                }
+                            }
+                        }
+
+
+                    }
+                }
+            }
+
+        });
+    }
+
+
     public static void showItemsWith132_148AndTheirResults(){
         final AtomicBoolean flag = new AtomicBoolean(true);
         LinkedList<Pair<Integer, BetItem>> itemsFromHistory = betRepo.getItemsFromHistory(2000);
