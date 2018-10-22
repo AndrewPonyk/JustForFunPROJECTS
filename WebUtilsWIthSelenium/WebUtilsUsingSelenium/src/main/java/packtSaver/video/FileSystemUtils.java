@@ -17,7 +17,7 @@ public class FileSystemUtils {
 
     public static void main(String[] args) {
         // folderContainsUncompletedDownloads("C:\\tmp\\packt\\video\\");
-        sortFilesByDateAndAppendIndexes("C:\\tmp\\packt\\video");
+        sortFilesByDateAndAppendIndexes("C:\\tmp\\packt\\video\\Hands-On Continuous Integration and Automation with Jenkins [Video]");
 
     }
 

@@ -81,7 +81,7 @@ public class PacktDriver {
 
         List<WebElement> loginElements = packtWebDriver.findElements(By.cssSelector("#email"));
         List<WebElement> passwordElements = packtWebDriver.findElements(By.cssSelector("#password"));
-        setAttribute(loginElements.get(1), "value", "andrew.ponuk9999@gmail.com");
+        setAttribute(loginElements.get(1), "value", "ivan.p99996@gmail.com");
         setAttribute(passwordElements.get(1), "value", "Aa123456");
         packtWebDriver.findElements(By.cssSelector("#edit-submit-1")).get(1).click();
         try {

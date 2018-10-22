@@ -22,15 +22,22 @@ public class PacktVideoDriver extends PacktDriver {
             sleep(4000);
         }
 
+        String courseName = "undefined";
+        try {
+            courseName = packtWebDriver.findElement(By.cssSelector("h3.mt0")).getText();
+        }catch (Exception e){
+
+        }
         Map<String, List<Pair<String, String>>> sectionUrls = getSectionUrls();
         System.out.println("----");
         System.out.println(sectionUrls);
         System.out.println("-----");
-        saveFiles(sectionUrls);
+        saveFiles(courseName, sectionUrls);
     }
 
-    private void saveFiles(Map<String, List<Pair<String, String>>> sectionUrls) {
-        String folder = "C:\\tmp\\packt\\video\\";
+    private void saveFiles(String courseName, Map<String, List<Pair<String, String>>> sectionUrls) {
+        String folder = "C:\\tmp\\packt\\video\\" + courseName+"\\";
+        new File(folder).mkdir();
         packtWebDriver.quit();
 
         sectionUrls.keySet().forEach(item -> {
@@ -104,7 +111,7 @@ public class PacktVideoDriver extends PacktDriver {
         });
         //check if downloads are completed, and if so then EXIT
         try {
-            Thread.sleep(60000);
+            Thread.sleep(30000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
