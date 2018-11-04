@@ -635,9 +635,7 @@ public class BetRepoJdbc implements BetRepo {
             Optional<SyncResult> betItemOptional = findInSyncResults(results, item.getRight().getTitle());
             betItemOptional.ifPresent(betItem -> {
                 MomentResult lastResult = item.getRight().getResults().getLast();
-                if(){
 
-                }
             });
         });
         PreparedStatement ps = null;
