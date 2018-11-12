@@ -15,13 +15,16 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.IntStream;
 
 public class ScanLibsPdfJoiner {
     protected RemoteWebDriver packtWebDriver;
 
-    public static void main(String[] args) {
+    private static String tempDir = System.getProperty("java.io.tmpdir");
 
+    public static void main(String[] args) {
+        //System.out.println(System.getProperties());
         new ScanLibsPdfJoiner();
     }
 
@@ -30,36 +33,41 @@ public class ScanLibsPdfJoiner {
         System.setProperty("webdriver.chrome.driver", driver());
 
         packtWebDriver = new ChromeDriver();
-
         System.out.println("Merging pdf documents");
         List<String> urls = new LinkedList<>();
-
-        IntStream.range(1, 3).forEach(i ->
-        urls.add("https://scanlibs.com/page/"+i));
+        //https://scanlibs.com/page/2/?s=microservices
+        IntStream.range(1, 26).forEach(i ->
+        urls.add("https://scanlibs.com/page/"+i+"/?s=microservices"));
 
         for (String url : urls){
             takeScreenshot(url);
         }
 
-        convertImagesToPdf("scanlibs_ALL");
+        convertImagesToPdf("scanlibs_MICROSERVICES");
     }
 
     public static String convertImagesToPdf(String filename) {
         final Document document = new Document();
         try {
-            PdfWriter.getInstance(document, new FileOutputStream("/home/andrii/temp/packtimages/" + filename+ ".pdf"));
+            PdfWriter.getInstance(document, new FileOutputStream(tempDir + filename+ ".pdf"));
             document.open();
-            File[] files = new File("/home/andrii/temp/packtimages").listFiles();
+            File[] files = new File(tempDir).listFiles();
             Arrays.sort(files, Comparator.comparingLong(File::lastModified));
-
+            AtomicBoolean flag = new AtomicBoolean(false);
             IntStream.range(0, files.length).forEach(i -> {
                 try {
+                    if(!files[i].getName().contains("scanl") || !files[i].getName().contains("png")){
+                        return;
+                    }
                     Image image = Image.getInstance(files[i].getAbsolutePath());
+
                     //Setting zero, zero - cause some unpredictible location,
                     image.setAbsolutePosition(1, 1);
                     document.setPageSize(new Rectangle(image.getWidth(), image.getHeight()+2));
+
                     document.newPage();
                     document.add(image);
+
                     System.out.println("Adding " + i);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -106,10 +114,11 @@ public class ScanLibsPdfJoiner {
             try {
                 img = ImageIO.read(file);
                 slices.add(img);
-                FileUtils.copyFile(file, new File("/home/andrii/temp/packtimages/" + url
+                FileUtils.copyFile(file, new File(tempDir + url
                         .replaceAll("\\.","")
                         .replaceAll("/", "")
                         .replace(":", "")
+                        .replace("?", "")
                         + counter++ +".png"));
             } catch (IOException e) {
                 e.printStackTrace();
