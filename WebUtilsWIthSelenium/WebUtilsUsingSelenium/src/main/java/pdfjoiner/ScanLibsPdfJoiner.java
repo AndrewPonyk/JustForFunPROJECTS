@@ -5,7 +5,9 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfWriter;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -36,14 +38,14 @@ public class ScanLibsPdfJoiner {
         System.out.println("Merging pdf documents");
         List<String> urls = new LinkedList<>();
         //https://scanlibs.com/page/2/?s=microservices
-        IntStream.range(1, 26).forEach(i ->
-        urls.add("https://scanlibs.com/page/"+i+"/?s=microservices"));
+        IntStream.range(1,5).forEach(i ->
+        urls.add("https://scanlibs.com/page/"+i+"/?s=cassandra"));
 
         for (String url : urls){
             takeScreenshot(url);
         }
 
-        convertImagesToPdf("scanlibs_MICROSERVICES");
+        convertImagesToPdf("scanlibs_Cassandra");
     }
 
     public static String convertImagesToPdf(String filename) {
@@ -85,8 +87,25 @@ public class ScanLibsPdfJoiner {
             packtWebDriver.get(url);
             sleep(4500);
         }
-        //removeUnusedElements();
-       // expandScrollables();
+
+        List<WebElement> elements = packtWebDriver.findElements(By.className("post-inner-content"));
+
+        elements.forEach(e -> {
+            packtWebDriver.executeScript("arguments[0].setAttribute('style', 'padding:0')", e);
+        });
+        WebElement menu = packtWebDriver.findElement(By.className("well"));
+        packtWebDriver.executeScript("arguments[0].setAttribute('style', 'height:260px')", menu);
+
+        final List<WebElement> entryContents = packtWebDriver.findElements(By.className("entry-content"));
+        entryContents.forEach(e -> {
+            packtWebDriver.executeScript("arguments[0].setAttribute('style', 'font-size:1.4em')", e);
+        });
+
+        final List<WebElement> entryTitles = packtWebDriver.findElements(By.className("entry-title"));
+        entryTitles.forEach(e -> {
+            packtWebDriver.executeScript("arguments[0].setAttribute('style', 'font-size:2.7em')", e);
+        });
+
         packtWebDriver.executeScript("window.scrollTo(0, arguments[0]);", 0);
         sleep(500);
      //   removeSideBar();
