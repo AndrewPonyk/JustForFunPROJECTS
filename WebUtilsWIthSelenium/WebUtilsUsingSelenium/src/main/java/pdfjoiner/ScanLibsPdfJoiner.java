@@ -23,7 +23,7 @@ import java.util.stream.IntStream;
 public class ScanLibsPdfJoiner {
     protected RemoteWebDriver packtWebDriver;
 
-    private static String tempDir = System.getProperty("java.io.tmpdir");
+    private static String tempDir = System.getProperty("user.home") + "/temporary/";
 
     public static void main(String[] args) {
         //System.out.println(System.getProperties());
@@ -180,7 +180,7 @@ public class ScanLibsPdfJoiner {
         if(driver.exists()){
             return "C:\\tmp\\chromedriver.exe";
         } else {
-            return "/home/andrii/Programs/chromedriver";
+            return System.getProperty("user.home") +"/Programs/chromedriver";
         }
     }
 
