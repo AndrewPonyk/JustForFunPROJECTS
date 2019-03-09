@@ -34,14 +34,26 @@ public class FileServer extends Thread {
     private void saveFile(Socket clientSock) throws IOException {
         DataInputStream in = new DataInputStream(clientSock.getInputStream());
         FileOutputStream fileOut;
-        int fileCount = in.readInt();
         int bytesRecieved = 0;
+        int fileCount = in.readInt();
+        bytesRecieved+=4;
+
+        // test
+//        byte[] helloByte = new byte[100];
+//        int shouldBeHello = in.read(helloByte, 0, 5);
+//        System.out.println(new String(helloByte));
+//        long l = in.readLong();//should be 9999
+//        System.out.println(l);
+        //endtest
+
+
+
         for(int i=0; i<fileCount; i++) {
 
             byte data[] = new byte[BUFFER];
             String fileName = in.readUTF();
             bytesRecieved += fileName.getBytes().length;
-            fileOut = new FileOutputStream(new File("/home/pihura_olia/Downloads/" +fileName));
+            fileOut = new FileOutputStream(new File("/home/pihura_olia/" +fileName));
             long fileLength = in.readLong();
             bytesRecieved+= 8;
             int fileReceived = 0;
@@ -49,20 +61,20 @@ public class FileServer extends Thread {
 
 
                 //while(totalCount < BUFFER) {
-                    int count = in.read(data, BUFFER * j, BUFFER);
+                    int count = in.read(data, 0, BUFFER);
                     fileReceived += count;
                 //}
 
-                fileOut.write(data, BUFFER*j, BUFFER);
+                fileOut.write(data, 0, BUFFER);
 
 
                 bytesRecieved += count;
             }
             fileOut.flush();
             // read the remaining bytes
-            int count = in.read(data, bytesRecieved+(int) (fileLength/BUFFER*BUFFER), (int)(fileLength%BUFFER));
+            int count = in.read(data, 0, (int)(fileLength%BUFFER));
 
-            fileOut.write(data,fileReceived+ (int) (fileLength/BUFFER*BUFFER), (int)(fileLength%BUFFER));
+            fileOut.write(data,0, (int)(fileLength%BUFFER));
             bytesRecieved+=count;
             fileOut.flush();
             fileOut.close();
