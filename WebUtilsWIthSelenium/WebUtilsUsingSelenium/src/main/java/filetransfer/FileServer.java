@@ -1,9 +1,12 @@
 package filetransfer;
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+
+import static filetransfer.FileClient.BUFFER;
 
 public class FileServer extends Thread {
 
@@ -29,23 +32,39 @@ public class FileServer extends Thread {
     }
 
     private void saveFile(Socket clientSock) throws IOException {
-        DataInputStream dis = new DataInputStream(clientSock.getInputStream());
-        FileOutputStream fos = new FileOutputStream("/home/pihura_olia/test.txt");
-        byte[] buffer = new byte[4096];
+        DataInputStream in = new DataInputStream(clientSock.getInputStream());
+        FileOutputStream fileOut;
+        int fileCount = in.readInt();
 
-        int filesize = 184; // Send file size in separate msg
-        int read = 0;
-        int totalRead = 0;
-        int remaining = filesize;
-        while((read = dis.read(buffer, 0, Math.min(buffer.length, remaining))) > 0) {
-            totalRead += read;
-            remaining -= read;
-            System.out.println("read " + totalRead + " bytes.");
-            fos.write(buffer, 0, read);
+        for(int i=0; i<fileCount; i++) {
+            int bytesRecieved = 0;
+            byte data[] = new byte[BUFFER];
+            String fileName = in.readUTF();
+            fileOut = new FileOutputStream(new File("/home/pihura_olia/Downloads/" +fileName));
+            long fileLength = in.readLong();
+            for(int j=0; j<fileLength / BUFFER; j++) {
+                int totalCount = 0;
+
+                while(totalCount < BUFFER) {
+                    int count = in.read(data, totalCount, BUFFER - totalCount);
+                    totalCount += count;
+                }
+
+                fileOut.write(data, 0, totalCount);
+                fileOut.flush();
+
+                bytesRecieved += totalCount;
+            }
+            // read the remaining bytes
+            int count = in.read(data, 0, (int) (fileLength % BUFFER));
+            bytesRecieved+=count;
+            fileOut.write(data, 0, count);
+            fileOut.flush();
+            fileOut.close();
+
+            System.out.println("File " + fileName + " recieved successfully : size:" + bytesRecieved);
+
         }
-
-        fos.close();
-        dis.close();
     }
 
     public static void main(String[] args) {
