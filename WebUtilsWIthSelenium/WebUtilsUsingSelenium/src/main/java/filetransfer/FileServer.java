@@ -35,30 +35,35 @@ public class FileServer extends Thread {
         DataInputStream in = new DataInputStream(clientSock.getInputStream());
         FileOutputStream fileOut;
         int fileCount = in.readInt();
-
+        int bytesRecieved = 0;
         for(int i=0; i<fileCount; i++) {
-            int bytesRecieved = 0;
+
             byte data[] = new byte[BUFFER];
             String fileName = in.readUTF();
+            bytesRecieved += fileName.getBytes().length;
             fileOut = new FileOutputStream(new File("/home/pihura_olia/Downloads/" +fileName));
             long fileLength = in.readLong();
+            bytesRecieved+= 8;
+            int fileReceived = 0;
             for(int j=0; j<fileLength / BUFFER; j++) {
-                int totalCount = 0;
 
-                while(totalCount < BUFFER) {
-                    int count = in.read(data, totalCount, BUFFER - totalCount);
-                    totalCount += count;
-                }
 
-                fileOut.write(data, 0, totalCount);
-                fileOut.flush();
+                //while(totalCount < BUFFER) {
+                    int count = in.read(data, BUFFER * j, BUFFER);
+                    fileReceived += count;
+                //}
 
-                bytesRecieved += totalCount;
+                fileOut.write(data, BUFFER*j, BUFFER);
+
+
+                bytesRecieved += count;
             }
+            fileOut.flush();
             // read the remaining bytes
-            int count = in.read(data, 0, (int) (fileLength % BUFFER));
+            int count = in.read(data, bytesRecieved+(int) (fileLength/BUFFER*BUFFER), (int)(fileLength%BUFFER));
+
+            fileOut.write(data,fileReceived+ (int) (fileLength/BUFFER*BUFFER), (int)(fileLength%BUFFER));
             bytesRecieved+=count;
-            fileOut.write(data, 0, count);
             fileOut.flush();
             fileOut.close();
 

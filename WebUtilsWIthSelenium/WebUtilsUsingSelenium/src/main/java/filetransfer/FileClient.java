@@ -38,30 +38,6 @@ public class FileClient {
         dos.close();
     }
 
-    public void sendFileAndMetadata(File file) throws IOException {
-        DataOutputStream dos = new DataOutputStream(s.getOutputStream());
-
-        //send filename
-        byte[] fileNameBytes = file.getName().getBytes();
-        //dos.write(fileNameBytes);
-
-        //send filesize
-
-        byte[] fileSizeLength = Longs.toByteArray(file.length());
-        //dos.write(fileSizeLength);
-
-        //send file content
-        FileInputStream fis = new FileInputStream(file);
-        byte[] buffer = new byte[4096];
-
-        while (fis.read(buffer) > 0) {
-            dos.write(buffer);
-        }
-        dos.write(new byte[]{-1});
-        fis.close();
-        //dos.close();
-    }
-
     public void sendAllFilesFromDirectory(String dir) throws IOException {
 
         DataOutputStream out = new DataOutputStream(s.getOutputStream());
