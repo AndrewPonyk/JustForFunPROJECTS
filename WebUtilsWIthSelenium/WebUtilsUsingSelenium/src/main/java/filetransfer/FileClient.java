@@ -17,6 +17,7 @@ public class FileClient {
 
     public FileClient(String host, int port, String file) {
         try {
+            System.out.println("Hello".getBytes().length);
             s = new Socket(host, port);
             //sendFile(file);
             sendAllFilesFromDirectory("/home/andrii/Downloads/file-transfer");
@@ -43,10 +44,16 @@ public class FileClient {
         DataOutputStream out = new DataOutputStream(s.getOutputStream());
         File[] files = new File(dir).listFiles();
         byte data[] = new byte[BUFFER];
+
         FileInputStream fileInput;
         out.writeInt(files.length);
 
 
+        //test
+//        out.write("Hello".getBytes());
+//        out.writeLong(9999);
+//        out.writeLong(1);
+        //endtest
         for (int i =0;i<files.length;i++){
             System.out.println("Sending"+files[i].getAbsolutePath());
             fileInput = new FileInputStream(files[i]);
