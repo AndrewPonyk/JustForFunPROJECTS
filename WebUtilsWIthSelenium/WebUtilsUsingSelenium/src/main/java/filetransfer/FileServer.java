@@ -12,7 +12,11 @@ public class FileServer extends Thread {
 
     private ServerSocket ss;
 
-    public FileServer(int port) {
+    private final String folder;
+
+    public FileServer(int port, String folder) {
+
+        this.folder = folder;
         try {
             ss = new ServerSocket(port);
         } catch (IOException e) {
@@ -47,14 +51,15 @@ public class FileServer extends Thread {
         //endtest
 
 
-
+        System.out.println("Server: files count = " + fileCount);
         for(int i=0; i<fileCount; i++) {
 
             byte data[] = new byte[BUFFER];
             String fileName = in.readUTF();
             bytesRecieved += fileName.getBytes().length;
-            fileOut = new FileOutputStream(new File("/home/pihura_olia/" +fileName));
+            fileOut = new FileOutputStream(new File(this.folder +fileName));
             long fileLength = in.readLong();
+            System.out.println("Server: file = " + fileName + " size="+fileLength);
             bytesRecieved+= 8;
             int fileReceived = 0;
             for(int j=0; j<fileLength / BUFFER; j++) {
@@ -85,7 +90,7 @@ public class FileServer extends Thread {
     }
 
     public static void main(String[] args) {
-        FileServer fs = new FileServer(4444);
+        FileServer fs = new FileServer(4444, System.getProperty("user.home")+"/file-transfer/");
         fs.start();
     }
 

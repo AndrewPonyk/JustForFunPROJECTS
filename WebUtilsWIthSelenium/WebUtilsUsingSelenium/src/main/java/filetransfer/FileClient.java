@@ -15,12 +15,12 @@ public class FileClient {
 
     public static int BUFFER = 100000;
 
-    public FileClient(String host, int port, String file) {
+    public FileClient(String host, int port, String dir) {
         try {
             System.out.println("Hello".getBytes().length);
             s = new Socket(host, port);
-            //sendFile(file);
-            sendAllFilesFromDirectory("/home/andrii/Downloads/file-transfer");
+            //sendFile(dir);
+            sendAllFilesFromDirectory(dir);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -74,7 +74,8 @@ public class FileClient {
     }
 
     public static void main(String[] args) {
-        FileClient fc = new FileClient("34.76.112.159", 4444, "/home/andrii/file-transfer.txt");
+        FileClient fc = new FileClient("34.76.112.159", 4444,
+                System.getProperty("user.home")+"/file-transfer/");
 
     }
 
