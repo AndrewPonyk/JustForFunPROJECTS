@@ -19,7 +19,7 @@ public class TcpClientServerGui {
         //serverFolder to enter folder
         JTextField serverFolder = new JTextField();
         serverFolder.setBounds(110, 50, 230, 30);
-        serverFolder.setText(System.getProperty("user.home")+"/file-transfer/");
+        serverFolder.setText(System.getProperty("user.home") + "/file-transfer/");
 
         //start client
         JButton startClientButton = new JButton("Start client (send data)");
@@ -38,6 +38,8 @@ public class TcpClientServerGui {
         JLabel label1 = new JLabel();
         label1.setBounds(10, 240, 300, 100);
 
+        JTextArea statusArea = new JTextArea("status:");
+        statusArea.setBounds(10, 250, 500, 350);
 
         //add to frame
         f.add(label1);
@@ -47,15 +49,16 @@ public class TcpClientServerGui {
         f.add(clientLabel);
         f.add(startClientButton);
         f.add(serverIp);
-        f.setSize(400, 300);
+        f.add(statusArea);
+        f.setSize(600, 500);
         f.setLayout(null);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //action listener
         startServerButton.addActionListener(event -> {
-            if(!started){
-                label1.setText("Server started on 4444 port :" +serverFolder.getText());
+            if (!started) {
+                label1.setText("Server started on 4444 port :" + serverFolder.getText());
                 FileServer fs = new FileServer(4444, serverFolder.getText());
                 fs.start();
                 //started = true;
@@ -64,18 +67,18 @@ public class TcpClientServerGui {
 
         //action listener
         startClientButton.addActionListener(event -> {
-            if(!started){
+            if (!started) {
                 label1.setText("Client start sending data to 4444 port");
                 FileClient fc = new FileClient(serverIp.getText(), 4444,
-                        System.getProperty("user.home")+"/file-transfer/");
-               // started = true;
+                        System.getProperty("user.home") + "/file-transfer/");
+                // started = true;
             }
         });
     }
 
 
     public static void main(String[] args) {
-        System.out.println(System.getProperty("user.home")+"/file-transfer/");
+        System.out.println(System.getProperty("user.home") + "/file-transfer/");
         new TcpClientServerGui();
     }
 }
