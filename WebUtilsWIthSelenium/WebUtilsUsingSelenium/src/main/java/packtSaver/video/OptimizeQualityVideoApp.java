@@ -16,12 +16,11 @@ public class OptimizeQualityVideoApp {
         System.out.println("START: " + start);
         System.out.println("Use ffmpeg to reduce video size");
         final OptimizeQualityVideoApp optimizeQualityVideoApp = new OptimizeQualityVideoApp();
-        optimizeQualityVideoApp.optimizeVideos("F:\\tmp\\packt\\video\\10 Creative and Beautiful Web Projects with HTML and CSS [Video]");
+        optimizeQualityVideoApp.optimizeVideos("F:\\tmp\\packt\\video\\devops-project-video");
         optimizeQualityVideoApp.shutdownExecutorService();
         final long end = System.currentTimeMillis();
         System.out.println("Time elapsed: " + (end - start) / 1000 + " seconds");
     }
-
 
     public void optimizeVideos(String rootPath) throws IOException, InterruptedException {
         File root = new File(rootPath);
@@ -75,6 +74,5 @@ public class OptimizeQualityVideoApp {
         counter.incrementAndGet();
         System.out.println("DONE: " + counter.get() + " OF " + total);
         System.out.println("----");
-
     }
 }
