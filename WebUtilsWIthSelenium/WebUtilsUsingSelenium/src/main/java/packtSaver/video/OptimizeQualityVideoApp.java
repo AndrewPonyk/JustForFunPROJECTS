@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class OptimizeQualityVideoApp {
-    final ExecutorService executorService = Executors.newFixedThreadPool(3);
+    final ExecutorService executorService = Executors.newFixedThreadPool(2);
     final AtomicInteger counter = new AtomicInteger(0);
     AtomicInteger total = new AtomicInteger(0);
 
@@ -16,8 +16,8 @@ public class OptimizeQualityVideoApp {
         System.out.println("START: " + start);
         System.out.println("Use ffmpeg to reduce video size");
         final OptimizeQualityVideoApp optimizeQualityVideoApp = new OptimizeQualityVideoApp();
-        optimizeQualityVideoApp.optimizeVideos("F:\\tmp\\packt\\video\\Burp Suite Unfiltered - Go from a Beginner to Advanced [Video]");
-
+        optimizeQualityVideoApp.optimizeVideos("F:\\tmp\\packt\\video\\10 Creative and Beautiful Web Projects with HTML and CSS [Video]");
+        optimizeQualityVideoApp.shutdownExecutorService();
         final long end = System.currentTimeMillis();
         System.out.println("Time elapsed: " + (end - start) / 1000 + " seconds");
     }
@@ -30,7 +30,7 @@ public class OptimizeQualityVideoApp {
         for (File f : files) {
             if (f.isDirectory()) {
                 optimizeVideos(f.getAbsolutePath());
-            } else if (f.getAbsolutePath().endsWith("mp4")) {
+            } else if (f.getAbsolutePath().endsWith("mp4") && !f.getAbsolutePath().contains("-ffmpeg")) {
                 total.incrementAndGet();
                 executorService.execute(()-> {
                     try {
@@ -39,9 +39,13 @@ public class OptimizeQualityVideoApp {
                         e.printStackTrace();
                     }
                 });
-                optimizeSingleVideo(f.getAbsolutePath());
+
             }
         }
+
+    }
+
+    private void shutdownExecutorService() {
         executorService.shutdown();
         while (!executorService.isTerminated()) {
             String test="1";
@@ -50,6 +54,7 @@ public class OptimizeQualityVideoApp {
     }
 
     public void optimizeSingleVideo(String path) throws IOException, InterruptedException {
+        System.out.println(Thread.currentThread().getName() + " start optimize" + path);
         String command =
                 " D:\\WindowsPrograms\\ffmpeg\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe -i "
                         + "\"" + path + "\"" +
