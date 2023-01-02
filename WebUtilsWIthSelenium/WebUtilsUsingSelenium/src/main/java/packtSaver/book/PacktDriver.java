@@ -7,10 +7,10 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -25,8 +25,11 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static packtSaver.video.PacktVideoDriver.PACKT_VIDEO_DOWNLOAD_PATH;
+
 public class PacktDriver {
     protected RemoteWebDriver packtWebDriver;
+    public WebDriverWait second7wait;
     private int pagesCounter;
     private String bookName;
 
@@ -36,15 +39,16 @@ public class PacktDriver {
 
         //
         ChromeOptions options = new ChromeOptions();
-
-        options.addArguments("--load-extension=C:\\Users\\Andrii_Ponyk\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\aiimdkdngfcipjohbjenkahhlhccpdbc\\31.2.5_0");
-
+        //30.12.22 02:55
+        // options.addArguments("--load-extension=C:\\Users\\Andrii_Ponyk\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\aiimdkdngfcipjohbjenkahhlhccpdbc\\31.2.5_0");
+        options.addArguments("--user-data-dir=D:\\selenum\\ChromeProfile");
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.prompt_for_download", false);
-        chromePrefs.put("download.default_directory", "C:\\tmp\\packt\\video\\");
+        chromePrefs.put("download.default_directory", PACKT_VIDEO_DOWNLOAD_PATH);
         options.setExperimentalOption("prefs", chromePrefs);
 
         packtWebDriver = new ChromeDriver(options);
+        second7wait = new WebDriverWait(packtWebDriver, 7);
     }
 
     public static String driver(){
@@ -56,6 +60,7 @@ public class PacktDriver {
         }
     }
 
+    @Deprecated(since = "Because now can run with existing profile")
     public void login(Boolean maximize) {
         ArrayList<String> tabs = new ArrayList<>(packtWebDriver.getWindowHandles());
         packtWebDriver.switchTo().window(tabs.get(0));

@@ -7,6 +7,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.io.File;
 import java.util.HashMap;
 
+import static packtSaver.video.PacktVideoDriver.PACKT_VIDEO_DOWNLOAD_PATH;
+
 public class PorohsBrowser {
     protected RemoteWebDriver packtWebDriver;
     public PorohsBrowser() {
@@ -20,7 +22,7 @@ public class PorohsBrowser {
 
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.prompt_for_download", false);
-        chromePrefs.put("download.default_directory", "C:\\tmp\\packt\\video\\");
+        chromePrefs.put("download.default_directory", PACKT_VIDEO_DOWNLOAD_PATH);
         options.setExperimentalOption("prefs", chromePrefs);
 
         packtWebDriver = new ChromeDriver(options);

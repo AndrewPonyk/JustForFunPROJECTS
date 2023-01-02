@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.ap.NoterApp">
+  <grid id="27dc6" binding="panelMain" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+    <constraints>
+      <xy x="20" y="20" width="602" height="440"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="7870c" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+        <constraints/>
+        <properties>
+          <columns value="50"/>
+        </properties>
+      </component>
+      <component id="2c5c5" class="javax.swing.JButton" binding="searchNoteButton" default-binding="true">
+        <constraints/>
+        <properties>
+          <text value="Search Note"/>
+        </properties>
+      </component>
+      <component id="95be1" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+        <constraints/>
+        <properties>
+          <columns value="50"/>
+          <rows value="10"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

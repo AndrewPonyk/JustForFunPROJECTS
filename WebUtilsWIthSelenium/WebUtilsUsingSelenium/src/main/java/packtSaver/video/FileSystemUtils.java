@@ -13,10 +13,11 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Deprecated(since = "Do not need this - V2 save already indexes during download using InputStream")
 public class FileSystemUtils {
 
     public static void main(String[] args) {
-        // folderContainsUncompletedDownloads("C:\\tmp\\packt\\video\\");
+        // folderContainsUncompletedDownloads(PACKT_VIDEO_DOWNLOAD_PATH);
         sortFilesByDateAndAppendIndexes("C:\\tmp\\packt\\video\\Hands-On Continuous Integration and Automation with Jenkins [Video]");
 
     }
@@ -30,7 +31,7 @@ public class FileSystemUtils {
             Collection<File> files =
                     FileUtils.listFiles(new File(dir.getPath()),
                             TrueFileFilter.INSTANCE, TrueFileFilter.INSTANCE);
-            Collections.sort((List<File>) files, new Comparator<File>() {
+            Collections.sort((List<File>) files, new Comparator<>() {
                 public int compare(File f1, File f2) {
                     return Long.compare(f1.lastModified(), f2.lastModified());
                 }

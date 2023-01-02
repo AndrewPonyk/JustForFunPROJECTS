@@ -123,7 +123,8 @@ public class RutrackerPages {
 
 		//WebDriver driver = new HtmlUnitDriver();
 		WebDriver driver = new FirefoxDriver();
-		WebDriver driver2ForDownload = new FirefoxDriver(profile);
+		//WebDriver driver2ForDownload = new FirefoxDriver(profile);
+		WebDriver driver2ForDownload = new FirefoxDriver();////after change to<artifactId>selenium-java</artifactId> to 3.141.59, FROM 3.4.0
 		int page = 1, counter = 1, offset = 0;
 		List<String> items = new ArrayList<String>();
 		List<TorrentItem> result = new ArrayList<TorrentItem>();

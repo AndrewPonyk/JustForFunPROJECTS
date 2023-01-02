@@ -2,32 +2,51 @@ package packtSaver.video;
 
 import org.apache.commons.lang3.tuple.Pair;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import packtSaver.book.PacktDriver;
 
+import java.io.BufferedInputStream;
 import java.io.File;
-import java.util.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class PacktVideoDriver extends PacktDriver {
 
+
+
+    public static String PACKT_VIDEO_DOWNLOAD_PATH = "F:\\tmp\\packt\\video\\";
     private List<RemoteWebDriver> oldDrivers = new ArrayList<>();
 
     public void saveVideo(String url) {
         if (url != null) {
             packtWebDriver.get(url);
-            sleep(4000);
+            sleep(2000);
+        }
+
+        try {
+            final WebElement barIcon = packtWebDriver.findElement(By.cssSelector(".bar-icon"));
+            if (barIcon != null) {
+                barIcon.click();
+            }
+        } catch (Exception e) {
         }
 
         String courseName = "undefined";
         try {
-            courseName = packtWebDriver.findElement(By.cssSelector("h3.mt0")).getText();
-        }catch (Exception e){
-
+            courseName = packtWebDriver.findElement(By.cssSelector(".book-title")).getText();
+        } catch (Exception e) {
+            System.err.println("cant retrieve course name");
+            throw e;
         }
+
         Map<String, List<Pair<String, String>>> sectionUrls = getSectionUrls();
         System.out.println("----");
         System.out.println(sectionUrls);
@@ -35,133 +54,106 @@ public class PacktVideoDriver extends PacktDriver {
         saveFiles(courseName, sectionUrls);
     }
 
-    private void saveFiles(String courseName, Map<String, List<Pair<String, String>>> sectionUrls) {
-        String folder = "C:\\tmp\\packt\\video\\" + courseName+"\\";
-        new File(folder).mkdir();
-        packtWebDriver.quit();
+    protected void saveFiles(String courseName, Map<String, List<Pair<String, String>>> sectionUrls) {
+        String folder = PACKT_VIDEO_DOWNLOAD_PATH + preprocessFilenameRemoveCharacters(courseName) + "\\";
+
+        final File rootFolder = new File(folder);
+        if (rootFolder.exists()) {
+            throw new RuntimeException("Cannot create root folder ALREADY CREATED" + folder);
+        }
+
+        final boolean root = rootFolder.mkdir();
+        if (!root) {
+            throw new RuntimeException("Cannot create root folder " + folder);
+        }
 
         sectionUrls.keySet().forEach(item -> {
-            String sectionFolder = folder + item.replaceAll("\n", "").replaceAll("/", "-");
+            String sectionFolder = folder + preprocessFilenameRemoveCharacters(item);
             System.out.println(sectionFolder);
             new File(sectionFolder).mkdir();
 
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--load-extension=C:\\Users\\Andrii_Ponyk\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\aiimdkdngfcipjohbjenkahhlhccpdbc\\31.2.5_0");
-            HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-            chromePrefs.put("download.prompt_for_download", false);
-            chromePrefs.put("download.default_directory", sectionFolder);
-            options.setExperimentalOption("prefs", chromePrefs);
-
-            oldDrivers.add(packtWebDriver);
-            packtWebDriver = new ChromeDriver(options);
-
-            try{
-                login(true);
-            }catch (Exception e){
-                System.out.println("try to login 2nd time");
-                packtWebDriver.quit();
-                packtWebDriver = new ChromeDriver(options);
-                login(true);
-            }
-
-            List<String> tabs = new ArrayList<>(packtWebDriver.getWindowHandles());
-            packtWebDriver.switchTo().window(tabs.get(1));
-            packtWebDriver.get("chrome-extension://aiimdkdngfcipjohbjenkahhlhccpdbc/popup.html");
-
             sectionUrls.get(item).forEach((Pair<String, String> link) -> {
-                packtWebDriver.switchTo().window(tabs.get(0));
                 packtWebDriver.get(link.getRight());
-                try {
-                    Thread.sleep(6000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                try {
-                    WebElement playButton = packtWebDriver.findElements(By.cssSelector(".jw-video.jw-reset")).get(0);
-                    playButton.click();
-                }catch (Exception e){
-                    //can not stop video playback
-                    System.out.println("FAIL TO STOP VIDEO");
-                }
-                try {
-                    Thread.sleep(4000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                packtWebDriver.switchTo().window(tabs.get(1));
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                try {
-                    packtWebDriver.findElements(By.className("download_button")).get(0).click();
-                    try {
-                        Thread.sleep(15000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                final WebElement video = packtWebDriver.findElement(By.cssSelector("video.vjs-tech"));
+
+                String filename = sectionFolder + "\\" +
+                        // counter.getAndIncrement() + //  moved this logic to retrieve
+                        preprocessFilenameRemoveCharacters(link.getLeft()) + ".mp4";
+
+                String mp4Url = video.getAttribute("src");
+                System.out.println(filename);
+                System.out.println(mp4Url);
+
+                try (BufferedInputStream in = new BufferedInputStream(new URL(mp4Url).openStream());
+                     FileOutputStream fileOutputStream = new FileOutputStream(filename)) {
+                    byte dataBuffer[] = new byte[1024];
+                    int bytesRead;
+                    while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
+                        fileOutputStream.write(dataBuffer, 0, bytesRead);
                     }
-                }catch (Exception e){
-                    System.out.println("CAN NOT SAVE VIDEO " + link.getLeft());
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
 
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             });
-
-        });
-        //check if downloads are completed, and if so then EXIT
-        try {
-            Thread.sleep(30000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        oldDrivers.forEach(driver->{
-            try {
-                driver.quit();
-            } catch (Exception e){
-
-            }
         });
     }
 
-    private Map<String, List<Pair<String, String>>> getSectionUrls() {
+    protected Map<String, List<Pair<String, String>>> getSectionUrls() {
         Map<String, List<Pair<String, String>>> result = new LinkedHashMap<>();
-        List<WebElement> dropdown = packtWebDriver.findElements(By.className("cover-accordion"));
-        WebElement tocParentElement = dropdown.get(0).findElements(By.cssSelector("#item-one")).get(0);
+
+        WebElement tocParentElement = packtWebDriver.findElements(By.cssSelector(".toc-container")).get(0);
 
         //open all sections
-        List<WebElement> sectionsElements = tocParentElement.findElements(By.cssSelector("div.cover-toc__title"));
+        List<WebElement> sectionsElements = tocParentElement.findElements(By.cssSelector(".accordion"));
         sectionsElements.stream().forEach(element -> {
             try {
                 //System.out.println("||||"+element.getAttribute("outerHTML")+"||||");
-                if (element.getAttribute("class").contains("colla")) {
+                if (!element.getAttribute("class").contains("colla") && !element.getAttribute("innerHTML").contains("collapsed")) {
                     element.click();
-                    Thread.sleep(500);
+                    Thread.sleep(250);
                 }
-            } catch (NullPointerException e) {
-                e.printStackTrace();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
 
-
-        sectionsElements = tocParentElement.findElements(By.cssSelector("div.cover-toc__title"));
-
         sectionsElements.forEach(section -> {
             final List<Pair<String, String>> sectionVideos = new ArrayList<>();
-            System.err.println(section.getText());
-            WebElement parent = (WebElement) ((JavascriptExecutor) packtWebDriver)
-                    .executeScript(
-                            "return arguments[0].parentNode;", section);
-            parent.findElements(By.cssSelector("li a")).forEach(e -> {
-                Pair<String, String> linkPair = Pair.of(e.getText(), e.getAttribute("href"));
+            String sectionText = section.findElements(By.cssSelector(".card-header")).get(0).getText();
+            sectionText = sectionText.replaceAll("\n", "");
+            final AtomicInteger counter = new AtomicInteger(1);
+            section.findElements(By.cssSelector("li a")).forEach(e -> {
+                Pair<String, String> linkPair = Pair.of(counter.getAndIncrement() + e.getText(), e.getAttribute("href"));
                 sectionVideos.add(linkPair);
             });
-
-            result.put(section.getText(), sectionVideos);
+            result.put(sectionText, sectionVideos);
         });
-
         return result;
+    }
+
+    protected String preprocessFilenameRemoveCharacters(String name) {
+        return name.replaceAll(":", "")
+                .replaceAll("\n", "")
+                .replaceAll("/", "-")
+                .replaceAll("\\?", "")
+                .replaceAll("\\*", "")
+                .replaceAll(">", "")
+                .replaceAll("<", "")
+                .replaceAll("\"", "");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("test?".replaceAll("\\?",""));
     }
 }
