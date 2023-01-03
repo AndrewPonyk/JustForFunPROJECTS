@@ -23,6 +23,9 @@ public class PacktVideoDriverMultiThread extends PacktVideoDriver {
     protected void saveFiles(String courseName, Map<String, List<Pair<String, String>>> sectionUrls) {
         String folder = PACKT_VIDEO_DOWNLOAD_PATH + preprocessFilenameRemoveCharacters(courseName) + "\\";
 
+        totalVideos.set(sectionUrls.values().stream().map(List::size).reduce(0, Integer::sum));
+        System.out.println("TOTAL: videos" + totalVideos.get());
+
         final Map<String, List<Pair<String, String>>> sectionVideosSrc = getSectionVideosSrc(sectionUrls);
         final File rootFolder = new File(folder);
         if (rootFolder.exists()) {
@@ -37,11 +40,12 @@ public class PacktVideoDriverMultiThread extends PacktVideoDriver {
         }
 
 
+
         sectionVideosSrc.keySet().forEach(item -> {
             String sectionFolder = folder + preprocessFilenameRemoveCharacters(item);
             System.out.println(sectionFolder);
             final File file = new File(sectionFolder);
-            if(!file.exists()){
+            if (!file.exists()) {
                 file.mkdir();
             } else {
                 System.out.println(sectionFolder + ": section folder already present");
@@ -58,6 +62,7 @@ public class PacktVideoDriverMultiThread extends PacktVideoDriver {
         System.out.println("Finished all threads");
     }
 
+    //this method is executed in separate thread  (thread pool with 5 threads in total)
     private void downloadSection(Map<String, List<Pair<String, String>>> sectionVideosSrc, String item, String sectionFolder) {
         sectionVideosSrc.get(item).forEach((Pair<String, String> link) -> {
 
@@ -66,9 +71,9 @@ public class PacktVideoDriverMultiThread extends PacktVideoDriver {
             String mp4Url = link.getRight();
 
             final File video = new File(filename);
-            System.out.println("Download "  + Thread.currentThread().getName() + " " + link.getRight());
-            if(video.exists()){
-                System.out.println(" file already exists: "+filename + "");
+            System.out.println("Download " + Thread.currentThread().getName() + " " + link.getRight());
+            if (video.exists()) {
+                System.out.println(" file already exists: " + filename + "");
                 return;
             } else {
 
@@ -86,6 +91,7 @@ public class PacktVideoDriverMultiThread extends PacktVideoDriver {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            System.out.println(coundDone.incrementAndGet() + " videos done of " + totalVideos);
         });
     }
 
@@ -96,7 +102,7 @@ public class PacktVideoDriverMultiThread extends PacktVideoDriver {
             final List<Pair<String, String>> sectionWithVideoSrc = new LinkedList<>();
             section.forEach(item -> {
                 packtWebDriver.get(item.getRight());
-                WebElement video= second7wait.until(driver -> driver.findElement(By.cssSelector("video.vjs-tech")));
+                WebElement video = second7wait.until(driver -> driver.findElement(By.cssSelector("video.vjs-tech")));
 
                 sectionWithVideoSrc.add(Pair.of(item.getLeft(), video.getAttribute("src")));
             });
@@ -106,13 +112,5 @@ public class PacktVideoDriverMultiThread extends PacktVideoDriver {
         return result;
     }
 
-    public static void main(String[] args) {
-        System.out.println("Test shutdown/isTerminated bug");
-        PacktVideoDriverMultiThread multiThread = new PacktVideoDriverMultiThread();
 
-        Map<String, List<Pair<String,String>>> sections = new LinkedHashMap<>();
-        List<Pair<String,String>> firstSection  = new LinkedList<>();
-        List<Pair<String,String>> secondSection  = new LinkedList<>();
-        multiThread.saveFiles("TEST-TEST", sections);
-    }
 }

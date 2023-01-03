@@ -19,10 +19,14 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class PacktVideoDriver extends PacktDriver {
-
-
+    protected AtomicInteger totalVideos = new AtomicInteger(0);
+    protected AtomicInteger coundDone = new AtomicInteger(0);
 
     public static String PACKT_VIDEO_DOWNLOAD_PATH = "F:\\tmp\\packt\\video\\";
+
+    static {
+
+    }
     private List<RemoteWebDriver> oldDrivers = new ArrayList<>();
 
     public void saveVideo(String url) {
@@ -61,7 +65,6 @@ public class PacktVideoDriver extends PacktDriver {
         if (rootFolder.exists()) {
             throw new RuntimeException("Cannot create root folder ALREADY CREATED" + folder);
         }
-
         final boolean root = rootFolder.mkdir();
         if (!root) {
             throw new RuntimeException("Cannot create root folder " + folder);

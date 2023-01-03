@@ -2,6 +2,8 @@ package packtSaver.video;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -16,7 +18,8 @@ public class OptimizeQualityVideoApp {
         System.out.println("START: " + start);
         System.out.println("Use ffmpeg to reduce video size");
         final OptimizeQualityVideoApp optimizeQualityVideoApp = new OptimizeQualityVideoApp();
-        optimizeQualityVideoApp.optimizeVideos("F:\\tmp\\packt\\video\\devops-project-video");
+        //
+        optimizeQualityVideoApp.optimizeVideos("F:\\tmp\\packt\\video\\Hacking WEP-WPA-WPA2 Wi-Fi Networks Using Kali Linux [Video]");
         optimizeQualityVideoApp.shutdownExecutorService();
         final long end = System.currentTimeMillis();
         System.out.println("Time elapsed: " + (end - start) / 1000 + " seconds");
@@ -54,11 +57,12 @@ public class OptimizeQualityVideoApp {
 
     public void optimizeSingleVideo(String path) throws IOException, InterruptedException {
         System.out.println(Thread.currentThread().getName() + " start optimize" + path);
+        final String newFileName = path.replaceAll("\\.mp4", "\\-ffmpeg.mp4");
         String command =
                 " D:\\WindowsPrograms\\ffmpeg\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe -i "
                         + "\"" + path + "\"" +
                         " " +
-                        "\"" + path.replaceAll("\\.mp4", "\\-ffmpeg.mp4") + "\"";
+                        "\"" + newFileName + "\"";
 
         ProcessBuilder processBuilder = new ProcessBuilder();
         // Windows
@@ -73,6 +77,17 @@ public class OptimizeQualityVideoApp {
         System.out.println("\nExited with error code : " + exitCode);
         counter.incrementAndGet();
         System.out.println("DONE: " + counter.get() + " OF " + total);
+
+
+        //remove old file also!!!
+        final File oldFile = new File(path);
+        final File newFile = new File(newFileName);
+        if(newFile.exists() && Files.size(Paths.get(newFileName)) > 1000){
+            System.out.println("Removing old file: " + path);
+            oldFile.delete();
+        } else {
+            throw new RuntimeException("New file do not exists: " + newFileName);
+        }
         System.out.println("----");
     }
 }
