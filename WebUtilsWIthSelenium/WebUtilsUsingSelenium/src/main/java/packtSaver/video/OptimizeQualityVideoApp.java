@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -19,14 +20,27 @@ public class OptimizeQualityVideoApp {
         System.out.println("Use ffmpeg to reduce video size");
         final OptimizeQualityVideoApp optimizeQualityVideoApp = new OptimizeQualityVideoApp();
         //
-        optimizeQualityVideoApp.optimizeVideos("F:\\tmp\\packt\\video\\Hacking WEP-WPA-WPA2 Wi-Fi Networks Using Kali Linux [Video]");
-        optimizeQualityVideoApp.shutdownExecutorService();
+        final String path = "F:\\BOOT-learn-spring-boot-10x-productive-java-development";
+        optimizeQualityVideoApp.optimizeVideos(path);
+        optimizeQualityVideoApp.shutdownExecutorServiceAndWait();
+        optimizeQualityVideoApp.checkAllFilesOptimized(path);
+        if (optimizeQualityVideoApp.checkAllFilesOptimized(path)) {
+            new File(path).renameTo(new File(path + "--ffmpeg"));
+        }
+
         final long end = System.currentTimeMillis();
         System.out.println("Time elapsed: " + (end - start) / 1000 + " seconds");
     }
 
+    private boolean checkAllFilesOptimized(String path) {
+        return true;
+    }
+
     public void optimizeVideos(String rootPath) throws IOException, InterruptedException {
         File root = new File(rootPath);
+        if (rootPath.contains("-ffmpeg")) {
+            throw new RuntimeException(rootPath + " Already optimized");
+        }
         final File[] files = root.listFiles();
 
         for (File f : files) {
@@ -34,7 +48,7 @@ public class OptimizeQualityVideoApp {
                 optimizeVideos(f.getAbsolutePath());
             } else if (f.getAbsolutePath().endsWith("mp4") && !f.getAbsolutePath().contains("-ffmpeg")) {
                 total.incrementAndGet();
-                executorService.execute(()-> {
+                executorService.execute(() -> {
                     try {
                         optimizeSingleVideo(f.getAbsolutePath());
                     } catch (IOException | InterruptedException e) {
@@ -47,16 +61,16 @@ public class OptimizeQualityVideoApp {
 
     }
 
-    private void shutdownExecutorService() {
+    private void shutdownExecutorServiceAndWait() {
         executorService.shutdown();
         while (!executorService.isTerminated()) {
-            String test="1";
+            String test = "1";
         }
         System.out.println("Finished all threads");
     }
 
     public void optimizeSingleVideo(String path) throws IOException, InterruptedException {
-        System.out.println(Thread.currentThread().getName() + " start optimize" + path);
+        System.out.println(Thread.currentThread().getName() + " " + LocalDateTime.now() + " start optimize" + path);
         final String newFileName = path.replaceAll("\\.mp4", "\\-ffmpeg.mp4");
         String command =
                 " D:\\WindowsPrograms\\ffmpeg\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe -i "
@@ -70,19 +84,17 @@ public class OptimizeQualityVideoApp {
         processBuilder.redirectErrorStream(true);
         processBuilder.redirectOutput(new File("C:\\tmp\\22222.txt")); //HELPS  A LOT!!!
         System.err.println(String.join(" ", processBuilder.command().toArray(new String[0])));
-
         Process process = processBuilder.start();
 
         int exitCode = process.waitFor();
         System.out.println("\nExited with error code : " + exitCode);
         counter.incrementAndGet();
-        System.out.println("DONE: " + counter.get() + " OF " + total);
-
+        System.out.println(Thread.currentThread().getName() + LocalDateTime.now() + "  " + "DONE: " + counter.get() + " OF " + total);
 
         //remove old file also!!!
         final File oldFile = new File(path);
         final File newFile = new File(newFileName);
-        if(newFile.exists() && Files.size(Paths.get(newFileName)) > 1000){
+        if (newFile.exists() && Files.size(Paths.get(newFileName)) > 1000) {
             System.out.println("Removing old file: " + path);
             oldFile.delete();
         } else {
