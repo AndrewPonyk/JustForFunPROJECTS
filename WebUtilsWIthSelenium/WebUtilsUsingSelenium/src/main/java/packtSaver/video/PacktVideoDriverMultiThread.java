@@ -40,7 +40,6 @@ public class PacktVideoDriverMultiThread extends PacktVideoDriver {
         }
 
 
-
         sectionVideosSrc.keySet().forEach(item -> {
             String sectionFolder = folder + preprocessFilenameRemoveCharacters(item);
             System.out.println(sectionFolder);
@@ -73,7 +72,10 @@ public class PacktVideoDriverMultiThread extends PacktVideoDriver {
             final File video = new File(filename);
             System.out.println("Download " + Thread.currentThread().getName() + " " + link.getRight());
             if (video.exists()) {
+                coundDone.incrementAndGet();
                 System.out.println(" file already exists: " + filename + "");
+                System.out.println(coundDone.incrementAndGet() + " videos done of " + totalVideos);
+
                 return;
             } else {
 
