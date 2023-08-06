@@ -10,20 +10,19 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class OptimizeQualityVideoApp {
-    final ExecutorService executorService = Executors.newFixedThreadPool(2);
+    public static final String FFMPEG_EXE_I = " C:\\Programs\\ffmpeg\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe -i "; // path to ffmpeg
+    final ExecutorService executorService = Executors.newFixedThreadPool(1); // put it TO ONE - to avoid pc overload
     final AtomicInteger counter = new AtomicInteger(0);
     AtomicInteger total = new AtomicInteger(0);
 
     public static void main(String[] args) throws IOException, InterruptedException {
         final long start = System.currentTimeMillis();
-        System.out.println("START: " + start);
-        System.out.println("Use ffmpeg to reduce video size");
+        System.out.println("START: " + start + "\n Use ffmpeg to reduce video size");
         final OptimizeQualityVideoApp optimizeQualityVideoApp = new OptimizeQualityVideoApp();
         //
-        final String path = "F:\\BOOT-learn-spring-boot-10x-productive-java-development";
+        final String path = "C:\\tmp\\packt\\video\\Unity Android — Build Eight Mobile Games with Unity and C# [Video]";
         optimizeQualityVideoApp.optimizeVideos(path);
         optimizeQualityVideoApp.shutdownExecutorServiceAndWait();
-        optimizeQualityVideoApp.checkAllFilesOptimized(path);
         if (optimizeQualityVideoApp.checkAllFilesOptimized(path)) {
             new File(path).renameTo(new File(path + "--ffmpeg"));
         }
@@ -32,6 +31,9 @@ public class OptimizeQualityVideoApp {
         System.out.println("Time elapsed: " + (end - start) / 1000 + " seconds");
     }
 
+
+
+
     private boolean checkAllFilesOptimized(String path) {
         return true;
     }
@@ -39,7 +41,7 @@ public class OptimizeQualityVideoApp {
     public void optimizeVideos(String rootPath) throws IOException, InterruptedException {
         File root = new File(rootPath);
         if (rootPath.contains("-ffmpeg")) {
-            throw new RuntimeException(rootPath + " Already optimized");
+            throw new RuntimeException(rootPath + " ALREADY OPTIMIZED !!!!!!!!! ");
         }
         final File[] files = root.listFiles();
 
@@ -72,8 +74,9 @@ public class OptimizeQualityVideoApp {
     public void optimizeSingleVideo(String path) throws IOException, InterruptedException {
         System.out.println(Thread.currentThread().getName() + " " + LocalDateTime.now() + " start optimize" + path);
         final String newFileName = path.replaceAll("\\.mp4", "\\-ffmpeg.mp4");
+
         String command =
-                " D:\\WindowsPrograms\\ffmpeg\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe -i "
+                FFMPEG_EXE_I
                         + "\"" + path + "\"" +
                         " " +
                         "\"" + newFileName + "\"";

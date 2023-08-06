@@ -28,6 +28,7 @@ import java.util.stream.IntStream;
 import static packtSaver.video.PacktVideoDriver.PACKT_VIDEO_DOWNLOAD_PATH;
 
 public class PacktDriver {
+    public static final String CHROME_PROFILE_DIR = "C:\\selenum\\ChromeProfile";
     protected RemoteWebDriver packtWebDriver;
     public WebDriverWait second7wait;
     private int pagesCounter;
@@ -41,8 +42,8 @@ public class PacktDriver {
         ChromeOptions options = new ChromeOptions();
         //30.12.22 02:55
         // options.addArguments("--load-extension=C:\\Users\\Andrii_Ponyk\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\aiimdkdngfcipjohbjenkahhlhccpdbc\\31.2.5_0");
-        options.addArguments("--user-data-dir=D:\\selenum\\ChromeProfile");
-        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+        options.addArguments("--user-data-dir=" + CHROME_PROFILE_DIR);
+        HashMap<String, Object> chromePrefs = new HashMap<>();
         chromePrefs.put("download.prompt_for_download", false);
         chromePrefs.put("download.default_directory", PACKT_VIDEO_DOWNLOAD_PATH);
         options.setExperimentalOption("prefs", chromePrefs);

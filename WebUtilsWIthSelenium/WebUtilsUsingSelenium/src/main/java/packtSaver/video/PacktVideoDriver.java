@@ -22,7 +22,7 @@ public class PacktVideoDriver extends PacktDriver {
     protected AtomicInteger totalVideos = new AtomicInteger(0);
     protected AtomicInteger coundDone = new AtomicInteger(0);
 
-    public static String PACKT_VIDEO_DOWNLOAD_PATH = "F:\\tmp\\packt\\video\\";
+    public static String PACKT_VIDEO_DOWNLOAD_PATH = "C:\\tmp\\packt\\video\\";
 
     static {
 
@@ -55,7 +55,8 @@ public class PacktVideoDriver extends PacktDriver {
         System.out.println("----");
         System.out.println(sectionUrls);
         System.out.println("-----");
-        saveFiles(courseName, sectionUrls);
+        saveFiles(courseName + "-SEL", sectionUrls);
+        packtWebDriver.quit();
     }
 
     protected void saveFiles(String courseName, Map<String, List<Pair<String, String>>> sectionUrls) {
@@ -63,11 +64,14 @@ public class PacktVideoDriver extends PacktDriver {
 
         final File rootFolder = new File(folder);
         if (rootFolder.exists()) {
-            throw new RuntimeException("Cannot create root folder ALREADY CREATED" + folder);
-        }
-        final boolean root = rootFolder.mkdir();
-        if (!root) {
-            throw new RuntimeException("Cannot create root folder " + folder);
+            System.out.println("ROOT already existss!!");
+            //throw new RuntimeException("Cannot create root folder ALREADY CREATED" + folder);
+
+        } else {
+            final boolean root = rootFolder.mkdir();
+            if (!root) {
+                throw new RuntimeException("Cannot create root folder " + folder);
+            }
         }
 
         sectionUrls.keySet().forEach(item -> {
@@ -91,6 +95,10 @@ public class PacktVideoDriver extends PacktDriver {
                 String mp4Url = video.getAttribute("src");
                 System.out.println(filename);
                 System.out.println(mp4Url);
+
+                if(new File(filename).exists()){
+                    return;
+                }
 
                 try (BufferedInputStream in = new BufferedInputStream(new URL(mp4Url).openStream());
                      FileOutputStream fileOutputStream = new FileOutputStream(filename)) {
