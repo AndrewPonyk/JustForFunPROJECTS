@@ -1,7 +1,6 @@
 package packtSaver.video;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
@@ -10,7 +9,10 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class OptimizeQualityVideoApp {
-    public static final String FFMPEG_EXE_I = " C:\\Programs\\ffmpeg\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe -i "; // path to ffmpeg
+    public static final String FFMPEG_EXE_I = " C:\\Programs\\ffmpeg\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe -i  "; // path to ffmpeg
+
+    public static final String THREADS_FFMPEG = "-threads 8"; // number of threads for ffmpeg (it supports multithreading if there are multiple cpus)
+
     final ExecutorService executorService = Executors.newFixedThreadPool(1); // put it TO ONE - to avoid pc overload
     final AtomicInteger counter = new AtomicInteger(0);
     AtomicInteger total = new AtomicInteger(0);
@@ -20,19 +22,17 @@ public class OptimizeQualityVideoApp {
         System.out.println("START: " + start + "\n Use ffmpeg to reduce video size");
         final OptimizeQualityVideoApp optimizeQualityVideoApp = new OptimizeQualityVideoApp();
         //
-        final String path = "C:\\tmp\\packt\\video\\Unity Android — Build Eight Mobile Games with Unity and C# [Video]";
+        final String path = "F:\\tmp\\packt\\battle-city-python-pygame-oop";
         optimizeQualityVideoApp.optimizeVideos(path);
         optimizeQualityVideoApp.shutdownExecutorServiceAndWait();
         if (optimizeQualityVideoApp.checkAllFilesOptimized(path)) {
+            System.out.println("Renaming root");
             new File(path).renameTo(new File(path + "--ffmpeg"));
         }
 
         final long end = System.currentTimeMillis();
         System.out.println("Time elapsed: " + (end - start) / 1000 + " seconds");
     }
-
-
-
 
     private boolean checkAllFilesOptimized(String path) {
         return true;
@@ -41,14 +41,15 @@ public class OptimizeQualityVideoApp {
     public void optimizeVideos(String rootPath) throws IOException, InterruptedException {
         File root = new File(rootPath);
         if (rootPath.contains("-ffmpeg")) {
-            throw new RuntimeException(rootPath + " ALREADY OPTIMIZED !!!!!!!!! ");
+            System.err.println("Already OPTIMIZED!!! But still lets iterate and check all videos");
         }
+
         final File[] files = root.listFiles();
 
         for (File f : files) {
             if (f.isDirectory()) {
                 optimizeVideos(f.getAbsolutePath());
-            } else if (f.getAbsolutePath().endsWith("mp4") && !f.getAbsolutePath().contains("-ffmpeg")) {
+            } else if (f.getAbsolutePath().toLowerCase().endsWith("mp4") && !f.getAbsolutePath().contains("-ffmpeg") ) {
                 total.incrementAndGet();
                 executorService.execute(() -> {
                     try {
@@ -57,7 +58,8 @@ public class OptimizeQualityVideoApp {
                         e.printStackTrace();
                     }
                 });
-
+            } else if (f.getAbsolutePath().contains("-ffmpeg")) {
+                System.out.println("> Skip: " + f.getAbsolutePath());
             }
         }
 
@@ -73,21 +75,32 @@ public class OptimizeQualityVideoApp {
 
     public void optimizeSingleVideo(String path) throws IOException, InterruptedException {
         System.out.println(Thread.currentThread().getName() + " " + LocalDateTime.now() + " start optimize" + path);
-        final String newFileName = path.replaceAll("\\.mp4", "\\-ffmpeg.mp4");
+        String newFileName = path.replaceAll("\\.mp4", "\\-ffmpeg.mp4");
+
+        newFileName = newFileName.replaceAll("\\.MP4", "\\-ffmpeg.mp4");
 
         String command =
                 FFMPEG_EXE_I
                         + "\"" + path + "\"" +
-                        " " +
-                        "\"" + newFileName + "\"";
+                        " "
+                        + THREADS_FFMPEG
+                        + " "
+                        + "\"" + newFileName + "\"";
 
         ProcessBuilder processBuilder = new ProcessBuilder();
         // Windows
         processBuilder.command("cmd.exe", "/c", command);
         processBuilder.redirectErrorStream(true);
-        processBuilder.redirectOutput(new File("C:\\tmp\\22222.txt")); //HELPS  A LOT!!!
         System.err.println(String.join(" ", processBuilder.command().toArray(new String[0])));
+
         Process process = processBuilder.start();
+
+        InputStream inputStream = process.getInputStream();
+        String line;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        while ((line = reader.readLine()) != null) {
+            System.out.println(">>>"+line); // Print each line to the console
+        }
 
         int exitCode = process.waitFor();
         System.out.println("\nExited with error code : " + exitCode);
@@ -105,4 +118,73 @@ public class OptimizeQualityVideoApp {
         }
         System.out.println("----");
     }
+
+    public static boolean isPrime(int n ){
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i < n; i++) { // i = 2
+            if (n % i == 0) { // 5 % 2 == 0
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+    //refactor this method  - it is not good
+
+    public static String findSumOfAllDigitsInString(String str) {
+        int sum = 0;
+        for (int i = 0; i < str.length(); i++) {
+            final char c = str.charAt(i);
+            if (Character.isDigit(c)) {
+                sum += Integer.parseInt(String.valueOf(c));
+            }
+        }
+
+        //create double value of sum
+        double d = Double.parseDouble(String.valueOf(sum));
+        //check if sum is prime number
+        if (isPrime(sum)) {
+            //if sum is prime number, then add 1 to sum
+            d += 1;
+        }
+
+
+
+        return String.valueOf(sum);
+    }
+
+    //what this method does?
+
+    public static int calculateFactorial(int n) {
+        //refactor this method using recursion
+        //initialize constant a with value 10
+        if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            return n * calculateFactorial(n - 1);
+        }
+    }
+
+
+    //explain line by line what this medthod does
+
+    public static void printHelloWorld() {
+        for (int i = 0; i < 10; i++) {
+            //print also index (concatenate with hello world)
+            //add printing of index
+            //print also lenght of string
+
+            System.out.println("Hello world");
+        }
+    }
+
+    //q: what this method does?
+
+    //create constant A with value 10
+    public static final int A = 10;
+
+
 }
