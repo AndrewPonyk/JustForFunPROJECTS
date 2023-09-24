@@ -11,9 +11,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class OptimizeQualityVideoApp {
     public static final String FFMPEG_EXE_I = " C:\\Programs\\ffmpeg\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe -i  "; // path to ffmpeg
 
-    public static final String THREADS_FFMPEG = "-threads 8"; // number of threads for ffmpeg (it supports multithreading if there are multiple cpus)
+    public static final String THREADS_FFMPEG = "-threads 2"; // number of threads for ffmpeg (it supports multithreading if there are multiple cpus)
 
-    final ExecutorService executorService = Executors.newFixedThreadPool(1); // put it TO ONE - to avoid pc overload
+    final ExecutorService executorService = Executors.newFixedThreadPool(3); // put it TO ONE - to avoid pc overload
     final AtomicInteger counter = new AtomicInteger(0);
     AtomicInteger total = new AtomicInteger(0);
 
@@ -22,7 +22,7 @@ public class OptimizeQualityVideoApp {
         System.out.println("START: " + start + "\n Use ffmpeg to reduce video size");
         final OptimizeQualityVideoApp optimizeQualityVideoApp = new OptimizeQualityVideoApp();
         //
-        final String path = "F:\\tmp\\packt\\battle-city-python-pygame-oop";
+        final String path = "F:\\tmp\\packt\\php-pdo-mysql-ajax---build-basic-task-list==+++";
         optimizeQualityVideoApp.optimizeVideos(path);
         optimizeQualityVideoApp.shutdownExecutorServiceAndWait();
         if (optimizeQualityVideoApp.checkAllFilesOptimized(path)) {
@@ -99,7 +99,13 @@ public class OptimizeQualityVideoApp {
         String line;
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         while ((line = reader.readLine()) != null) {
-            System.out.println(">>>"+line); // Print each line to the console
+            if( line.contains("frame=") ) {
+                if( line.contains("8") && line.contains("6") && line.contains("5") ){
+                    System.out.println(">>> " + path + " >>>>>>" +  line); // Print some lines  to the console
+                }
+            } else {
+                System.out.println(">>>"+line); // Print each line to the console
+            }
         }
 
         int exitCode = process.waitFor();
