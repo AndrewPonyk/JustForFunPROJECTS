@@ -41,4 +41,7 @@ public class Test {
                 .flatMap(list -> ListUtils.partition(list, 2).stream()).collect(Collectors.toList());
         System.out.println(collect);
     }
+
+
+
 }

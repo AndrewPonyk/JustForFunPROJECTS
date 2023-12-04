@@ -11,22 +11,22 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class OptimizeQualityVideoApp {
     public static final String FFMPEG_EXE_I = " C:\\Programs\\ffmpeg\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe -i  "; // path to ffmpeg
 
-    public static final String THREADS_FFMPEG = "-threads 2"; // number of threads for ffmpeg (it supports multithreading if there are multiple cpus)
+    public static final String THREADS_FFMPEG = "-threads 3"; // number of threads for ffmpeg (it supports multithreading if there are multiple cpus)
 
     final ExecutorService executorService = Executors.newFixedThreadPool(3); // put it TO ONE - to avoid pc overload
     final AtomicInteger counter = new AtomicInteger(0);
     AtomicInteger total = new AtomicInteger(0);
-
+ 
     public static void main(String[] args) throws IOException, InterruptedException {
         final long start = System.currentTimeMillis();
-        System.out.println("START: " + start + "\n Use ffmpeg to reduce video size");
+         System.out.println("START: " + start + "\n Use ffmpeg to reduce video size");
         final OptimizeQualityVideoApp optimizeQualityVideoApp = new OptimizeQualityVideoApp();
-        //
-        final String path = "F:\\tmp\\packt\\php-pdo-mysql-ajax---build-basic-task-list==+++";
-        optimizeQualityVideoApp.optimizeVideos(path);
+
+        final String path = "F:\\tmp\\packt\\kotlin-beginners-learn-programming";
+        optimizeQualityVideoApp.optimizeVideos(path); 
         optimizeQualityVideoApp.shutdownExecutorServiceAndWait();
-        if (optimizeQualityVideoApp.checkAllFilesOptimized(path)) {
-            System.out.println("Renaming root");
+        if (optimizeQualityVideoApp.checkAllFilesOptimized(path)) { 
+            System.out.println("Renaming root"); 
             new File(path).renameTo(new File(path + "--ffmpeg"));
         }
 
@@ -34,6 +34,8 @@ public class OptimizeQualityVideoApp {
         System.out.println("Time elapsed: " + (end - start) / 1000 + " seconds");
     }
 
+
+    
     private boolean checkAllFilesOptimized(String path) {
         return true;
     }
@@ -100,11 +102,12 @@ public class OptimizeQualityVideoApp {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         while ((line = reader.readLine()) != null) {
             if( line.contains("frame=") ) {
-                if( line.contains("8") && line.contains("6") && line.contains("5") ){
-                    System.out.println(">>> " + path + " >>>>>>" +  line); // Print some lines  to the console
+                if( line.contains("8") && line.contains("6") && (line.contains("25") || line.contains("24") || line.contains("23") || line.contains("22")) ){
+                    System.out.println(">> " + path + " >>>>" +  line); // Print some lines  to the console
+                    System.out.println(Thread.currentThread().getName() + LocalDateTime.now() + "  " + "DONE: " + counter.get() + " OF " + total);
                 }
             } else {
-                System.out.println(">>>"+line); // Print each line to the console
+                //System.out.println(">>>"+line); // Print each line to the console
             }
         }
 
@@ -138,7 +141,6 @@ public class OptimizeQualityVideoApp {
 
     }
 
-    //refactor this method  - it is not good
 
     public static String findSumOfAllDigitsInString(String str) {
         int sum = 0;
@@ -163,6 +165,11 @@ public class OptimizeQualityVideoApp {
     }
 
     //what this method does?
+
+    // This code calculates the factorial of an integer n, by
+    // multiplying all the numbers from 1 to n together.
+    //
+    // For example, if n = 5, then the factorial is 1 * 2 * 3 * 4 * 5 = 120.
 
     public static int calculateFactorial(int n) {
         //refactor this method using recursion
@@ -192,5 +199,16 @@ public class OptimizeQualityVideoApp {
     //create constant A with value 10
     public static final int A = 10;
 
-
+    String[] top10WorldCitiesByPopulation = new String[]{
+            "Tokyo",
+            "Delhi",
+            "Shanghai",
+            "Sao Paulo",
+            "Mexico City",
+            "Cairo",
+            "Dhaka",
+            "Mumbai",
+            "Beijing",
+            "Osaka"
+    };
 }
