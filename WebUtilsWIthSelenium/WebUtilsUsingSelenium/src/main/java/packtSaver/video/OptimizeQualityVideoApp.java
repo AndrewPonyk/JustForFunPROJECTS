@@ -1,5 +1,4 @@
 package packtSaver.video;
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -11,22 +10,22 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class OptimizeQualityVideoApp {
     public static final String FFMPEG_EXE_I = " C:\\Programs\\ffmpeg\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe -i  "; // path to ffmpeg
 
-    public static final String THREADS_FFMPEG = "-threads 3"; // number of threads for ffmpeg (it supports multithreading if there are multiple cpus)
+    public static final String THREADS_FFMPEG = "-threads 4"; // number of threads for ffmpeg (it supports multithreading if there are multiple cpus)
 
     final ExecutorService executorService = Executors.newFixedThreadPool(3); // put it TO ONE - to avoid pc overload
     final AtomicInteger counter = new AtomicInteger(0);
     AtomicInteger total = new AtomicInteger(0);
- 
+
     public static void main(String[] args) throws IOException, InterruptedException {
         final long start = System.currentTimeMillis();
-         System.out.println("START: " + start + "\n Use ffmpeg to reduce video size");
+        System.out.println("START: " + start + "\n Use ffmpeg to reduce video size");
         final OptimizeQualityVideoApp optimizeQualityVideoApp = new OptimizeQualityVideoApp();
 
-        final String path = "F:\\tmp\\packt\\kotlin-beginners-learn-programming";
-        optimizeQualityVideoApp.optimizeVideos(path); 
+        final String path = "C:\\tmp\\packt\\video\\TO_COMPRES\\data-science-jumpstart-projects-course";
+        optimizeQualityVideoApp.optimizeVideos(path);
         optimizeQualityVideoApp.shutdownExecutorServiceAndWait();
-        if (optimizeQualityVideoApp.checkAllFilesOptimized(path)) { 
-            System.out.println("Renaming root"); 
+        if (optimizeQualityVideoApp.checkAllFilesOptimized(path)) {
+            System.out.println("Renaming root");
             new File(path).renameTo(new File(path + "--ffmpeg"));
         }
 
@@ -34,8 +33,6 @@ public class OptimizeQualityVideoApp {
         System.out.println("Time elapsed: " + (end - start) / 1000 + " seconds");
     }
 
-
-    
     private boolean checkAllFilesOptimized(String path) {
         return true;
     }
@@ -43,11 +40,11 @@ public class OptimizeQualityVideoApp {
     public void optimizeVideos(String rootPath) throws IOException, InterruptedException {
         File root = new File(rootPath);
         if (rootPath.contains("-ffmpeg")) {
-            System.err.println("Already OPTIMIZED!!! But still lets iterate and check all videos");
+            System.err.println(rootPath + "Already OPTIMIZED!!! But still lets iterate and check all videos");
+            return;
         }
 
         final File[] files = root.listFiles();
-
         for (File f : files) {
             if (f.isDirectory()) {
                 optimizeVideos(f.getAbsolutePath());
@@ -55,6 +52,7 @@ public class OptimizeQualityVideoApp {
                 total.incrementAndGet();
                 executorService.execute(() -> {
                     try {
+                        System.out.println("Submitting: " + f.getAbsolutePath() );
                         optimizeSingleVideo(f.getAbsolutePath());
                     } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
@@ -64,7 +62,6 @@ public class OptimizeQualityVideoApp {
                 System.out.println("> Skip: " + f.getAbsolutePath());
             }
         }
-
     }
 
     private void shutdownExecutorServiceAndWait() {
@@ -78,9 +75,7 @@ public class OptimizeQualityVideoApp {
     public void optimizeSingleVideo(String path) throws IOException, InterruptedException {
         System.out.println(Thread.currentThread().getName() + " " + LocalDateTime.now() + " start optimize" + path);
         String newFileName = path.replaceAll("\\.mp4", "\\-ffmpeg.mp4");
-
         newFileName = newFileName.replaceAll("\\.MP4", "\\-ffmpeg.mp4");
-
         String command =
                 FFMPEG_EXE_I
                         + "\"" + path + "\"" +
@@ -102,9 +97,11 @@ public class OptimizeQualityVideoApp {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         while ((line = reader.readLine()) != null) {
             if( line.contains("frame=") ) {
-                if( line.contains("8") && line.contains("6") && (line.contains("25") || line.contains("24") || line.contains("23") || line.contains("22")) ){
-                    System.out.println(">> " + path + " >>>>" +  line); // Print some lines  to the console
-                    System.out.println(Thread.currentThread().getName() + LocalDateTime.now() + "  " + "DONE: " + counter.get() + " OF " + total);
+                if(System.currentTimeMillis() % 10 > 8) {
+                    if(  (line.contains("25") || line.contains("24") || line.contains("23") || line.contains("22")) ){
+                        System.out.println(">> " + path + " >>>>" +  line); // Print some lines  to the console
+                        System.out.println(Thread.currentThread().getName() + LocalDateTime.now() + "  " + "DONE: " + counter.get() + " OF " + total);
+                    }
                 }
             } else {
                 //System.out.println(">>>"+line); // Print each line to the console
@@ -128,7 +125,7 @@ public class OptimizeQualityVideoApp {
         System.out.println("----");
     }
 
-    public static boolean isPrime(int n ){
+    public static boolean isPrime(int n ) {
         if (n <= 1) {
             return false;
         }
@@ -138,9 +135,7 @@ public class OptimizeQualityVideoApp {
             }
         }
         return true;
-
     }
-
 
     public static String findSumOfAllDigitsInString(String str) {
         int sum = 0;
@@ -150,7 +145,6 @@ public class OptimizeQualityVideoApp {
                 sum += Integer.parseInt(String.valueOf(c));
             }
         }
-
         //create double value of sum
         double d = Double.parseDouble(String.valueOf(sum));
         //check if sum is prime number
@@ -159,12 +153,8 @@ public class OptimizeQualityVideoApp {
             d += 1;
         }
 
-
-
         return String.valueOf(sum);
     }
-
-    //what this method does?
 
     // This code calculates the factorial of an integer n, by
     // multiplying all the numbers from 1 to n together.
@@ -180,7 +170,6 @@ public class OptimizeQualityVideoApp {
             return n * calculateFactorial(n - 1);
         }
     }
-
 
     //explain line by line what this medthod does
 
@@ -199,7 +188,7 @@ public class OptimizeQualityVideoApp {
     //create constant A with value 10
     public static final int A = 10;
 
-    String[] top10WorldCitiesByPopulation = new String[]{
+    String[] top10WorldCitiesByPopulation = new String[] {
             "Tokyo",
             "Delhi",
             "Shanghai",
