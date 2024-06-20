@@ -1,5 +1,6 @@
 package com.ap;
 
+import com.ap.highlight.JavaHighlighter;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 import javax.swing.*;
@@ -13,28 +14,24 @@ import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.text.Document;
+import java.util.concurrent.atomic.AtomicReference;
 import javax.swing.text.JTextComponent;
 
 public class FileSearcher {
-    private JTextArea editor;
-    private String projectRoot;
+    private final AtomicReference<String> currentFilePath;
+    private JTextPane editor;
     private Set<String> indexedFiles;
 
     private JDialog dialog; // Add this line
 
-    private int currentQueryLenght = 0; //flag to prevent infinite loop in update model
     private String previousInput = "";
-    public FileSearcher(JTextArea editor, String projectRoot, Set<String> indexedFiles) {
-        this.editor = editor;
-        this.projectRoot = projectRoot;
-        this.indexedFiles = indexedFiles;
 
+    public FileSearcher(JTextPane editor, String projectRoot, Set<String> indexedFiles, AtomicReference<String> currentFilePath) {
+        this.editor = editor;
+        this.indexedFiles = indexedFiles;
+        this.currentFilePath = currentFilePath;
     }
 
     public void openSearchDialog() {
@@ -50,7 +47,7 @@ public class FileSearcher {
             public void insertUpdate(DocumentEvent e) {
                 System.out.println("Insert update");
                 String input = textComponent.getText();
-                if(input.contains(":\\")){
+                if (input.contains(":\\")) {
                     return;
                 }
                 if (!input.equals(searchField.getSelectedItem())) {
@@ -61,7 +58,6 @@ public class FileSearcher {
             @Override
             public void removeUpdate(DocumentEvent e) {
 //                System.out.println("Remove update");
-//                System.out.println("Insert update");
 //                String input = textComponent.getText();
 //                if(input.contains(":\\")){
 //                    return;
@@ -76,7 +72,7 @@ public class FileSearcher {
                 System.out.println("Changed update");
                 System.out.println("Insert update");
                 String input = textComponent.getText();
-                if(input.contains(":\\")){
+                if (input.contains(":\\")) {
                     return;
                 }
                 if (!input.equals(searchField.getSelectedItem())) {
@@ -108,6 +104,10 @@ public class FileSearcher {
                     searchField.requestFocusInWindow();
                 });
             }
+            @Override
+            public void windowClosed(WindowEvent e) {
+                editor.requestFocusInWindow();
+            }
         });
         dialog.setVisible(true);
 
@@ -121,20 +121,14 @@ public class FileSearcher {
         }
     }
 
-    private List<String> searchFiles(String query) {
-        List<String> matchingFiles = new ArrayList<>();
-        for (String filePath : indexedFiles) {
-            if (filePath.toLowerCase().contains(query.toLowerCase())) {
-                matchingFiles.add(filePath);
-            }
-        }
-        return matchingFiles;
-    }
 
     private void loadFileToEditor(File file) {
         try {
             String content = new String(Files.readAllBytes(file.toPath()));
             editor.setText(content);
+            currentFilePath.set(file.getAbsolutePath());
+            JavaHighlighter highlighter = new JavaHighlighter();
+            highlighter.highlight(editor);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -153,7 +147,8 @@ public class FileSearcher {
                 // Set the caret position before updating the model
                 SwingUtilities.invokeLater(() -> {
                     int caretPosition = Math.min(input.length(), editorComponent.getText().length());
-                    editorComponent.setCaretPosition(caretPosition);                });
+                    editorComponent.setCaretPosition(caretPosition);
+                });
 
                 DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>() {
                     @Override
@@ -164,11 +159,12 @@ public class FileSearcher {
                     }
                 };
                 for (String filePath : indexedFiles) {
-                    if (filePath.toLowerCase().contains(input.toLowerCase())) {
+                    if (filePath.toLowerCase().contains(input.toLowerCase()) ||
+                            filePath.toLowerCase().matches(".*" + (input.replaceAll("\\*", ".*") + ".*").toLowerCase())) {
                         model.addElement(filePath);
                     }
                 }
-                System.out.println("Input:" + input +  " Set model with " + model.getSize() + " elements");
+                System.out.println("Input:" + input + " Set model with " + model.getSize() + " elements");
                 // Show the dropdown
                 if (!searchField.isPopupVisible()) {
                     searchField.showPopup();
@@ -186,4 +182,10 @@ public class FileSearcher {
             });
         }
     }
+
+    public JDialog getDialog() {
+        return dialog;
+    }
+
+    private static List<String> skipExtensions = List.of(".class"); //todo implement skip
 }
