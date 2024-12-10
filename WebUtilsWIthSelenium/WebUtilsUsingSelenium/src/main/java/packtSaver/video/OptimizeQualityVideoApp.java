@@ -1,203 +1,262 @@
-package packtSaver.video;
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicInteger;
+    package packtSaver.video;
 
-public class OptimizeQualityVideoApp {
-    public static final String FFMPEG_EXE_I = " C:\\Programs\\ffmpeg\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe -i  "; // path to ffmpeg
+    import java.io.*;
+    import java.nio.file.Files;
+    import java.nio.file.Paths;
+    import java.time.LocalDateTime;
+    import java.util.ArrayList;
+    import java.util.Arrays;
+    import java.util.List;
+    import java.util.concurrent.ExecutorService;
+    import java.util.concurrent.Executors;
+    import java.util.concurrent.atomic.AtomicInteger;
 
-    public static final String THREADS_FFMPEG = "-threads 4"; // number of threads for ffmpeg (it supports multithreading if there are multiple cpus)
+    import org.apache.commons.io.FilenameUtils;
 
-    final ExecutorService executorService = Executors.newFixedThreadPool(3); // put it TO ONE - to avoid pc overload
-    final AtomicInteger counter = new AtomicInteger(0);
-    AtomicInteger total = new AtomicInteger(0);
+    public class OptimizeQualityVideoApp {
+        public static final String FFMPEG_EXE_I = " C:\\Programs\\ffmpeg\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe  -i  "; // path
+                                                                                                                                // to
+                                                                                                                                // ffmpeg
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        final long start = System.currentTimeMillis();
-        System.out.println("START: " + start + "\n Use ffmpeg to reduce video size");
-        final OptimizeQualityVideoApp optimizeQualityVideoApp = new OptimizeQualityVideoApp();
+        public static final String THREADS_FFMPEG = "-threads 3"; // number of threads for ffmpeg (it supports
+                                                                // multithreading if there are multiple cpus)
 
-        final String path = "C:\\tmp\\packt\\video\\TO_COMPRES\\data-science-jumpstart-projects-course";
-        optimizeQualityVideoApp.optimizeVideos(path);
-        optimizeQualityVideoApp.shutdownExecutorServiceAndWait();
-        if (optimizeQualityVideoApp.checkAllFilesOptimized(path)) {
-            System.out.println("Renaming root");
-            new File(path).renameTo(new File(path + "--ffmpeg"));
-        }
+        public final ExecutorService executorService = Executors.newFixedThreadPool(1); // put it TO two - to avoid 100% CPU
+                                                                                        // usage
+        public final AtomicInteger counter = new AtomicInteger(0);
+        public AtomicInteger total = new AtomicInteger(0);
 
-        final long end = System.currentTimeMillis();
-        System.out.println("Time elapsed: " + (end - start) / 1000 + " seconds");
-    }
+        public static boolean compressAlreadyCompressed = false;
 
-    private boolean checkAllFilesOptimized(String path) {
-        return true;
-    }
+        public static List<String> compressionTypes = Arrays.asList("CPU compression", "Usual full HD compression",
+                "45678k compression");
 
-    public void optimizeVideos(String rootPath) throws IOException, InterruptedException {
-        File root = new File(rootPath);
-        if (rootPath.contains("-ffmpeg")) {
-            System.err.println(rootPath + "Already OPTIMIZED!!! But still lets iterate and check all videos");
-            return;
-        }
+        public static String typeOfCompression;
 
-        final File[] files = root.listFiles();
-        for (File f : files) {
-            if (f.isDirectory()) {
-                optimizeVideos(f.getAbsolutePath());
-            } else if (f.getAbsolutePath().toLowerCase().endsWith("mp4") && !f.getAbsolutePath().contains("-ffmpeg") ) {
-                total.incrementAndGet();
-                executorService.execute(() -> {
-                    try {
-                        System.out.println("Submitting: " + f.getAbsolutePath() );
-                        optimizeSingleVideo(f.getAbsolutePath());
-                    } catch (IOException | InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                });
-            } else if (f.getAbsolutePath().contains("-ffmpeg")) {
-                System.out.println("> Skip: " + f.getAbsolutePath());
+        public static long inputFilesSize = 0;
+        public static long outputFilesSize = 0;
+
+        public static List<String> finalLogItems = new ArrayList<>();
+
+        public static void main(String[] args) throws IOException, InterruptedException {
+            final long start = System.currentTimeMillis();
+            typeOfCompression = "";
+            // read type of compression from user input
+            if (args.length > 0) {
+                typeOfCompression = args[0];
+            } else {
+                System.out.println("Please provide type of compression: ");
+                for (int i = 0; i < compressionTypes.size(); i++) {
+                    System.out.println(i + " : " + compressionTypes.get(i));
+                }
+                System.out.println("Enter number: ");
+                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+                typeOfCompression = reader.readLine();
             }
+
+            System.out.println("START: " + start + "\n Use ffmpeg to reduce video size");
+            final OptimizeQualityVideoApp optimizeQualityVideoApp = new OptimizeQualityVideoApp();
+
+            optimizeQualityVideoApp.compressAlreadyCompressed = false;
+            final String path = "G:\\P_Compress\\";
+
+            optimizeQualityVideoApp.optimizeVideos(path);
+            optimizeQualityVideoApp.shutdownExecutorServiceAndWait();
+            if (optimizeQualityVideoApp.checkAllFilesOptimized(path)) {
+                System.out.println("Renaming root");
+                new File(path).renameTo(new File(path + "--ffmpeg"));
+            } else {
+                System.err.println("Some files are not optimized===");
+            }
+
+            final long end = System.currentTimeMillis();
+            System.out.println("Final log:");
+            for (String item : finalLogItems) {
+                System.out.println(item);
+            }
+            System.out.println("Time elapsed: " + (end - start) / 1000 + " seconds");
         }
-    }
 
-    private void shutdownExecutorServiceAndWait() {
-        executorService.shutdown();
-        while (!executorService.isTerminated()) {
-            String test = "1";
-        }
-        System.out.println("Finished all threads");
-    }
-
-    public void optimizeSingleVideo(String path) throws IOException, InterruptedException {
-        System.out.println(Thread.currentThread().getName() + " " + LocalDateTime.now() + " start optimize" + path);
-        String newFileName = path.replaceAll("\\.mp4", "\\-ffmpeg.mp4");
-        newFileName = newFileName.replaceAll("\\.MP4", "\\-ffmpeg.mp4");
-        String command =
-                FFMPEG_EXE_I
-                        + "\"" + path + "\"" +
-                        " "
-                        + THREADS_FFMPEG
-                        + " "
-                        + "\"" + newFileName + "\"";
-
-        ProcessBuilder processBuilder = new ProcessBuilder();
-        // Windows
-        processBuilder.command("cmd.exe", "/c", command);
-        processBuilder.redirectErrorStream(true);
-        System.err.println(String.join(" ", processBuilder.command().toArray(new String[0])));
-
-        Process process = processBuilder.start();
-
-        InputStream inputStream = process.getInputStream();
-        String line;
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        while ((line = reader.readLine()) != null) {
-            if( line.contains("frame=") ) {
-                if(System.currentTimeMillis() % 10 > 8) {
-                    if(  (line.contains("25") || line.contains("24") || line.contains("23") || line.contains("22")) ){
-                        System.out.println(">> " + path + " >>>>" +  line); // Print some lines  to the console
-                        System.out.println(Thread.currentThread().getName() + LocalDateTime.now() + "  " + "DONE: " + counter.get() + " OF " + total);
+        private boolean checkAllFilesOptimized(String path) {
+            // check all files with extension .mp4(MP4) and .ts(TS) are optimized (сontains
+            // -ffmpeg)
+            File root = new File(path);
+            final File[] files = root.listFiles();
+            for (File f : files) {
+                if (f.isDirectory()) {
+                    if (!checkAllFilesOptimized(f.getAbsolutePath())) {
+                        return false;
+                    }
+                } else if (f.getAbsolutePath().toLowerCase().endsWith("mp4")
+                        || f.getAbsolutePath().toLowerCase().endsWith("ts")) {
+                    if (!f.getAbsolutePath().contains("-ffmpeg")) {
+                        return false;
                     }
                 }
+            }
+            return true;
+        }
+
+        public void optimizeVideos(String rootPath) throws IOException, InterruptedException {
+            File root = new File(rootPath);
+            if (rootPath.contains("-ffmpeg") && !compressAlreadyCompressed) {
+                System.err.println(rootPath + "Already OPTIMIZED!!!");
+                return;
+            }
+
+            final File[] files = root.listFiles();
+            for (File f : files) {
+                if (f.isDirectory()) {
+                    if (!f.getName().contains("-ffmpeg")) {
+                        optimizeVideos(f.getAbsolutePath());
+                    }
+                } else if ((f.getAbsolutePath().toLowerCase().endsWith("mp4")
+                        || f.getAbsolutePath().toLowerCase().endsWith("ts")) && f.length() > 1000000
+                        && (!f.getAbsolutePath().contains("-ffmpeg") || compressAlreadyCompressed)) { // mp4 and ts files
+                                                                                                    // (ts is also
+                                                                                                    // extension for video
+                                                                                                    // files)
+
+                    total.incrementAndGet();
+                    executorService.execute(() -> {
+                        try {
+                            System.out.println("Submitting: " + f.getAbsolutePath());
+                            optimizeSingleVideo(f.getAbsolutePath());
+                        } catch (IOException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    });
+
+                } else if (f.getAbsolutePath().contains("-ffmpeg")) {
+                    System.out.println("> Skip: " + f.getAbsolutePath());
+                }
+            }
+        }
+
+        private void shutdownExecutorServiceAndWait() {
+            executorService.shutdown();
+            while (!executorService.isTerminated()) {
+                String test = "1";
+            }
+            System.out.println("Finished all threads");
+        }
+
+        public void optimizeSingleVideo(String path) throws IOException, InterruptedException {
+            System.out.println(Thread.currentThread().getName() + " " + LocalDateTime.now() + " start optimize " + path);
+            String newFileName = path.replaceAll("\\.mp4", "\\-ffmpeg.mp4");
+            newFileName = newFileName.replaceAll("\\.MP4", "\\-ffmpeg.mp4");
+
+            if (path.toLowerCase().endsWith(".ts")) {
+                newFileName = newFileName.replaceAll("\\.ts", "\\-ffmpeg.ts"); // ts is also video file
+                newFileName = newFileName.replaceAll("\\.TS", "\\-ffmpeg.ts"); // ts is also video file
+            }
+
+            if (new File(newFileName).exists()) {
+                System.out.println("!!!!! FFmpeg File already exists: " + newFileName);
+                return;
+            }
+
+            String command = FFMPEG_EXE_I
+                    + "\"" + path + "\"" +
+                    " "
+                    + THREADS_FFMPEG
+                    + " -vf scale=-1:720 "
+                    + " -c:v libx264 -crf 35 -preset medium " // todo : retrieve video resolution from file first
+                    + "\"" + newFileName + "\"";
+
+            // full hd
+            if (compressionTypes.get(Integer.valueOf(typeOfCompression)).equals("Usual full HD compression")) {
+                command = FFMPEG_EXE_I.replace("-i", "-fflags +discardcorrupt -err_detect ignore_err -i")
+                        + "\"" + path + "\""
+                        + " -c:v hevc_nvenc -crf 22 -preset slow -b:v "
+                        + "\"" + newFileName + "\"";
+            }
+
+            // 8k cuda
+            if (compressionTypes.get(Integer.valueOf(typeOfCompression)).equals("45678k compression")) {
+                // TODO: check if datarate is over 30mbps
+
+                command = FFMPEG_EXE_I.replace("-i", "-fflags +discardcorrupt -err_detect ignore_err -i")
+                        + "\"" + path + "\""
+                        + " -c:v hevc_nvenc -crf 13 -preset medium -b:v 29500k "
+                        + "\"" + newFileName + "\"";
+            }
+
+            ProcessBuilder processBuilder = new ProcessBuilder();
+            // Windows
+            processBuilder.command("cmd.exe", "/c", command);
+            processBuilder.redirectErrorStream(true);
+            System.err.println(String.join(" ", processBuilder.command().toArray(new String[0])));
+
+            Process process = processBuilder.start();
+
+            int printCounter = 0;
+            InputStream inputStream = process.getInputStream();
+            String line;
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            while ((line = reader.readLine()) != null) {
+                if (printCounter <= 35 || printCounter % 100 == 0) {
+                    System.out.println(">> " + path + " >>>>" + line); // Print some lines to the console
+                    System.out.println(Thread.currentThread().getName() + LocalDateTime.now() + "  " + "DONE: "
+                            + counter.get() + " OF " + total);
+                }
+                printCounter++;
+            }
+
+            int exitCode = process.waitFor();
+
+            System.out.println("\nExited with error code : " + exitCode);
+            counter.incrementAndGet();
+            System.out.println(Thread.currentThread().getName() + LocalDateTime.now() + "  " + "DONE: " + counter.get()
+                    + " OF " + total);
+
+            // remove old file also!!!
+            final File oldFile = new File(path);
+            final File newFile = new File(newFileName);
+
+            if (newFile.exists() && exitCode == 0) {
+                inputFilesSize += oldFile.length();
+
+                long newFileSize = Files.size(Paths.get(newFileName));
+                long oldFileSize = Files.size(Paths.get(path));
+
+                if (newFileSize > oldFileSize) {
+                    System.out.println("Removing new file: " + newFileName + " because size is bigger :" + newFileSize
+                            + " is bigger than" + oldFileSize); // Correct: Remove new file
+                    newFile.delete();
+
+                    long newFileSizeKB = newFileSize / 1024;
+
+                    String extension = FilenameUtils.getExtension(path);
+                    // Rename old file (optional, but what you wanted)
+                    String renamedFileName = FilenameUtils.removeExtension(path) + "-FBEcame-" + newFileSizeKB
+                            + "kB--ffmpeg" + "." + extension;
+                    File renamedFile = new File(renamedFileName);
+                    if (oldFile.renameTo(renamedFile)) {
+                        outputFilesSize += oldFileSize;
+                        System.out.println("Renamed old file to: " + renamedFileName);
+                    } else {
+                        throw new RuntimeException("Failed to rename old file to: " + renamedFileName);
+                    }
+
+                } else {
+                    if (Files.size(Paths.get(newFileName)) > 10000) {
+                        // todo: check if duration is the same
+                        outputFilesSize += newFileSize;
+                        System.out.println("Removing old file: " + path);
+                        oldFile.delete(); // Remove old file if it's smaller or equal
+                    }
+                }
+                finalLogItems.add("Exit code: " + exitCode + " for file: " + path + " new file: " + newFileName + " size: "
+                        + newFileSize + " old file size: " + oldFileSize);
             } else {
-                //System.out.println(">>>"+line); // Print each line to the console
+                // print error message
+                System.out.println("New file does not exist or is broken: " + newFileName);
+                // throw new RuntimeException("New file does not exist or is broken: " +
+                // newFileName);
+                finalLogItems
+                        .add("Exit code: " + exitCode + " for file: " + path + " new file does not exist " + newFileName);
             }
-        }
-
-        int exitCode = process.waitFor();
-        System.out.println("\nExited with error code : " + exitCode);
-        counter.incrementAndGet();
-        System.out.println(Thread.currentThread().getName() + LocalDateTime.now() + "  " + "DONE: " + counter.get() + " OF " + total);
-
-        //remove old file also!!!
-        final File oldFile = new File(path);
-        final File newFile = new File(newFileName);
-        if (newFile.exists() && Files.size(Paths.get(newFileName)) > 1000) {
-            System.out.println("Removing old file: " + path);
-            oldFile.delete();
-        } else {
-            throw new RuntimeException("New file do not exists: " + newFileName);
-        }
-        System.out.println("----");
-    }
-
-    public static boolean isPrime(int n ) {
-        if (n <= 1) {
-            return false;
-        }
-        for (int i = 2; i < n; i++) { // i = 2
-            if (n % i == 0) { // 5 % 2 == 0
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static String findSumOfAllDigitsInString(String str) {
-        int sum = 0;
-        for (int i = 0; i < str.length(); i++) {
-            final char c = str.charAt(i);
-            if (Character.isDigit(c)) {
-                sum += Integer.parseInt(String.valueOf(c));
-            }
-        }
-        //create double value of sum
-        double d = Double.parseDouble(String.valueOf(sum));
-        //check if sum is prime number
-        if (isPrime(sum)) {
-            //if sum is prime number, then add 1 to sum
-            d += 1;
-        }
-
-        return String.valueOf(sum);
-    }
-
-    // This code calculates the factorial of an integer n, by
-    // multiplying all the numbers from 1 to n together.
-    //
-    // For example, if n = 5, then the factorial is 1 * 2 * 3 * 4 * 5 = 120.
-
-    public static int calculateFactorial(int n) {
-        //refactor this method using recursion
-        //initialize constant a with value 10
-        if (n == 0 || n == 1) {
-            return 1;
-        } else {
-            return n * calculateFactorial(n - 1);
+            System.out.println("----");
         }
     }
-
-    //explain line by line what this medthod does
-
-    public static void printHelloWorld() {
-        for (int i = 0; i < 10; i++) {
-            //print also index (concatenate with hello world)
-            //add printing of index
-            //print also lenght of string
-
-            System.out.println("Hello world");
-        }
-    }
-
-    //q: what this method does?
-
-    //create constant A with value 10
-    public static final int A = 10;
-
-    String[] top10WorldCitiesByPopulation = new String[] {
-            "Tokyo",
-            "Delhi",
-            "Shanghai",
-            "Sao Paulo",
-            "Mexico City",
-            "Cairo",
-            "Dhaka",
-            "Mumbai",
-            "Beijing",
-            "Osaka"
-    };
-}
