@@ -24,7 +24,7 @@ public class AutoSave {
         ActionListener taskPerformer = new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 if(filePath.get() != null && !filePath.get().isEmpty()) {
-                    saveFile();
+                    //saveFile();
                 }
                 updatesLabel.setText("Current file name is :" + filePath.get());
             }

@@ -123,15 +123,18 @@ public class FileSearcher {
 
 
     private void loadFileToEditor(File file) {
-        try {
-            String content = new String(Files.readAllBytes(file.toPath()));
-            editor.setText(content);
-            currentFilePath.set(file.getAbsolutePath());
-            JavaHighlighter highlighter = new JavaHighlighter();
-            highlighter.highlight(editor);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
+            @Override
+            protected Void doInBackground() throws IOException {
+                String content = new String(Files.readAllBytes(file.toPath()));
+                editor.setText(content);
+                currentFilePath.set(file.getAbsolutePath());
+                JavaHighlighter highlighter = new JavaHighlighter();
+                //highlighter.highlight(editor); //todo hightligh
+                return null;
+            }
+        };
+        worker.execute();
     }
 
     private void updateSearchResults(JComboBox<String> searchField, String input) {

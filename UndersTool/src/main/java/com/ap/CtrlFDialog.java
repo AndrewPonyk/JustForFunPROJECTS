@@ -73,14 +73,20 @@ public class CtrlFDialog {
 
 
     private void findNext() {
-        String find = searchField.getText();
-        String text = editor.getText();
+        String find = searchField.getText().toLowerCase();
+        String text = editor.getText().toLowerCase();
         int start = editor.getCaretPosition();
         int end = text.length();
+        Highlighter highlighter = editor.getHighlighter();
+
         for (int i = start; i <= end - find.length(); i++) {
             String substring = text.substring(i, i + find.length());
             if (find.equals(substring)) {
-                editor.select(i, i + find.length());
+                try {
+                    highlighter.addHighlight(i, i + find.length(), DefaultHighlighter.DefaultPainter);
+                } catch (BadLocationException e) {
+                    throw new RuntimeException(e);
+                }
                 return;
             }
         }

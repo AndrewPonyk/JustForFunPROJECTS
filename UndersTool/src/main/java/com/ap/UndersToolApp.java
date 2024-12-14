@@ -4,8 +4,11 @@ import com.ap.highlight.JavaHighlighter;
 import lombok.Data;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
+import javax.swing.text.Element;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import java.awt.*;
@@ -112,16 +115,66 @@ public class UndersToolApp extends JFrame {
         bottomPanel.setBackground(Color.BLUE);
 
         //add text area to bottom panel
-        editor = new JTextPane();
-        bottomPanel.add(editor, BorderLayout.CENTER);
-        editor = new JTextPane();
+        JTextArea lineNumberBar = new JTextArea("1");
+        lineNumberBar.setBackground(Color.LIGHT_GRAY);
+        lineNumberBar.setEditable(false);
+        lineNumberBar.setFocusable(false);
+        lineNumberBar.setFont(editor.getFont());
+        editor.getDocument().addDocumentListener(new DocumentListener() {
+            public String getText() {
+                int caretPosition = editor.getDocument().getLength();
+                Element root = editor.getDocument().getDefaultRootElement();
+                String text = "1" + System.getProperty("line.separator");
+                for (int i = 2; i < root.getElementIndex(caretPosition) + 2; i++) {
+                    text += i + System.getProperty("line.separator");
+                }
+                return text;
+            }
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
+                    @Override
+                    protected Void doInBackground() throws Exception {
+                        lineNumberBar.setText(getText());
+                        return null;
+                    }
+                };
+                worker.execute();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
+                    @Override
+                    protected Void doInBackground() throws Exception {
+                        lineNumberBar.setText(getText());
+                        return null;
+                    }
+                };
+                worker.execute();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
+                    @Override
+                    protected Void doInBackground() throws Exception {
+                        lineNumberBar.setText(getText());
+                        return null;
+                    }
+                };
+                worker.execute();
+            }
+        });
         bottomPanel.add(editor, BorderLayout.CENTER);
         JScrollPane scrollPane = new JScrollPane(editor);
+        scrollPane.setRowHeaderView(lineNumberBar);
         bottomPanel.add(scrollPane, BorderLayout.CENTER);
 
         Font currentFont = editor.getFont();
         Font editorFont = new Font(currentFont.getName(), currentFont.getStyle(), currentFont.getSize() + 2);
-        editor.setFont(editorFont);
+        editor.setFont(editorFont); lineNumberBar.setFont(editorFont);
         bottomPanel.add(scrollPane, BorderLayout.CENTER);
 
         ctrlFDialog = new CtrlFDialog(editor);
@@ -253,22 +306,19 @@ public class UndersToolApp extends JFrame {
                     }
                     File selectedFile =  ((Utils.FileNode)selectedNode).getFile();
                     if (selectedFile.isFile()) {
-                        try {
-                            String content = new String(Files.readAllBytes(selectedFile.toPath()));
-                            currentFilePath.set(selectedFile.getAbsolutePath());
-                            editor.setText(content);
-                            SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
-                                @Override
-                                protected Void doInBackground() throws Exception {
-                                    JavaHighlighter highlighter = new JavaHighlighter();
-                                    highlighter.highlight(editor);
-                                    return null;
-                                }
-                            };
-                            worker.execute();
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        }
+
+                        SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
+                            @Override
+                            protected Void doInBackground() throws Exception {
+                                String content = new String(Files.readAllBytes(selectedFile.toPath()));
+                                currentFilePath.set(selectedFile.getAbsolutePath());
+                                editor.setText(content);
+                                JavaHighlighter highlighter = new JavaHighlighter();
+                                //highlighter.highlight(editor);
+                                return null;
+                            }
+                        };
+                        worker.execute();
                     }
                 }
             }
@@ -394,12 +444,15 @@ public class UndersToolApp extends JFrame {
         @Override
         public void setText(String t) {
             super.setText(t);
-            try {
-                JavaHighlighter highlighter = new JavaHighlighter();
-                highlighter.highlight(this);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            JTextPane jTextPane = this;
+            SwingUtilities.invokeLater(() -> {
+                try {
+                    JavaHighlighter highlighter = new JavaHighlighter();
+                    highlighter.highlight(jTextPane);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
         }
     };
     private Map<String, JButton> infoPanelButtons = new HashMap<>();

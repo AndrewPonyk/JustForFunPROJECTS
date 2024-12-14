@@ -72,15 +72,23 @@ public class JavaHighlighter {
     }
 
     private void applyStyle(StyledDocument doc, String word, Style style) {
-        try {
-            Pattern wordPattern = Pattern.compile("\\b" + word + "\\b");
-            Matcher matcher = wordPattern.matcher(doc.getText(0, doc.getLength()));
-            while (matcher.find()) {
-                doc.setCharacterAttributes(matcher.start(), matcher.end() - matcher.start(), style, false);
+        SwingWorker<Void, Void> worker = new SwingWorker<>() {
+            @Override
+            protected Void doInBackground() {
+                try {
+                    Pattern wordPattern = Pattern.compile("\\b" + word + "\\b");
+                    Matcher matcher = wordPattern.matcher(doc.getText(0, doc.getLength()));
+                    while (matcher.find()) {
+                        doc.setCharacterAttributes(matcher.start(), matcher.end() - matcher.start(), style, false);
+                    }
+                } catch (BadLocationException e) {
+                    e.printStackTrace();
+                }
+                return null;
             }
-        } catch (BadLocationException e) {
-            e.printStackTrace();
-        }
+        };
+
+
     }
 
     private boolean isJavaStandardClass(String word) {
