@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folder Browser</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 5px 0; }
+        a { text-decoration: none; color: #007BFF; }
+        a:hover { text-decoration: underline; }
+        
+        /* Modal styles */
+        #videoModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #videoContainer {
+            position: relative;
+            margin-left: 50px; /* Adjust this value as needed */
+        }
+
+        /* Adjust the size of the video player */
+        #videoPlayer {
+            width: 90%;          /* Increase from 80% to 90% width */
+            max-width: 1200px;   /* Increase maximum width from 800px to 1200px */
+        }
+
+        #closeButton {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #fff;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            line-height: 26px;
+            text-align: center;
+            padding: 0;
+        }
+
+        /* Style for the checkbox */
+        .pass-checkbox {
+            margin-left: 10px;
+            accent-color: green; /* Make the checkbox green */
+        }
+    </style>
+</head>
+<body>
+    <h1>Folder Browser</h1>
+    <input type="text" size="100" id="folderPath" value="I:\Vidokursu_and_Books_From_118a" placeholder="Enter folder path">
+    <button onclick="loadFolder()">Load Folder</button>
+    <ul id="fileList"></ul>
+
+    <!-- Modal for video player -->
+    <div id="videoModal">
+        <div id="videoContainer">
+            <button id="closeButton">✖</button>
+            <video id="videoPlayer" controls></video>
+        </div>
+    </div>
+
+    <script>
+    async function loadFolder(folderPath) {
+        folderPath = folderPath || document.getElementById('folderPath').value;
+
+        // Replace backslashes with forward slashes
+        folderPath = folderPath.replace(/\\/g, '/');
+
+        const response = await fetch(`/list?folder=${encodeURIComponent(folderPath)}`);
+        const files = await response.json();
+
+        const fileList = document.getElementById('fileList');
+        fileList.innerHTML = '';
+
+        // Add "Go Up" button if not at the root directory
+        const pathParts = folderPath.split('/');
+        if (pathParts.length > 1) {
+            const parentFolder = pathParts.slice(0, -1).join('/');
+
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#';
+            a.textContent = '.. (Go Up)';
+            a.addEventListener('click', function(event) {
+                event.preventDefault();
+                loadFolder(parentFolder);
+            });
+            li.appendChild(a);
+            fileList.appendChild(li);
+        }
+
+        // List files and folders
+        files.forEach(file => {
+            const li = document.createElement('li');
+            const filePath = file.path.replace(/\\/g, '/'); // Standardize the file path
+
+            if (file.isDirectory) {
+                const a = document.createElement('a');
+                a.href = '#';
+                a.textContent = `📁 ${file.name}`;
+                a.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    loadFolder(filePath);
+                });
+                li.appendChild(a);
+            } else {
+                const a = document.createElement('a');
+                a.href = `${filePath}`;
+                a.download = '';
+                a.textContent = `📄 ${file.name}`;
+                li.appendChild(a);
+
+                if (file.name.toLowerCase().includes("-pass")) {
+                    li.style.backgroundColor = "lightgreen"; // Add light green background
+                }
+
+                if (/\.(mp4|webm|ts|avi|mkv)$/i.test(file.name)) {
+                    // Add Play button
+                    const playButton = document.createElement('button');
+                    playButton.textContent = 'Play';
+                    playButton.addEventListener('click', function() {
+                        playVideo(filePath);
+                    });
+                    li.appendChild(playButton);
+
+                    // Add Checkbox
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.className = 'pass-checkbox';
+                    checkbox.checked = file.name.toLowerCase().includes('-pass'); // Set checked state
+                    checkbox.addEventListener('change', function() {
+                        if (this.checked) {
+                            markPass(filePath); // Call /markPass endpoint
+                        }
+                    });
+                    li.appendChild(checkbox);
+                }
+            }
+            fileList.appendChild(li);
+        });
+    }
+
+    function playVideo(videoPath) {
+        videoPath = videoPath.replace(/\\/g, '/'); // Ensure any backslashes are replaced
+        const videoPlayer = document.getElementById('videoPlayer');
+        videoPlayer.src = `/video?path=${encodeURIComponent(videoPath)}`;
+        console.log(`Video source set to: ${videoPlayer.src}`);
+        const videoModal = document.getElementById('videoModal');
+        videoModal.style.display = 'flex'; // Show the modal
+        videoPlayer.play();
+    }
+
+    // Function to call /markPass endpoint
+    async function markPass(filePath) {
+        try {
+            const response = await fetch('/markPass', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ filename: filePath }),
+            });
+
+            const result = await response.json();
+            console.log(result.message);
+
+            // Reload the folder to reflect the changes
+            loadFolder();
+        } catch (error) {
+            console.error('Error marking file as PASS:', error);
+        }
+    }
+
+    // Close the modal when clicking outside the video container
+    document.getElementById('videoModal').addEventListener('click', function(event) {
+        if (event.target === this) {
+            closeVideo();
+        }
+    });
+
+    // Prevent clicks on the video container from closing the modal
+    document.getElementById('videoContainer').addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+
+    // Close the video modal when the close button is clicked
+    document.getElementById('closeButton').addEventListener('click', closeVideo);
+
+    // Define the closeVideo function
+    function closeVideo() {
+        const videoModal = document.getElementById('videoModal');
+        const videoPlayer = document.getElementById('videoPlayer');
+
+        videoPlayer.pause();
+        videoPlayer.currentTime = 0;
+        videoPlayer.src = ''; // Reset video source if desired
+        videoModal.style.display = 'none'; // Hide the modal
+    }
+    </script>
+</body>
+</html>
