@@ -1,215 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Folder Browser</title>
-    <style>
-        body { font-family: Arial, sans-serif; }
-        ul { list-style-type: none; padding: 0; }
-        li { margin: 5px 0; }
-        a { text-decoration: none; color: #007BFF; }
-        a:hover { text-decoration: underline; }
-        
-        /* Modal styles */
-        #videoModal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+  <meta charset="UTF-8">
+  <title>Folder Browser</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    ul { list-style-type: none; padding: 0; }
+    li { margin: 5px 0; }
+    a { text-decoration: none; color: #007BFF; }
+    a:hover { text-decoration: underline; }
+    
+    #videoModal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
 
-        #videoContainer {
-            position: relative;
-            margin-left: 50px; /* Adjust this value as needed */
-        }
+    #videoContainer {
+      position: relative;
+      margin-left: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        /* Adjust the size of the video player */
-        #videoPlayer {
-            width: 90%;          /* Increase from 80% to 90% width */
-            max-width: 1200px;   /* Increase maximum width from 800px to 1200px */
-        }
+    #videoPlayer {
+      width: 90%;
+      max-width: 1200px;
+    }
 
-        #closeButton {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: #fff;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            line-height: 26px;
-            text-align: center;
-            padding: 0;
-        }
+    #closeButton {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background-color: #fff;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      line-height: 26px;
+      text-align: center;
+      padding: 0;
+    }
 
-        /* Style for the checkbox */
-        .pass-checkbox {
-            margin-left: 10px;
-            accent-color: green; /* Make the checkbox green */
-        }
-    </style>
+    #speedControls {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .speed-button {
+      margin: 0 5px;
+      padding: 5px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .pass-checkbox {
+      margin-left: 10px;
+      accent-color: green;
+    }
+    
+    .blue-square {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: blue;
+      margin-left: 5px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Folder Browser</h1>
-    <input type="text" size="100" id="folderPath" value="I:\Vidokursu_and_Books_From_118a" placeholder="Enter folder path">
-    <button onclick="loadFolder()">Load Folder</button>
-    <ul id="fileList"></ul>
+  <h1>Folder Browser</h1>
+  <input type="text" size="100" id="folderPath" value="H:\Vidokursu_and_Books_From_118a\6.1JAVA_\03SpringFramework" placeholder="Enter folder path">
+  <button onclick="loadFolder()">Load Folder</button>
+  <ul id="fileList"></ul>
 
-    <!-- Modal for video player -->
-    <div id="videoModal">
-        <div id="videoContainer">
-            <button id="closeButton">✖</button>
-            <video id="videoPlayer" controls></video>
-        </div>
+  <!-- Modal for video player -->
+  <div id="videoModal">
+    <div id="videoContainer">
+      <button id="closeButton">✖</button>
+      <video id="videoPlayer" controls></video>
+      <!-- Speed control buttons -->
+      <div id="speedControls">
+        <button class="speed-button" data-speed="1.5">1.5x</button>
+        <button class="speed-button" data-speed="1.75">1.75x</button>
+        <button class="speed-button" data-speed="2">2x</button>
+        <button class="speed-button" data-speed="2.25">2.25x</button>
+        <button class="speed-button" data-speed="2.5">2.5x</button>
+      </div>
     </div>
+  </div>
 
-    <script>
+  <!-- Background Audio Element for Motivational Music -->
+  <audio id="backgroundAudio" loop style="display:none;">
+    <source src="music/yt1znet-RodneySpence-LastOfTheTransports.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Array of music tracks. Adjust these paths to match your /music/ folder.
+    const musicTracks = [
+      "music/Alan Walker - Faded (Instrumental Version).mp3",
+      "music/Intro.mp3",
+      "music/M83 'We Own The Sky' Official video.mp3",
+      "music/M83 - Midnight City (Instrumental).mp3",
+      "music/yt1znet-RodneySpence-LastOfTheTransports.mp3"
+    ];
+
+    var currentPath = "";
+
     async function loadFolder(folderPath) {
-        folderPath = folderPath || document.getElementById('folderPath').value;
+      folderPath = folderPath || document.getElementById('folderPath').value;
 
-        // Replace backslashes with forward slashes
-        folderPath = folderPath.replace(/\\/g, '/');
+      // Update the URL query parameter
+      const url = new URL(window.location);
+      url.searchParams.set('folder', folderPath);
+      history.replaceState(null, '', url);
 
-        const response = await fetch(`/list?folder=${encodeURIComponent(folderPath)}`);
-        const files = await response.json();
+      currentPath = folderPath;
+      // Replace backslashes with forward slashes.
+      folderPath = folderPath.replace(/\\/g, '/');
+      
+      const response = await fetch(`/list?folder=${encodeURIComponent(folderPath)}`);
+      const files = await response.json();
+      
+      const fileList = document.getElementById('fileList');
+      fileList.innerHTML = '';
 
-        const fileList = document.getElementById('fileList');
-        fileList.innerHTML = '';
-
-        // Add "Go Up" button if not at the root directory
-        const pathParts = folderPath.split('/');
-        if (pathParts.length > 1) {
-            const parentFolder = pathParts.slice(0, -1).join('/');
-
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = '#';
-            a.textContent = '.. (Go Up)';
-            a.addEventListener('click', function(event) {
-                event.preventDefault();
-                loadFolder(parentFolder);
-            });
-            li.appendChild(a);
-            fileList.appendChild(li);
-        }
-
-        // List files and folders
-        files.forEach(file => {
-            const li = document.createElement('li');
-            const filePath = file.path.replace(/\\/g, '/'); // Standardize the file path
-
-            if (file.isDirectory) {
-                const a = document.createElement('a');
-                a.href = '#';
-                a.textContent = `📁 ${file.name}`;
-                a.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    loadFolder(filePath);
-                });
-                li.appendChild(a);
-            } else {
-                const a = document.createElement('a');
-                a.href = `${filePath}`;
-                a.download = '';
-                a.textContent = `📄 ${file.name}`;
-                li.appendChild(a);
-
-                if (file.name.toLowerCase().includes("-pass")) {
-                    li.style.backgroundColor = "lightgreen"; // Add light green background
-                }
-
-                if (/\.(mp4|webm|ts|avi|mkv)$/i.test(file.name)) {
-                    // Add Play button
-                    const playButton = document.createElement('button');
-                    playButton.textContent = 'Play';
-                    playButton.addEventListener('click', function() {
-                        playVideo(filePath);
-                    });
-                    li.appendChild(playButton);
-
-                    // Add Checkbox
-                    const checkbox = document.createElement('input');
-                    checkbox.type = 'checkbox';
-                    checkbox.className = 'pass-checkbox';
-                    checkbox.checked = file.name.toLowerCase().includes('-pass'); // Set checked state
-                    checkbox.addEventListener('change', function() {
-                        if (this.checked) {
-                            markPass(filePath); // Call /markPass endpoint
-                        }
-                    });
-                    li.appendChild(checkbox);
-                }
-            }
-            fileList.appendChild(li);
+      // If not in root, add a "Go Up" entry
+      const pathParts = folderPath.split('/');
+      if (pathParts.length > 1) {
+        const parentFolder = pathParts.slice(0, -1).join('/');
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#';
+        a.textContent = '.. (Go Up)';
+        a.addEventListener('click', function(event) {
+          event.preventDefault();
+          loadFolder(parentFolder);
         });
+        li.appendChild(a);
+        fileList.appendChild(li);
+      }
+
+      // List files/folders
+      files.forEach(file => {
+        const li = document.createElement('li');
+        const filePath = file.path.replace(/\\/g, '/');
+
+        if (file.isDirectory) {
+          const a = document.createElement('a');
+          a.href = '#';
+          a.textContent = `📁 ${file.name}`;
+          a.addEventListener('click', function(event) {
+            event.preventDefault();
+            loadFolder(filePath);
+          });
+          if (file.name.toLowerCase().includes("react--")) { 
+            li.style.fontWeight = "bold";
+          }
+          if (file.name.toLowerCase().includes("==app")) {
+            li.style.textDecoration = "underline";
+          }
+          if (file.name.toLowerCase().includes("netflix")) {
+            li.style.textDecorationLine = "underline"; 
+            li.style.textDecorationStyle = "wavy";
+          }
+          li.appendChild(a);
+        } else {
+          const a = document.createElement('a');
+          a.href = `${filePath}`;
+          a.download = '';
+          a.textContent = `📄 ${file.name}`;
+          li.appendChild(a);
+          
+          if (file.name.toLowerCase().includes("-pass")) {
+            li.style.backgroundColor = "lightgreen";
+          }
+
+          if (file.name.toLowerCase().includes("-qq")) {
+            li.style.backgroundColor = "lightgreen";
+            const blueSquare = document.createElement("span");
+            blueSquare.className = "blue-square";
+            li.appendChild(blueSquare);
+          }
+
+          if (/\.(mp4|webm|ts|avi|mkv)$/i.test(file.name)) {
+            const playButton = document.createElement('button');
+            playButton.textContent = 'Play';
+            playButton.addEventListener('click', function() {
+              playVideo(filePath);
+            });
+            li.appendChild(playButton);
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.className = 'pass-checkbox';
+            checkbox.checked = file.name.toLowerCase().includes('-pass');
+            checkbox.addEventListener('change', function() {
+              if (this.checked) {
+                markPass(filePath);
+              }
+            });
+            li.appendChild(checkbox);
+          } 
+        }
+        fileList.appendChild(li);
+      });
     }
 
     function playVideo(videoPath) {
-        videoPath = videoPath.replace(/\\/g, '/'); // Ensure any backslashes are replaced
-        const videoPlayer = document.getElementById('videoPlayer');
-        videoPlayer.src = `/video?path=${encodeURIComponent(videoPath)}`;
-        console.log(`Video source set to: ${videoPlayer.src}`);
-        const videoModal = document.getElementById('videoModal');
-        videoModal.style.display = 'flex'; // Show the modal
-        videoPlayer.play();
+      videoPath = videoPath.replace(/\\/g, '/');
+      const videoPlayer = document.getElementById('videoPlayer');
+      videoPlayer.src = `/video?path=${encodeURIComponent(videoPath)}`;
+      document.getElementById('videoModal').style.display = 'flex';
+      videoPlayer.play();
+      videoPlayer.playbackRate = 1.0;
+
+      // Pick a random track from the musicTracks array.
+      const randomIndex = Math.floor(Math.random() * musicTracks.length);
+      const randomTrack = musicTracks[randomIndex];
+
+      // Set background audio to that random track and play.
+      const bgAudio = document.getElementById('backgroundAudio');
+      bgAudio.src = randomTrack;
+      bgAudio.volume = 0.02;
+      bgAudio.play();
     }
 
-    // Function to call /markPass endpoint
     async function markPass(filePath) {
-        try {
-            const response = await fetch('/markPass', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ filename: filePath }),
-            });
-
-            const result = await response.json();
-            console.log(result.message);
-
-            // Reload the folder to reflect the changes
-            loadFolder();
-        } catch (error) {
-            console.error('Error marking file as PASS:', error);
-        }
+      try {
+        const response = await fetch('/markPass', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename: filePath }),
+        });
+        const result = await response.json();
+        console.log(result.message);
+        loadFolder(currentPath);
+      } catch (error) {
+        console.error('Error marking file as PASS:', error);
+      }
     }
 
-    // Close the modal when clicking outside the video container
     document.getElementById('videoModal').addEventListener('click', function(event) {
-        if (event.target === this) {
-            closeVideo();
-        }
+      if (event.target === this) {
+        closeVideo();
+      }
     });
 
-    // Prevent clicks on the video container from closing the modal
     document.getElementById('videoContainer').addEventListener('click', function(event) {
-        event.stopPropagation();
+      event.stopPropagation();
     });
 
-    // Close the video modal when the close button is clicked
     document.getElementById('closeButton').addEventListener('click', closeVideo);
 
-    // Define the closeVideo function
     function closeVideo() {
-        const videoModal = document.getElementById('videoModal');
-        const videoPlayer = document.getElementById('videoPlayer');
+      const videoPlayer = document.getElementById('videoPlayer');
+      videoPlayer.pause();
+      videoPlayer.currentTime = 0;
+      videoPlayer.src = '';
+      document.getElementById('videoModal').style.display = 'none';
 
-        videoPlayer.pause();
-        videoPlayer.currentTime = 0;
-        videoPlayer.src = ''; // Reset video source if desired
-        videoModal.style.display = 'none'; // Hide the modal
+      const bgAudio = document.getElementById('backgroundAudio');
+      bgAudio.pause();
+      bgAudio.currentTime = 0;
     }
-    </script>
+
+    document.querySelectorAll('.speed-button').forEach(function(button) {
+      button.addEventListener('click', function() {
+        const speed = parseFloat(this.dataset.speed);
+        const videoPlayer = document.getElementById('videoPlayer');
+        videoPlayer.playbackRate = speed;
+        console.log(`Playback speed set to ${speed}x`);
+      });
+    });
+
+    // When the page loads, check for a folder param in the URL.
+    window.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const folderParam = urlParams.get('folder');
+      if (folderParam) {
+        document.getElementById('folderPath').value = folderParam;
+        loadFolder(folderParam);
+      } else {
+        loadFolder();
+      }
+    });
+  </script>
 </body>
 </html>

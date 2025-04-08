@@ -5,8 +5,12 @@ const fs = require('fs');
 const app = express();
 const port = 3000;
 
+console.log("__dirname: " + __dirname); // Add this line
+
 // Serve static files (HTML, CSS, JS)
-app.use(express.static('public'));
+//app.use(express.static('public')); /// F*ck this doesnt work is node is executed from another 
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use(express.json()); 
 
@@ -48,38 +52,59 @@ app.get('/video', (req, res) => {
     res.sendFile(absolutePath);
 });
 
+app.get('/stats', (req,res)=> {
+	    const inputFolder = req.query.folder || __dirname; // Default to current directory
+
+});
+
 app.post('/markPass', (req, res) => {
-    console.log("su0:" + req.body );
-	const { filename } = req.body; // Get filename from request body
+  console.log("Received request body:", req.body);
+  const { filename } = req.body;
 
-    if (!filename) {
-        return res.status(400).send('Filename is required in the request body');
+  if (!filename) {
+    return res.status(400).send('Filename is required in the request body');
+  }
+
+  const absolutePath = path.resolve(filename);
+
+  fs.access(absolutePath, fs.constants.F_OK, (err) => {
+    if (err) {
+      return res.status(404).send('File not found');
     }
-	
-    const absolutePath = path.resolve(filename); // Resolve to absolute path
 
-    fs.access(absolutePath, fs.constants.F_OK, (err) => { // Check if file exists
-        if (err) {
-            return res.status(404).send('File not found');
-        }
+    const { name, ext } = path.parse(absolutePath);
+    const lowerName = name.toLowerCase();
 
-        const { name, ext } = path.parse(absolutePath); // Extract name and extension
+    if (lowerName.includes('-pass')) {
+      return res.status(200).json({
+        message: 'Filename already contains "-PASS"',
+        newFilename: name + ext,
+      });
+    }
 
-        if (!name.toLowerCase().includes('-pass')) { // Case-insensitive check
-            const newName = `${name}-PASS${ext}`; // Create new filename
-            const newPath = path.join(path.dirname(absolutePath), newName); // Create full new path
+    let newName;
 
-            fs.rename(absolutePath, newPath, (err) => { // Rename the file
-                if (err) {
-                    console.error("Error renaming file:", err);
-                    return res.status(500).send('Error renaming file');
-                }
-                res.status(200).json({ message: 'File renamed successfully', newFilename: newName}); // Send success response
-            });
-        } else {
-          res.status(200).json({ message: 'Filename already contains "-PASS"', newFilename: name + ext });
-        }
+    if (lowerName.endsWith('-ffmpeg-ffmpeg')) {
+      newName = name.replace(/-ffmpeg-ffmpeg$/i, '-PASS-ffmpeg-ffmpeg');
+    } else if (lowerName.endsWith('-ffmpeg')) {
+      newName = name.replace(/-ffmpeg$/i, '-PASS-ffmpeg');
+    } else {
+      newName = `${name}-PASS`;
+    }
+
+    const newPath = path.join(path.dirname(absolutePath), newName + ext);
+
+    fs.rename(absolutePath, newPath, (renameErr) => {
+      if (renameErr) {
+        console.error('Error renaming file:', renameErr);
+        return res.status(500).send('Error renaming file');
+      }
+      res.status(200).json({
+        message: 'File renamed successfully',
+        newFilename: newName + ext,
+      });
     });
+  });
 });
 
 // Start the server
