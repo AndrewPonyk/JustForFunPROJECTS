@@ -94,22 +94,24 @@
             if (distance < 0) {
                 document.getElementById("countdown-hh-mm-ss").innerHTML = "00:00:00";
                 document.getElementById("countdown-ss").innerHTML = "0";
-                document.getElementById("full-countdown-container").querySelector("h1").textContent = "Event Started!";
-                document.getElementById("seconds-only-counter").querySelector("h1").textContent = "Event Started!";
+                document.getElementById("full-countdown-container").querySelector("h1").textContent = "Countdown Over!";
+                document.getElementById("seconds-only-counter").querySelector("h1").textContent = "Countdown Over!";
                 clearInterval(interval); // Stop the timer
                 return;
             }
 
-            // Calculate hours, minutes, seconds
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            // --- CORRECTED CALCULATION FOR TOTAL HOURS ---
+            const totalHours = Math.floor(distance / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Calculate total seconds
+            // Calculate total seconds (this part was already correct)
             const totalSeconds = Math.floor(distance / 1000);
 
             // Format numbers to always have two digits (e.g., 05 instead of 5)
-            const formattedHours = String(hours).padStart(2, '0');
+            // Note: totalHours might be more than 99, so padStart(2) is for consistency,
+            // but it won't force it to two digits if it's 3 digits or more.
+            const formattedHours = String(totalHours).padStart(2, '0');
             const formattedMinutes = String(minutes).padStart(2, '0');
             const formattedSeconds = String(seconds).padStart(2, '0');
 
