@@ -1,5 +1,131 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown to August 29th</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5; /* Light gray background */
+            color: #333; /* Dark gray text */
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px 60px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 30px; /* Space between the two counters */
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: #007bff; /* Blue heading */
+            margin-bottom: 25px;
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+
+        .countdown-display {
+            font-size: 3.5em; /* Large numbers */
+            font-weight: bold;
+            color: #28a745; /* Green for countdown */
+            letter-spacing: 2px;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #e9ecef; /* Slightly darker background for the numbers */
+            border-radius: 8px;
+            display: inline-block; /* To make padding work */
+            min-width: 250px; /* Ensure consistent width */
+        }
+
+        .label {
+            font-size: 1.2em;
+            color: #6c757d; /* Muted gray for labels */
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* Styles for the seconds-only display */
+        #seconds-only-counter .countdown-display {
+            font-size: 4.5em; /* Even larger for single number */
+            color: #dc3545; /* Red for seconds */
+            min-width: 150px;
+        }
+    </style>
+</head>
 <body>
-test
+
+    <div class="container" id="full-countdown-container">
+        <h1>Time Left to August 29th</h1>
+        <div class="countdown-display" id="countdown-hh-mm-ss">--:--:--</div>
+        <span class="label">Hours:Minutes:Seconds</span>
+    </div>
+
+    <div class="container" id="seconds-only-counter">
+        <h1>Seconds Remaining</h1>
+        <div class="countdown-display" id="countdown-ss">--</div>
+        <span class="label">Seconds</span>
+    </div>
+
+    <script>
+        // Set the target date (August 29th, 2025, 00:00:00)
+        // Note: Months are 0-indexed in JavaScript, so August is 7.
+        const targetDate = new Date("2025-08-29T00:00:00").getTime();
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            // If the countdown is over
+            if (distance < 0) {
+                document.getElementById("countdown-hh-mm-ss").innerHTML = "00:00:00";
+                document.getElementById("countdown-ss").innerHTML = "0";
+                document.getElementById("full-countdown-container").querySelector("h1").textContent = "Event Started!";
+                document.getElementById("seconds-only-counter").querySelector("h1").textContent = "Event Started!";
+                clearInterval(interval); // Stop the timer
+                return;
+            }
+
+            // Calculate hours, minutes, seconds
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Calculate total seconds
+            const totalSeconds = Math.floor(distance / 1000);
+
+            // Format numbers to always have two digits (e.g., 05 instead of 5)
+            const formattedHours = String(hours).padStart(2, '0');
+            const formattedMinutes = String(minutes).padStart(2, '0');
+            const formattedSeconds = String(seconds).padStart(2, '0');
+
+            // Update the display for hh:mm:ss
+            document.getElementById("countdown-hh-mm-ss").innerHTML = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+
+            // Update the display for seconds only
+            document.getElementById("countdown-ss").innerHTML = String(totalSeconds);
+        };
+
+        // Update the countdown every second
+        const interval = setInterval(updateCountdown, 1000);
+
+        // Run immediately on page load to avoid initial "--:--:--" flicker
+        updateCountdown();
+    </script>
+
 </body>
 </html>
