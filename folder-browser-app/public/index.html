@@ -69,6 +69,11 @@
       accent-color: green;
     }
     
+    .wtc-checkbox {
+      margin-left: 5px;
+      accent-color: #90EE90;
+    }
+    
     .blue-square {
       display: inline-block;
       width: 10px;
@@ -89,7 +94,6 @@
     <div id="videoContainer">
       <button id="closeButton">✖</button>
       <video id="videoPlayer" controls></video>
-      <!-- Speed control buttons -->
       <div id="speedControls">
         <button class="speed-button" data-speed="1.5">1.5x</button>
         <button class="speed-button" data-speed="1.75">1.75x</button>
@@ -165,6 +169,14 @@
             event.preventDefault();
             loadFolder(filePath);
           });
+          
+          // Color styling - PASS overrides wtc
+          if (file.name.toLowerCase().includes("-pass")) {
+            li.style.backgroundColor = "lightgreen";
+          } else if (file.name.toLowerCase().includes("-wtc")) {
+            li.style.backgroundColor = "#E8F5E8";
+          }
+          
           if (file.name.toLowerCase().includes("react--")) { 
             li.style.fontWeight = "bold";
           }
@@ -183,8 +195,11 @@
           a.textContent = `📄 ${file.name}`;
           li.appendChild(a);
           
+          // Color styling - PASS overrides wtc
           if (file.name.toLowerCase().includes("-pass")) {
             li.style.backgroundColor = "lightgreen";
+          } else if (file.name.toLowerCase().includes("-wtc")) {
+            li.style.backgroundColor = "#E8F5E8";
           }
 
           if (file.name.toLowerCase().includes("-qq")) {
@@ -212,6 +227,17 @@
               }
             });
             li.appendChild(checkbox);
+            
+            const wtcCheckbox = document.createElement('input');
+            wtcCheckbox.type = 'checkbox';
+            wtcCheckbox.className = 'wtc-checkbox';
+            wtcCheckbox.checked = file.name.toLowerCase().includes('-wtc');
+            wtcCheckbox.addEventListener('change', function() {
+              if (this.checked) {
+                markWtc(filePath);
+              }
+            });
+            li.appendChild(wtcCheckbox);
           } 
         }
         fileList.appendChild(li);
@@ -249,6 +275,21 @@
         loadFolder(currentPath);
       } catch (error) {
         console.error('Error marking file as PASS:', error);
+      }
+    }
+    
+    async function markWtc(filePath) {
+      try {
+        const response = await fetch('/markWtc', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename: filePath }),
+        });
+        const result = await response.json();
+        console.log(result.message);
+        loadFolder(currentPath);
+      } catch (error) {
+        console.error('Error marking file as WTC:', error);
       }
     }
 

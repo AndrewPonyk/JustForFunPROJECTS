@@ -107,6 +107,56 @@ app.post('/markPass', (req, res) => {
   });
 });
 
+app.post('/markWtc', (req, res) => {
+  console.log("Received request body:", req.body);
+  const { filename } = req.body;
+
+  if (!filename) {
+    return res.status(400).send('Filename is required in the request body');
+  }
+
+  const absolutePath = path.resolve(filename);
+
+  fs.access(absolutePath, fs.constants.F_OK, (err) => {
+    if (err) {
+      return res.status(404).send('File not found');
+    }
+
+    const { name, ext } = path.parse(absolutePath);
+    const lowerName = name.toLowerCase();
+
+    if (lowerName.includes('-wtc')) {
+      return res.status(200).json({
+        message: 'Filename already contains "-wtc"',
+        newFilename: name + ext,
+      });
+    }
+
+    let newName;
+
+    if (lowerName.endsWith('-ffmpeg-ffmpeg')) {
+      newName = name.replace(/-ffmpeg-ffmpeg$/i, '-wtc-ffmpeg-ffmpeg');
+    } else if (lowerName.endsWith('-ffmpeg')) {
+      newName = name.replace(/-ffmpeg$/i, '-wtc-ffmpeg');
+    } else {
+      newName = `${name}-wtc`;
+    }
+
+    const newPath = path.join(path.dirname(absolutePath), newName + ext);
+
+    fs.rename(absolutePath, newPath, (renameErr) => {
+      if (renameErr) {
+        console.error('Error renaming file:', renameErr);
+        return res.status(500).send('Error renaming file');
+      }
+      res.status(200).json({
+        message: 'File renamed successfully',
+        newFilename: newName + ext,
+      });
+    });
+  });
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
