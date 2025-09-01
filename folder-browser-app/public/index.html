@@ -67,11 +67,15 @@
     .pass-checkbox {
       margin-left: 10px;
       accent-color: green;
+      width: 20px;
+      height: 20px;
     }
     
     .wtc-checkbox {
       margin-left: 5px;
       accent-color: #90EE90;
+      width: 20px;
+      height: 20px;
     }
     
     .blue-square {
@@ -95,11 +99,13 @@
       <button id="closeButton">✖</button>
       <video id="videoPlayer" controls></video>
       <div id="speedControls">
+        <button class="speed-button" data-speed="1">1x</button>
         <button class="speed-button" data-speed="1.5">1.5x</button>
         <button class="speed-button" data-speed="1.75">1.75x</button>
         <button class="speed-button" data-speed="2">2x</button>
         <button class="speed-button" data-speed="2.25">2.25x</button>
         <button class="speed-button" data-speed="2.5">2.5x</button>
+        <button class="speed-button" data-speed="2.75">2.75x</button>
       </div>
     </div>
   </div>
@@ -188,11 +194,55 @@
             li.style.textDecorationStyle = "wavy";
           }
           li.appendChild(a);
+          
+          // Add checkboxes for folders
+          const passLabel = document.createElement('span');
+          passLabel.textContent = ' P:';
+          passLabel.style.fontSize = '12px';
+          passLabel.style.color = '#666';
+          li.appendChild(passLabel);
+          
+          const passCheckbox = document.createElement('input');
+          passCheckbox.type = 'checkbox';
+          passCheckbox.className = 'pass-checkbox';
+          passCheckbox.checked = file.name.toLowerCase().includes('-pass');
+          passCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+              markPass(filePath);
+            }
+          });
+          li.appendChild(passCheckbox);
+          
+          const wtcLabel = document.createElement('span');
+          wtcLabel.textContent = ' W:';
+          wtcLabel.style.fontSize = '12px';
+          wtcLabel.style.color = '#666';
+          li.appendChild(wtcLabel);
+          
+          const wtcCheckbox = document.createElement('input');
+          wtcCheckbox.type = 'checkbox';
+          wtcCheckbox.className = 'wtc-checkbox';
+          wtcCheckbox.checked = file.name.toLowerCase().includes('-wtc');
+          wtcCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+              markWtc(filePath);
+            }
+          });
+          li.appendChild(wtcCheckbox);
         } else {
           const a = document.createElement('a');
-          a.href = `${filePath}`;
-          a.download = '';
-          a.textContent = `📄 ${file.name}`;
+          if (/\.(mp4|webm|ts|avi|mkv)$/i.test(file.name)) {
+            a.href = '#';
+            a.textContent = `📄 ${file.name}`;
+            a.addEventListener('click', function(event) {
+              event.preventDefault();
+              playVideo(filePath);
+            });
+          } else {
+            a.href = `${filePath}`;
+            a.download = '';
+            a.textContent = `📄 ${file.name}`;
+          }
           li.appendChild(a);
           
           // Color styling - PASS overrides wtc
@@ -217,6 +267,12 @@
             });
             li.appendChild(playButton);
 
+            const passLabel = document.createElement('span');
+            passLabel.textContent = ' P:';
+            passLabel.style.fontSize = '12px';
+            passLabel.style.color = '#666';
+            li.appendChild(passLabel);
+            
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.className = 'pass-checkbox';
@@ -227,6 +283,12 @@
               }
             });
             li.appendChild(checkbox);
+            
+            const wtcLabel = document.createElement('span');
+            wtcLabel.textContent = ' W:';
+            wtcLabel.style.fontSize = '12px';
+            wtcLabel.style.color = '#666';
+            li.appendChild(wtcLabel);
             
             const wtcCheckbox = document.createElement('input');
             wtcCheckbox.type = 'checkbox';
@@ -250,7 +312,7 @@
       videoPlayer.src = `/video?path=${encodeURIComponent(videoPath)}`;
       document.getElementById('videoModal').style.display = 'flex';
       videoPlayer.play();
-      videoPlayer.playbackRate = 1.0;
+      videoPlayer.playbackRate = 2.5;
 
       // Pick a random track from the musicTracks array.
       const randomIndex = Math.floor(Math.random() * musicTracks.length);
