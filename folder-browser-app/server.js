@@ -157,6 +157,58 @@ app.post('/markWtc', (req, res) => {
   });
 });
 
+app.post('/setRating', (req, res) => {
+  console.log("Received request body:", req.body);
+  const { filename, rating } = req.body;
+
+  if (!filename || rating === undefined) {
+    return res.status(400).send('Filename and rating are required in the request body');
+  }
+
+  if (rating < 0 || rating > 3 || !Number.isInteger(rating)) {
+    return res.status(400).send('Rating must be an integer between 0 and 3');
+  }
+
+  const absolutePath = path.resolve(filename);
+
+  fs.access(absolutePath, fs.constants.F_OK, (err) => {
+    if (err) {
+      return res.status(404).send('File not found');
+    }
+
+    const { name, ext } = path.parse(absolutePath);
+    
+    // Remove existing rating if any
+    let cleanName = name.replace(/-r[0-3]/gi, '');
+    const lowerCleanName = cleanName.toLowerCase();
+    
+    let newName;
+    const ratingTag = `-r${rating}`;
+
+    if (lowerCleanName.endsWith('-ffmpeg-ffmpeg')) {
+      newName = cleanName.replace(/-ffmpeg-ffmpeg$/i, `${ratingTag}-ffmpeg-ffmpeg`);
+    } else if (lowerCleanName.endsWith('-ffmpeg')) {
+      newName = cleanName.replace(/-ffmpeg$/i, `${ratingTag}-ffmpeg`);
+    } else {
+      newName = `${cleanName}${ratingTag}`;
+    }
+
+    const newPath = path.join(path.dirname(absolutePath), newName + ext);
+
+    fs.rename(absolutePath, newPath, (renameErr) => {
+      if (renameErr) {
+        console.error('Error renaming file:', renameErr);
+        return res.status(500).send('Error renaming file');
+      }
+      res.status(200).json({
+        message: 'File rating updated successfully',
+        newFilename: newName + ext,
+        rating: rating,
+      });
+    });
+  });
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);

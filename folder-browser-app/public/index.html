@@ -85,6 +85,47 @@
       background-color: blue;
       margin-left: 5px;
     }
+    
+    .rating-bars {
+      display: inline-flex;
+      align-items: flex-end;
+      margin-left: 5px;
+      height: 16px;
+      width: 20px;
+      background-color: white;
+      border-radius: 2px;
+      padding: 1px;
+    }
+    
+    .rating-bar {
+      width: 4px;
+      background-color: #333;
+      margin-right: 1px;
+    }
+    
+    .rating-bar.bar1 { height: 4px; }
+    .rating-bar.bar2 { height: 8px; }
+    .rating-bar.bar3 { height: 12px; }
+    .rating-bar.bar4 { height: 16px; }
+    
+    .rating-bars.rating-3 .rating-bar {
+      background-color: #32CD32;
+      box-shadow: 0 0 4px #32CD32;
+    }
+    
+    .rating-bars.rating-2 .rating-bar {
+      background-color: #FFA500;
+    }
+    
+    .rating-bars.rating-1 .rating-bar {
+      background-color: #FF4444;
+    }
+    
+    .rating-select {
+      margin-left: 5px;
+      font-size: 12px;
+      width: 40px;
+    }
   </style>
 </head>
 <body>
@@ -229,6 +270,26 @@
             }
           });
           li.appendChild(wtcCheckbox);
+          
+          // Add rating system for folders
+          const currentRating = extractRating(file.name);
+          
+          const ratingBars = createRatingBars(currentRating);
+          li.appendChild(ratingBars);
+          
+          const ratingSelect = document.createElement('select');
+          ratingSelect.className = 'rating-select';
+          for (let i = 0; i <= 3; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            option.selected = (i === currentRating);
+            ratingSelect.appendChild(option);
+          }
+          ratingSelect.addEventListener('change', function() {
+            setRating(filePath, parseInt(this.value));
+          });
+          li.appendChild(ratingSelect);
         } else {
           const a = document.createElement('a');
           if (/\.(mp4|webm|ts|avi|mkv)$/i.test(file.name)) {
@@ -301,6 +362,26 @@
             });
             li.appendChild(wtcCheckbox);
           } 
+          
+          // Add rating system for ALL files (outside video conditional)
+          const fileRating = extractRating(file.name);
+          
+          const fileRatingBars = createRatingBars(fileRating);
+          li.appendChild(fileRatingBars);
+          
+          const fileRatingSelect = document.createElement('select');
+          fileRatingSelect.className = 'rating-select';
+          for (let i = 0; i <= 3; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            option.selected = (i === fileRating);
+            fileRatingSelect.appendChild(option);
+          }
+          fileRatingSelect.addEventListener('change', function() {
+            setRating(filePath, parseInt(this.value));
+          });
+          li.appendChild(fileRatingSelect);
         }
         fileList.appendChild(li);
       });
@@ -352,6 +433,42 @@
         loadFolder(currentPath);
       } catch (error) {
         console.error('Error marking file as WTC:', error);
+      }
+    }
+    
+    function extractRating(filename) {
+      const match = filename.match(/-r([0-3])/i);
+      return match ? parseInt(match[1]) : 0;
+    }
+    
+    function createRatingBars(rating) {
+      const container = document.createElement('div');
+      container.className = `rating-bars rating-${rating}`;
+      
+      for (let i = 1; i <= 4; i++) {
+        const bar = document.createElement('div');
+        bar.className = `rating-bar bar${i}`;
+        if (i > rating) {
+          bar.style.opacity = '0.2';
+        }
+        container.appendChild(bar);
+      }
+      
+      return container;
+    }
+    
+    async function setRating(filePath, rating) {
+      try {
+        const response = await fetch('/setRating', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename: filePath, rating: rating }),
+        });
+        const result = await response.json();
+        console.log(result.message);
+        loadFolder(currentPath);
+      } catch (error) {
+        console.error('Error setting rating:', error);
       }
     }
 
