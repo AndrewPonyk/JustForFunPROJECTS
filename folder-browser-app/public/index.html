@@ -23,6 +23,192 @@
       z-index: 1000;
     }
 
+    #contentModal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1001;
+    }
+
+    #contentContainer {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 98%;
+      max-height: 98%;
+      background-color: white;
+      border-radius: 8px;
+      padding: 10px;
+      overflow: auto;
+    }
+
+    #contentTitle {
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #333;
+      text-align: center;
+    }
+
+    #imageViewer {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    #textViewer {
+      max-width: 95vw;
+      max-height: 90vh;
+      overflow: auto;
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 15px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    #pdfViewer {
+      width: 95vw;
+      height: 90vh;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    #epubViewer {
+      width: 95vw;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #epubContainer {
+      display: flex;
+      flex: 1;
+      height: 100%;
+    }
+
+    #epubSidebar {
+      width: 250px;
+      border: 1px solid #ddd;
+      border-right: none;
+      background-color: #f9f9f9;
+      overflow-y: auto;
+      flex-shrink: 0;
+    }
+
+    #epubSidebarHeader {
+      padding: 10px;
+      background-color: #e9ecef;
+      border-bottom: 1px solid #ddd;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    #epubToc {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    #epubToc li {
+      padding: 8px 15px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    #epubToc li:hover {
+      background-color: #e6f3ff;
+    }
+
+    #epubToc li.active {
+      background-color: #007BFF;
+      color: white;
+    }
+
+    #epubToc li.nested {
+      padding-left: 25px;
+      font-size: 12px;
+    }
+
+    #epubMainContent {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #epubControls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+    }
+
+    #epubControls button {
+      padding: 8px 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    #epubControls button:hover {
+      background-color: #0056b3;
+    }
+
+    #epubControls button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    #epubProgress {
+      font-size: 14px;
+      color: #666;
+    }
+
+    #epubReader {
+      flex: 1;
+      border: 1px solid #ddd;
+      border-radius: 0 0 4px 4px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    #contentCloseButton {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background-color: #fff;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      line-height: 26px;
+      text-align: center;
+      padding: 0;
+      z-index: 1002;
+    }
+
     #videoContainer {
       position: relative;
       margin-left: 50px;
@@ -146,7 +332,35 @@
         <button class="speed-button" data-speed="2">2x</button>
         <button class="speed-button" data-speed="2.25">2.25x</button>
         <button class="speed-button" data-speed="2.5">2.5x</button>
-        <button class="speed-button" data-speed="2.75">2.75x</button>
+        <button class="speed-button" data-speed="2.8">2.8x</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for content viewer (images and text) -->
+  <div id="contentModal">
+    <div id="contentContainer">
+      <button id="contentCloseButton">✖</button>
+      <div id="contentTitle"></div>
+      <img id="imageViewer" src="" alt="" style="display: none;">
+      <pre id="textViewer" style="display: none;"></pre>
+      <iframe id="pdfViewer" src="" style="display: none;"></iframe>
+      <div id="epubViewer" style="display: none;">
+        <div id="epubControls">
+          <button id="epubPrev">◀ Previous</button>
+          <span id="epubProgress"></span>
+          <button id="epubNext">Next ▶</button>
+          <button id="toggleToc">📚 TOC</button>
+        </div>
+        <div id="epubContainer">
+          <div id="epubSidebar">
+            <div id="epubSidebarHeader">Table of Contents</div>
+            <ul id="epubToc"></ul>
+          </div>
+          <div id="epubMainContent">
+            <div id="epubReader"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -156,6 +370,11 @@
     <source src="music/yt1znet-RodneySpence-LastOfTheTransports.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
+
+  <!-- JSZip Library (required for EPUB.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <!-- EPUB.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.93/dist/epub.min.js"></script>
 
   <script>
     // Array of music tracks. Adjust these paths to match your /music/ folder.
@@ -297,7 +516,35 @@
             a.textContent = `📄 ${file.name}`;
             a.addEventListener('click', function(event) {
               event.preventDefault();
-              playVideo(filePath);
+              playVideoFullscreen(filePath);
+            });
+          } else if (/\.(png|jpg|jpeg|gif|bmp|webp)$/i.test(file.name)) {
+            a.href = '#';
+            a.textContent = `🖼️ ${file.name}`;
+            a.addEventListener('click', function(event) {
+              event.preventDefault();
+              openImage(filePath);
+            });
+          } else if (/\.(txt|json|xml|js|css|html|md|log|csv|sql|php|py|java|cpp|h|c|sh|bat|yml|yaml|ini|cfg|conf|properties)$/i.test(file.name)) {
+            a.href = '#';
+            a.textContent = `📝 ${file.name}`;
+            a.addEventListener('click', function(event) {
+              event.preventDefault();
+              openText(filePath);
+            });
+          } else if (/\.(pdf)$/i.test(file.name)) {
+            a.href = '#';
+            a.textContent = `📋 ${file.name}`;
+            a.addEventListener('click', function(event) {
+              event.preventDefault();
+              openPdf(filePath);
+            });
+          } else if (/\.(epub)$/i.test(file.name)) {
+            a.href = '#';
+            a.textContent = `📖 ${file.name}`;
+            a.addEventListener('click', function(event) {
+              event.preventDefault();
+              openEpub(filePath);
             });
           } else {
             a.href = `${filePath}`;
@@ -324,7 +571,7 @@
             const playButton = document.createElement('button');
             playButton.textContent = 'Play';
             playButton.addEventListener('click', function() {
-              playVideo(filePath);
+              playVideoFullscreen(filePath);
             });
             li.appendChild(playButton);
 
@@ -406,6 +653,36 @@
       bgAudio.play();
     }
 
+    function playVideoFullscreen(videoPath) {
+      videoPath = videoPath.replace(/\\/g, '/');
+      const videoPlayer = document.getElementById('videoPlayer');
+      videoPlayer.src = `/video?path=${encodeURIComponent(videoPath)}`;
+      document.getElementById('videoModal').style.display = 'flex';
+      videoPlayer.play();
+      videoPlayer.playbackRate = 2.5;
+      
+      // Request fullscreen for the video after a short delay to ensure it's ready
+      setTimeout(() => {
+        if (videoPlayer.requestFullscreen) {
+          videoPlayer.requestFullscreen();
+        } else if (videoPlayer.webkitRequestFullscreen) {
+          videoPlayer.webkitRequestFullscreen();
+        } else if (videoPlayer.msRequestFullscreen) {
+          videoPlayer.msRequestFullscreen();
+        }
+      }, 100);
+
+      // Pick a random track from the musicTracks array.
+      const randomIndex = Math.floor(Math.random() * musicTracks.length);
+      const randomTrack = musicTracks[randomIndex];
+
+      // Set background audio to that random track and play.
+      const bgAudio = document.getElementById('backgroundAudio');
+      bgAudio.src = randomTrack;
+      bgAudio.volume = 0.02;
+      bgAudio.play();
+    }
+
     async function markPass(filePath) {
       try {
         const response = await fetch('/markPass', {
@@ -471,6 +748,280 @@
         console.error('Error setting rating:', error);
       }
     }
+    
+    function openImage(imagePath) {
+      imagePath = imagePath.replace(/\\/g, '/');
+      const imageViewer = document.getElementById('imageViewer');
+      const textViewer = document.getElementById('textViewer');
+      const contentTitle = document.getElementById('contentTitle');
+      
+      // Hide text viewer, show image viewer
+      textViewer.style.display = 'none';
+      imageViewer.style.display = 'block';
+      
+      imageViewer.src = `/image?path=${encodeURIComponent(imagePath)}`;
+      contentTitle.textContent = imagePath.split('/').pop();
+      document.getElementById('contentModal').style.display = 'flex';
+    }
+    
+    async function openText(textPath) {
+      try {
+        textPath = textPath.replace(/\\/g, '/');
+        const response = await fetch(`/text?path=${encodeURIComponent(textPath)}`);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        
+        const result = await response.json();
+        
+        if (result.error) {
+          throw new Error(result.error);
+        }
+        
+        const imageViewer = document.getElementById('imageViewer');
+        const textViewer = document.getElementById('textViewer');
+        const contentTitle = document.getElementById('contentTitle');
+        
+        // Hide image viewer, show text viewer
+        imageViewer.style.display = 'none';
+        textViewer.style.display = 'block';
+        
+        textViewer.textContent = result.content;
+        contentTitle.textContent = result.filename;
+        document.getElementById('contentModal').style.display = 'flex';
+      } catch (error) {
+        console.error('Error loading text file:', error);
+        alert(`Error loading file: ${error.message}`);
+      }
+    }
+    
+    function openPdf(pdfPath) {
+      pdfPath = pdfPath.replace(/\\/g, '/');
+      const imageViewer = document.getElementById('imageViewer');
+      const textViewer = document.getElementById('textViewer');
+      const pdfViewer = document.getElementById('pdfViewer');
+      const contentTitle = document.getElementById('contentTitle');
+      
+      // Hide other viewers, show PDF viewer
+      imageViewer.style.display = 'none';
+      textViewer.style.display = 'none';
+      pdfViewer.style.display = 'block';
+      
+      pdfViewer.src = `/pdf?path=${encodeURIComponent(pdfPath)}`;
+      contentTitle.textContent = pdfPath.split('/').pop();
+      document.getElementById('contentModal').style.display = 'flex';
+    }
+    
+    let currentEpub = null;
+    let rendition = null;
+    let tocVisible = true;
+    
+    function openEpub(epubPath) {
+      try {
+        epubPath = epubPath.replace(/\\/g, '/');
+        const imageViewer = document.getElementById('imageViewer');
+        const textViewer = document.getElementById('textViewer');
+        const pdfViewer = document.getElementById('pdfViewer');
+        const epubViewer = document.getElementById('epubViewer');
+        const contentTitle = document.getElementById('contentTitle');
+        
+        // Hide other viewers, show EPUB viewer
+        imageViewer.style.display = 'none';
+        textViewer.style.display = 'none';
+        pdfViewer.style.display = 'none';
+        epubViewer.style.display = 'flex';
+        
+        // Initialize EPUB
+        const epubUrl = `/epub?path=${encodeURIComponent(epubPath)}`;
+        currentEpub = ePub();
+        
+        // Clear previous content
+        document.getElementById('epubReader').innerHTML = '';
+        document.getElementById('epubToc').innerHTML = '';
+        
+        // Open the EPUB file
+        currentEpub.open(epubUrl).then(function() {
+          // Create rendition with continuous scrolling
+          rendition = currentEpub.renderTo('epubReader', {
+            width: '100%',
+            height: '100%',
+            spread: 'none',
+            flow: 'scrolled-doc',
+            allowScriptedContent: true,
+            script: 'https://cdn.jsdelivr.net/npm/epubjs@0.3.93/dist/epub.min.js'
+          });
+          
+          // Load table of contents
+          loadTableOfContents();
+          
+          // Display first page
+          return rendition.display();
+        }).then(function() {
+          // Update title and show modal
+          contentTitle.textContent = epubPath.split('/').pop();
+          document.getElementById('contentModal').style.display = 'flex';
+          
+          // Update progress
+          updateEpubProgress();
+          
+          // Set up location changed listener for progress updates
+          rendition.on('relocated', function(location) {
+            updateEpubProgress();
+            highlightCurrentTocItem(location);
+          });
+        }).catch(function(error) {
+          console.error('Error loading EPUB:', error);
+          alert('Error loading EPUB file: ' + error.message);
+        });
+        
+      } catch (error) {
+        console.error('Error opening EPUB:', error);
+        alert('Error opening EPUB file');
+      }
+    }
+    
+    function loadTableOfContents() {
+      if (!currentEpub) return;
+      
+      currentEpub.loaded.navigation.then(function(nav) {
+        const tocContainer = document.getElementById('epubToc');
+        tocContainer.innerHTML = '';
+        
+        function renderTocItem(tocItem, level = 0) {
+          if (!tocItem || !tocItem.label) {
+            console.warn('Invalid TOC item:', tocItem);
+            return;
+          }
+          
+          const li = document.createElement('li');
+          li.textContent = tocItem.label.trim();
+          if (level > 0) {
+            li.classList.add('nested');
+          }
+          if (tocItem.href) {
+            li.dataset.href = tocItem.href;
+          }
+          
+          // Add click handler to navigate to chapter
+          li.addEventListener('click', function() {
+            if (rendition && tocItem.href) {
+              try {
+                rendition.display(tocItem.href);
+                // Remove active class from all items
+                tocContainer.querySelectorAll('li').forEach(item => item.classList.remove('active'));
+                // Add active class to clicked item
+                li.classList.add('active');
+              } catch (error) {
+                console.error('Error navigating to chapter:', error);
+              }
+            }
+          });
+          
+          tocContainer.appendChild(li);
+          
+          // Render nested items
+          if (tocItem.subitems && tocItem.subitems.length > 0) {
+            tocItem.subitems.forEach(subitem => renderTocItem(subitem, level + 1));
+          }
+        }
+        
+        // Render table of contents
+        if (nav && nav.toc && nav.toc.length > 0) {
+          nav.toc.forEach(tocItem => renderTocItem(tocItem));
+        } else {
+          // Fallback: show a message if no TOC is available
+          const li = document.createElement('li');
+          li.textContent = 'Table of contents not available';
+          li.style.fontStyle = 'italic';
+          li.style.color = '#666';
+          tocContainer.appendChild(li);
+        }
+      }).catch(function(error) {
+        console.error('Error loading table of contents:', error);
+        // Show error message in TOC
+        const tocContainer = document.getElementById('epubToc');
+        const li = document.createElement('li');
+        li.textContent = 'Error loading table of contents';
+        li.style.fontStyle = 'italic';
+        li.style.color = '#d32f2f';
+        tocContainer.appendChild(li);
+      });
+    }
+    
+    function highlightCurrentTocItem(location) {
+      if (!location || !location.start) return;
+      
+      const tocItems = document.querySelectorAll('#epubToc li');
+      tocItems.forEach(item => item.classList.remove('active'));
+      
+      // Find the most relevant TOC item based on current location
+      let currentItem = null;
+      tocItems.forEach(item => {
+        const href = item.dataset.href;
+        if (href && location.start.href && location.start.href.includes(href.split('#')[0])) {
+          currentItem = item;
+        }
+      });
+      
+      if (currentItem) {
+        currentItem.classList.add('active');
+      }
+    }
+    
+    function toggleTableOfContents() {
+      const sidebar = document.getElementById('epubSidebar');
+      const button = document.getElementById('toggleToc');
+      
+      if (tocVisible) {
+        sidebar.style.display = 'none';
+        button.textContent = '📚 Show TOC';
+        tocVisible = false;
+      } else {
+        sidebar.style.display = 'block';
+        button.textContent = '📚 TOC';
+        tocVisible = true;
+      }
+    }
+    
+    function updateEpubProgress() {
+      if (currentEpub && rendition) {
+        const location = rendition.currentLocation();
+        if (location && location.start) {
+          const progress = Math.round(location.start.percentage * 100);
+          document.getElementById('epubProgress').textContent = `${progress}%`;
+        }
+      }
+    }
+    
+    function closeContent() {
+      const imageViewer = document.getElementById('imageViewer');
+      const textViewer = document.getElementById('textViewer');
+      const pdfViewer = document.getElementById('pdfViewer');
+      const epubViewer = document.getElementById('epubViewer');
+      const contentTitle = document.getElementById('contentTitle');
+      
+      // Clean up EPUB
+      if (rendition) {
+        rendition.destroy();
+        rendition = null;
+      }
+      if (currentEpub) {
+        currentEpub.destroy();
+        currentEpub = null;
+      }
+      
+      imageViewer.src = '';
+      textViewer.textContent = '';
+      pdfViewer.src = '';
+      document.getElementById('epubReader').innerHTML = '';
+      contentTitle.textContent = '';
+      imageViewer.style.display = 'none';
+      textViewer.style.display = 'none';
+      pdfViewer.style.display = 'none';
+      epubViewer.style.display = 'none';
+      document.getElementById('contentModal').style.display = 'none';
+    }
 
     document.getElementById('videoModal').addEventListener('click', function(event) {
       if (event.target === this) {
@@ -483,6 +1034,47 @@
     });
 
     document.getElementById('closeButton').addEventListener('click', closeVideo);
+
+    // Content modal event listeners
+    document.getElementById('contentModal').addEventListener('click', function(event) {
+      if (event.target === this) {
+        closeContent();
+      }
+    });
+
+    document.getElementById('contentContainer').addEventListener('click', function(event) {
+      event.stopPropagation();
+    });
+
+    document.getElementById('contentCloseButton').addEventListener('click', closeContent);
+
+    // EPUB controls event listeners
+    document.getElementById('epubPrev').addEventListener('click', function() {
+      if (rendition) {
+        rendition.prev().then(updateEpubProgress);
+      }
+    });
+
+    document.getElementById('epubNext').addEventListener('click', function() {
+      if (rendition) {
+        rendition.next().then(updateEpubProgress);
+      }
+    });
+    
+    document.getElementById('toggleToc').addEventListener('click', toggleTableOfContents);
+
+    // Add keyboard navigation for EPUB
+    document.addEventListener('keydown', function(event) {
+      if (document.getElementById('epubViewer').style.display === 'flex') {
+        if (event.key === 'ArrowLeft' && rendition) {
+          event.preventDefault();
+          rendition.prev().then(updateEpubProgress);
+        } else if (event.key === 'ArrowRight' && rendition) {
+          event.preventDefault();
+          rendition.next().then(updateEpubProgress);
+        }
+      }
+    });
 
     function closeVideo() {
       const videoPlayer = document.getElementById('videoPlayer');

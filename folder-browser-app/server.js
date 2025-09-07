@@ -52,6 +52,71 @@ app.get('/video', (req, res) => {
     res.sendFile(absolutePath);
 });
 
+// Serve image files
+app.get('/image', (req, res) => {
+    const filePath = req.query.path;
+    console.log('Image file request:', filePath);
+    if (!filePath) {
+        return res.status(400).send('File path is required');
+    }
+    const absolutePath = path.resolve(filePath);
+    res.sendFile(absolutePath);
+});
+
+// Serve PDF files
+app.get('/pdf', (req, res) => {
+    const filePath = req.query.path;
+    console.log('PDF file request:', filePath);
+    if (!filePath) {
+        return res.status(400).send('File path is required');
+    }
+    const absolutePath = path.resolve(filePath);
+    res.setHeader('Content-Type', 'application/pdf');
+    res.sendFile(absolutePath);
+});
+
+// Serve EPUB files
+app.get('/epub', (req, res) => {
+    const filePath = req.query.path;
+    console.log('EPUB file request:', filePath);
+    if (!filePath) {
+        return res.status(400).send('File path is required');
+    }
+    const absolutePath = path.resolve(filePath);
+    res.setHeader('Content-Type', 'application/epub+zip');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET');
+    res.setHeader('Access-Control-Allow-Headers', 'Range');
+    res.sendFile(absolutePath);
+});
+
+// Serve text files content
+app.get('/text', (req, res) => {
+    const filePath = req.query.path;
+    console.log('Text file request:', filePath);
+    if (!filePath) {
+        return res.status(400).json({ error: 'File path is required' });
+    }
+    const absolutePath = path.resolve(filePath);
+    
+    // Check if file exists
+    fs.access(absolutePath, fs.constants.F_OK, (err) => {
+        if (err) {
+            console.error('File not found:', absolutePath);
+            return res.status(404).json({ error: 'File not found' });
+        }
+        
+        // Read the file
+        fs.readFile(absolutePath, 'utf8', (readErr, data) => {
+            if (readErr) {
+                console.error('Error reading file:', readErr);
+                return res.status(500).json({ error: 'Unable to read file' });
+            }
+            res.json({ content: data, filename: path.basename(filePath) });
+        });
+    });
+});
+
 app.get('/stats', (req,res)=> {
 	    const inputFolder = req.query.folder || __dirname; // Default to current directory
 
