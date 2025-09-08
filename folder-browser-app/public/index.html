@@ -297,6 +297,22 @@
     .rating-bars.rating-3 .rating-bar {
       background-color: #32CD32;
       box-shadow: 0 0 4px #32CD32;
+      animation: excellentBlink 2s infinite;
+    }
+    
+    @keyframes excellentBlink {
+      0%, 50% { 
+        background-color: #32CD32;
+        box-shadow: 0 0 4px #32CD32;
+      }
+      75% { 
+        background-color: #00FF00;
+        box-shadow: 0 0 8px #00FF00, 0 0 12px #32CD32;
+      }
+      100% { 
+        background-color: #32CD32;
+        box-shadow: 0 0 4px #32CD32;
+      }
     }
     
     .rating-bars.rating-2 .rating-bar {
@@ -311,6 +327,239 @@
       margin-left: 5px;
       font-size: 12px;
       width: 40px;
+    }
+    
+    /* Metadata styles */
+    .metadata-btn {
+      font-size: 10px;
+      padding: 2px 6px;
+      margin-left: 5px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+      color: #666;
+    }
+    
+    .metadata-btn:hover {
+      background: #e0e0e0;
+      color: #333;
+    }
+    
+    .has-metadata::before {
+      content: "📝";
+      margin-right: 3px;
+      font-size: 10px;
+      opacity: 0.7;
+    }
+    
+    .metadata-tooltip {
+      position: absolute;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 15px;
+      width: 500px;
+      height: 350px;
+      min-width: 250px;
+      max-width: 800px;
+      min-height: 150px;
+      max-height: 600px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 2000;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.4;
+      overflow: auto;
+      cursor: move;
+    }
+    
+    .metadata-tooltip-text {
+      margin-bottom: 8px;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      background-color: #f8f8f8;
+      padding: 8px;
+      border-radius: 3px;
+      border: 1px solid #e0e0e0;
+      user-select: text;
+      cursor: text;
+    }
+    
+    .metadata-tooltip-image {
+      max-width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+    
+    .tooltip-close {
+      position: absolute;
+      top: 5px;
+      right: 8px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+    }
+    
+    .tooltip-close:hover {
+      background: #e0e0e0;
+      color: #333;
+    }
+    
+    .tooltip-resize-handle {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 20px;
+      height: 20px;
+      cursor: nw-resize;
+      background: linear-gradient(-45deg, transparent 0%, transparent 40%, #ccc 40%, #ccc 45%, transparent 45%, transparent 55%, #ccc 55%, #ccc 60%, transparent 60%);
+    }
+    
+    .tooltip-resize-handle:hover {
+      background: linear-gradient(-45deg, transparent 0%, transparent 40%, #999 40%, #999 45%, transparent 45%, transparent 55%, #999 55%, #999 60%, transparent 60%);
+    }
+    
+    #metadataModal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 3000;
+    }
+    
+    #metadataContainer {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      min-width: 400px;
+      max-width: 600px;
+      position: relative;
+    }
+    
+    #metadataTitle {
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    
+    #metadataText {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 15px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      resize: vertical;
+    }
+    
+    #imagePasteArea {
+      width: 100%;
+      min-height: 80px;
+      border: 2px dashed #ccc;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      color: #666;
+      font-size: 14px;
+      cursor: pointer;
+      transition: border-color 0.3s;
+    }
+    
+    #imagePasteArea:hover {
+      border-color: #999;
+    }
+    
+    #imagePasteArea.dragover {
+      border-color: #007BFF;
+      background-color: #f0f8ff;
+    }
+    
+    #imagePreview {
+      max-width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    
+    .metadata-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+    
+    .metadata-buttons button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    .metadata-buttons .save-btn {
+      background: #007BFF;
+      color: white;
+    }
+    
+    .metadata-buttons .save-btn:hover {
+      background: #0056b3;
+    }
+    
+    .metadata-buttons .cancel-btn {
+      background: #6c757d;
+      color: white;
+    }
+    
+    .metadata-buttons .cancel-btn:hover {
+      background: #545b62;
+    }
+    
+    .metadata-buttons .delete-btn {
+      background: #dc3545;
+      color: white;
+    }
+    
+    .metadata-buttons .delete-btn:hover {
+      background: #c82333;
+    }
+    
+    #metadataCloseButton {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      line-height: 26px;
+      text-align: center;
+      padding: 0;
+      z-index: 3001;
     }
   </style>
 </head>
@@ -365,6 +614,27 @@
     </div>
   </div>
 
+  <!-- Metadata Modal -->
+  <div id="metadataModal">
+    <div id="metadataContainer">
+      <button id="metadataCloseButton">✖</button>
+      <div id="metadataTitle">Add/Edit Metadata</div>
+      <textarea id="metadataText" placeholder="Enter description or notes..."></textarea>
+      <div id="imagePasteArea">
+        <span>Paste image here (Ctrl+V) or click to upload</span>
+      </div>
+      <img id="imagePreview" style="display: none;" alt="Image preview">
+      <input type="file" id="imageFileInput" accept="image/*" style="display: none;">
+      <div class="metadata-buttons">
+        <div>
+          <button class="save-btn" id="saveMetadata">Save</button>
+          <button class="cancel-btn" id="cancelMetadata">Cancel</button>
+        </div>
+        <button class="delete-btn" id="deleteMetadata" style="display: none;">Delete Metadata</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Background Audio Element for Motivational Music -->
   <audio id="backgroundAudio" loop style="display:none;">
     <source src="music/yt1znet-RodneySpence-LastOfTheTransports.mp3" type="audio/mp3">
@@ -387,6 +657,297 @@
     ];
 
     var currentPath = "";
+    var currentMetadataItem = null;
+    var currentMetadataPath = null;
+    var metadataImageFile = null;
+    var currentTooltip = null;
+
+    // Metadata functions
+    async function fetchMetadata(folderPath, itemName) {
+      try {
+        const response = await fetch(`/metadata?folderPath=${encodeURIComponent(folderPath)}&itemName=${encodeURIComponent(itemName)}`);
+        const result = await response.json();
+        return result.metadata;
+      } catch (error) {
+        console.error('Error fetching metadata:', error);
+        return null;
+      }
+    }
+
+    async function saveMetadata(folderPath, itemName, text, hasImage, imageExtension) {
+      try {
+        const response = await fetch('/metadata', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            folderPath, 
+            itemName, 
+            text, 
+            hasImage: hasImage || false, 
+            imageExtension: imageExtension || null 
+          })
+        });
+        return await response.json();
+      } catch (error) {
+        console.error('Error saving metadata:', error);
+        return { success: false, error: error.message };
+      }
+    }
+
+    async function deleteMetadata(folderPath, itemName) {
+      try {
+        const response = await fetch(`/metadata?folderPath=${encodeURIComponent(folderPath)}&itemName=${encodeURIComponent(itemName)}`, {
+          method: 'DELETE'
+        });
+        return await response.json();
+      } catch (error) {
+        console.error('Error deleting metadata:', error);
+        return { success: false, error: error.message };
+      }
+    }
+
+    async function uploadMetadataImage(folderPath, itemName, imageFile, imageExtension) {
+      try {
+        const formData = new FormData();
+        formData.append('image', imageFile);
+        formData.append('folderPath', folderPath);
+        formData.append('itemName', itemName);
+        formData.append('imageExtension', imageExtension);
+
+        const response = await fetch('/metadata-image', {
+          method: 'POST',
+          body: formData
+        });
+        return await response.json();
+      } catch (error) {
+        console.error('Error uploading metadata image:', error);
+        return { success: false, error: error.message };
+      }
+    }
+
+    function openMetadataModal(folderPath, itemName) {
+      currentMetadataPath = folderPath;
+      currentMetadataItem = itemName;
+      
+      const modal = document.getElementById('metadataModal');
+      const title = document.getElementById('metadataTitle');
+      const textarea = document.getElementById('metadataText');
+      const imagePreview = document.getElementById('imagePreview');
+      const deleteBtn = document.getElementById('deleteMetadata');
+      
+      title.textContent = `Metadata for: ${itemName}`;
+      textarea.value = '';
+      imagePreview.style.display = 'none';
+      imagePreview.src = '';
+      metadataImageFile = null;
+      deleteBtn.style.display = 'none';
+      
+      // Load existing metadata
+      fetchMetadata(folderPath, itemName).then(metadata => {
+        if (metadata) {
+          textarea.value = metadata.text || '';
+          deleteBtn.style.display = 'inline-block';
+          
+          if (metadata.imageExists && metadata.imagePath) {
+            imagePreview.src = metadata.imagePath;
+            imagePreview.style.display = 'block';
+            document.querySelector('#imagePasteArea span').textContent = 'Click to replace image or paste new one (Ctrl+V)';
+          }
+        }
+      });
+      
+      modal.style.display = 'flex';
+    }
+
+    function closeMetadataModal() {
+      document.getElementById('metadataModal').style.display = 'none';
+      currentMetadataItem = null;
+      currentMetadataPath = null;
+      metadataImageFile = null;
+      
+      const imagePreview = document.getElementById('imagePreview');
+      const pasteArea = document.querySelector('#imagePasteArea span');
+      imagePreview.style.display = 'none';
+      imagePreview.src = '';
+      pasteArea.textContent = 'Paste image here (Ctrl+V) or click to upload';
+    }
+
+    function handleImagePaste(file) {
+      if (file && file.type.startsWith('image/')) {
+        metadataImageFile = file;
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const imagePreview = document.getElementById('imagePreview');
+          imagePreview.src = e.target.result;
+          imagePreview.style.display = 'block';
+          document.querySelector('#imagePasteArea span').textContent = 'Image ready to upload';
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function showMetadataTooltip(element, folderPath, itemName) {
+      hideMetadataTooltip();
+      
+      fetchMetadata(folderPath, itemName).then(metadata => {
+        if (metadata && (metadata.text || metadata.imageExists)) {
+          const tooltip = document.createElement('div');
+          tooltip.className = 'metadata-tooltip';
+          
+          // Add close button
+          const closeBtn = document.createElement('div');
+          closeBtn.className = 'tooltip-close';
+          closeBtn.innerHTML = '✖';
+          closeBtn.title = 'Close tooltip (or click anywhere)';
+          closeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            hideMetadataTooltip();
+          });
+          tooltip.appendChild(closeBtn);
+          
+          // Add resize handle
+          const resizeHandle = document.createElement('div');
+          resizeHandle.className = 'tooltip-resize-handle';
+          resizeHandle.title = 'Drag to resize';
+          tooltip.appendChild(resizeHandle);
+          
+          if (metadata.text) {
+            const textDiv = document.createElement('div');
+            textDiv.className = 'metadata-tooltip-text';
+            textDiv.textContent = metadata.text;
+            tooltip.appendChild(textDiv);
+          }
+          
+          if (metadata.imageExists && metadata.imagePath) {
+            const img = document.createElement('img');
+            img.className = 'metadata-tooltip-image';
+            img.src = metadata.imagePath;
+            tooltip.appendChild(img);
+          }
+          
+          document.body.appendChild(tooltip);
+          
+          // Position tooltip (larger initial size)
+          const rect = element.getBoundingClientRect();
+          
+          let left = rect.left + rect.width + 20;
+          let top = rect.top;
+          
+          // Adjust if tooltip would go off screen
+          if (left + 350 > window.innerWidth) { // Assume initial width of ~350px
+            left = rect.left - 370;
+          }
+          if (top + 200 > window.innerHeight) { // Assume initial height of ~200px
+            top = window.innerHeight - 220;
+          }
+          
+          tooltip.style.left = Math.max(10, left) + 'px';
+          tooltip.style.top = Math.max(10, top) + 'px';
+          
+          // Add drag and resize functionality
+          makeDraggable(tooltip);
+          makeResizable(tooltip, resizeHandle);
+          
+          currentTooltip = tooltip;
+          
+          // Prevent tooltip from closing when clicking on it
+          tooltip.addEventListener('click', function(e) {
+            e.stopPropagation();
+          });
+          
+          // Prevent tooltip from hiding when hovering over it
+          tooltip.addEventListener('mouseenter', function() {
+            clearTimeout(window.tooltipHideTimeout);
+          });
+          
+          tooltip.addEventListener('mouseleave', function() {
+            window.tooltipHideTimeout = setTimeout(hideMetadataTooltip, 300);
+          });
+        }
+      });
+    }
+    
+    function makeDraggable(element) {
+      let isDragging = false;
+      let startX, startY, initialX, initialY;
+      
+      element.addEventListener('mousedown', function(e) {
+        // Only start dragging if not clicking on the resize handle, close button, or text area
+        if (e.target.classList.contains('tooltip-close') || 
+            e.target.classList.contains('tooltip-resize-handle') ||
+            e.target.classList.contains('metadata-tooltip-text')) return;
+        
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        initialX = parseInt(element.style.left, 10) || 0;
+        initialY = parseInt(element.style.top, 10) || 0;
+        
+        element.style.cursor = 'grabbing';
+        e.preventDefault();
+      });
+      
+      document.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        
+        element.style.left = (initialX + dx) + 'px';
+        element.style.top = (initialY + dy) + 'px';
+      });
+      
+      document.addEventListener('mouseup', function() {
+        if (isDragging) {
+          isDragging = false;
+          element.style.cursor = 'move';
+        }
+      });
+    }
+    
+    function makeResizable(element, resizeHandle) {
+      let isResizing = false;
+      let startX, startY, initialWidth, initialHeight;
+      
+      resizeHandle.addEventListener('mousedown', function(e) {
+        isResizing = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        
+        const computedStyle = window.getComputedStyle(element);
+        initialWidth = parseInt(computedStyle.width, 10);
+        initialHeight = parseInt(computedStyle.height, 10);
+        
+        e.preventDefault();
+        e.stopPropagation();
+      });
+      
+      document.addEventListener('mousemove', function(e) {
+        if (!isResizing) return;
+        
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        
+        const newWidth = Math.max(250, Math.min(800, initialWidth + dx));
+        const newHeight = Math.max(150, Math.min(600, initialHeight + dy));
+        
+        element.style.width = newWidth + 'px';
+        element.style.height = newHeight + 'px';
+      });
+      
+      document.addEventListener('mouseup', function() {
+        if (isResizing) {
+          isResizing = false;
+        }
+      });
+    }
+
+    function hideMetadataTooltip() {
+      if (currentTooltip) {
+        document.body.removeChild(currentTooltip);
+        currentTooltip = null;
+      }
+    }
 
     async function loadFolder(folderPath) {
       folderPath = folderPath || document.getElementById('folderPath').value;
@@ -454,6 +1015,39 @@
             li.style.textDecorationStyle = "wavy";
           }
           li.appendChild(a);
+          
+          // Add metadata button for folders
+          const metadataBtn = document.createElement('button');
+          metadataBtn.className = 'metadata-btn';
+          metadataBtn.textContent = 'Meta';
+          metadataBtn.title = 'Add/Edit Metadata';
+          metadataBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            openMetadataModal(currentPath, file.name);
+          });
+          li.appendChild(metadataBtn);
+          
+          // Check if metadata exists and add indicator
+          fetchMetadata(currentPath, file.name).then(metadata => {
+            if (metadata && (metadata.text || metadata.imageExists)) {
+              li.classList.add('has-metadata');
+              
+              // Add hover listeners for tooltip with delay
+              a.addEventListener('mouseenter', function() {
+                clearTimeout(window.tooltipHideTimeout);
+                showMetadataTooltip(this, currentPath, file.name);
+              });
+              a.addEventListener('mouseleave', function() {
+                window.tooltipHideTimeout = setTimeout(hideMetadataTooltip, 500); // 500ms delay
+              });
+              
+              // Also add click listener as backup
+              a.addEventListener('click', function(e) {
+                e.preventDefault();
+                showMetadataTooltip(this, currentPath, file.name);
+              });
+            }
+          });
           
           // Add checkboxes for folders
           const passLabel = document.createElement('span');
@@ -552,6 +1146,39 @@
             a.textContent = `📄 ${file.name}`;
           }
           li.appendChild(a);
+          
+          // Add metadata button for files
+          const fileMetadataBtn = document.createElement('button');
+          fileMetadataBtn.className = 'metadata-btn';
+          fileMetadataBtn.textContent = 'Meta';
+          fileMetadataBtn.title = 'Add/Edit Metadata';
+          fileMetadataBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            openMetadataModal(currentPath, file.name);
+          });
+          li.appendChild(fileMetadataBtn);
+          
+          // Check if metadata exists and add indicator
+          fetchMetadata(currentPath, file.name).then(metadata => {
+            if (metadata && (metadata.text || metadata.imageExists)) {
+              li.classList.add('has-metadata');
+              
+              // Add hover listeners for tooltip with delay
+              a.addEventListener('mouseenter', function() {
+                clearTimeout(window.tooltipHideTimeout);
+                showMetadataTooltip(this, currentPath, file.name);
+              });
+              a.addEventListener('mouseleave', function() {
+                window.tooltipHideTimeout = setTimeout(hideMetadataTooltip, 500); // 500ms delay
+              });
+              
+              // Also add click listener as backup
+              a.addEventListener('click', function(e) {
+                e.preventDefault();
+                showMetadataTooltip(this, currentPath, file.name);
+              });
+            }
+          });
           
           // Color styling - PASS overrides wtc
           if (file.name.toLowerCase().includes("-pass")) {
@@ -1022,6 +1649,146 @@
       epubViewer.style.display = 'none';
       document.getElementById('contentModal').style.display = 'none';
     }
+
+    // Metadata modal event handlers
+    document.getElementById('metadataModal').addEventListener('click', function(event) {
+      if (event.target === this) {
+        closeMetadataModal();
+      }
+    });
+
+    document.getElementById('metadataContainer').addEventListener('click', function(event) {
+      event.stopPropagation();
+    });
+
+    document.getElementById('metadataCloseButton').addEventListener('click', closeMetadataModal);
+    document.getElementById('cancelMetadata').addEventListener('click', closeMetadataModal);
+
+    // Image paste area handlers
+    document.getElementById('imagePasteArea').addEventListener('click', function() {
+      document.getElementById('imageFileInput').click();
+    });
+
+    document.getElementById('imageFileInput').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        handleImagePaste(file);
+      }
+    });
+
+    // Drag and drop support
+    const pasteArea = document.getElementById('imagePasteArea');
+    pasteArea.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      pasteArea.classList.add('dragover');
+    });
+
+    pasteArea.addEventListener('dragleave', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      pasteArea.classList.remove('dragover');
+    });
+
+    pasteArea.addEventListener('drop', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      pasteArea.classList.remove('dragover');
+      
+      const files = e.dataTransfer.files;
+      if (files.length > 0 && files[0].type.startsWith('image/')) {
+        handleImagePaste(files[0]);
+      }
+    });
+
+    // Save metadata handler
+    document.getElementById('saveMetadata').addEventListener('click', async function() {
+      if (!currentMetadataItem || !currentMetadataPath) return;
+      
+      const text = document.getElementById('metadataText').value.trim();
+      
+      try {
+        // First, get existing metadata to preserve image info
+        const existingMetadata = await fetchMetadata(currentMetadataPath, currentMetadataItem);
+        
+        let hasImage = false;
+        let imageExtension = null;
+        
+        // If there's a new image file, use that
+        if (metadataImageFile) {
+          hasImage = true;
+          imageExtension = '.png';
+        } 
+        // Otherwise, preserve existing image info
+        else if (existingMetadata && existingMetadata.hasImage) {
+          hasImage = existingMetadata.hasImage;
+          imageExtension = existingMetadata.imageExtension;
+        }
+        
+        // Save metadata first
+        const result = await saveMetadata(currentMetadataPath, currentMetadataItem, text, hasImage, imageExtension);
+        
+        if (result.success) {
+          // Upload new image if provided
+          if (metadataImageFile) {
+            const imageResult = await uploadMetadataImage(currentMetadataPath, currentMetadataItem, metadataImageFile, imageExtension);
+            if (!imageResult.success) {
+              console.error('Error uploading image:', imageResult.error);
+              alert('Metadata saved but image upload failed: ' + imageResult.error);
+            }
+          }
+          
+          console.log('Metadata saved successfully');
+          closeMetadataModal();
+          loadFolder(currentPath); // Refresh to show metadata indicators
+        } else {
+          console.error('Error saving metadata:', result.error);
+          alert('Error saving metadata: ' + result.error);
+        }
+      } catch (error) {
+        console.error('Error saving metadata:', error);
+        alert('Error saving metadata: ' + error.message);
+      }
+    });
+
+    // Delete metadata handler
+    document.getElementById('deleteMetadata').addEventListener('click', async function() {
+      if (!currentMetadataItem || !currentMetadataPath) return;
+      
+      if (confirm(`Are you sure you want to delete metadata for "${currentMetadataItem}"?`)) {
+        try {
+          const result = await deleteMetadata(currentMetadataPath, currentMetadataItem);
+          if (result.success) {
+            console.log('Metadata deleted successfully');
+            closeMetadataModal();
+            loadFolder(currentPath); // Refresh to remove metadata indicators
+          } else {
+            console.error('Error deleting metadata:', result.error);
+            alert('Error deleting metadata: ' + result.error);
+          }
+        } catch (error) {
+          console.error('Error deleting metadata:', error);
+          alert('Error deleting metadata: ' + error.message);
+        }
+      }
+    });
+
+    // Global paste handler for Ctrl+V
+    document.addEventListener('paste', function(e) {
+      if (document.getElementById('metadataModal').style.display === 'flex') {
+        const items = e.clipboardData.items;
+        for (let i = 0; i < items.length; i++) {
+          if (items[i].type.startsWith('image/')) {
+            handleImagePaste(items[i].getAsFile());
+            e.preventDefault();
+            break;
+          }
+        }
+      }
+    });
+
+    // Hide tooltip when clicking anywhere
+    document.addEventListener('click', hideMetadataTooltip);
 
     document.getElementById('videoModal').addEventListener('click', function(event) {
       if (event.target === this) {

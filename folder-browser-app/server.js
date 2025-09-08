@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const levenshtein = require('fast-levenshtein');
+const multer = require('multer');
 
 const app = express();
 const port = 3000;
@@ -14,9 +16,261 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json()); 
 
+// Configure multer for metadata image uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    // Create a temporary destination, we'll move the file in the endpoint
+    cb(null, 'temp_uploads');
+  },
+  filename: function (req, file, cb) {
+    // Create a temporary filename
+    const timestamp = Date.now();
+    const ext = path.extname(file.originalname) || '.png';
+    cb(null, `temp_${timestamp}${ext}`);
+  }
+});
+
+// Ensure temp directory exists
+const tempDir = path.join(__dirname, 'temp_uploads');
+if (!fs.existsSync(tempDir)) {
+  fs.mkdirSync(tempDir, { recursive: true });
+}
+
+const upload = multer({ storage: storage });
+
+// Metadata utility functions
+function cleanFileName(name) {
+  return name
+    .replace(/-pass/gi, '')
+    .replace(/-wtc/gi, '')
+    .replace(/-r[0-3]/gi, '')
+    .replace(/ffmpeg/gi, '')          // Remove ffmpeg
+    .replace(/[!@#$%^&*()]+/g, '')
+    .trim();
+}
+
+function findBestMatch(targetName, existingNames) {
+  const cleanTarget = cleanFileName(targetName);
+  const matches = existingNames.map(name => {
+    const cleanExisting = cleanFileName(path.parse(name).name);
+    const distance = levenshtein.get(cleanTarget, cleanExisting);
+    const maxDistance = Math.min(5, Math.ceil(cleanTarget.length * 0.3));
+    return { name, distance, isMatch: distance <= maxDistance };
+  }).filter(match => match.isMatch)
+    .sort((a, b) => a.distance - b.distance);
+  
+  return matches.length > 0 ? matches[0].name : null;
+}
+
+function getMetadataPath(folderPath) {
+  return path.join(folderPath, 'x_current_metadata');
+}
+
+function ensureMetadataDir(metadataPath) {
+  if (!fs.existsSync(metadataPath)) {
+    fs.mkdirSync(metadataPath, { recursive: true });
+  }
+}
+
 // Serve index.html at the root URL
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Metadata API endpoints
+
+// GET metadata for a specific item
+app.get('/metadata', (req, res) => {
+    const { folderPath, itemName } = req.query;
+    
+    if (!folderPath || !itemName) {
+        return res.status(400).json({ error: 'folderPath and itemName are required' });
+    }
+
+    const metadataDir = getMetadataPath(folderPath);
+    
+    if (!fs.existsSync(metadataDir)) {
+        return res.json({ metadata: null });
+    }
+
+    try {
+        const metadataFiles = fs.readdirSync(metadataDir).filter(f => f.endsWith('.json'));
+        const matchedFile = findBestMatch(itemName, metadataFiles);
+        
+        if (!matchedFile) {
+            return res.json({ metadata: null });
+        }
+
+        const metadataPath = path.join(metadataDir, matchedFile);
+        const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
+        
+        // Check if associated image exists
+        if (metadata.hasImage && metadata.imageExtension) {
+            const imageName = matchedFile.replace('.json', metadata.imageExtension);
+            const imagePath = path.join(metadataDir, imageName);
+            metadata.imageExists = fs.existsSync(imagePath);
+            metadata.imagePath = metadata.imageExists ? `/metadata-image?folderPath=${encodeURIComponent(folderPath)}&imageName=${encodeURIComponent(imageName)}` : null;
+        }
+
+        res.json({ metadata });
+    } catch (error) {
+        console.error('Error reading metadata:', error);
+        res.status(500).json({ error: 'Error reading metadata' });
+    }
+});
+
+// POST save/update metadata
+app.post('/metadata', (req, res) => {
+    const { folderPath, itemName, text, hasImage, imageExtension } = req.body;
+    
+    if (!folderPath || !itemName) {
+        return res.status(400).json({ error: 'folderPath and itemName are required' });
+    }
+
+    const metadataDir = getMetadataPath(folderPath);
+    ensureMetadataDir(metadataDir);
+
+    try {
+        const metadataFileName = itemName + '.json';
+        const metadataPath = path.join(metadataDir, metadataFileName);
+        
+        const metadata = {
+            originalName: itemName,
+            canonicalName: cleanFileName(path.parse(itemName).name),
+            text: text || '',
+            hasImage: hasImage || false,
+            imageExtension: imageExtension || null,
+            created: fs.existsSync(metadataPath) ? JSON.parse(fs.readFileSync(metadataPath, 'utf8')).created : new Date().toISOString(),
+            modified: new Date().toISOString()
+        };
+
+        fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
+        res.json({ success: true, message: 'Metadata saved successfully' });
+    } catch (error) {
+        console.error('Error saving metadata:', error);
+        res.status(500).json({ error: 'Error saving metadata' });
+    }
+});
+
+// DELETE metadata
+app.delete('/metadata', (req, res) => {
+    const { folderPath, itemName } = req.query;
+    
+    if (!folderPath || !itemName) {
+        return res.status(400).json({ error: 'folderPath and itemName are required' });
+    }
+
+    const metadataDir = getMetadataPath(folderPath);
+    
+    if (!fs.existsSync(metadataDir)) {
+        return res.json({ success: true, message: 'No metadata to delete' });
+    }
+
+    try {
+        const metadataFiles = fs.readdirSync(metadataDir).filter(f => f.endsWith('.json'));
+        const matchedFile = findBestMatch(itemName, metadataFiles);
+        
+        if (matchedFile) {
+            const metadataPath = path.join(metadataDir, matchedFile);
+            const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
+            
+            // Delete associated image if exists
+            if (metadata.hasImage && metadata.imageExtension) {
+                const imageName = matchedFile.replace('.json', metadata.imageExtension);
+                const imagePath = path.join(metadataDir, imageName);
+                if (fs.existsSync(imagePath)) {
+                    fs.unlinkSync(imagePath);
+                }
+            }
+            
+            // Delete metadata file
+            fs.unlinkSync(metadataPath);
+            
+            // Check if metadata directory is empty and remove it
+            const remainingFiles = fs.readdirSync(metadataDir);
+            if (remainingFiles.length === 0) {
+                fs.rmdirSync(metadataDir);
+            }
+        }
+
+        res.json({ success: true, message: 'Metadata deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting metadata:', error);
+        res.status(500).json({ error: 'Error deleting metadata' });
+    }
+});
+
+// POST upload metadata image
+app.post('/metadata-image', upload.single('image'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ error: 'No image file provided' });
+    }
+
+    const { folderPath, itemName, imageExtension } = req.body;
+    
+    if (!folderPath || !itemName) {
+        return res.status(400).json({ error: 'folderPath and itemName are required' });
+    }
+    
+    try {
+        // Create metadata directory
+        const metadataDir = getMetadataPath(folderPath);
+        ensureMetadataDir(metadataDir);
+        
+        // Move file from temp location to metadata directory
+        const tempFilePath = req.file.path;
+        const finalImageName = itemName + (imageExtension || '.png');
+        const finalImagePath = path.join(metadataDir, finalImageName);
+        
+        // Copy the file to final location
+        fs.copyFileSync(tempFilePath, finalImagePath);
+        
+        // Delete temp file
+        fs.unlinkSync(tempFilePath);
+        
+        // Update metadata to reflect image existence
+        const metadataPath = path.join(metadataDir, itemName + '.json');
+        if (fs.existsSync(metadataPath)) {
+            const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
+            metadata.hasImage = true;
+            metadata.imageExtension = imageExtension || '.png';
+            metadata.modified = new Date().toISOString();
+            fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
+        }
+        
+        res.json({ success: true, message: 'Image uploaded successfully' });
+    } catch (error) {
+        console.error('Error uploading metadata image:', error);
+        
+        // Clean up temp file if it exists
+        if (req.file && req.file.path && fs.existsSync(req.file.path)) {
+            try {
+                fs.unlinkSync(req.file.path);
+            } catch (cleanupError) {
+                console.error('Error cleaning up temp file:', cleanupError);
+            }
+        }
+        
+        res.status(500).json({ error: 'Error uploading image: ' + error.message });
+    }
+});
+
+// GET serve metadata images
+app.get('/metadata-image', (req, res) => {
+    const { folderPath, imageName } = req.query;
+    
+    if (!folderPath || !imageName) {
+        return res.status(400).json({ error: 'folderPath and imageName are required' });
+    }
+
+    const metadataDir = getMetadataPath(folderPath);
+    const imagePath = path.join(metadataDir, imageName);
+    
+    if (!fs.existsSync(imagePath)) {
+        return res.status(404).json({ error: 'Image not found' });
+    }
+
+    res.sendFile(path.resolve(imagePath));
 });
 
 // API endpoint to list folder contents
@@ -241,10 +495,25 @@ app.post('/setRating', (req, res) => {
       return res.status(404).send('File not found');
     }
 
-    const { name, ext } = path.parse(absolutePath);
+    // Use the full basename (filename without directory path) instead of path.parse
+    // to avoid issues with periods being treated as extensions
+    const fullBasename = path.basename(absolutePath);
+    const lastDotIndex = fullBasename.lastIndexOf('.');
+    
+    let nameWithoutExt = fullBasename;
+    let ext = '';
+    
+    // Only treat as extension if it's at the end and looks like a real file extension
+    if (lastDotIndex > 0 && lastDotIndex < fullBasename.length - 1) {
+      const possibleExt = fullBasename.substring(lastDotIndex);
+      if (possibleExt.match(/^\.(mp4|avi|mkv|txt|pdf|jpg|png|js|html|css|json|zip|exe|doc|docx|ppt|pptx|xlsx|gif|bmp|webp|ts|webm)$/i)) {
+        nameWithoutExt = fullBasename.substring(0, lastDotIndex);
+        ext = possibleExt;
+      }
+    }
     
     // Remove existing rating if any
-    let cleanName = name.replace(/-r[0-3]/gi, '');
+    let cleanName = nameWithoutExt.replace(/-r[0-3]/gi, '');
     const lowerCleanName = cleanName.toLowerCase();
     
     let newName;
