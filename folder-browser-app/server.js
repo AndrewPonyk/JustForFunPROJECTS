@@ -273,6 +273,36 @@ app.get('/metadata-image', (req, res) => {
     res.sendFile(path.resolve(imagePath));
 });
 
+// GET download file endpoint
+app.get('/download', (req, res) => {
+    const filePath = req.query.path;
+    
+    if (!filePath) {
+        return res.status(400).send('File path is required');
+    }
+    
+    const absolutePath = path.resolve(filePath);
+    
+    // Check if file exists
+    if (!fs.existsSync(absolutePath)) {
+        return res.status(404).send('File not found');
+    }
+    
+    // Get file stats to check if it's a file (not directory)
+    const stats = fs.statSync(absolutePath);
+    if (!stats.isFile()) {
+        return res.status(400).send('Path is not a file');
+    }
+    
+    // Set headers for download
+    const fileName = path.basename(absolutePath);
+    res.setHeader('Content-Disposition', `attachment; filename="${fileName}"`);
+    res.setHeader('Content-Type', 'application/octet-stream');
+    
+    // Send file
+    res.sendFile(absolutePath);
+});
+
 // API endpoint to list folder contents
 app.get('/list', (req, res) => {
     const inputFolder = req.query.folder || __dirname; // Default to current directory

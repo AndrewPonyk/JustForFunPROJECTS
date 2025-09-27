@@ -346,6 +346,22 @@
       color: #333;
     }
     
+    .download-btn {
+      font-size: 10px;
+      padding: 2px 6px;
+      margin-left: 5px;
+      background: #e8f4fd;
+      border: 1px solid #b3d9f7;
+      border-radius: 3px;
+      cursor: pointer;
+      color: #0066cc;
+    }
+    
+    .download-btn:hover {
+      background: #d1e8f9;
+      color: #004499;
+    }
+    
     .has-metadata::before {
       content: "📝";
       margin-right: 3px;
@@ -661,6 +677,30 @@
     var currentMetadataPath = null;
     var metadataImageFile = null;
     var currentTooltip = null;
+
+    // Download function
+    function downloadFile(filePath, fileName) {
+      try {
+        // Use server download endpoint instead of direct file access
+        const downloadUrl = `/download?path=${encodeURIComponent(filePath)}`;
+        
+        // Create a temporary anchor element for download
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.download = fileName;
+        link.style.display = 'none';
+        
+        // Add to DOM, click, and remove
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        console.log('Download started for:', fileName);
+      } catch (error) {
+        console.error('Error downloading file:', error);
+        alert('Error downloading file: ' + error.message);
+      }
+    }
 
     // Metadata functions
     async function fetchMetadata(folderPath, itemName) {
@@ -1158,6 +1198,17 @@
           });
           li.appendChild(fileMetadataBtn);
           
+          // Add download button for files
+          const downloadBtn = document.createElement('button');
+          downloadBtn.className = 'download-btn';
+          downloadBtn.textContent = '↓';
+          downloadBtn.title = 'Download file';
+          downloadBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            downloadFile(filePath, file.name);
+          });
+          li.appendChild(downloadBtn);
+          
           // Check if metadata exists and add indicator
           fetchMetadata(currentPath, file.name).then(metadata => {
             if (metadata && (metadata.text || metadata.imageExists)) {
@@ -1269,6 +1320,12 @@
       videoPlayer.play();
       videoPlayer.playbackRate = 2.5;
 
+      // Auto-close when video ends
+      videoPlayer.addEventListener('ended', function() {
+        console.log('Video ended, auto-closing...');
+        closeVideo();
+      }, { once: true }); // Use once: true to ensure it only triggers once per video
+
       // Pick a random track from the musicTracks array.
       const randomIndex = Math.floor(Math.random() * musicTracks.length);
       const randomTrack = musicTracks[randomIndex];
@@ -1287,6 +1344,12 @@
       document.getElementById('videoModal').style.display = 'flex';
       videoPlayer.play();
       videoPlayer.playbackRate = 2.5;
+      
+      // Auto-close when video ends
+      videoPlayer.addEventListener('ended', function() {
+        console.log('Video ended, auto-closing...');
+        closeVideo();
+      }, { once: true }); // Use once: true to ensure it only triggers once per video
       
       // Request fullscreen for the video after a short delay to ensure it's ready
       setTimeout(() => {
