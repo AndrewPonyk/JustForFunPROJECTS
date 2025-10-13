@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camping Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #87CEEB;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            border: 2px solid #333;
+            background: #87CEEB;
+        }
+        .info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <div>Use arrow keys to move the boy</div>
+        <div id="timeDisplay">Day Time</div>
+        <button id="musicToggle" onclick="toggleMusic()">🔊 Music: ON</button>
+    </div>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <!-- Background music -->
+    <audio id="backgroundMusic" loop>
+        <source src="music/a-video-game-248444.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const timeDisplay = document.getElementById('timeDisplay');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const musicToggle = document.getElementById('musicToggle');
+        let musicPlaying = true;
+
+        // Game state
+        let isDay = true;
+        let dayTimer = 0;
+        const DAY_DURATION = 30000; // 30 seconds in milliseconds
+        const NIGHT_DURATION = 15000; // 15 seconds in milliseconds
+
+        // Boy object
+        const boy = {
+            x: 400,
+            y: 300,
+            originalSize: 20,
+            size: 20,
+            speed: 3,
+            color: '#FF6B6B',
+            armAnimation: 0,
+            isMoving: false,
+            growthTimer: 0,
+            sizeBoost: 0
+        };
+
+        // Keyboard state
+        const keys = {};
+
+        // Trees positions
+        const trees = [
+            {x: 100, y: 100},
+            {x: 700, y: 120},
+            {x: 150, y: 500},
+            {x: 650, y: 480},
+            {x: 50, y: 300},
+            {x: 750, y: 280}
+        ];
+
+        // Bushes positions
+        const bushes = [
+            {x: 200, y: 150},
+            {x: 600, y: 180},
+            {x: 250, y: 450},
+            {x: 550, y: 420},
+            {x: 120, y: 380},
+            {x: 680, y: 350}
+        ];
+
+        // Mushrooms array (will be populated during day)
+        let mushrooms = [];
+
+        // Mushroom spawn settings
+        const MUSHROOM_SIZE = 15;
+        const MAX_MUSHROOMS = 5;
+        const MUSHROOM_SPAWN_INTERVAL = 3000; // 3 seconds
+        let lastMushroomSpawn = 0;
+
+        // Scary deer properties
+        let deer = null;
+        let gameOver = false;
+
+        // Tent position (center)
+        const tent = {
+            x: 400,
+            y: 250,
+            width: 80,
+            height: 60
+        };
+
+        // Fireplace position (near tent)
+        const fireplace = {
+            x: 420,
+            y: 330,
+            size: 30
+        };
+
+        // Draw grass background
+        function drawGrass() {
+            ctx.fillStyle = isDay ? '#90EE90' : '#2F5233';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Draw tree
+        function drawTree(x, y) {
+            // Tree trunk
+            ctx.fillStyle = '#8B4513';
+            ctx.fillRect(x - 10, y - 30, 20, 40);
+
+            // Tree leaves (circles)
+            ctx.fillStyle = isDay ? '#228B22' : '#1F5F1F';
+            ctx.beginPath();
+            ctx.arc(x, y - 40, 25, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(x - 15, y - 30, 20, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(x + 15, y - 30, 20, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        // Draw bush
+        function drawBush(x, y) {
+            ctx.fillStyle = isDay ? '#006400' : '#0A3A0A';
+            ctx.beginPath();
+            ctx.arc(x, y, 15, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(x - 10, y - 5, 12, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(x + 10, y - 5, 12, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        // Draw mushroom
+        function drawMushroom(x, y) {
+            // Mushroom stem (taller and wider)
+            ctx.fillStyle = '#F5DEB3';
+            ctx.fillRect(x - 5, y, 10, 15);
+
+            // Mushroom cap (red with white spots) - larger dome shape
+            ctx.fillStyle = '#DC143C';
+            ctx.beginPath();
+            ctx.arc(x, y, 15, Math.PI, 0, true);
+            ctx.fill();
+
+            // Add more cap volume for realistic mushroom shape
+            ctx.fillStyle = '#DC143C';
+            ctx.beginPath();
+            ctx.arc(x, y - 3, 12, 0, Math.PI, true);
+            ctx.fill();
+
+            // White spots on cap (more realistic pattern)
+            ctx.fillStyle = 'white';
+            // Large center spot
+            ctx.beginPath();
+            ctx.arc(x, y - 5, 3, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Medium spots
+            ctx.beginPath();
+            ctx.arc(x - 6, y - 3, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(x + 6, y - 4, 2, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(x - 3, y - 8, 2, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(x + 4, y - 7, 1.8, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Small spots
+            ctx.beginPath();
+            ctx.arc(x + 8, y - 2, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(x - 8, y - 6, 1.2, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(x + 2, y - 10, 1, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Add shadow under cap for depth
+            ctx.fillStyle = 'rgba(139, 69, 19, 0.3)';
+            ctx.fillRect(x - 5, y - 2, 10, 4);
+        }
+
+        // Spawn mushrooms during daytime
+        function spawnMushroom() {
+            if (isDay && mushrooms.length < MAX_MUSHROOMS) {
+                const currentTime = Date.now();
+                if (currentTime - lastMushroomSpawn > MUSHROOM_SPAWN_INTERVAL) {
+                    // Find a random position away from obstacles
+                    let x, y, validPosition;
+                    let attempts = 0;
+
+                    do {
+                        x = Math.random() * (canvas.width - 100) + 50;
+                        y = Math.random() * (canvas.height - 100) + 50;
+                        validPosition = true;
+
+                        // Check distance from trees
+                        for (let tree of trees) {
+                            if (Math.abs(x - tree.x) < 40 && Math.abs(y - tree.y) < 40) {
+                                validPosition = false;
+                                break;
+                            }
+                        }
+
+                        // Check distance from tent
+                        if (Math.abs(x - tent.x) < 80 && Math.abs(y - tent.y) < 80) {
+                            validPosition = false;
+                        }
+
+                        attempts++;
+                    } while (!validPosition && attempts < 50);
+
+                    if (validPosition) {
+                        mushrooms.push({x: x, y: y});
+                        lastMushroomSpawn = currentTime;
+                    }
+                }
+            }
+        }
+
+        // Check mushroom collection
+        function checkMushroomCollection() {
+            for (let i = mushrooms.length - 1; i >= 0; i--) {
+                const mushroom = mushrooms[i];
+                const distance = Math.sqrt(
+                    Math.pow(boy.x - mushroom.x, 2) +
+                    Math.pow(boy.y - mushroom.y, 2)
+                );
+
+                // Check if boy is close enough to collect mushroom
+                if (distance < boy.size + MUSHROOM_SIZE) {
+                    // Collect mushroom
+                    mushrooms.splice(i, 1);
+
+                    // Make boy bigger temporarily
+                    boy.sizeBoost += 5;
+                    boy.size = boy.originalSize + boy.sizeBoost;
+                    boy.growthTimer = Date.now();
+
+                    // Increase speed slightly to compensate for larger size
+                    boy.speed = 3 + (boy.sizeBoost * 0.05);
+                }
+            }
+        }
+
+        // Update boy size (shrink back over time)
+        function updateBoySize() {
+            if (boy.sizeBoost > 0) {
+                const currentTime = Date.now();
+                const timeSinceGrowth = currentTime - boy.growthTimer;
+
+                // Start shrinking after 5 seconds
+                if (timeSinceGrowth > 5000) {
+                    boy.sizeBoost -= 0.02; // Gradual shrink
+                    if (boy.sizeBoost < 0) boy.sizeBoost = 0;
+
+                    boy.size = boy.originalSize + boy.sizeBoost;
+                    boy.speed = 3 + (boy.sizeBoost * 0.05);
+                }
+            }
+        }
+
+        // Draw scary deer
+        function drawDeer() {
+            if (!deer) return;
+
+            ctx.save();
+
+            // Deer body (larger, dark brown)
+            ctx.fillStyle = '#3E2723';
+            ctx.fillRect(deer.x - 20, deer.y - 15, 40, 25);
+
+            // Deer head
+            ctx.fillStyle = '#3E2723';
+            ctx.fillRect(deer.x - 8, deer.y - 30, 16, 18);
+
+            // Scary glowing red eyes
+            ctx.fillStyle = '#FF0000';
+            ctx.shadowColor = '#FF0000';
+            ctx.shadowBlur = 5;
+            ctx.beginPath();
+            ctx.arc(deer.x - 4, deer.y - 25, 3, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(deer.x + 4, deer.y - 25, 3, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Reset shadow
+            ctx.shadowBlur = 0;
+
+            // Antlers (sharp, scary looking)
+            ctx.strokeStyle = '#6D4C41';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(deer.x - 6, deer.y - 30);
+            ctx.lineTo(deer.x - 10, deer.y - 40);
+            ctx.moveTo(deer.x - 6, deer.y - 32);
+            ctx.lineTo(deer.x - 12, deer.y - 38);
+            ctx.moveTo(deer.x + 6, deer.y - 30);
+            ctx.lineTo(deer.x + 10, deer.y - 40);
+            ctx.moveTo(deer.x + 6, deer.y - 32);
+            ctx.lineTo(deer.x + 12, deer.y - 38);
+            ctx.stroke();
+
+            // Legs (spindly, scary)
+            ctx.strokeStyle = '#3E2723';
+            ctx.lineWidth = 4;
+            // Front legs
+            ctx.beginPath();
+            ctx.moveTo(deer.x - 12, deer.y + 10);
+            ctx.lineTo(deer.x - 12, deer.y + 25);
+            ctx.moveTo(deer.x - 5, deer.y + 10);
+            ctx.lineTo(deer.x - 5, deer.y + 25);
+            // Back legs
+            ctx.moveTo(deer.x + 5, deer.y + 10);
+            ctx.lineTo(deer.x + 5, deer.y + 25);
+            ctx.moveTo(deer.x + 12, deer.y + 10);
+            ctx.lineTo(deer.x + 12, deer.y + 25);
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        // Spawn scary deer at night
+        function spawnDeer() {
+            if (!isDay && !deer) {
+                // Spawn from a random edge of the canvas
+                const edge = Math.floor(Math.random() * 4);
+                switch(edge) {
+                    case 0: // Top
+                        deer = {x: Math.random() * canvas.width, y: 50, vx: 0, vy: 1};
+                        break;
+                    case 1: // Right
+                        deer = {x: canvas.width - 50, y: Math.random() * canvas.height, vx: -1, vy: 0};
+                        break;
+                    case 2: // Bottom
+                        deer = {x: Math.random() * canvas.width, y: canvas.height - 50, vx: 0, vy: -1};
+                        break;
+                    case 3: // Left
+                        deer = {x: 50, y: Math.random() * canvas.height, vx: 1, vy: 0};
+                        break;
+                }
+                deer.speed = 1.5;
+                deer.changeDirectionTimer = Date.now();
+            }
+        }
+
+        // Update deer movement
+        function updateDeer() {
+            if (!deer || gameOver) return;
+
+            // Change direction occasionally
+            const currentTime = Date.now();
+            if (currentTime - deer.changeDirectionTimer > 2000) {
+                // Calculate distance to fire
+                const fireDistance = Math.sqrt(
+                    Math.pow(deer.x - fireplace.x, 2) +
+                    Math.pow(deer.y - fireplace.y, 2)
+                );
+
+                if (fireDistance < 100) {
+                    // Move away from fire
+                    const angle = Math.atan2(deer.y - fireplace.y, deer.x - fireplace.x);
+                    deer.vx = Math.cos(angle);
+                    deer.vy = Math.sin(angle);
+                } else {
+                    // Random walk
+                    const angle = Math.random() * Math.PI * 2;
+                    deer.vx = Math.cos(angle);
+                    deer.vy = Math.sin(angle);
+                }
+                deer.changeDirectionTimer = currentTime;
+            }
+
+            // Update position
+            deer.x += deer.vx * deer.speed;
+            deer.y += deer.vy * deer.speed;
+
+            // Keep deer within bounds
+            if (deer.x < 30) deer.x = 30;
+            if (deer.x > canvas.width - 30) deer.x = canvas.width - 30;
+            if (deer.y < 30) deer.y = 30;
+            if (deer.y > canvas.height - 30) deer.y = canvas.height - 30;
+
+            // Check collision with boy
+            const distance = Math.sqrt(
+                Math.pow(boy.x - deer.x, 2) +
+                Math.pow(boy.y - deer.y, 2)
+            );
+
+            if (distance < boy.size + 30) {
+                gameOver = true;
+            }
+        }
+
+        // End game
+        function endGame() {
+            // Darken the screen
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Game over text
+            ctx.fillStyle = '#FF0000';
+            ctx.font = 'bold 48px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2 - 50);
+
+            ctx.fillStyle = 'white';
+            ctx.font = '24px Arial';
+            ctx.fillText('The scary deer caught you!', canvas.width / 2, canvas.height / 2);
+            ctx.fillText('Refresh to play again', canvas.width / 2, canvas.height / 2 + 40);
+
+            // Stop game loop
+            cancelAnimationFrame(gameLoop);
+        }
+
+        // Draw tent
+        function drawTent() {
+            // Tent body
+            ctx.fillStyle = '#FF6347';
+            ctx.beginPath();
+            ctx.moveTo(tent.x - tent.width/2, tent.y + tent.height/2);
+            ctx.lineTo(tent.x, tent.y - tent.height/2);
+            ctx.lineTo(tent.x + tent.width/2, tent.y + tent.height/2);
+            ctx.closePath();
+            ctx.fill();
+
+            // Tent entrance
+            ctx.fillStyle = '#8B4513';
+            ctx.fillRect(tent.x - 10, tent.y + 10, 20, 20);
+        }
+
+        // Draw fireplace
+        function drawFireplace() {
+            // Fire pit stones
+            ctx.fillStyle = '#696969';
+            ctx.beginPath();
+            ctx.arc(fireplace.x - 10, fireplace.y + 5, 8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(fireplace.x + 10, fireplace.y + 5, 8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(fireplace.x, fireplace.y + 12, 8, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Fire (only visible at night or as orange glow during day)
+            if (!isDay) {
+                // Fire flames
+                ctx.fillStyle = '#FF4500';
+                ctx.beginPath();
+                ctx.moveTo(fireplace.x, fireplace.y);
+                ctx.lineTo(fireplace.x - 8, fireplace.y - 15);
+                ctx.lineTo(fireplace.x - 3, fireplace.y - 10);
+                ctx.lineTo(fireplace.x, fireplace.y - 20);
+                ctx.lineTo(fireplace.x + 3, fireplace.y - 10);
+                ctx.lineTo(fireplace.x + 8, fireplace.y - 15);
+                ctx.closePath();
+                ctx.fill();
+
+                // Inner flame
+                ctx.fillStyle = '#FFD700';
+                ctx.beginPath();
+                ctx.moveTo(fireplace.x, fireplace.y - 2);
+                ctx.lineTo(fireplace.x - 3, fireplace.y - 8);
+                ctx.lineTo(fireplace.x, fireplace.y - 12);
+                ctx.lineTo(fireplace.x + 3, fireplace.y - 8);
+                ctx.closePath();
+                ctx.fill();
+            } else {
+                // Daytime - just orange glow
+                ctx.fillStyle = '#FFA500';
+                ctx.beginPath();
+                ctx.arc(fireplace.x, fireplace.y - 5, 5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // Draw boy
+        function drawBoy() {
+            // Calculate arm swing angle based on movement
+            let armSwing = 0;
+            if (boy.isMoving) {
+                armSwing = Math.sin(boy.armAnimation) * 30; // 30 degrees swing
+            }
+
+            // Body
+            ctx.fillStyle = boy.color;
+            ctx.fillRect(boy.x - boy.size/2, boy.y - boy.size/2, boy.size, boy.size);
+
+            // Head
+            ctx.fillStyle = '#FDBCB4';
+            ctx.beginPath();
+            ctx.arc(boy.x, boy.y - boy.size/2 - 8, 8, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Eyes
+            ctx.fillStyle = '#000';
+            ctx.beginPath();
+            ctx.arc(boy.x - 3, boy.y - boy.size/2 - 8, 2, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(boy.x + 3, boy.y - boy.size/2 - 8, 2, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Arms (animated)
+            ctx.save();
+            ctx.translate(boy.x, boy.y - boy.size/2);
+
+            // Left arm
+            ctx.save();
+            ctx.rotate((armSwing * Math.PI) / 180);
+            ctx.fillStyle = '#FDBCB4'; // Skin color for arms
+            ctx.fillRect(-boy.size/2 - 3, 0, 6, 15); // Upper arm
+            ctx.fillRect(-boy.size/2 - 5, 12, 4, 8); // Lower arm
+            ctx.restore();
+
+            // Right arm (opposite swing)
+            ctx.save();
+            ctx.rotate((-armSwing * Math.PI) / 180);
+            ctx.fillStyle = '#FDBCB4';
+            ctx.fillRect(boy.size/2 - 3, 0, 6, 15); // Upper arm
+            ctx.fillRect(boy.size/2 + 1, 12, 4, 8); // Lower arm
+            ctx.restore();
+
+            ctx.restore();
+
+            // Legs
+            ctx.fillStyle = '#4169E1';
+            ctx.fillRect(boy.x - 8, boy.y + boy.size/2, 6, 10);
+            ctx.fillRect(boy.x + 2, boy.y + boy.size/2, 6, 10);
+        }
+
+        // Update boy position based on keyboard input
+        function updateBoy() {
+            let moved = false;
+
+            if (keys['ArrowUp'] && boy.y > boy.size + 20) {
+                boy.y -= boy.speed;
+                moved = true;
+            }
+            if (keys['ArrowDown'] && boy.y < canvas.height - boy.size - 20) {
+                boy.y += boy.speed;
+                moved = true;
+            }
+            if (keys['ArrowLeft'] && boy.x > boy.size + 20) {
+                boy.x -= boy.speed;
+                moved = true;
+            }
+            if (keys['ArrowRight'] && boy.x < canvas.width - boy.size - 20) {
+                boy.x += boy.speed;
+                moved = true;
+            }
+
+            // Update movement state and arm animation
+            boy.isMoving = moved;
+            if (boy.isMoving) {
+                boy.armAnimation += 0.2; // Animation speed
+            }
+
+            // Update mushroom-related functions
+            updateBoySize();
+            checkMushroomCollection();
+            spawnMushroom();
+        }
+
+        // Update day/night cycle
+        function updateDayNightCycle() {
+            const currentTime = Date.now();
+            const cycleTime = currentTime - dayTimer;
+
+            if (isDay) {
+                if (cycleTime >= DAY_DURATION) {
+                    isDay = false;
+                    dayTimer = currentTime;
+                    timeDisplay.textContent = 'Night Time';
+                    // Clear mushrooms at night
+                    mushrooms = [];
+                    // Spawn scary deer
+                    spawnDeer();
+                }
+            } else {
+                if (cycleTime >= NIGHT_DURATION) {
+                    isDay = true;
+                    dayTimer = currentTime;
+                    timeDisplay.textContent = 'Day Time';
+                    // Reset mushroom spawn timer
+                    lastMushroomSpawn = currentTime;
+                    // Remove deer during day
+                    deer = null;
+                }
+            }
+        }
+
+        // Draw campfire light effect at night
+        function drawCampfireLight() {
+            if (!isDay) {
+                // Create radial gradient for fire light
+                const gradient = ctx.createRadialGradient(
+                    fireplace.x, fireplace.y - 5, 0,
+                    fireplace.x, fireplace.y - 5, 120
+                );
+                gradient.addColorStop(0, 'rgba(255, 200, 50, 0.4)');
+                gradient.addColorStop(0.3, 'rgba(255, 150, 30, 0.2)');
+                gradient.addColorStop(0.6, 'rgba(255, 100, 20, 0.1)');
+                gradient.addColorStop(1, 'rgba(255, 50, 10, 0)');
+
+                ctx.fillStyle = gradient;
+                ctx.fillRect(fireplace.x - 120, fireplace.y - 125, 240, 240);
+
+                // Add flickering effect on tent
+                ctx.save();
+                ctx.globalCompositeOperation = 'overlay';
+                const tentGlow = ctx.createRadialGradient(
+                    fireplace.x, fireplace.y - 5, 0,
+                    tent.x, tent.y, 100
+                );
+                tentGlow.addColorStop(0, 'rgba(255, 180, 60, 0.3)');
+                tentGlow.addColorStop(1, 'rgba(255, 100, 20, 0)');
+                ctx.fillStyle = tentGlow;
+                ctx.fillRect(tent.x - 60, tent.y - 50, 120, 120);
+                ctx.restore();
+            }
+        }
+
+        // Apply night overlay
+        function drawNightOverlay() {
+            if (!isDay) {
+                ctx.fillStyle = 'rgba(0, 0, 50, 0.7)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Add some stars
+                ctx.fillStyle = 'white';
+                for (let i = 0; i < 50; i++) {
+                    const x = (i * 73) % canvas.width;
+                    const y = (i * 37) % (canvas.height / 2);
+                    ctx.beginPath();
+                    ctx.arc(x, y, 1, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // Draw campfire light effects
+                drawCampfireLight();
+            }
+        }
+
+        // Main game loop
+        function gameLoop() {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw background
+            drawGrass();
+
+            // Draw environment objects
+            trees.forEach(tree => drawTree(tree.x, tree.y));
+            bushes.forEach(bush => drawBush(bush.x, bush.y));
+
+            // Draw mushrooms (only during day)
+            if (isDay) {
+                mushrooms.forEach(mushroom => drawMushroom(mushroom.x, mushroom.y));
+            }
+
+            // Draw camp objects
+            drawTent();
+            drawFireplace();
+
+            // Update and draw boy
+            if (!gameOver) {
+                updateBoy();
+                drawBoy();
+            }
+
+            // Update and apply day/night cycle
+            updateDayNightCycle();
+            drawNightOverlay();
+
+            // Update and draw deer (only at night)
+            if (!isDay && !gameOver) {
+                updateDeer();
+                drawDeer();
+            }
+
+            // Draw deer during game over
+            if (gameOver && deer) {
+                drawDeer();
+            }
+
+            // Check game over
+            if (gameOver) {
+                endGame();
+                return;
+            }
+
+            // Continue game loop
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Keyboard event listeners
+        window.addEventListener('keydown', (e) => {
+            keys[e.key] = true;
+            e.preventDefault();
+        });
+
+        window.addEventListener('keyup', (e) => {
+            keys[e.key] = false;
+            e.preventDefault();
+        });
+
+        // Music control functions
+        function toggleMusic() {
+            if (musicPlaying) {
+                backgroundMusic.pause();
+                musicToggle.textContent = '🔇 Music: OFF';
+            } else {
+                backgroundMusic.play().catch(e => console.log('Music play failed:', e));
+                musicToggle.textContent = '🔊 Music: ON';
+            }
+            musicPlaying = !musicPlaying;
+        }
+
+        // Initialize music playback on page load
+        function initMusic() {
+            backgroundMusic.volume = 0.3; // Set volume to 30%
+            backgroundMusic.play().catch(e => {
+                console.log('Autoplay prevented, waiting for user interaction');
+                // Set initial button state to OFF if autoplay is blocked
+                musicPlaying = false;
+                musicToggle.textContent = '🔇 Music: OFF';
+            });
+        }
+
+        // Initialize game
+        dayTimer = Date.now();
+        initMusic();
+        gameLoop();
+    </script>
+</body>
+</html>
