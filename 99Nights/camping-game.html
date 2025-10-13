@@ -34,6 +34,7 @@
         <div>Use arrow keys to move the boy</div>
         <div id="timeDisplay">Day Time</div>
         <button id="musicToggle" onclick="toggleMusic()">🔊 Music: ON</button>
+        <div id="debugInfo" style="color: red; font-weight: bold;"></div>
     </div>
     <canvas id="gameCanvas" width="800" height="600"></canvas>
 
@@ -768,14 +769,16 @@
             e.preventDefault();
             const currentTime = new Date().getTime();
             const tapLength = currentTime - lastTap;
+            const debugInfo = document.getElementById('debugInfo');
 
-            if (tapLength < 300 && tapLength > 0) {
+            if (tapLength < 500 && tapLength > 0) {
                 tapCount++;
             } else {
                 tapCount = 1;
             }
 
             lastTap = currentTime;
+            debugInfo.textContent = `Taps: ${tapCount}`;
 
             if (tapCount === 3) {
                 const rect = canvas.getBoundingClientRect();
@@ -784,6 +787,8 @@
                     x: touch.clientX - rect.left,
                     y: touch.clientY - rect.top
                 };
+                debugInfo.textContent = `Target: ${targetDestination.x.toFixed(2)}, ${targetDestination.y.toFixed(2)}`;
+                tapCount = 0; // Reset tap count
             }
         });
 
