@@ -570,21 +570,38 @@
         function updateBoy() {
             let moved = false;
 
-            if (keys['ArrowUp'] && boy.y > boy.size + 20) {
-                boy.y -= boy.speed;
-                moved = true;
-            }
-            if (keys['ArrowDown'] && boy.y < canvas.height - boy.size - 20) {
-                boy.y += boy.speed;
-                moved = true;
-            }
-            if (keys['ArrowLeft'] && boy.x > boy.size + 20) {
-                boy.x -= boy.speed;
-                moved = true;
-            }
-            if (keys['ArrowRight'] && boy.x < canvas.width - boy.size - 20) {
-                boy.x += boy.speed;
-                moved = true;
+            if (targetDestination) {
+                const dx = targetDestination.x - boy.x;
+                const dy = targetDestination.y - boy.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < boy.speed) {
+                    boy.x = targetDestination.x;
+                    boy.y = targetDestination.y;
+                    targetDestination = null;
+                    moved = false;
+                } else {
+                    boy.x += (dx / distance) * boy.speed;
+                    boy.y += (dy / distance) * boy.speed;
+                    moved = true;
+                }
+            } else {
+                if (keys['ArrowUp'] && boy.y > boy.size + 20) {
+                    boy.y -= boy.speed;
+                    moved = true;
+                }
+                if (keys['ArrowDown'] && boy.y < canvas.height - boy.size - 20) {
+                    boy.y += boy.speed;
+                    moved = true;
+                }
+                if (keys['ArrowLeft'] && boy.x > boy.size + 20) {
+                    boy.x -= boy.speed;
+                    moved = true;
+                }
+                if (keys['ArrowRight'] && boy.x < canvas.width - boy.size - 20) {
+                    boy.x += boy.speed;
+                    moved = true;
+                }
             }
 
             // Update movement state and arm animation
@@ -740,6 +757,34 @@
         window.addEventListener('keyup', (e) => {
             keys[e.key] = false;
             e.preventDefault();
+        });
+
+        // Mobile touch controls
+        let lastTap = 0;
+        let tapCount = 0;
+        let targetDestination = null;
+
+        canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+
+            if (tapLength < 300 && tapLength > 0) {
+                tapCount++;
+            } else {
+                tapCount = 1;
+            }
+
+            lastTap = currentTime;
+
+            if (tapCount === 3) {
+                const rect = canvas.getBoundingClientRect();
+                const touch = e.touches[0];
+                targetDestination = {
+                    x: touch.clientX - rect.left,
+                    y: touch.clientY - rect.top
+                };
+            }
         });
 
         // Music control functions
