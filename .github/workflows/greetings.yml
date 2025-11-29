@@ -1,9 +1,7 @@
 name: Welcome Bot
-
 on:
   issues:
     types: [opened]
-
 jobs:
   comment:
     runs-on: ubuntu-latest
@@ -14,9 +12,28 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+            const now = new Date();
+            const currentDate = now.toLocaleDateString('en-US', { 
+              weekday: 'long', 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            });
+            const currentTime = now.toLocaleTimeString('en-US', { 
+              hour: '2-digit', 
+              minute: '2-digit',
+              hour12: true 
+            });
+            
+            // Check if it's working hours (9 AM - 5 PM, Monday-Friday)
+            const hour = now.getUTCHours();
+            const day = now.getUTCDay(); // 0 = Sunday, 6 = Saturday
+            const isWorkingHours = (day >= 1 && day <= 5) && (hour >= 9 && hour < 17);
+            const icon = isWorkingHours ? '🏢' : '🏠';
+            
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '👋 Thanks for opening this issue! We will look into it.'
+              body: `👋 Thanks for opening this issue! We will look into it.\n\n${icon} Issue created on: **${currentDate}** at **${currentTime}**`
             })
